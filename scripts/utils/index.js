@@ -1,4 +1,3 @@
-/* eslint-disable import/no-mutable-exports */
 /* eslint-disable no-loop-func */
 /* eslint-disable no-await-in-loop */
 import { spawn, exec } from 'child_process';
@@ -6,22 +5,12 @@ import { spawn, exec } from 'child_process';
 import config from './config.json';
 
 const projectName = process.argv[2] || process.env.PROJECT_NAME;
-const templateName = process.argv[3] || process.env.TEMPLATE_NAME;
+const project = config.projects[projectName];
 
-const isTemplate = projectName === 'template';
-
-let project = config.projects[projectName];
-
-if (isTemplate) project = project[templateName];
-
-if (!project)
-  throw new Error(
-    `Project with ${isTemplate ? `template "${templateName}"` : `name "${projectName}"`} not found`
-  );
+if (!project) throw new Error(`Project with name ${projectName} not found`);
 
 console.log('project', project);
 project.name = projectName;
-project.templateName = templateName;
 
 export { project };
 

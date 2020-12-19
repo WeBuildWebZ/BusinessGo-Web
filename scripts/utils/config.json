@@ -2,8 +2,6 @@
   "projects": {
     "admin": { "path": "src/projects/admin" },
     "landing": { "path": "src/projects/landing" },
-    "template": {
-      "pepito": { "path": "src/projects/templates/pepito" }
-    }
+    "pepito": { "path": "src/projects/templates/pepito" }
   }
 }
