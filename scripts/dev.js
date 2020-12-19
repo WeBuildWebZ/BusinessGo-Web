@@ -1,3 +1,3 @@
-import { runSpawn, project } from "./utils";
+import { runSpawn, project } from './utils';
 
-runSpawn("next", ["dev", project.path, project.name, project.templateName]);
+runSpawn('next', ['dev', project.path, project.name, project.templateName]);
