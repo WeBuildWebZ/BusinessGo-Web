@@ -1,5 +1,5 @@
 import { runExec, project } from './utils';
 
-runExec(`cd ${project.path}; next build`);
-
-runExec(`mv ${project.path}/.next .`);
+runExec(`cd ${project.path}; next build`).then(() => {
+  runExec(`mv ${project.path}/.next .`);
+});

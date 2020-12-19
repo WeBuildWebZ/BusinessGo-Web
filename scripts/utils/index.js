@@ -30,10 +30,12 @@ export const runSpawn = (command, options = []) => {
   spawn(command, options, { stdio: 'inherit' });
 };
 
-export const runExec = command => {
-  console.log(`--- ${command}`);
-  const child = exec(command);
+export const runExec = command =>
+  new Promise(resolve => {
+    console.log(`--- ${command}`);
+    const child = exec(command);
 
-  child.stdout.pipe(process.stdout);
-  child.stderr.pipe(process.stderr);
-};
+    child.stdout.pipe(process.stdout);
+    child.stderr.pipe(process.stderr);
+    child.on('close', resolve);
+  });
