@@ -2,9 +2,10 @@ import { runExec, project } from './utils';
 
 runExec(`cd ${project.path}; next build`).then(() => {
   runExec(`mv ${project.path}/.next .`).then(() => {
-    setTimeout(() => {
+    setTimeout(async () => {
       console.log('build finished!');
-      runExec('locate routes-manifest.json');
+      await runExec('pwd');
+      await runExec('ls -la');
     }, 5000);
   });
 });
