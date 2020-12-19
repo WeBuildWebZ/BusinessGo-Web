@@ -1,34 +1,36 @@
+/* eslint-disable import/no-mutable-exports */
 /* eslint-disable no-loop-func */
 /* eslint-disable no-await-in-loop */
-import { spawn, exec } from "child_process";
-import config from "./config.json";
+import { spawn, exec } from 'child_process';
 
-const [, , projectName, templateName] = process.argv;
+import config from './config.json';
 
-const isTemplate = projectName === "template";
+const projectName = process.argv[2] || process.env.PROJECT_NAME;
+const templateName = process.argv[3] || process.env.TEMPLATE_NAME;
+
+const isTemplate = projectName === 'template';
 
 let project = config.projects[projectName];
+
 if (isTemplate) project = project[templateName];
 
 if (!project)
   throw new Error(
-    `Project with ${
-      isTemplate ? `template "${templateName}"` : `name "${projectName}"`
-    } not found`
+    `Project with ${isTemplate ? `template "${templateName}"` : `name "${projectName}"`} not found`
   );
 
-console.log("project", project);
+console.log('project', project);
 project.name = projectName;
 project.templateName = templateName;
 
 export { project };
 
 export const runSpawn = (command, options = []) => {
-  console.log(`--- ${command} ${options.join(" ")}`);
-  spawn(command, options, { stdio: "inherit" });
+  console.log(`--- ${command} ${options.join(' ')}`);
+  spawn(command, options, { stdio: 'inherit' });
 };
 
-export const runExec = (command) => {
+export const runExec = command => {
   console.log(`--- ${command}`);
   const child = exec(command);
 
