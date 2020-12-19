@@ -1,0 +1,106 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "prettier",
+    "prettier/flowtype"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "plugins": [
+    "react",
+    "prettier",
+    "flowtype"
+  ],
+  "globals": {
+    "globalThis": "readonly",
+    "log": "readonly",
+    "AuthorizationError": "readonly",
+    "AuthenticationError": "readonly",
+    "SessionError": "readonly",
+    "ValidationError": "readonly"
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": 0,
+    "camelcase": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": "off",
+    "no-restricted-syntax": "off",
+    "no-console": "off",
+    "no-continue": "off",
+    "no-unused-expressions": "off",
+    "global-require": "off",
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "arrow-parens": "off",
+    "import/no-dynamic-require": "off",
+    "max-len": [
+      2,
+      132,
+      8
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 110,
+        "singleQuote": true,
+        "endOfLine": "auto"
+      }
+    ],
+    "no-invalid-this": "off",
+    "consistent-return": "off",
+    "no-return-assign": "off",
+    "no-param-reassign": "off",
+    "no-nested-ternary": "off",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          "external",
+          [
+            "builtin",
+            "internal"
+          ],
+          "parent",
+          "sibling",
+          "index"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    "import/named": "off",
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/default": "off",
+    "import/namespace": "off",
+    "import/no-absolute-path": "error",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": [
+          "Link"
+        ],
+        "specialLink": [
+          "to"
+        ]
+      }
+    ],
+    "react/destructuring-assignment": "off",
+    "import/no-cycle": "off"
+  }
+}
