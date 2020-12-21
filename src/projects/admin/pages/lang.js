@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const getLanguage = language_code =>
   ({
     es: {
@@ -9,3 +11,7 @@ export const getLanguage = language_code =>
       emailConfirmed: { title: 'Email confirmed', message: 'Thanks for confirming us your email!' }
     }
   }[language_code]);
+
+const Component = () => <></>;
+
+export default Component;
