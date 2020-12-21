@@ -12,7 +12,7 @@ import { LANGUAGES } from './constants';
 export default function LanguageSelector(props) {
   const dispatch = useDispatch();
   const classes = useStyles();
-  const language = useSelector(store => store.language);
+  const language = getLanguage(useSelector(store => store.language));
   const lang = getLang(language);
   const isFirstRun = useRef(true);
   useEffect(() => {

@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Form, Button, ModalTitle } from 'react-bootstrap';
-import 'react-phone-number-input/style.css';
 import PropTypes from 'prop-types';
 
-import env from '../../../env.json';
 import { createSession } from '../../../services/session';
 
-import getLanguage from './lang';
+import { getLanguage } from './lang';
 import useStyle from './style';
 
 const Menu = React.forwardRef(({ style, className, 'aria-labelledby': labeledBy }, ref) => {
   const classes = useStyle();
-  const languageCode = useSelector(({ language }) => language);
-  const language = getLanguage(languageCode);
+  const language = getLanguage(useSelector(store => store.language));
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -21,7 +18,7 @@ const Menu = React.forwardRef(({ style, className, 'aria-labelledby': labeledBy 
     e.preventDefault();
     createSession(email, password)
       .then(() => {
-        window.location.href = env.DASHBOARD_URL;
+        window.location.href = process.env.DASHBOARD_URL;
       })
       .catch(() => {});
   };

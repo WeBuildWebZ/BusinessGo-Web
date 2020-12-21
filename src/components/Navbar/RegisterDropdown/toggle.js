@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import getLanguage from './lang';
+import { getLanguage } from './lang';
 
 const Toggle = React.forwardRef(({ onClick }, ref) => {
-  const languageCode = useSelector(store => store.language);
-  const language = getLanguage(languageCode);
+  const language = getLanguage(useSelector(store => store.language));
 
   return (
     <a

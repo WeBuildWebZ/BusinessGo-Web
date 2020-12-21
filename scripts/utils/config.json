@@ -1,7 +1,7 @@
 {
   "projects": {
-    "admin": { "path": "src/projects/admin" },
-    "landing": { "path": "src/projects/landing" },
-    "pepito": { "path": "src/projects/templates/pepito" }
+    "landing": { "path": "src/projects/landing", "port": 3000 },
+    "admin": { "path": "src/projects/admin", "port": 3001 },
+    "cliente1": { "path": "src/projects/templates/cliente1", "port": 3002 }
   }
 }

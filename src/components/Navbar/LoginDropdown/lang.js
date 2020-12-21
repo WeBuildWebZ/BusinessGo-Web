@@ -1,4 +1,4 @@
-export default language_code =>
+export const getLanguage = language_code =>
   ({
     es: {
       title: 'Login',

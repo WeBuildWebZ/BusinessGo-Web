@@ -7,7 +7,6 @@ import 'react-phone-number-input/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../styles/globals.css';
 
-import EnsureLoaded from '../../../components/EnsureLoaded';
 import commonReducer from '../../../reducers';
 import reducer from '../reducers';
 
@@ -16,9 +15,7 @@ const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
 export default function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <EnsureLoaded>
-        <Component {...pageProps} />
-      </EnsureLoaded>
+      <Component {...pageProps} />
     </Provider>
   );
 }

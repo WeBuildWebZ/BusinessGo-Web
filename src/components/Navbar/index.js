@@ -1,19 +1,18 @@
-import React from "react";
-import { Navbar, Button, Nav } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { Navbar, Button, Nav } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
-import { deleteSessions } from "../../services/session";
+import { deleteSessions } from '../../services/session';
 
-import * as constants from "../../constants";
-import RegisterDropdown from "./RegisterDropdown";
-import LoginDropdown from "./LoginDropdown";
-import getLanguage from "./lang";
-import useStyle from "./style";
+import RegisterDropdown from './RegisterDropdown';
+import LoginDropdown from './LoginDropdown';
+import { getLanguage } from './lang';
+import useStyle from './style';
 
 export default function NotLoggedInNavbar() {
   const classes = useStyle();
-  const user = useSelector((store) => store.user);
-  const language = getLanguage(useSelector((store) => store.language));
+  const user = useSelector(store => store.user);
+  const language = getLanguage(useSelector(store => store.language));
 
   const goToPanel = () => {
     window.location.href = process.env.DASHBOARD_URL;
@@ -29,12 +28,13 @@ export default function NotLoggedInNavbar() {
     <>
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">
-          <img alt="" src="/logo.png" width="30" height="30" /> BusinessGo!
+          <img alt="" src="/logo.png" width="30" height="30" />
+          BusinessGo!
         </Navbar.Brand>
 
         {user ? (
           <>
-            {constants.PROJECT_NAME !== "admin" && (
+            {process.env.PROJECT_NAME !== 'admin' && (
               <Button className={classes.button} onClick={goToPanel}>
                 {language.goToPanel}
               </Button>
@@ -44,7 +44,9 @@ export default function NotLoggedInNavbar() {
             </Button>
             <Navbar.Collapse>
               <Nav className={`justify-content-end ${classes.userName}`}>
-                {user.name} {user.surname}
+                {user.name}
+                &nbsp;
+                {user.surname}
               </Nav>
             </Navbar.Collapse>
           </>

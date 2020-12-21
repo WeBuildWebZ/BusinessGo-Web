@@ -1,38 +1,37 @@
-import React, { useState } from "react";
-import { Spinner } from "react-bootstrap";
-import { LinearProgress } from "@material-ui/core";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
+import { LinearProgress } from '@material-ui/core';
 
-import useStyles from "./style";
-import getLanguage from "./lang";
+import useStyles from './style';
 
-const getRandomInt = (maxValue) => Math.floor(Math.random() * maxValue);
+const getRandomInt = maxValue => Math.floor(Math.random() * maxValue);
 
 const getRandomStyle = () => {
   const size = getRandomInt(100);
   return {
-    position: "absolute",
+    position: 'absolute',
     left: `${getRandomInt(60)}%`,
     top: `${getRandomInt(60)}%`,
     width: size,
     height: size,
-    backgroundColor: `rgb(${getRandomInt(255)}, ${getRandomInt(
-      255
-    )}, ${getRandomInt(255)})`,
+    backgroundColor: `rgb(${getRandomInt(255)}, ${getRandomInt(255)}, ${getRandomInt(255)})`
   };
 };
 
-const getRandomStyles = (n) =>
+const getRandomStyles = n =>
   Array(n)
     .fill(null)
     .map(() => getRandomStyle());
 
 export default function LoadingPage() {
   const classes = useStyles();
-  const language = getLanguage(useSelector((store) => store)().language);
-  const [spinnerStyles, setSpinnerStyles] = useState(getRandomStyles(10));
+  const [spinnerStyles, setSpinnerStyles] = useState([]);
 
   const changeStyle = () => setSpinnerStyles(getRandomStyles(10));
+
+  useEffect(() => {
+    changeStyle();
+  }, []);
 
   return (
     <div className={classes.background}>
@@ -46,7 +45,7 @@ export default function LoadingPage() {
           onAnimationIteration={i === 0 ? changeStyle : undefined}
         />
       ))}
-      <h1>{language.message}</h1>
+      <h1>Cargando...</h1>
     </div>
   );
 }

@@ -89,6 +89,8 @@
     "import/namespace": "off",
     "import/no-absolute-path": "error",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
