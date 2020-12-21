@@ -12,6 +12,7 @@ const Checklist = props => {
         return (
           <div key={i}>
             <InputGroup.Prepend>
+              <InputGroup.Checkbox key={3} />
               {item.price && (
                 <>
                   <InputGroup.Text key={1}>
@@ -21,7 +22,6 @@ const Checklist = props => {
                   <InputGroup.Text key={2}>{item.price.toFixed(2)}</InputGroup.Text>
                 </>
               )}
-              <InputGroup.Checkbox key={3} />
               <InputGroup.Text key={4}>{item.code}</InputGroup.Text>
             </InputGroup.Prepend>
           </div>
