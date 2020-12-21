@@ -12,6 +12,7 @@ exports.webpack = (config, { defaultLoaders }) => {
 const { env } = process;
 delete env.NODE_ENV;
 delete env.__NEXT_PROCESSED_ENV;
+delete env.NODE_OPTIONS;
 env.PROJECT_NAME = env.PROJECT_NAME || process.argv[4];
 
 exports.env = { ...env };
