@@ -32,7 +32,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>BusinessGo!</title>
           <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
         </Head>
         <body className="custom_class">
