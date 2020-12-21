@@ -5,5 +5,5 @@ import { runExec, project } from './utils';
   await runExec('rm -rf .next');
   await runExec(`mv ${project.path}/.next .`);
   await runExec('rm -rf public');
-  await runExec(`cp ${project.path}/public .`);
+  await runExec(`cp -r ${project.path}/public .`);
 })();
