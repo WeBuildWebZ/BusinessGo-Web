@@ -10,8 +10,8 @@ exports.webpack = (config, { defaultLoaders }) => {
 };
 
 const deleteKeys = env =>
-  Object.entries(process.env).forEach(([key]) => {
-    if (key.startsWith('__') || key.startsWith('NODE_')) delete process.env[key];
+  Object.entries(env).forEach(([key]) => {
+    if (key.startsWith('__') || key.startsWith('NODE_')) delete env[key];
   });
 
 const { env } = process;
