@@ -28,7 +28,9 @@ export const getLanguage = language_code =>
           <p>
             Cuando crees el pedido te vamos a contactar (
             <a target="blank" href={whatsappLink(user, 'es')}>
-              o podés contactarnos desde acá
+              <p style={{ color: 'blue', display: 'inline-block', margin: 0 }}>
+                o podés contactarnos desde acá
+              </p>
             </a>
             ) para ver tu idea más en detalle.
           </p>
@@ -46,7 +48,29 @@ export const getLanguage = language_code =>
         `${user.name}, next we are going to show you` +
         ' all the features we offer nowadays.' +
         ' some of them are paid monthly and others only once.' +
-        ' The flow will be the following:'
+        ' The flow will be the following:',
+      flow: [
+        () =>
+          "You'll be able to describe your idea to us in the description field" +
+          ' and choose the features you would like to have in your website.' +
+          ' Podés pedirnos cambios cuando quieras!',
+        user => (
+          <p>
+            When you create the request we will contact you (
+            <a target="blank" href={whatsappLink(user, 'es')}>
+              <p style={{ color: 'blue', display: 'inline-block', margin: 0 }}>
+                or you can contact us from here
+              </p>
+            </a>
+            ) in order to review your idea with more detail.
+          </p>
+        ),
+        () =>
+          'The initial payment consists of 2 parts: when you pay the first part' +
+          ", you'll be able to see your site preview only being logged in." +
+          ' When you pay the second part and subcribe to the monthly payment' +
+          ', your web will be public automatically. You can request changes to us whenever you want!'
+      ]
     }
   }[language_code]);
 
