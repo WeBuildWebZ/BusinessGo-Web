@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node -r esm scripts/dev",
     "build": "node -r esm scripts/build",
-    "start": "node -r esm scripts/start",
+    "start": "next start",
     "lint": "eslint scripts"
   },
   "engines": {
