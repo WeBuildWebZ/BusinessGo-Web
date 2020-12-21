@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node -r esm scripts/dev",
     "build": "node -r esm scripts/build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "eslint scripts"
   },
   "engines": {
@@ -35,5 +35,8 @@
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.21.5",
     "prettier": "^2.2.1"
-  }
+  },
+  "cacheDirectories": [
+    ".next/cache"
+  ]
 }
