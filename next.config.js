@@ -9,10 +9,15 @@ exports.webpack = (config, { defaultLoaders }) => {
   return config;
 };
 
+const deleteKeys = env =>
+  Object.entries(process.env).forEach(([key]) => {
+    if (key.startsWith('__') || key.startsWith('NODE_')) delete process.env[key];
+  });
+
 const { env } = process;
-delete env.NODE_ENV;
-delete env.__NEXT_PROCESSED_ENV;
-delete env.NODE_OPTIONS;
+
+deleteKeys(env);
+
 env.PROJECT_NAME = env.PROJECT_NAME || process.argv[4];
 
 exports.env = { ...env };
