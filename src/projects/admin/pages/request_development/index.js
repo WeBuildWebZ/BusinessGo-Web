@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { PopoverTitle, FormText } from 'react-bootstrap';
+import { PopoverTitle, FormText, Button } from 'react-bootstrap';
 import { TextareaAutosize } from '@material-ui/core';
 
 import { getChecklistItems } from '../../../../services/checklistItem';
@@ -47,6 +47,7 @@ export default function RequestDevelopment() {
         value={summary}
       />
       <Checklist items={items} onItemsChanged={handleItemsChanged} />
+      <Button className={classes.registerRequest}>{language.registerRequest}</Button>
     </>
   );
 }

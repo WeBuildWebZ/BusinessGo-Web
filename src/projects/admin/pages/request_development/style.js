@@ -12,5 +12,9 @@ export default makeStyles({
     fontSize: 11,
     textAlign: 'left',
     maxWidth: 500
+  },
+  registerRequest: {
+    marginLeft: 10,
+    marginBottom: 20
   }
 });
