@@ -14,8 +14,9 @@ const Checklist = props => {
   const [selectedItems, setSelectedItems] = useState([]);
 
   const handleSelect = (item, isSelected) => {
-    if (isSelected) return setSelectedItems([...selectedItems, item]);
-    setSelectedItems(selectedItems.filter(_item => _item !== item));
+    const newItems = isSelected ? [...selectedItems, item] : selectedItems.filter(_item => _item !== item);
+    setSelectedItems(newItems);
+    props.onItemsChanged(newItems);
   };
 
   return (
