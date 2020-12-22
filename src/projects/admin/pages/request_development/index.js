@@ -32,8 +32,8 @@ export default function RequestDevelopment() {
         <FormText className={classes.paragraph}>{language.message(user)}</FormText>
         <br />
         <ol className={`${classes.paragraph} ${classes.flowItem}`} key={1}>
-          {language.flow.map(message => (
-            <li>{message(user)}</li>
+          {language.flow.map((message, i) => (
+            <li key={i}>{message(user)}</li>
           ))}
         </ol>
       </center>

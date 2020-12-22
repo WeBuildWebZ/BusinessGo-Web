@@ -1,32 +1,42 @@
 import React from 'react';
 import { InputGroup } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import useStyle from './style';
+import { getLanguage } from './lang';
+import { itemData } from './constants';
+
 const Checklist = props => {
-  const s = 2;
+  const classes = useStyle();
+  const language = getLanguage(useSelector(store => store.language));
+
   return (
     <>
       {props.items.map((item, i) => {
-        const a = 3;
-        // return <InputGroup.Checkbox key={i}>{item.code}</InputGroup.Checkbox>;
+        const itemLanguage = language.items[item.code] || {};
+
         return (
           <div key={i}>
-            <InputGroup.Prepend>
+            <InputGroup.Prepend className={classes.basicData}>
               <InputGroup.Checkbox key={3} />
+              <InputGroup.Text key={4}>{itemLanguage.title}</InputGroup.Text>
               {item.price && (
                 <>
-                  <InputGroup.Text key={1}>
+                  <InputGroup.Text key={1} className={classes.price}>
                     $ &nbsp;
+                    {item.price.toFixed(2)}
+                    &nbsp;
                     {item.currency}
                   </InputGroup.Text>
-                  <InputGroup.Text key={2}>{item.price.toFixed(2)}</InputGroup.Text>
+                  <InputGroup.Text>{language.frequencyTypes[item.type]}</InputGroup.Text>
                 </>
               )}
-              <InputGroup.Text key={4}>{item.code}</InputGroup.Text>
             </InputGroup.Prepend>
+            <div className={classes.itemDescription}>{itemLanguage.description}</div>
+            <img className={classes.itemImage} src={itemData[item.code]?.imageUrl} alt={item.code} />
           </div>
         );
-        // return <div key={i}>hola</div>;
       })}
     </>
   );

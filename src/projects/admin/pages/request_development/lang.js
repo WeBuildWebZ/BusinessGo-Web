@@ -25,15 +25,15 @@ export const getLanguage = language_code =>
           'Podrás describir un poco tu idea en el campo de descripción' +
           ' y luego elegir las características que te gustaría tener en tu sition web.',
         user => (
-          <p>
+          <div>
             Cuando crees el pedido te vamos a contactar (
             <a target="blank" href={whatsappLink(user, 'es')}>
-              <p style={{ color: 'blue', display: 'inline-block', margin: 0 }}>
+              <div style={{ color: 'blue', display: 'inline-block', margin: 0 }}>
                 o podés contactarnos desde acá
-              </p>
+              </div>
             </a>
             ) para ver tu idea más en detalle.
-          </p>
+          </div>
         ),
         () =>
           'El pago inicial se realizará en 2 partes: cuando hagas la primera parte del pago' +
@@ -55,15 +55,15 @@ export const getLanguage = language_code =>
           ' and choose the features you would like to have in your website.' +
           ' Podés pedirnos cambios cuando quieras!',
         user => (
-          <p>
+          <div>
             When you create the request we will contact you (
             <a target="blank" href={whatsappLink(user, 'es')}>
-              <p style={{ color: 'blue', display: 'inline-block', margin: 0 }}>
+              <div style={{ color: 'blue', display: 'inline-block', margin: 0 }}>
                 or you can contact us from here
-              </p>
+              </div>
             </a>
             ) in order to review your idea with more detail.
-          </p>
+          </div>
         ),
         () =>
           'The initial payment consists of 2 parts: when you pay the first part' +
