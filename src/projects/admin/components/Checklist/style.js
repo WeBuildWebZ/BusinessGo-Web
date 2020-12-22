@@ -1,12 +1,20 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles({
+  checkbox: {
+    cursor: 'pointer'
+  },
   price: {
     backgroundColor: 'cornflowerblue',
     textShadow: '0 0 1px'
   },
   basicData: {
     marginLeft: 10
+  },
+  icon: {
+    color: '#5F5',
+    backgroundColor: '#000',
+    borderRadius: '50%'
   },
   itemDescription: {
     maxWidth: 300,

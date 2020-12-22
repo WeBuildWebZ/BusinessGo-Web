@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { InputGroup } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import PropTypes from 'prop-types';
 
 import useStyle from './style';
@@ -10,26 +11,38 @@ import { itemData } from './constants';
 const Checklist = props => {
   const classes = useStyle();
   const language = getLanguage(useSelector(store => store.language));
+  const [selectedItems, setSelectedItems] = useState([]);
+
+  const handleSelect = (item, isSelected) => {
+    if (isSelected) return setSelectedItems([...selectedItems, item]);
+    setSelectedItems(selectedItems.filter(_item => _item !== item));
+  };
 
   return (
     <>
       {props.items.map((item, i) => {
         const itemLanguage = language.items[item.code] || {};
+        const isSelected = selectedItems.includes(item.code);
 
         return (
           <div key={i}>
             <InputGroup.Prepend className={classes.basicData}>
-              <InputGroup.Checkbox key={3} />
-              <InputGroup.Text key={4}>{itemLanguage.title}</InputGroup.Text>
+              <InputGroup.Checkbox
+                className={classes.checkbox}
+                checked={isSelected}
+                onChange={({ target }) => handleSelect(item.code, target.checked)}
+              />
+              <InputGroup.Text>{itemLanguage.title}</InputGroup.Text>
               {item.price && (
                 <>
-                  <InputGroup.Text key={1} className={classes.price}>
+                  <InputGroup.Text className={classes.price}>
                     $ &nbsp;
-                    {item.price.toFixed(2)}
+                    {item.price.toFixed(0)}
                     &nbsp;
                     {item.currency}
                   </InputGroup.Text>
                   <InputGroup.Text>{language.frequencyTypes[item.type]}</InputGroup.Text>
+                  {isSelected && <CheckCircleIcon className={classes.icon} />}
                 </>
               )}
             </InputGroup.Prepend>
