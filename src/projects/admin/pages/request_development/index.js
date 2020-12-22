@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { PopoverTitle, FormText } from 'react-bootstrap';
+import { TextareaAutosize } from '@material-ui/core';
 
 import { getChecklistItems } from '../../../../services/checklistItem';
 import Navbar from '../../../../components/Navbar';
@@ -12,6 +13,7 @@ import useStyle from './style';
 export default function RequestDevelopment() {
   const [items, setItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [summary, setSummary] = useState('');
   const language = getLanguage(useSelector(store => store.language));
   const user = useSelector(store => store.user);
   const classes = useStyle();
@@ -37,6 +39,13 @@ export default function RequestDevelopment() {
           ))}
         </ol>
       </center>
+      <h5>{language.describeYourPage}</h5>
+      <TextareaAutosize
+        className={classes.summary}
+        onChange={({ target }) => setSummary(target.value)}
+        rowsMin={5}
+        value={summary}
+      />
       <Checklist items={items} onItemsChanged={handleItemsChanged} />
     </>
   );

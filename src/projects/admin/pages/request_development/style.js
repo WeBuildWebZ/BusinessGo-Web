@@ -4,6 +4,10 @@ export default makeStyles({
   paragraph: {
     maxWidth: '70%'
   },
+  summary: {
+    width: '50%',
+    marginLeft: 10
+  },
   flowItem: {
     fontSize: 11,
     textAlign: 'left',

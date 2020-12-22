@@ -20,6 +20,7 @@ export const getLanguage = language_code =>
         ' a mostrar todas las características que ofrecemos al día de hoy.' +
         ' Algunas de ellas se pagan mensualmente y otras una única vez.' +
         ' El flujo será el siguiente:',
+      describeYourPage: 'Describinos brevemente tu página ideal',
       flow: [
         () =>
           'Podrás describir un poco tu idea en el campo de descripción' +
@@ -49,6 +50,7 @@ export const getLanguage = language_code =>
         ' all the features we offer nowadays.' +
         ' some of them are paid monthly and others only once.' +
         ' The flow will be the following:',
+      describeYourPage: 'Give us a summary of your ideal page',
       flow: [
         () =>
           "You'll be able to describe your idea to us in the description field" +
