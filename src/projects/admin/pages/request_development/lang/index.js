@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { getBasePrice } from './components';
+
 const getWhatsappMessage = user => ({
   es:
     `Hola ${user.name}, gracias por utilizar nuestros servicios!` +
@@ -22,6 +24,7 @@ export const getLanguage = language_code =>
         ' El flujo será el siguiente:',
       describeYourPage: 'Describinos brevemente tu página ideal',
       registerRequest: 'Registrar Pedido!',
+      basePrice: getBasePrice({ basePrice: 'Precio base', unique: 'inicial', monthly: 'mensual' }),
       flow: [
         () =>
           'Podrás describir un poco tu idea en el campo de descripción' +
