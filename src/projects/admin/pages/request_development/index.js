@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { PopoverTitle, FormText, Button, Spinner } from 'react-bootstrap';
+import { PopoverTitle, FormText, Button, Spinner, Form } from 'react-bootstrap';
 import { TextareaAutosize } from '@material-ui/core';
 
 import { getChecklistItems } from '../../../../services/checklistItem';
 import Navbar from '../../../../components/Navbar';
 import Checklist from '../../components/Checklist';
 import { getBasePrices } from '../../../../services/basePrice';
+import { createDevelopmentRequest } from '../../../../services/user';
 
 import { getLanguage } from './lang';
 import useStyle from './style';
 
 export default function RequestDevelopment() {
+  const [requested, setRequested] = useState(false);
   const [items, setItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [websiteName, setWebsiteName] = useState('');
   const [summary, setSummary] = useState('');
   const [basePrices, setBasePrices] = useState(null);
   const language = getLanguage(useSelector(store => store.language));
@@ -37,6 +40,18 @@ export default function RequestDevelopment() {
 
   const handleItemsChanged = newItems => setSelectedItems(newItems);
 
+  const handleRequestDevelopment = e => {
+    e.preventDefault();
+    setRequested(true);
+    createDevelopmentRequest(user._id, websiteName, summary, selectedItems)
+      .then(() => {
+        window.location.href = '/my_development_requests ';
+      })
+      .catch(() => {
+        setRequested(false);
+      });
+  };
+
   return (
     <>
       <Navbar />
@@ -57,15 +72,41 @@ export default function RequestDevelopment() {
           basePrices ? basePrices.unique.currency : <Spinner animation="grow" />
         )}
       </h6>
-      <h5>{language.describeYourPage}</h5>
-      <TextareaAutosize
-        className={classes.summary}
-        onChange={({ target }) => setSummary(target.value)}
-        rowsMin={5}
-        value={summary}
-      />
+      <br />
+      <Form id="request-development" onSubmit={handleRequestDevelopment} />
+      <Form.Group controlId="text">
+        <Form.Label>{language.websiteName}</Form.Label>
+        <Form.Control
+          className={classes.websiteName}
+          form="request-development"
+          required
+          type="text"
+          minLength={2}
+          value={websiteName}
+          onChange={({ target }) => setWebsiteName(target.value)}
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>{language.describeYourPage}</Form.Label>
+        <Form.Control
+          form="request-development"
+          as="textarea"
+          rows={5}
+          required
+          minLength={10}
+          onChange={({ target }) => setSummary(target.value)}
+          value={summary}
+        />
+      </Form.Group>
       <Checklist items={items} onItemsChanged={handleItemsChanged} />
-      <Button className={classes.registerRequest}>{language.registerRequest}</Button>
+      <Button
+        className={classes.registerRequest}
+        disabled={requested}
+        type="submit"
+        form="request-development"
+      >
+        {language.registerRequest}
+      </Button>
     </>
   );
 }

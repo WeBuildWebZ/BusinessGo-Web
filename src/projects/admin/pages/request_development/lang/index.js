@@ -25,6 +25,7 @@ export const getLanguage = language_code =>
       describeYourPage: 'Describinos brevemente tu página ideal',
       registerRequest: 'Registrar Pedido!',
       basePrice: getBasePrice({ basePrice: 'Precio base', unique: 'inicial', monthly: 'mensual' }),
+      websiteName: 'Nombre del sitio web',
       flow: [
         () =>
           'Podrás describir un poco tu idea en el campo de descripción' +
@@ -56,6 +57,7 @@ export const getLanguage = language_code =>
         ' The flow will be the following:',
       describeYourPage: 'Give us a summary of your ideal page',
       registerRequest: 'Register Request!',
+      websiteName: 'Website name',
       flow: [
         () =>
           "You'll be able to describe your idea to us in the description field" +

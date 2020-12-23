@@ -4,6 +4,15 @@ export default makeStyles({
   paragraph: {
     maxWidth: '70%'
   },
+  websiteNameTitle: {
+    display: 'inline-block',
+    marginRight: 10
+  },
+  websiteName: {
+    display: 'inline-block',
+    width: '100%',
+    maxWidth: 300
+  },
   summary: {
     width: '50%',
     marginLeft: 10
