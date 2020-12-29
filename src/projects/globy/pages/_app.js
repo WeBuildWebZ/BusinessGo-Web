@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import 'react-phone-number-input/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../../styles/globals.css';
+import '../styles/globals.css';
 
 import commonReducer from '../../../reducers';
 import reducer from '../reducers';
@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Globy</title>
+        <title>BusinessGo!</title>
       </Head>
       <Provider store={store}>
         <Component {...pageProps} />
