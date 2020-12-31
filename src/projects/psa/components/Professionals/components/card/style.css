@@ -1,0 +1,94 @@
+.Professionals-Card {
+  display: inline-block;
+  background-color: #32363d;
+  width: 378px;
+  height: 173px;
+  border-radius: 5px;
+  margin: 31px 0 0 31px;
+  cursor: pointer;
+}
+
+.Professionals-Card-image {
+  float: left;
+  margin: 16px 0 0 16px;
+  width: 53px;
+  height: 53px;
+}
+
+.Professionals-Card-dataContainer {
+  float: left;
+  margin: 18px 0 0 14px;
+}
+
+.Professionals-Card-name {
+  width: 100%;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.Professionals-Card-workshopName {
+  width: fit-content;
+  font-size: 16px;
+  color: #cccdce;
+}
+
+.Professionals-Card-workshopContainer {
+  display: inline-block;
+  position: relative;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.Professionals-Card-workshopIcon {
+  float: left;
+  width: 22px;
+  margin-left: 14px;
+}
+
+.Professionals-Card-workshopText {
+  float: left;
+  margin-left: 10px;
+  font-size: 16px;
+  color: #cccdce;
+}
+
+.Professionals-Card-addressContainer {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.Professionals-Card-locationIcon {
+  float: left;
+  margin-left: 16px;
+}
+
+.Professionals-Card-locationText {
+  float: left;
+  margin-left: 13px;
+  font-size: 16px;
+  color: #cccdce;
+}
+
+.Professionals-Card-phoneContainer {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.Professionals-Card-phoneIcon {
+  float: left;
+  margin-left: 16px;
+}
+
+.Professionals-Card-phoneText {
+  float: left;
+  margin-left: 8px;
+  font-size: 16px;
+  color: #0cc44a;
+}
+
+.Professionals-Card-arrowRightIcon {
+  float: right;
+  margin: 36px 24px 0 0;
+}

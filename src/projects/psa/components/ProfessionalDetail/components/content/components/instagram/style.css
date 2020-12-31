@@ -1,0 +1,25 @@
+.ProfessionalDetail-Content-Instagram-container {
+  width: 100%;
+  float: left;
+  margin-top: 22px;
+}
+
+.ProfessionalDetail-Content-Instagram-icon {
+  float: left;
+}
+
+.ProfessionalDetail-Content-Instagram-text {
+  float: left;
+  font-size: 16px;
+  text-align: left;
+  margin: 0 0 0 15px;
+  color: white;
+}
+
+.ProfessionalDetail-Content-Instagram-link {
+  color: #0cc44a;
+}
+
+.ProfessionalDetail-Content-Instagram-link:hover {
+  color: #14a042;
+}

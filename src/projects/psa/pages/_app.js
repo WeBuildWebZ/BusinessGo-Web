@@ -10,6 +10,7 @@ import '../../../styles/globals.css';
 
 import commonReducer from '../../../reducers';
 import reducer from '../reducers';
+import './index.css';
 
 const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
 

@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background: linear-gradient(to right, #202221, #32363d);
+  min-height: 100vh;
+  display: flex;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-container {
+  width: 100%;
+  margin-left: 35px;
+}
+
+.App-title {
+  width: 100%;
+  text-align: left;
+  float: left;
+  margin: 35px 0 35px 0;
+}
+
+.App-searchInputContainer {
+  position: relative;
+  float: left;
+  width: "100%";
+}
+
+.App-filterInputContainer {
+  position: relative;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media only screen and (min-width: 830px) {
+  .App-filterInputContainer {
+    top: -20px;
+  }
+}

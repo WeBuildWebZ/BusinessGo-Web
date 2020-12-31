@@ -1,0 +1,21 @@
+.Professionals {
+  display: inline-block;
+  position: relative;
+  height: calc(100%);
+  background-color: #202221;
+  width: 100%;
+  overflow: auto;
+}
+
+/* @media only screen and (max-width: 830px) {
+  .Professionals {
+  }
+} */
+
+.Professionals-spinner {
+  position: fixed;
+  top: calc(100% - 100px);
+  width: 100px;
+  height: 100px;
+  color: #0cc44a;
+}
