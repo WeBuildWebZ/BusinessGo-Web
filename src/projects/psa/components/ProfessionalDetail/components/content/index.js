@@ -1,18 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import "./style.css";
-import Back from "./components/back";
-import Profile from "./components/profile";
-import College from "./components/college";
-import Address from "./components/address";
-import Email from "./components/email";
-import Phone from "./components/phone";
-import Facebook from "./components/facebook";
-import Instagram from "./components/instagram";
-import EmailButton from "./components/emailButton";
+import './style.css';
+import Back from './components/back';
+import Profile from './components/profile';
+import College from './components/college';
+import WorkArea from './components/workArea';
+import Address from './components/address';
+import Email from './components/email';
+import Phone from './components/phone';
+import Facebook from './components/facebook';
+import Instagram from './components/instagram';
+import EmailButton from './components/emailButton';
 
-const Content = (props) => {
+const Content = props => {
   const { professional } = props;
 
   return (
@@ -21,6 +22,7 @@ const Content = (props) => {
       <Profile professional={professional} />
       <div className="ProfessionalDetail-Content-dataContainer">
         <College professional={professional} />
+        <WorkArea professional={professional} />
         <Address professional={professional} />
         <Email professional={professional} />
         <Phone professional={professional} />
@@ -33,12 +35,12 @@ const Content = (props) => {
 };
 
 Content.propTypes = {
-  professional: PropTypes.object,
-  onClose: PropTypes.func,
+  professional: PropTypes.object.isRequired,
+  onClose: PropTypes.func
 };
 
 Content.defaultProps = {
-  onClose: () => {},
+  onClose: () => {}
 };
 
 export default Content;
