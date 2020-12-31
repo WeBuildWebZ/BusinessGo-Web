@@ -1,3 +1,5 @@
+const withCSS = require('@zeit/next-css');
+
 const path = require('path');
 
 exports.webpack = (config, { defaultLoaders }) => {
@@ -21,3 +23,5 @@ deleteKeys(env);
 env.PROJECT_NAME = env.PROJECT_NAME || process.argv[4];
 
 exports.env = { ...env };
+
+module.exports = withCSS(exports);
