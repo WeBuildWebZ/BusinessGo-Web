@@ -11,5 +11,6 @@ import { runExec, project } from './utils';
     // Remove slug size
     await runExec('rm -rf src');
     await runExec('rm -rf node_modules');
+    await runExec('npm install next');
   }
 })();
