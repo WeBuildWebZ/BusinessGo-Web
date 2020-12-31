@@ -26,3 +26,8 @@
   text-align: left;
   margin: 0 0 0 11px;
 }
+
+.ProfessionalDetail-Content-College-collegeDegreePhoto {
+  float: left;
+  width: 100px;
+}
