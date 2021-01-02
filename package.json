@@ -28,7 +28,6 @@
     "mdbreact": "^5.0.1",
     "next": "10.0.3",
     "next-images": "^1.6.2",
-    "node-sass": "^5.0.0",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "17.0.1",
