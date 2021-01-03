@@ -7,4 +7,12 @@
   .App-title {
     margin: 15px 0 30px 0;
   }
+
+  .App-searchInputContainer {
+    width: 100%;
+  }
+
+  .App-filterInputContainer {
+    display: none;
+  }
 }
