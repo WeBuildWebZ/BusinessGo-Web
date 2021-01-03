@@ -7,7 +7,7 @@ import { runExec } from './utils';
 
 const projectNames = Object.keys(projects);
 
-const [, , branch] = process.argv;
+const [, , branch, githubToken] = process.argv;
 
 const copy = (source, destination) =>
   new Promise(resolve => {
@@ -18,7 +18,8 @@ const copy = (source, destination) =>
   });
 
 (async () => {
-  if (!branch) throw new Error(`invalid branch ${branch}`);
+  if (!branch) throw new Error('no branch provided');
+  if (!githubToken) throw new Error('no github token provided');
 
   await runExec('rm -rf repos');
   for (let i = 0; i < projectNames.length; i += 1) {
