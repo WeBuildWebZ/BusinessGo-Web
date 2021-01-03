@@ -8,7 +8,8 @@ import { runExec } from './utils';
 const projectNames = Object.keys(projects);
 
 const [, , branch] = process.argv;
-const githubToken = process.env.GITHUB_TOKEN;
+const githubUsername = process.env.GITHUB_USERNAME;
+const githubPassword = process.env.GITHUB_PASSWORD;
 
 const copy = (source, destination) =>
   new Promise(resolve => {
@@ -20,7 +21,8 @@ const copy = (source, destination) =>
 
 (async () => {
   if (!branch) throw new Error('no branch provided');
-  if (!githubToken) throw new Error('no github token provided');
+  if (!githubUsername) throw new Error('no github username provided');
+  if (!githubPassword) throw new Error('no github password provided');
 
   await runExec('rm -rf repos');
   for (let i = 0; i < projectNames.length; i += 1) {
@@ -28,7 +30,8 @@ const copy = (source, destination) =>
     const project = projects[projectName];
     const repoPath = `repos/${projectName}`;
 
-    project.repo = project.repo.replace('{{GITHUB_TOKEN}}', githubToken);
+    project.repo = project.repo.replace('{{GITHUB_USERNAME}}', githubUsername);
+    project.repo = project.repo.replace('{{GITHUB_PASSWORD}}', githubPassword);
 
     await runExec(`git clone ${project.repo} ${repoPath}`);
     await runExec(`cd ${repoPath} && git checkout ${branch}`);

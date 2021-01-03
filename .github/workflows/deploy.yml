@@ -22,4 +22,5 @@ jobs:
         uses: actions/setup-node@v1
       - run: npm run deploy ${{ steps.extract_branch.outputs.branch }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: ${{ secrets.USERNAME }}
+          GITHUB_PASSWORD: ${{ secrets.PASSWORD }}
