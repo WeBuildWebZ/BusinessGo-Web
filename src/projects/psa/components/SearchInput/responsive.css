@@ -1,0 +1,13 @@
+@media only screen and (max-width: 768px) {
+  .SearchInput {
+    width: 100%;
+  }
+
+  .SearchInput-inputSmall {
+    display: block;
+  }
+
+  .SearchInput-inputLarge {
+    display: none;
+  }
+}

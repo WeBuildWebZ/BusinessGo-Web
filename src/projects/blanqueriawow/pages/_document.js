@@ -34,7 +34,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
         </Head>
-        <body className="custom_class">
+        <body>
           <Main />
           <NextScript />
         </body>

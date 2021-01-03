@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import './App.css';
+import './App-responsive.css';
 import { scrolledToBottom } from '../../../utils/html';
 import SearchInput from '../components/SearchInput';
 import FilterInput from '../components/FilterInput';

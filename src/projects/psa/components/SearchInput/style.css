@@ -30,6 +30,10 @@
   border-style: none;
 }
 
+.SearchInput-inputSmall {
+  display: none;
+}
+
 .SearchInput-input:focus {
   outline: none;
 }

@@ -7,11 +7,6 @@
   overflow: auto;
 }
 
-/* @media only screen and (max-width: 830px) {
-  .Professionals {
-  }
-} */
-
 .Professionals-spinner {
   position: fixed;
   top: calc(100% - 100px);

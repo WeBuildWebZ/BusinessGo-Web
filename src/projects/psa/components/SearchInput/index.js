@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Search from './search.svg';
 import './style.css';
+import './responsive.css';
 
 const timeout = 300;
 let timeoutId;
@@ -21,7 +22,13 @@ const SearchInput = props => {
       <div className="SearchInput-inputContainer">
         <input
           type="text"
-          className="SearchInput-input"
+          className="SearchInput-input SearchInput-inputSmall"
+          placeholder="Buscar por nombre o dirección"
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          className="SearchInput-input SearchInput-inputLarge"
           placeholder="Buscar por nombre de profesional, taller o dirección"
           onChange={handleChange}
         />
