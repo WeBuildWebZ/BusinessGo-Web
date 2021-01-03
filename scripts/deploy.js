@@ -45,9 +45,7 @@ const copy = (source, destination) =>
 
     // Upload to Github Repository
     await runExec(`cd ${repoPath} && git add .`);
-    await runExec(
-      `cd ${repoPath} && git commit -c user.name "${projectName} bot" -am "Updated ${projectName} build"`
-    );
+    await runExec(`cd ${repoPath} && git commit -c user.name "${projectName} bot"`);
     await runExec(`cd ${repoPath} && git push origin +${branch}`);
   }
 })();
