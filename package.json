@@ -7,6 +7,7 @@
     "admin": "npm run copy-env src/projects/admin && next dev src/projects/admin",
     "globy": "npm run copy-env src/projects/globy && next dev src/projects/globy",
     "psa": "npm run copy-env src/projects/psa && next dev src/projects/psa",
+    "wow": "npm run copy-env src/projects/blanqueriawow && next dev src/projects/blanqueriawow",
     "build": "node -r esm scripts/build",
     "start": "next start -p $PORT",
     "lint": "eslint scripts",

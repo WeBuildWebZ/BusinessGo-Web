@@ -14,5 +14,9 @@
   "psa": {
     "path": "src/projects/psa",
     "repo": "https://{{GITHUB_USERNAME}}:{{GITHUB_PASSWORD}}@github.com/DancotLL/BGO-Performance-System-Automotive"
+  },
+  "blanqueriawow": {
+    "path": "src/projects/blanqueriawow",
+    "repo": "https://{{GITHUB_USERNAME}}:{{GITHUB_PASSWORD}}@github.com/DancotLL/BGO-Blanqueria_Wow"
   }
 }
