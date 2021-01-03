@@ -27,6 +27,8 @@ const copy = (source, destination) =>
     const project = projects[projectName];
     const repoPath = `repos/${projectName}`;
 
+    project.repo = project.repo.replace('{{GITHUB_TOKEN}}', githubToken);
+
     await runExec(`git clone ${project.repo} ${repoPath}`);
     await runExec(`cd ${repoPath} && git checkout ${branch}`);
     await runExec(`cd ${repoPath} && git reset --hard HEAD^`);
@@ -42,4 +44,6 @@ const copy = (source, destination) =>
     await runExec(`cd ${repoPath} && git commit -am "Updated ${projectName} build"`);
     await runExec(`cd ${repoPath} && git push origin +${branch}`);
   }
-})();
+})().catch(error => {
+  throw error;
+});
