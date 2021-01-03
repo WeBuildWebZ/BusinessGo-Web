@@ -5,12 +5,14 @@ import './App-responsive.css';
 import { scrolledToBottom } from '../../../utils/html';
 import SearchInput from '../components/SearchInput';
 import FilterButton from '../components/FilterButton';
+import FilterView from '../components/FilterView';
 import FilterInput from '../components/FilterInput';
 import Professionals from '../components/Professionals';
 import ProfessionalDetail from '../components/ProfessionalDetail';
 import { getProfessionalFilters, getProfessionals } from '../services/professional';
 
 const App = () => {
+  const [filterViewOpen, setFilterViewOpen] = useState(false);
   const [professionals, setProfessionals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedProfessional, setSelectedProfessional] = useState(null);
@@ -83,10 +85,11 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <div className="App-container">
+          {filterViewOpen && <FilterView />}
           <h3 className="App-title">Encuentra al profesional más cercano</h3>
           <div className="App-searchInputContainer">
             <SearchInput onChange={handleTextSearch} />
-            <FilterButton />
+            <FilterButton onOpenFilterView={() => setFilterViewOpen(true)} />
             <div className="App-filterInputContainer">
               <FilterInput
                 label="Región"
