@@ -44,6 +44,4 @@ const copy = (source, destination) =>
     await runExec(`cd ${repoPath} && git commit -am "Updated ${projectName} build"`);
     await runExec(`cd ${repoPath} && git push origin +${branch}`);
   }
-})().catch(error => {
-  throw error;
-});
+})();

@@ -15,7 +15,9 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Install dependences
+      - run: npm install esm
+
       - name: Deploy 🚀
         uses: actions/setup-node@v1
-      - run: npm install esm
-      - run: npm run deploy ${{ steps.extract_branch.outputs.branch }}
+      - run: npm run deploy ${{ steps.extract_branch.outputs.branch }} ${{ secrets.GITHUB_TOKEN }}
