@@ -1,0 +1,9 @@
+{
+  "landing": { "path": "src/projects/landing", "repo": "https://github.com/DancotLL/BGO-Landing" },
+  "admin": { "path": "src/projects/admin", "repo": "https://github.com/DancotLL/BGO-Admin" },
+  "globy": { "path": "src/projects/globy", "repo": "https://github.com/DancotLL/BGO-Globy" },
+  "psa": {
+    "path": "src/projects/psa",
+    "repo": "https://github.com/DancotLL/BGO-Performance-System-Automotive"
+  }
+}

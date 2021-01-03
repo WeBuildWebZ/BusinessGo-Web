@@ -1,8 +1,0 @@
-{
-  "projects": {
-    "landing": { "path": "src/projects/landing" },
-    "admin": { "path": "src/projects/admin" },
-    "globy": { "path": "src/projects/globy" },
-    "psa": { "path": "src/projects/psa" }
-  }
-}

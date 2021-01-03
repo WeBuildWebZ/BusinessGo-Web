@@ -82,7 +82,7 @@
         height: 80px inherit;
         padding: .7em;
         text-align: center;
-        background: hsl(0, 0%, 0%, .7);
+        background: hsla(0, 0%, 0%, .7);
         border-radius: 1em;
         z-index: 10;
     }
@@ -98,7 +98,7 @@
         height: 80px inherit;
         padding: .7em;
         text-align: center;
-        background: hsl(0, 0%, 0%, .7);
+        background: hsla(0, 0%, 0%, .7);
         border-radius: 1em;
     }
 }
@@ -127,7 +127,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    // 
+    //
     h3 {
         font-size: 2em;
         width: 50%;
