@@ -1,4 +1,5 @@
 .SearchInput {
+  float: left;
   display: inline-table;
   background-color: #eaeaeb;
   width: 400px;

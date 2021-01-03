@@ -4,6 +4,7 @@ import './App.css';
 import './App-responsive.css';
 import { scrolledToBottom } from '../../../utils/html';
 import SearchInput from '../components/SearchInput';
+import FilterButton from '../components/FilterButton';
 import FilterInput from '../components/FilterInput';
 import Professionals from '../components/Professionals';
 import ProfessionalDetail from '../components/ProfessionalDetail';
@@ -85,6 +86,7 @@ const App = () => {
           <h3 className="App-title">Encuentra al profesional más cercano</h3>
           <div className="App-searchInputContainer">
             <SearchInput onChange={handleTextSearch} />
+            <FilterButton />
             <div className="App-filterInputContainer">
               <FilterInput
                 label="Región"
