@@ -7,7 +7,8 @@ import { runExec } from './utils';
 
 const projectNames = Object.keys(projects);
 
-const [, , branch, githubToken] = process.argv;
+const [, , branch] = process.argv;
+const githubToken = process.env.GITHUB_TOKEN;
 
 const copy = (source, destination) =>
   new Promise(resolve => {
