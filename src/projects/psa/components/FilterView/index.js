@@ -9,7 +9,7 @@ import Split from './components/split';
 
 const FilterView = props => (
   <div className="FilterView">
-    <Back onClick={props.onClose} />
+    <Back onClick={props.onClose} style={{ margin: '12px 0 0 15px' }} />
     <Title />
     <AppliedFilters />
     <Split />

@@ -18,7 +18,7 @@ const Content = props => {
 
   return (
     <>
-      <Back onClick={props.onClose} />
+      <Back onClick={props.onClose} style={{ margin: '37px 0 0 36px' }} />
       <Profile professional={professional} />
       <div className="ProfessionalDetail-Content-dataContainer">
         <College professional={professional} />
