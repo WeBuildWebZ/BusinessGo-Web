@@ -46,7 +46,7 @@ const Options = props => {
           </div>
         );
       })}
-      <style jsx>
+      <style jsx global>
         {`
           .FilterInputSelectOptions {
             position: absolute;
