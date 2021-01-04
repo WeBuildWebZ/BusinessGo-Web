@@ -63,6 +63,13 @@ const FilterInput = props => {
             border-radius: 50px;
             cursor: pointer;
           }
+
+          @media only screen and (max-width: 768px) {
+            .FilterInput {
+              width: 90%;
+              margin-bottom: 32px;
+            }
+          }
         `}
       </style>
     </div>
@@ -72,7 +79,11 @@ const FilterInput = props => {
 FilterInput.propTypes = {
   option: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool
+};
+
+FilterInput.defaultProps = {
+  loading: false
 };
 
 export default FilterInput;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Back from '../Back';
+import FilterInput from '../FilterInput';
 
 import Title from './components/title';
 import AppliedFilters from './components/appliedFilters';
@@ -13,6 +14,9 @@ const FilterView = props => (
     <Title />
     <AppliedFilters />
     <Split />
+    <FilterInput label="Región" option="regions" />
+    <FilterInput label="Ciudad" option="cities" />
+    <FilterInput label="Área de trabajo" option="workAreas" />
     <style jsx>
       {`
         .FilterView {

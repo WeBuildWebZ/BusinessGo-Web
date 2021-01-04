@@ -8,8 +8,7 @@ const Split = () => (
           float: left;
           width: 90%;
           height: 1px;
-          margin-left: 5%;
-          margin-top: 20px;
+          margin: 20px 0 32px 5%;
           background-color: rgba(128, 128, 128, 0.5);
         }
       `}

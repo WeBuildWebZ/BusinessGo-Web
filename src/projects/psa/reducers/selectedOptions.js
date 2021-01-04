@@ -8,6 +8,8 @@ const SelectedOptions = (state = initialState, action = {}) => {
   switch (action.type) {
     case 'setSelectedOptions':
       return { ...state, [action.option]: action.payload };
+    case 'clearSelectedOptions':
+      return initialState;
     default:
       return state;
   }
