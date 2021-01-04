@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import Back from '../Back';
 
 import Title from './components/title';
+import AppliedFilters from './components/appliedFilters';
 
 const FilterView = props => (
   <div className="FilterView">
     <Back onClick={props.onClose} />
     <Title />
+    <AppliedFilters />
     <style jsx>
       {`
         .FilterView {
