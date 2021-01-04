@@ -1,16 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.css';
-import EmailIcon from './email.svg';
-
 const Email = props => {
   const { professional } = props;
 
   return (
     <div className="ProfessionalDetail-Content-Email-container">
-      <EmailIcon className="ProfessionalDetail-Content-Email-icon" />
+      <img className="ProfessionalDetail-Content-Email-icon" src="icons/email.svg" alt="emailIcon" />
       <div className="ProfessionalDetail-Content-Email-text">{professional.email}</div>
+      <style jsx>
+        {`
+          .ProfessionalDetail-Content-Email-container {
+            width: 100%;
+            float: left;
+            margin-top: 18px;
+          }
+
+          .ProfessionalDetail-Content-Email-icon {
+            float: left;
+          }
+
+          .ProfessionalDetail-Content-Email-text {
+            float: left;
+            font-size: 16px;
+            text-align: left;
+            margin: 0 0 0 17px;
+          }
+        `}
+      </style>
     </div>
   );
 };

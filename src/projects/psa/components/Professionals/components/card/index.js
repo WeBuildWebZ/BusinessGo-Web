@@ -1,18 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.css';
-import Location from './location.svg';
-import WorkShopIcon from './workshop.svg';
-import PhoneGreen from './phone-green.svg';
-import ArrowRight from './arrow-right.svg';
-
 const Card = props => {
   const { professional } = props;
 
   return (
     <div className="Professionals-Card" onClick={props.onClick}>
-      <ArrowRight className="Professionals-Card-arrowRightIcon" />
+      <img className="Professionals-Card-arrowRightIcon" src="icons/arrow-right.svg" alt="arrowRight" />
       <img className="Professionals-Card-image" alt={professional.name} src={professional.photo} />
 
       <div className="Professionals-Card-dataContainer">
@@ -21,12 +15,13 @@ const Card = props => {
       </div>
 
       <div className="Professionals-Card-workshopContainer">
-        <WorkShopIcon className="Professionals-Card-workshopIcon" />
+        <img className="Professionals-Card-workshopIcon" src="icons/workshop.svg" alt="workshopIcon" />
+        {/* <WorkShopIcon className="Professionals-Card-workshopIcon" /> */}
         <div className="Professionals-Card-workshopText">{professional.work_area}</div>
       </div>
 
       <div className="Professionals-Card-addressContainer">
-        <Location className="Professionals-Card-locationIcon" />
+        <img className="Professionals-Card-locationIcon" src="icons/location.svg" alt="locationIcon" />
         <div className="Professionals-Card-locationText">
           {professional.address}
           ,&nbsp;
@@ -35,9 +30,107 @@ const Card = props => {
       </div>
 
       <div className="Professionals-Card-phoneContainer">
-        <PhoneGreen className="Professionals-Card-phoneIcon" />
+        <img className="Professionals-Card-phoneIcon" src="icons/phone-green.svg" alt="phoneGreenIcon" />
         <div className="Professionals-Card-phoneText">{professional.phone}</div>
       </div>
+      <style jsx>
+        {`
+          .Professionals-Card {
+            display: inline-block;
+            background-color: #32363d;
+            width: 378px;
+            height: 173px;
+            border-radius: 5px;
+            margin: 31px 0 0 31px;
+            cursor: pointer;
+          }
+
+          .Professionals-Card-image {
+            float: left;
+            margin: 16px 0 0 16px;
+            width: 53px;
+            height: 53px;
+          }
+
+          .Professionals-Card-dataContainer {
+            float: left;
+            margin: 18px 0 0 14px;
+          }
+
+          .Professionals-Card-name {
+            width: 100%;
+            font-size: 18px;
+            color: #ffffff;
+          }
+
+          .Professionals-Card-workshopName {
+            width: fit-content;
+            font-size: 16px;
+            color: #cccdce;
+          }
+
+          .Professionals-Card-workshopContainer {
+            display: inline-block;
+            position: relative;
+            margin-top: 10px;
+            width: 100%;
+          }
+
+          .Professionals-Card-workshopIcon {
+            float: left;
+            width: 22px;
+            margin-left: 14px;
+          }
+
+          .Professionals-Card-workshopText {
+            float: left;
+            margin-left: 10px;
+            font-size: 16px;
+            color: #cccdce;
+          }
+
+          .Professionals-Card-addressContainer {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+          }
+
+          .Professionals-Card-locationIcon {
+            float: left;
+            margin-left: 16px;
+          }
+
+          .Professionals-Card-locationText {
+            float: left;
+            margin-left: 13px;
+            font-size: 16px;
+            color: #cccdce;
+          }
+
+          .Professionals-Card-phoneContainer {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+          }
+
+          .Professionals-Card-phoneIcon {
+            float: left;
+            margin-left: 16px;
+          }
+
+          .Professionals-Card-phoneText {
+            float: left;
+            margin-left: 8px;
+            font-size: 16px;
+            color: #0cc44a;
+          }
+
+          .Professionals-Card-arrowRightIcon {
+            float: right;
+            margin: 36px 24px 0 0;
+          }
+        `}
+      </style>
     </div>
   );
 };

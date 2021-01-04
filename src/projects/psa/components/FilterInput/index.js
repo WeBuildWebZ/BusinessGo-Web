@@ -4,7 +4,6 @@ import { Spinner } from 'react-bootstrap';
 
 import Select from './components/select';
 import Options from './components/options';
-import './style.css';
 
 const FilterInput = props => {
   let cancel = false;
@@ -29,7 +28,17 @@ const FilterInput = props => {
 
   return (
     <div className="FilterInput" onClick={handleClick}>
-      {props.loading && <Spinner animation="grow" className="FilterInput-spinner" />}
+      {props.loading && (
+        <Spinner
+          animation="grow"
+          style={{
+            width: 20,
+            height: 20,
+            marginLeft: 5,
+            color: '#0cc44a'
+          }}
+        />
+      )}
       <Select
         onClick={handleClick}
         onClickCross={handleRemoveFilter}
@@ -43,6 +52,20 @@ const FilterInput = props => {
           onChange={handleChangeSelectedOptions}
         />
       )}
+      <style jsx>
+        {`
+          .FilterInput {
+            display: inline-block;
+            height: 42px;
+            margin-right: 8px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #ffffff;
+            border-radius: 50px;
+            cursor: pointer;
+          }
+        `}
+      </style>
     </div>
   );
 };

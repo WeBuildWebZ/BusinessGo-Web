@@ -3,8 +3,6 @@ import { Modal, Paper } from '@material-ui/core';
 import { HighlightOff } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 
-import './style.css';
-
 const OpenableImage = props => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,7 +19,8 @@ const OpenableImage = props => {
       <img
         alt={props.title}
         src={props.src}
-        className={`OpenableImage ${props.className}`}
+        className="OpenableImage"
+        style={props.style}
         onClick={handleImageClick}
       />
       {isOpen && (
@@ -40,19 +39,49 @@ const OpenableImage = props => {
           </Paper>
         </Modal>
       )}
+      <style jsx>
+        {`
+          .OpenableImage {
+            cursor: pointer;
+          }
+
+          .OpenableImage-modalPaper {
+            position: absolute;
+            transform: translate(-50%);
+            left: 50%;
+            width: 70%;
+            margin-top: 15px;
+          }
+
+          .OpenableImage-modalTitle {
+            text-align: center;
+          }
+
+          .OpenableImage-modalClose {
+            float: right;
+            margin: 8px 8px 0 0;
+            cursor: pointer;
+          }
+
+          .OpenableImage-modalImage {
+            width: 80%;
+            margin-bottom: 10px;
+          }
+        `}
+      </style>
     </>
   );
 };
 
 OpenableImage.propTypes = {
   src: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
+  style: PropTypes.object
 };
 
 OpenableImage.defaultProps = {
-  className: '',
-  title: ''
+  title: '',
+  style: {}
 };
 
 export default OpenableImage;

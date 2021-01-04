@@ -1,10 +1,8 @@
-import React from "react";
-import { Checkbox, FormControlLabel } from "@material-ui/core";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Checkbox, FormControlLabel } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
-import "./style.css";
-
-const Options = (props) => {
+const Options = props => {
   const handleChange = (option, isChecked) => {
     const index = props.selectedOptions.indexOf(option);
     let newSelectedOptions;
@@ -12,7 +10,7 @@ const Options = (props) => {
     if (isChecked)
       newSelectedOptions = [
         ...props.selectedOptions.slice(0, index),
-        ...props.selectedOptions.slice(index + 1, props.selectedOptions.length),
+        ...props.selectedOptions.slice(index + 1, props.selectedOptions.length)
       ];
     else newSelectedOptions = props.selectedOptions.concat(option);
 
@@ -38,9 +36,9 @@ const Options = (props) => {
                 <Checkbox
                   className="FilterInputSelectOptions-controlCheckbox"
                   checked={isChecked}
-                  style={{ color: isChecked ? "#26C95E" : "#7A869A" }}
+                  style={{ color: isChecked ? '#26C95E' : '#7A869A' }}
                   inputProps={{
-                    "aria-label": "primary checkbox",
+                    'aria-label': 'primary checkbox'
                   }}
                 />
               }
@@ -48,6 +46,37 @@ const Options = (props) => {
           </div>
         );
       })}
+      <style jsx>
+        {`
+          .FilterInputSelectOptions {
+            position: absolute;
+            min-width: 300px;
+            margin-top: 20px;
+            background-color: #ffffff;
+            border-radius: 4px;
+            z-index: 1;
+          }
+
+          .FilterInputSelectOptions-container {
+            margin-left: 22px;
+          }
+
+          .FilterInputSelectOptions-control {
+            width: 100%;
+            margin-top: 3px;
+            left: 22px;
+            color: #7a869a;
+          }
+
+          .FilterInputSelectOptions-controlCheckbox {
+            float: left;
+          }
+
+          .FilterInputSelectOptions-controlCheckbox:checked {
+            color: #0cc44a;
+          }
+        `}
+      </style>
     </div>
   );
 };
@@ -55,13 +84,13 @@ const Options = (props) => {
 Options.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
   selectedOptions: PropTypes.arrayOf(PropTypes.string),
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 };
 
 Options.defaultProps = {
   options: [],
   selectedOptions: [],
-  onChange: () => {},
+  onChange: () => {}
 };
 
 export default Options;

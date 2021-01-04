@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.css';
 import Back from './components/back';
 import Profile from './components/profile';
 import College from './components/college';
@@ -30,6 +29,13 @@ const Content = props => {
         <Instagram professional={professional} />
         <EmailButton professional={professional} />
       </div>
+      <style jsx>
+        {`
+          .ProfessionalDetail-Content-dataContainer {
+            margin: 18px 0 0 33px;
+          }
+        `}
+      </style>
     </>
   );
 };

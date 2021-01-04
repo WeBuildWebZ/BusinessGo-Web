@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import './App.css';
-import './App-responsive.css';
 import { scrolledToBottom } from '../../../utils/html';
 import SearchInput from '../components/SearchInput';
 import FilterButton from '../components/FilterButton';
@@ -126,6 +124,71 @@ const App = () => {
           )}
         </div>
       </header>
+      <style jsx>
+        {`
+          .App {
+            text-align: center;
+            width: 100%;
+          }
+
+          .App-header {
+            background: linear-gradient(to right, #202221, #32363d);
+            min-height: 100vh;
+            display: flex;
+            font-size: calc(10px + 2vmin);
+            color: white;
+          }
+
+          .App-container {
+            width: calc(100% - 35px);
+            margin-left: 35px;
+          }
+
+          .App-title {
+            width: 100%;
+            text-align: left;
+            float: left;
+            margin: 35px 0 35px 0;
+          }
+
+          .App-searchInputContainer {
+            position: relative;
+            float: left;
+            width: '100%';
+          }
+
+          .App-filterInputContainer {
+            position: relative;
+            display: inline-block;
+            margin-left: 8px;
+          }
+
+          @media only screen and (min-width: 830px) {
+            .App-filterInputContainer {
+              top: -20px;
+            }
+          }
+
+          @media only screen and (max-width: 768px) {
+            .App-container {
+              width: calc(100% - 15px);
+              margin-left: 15px;
+            }
+
+            .App-title {
+              margin: 15px 0 30px 0;
+            }
+
+            .App-searchInputContainer {
+              width: 100%;
+            }
+
+            .App-filterInputContainer {
+              display: none;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };

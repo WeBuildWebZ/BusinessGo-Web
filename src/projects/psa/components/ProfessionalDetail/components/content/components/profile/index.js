@@ -2,20 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import OpenableImage from '../../../../../../../../components/OpenableImage';
-import './style.css';
 
 const Profile = props => {
   const { professional } = props;
 
   return (
     <div className="ProfessionalDetail-Content-Profile">
-      <OpenableImage
-        className="ProfessionalDetail-Content-Profile-image"
-        title={professional.name}
-        src={professional.photo}
-      />
+      <OpenableImage style={{ width: 96, height: 96 }} title={professional.name} src={professional.photo} />
       <div className="ProfessionalDetail-Content-Profile-name">{professional.name}</div>
       <div className="ProfessionalDetail-Content-Profile-workshopName">{professional.workshop_name}</div>
+      <style jsx>
+        {`
+          .ProfessionalDetail-Content-Profile {
+            width: 100%;
+            margin-top: 5px;
+          }
+
+          .ProfessionalDetail-Content-Profile-name {
+            margin-top: 20px;
+            font-size: 22px;
+          }
+
+          .ProfessionalDetail-Content-Profile-workshopName {
+            margin-top: 4px;
+            font-size: 16px;
+            color: #cccdce;
+          }
+        `}
+      </style>
     </div>
   );
 };

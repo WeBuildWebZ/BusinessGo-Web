@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.css';
-import FacebookIcon from './facebook.svg';
-
 const Facebook = props => {
   const { professional } = props;
 
   return (
     <div className="ProfessionalDetail-Content-Facebook-container">
-      <FacebookIcon className="ProfessionalDetail-Content-Facebook-icon" />
+      <img className="ProfessionalDetail-Content-Facebook-icon" src="icons/facebook.svg" alt="facebookIcon" />
       <div className="ProfessionalDetail-Content-Facebook-text">
         <a
           className="ProfessionalDetail-Content-Facebook-link"
@@ -19,6 +16,35 @@ const Facebook = props => {
           {professional.facebook_user}
         </a>
       </div>
+      <style jsx>
+        {`
+          .ProfessionalDetail-Content-Facebook-container {
+            width: 100%;
+            float: left;
+            margin-top: 12px;
+          }
+
+          .ProfessionalDetail-Content-Facebook-icon {
+            float: left;
+          }
+
+          .ProfessionalDetail-Content-Facebook-text {
+            float: left;
+            font-size: 16px;
+            text-align: left;
+            margin: 0 0 0 25px;
+            color: white;
+          }
+
+          .ProfessionalDetail-Content-Facebook-link {
+            color: #0cc44a;
+          }
+
+          .ProfessionalDetail-Content-Facebook-link:hover {
+            color: #14a042;
+          }
+        `}
+      </style>
     </div>
   );
 };

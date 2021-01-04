@@ -1,20 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.css';
-import LocationIcon from './location.svg';
-
 const Address = props => {
   const { professional } = props;
 
   return (
     <div className="ProfessionalDetail-Content-Address-container">
-      <LocationIcon className="ProfessionalDetail-Content-Address-addressIcon" />
+      <img
+        className="ProfessionalDetail-Content-Address-addressIcon"
+        src="icons/location.svg"
+        alt="locationIcon"
+      />
       <div className="ProfessionalDetail-Content-Address-text">
         {professional.address}
         ,&nbsp;
         {professional.city}
       </div>
+      <style jsx>
+        {`
+          .ProfessionalDetail-Content-Address-container {
+            width: 100%;
+            float: left;
+            margin-top: 12px;
+          }
+
+          .ProfessionalDetail-Content-Address-addressIcon {
+            float: left;
+          }
+
+          .ProfessionalDetail-Content-Address-text {
+            float: left;
+            font-size: 16px;
+            text-align: left;
+            margin: 0 0 0 21px;
+          }
+        `}
+      </style>
     </div>
   );
 };
