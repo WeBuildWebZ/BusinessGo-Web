@@ -1,3 +1,5 @@
-const Reducers = {};
+import options from './options';
+
+const Reducers = { options };
 
 export default Reducers;
