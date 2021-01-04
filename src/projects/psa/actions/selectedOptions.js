@@ -1,1 +1,5 @@
-export const setSelectedOptions = user => ({ type: 'setSelectedOptions', payload: user });
+export const setSelectedOptions = (option, selectedOptions) => ({
+  type: 'setSelectedOptions',
+  option,
+  payload: selectedOptions
+});

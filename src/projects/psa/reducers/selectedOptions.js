@@ -7,7 +7,7 @@ const initialState = {
 const SelectedOptions = (state = initialState, action = {}) => {
   switch (action.type) {
     case 'setSelectedOptions':
-      return action.payload;
+      return { ...state, [action.option]: action.payload };
     default:
       return state;
   }

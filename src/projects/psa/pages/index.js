@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { scrolledToBottom } from '../../../utils/html';
 import SearchInput from '../components/SearchInput';
@@ -8,8 +9,11 @@ import FilterInput from '../components/FilterInput';
 import Professionals from '../components/Professionals';
 import ProfessionalDetail from '../components/ProfessionalDetail';
 import { getProfessionalFilters, getProfessionals } from '../services/professional';
+import { setOptions } from '../actions/options';
 
 const App = () => {
+  const dispatch = useDispatch();
+  const selectedOptions = useSelector(state => state.selectedOptions);
   const [filterViewOpen, setFilterViewOpen] = useState(false);
   const [professionals, setProfessionals] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,20 +21,18 @@ const App = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [canChangePage, setCanChangePage] = useState(true);
   const [loadingOptions, setLoadingOptions] = useState(true);
-  const [regionOptions, setRegionOptions] = useState([]);
-  const [cityOptions, setCityOptions] = useState([]);
-  const [workAreaOptions, setWorkAreaOptions] = useState([]);
-  const [selectedRegions, setSelectedRegions] = useState([]);
-  const [selectedCities, setSelectedCities] = useState([]);
-  const [selectedWorkareas, setSelectedWorkAreas] = useState([]);
   const [textSearch, setTextSearch] = useState('');
 
   useEffect(() => {
     getProfessionalFilters().then(filters => {
       setLoadingOptions(false);
-      setRegionOptions(filters['value.region']);
-      setCityOptions(filters['value.city']);
-      setWorkAreaOptions(filters['value.work_area']);
+      dispatch(
+        setOptions({
+          regions: filters['value.region'],
+          cities: filters['value.city'],
+          workAreas: filters['value.work_area']
+        })
+      );
     });
   }, []);
 
@@ -45,9 +47,9 @@ const App = () => {
   const handleGetProfessionals = () => {
     const filters = {};
 
-    if (selectedRegions.length) filters['value.region'] = selectedRegions;
-    if (selectedCities.length) filters['value.city'] = selectedCities;
-    if (selectedWorkareas.length) filters['value.work_area'] = selectedWorkareas;
+    if (selectedOptions.regions.length) filters['value.region'] = selectedOptions.regions;
+    if (selectedOptions.cities.length) filters['value.city'] = selectedOptions.cities;
+    if (selectedOptions.workAreas.length) filters['value.work_area'] = selectedOptions.workAreas;
 
     getProfessionals(pageNumber, filters, textSearch).then(newProfessioanals => {
       setLoading(false);
@@ -61,7 +63,7 @@ const App = () => {
     setCanChangePage(false);
     setLoading(true);
     handleGetProfessionals();
-  }, [pageNumber, selectedRegions, selectedCities, selectedWorkareas, textSearch]);
+  }, [pageNumber, selectedOptions, textSearch]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,33 +91,9 @@ const App = () => {
             <SearchInput onChange={handleTextSearch} />
             <FilterButton onOpenFilterView={() => setFilterViewOpen(true)} />
             <div className="App-filterInputContainer">
-              <FilterInput
-                label="Región"
-                options={regionOptions}
-                loading={loadingOptions}
-                onChange={_selectedRegions => {
-                  setSelectedRegions(_selectedRegions);
-                  setPageNumber(1);
-                }}
-              />
-              <FilterInput
-                label="Ciudad"
-                options={cityOptions}
-                loading={loadingOptions}
-                onChange={_selectedCities => {
-                  setSelectedCities(_selectedCities);
-                  setPageNumber(1);
-                }}
-              />
-              <FilterInput
-                label="Área de trabajo"
-                options={workAreaOptions}
-                loading={loadingOptions}
-                onChange={_selectedWorkAreas => {
-                  setSelectedWorkAreas(_selectedWorkAreas);
-                  setPageNumber(1);
-                }}
-              />
+              <FilterInput label="Región" option="regions" loading={loadingOptions} />
+              <FilterInput label="Ciudad" option="cities" loading={loadingOptions} />
+              <FilterInput label="Área de trabajo" option="workAreas" loading={loadingOptions} />
             </div>
           </div>
           <Professionals onClick={handleSelectProfessional} professionals={professionals} loading={loading} />
