@@ -39,7 +39,7 @@ const OpenableImage = props => {
           </Paper>
         </Modal>
       )}
-      <style jsx>
+      <style jsx global>
         {`
           .OpenableImage {
             cursor: pointer;
