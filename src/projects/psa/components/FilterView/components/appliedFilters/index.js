@@ -7,7 +7,6 @@ const AppliedFilters = () => {
   const dispatch = useDispatch();
 
   const handleClearFilters = () => {
-    console.log('clear');
     dispatch(clearSelectedOptions());
   };
 
@@ -22,11 +21,10 @@ const AppliedFilters = () => {
           .root {
             float: left;
             width: 100%;
-            margin-top: 25px;
+            margin-left: 18px;
           }
           .text {
             float: left;
-            margin-left: 8px;
           }
           .trashIconContainer {
             float: right;

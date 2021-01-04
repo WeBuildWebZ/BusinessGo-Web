@@ -21,12 +21,15 @@ const FilterView = props => (
       {`
         .FilterView {
           position: fixed;
+          display: flex;
+          flex-wrap: wrap;
           left: 0;
           top: 0;
           width: 100%;
           height: 100%;
           background-color: #202221;
           z-index: 2;
+          overflow-y: auto;
         }
       `}
     </style>

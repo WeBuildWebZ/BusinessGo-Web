@@ -34,6 +34,13 @@ const Professionals = props => {
             width: 100%;
             overflow: auto;
           }
+
+          @media only screen and (max-width: 768px) {
+            .Professionals {
+              margin: 22px 0 0 -35px;
+              width: calc(100% + 35px);
+            }
+          }
         `}
       </style>
     </div>

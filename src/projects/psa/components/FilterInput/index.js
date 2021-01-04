@@ -67,7 +67,7 @@ const FilterInput = props => {
           @media only screen and (max-width: 768px) {
             .FilterInput {
               width: 90%;
-              margin-bottom: 32px;
+              margin-left: 5%;
             }
           }
         `}

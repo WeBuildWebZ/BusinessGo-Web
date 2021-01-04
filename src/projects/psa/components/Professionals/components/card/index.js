@@ -129,6 +129,13 @@ const Card = props => {
             float: right;
             margin: 36px 24px 0 0;
           }
+
+          @media only screen and (max-width: 768px) {
+            .Professionals-Card {
+              width: 88%;
+              margin-left: 5.5%;
+            }
+          }
         `}
       </style>
     </div>
