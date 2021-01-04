@@ -1,7 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const FilterView = () => (
+import Back from '../Back';
+
+import Title from './components/title';
+
+const FilterView = props => (
   <div className="FilterView">
+    <Back onClick={props.onClose} />
+    <Title />
     <style jsx>
       {`
         .FilterView {
@@ -17,5 +24,13 @@ const FilterView = () => (
     </style>
   </div>
 );
+
+FilterView.propTypes = {
+  onClose: PropTypes.func
+};
+
+FilterView.defaultProps = {
+  onClose: () => {}
+};
 
 export default FilterView;

@@ -17,6 +17,7 @@ const Back = props => (
         .ProfessionalDetail-Content-Back-text {
           display: inline-block;
           font-size: 16px;
+          font-weight: 900;
           margin-left: 12px;
         }
       `}

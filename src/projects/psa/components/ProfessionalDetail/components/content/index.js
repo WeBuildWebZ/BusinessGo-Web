@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Back from './components/back';
+import Back from '../../../Back';
+
 import Profile from './components/profile';
 import College from './components/college';
 import WorkArea from './components/workArea';

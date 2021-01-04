@@ -83,7 +83,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <div className="App-container">
-          {filterViewOpen && <FilterView />}
+          {filterViewOpen && <FilterView onClose={() => setFilterViewOpen(false)} />}
           <h3 className="App-title">Encuentra al profesional más cercano</h3>
           <div className="App-searchInputContainer">
             <SearchInput onChange={handleTextSearch} />
