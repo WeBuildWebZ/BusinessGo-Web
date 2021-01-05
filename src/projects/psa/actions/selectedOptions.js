@@ -5,3 +5,8 @@ export const setSelectedOptions = (option, selectedOptions) => ({
 });
 
 export const clearSelectedOptions = () => ({ type: 'clearSelectedOptions' });
+
+export const removeSelectedOption = (optionName, value) => ({
+  type: 'removeSelectedOption',
+  payload: { optionName, value }
+});

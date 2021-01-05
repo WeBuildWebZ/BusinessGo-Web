@@ -1,20 +1,38 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { removeSelectedOption } from '../../actions/selectedOptions';
+
 const SelectedOptionList = () => {
   const dispatch = useDispatch();
   const selectedOptions = useSelector(store => store.selectedOptions);
   const optionNames = Object.keys(selectedOptions);
   const list = [];
 
-  optionNames.forEach(optionName => list.push(...selectedOptions[optionName]));
+  optionNames.forEach(optionName =>
+    list.push(
+      ...selectedOptions[optionName].map(option => ({
+        value: option,
+        optionName
+      }))
+    )
+  );
+
+  const handleRemoveOption = (optionName, value) => {
+    dispatch(removeSelectedOption(optionName, value));
+  };
 
   return (
     <div className="root">
-      {list.map((option, i) => (
+      {list.map(({ value, optionName }, i) => (
         <div className="optionContainer" key={i}>
-          <div className="optionText">{option}</div>
-          <img className="closeIcon" alt="closeIcon" src="icons/close.svg" />
+          <div className="optionText">{value}</div>
+          <img
+            className="closeIcon"
+            alt="closeIcon"
+            src="icons/close.svg"
+            onClick={() => handleRemoveOption(optionName, value)}
+          />
         </div>
       ))}
       <style jsx>
