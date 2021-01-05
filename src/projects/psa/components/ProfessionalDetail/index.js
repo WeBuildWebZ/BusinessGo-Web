@@ -20,6 +20,8 @@ const ProfessionalDetail = props => {
       <style jsx>
         {`
           .ProfessionalDetail {
+            display: flex;
+            flex-direction: column;
             position: fixed;
             left: 100%;
             top: 0;
@@ -39,6 +41,12 @@ const ProfessionalDetail = props => {
             height: 100%;
             z-index: 1;
             background-color: rgba(32, 34, 33, 0.7);
+          }
+
+          @media only screen and (max-width: 768px) {
+            .ProfessionalDetail {
+              width: 100%;
+            }
           }
         `}
       </style>
