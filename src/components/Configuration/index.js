@@ -4,17 +4,16 @@ import PropTypes from 'prop-types';
 
 import { getSessions } from '../../services/session';
 import { setUser } from '../../actions/user';
-import LoadingPage from '../../components/LoadingPage';
+import LoadingPage from '../LoadingPage';
 
-import useStyle from './style';
 import Background from './components/background';
 import Title from './components/title';
-import Login from './components/login';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 
 const Configuration = props => {
-  const classes = useStyle();
   const dispatch = useDispatch();
-  const user = useSelector(_ => _.user);
+  const user = useSelector(store => store.user);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -26,17 +25,30 @@ const Configuration = props => {
   }, [dispatch]);
 
   return (
-    <>
-      <Background backgroundImage={props.backgroundImage} />
-      <Title title={props.title} />
-      {loading && <LoadingPage />}
-      {!loading && (
-        <>
-          {user && <div>Configuración</div>}
-          {!user && <Login />}
-        </>
-      )}
-    </>
+    <div className="App">
+      <header className="App-header">
+        <div className="App-container">
+          <Background backgroundImage={props.backgroundImage} />
+          <Title title={props.title} />
+          {loading && <LoadingPage />}
+          {!loading && (
+            <>
+              {user && <Dashboard />}
+              {!user && <Login />}
+            </>
+          )}
+          <style jsx>
+            {`
+              .Configuration {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+              }
+            `}
+          </style>
+        </div>
+      </header>
+    </div>
   );
 };
 

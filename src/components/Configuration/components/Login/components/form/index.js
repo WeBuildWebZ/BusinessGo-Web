@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button, ModalTitle } from 'react-bootstrap';
-import PropTypes from 'prop-types';
 
 import { createSession } from '../../../../../../services/session';
+import { setUser } from '../../../../../../actions/user';
 
 import { getLanguage } from './lang';
 import useStyle from './style';
 
 const Menu = () => {
   const classes = useStyle();
+  const dispatch = useDispatch();
+  const user = useSelector(store => store.user);
   const language = getLanguage(useSelector(store => store.language));
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = e => {
     e.preventDefault();
+    if (user) return;
     createSession(email, password)
-      .then(() => {
-        // window.location.href = process.env.DASHBOARD_URL;
+      .then(response => {
+        dispatch(setUser(response.data));
       })
       .catch(() => {});
   };
