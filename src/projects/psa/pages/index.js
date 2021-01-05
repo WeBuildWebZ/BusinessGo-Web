@@ -130,6 +130,9 @@ const App = () => {
           }
 
           .App-searchInputContainer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             position: relative;
             float: left;
             width: '100%';
@@ -139,12 +142,6 @@ const App = () => {
             position: relative;
             display: inline-block;
             margin-left: 8px;
-          }
-
-          @media only screen and (min-width: 830px) {
-            .App-filterInputContainer {
-              top: -20px;
-            }
           }
 
           @media only screen and (max-width: 768px) {
