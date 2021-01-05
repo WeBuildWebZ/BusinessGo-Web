@@ -25,29 +25,23 @@ const Configuration = props => {
   }, [dispatch]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="App-container">
-          <Background backgroundImage={props.backgroundImage} />
-          <Title title={props.title} />
-          {loading && <LoadingPage />}
-          {!loading && (
-            <>
-              {user && <Dashboard />}
-              {!user && <Login />}
-            </>
-          )}
-          <style jsx>
-            {`
-              .Configuration {
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-              }
-            `}
-          </style>
-        </div>
-      </header>
+    <div className="Configuration">
+      <Background backgroundImage={props.backgroundImage} />
+      <Title title={props.title} />
+      {loading && <LoadingPage />}
+      {!loading && (
+        <>
+          {user && <Dashboard />}
+          {!user && <Login />}
+        </>
+      )}
+      <style jsx>
+        {`
+          .Configuration {
+            height: 100vh;
+          }
+        `}
+      </style>
     </div>
   );
 };

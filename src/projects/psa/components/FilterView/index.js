@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import Back from '../Back';
 import FilterInput from '../FilterInput';
 import SelectedOptionList from '../SelectedOptionList';
+import Split from '../../../../components/Split';
 
 import Title from './components/title';
 import AppliedFilters from './components/appliedFilters';
-import Split from './components/split';
 
 const FilterView = props => {
   useEffect(() => {

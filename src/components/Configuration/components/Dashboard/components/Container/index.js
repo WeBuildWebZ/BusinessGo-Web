@@ -2,12 +2,14 @@ import React from 'react';
 
 const Container = () => (
   <div className="container">
-    1
     <style jsx>
       {`
         .container {
           background-color: #ffffff;
-          flex-grow: 2;
+          box-shadow: 0 0 2px 2px #ffffff;
+          width: 60%;
+          height: 90vh;
+          border-radius: 5px;
         }
       `}
     </style>
