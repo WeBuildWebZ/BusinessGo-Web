@@ -15,9 +15,8 @@ const WorkArea = props => {
       <style jsx>
         {`
           .ProfessionalDetail-Content-WorkArea-container {
-            width: 100%;
             float: left;
-            margin: 2px 0 0 -2px;
+            margin-left: 20px;
           }
 
           .ProfessionalDetail-Content-WorkArea-workshopIcon {

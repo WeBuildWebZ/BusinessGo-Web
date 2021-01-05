@@ -18,7 +18,6 @@ const EmailButton = props => {
           .ProfessionalDetail-Content-EmailButton {
             position: relative;
             float: left;
-            margin-top: 10px;
             width: 84%;
             height: 46px;
             background-color: #0cc44a;
@@ -27,6 +26,7 @@ const EmailButton = props => {
             border-radius: 5px;
             cursor: pointer;
             user-select: none;
+            margin-left: 20px;
           }
 
           .ProfessionalDetail-Content-EmailButton-text {

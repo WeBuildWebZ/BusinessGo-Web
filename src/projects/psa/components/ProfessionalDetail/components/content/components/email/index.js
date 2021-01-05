@@ -11,9 +11,8 @@ const Email = props => {
       <style jsx>
         {`
           .ProfessionalDetail-Content-Email-container {
-            width: 100%;
             float: left;
-            margin-top: 18px;
+            margin-left: 20px;
           }
 
           .ProfessionalDetail-Content-Email-icon {

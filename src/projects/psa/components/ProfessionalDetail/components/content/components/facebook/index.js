@@ -19,9 +19,8 @@ const Facebook = props => {
       <style jsx>
         {`
           .ProfessionalDetail-Content-Facebook-container {
-            width: 100%;
             float: left;
-            margin-top: 12px;
+            margin-left: 20px;
           }
 
           .ProfessionalDetail-Content-Facebook-icon {
