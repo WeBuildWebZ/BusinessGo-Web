@@ -28,7 +28,7 @@ const AppliedFilters = () => {
           }
           .trashIconContainer {
             float: right;
-            background-color: #ff003e;
+            background-color: #e44652;
             padding: 8px;
             margin-right: 18px;
             border-radius: 5px;

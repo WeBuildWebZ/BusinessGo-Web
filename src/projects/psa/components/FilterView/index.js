@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Back from '../Back';
 import FilterInput from '../FilterInput';
+import SelectedOptionList from '../SelectedOptionList';
 
 import Title from './components/title';
 import AppliedFilters from './components/appliedFilters';
@@ -21,6 +22,7 @@ const FilterView = props => {
       <Back onClick={props.onClose} style={{ margin: '12px 0 0 15px' }} />
       <Title />
       <AppliedFilters />
+      <SelectedOptionList />
       <Split />
       <FilterInput label="Región" option="regions" />
       <FilterInput label="Ciudad" option="cities" />
