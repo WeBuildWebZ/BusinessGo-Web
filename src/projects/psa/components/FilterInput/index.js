@@ -62,6 +62,11 @@ const FilterInput = props => {
             border-color: #ffffff;
             border-radius: 50px;
             cursor: pointer;
+            transition: 0.2s;
+          }
+
+          .FilterInput:hover {
+            box-shadow: 0 0 1px 1px #ffffff;
           }
 
           @media only screen and (max-width: 768px) {

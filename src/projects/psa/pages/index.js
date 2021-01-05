@@ -86,6 +86,7 @@ const App = () => {
       <header className="App-header">
         <div className="App-container">
           {filterViewOpen && <FilterView onClose={() => setFilterViewOpen(false)} />}
+          <img className="logo" src="logo.png" alt="logo" />
           <h3 className="App-title">Encuentra al profesional más cercano</h3>
           <div className="App-searchInputContainer">
             <SearchInput onChange={handleTextSearch} />
@@ -107,6 +108,19 @@ const App = () => {
           .App {
             text-align: center;
             width: 100%;
+          }
+
+          .logo {
+            float: left;
+            width: 80px;
+            border-radius: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+          }
+
+          .logo:hover {
+            box-shadow: 0 0 1px 1px #ffffff;
           }
 
           .App-header {

@@ -43,6 +43,11 @@ const Card = props => {
             border-radius: 5px;
             margin: 31px 0 0 31px;
             cursor: pointer;
+            transition: 0.2s;
+          }
+
+          .Professionals-Card:hover {
+            box-shadow: 0 0 2px 2px #32363d;
           }
 
           .Professionals-Card-image {

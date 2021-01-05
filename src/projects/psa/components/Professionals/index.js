@@ -29,10 +29,10 @@ const Professionals = props => {
           .Professionals {
             display: inline-block;
             position: relative;
-            height: calc(100%);
+            height: 100%;
             background-color: #202221;
             width: 100%;
-            overflow: auto;
+            margin-top: 25px;
           }
 
           @media only screen and (max-width: 768px) {
