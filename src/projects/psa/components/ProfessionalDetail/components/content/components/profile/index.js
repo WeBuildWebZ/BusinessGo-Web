@@ -13,13 +13,8 @@ const Profile = props => {
       <div className="ProfessionalDetail-Content-Profile-workshopName">{professional.workshop_name}</div>
       <style jsx>
         {`
-          .ProfessionalDetail-Content-Profile {
-            width: 100%;
-            margin-top: 5px;
-          }
-
           .ProfessionalDetail-Content-Profile-name {
-            margin-top: 20px;
+            margin-top: 10px;
             font-size: 22px;
           }
 

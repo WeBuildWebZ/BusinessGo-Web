@@ -18,34 +18,37 @@ const Options = props => {
   };
 
   return (
-    <div className="FilterInputSelectOptions">
-      {props.options.map((option, i) => {
-        const isChecked = props.selectedOptions.includes(option);
+    <>
+      <div className="FilterInputSelectOptions-overlay" />
+      <div className="FilterInputSelectOptions">
+        {props.options.map((option, i) => {
+          const isChecked = props.selectedOptions.includes(option);
 
-        return (
-          <div
-            key={i}
-            className="FilterInputSelectOptions-container"
-            onClick={() => handleChange(option, isChecked)}
-          >
-            <FormControlLabel
+          return (
+            <div
               key={i}
-              className="FilterInputSelectOptions-control"
-              label={option}
-              control={
-                <Checkbox
-                  className="FilterInputSelectOptions-controlCheckbox"
-                  checked={isChecked}
-                  style={{ color: isChecked ? '#26C95E' : '#7A869A' }}
-                  inputProps={{
-                    'aria-label': 'primary checkbox'
-                  }}
-                />
-              }
-            />
-          </div>
-        );
-      })}
+              className="FilterInputSelectOptions-container"
+              onClick={() => handleChange(option, isChecked)}
+            >
+              <FormControlLabel
+                key={i}
+                className="FilterInputSelectOptions-control"
+                label={option}
+                control={
+                  <Checkbox
+                    className="FilterInputSelectOptions-controlCheckbox"
+                    checked={isChecked}
+                    style={{ color: isChecked ? '#26C95E' : '#7A869A' }}
+                    inputProps={{
+                      'aria-label': 'primary checkbox'
+                    }}
+                  />
+                }
+              />
+            </div>
+          );
+        })}
+      </div>
       <style jsx global>
         {`
           .FilterInputSelectOptions {
@@ -54,7 +57,17 @@ const Options = props => {
             margin-top: 20px;
             background-color: #ffffff;
             border-radius: 4px;
+            z-index: 2;
+          }
+
+          .FilterInputSelectOptions-overlay {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
             z-index: 1;
+            background-color: rgba(32, 34, 33, 0.2);
           }
 
           .FilterInputSelectOptions-container {
@@ -77,7 +90,7 @@ const Options = props => {
           }
         `}
       </style>
-    </div>
+    </>
   );
 };
 

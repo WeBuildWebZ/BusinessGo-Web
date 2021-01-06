@@ -43,6 +43,11 @@ const Card = props => {
             border-radius: 5px;
             margin: 31px 0 0 31px;
             cursor: pointer;
+            transition: 0.2s;
+          }
+
+          .Professionals-Card:hover {
+            box-shadow: 0 0 2px 2px #32363d;
           }
 
           .Professionals-Card-image {
@@ -128,6 +133,13 @@ const Card = props => {
           .Professionals-Card-arrowRightIcon {
             float: right;
             margin: 36px 24px 0 0;
+          }
+
+          @media only screen and (max-width: 768px) {
+            .Professionals-Card {
+              width: 88%;
+              margin-left: 5.5%;
+            }
           }
         `}
       </style>

@@ -25,8 +25,8 @@ const College = props => {
       <style jsx>
         {`
           .ProfessionalDetail-Content-College-container {
-            width: 100%;
             float: left;
+            margin-left: 20px;
           }
 
           .ProfessionalDetail-Content-College-university {

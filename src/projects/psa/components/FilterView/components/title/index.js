@@ -8,7 +8,8 @@ const Title = () => (
         .title {
           float: left;
           text-align: left;
-          margin: 10px 0 0 8px;
+          margin-left: 18px;
+          width: 100%;
         }
       `}
     </style>

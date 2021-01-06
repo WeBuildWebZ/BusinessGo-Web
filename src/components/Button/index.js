@@ -1,0 +1,49 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const Button = props => {
+  const className = `button${props.selected ? ' button-selected' : ''}`;
+
+  return (
+    <div className={className} onClick={props.onClick}>
+      {props.text}
+      <style jsx>
+        {`
+          .button {
+            float: left;
+            width: 80%;
+            margin-left: 10%;
+            padding: 5px 0 5px 0;
+            text-align: center;
+            transition: 0.2s;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.05);
+            user-select: none;
+          }
+
+          .button:hover {
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+
+          .button-selected {
+            box-shadow: 0 0 1px 1px darkcyan;
+          }
+        `}
+      </style>
+    </div>
+  );
+};
+
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+  selected: PropTypes.bool,
+  onClick: PropTypes.func
+};
+
+Button.defaultProps = {
+  selected: false,
+  onClick: () => {}
+};
+
+export default Button;

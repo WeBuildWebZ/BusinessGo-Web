@@ -23,9 +23,8 @@ const Phone = props => {
       <style jsx>
         {`
           .ProfessionalDetail-Content-Phone-container {
-            width: 100%;
             float: left;
-            margin-top: 10px;
+            margin-left: 20px;
           }
 
           .ProfessionalDetail-Content-Phone-icon {

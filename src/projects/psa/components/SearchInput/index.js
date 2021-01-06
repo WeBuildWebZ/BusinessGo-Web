@@ -38,6 +38,11 @@ const SearchInput = props => {
             width: 400px;
             height: 42px;
             border-radius: 50px;
+            transition: 0.2s;
+          }
+
+          .SearchInput:hover {
+            box-shadow: 0 0 1px 1px #ffffff;
           }
 
           .SearchInput-icon {

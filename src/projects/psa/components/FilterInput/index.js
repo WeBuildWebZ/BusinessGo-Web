@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Spinner } from 'react-bootstrap';
+
+import { setSelectedOptions } from '../../actions/selectedOptions';
 
 import Select from './components/select';
 import Options from './components/options';
 
 const FilterInput = props => {
   let cancel = false;
+  const dispatch = useDispatch();
+  const selectedOptions = useSelector(store => store.selectedOptions[props.option]);
+  const options = useSelector(store => store.options[props.option]);
   const [open, setOpen] = useState(false);
-  const [selectedOptions, setSelectedOptions] = useState([]);
 
   const handleClick = e => {
     e.preventDefault();
@@ -16,14 +21,12 @@ const FilterInput = props => {
   };
 
   const handleChangeSelectedOptions = newSelectedOptions => {
-    setSelectedOptions(newSelectedOptions);
-    props.onChange(newSelectedOptions);
+    dispatch(setSelectedOptions(props.option, newSelectedOptions));
   };
 
   const handleRemoveFilter = e => {
     cancel = true;
-    setSelectedOptions([]);
-    props.onChange([]);
+    dispatch(setSelectedOptions(props.option, []));
   };
 
   return (
@@ -46,11 +49,7 @@ const FilterInput = props => {
         label={props.label}
       />
       {open && (
-        <Options
-          options={props.options}
-          selectedOptions={selectedOptions}
-          onChange={handleChangeSelectedOptions}
-        />
+        <Options options={options} selectedOptions={selectedOptions} onChange={handleChangeSelectedOptions} />
       )}
       <style jsx>
         {`
@@ -63,6 +62,18 @@ const FilterInput = props => {
             border-color: #ffffff;
             border-radius: 50px;
             cursor: pointer;
+            transition: 0.2s;
+          }
+
+          .FilterInput:hover {
+            box-shadow: 0 0 1px 1px #ffffff;
+          }
+
+          @media only screen and (max-width: 768px) {
+            .FilterInput {
+              width: 90%;
+              margin-left: 5%;
+            }
           }
         `}
       </style>
@@ -71,15 +82,13 @@ const FilterInput = props => {
 };
 
 FilterInput.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
-  onChange: PropTypes.func,
+  option: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool
 };
 
 FilterInput.defaultProps = {
-  options: [],
-  onChange: () => {}
+  loading: false
 };
 
 export default FilterInput;

@@ -21,3 +21,9 @@ export const createDevelopmentRequest = (userId, name, summary, checklist_items)
     url: `${process.env.API_URL}/users/${encodeURIComponent(userId)}/development_requests`,
     data: { name: name || uuid(), summary, checklist_items }
   });
+
+export const getClientModels = user =>
+  axios({
+    method: 'get',
+    url: `${process.env.API_URL}/users/${encodeURIComponent(user._id)}/client_models`
+  });

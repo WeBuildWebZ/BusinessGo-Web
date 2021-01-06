@@ -3,40 +3,57 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getSessions } from '../../services/session';
+import { getClientModels } from '../../services/user';
 import { setUser } from '../../actions/user';
-import LoadingPage from '../../components/LoadingPage';
+import { setClientModels } from '../../actions/clientModels';
+import { setSelectedClientModel } from '../../actions/selectedClientModel';
+import LoadingPage from '../LoadingPage';
 
-import useStyle from './style';
 import Background from './components/background';
 import Title from './components/title';
-import Login from './components/login';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 
 const Configuration = props => {
-  const classes = useStyle();
   const dispatch = useDispatch();
-  const user = useSelector(_ => _.user);
+  const user = useSelector(store => store.user);
+  const selectedClientModel = useSelector(store => store.selectedClientModel);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getSessions().then(({ data }) => {
+    getSessions().then(({ data: sessions }) => {
       setLoading(false);
-      if (!data[0]) return;
-      dispatch(setUser(data[0].user));
+      if (!sessions[0]) return;
+      const [{ user: newUser }] = sessions;
+
+      dispatch(setUser(newUser));
+
+      getClientModels(newUser).then(({ data: clientModels }) => {
+        dispatch(setClientModels(clientModels));
+        if (!selectedClientModel && clientModels[0]) dispatch(setSelectedClientModel(clientModels[0]));
+      });
     });
   }, [dispatch]);
 
   return (
-    <>
+    <div className="Configuration">
       <Background backgroundImage={props.backgroundImage} />
       <Title title={props.title} />
       {loading && <LoadingPage />}
       {!loading && (
         <>
-          {user && <div>Configuración</div>}
+          {user && <Dashboard />}
           {!user && <Login />}
         </>
       )}
-    </>
+      <style jsx>
+        {`
+          .Configuration {
+            height: 100vh;
+          }
+        `}
+      </style>
+    </div>
   );
 };
 

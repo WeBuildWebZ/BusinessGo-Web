@@ -13,7 +13,7 @@ export const getProfessionals = (page_number, filters = {}, text_search = '') =>
       'value.name': text_search,
       'value.workshop_name': text_search,
       'value.address': text_search,
-      'value.city': text_search
+      'value.city': filters['value.city'] || text_search
     })}`
   ).then(response => response.json());
 

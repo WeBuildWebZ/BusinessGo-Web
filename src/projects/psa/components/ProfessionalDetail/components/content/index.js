@@ -18,25 +18,16 @@ const Content = props => {
 
   return (
     <>
-      <Back onClick={props.onClose} />
+      <Back onClick={props.onClose} style={{ margin: '37px 0 0 36px' }} />
       <Profile professional={professional} />
-      <div className="ProfessionalDetail-Content-dataContainer">
-        <College professional={professional} />
-        <WorkArea professional={professional} />
-        <Address professional={professional} />
-        <Email professional={professional} />
-        <Phone professional={professional} />
-        <Facebook professional={professional} />
-        <Instagram professional={professional} />
-        <EmailButton professional={professional} />
-      </div>
-      <style jsx>
-        {`
-          .ProfessionalDetail-Content-dataContainer {
-            margin: 18px 0 0 33px;
-          }
-        `}
-      </style>
+      <College professional={professional} />
+      <WorkArea professional={professional} />
+      <Address professional={professional} />
+      <Email professional={professional} />
+      <Phone professional={professional} />
+      <Facebook professional={professional} />
+      <Instagram professional={professional} />
+      <EmailButton professional={professional} />
     </>
   );
 };
