@@ -13,22 +13,22 @@ const IndexPage = () => {
         <div className="container">
           <article style={{backgroundImage: 'url(/images/featured-1.jpg)'}} className="featured-item featured-item-large">
             <div className="featured-item__content">
-              <h3>New arrivals are now in!</h3>
-              <a href="#" className="btn btn--rounded">Show Collection</a>
+              <h3>Articulos recien llegados</h3>
+              <a href="#" className="btn btn--rounded">Mostrar Coleccion</a>
             </div>
           </article>
-          
+
           <article style={{backgroundImage: 'url(/images/featured-2.jpg)'}} className="featured-item featured-item-small-first">
             <div className="featured-item__content">
-              <h3>Basic t-shirts $29,99</h3>
-              <a href="#" className="btn btn--rounded">More details</a>
+              <h3>Juego de sabanas simple</h3>
+              <a href="#" className="btn btn--rounded">Mas detalles</a>
             </div>
           </article>
-          
+
           <article style={{backgroundImage: 'url(/images/featured-3.jpg)'}} className="featured-item featured-item-small">
             <div className="featured-item__content">
-              <h3>Sale this summer</h3>
-              <a href="#" className="btn btn--rounded">VIEW ALL</a>
+              <h3>Este invierno</h3>
+              <a href="#" className="btn btn--rounded">Mas detalles</a>
             </div>
           </article>
         </div>
@@ -37,40 +37,39 @@ const IndexPage = () => {
       <section className="section">
         <div className="container">
           <header className="section__intro">
-            <h4>Why should you choose us?</h4>
+            <h4>Porque Elegirnos?</h4>
           </header>
 
           <ul className="shop-data-items">
             <li>
               <i className="icon-shipping"></i>
               <div className="data-item__content">
-                <h4>Free Shipping</h4>
-                <p>All purchases over $199 are eligible for free shipping via USPS First Class Mail.</p>
+                <h4>Entregas a todo el pais.</h4>
+                <p>Utilizamos encomiendas como Via Cargo, expreso Bahia, etc.</p>
               </div>
             </li>
-            
+
             <li>
               <i className="icon-payment"></i>
               <div className="data-item__content">
-                <h4>Easy Payments</h4>
-                <p>All payments are processed instantly over a secure payment protocol.</p>
+                <h4>Medios de pago Seguros</h4>
+                <p>Podes utilizar , Mercado Pago, Paypal entre otros.</p>
               </div>
             </li>
-            
+
             <li>
               <i className="icon-cash"></i>
               <div className="data-item__content">
-                <h4>Money-Back Guarantee</h4>
-                <p>If an item arrived damaged or you've changed your mind, you can send it
-                back for a full refund.</p>
+                <h4>compra Transparente</h4>
+                <p>Derribamos cualquier pirateria, y/o compras fraudulentas por facebook.</p>
               </div>
             </li>
-            
+
             <li>
               <i className="icon-materials"></i>
               <div className="data-item__content">
-                <h4>Finest Quality</h4>
-                <p>Designed to last, each of our products has been crafted with the finest materials.</p>
+                <h4>Calidad Premium</h4>
+                <p>Nuestros precios y calidad van de la mano, es cuestion de que lo veas!</p>
               </div>
             </li>
           </ul>
