@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setSelectedClientModel } from '../../../../../../../../actions/selectedClientModel';
 import Spinner from '../../../../../../../Spinner';
-import Button from '../Button';
+import Button from '../../../../../../../Button';
 
 const TablesSection = () => {
   const dispatch = useDispatch();

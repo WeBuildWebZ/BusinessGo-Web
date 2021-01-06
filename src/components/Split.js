@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Split = () => (
-  <div className="split">
+const Split = props => (
+  <div className="split" style={props.style}>
     <style jsx>
       {`
         .split {
@@ -15,5 +16,13 @@ const Split = () => (
     </style>
   </div>
 );
+
+Split.propTypes = {
+  style: PropTypes.object
+};
+
+Split.defaultProps = {
+  style: {}
+};
 
 export default Split;
