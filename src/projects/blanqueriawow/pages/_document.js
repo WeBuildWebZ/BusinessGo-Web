@@ -1,46 +1,58 @@
-import React from 'react';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheets } from '@material-ui/styles';
+import { Fragment } from 'react'
+import Document, { Head, Main, NextScript } from 'next/document'
 
-class MyDocument extends Document {
+import { GA_TRACKING_ID } from '../utils/gtag';
+
+export default class CustomDocument extends Document {
   static async getInitialProps(ctx) {
-    const sheet = new ServerStyleSheets();
-    const originalRenderPage = ctx.renderPage;
+    const originalRenderPage = ctx.renderPage
+    const initialProps = await Document.getInitialProps(ctx)
 
-    try {
-      ctx.renderPage = () =>
-        originalRenderPage({
-          enhanceApp: App => props => sheet.collect(<App {...props} />)
-        });
+    // Check if in production
+    const isProduction = process.env.NODE_ENV === 'production'
 
-      const initialProps = await Document.getInitialProps(ctx);
-      return {
-        ...initialProps,
-        styles: (
-          <>
-            {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
-        )
-      };
-    } finally {
-      ctx.renderPage(sheet);
+    return {
+      ...initialProps,
+      isProduction,
     }
   }
 
   render() {
+    const { isProduction } = this.props
+
     return (
-      <Html>
+      <html lang="en">
         <Head>
-          <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+          {/* We only want to add the scripts if in production */}
+          {isProduction && (
+            <Fragment>
+              {/* Global Site Tag (gtag.js) - Google Analytics */}
+              <script
+                async
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+              />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', '${GA_TRACKING_ID}', {
+                      page_path: window.location.pathname,
+                    });
+                  `,
+                }}
+              />
+            </Fragment>
+          )}
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
-      </Html>
-    );
+      </html>
+    )
   }
 }
-
-export default MyDocument;
