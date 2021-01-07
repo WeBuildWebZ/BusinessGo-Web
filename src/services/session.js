@@ -7,9 +7,7 @@ export const getSessions = () =>
   });
 
 export const createSession = (email, password) =>
-  axios({
-    method: 'post',
-    url: `${process.env.API_URL}/sessions`,
+  axios.post(`${process.env.API_URL}/sessions`, {
     data: { email, password }
   });
 
