@@ -4,6 +4,9 @@ import { Form, Button, ModalTitle } from 'react-bootstrap';
 
 import { createSession } from '../../../../../../services/session';
 import { setUser } from '../../../../../../actions/user';
+import { getClientModels } from '../../../../../../services/user';
+import { setClientModels } from '../../../../../../actions/clientModels';
+import { setSelectedClientModel } from '../../../../../../actions/selectedClientModel';
 
 import { getLanguage } from './lang';
 import useStyle from './style';
@@ -13,6 +16,7 @@ const Menu = () => {
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
   const language = getLanguage(useSelector(store => store.language));
+  const selectedClientModel = useSelector(store => store.selectedClientModel);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,8 +24,14 @@ const Menu = () => {
     e.preventDefault();
     if (user) return;
     createSession(email, password)
-      .then(response => {
-        dispatch(setUser(response.data));
+      .then(({ data: sessions }) => {
+        const [{ user: newUser }] = sessions;
+        dispatch(setUser(newUser));
+
+        getClientModels(newUser).then(({ data: clientModels }) => {
+          dispatch(setClientModels(clientModels));
+          if (!selectedClientModel && clientModels[0]) dispatch(setSelectedClientModel(clientModels[0]));
+        });
       })
       .catch(() => {});
   };
