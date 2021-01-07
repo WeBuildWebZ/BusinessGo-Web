@@ -26,7 +26,7 @@ const IndexPage = () => (
         property="og:description"
         content="Blanquería Wow, el mejor precio para el confort de tu hogar."
       />
-      <meta property="og:image" content="/page.png" />
+      <meta property="og:image" content="/images/page.png" />
       <meta property="og:image:width" content="828" />
       <meta property="og:image:height" content="450" />
       <meta property="og:url" content="https://blanqueriawow.com/" />
