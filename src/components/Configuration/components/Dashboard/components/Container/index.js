@@ -17,6 +17,7 @@ const Container = () => {
             width: 60%;
             height: 90vh;
             border-radius: 5px;
+            overflow: auto;
             animation: arrive 1s linear;
           }
 
