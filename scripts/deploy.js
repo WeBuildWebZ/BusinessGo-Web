@@ -11,7 +11,7 @@ const githubToken = `${'d8058d9dc8995863192'}${'f85615527af3e7d52b75a'}`;
 
 const copy = (source, destination) =>
   new Promise(resolve => {
-    ncp(source, destination, (err, test) => {
+    ncp(source, destination, err => {
       if (err) throw err;
       resolve();
     });
