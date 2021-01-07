@@ -9,6 +9,8 @@ const IndexPage = () => {
     <Layout>
       <PageIntro />
 
+
+      {/* LEN- si yo te digo es Carnaval- vos apreta el pomo */}
       <section className="featured">
         <div className="container">
           <article style={{backgroundImage: 'url(/images/featured-1.jpg)'}} className="featured-item featured-item-large">
