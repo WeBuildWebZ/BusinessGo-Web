@@ -13,12 +13,14 @@ const Table = props => {
 
   return (
     <table className="table">
-      <tbody>
-        <tr>
+      <tbody className="top">
+
+        <tr className="tr">
           {fields.map((field, i) => (
-            <th key={i}>{field.name}</th>
+            <th className="th" key={i}>{field.name}</th>
           ))}
         </tr>
+
         {props.loading && (
           <tr>
             <td>
@@ -26,18 +28,19 @@ const Table = props => {
             </td>
           </tr>
         )}
+
         {!props.loading &&
           props.rows.map((row, i) => (
-            <tr key={i}>
+            <tr key={i} className="fila">
               {fields.map((field, ii) => (
-                <td key={ii}>{row[field.key]}</td>
+                <td key={i} className="td">{row[field.key]}</td>
               ))}
-              <td>
+              <td className="edit">
                 <Button text={language.edit} />
               </td>
 
-              <td>
-                <Button text={language.delete} onClick={() => props.onRowDelete(row)} />
+              <td className="delete">
+                <Button  text={language.delete} onClick={() => props.onRowDelete(row)} />
               </td>
             </tr>
           ))}
@@ -46,33 +49,62 @@ const Table = props => {
       <style jsx>
         {`
           .table {
-            table-layout: fixed;
             border-radius: 5px;
-            box-shadow: 0 0 3px 3px gray;
+            box-shadow: 0 0 3px 3px silver;
+            // background:red;
           }
 
-          .header {
-             {
-              /* display: flex;
-            flex-direction: row;
-            justify-content: space-around; */
-            }
+
+          // primer row:nombre..universidad..
+          .th{
+            padding:0 0 0 .3em;
+            text-align:center;
           }
 
-          .headerItem {
-             {
-              /* font-size: 14px;
-            padding: 8px 0 0 0; */
-            }
-          }
+          .td{
+            padding:1em 0 1em .3em;
 
-          .row {
-             {
-              /* display: flex;
-            flex-direction: row;
-            justify-content: space-around; */
-            }
           }
+// ===================================================
+.fila{
+border:1px solid #ebebeb;
+}
+
+.fila:hover{
+  background:#ebebeb;
+}
+
+// =======================================================
+.tr{
+  background:#51759F;
+  color:white;
+}
+
+// ========================================================
+.delete{
+    padding:1em 3px;
+    text-align:center;
+
+}
+.delete:hover{
+    cursor:pointer;
+    color:red;
+}
+// ==============================================================
+
+.edit{
+    padding:1em 3px;
+}
+
+.edit:hover{
+    color:#DFA01F;
+    cursor:pointer;
+
+
+}
+// ===============================
+
+
         `}
       </style>
     </table>
