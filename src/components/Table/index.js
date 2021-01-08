@@ -38,15 +38,16 @@ const Table = props => {
                   {row[field.key]}
                 </td>
               ))}
-              <td className="edit">
-                <Button text={language.edit} />
+              <td>
+                <div className="edit">
+                  <img className="icon" src="shared/icons/edit-pen.svg" alt="editIcon" />
+                </div>
               </td>
 
               <td>
-                <div className="delete">
+                <div className="delete" onClick={() => props.onRowDelete(row)}>
                   <img className="icon" src="shared/icons/trash.svg" alt="trashIcon" />
                 </div>
-                {/* <Button text={language.delete} onClick={() => props.onRowDelete(row)} /> */}
               </td>
             </tr>
           ))}
@@ -57,7 +58,6 @@ const Table = props => {
           .table {
             border-radius: 5px;
             box-shadow: 0 0 3px 3px silver;
-            // background:red;
           }
 
           // primer row:nombre..universidad..
@@ -95,12 +95,17 @@ const Table = props => {
           }
 
           .edit {
-            padding: 1em 3px;
+            border-radius: 5px;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            background-color: #ebae36;
+            transition: 0.2s;
           }
 
           .edit:hover {
-            color: #dfa01f;
-            cursor: pointer;
+            background-color: #b8903f;
+            box-shadow: 0 0 1px 1px #b8903f;
           }
           // ===============================
         `}
