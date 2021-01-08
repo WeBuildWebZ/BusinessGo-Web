@@ -10,6 +10,7 @@ const IndexPage = () => {
       <PageIntro />
 
 
+<<<<<<< HEAD
       {/* LEAN- si yo te digo es Carnaval- vos apreta el pomo */}
       <section className="featured">
         <div className="container">
@@ -19,6 +20,26 @@ const IndexPage = () => {
               <a href="#" className="btn btn--rounded">Mostrar Coleccion</a>
             </div>
           </article>
+=======
+      {/* etiquetas og facebook */}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Blanquería Wow" />
+      <meta
+        property="og:description"
+        content="Blanquería Wow, el mejor precio para el confort de tu hogar."
+      />
+      <meta property="og:image" content="https://blanqueriawow.com/images/page.png" />
+      <meta property="og:image:width" content="828" />
+      <meta property="og:image:height" content="450" />
+      <meta property="og:url" content="https://blanqueriawow.com/" />
+      <meta property="og:site_name" content="Blanquería Wow" />
+      {/* aditional */}
+      <meta name="author" content="Blanquería Wow" />
+      <meta name="copyright" content="Blanquería Wow" />
+      <meta name="Description" content="Blanquería Wow, el mejor precio para el confort de tu hogar." />
+    </Head>
+    <PageIntro />
+>>>>>>> d23c22a8f33870d2b52b1b585f78b28669a0bb1c
 
           <article style={{backgroundImage: 'url(/images/featured-2.jpg)'}} className="featured-item featured-item-small-first">
             <div className="featured-item__content">

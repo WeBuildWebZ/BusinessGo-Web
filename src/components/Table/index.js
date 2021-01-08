@@ -1,11 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Split from '../Split';
+import Button from '../Button';
 import Spinner from '../Spinner';
+
+import { getLanguage } from './lang';
 
 const Table = props => {
   const { selectable, fields } = props;
+  const language = getLanguage(useSelector(store => store.language));
 
   return (
     <table className="table">
@@ -28,6 +32,13 @@ const Table = props => {
               {fields.map((field, ii) => (
                 <td key={ii}>{row[field.key]}</td>
               ))}
+              <td>
+                <Button text={language.edit} />
+              </td>
+
+              <td>
+                <Button text={language.delete} onClick={() => props.onRowDelete(row)} />
+              </td>
             </tr>
           ))}
       </tbody>
@@ -35,6 +46,7 @@ const Table = props => {
       <style jsx>
         {`
           .table {
+            table-layout: fixed;
             border-radius: 5px;
             box-shadow: 0 0 3px 3px gray;
           }
@@ -64,27 +76,6 @@ const Table = props => {
         `}
       </style>
     </table>
-    // <div className="table">
-    //   <div className="header">
-    //     {fields.map((field, i) => (
-    //       <div className="headerItem" key={i}>
-    //         {field.name}
-    //       </div>
-    //     ))}
-    //   </div>
-    //   <Split style={{ float: 'unset' }} />
-    //   {props.loading && <Spinner />}
-    //   {!props.loading &&
-    //     props.rows.map((row, i) => (
-    //       <div key={i} className="row">
-    //         {fields.map((field, ii) => (
-    //           <div className="cell" key={ii}>
-    //             {row[field.key]}
-    //           </div>
-    //         ))}
-    //       </div>
-    //     ))}
-    // </div>
   );
 };
 
@@ -92,6 +83,7 @@ Table.propTypes = {
   selectable: PropTypes.bool,
   loading: PropTypes.bool,
   onPageChanged: PropTypes.func,
+  onRowDelete: PropTypes.func,
   rows: PropTypes.array.isRequired,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
@@ -104,7 +96,8 @@ Table.propTypes = {
 Table.defaultProps = {
   selectable: false,
   loading: false,
-  onPageChanged: () => {}
+  onPageChanged: () => {},
+  onRowDelete: () => {}
 };
 
 export default Table;
