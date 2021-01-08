@@ -2,10 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Button from '../Button';
 import Spinner from '../Spinner';
 
 import { getLanguage } from './lang';
+import Button from './components/Button';
 
 const Table = props => {
   const { selectable, fields } = props;
@@ -14,10 +14,11 @@ const Table = props => {
   return (
     <table className="table">
       <tbody className="top">
-
         <tr className="tr">
           {fields.map((field, i) => (
-            <th className="th" key={i}>{field.name}</th>
+            <th className="th" key={i}>
+              {field.name}
+            </th>
           ))}
         </tr>
 
@@ -33,14 +34,16 @@ const Table = props => {
           props.rows.map((row, i) => (
             <tr key={i} className="fila">
               {fields.map((field, ii) => (
-                <td key={i} className="td">{row[field.key]}</td>
+                <td key={i} className="td">
+                  {row[field.key]}
+                </td>
               ))}
               <td className="edit">
                 <Button text={language.edit} />
               </td>
 
               <td className="delete">
-                <Button  text={language.delete} onClick={() => props.onRowDelete(row)} />
+                <Button text={language.delete} onClick={() => props.onRowDelete(row)} />
               </td>
             </tr>
           ))}
@@ -54,57 +57,50 @@ const Table = props => {
             // background:red;
           }
 
-
           // primer row:nombre..universidad..
-          .th{
-            padding:0 0 0 .3em;
-            text-align:center;
+          .th {
+            padding: 0 0 0 0.3em;
+            text-align: center;
           }
 
-          .td{
-            padding:1em 0 1em .3em;
-
+          .td {
+            padding: 1em 0 1em 0.3em;
           }
-// ===================================================
-.fila{
-border:1px solid #ebebeb;
-}
+          // ===================================================
+          .fila {
+            border: 1px solid #ebebeb;
+          }
 
-.fila:hover{
-  background:#ebebeb;
-}
+          .fila:hover {
+            background: #ebebeb;
+          }
 
-// =======================================================
-.tr{
-  background:#51759F;
-  color:white;
-}
+          // =======================================================
+          .tr {
+            background: #51759f;
+            color: white;
+          }
 
-// ========================================================
-.delete{
-    padding:1em 3px;
-    text-align:center;
+          // ========================================================
+          .delete {
+            padding: 1em 3px;
+            text-align: center;
+          }
+          .delete:hover {
+            cursor: pointer;
+            color: red;
+          }
+          // ==============================================================
 
-}
-.delete:hover{
-    cursor:pointer;
-    color:red;
-}
-// ==============================================================
+          .edit {
+            padding: 1em 3px;
+          }
 
-.edit{
-    padding:1em 3px;
-}
-
-.edit:hover{
-    color:#DFA01F;
-    cursor:pointer;
-
-
-}
-// ===============================
-
-
+          .edit:hover {
+            color: #dfa01f;
+            cursor: pointer;
+          }
+          // ===============================
         `}
       </style>
     </table>
