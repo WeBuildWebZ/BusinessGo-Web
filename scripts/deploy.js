@@ -1,21 +1,11 @@
 /* eslint-disable no-await-in-loop */
-import { ncp } from 'ncp';
-
 import projects from '../projects.json';
 
-import { runExec } from './utils';
+import { runExec, copy } from './utils';
 
 const [, , branch, projectName] = process.argv;
 const project = projects[projectName];
 const githubToken = `${'d8058d9dc8995863192'}${'f85615527af3e7d52b75a'}`;
-
-const copy = (source, destination) =>
-  new Promise(resolve => {
-    ncp(source, destination, err => {
-      if (err) throw err;
-      resolve();
-    });
-  });
 
 if (!branch) throw new Error('no branch provided');
 if (!githubToken) throw new Error('no github username provided');
@@ -32,6 +22,7 @@ if (!project) throw new Error(`Didn't found project with name ${projectName}`);
   await runExec(`cd ${repoPath} && git reset --hard HEAD^`);
   await copy('scripts', `${repoPath}/scripts`);
   await copy('src', `${repoPath}/src`);
+  await copy('src/shared/public', `${repoPath}/src/public/shared`);
   await copy('projects.json', `${repoPath}/projects.json`);
   await runExec(`cp package.json ${repoPath}`);
   await runExec(`cp next.config.js ${repoPath}`);

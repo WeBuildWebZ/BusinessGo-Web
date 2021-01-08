@@ -38,3 +38,4 @@ yarn-error.log*
 # custom
 /public
 repos
+**/public/shared

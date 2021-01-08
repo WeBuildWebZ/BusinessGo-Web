@@ -34,7 +34,7 @@ const Table = props => {
           props.rows.map((row, i) => (
             <tr key={i} className="fila">
               {fields.map((field, ii) => (
-                <td key={i} className="td">
+                <td key={ii} className="td">
                   {row[field.key]}
                 </td>
               ))}
@@ -42,8 +42,11 @@ const Table = props => {
                 <Button text={language.edit} />
               </td>
 
-              <td className="delete">
-                <Button text={language.delete} onClick={() => props.onRowDelete(row)} />
+              <td>
+                <div className="delete">
+                  <img className="icon" src="shared/icons/trash.svg" alt="trashIcon" />
+                </div>
+                {/* <Button text={language.delete} onClick={() => props.onRowDelete(row)} /> */}
               </td>
             </tr>
           ))}
@@ -66,7 +69,6 @@ const Table = props => {
           .td {
             padding: 1em 0 1em 0.3em;
           }
-          // ===================================================
           .fila {
             border: 1px solid #ebebeb;
           }
@@ -75,22 +77,22 @@ const Table = props => {
             background: #ebebeb;
           }
 
-          // =======================================================
           .tr {
             background: #51759f;
             color: white;
           }
 
-          // ========================================================
           .delete {
-            padding: 1em 3px;
-            text-align: center;
+            padding: 2px;
+            background-color: red;
+            border-radius: 5px;
+            transition: 0.2s;
           }
           .delete:hover {
             cursor: pointer;
-            color: red;
+            background-color: rgb(212, 38, 38);
+            box-shadow: 0 0 1px 1px red;
           }
-          // ==============================================================
 
           .edit {
             padding: 1em 3px;
