@@ -8,30 +8,22 @@ const Pregunta = () => {
 
             <div className="mid-text">
             <span className="left-items">
-
-                    <span className="padding-lateral">
-                        <p><span className="verde">&#x2714;</span> <b>Solución llave en mano</b> - ¡comienza inmediatamente!</p>
-                        <p><span className="verde">&#x2714;</span> <b>Paga por lo que uses</b> - ¡Sin compromisos!</p>
-                        <p><span className="verde">&#x2714;</span> <b>Extremadamente fiable</b> y tiempo de actividad estable</p>
-                    </span>
-
+                        <p><span>&#x2714;</span> <b>Solución llave en mano</b> - ¡comienza inmediatamente!</p>
+                        <p><span>&#x2714;</span> <b>Paga por lo que uses</b> - ¡Sin compromisos!</p>
+                        <p><span>&#x2714;</span> <b>Extremadamente fiable</b> y tiempo de actividad estable</p>
             </span>
-
             <span className="right-items">
-                    <span className="padding-lateral">
-                        <p><span className="verde">&#x2714;</span> <b>Soporte gratuito 24/7</b> cuando lo necesites</p>
-                        <p><span className="verde">&#x2714;</span> <b>Identificador de llamadas</b> e integración VoIP de tu elección</p>
-                        <p><span className="verde">&#x2714;</span> <b>Informes personalizados</b> para facturación y planilla de salarios</p>
-                   </span>
-
+                        <p><span>&#x2714;</span> <b>Soporte gratuito 24/7</b> cuando lo necesites</p>
+                        <p><span>&#x2714;</span> <b>Identificador de llamadas</b> e integración VoIP de tu elección</p>
+                        <p><span>&#x2714;</span> <b>Informes personalizados</b> para facturación y planilla de salarios</p>
             </span>
-
-
             </div>
+
              <div className="bottom-text">
                 <h2><b>¿Tienes preguntas que hacer? escribenos a:</b> <br/> Globy@preguntas.gmail.com</h2>
             </div>
               <style jsx>{`
+
     .section-pregunta{
         display: flex;
         justify-content: center;
@@ -40,7 +32,6 @@ const Pregunta = () => {
         width: 100vw;
         height: 100vh;
         margin:1.5em 0;
-
     }
 
 .top-text{
@@ -50,46 +41,34 @@ const Pregunta = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap:wrap;
-    background:#86A8E7;
-    color:white;
+    overflow: hidden;
+    background:#ebebeb;
+    color:black;
 }
-.padding-lateral{
-    padding:0 1em;
-}
+// =================================================
+
 .mid-text{
     flex:2;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    flex-wrap:wrap;
+}
 
-}
-.verde{
-    color:#5ffbf1;
-    padding:3px;
-    font-size:1.5em;
-}
 .left-items
 {
-    width: 480px ;
+    width: 600px ;
     height: 220px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-flow:column;
     border:3px solid #ebebeb;
     border-radius:1em;
-}
-
-.padding-lateral
-{
-    display: flex;
-    align-items: space-between;
-    justify-content: center;
-    flex-flow:column;
-
+    padding:1em;
+    margin:1em;
 }
 
 .padding-lateral b
@@ -98,7 +77,7 @@ const Pregunta = () => {
 }
 
 .right-items{
-    width: 480px ;
+    width: 600px ;
     height: 220px;
     display: flex;
     justify-content: center;
@@ -106,7 +85,8 @@ const Pregunta = () => {
     flex-flow:column;
     border:3px solid #ebebeb;
     border-radius:1em;
-
+    padding:1em;
+    margin:1em;
 
 }
 .padding-lateral b
@@ -118,12 +98,13 @@ const Pregunta = () => {
 
 .bottom-text{
     flex:1;
-    width: 80%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border:6px solid #86a8e7;
+
+
 }
 
 .bottom-text b{

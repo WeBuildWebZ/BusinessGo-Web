@@ -7,8 +7,10 @@ const Logo = () => {
     <style jsx>{`
     .logo{
             display: flex;
+            justify-content:flex-start;
             align-items: center;
-            width: 100vw;
+            align-self:flex-start;
+            width: 50vw;
             height: 30vh;
     }
     h1{

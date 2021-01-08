@@ -7,7 +7,7 @@
 
 .container {
     width: 100vw;
-    min-height: 100vh;
+    height: 100%;
     @include flex-center();
     flex-direction: column;
 }
@@ -26,6 +26,7 @@
     width: 100vw;
     height: 100vh;
     margin: 1em 0;
+    flex-wrap: wrap;
     position: relative;
     //
     &:before {
@@ -74,7 +75,7 @@
         width: 50%;
     }
     b {
-        color: #5FFBF1;
+        color: #1b8f81;
     }
 }
 
@@ -83,7 +84,7 @@
 .pregunta {
     @include flex-center();
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     margin: 1.5em 0;
 }
 
@@ -91,11 +92,10 @@
 
 .footer {
     @include flex-center();
-    flex-flow: column;
+    flex-wrap: wrap;
     width: 100vw;
-    height: 20vh;
+    height: 30vh;
     margin: 1em 0 0 0;
-    border-top:3px solid #86A8E7;
 }
 // ==================================
 @media(max-width:1000px){

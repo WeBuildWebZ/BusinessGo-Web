@@ -6,10 +6,10 @@ const BoxCuatroImages = () => {
         <div className="image">
             <span className="left">
             <Image
-          src="/images/driver.jpg"
+          src="/images/emprendedor.jpg"
           alt="calling taxi"
-          width={400}
-          height={450}
+          width={750}
+          height={500}
           className={styles.img}
          />
         </span>
@@ -28,30 +28,28 @@ const BoxCuatroImages = () => {
             width: 100vw;
             height: 70vh;
             margin: 1.5em 0;
-            background: #ebebeb;
         }
-        .left,
+        .left{
+            flex:1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+        }
         .right
             {   flex:1;
                 display: flex;
                 justify-content:center;
-                align-items:center;
+                align-items:flex-start;
                 flex-wrap:wrap;
+                flex-flow:column;
                 width: 100%;
                 height: 100%;
             }
 
             // ===============================
-            .right{
-                flex-flow:column;
-                align-items:flex-start;
-                padding:1em;
-                color:white;
-                background-image: url(/images/emprendedor.jpg);
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: cover;
-            }
+
     .right h2{
         font-size:3em;
         }

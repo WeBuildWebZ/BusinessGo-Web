@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import styles from '../styles/Home.module.scss'
 
 const Frase = () => {
     return (
@@ -11,7 +13,15 @@ const Frase = () => {
             <p>Ahorra tiempo, reduce costos y toma el control con tu propio software de despacho de taxis</p>
             </div>
 
-            <div className="right"></div>
+            <div className="right">
+            <Image
+                  src="/images/header-image.jpg"
+                  alt="First slide"
+                  width={500}
+                  height={500}
+                  className={styles.img}
+            />
+            </div>
 
 
             <style jsx>{`
@@ -20,6 +30,7 @@ const Frase = () => {
 .frase{
         display: flex;
         align-items: center;
+        justify-content:center;
         width: 100vw;
         height: 70vh;
         flex-wrap: wrap;
@@ -29,8 +40,8 @@ const Frase = () => {
         flex:1;
         display: flex;
         justify-content:center;
-        align-items: center;
-        width: 100%;
+        align-items: flex-start;
+        min-width:400px;
         height: 100%;
         flex-flow:column;
         padding:3em;
@@ -42,39 +53,30 @@ color:#0ac5ad;
 }
 
 button{
-    width: 50%;
-    padding:.3em 0;
+    width:7em;
     margin:15px 0;
     border-radius: 3em;
     outline: none;
     border: 2px solid black;
     color:black;
-    font-size:1.3em;
     font-weight:700;
     background:white;
   }
   button:hover{
     background:black;
     color:white;
-
   }
-
 
 // ======================================================
 
 .right{
-    flex:2;
-    width: 100%;
+    flex:1;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    min-width:400px;
     height: 100%;
-    background-image: url(/images/header-image.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 20px -260px ;
   }
-
-
-
-
 
 `}</style>
         </div>

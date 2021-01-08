@@ -3,7 +3,7 @@ import React from 'react'
 const Copyright = () => {
     return (
         <div>
-            <h4>Todos los derechos reservados Globy Mx s.a</h4>
+            <h6>Todos los derechos reservados Globy Mx s.a</h6>
         </div>
     )
 }
