@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux';
 import { PopoverTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import Table from '../../../../../../Table';
-import { getClientDocuments, deleteClientDocument } from '../../../../../../../services/clientDocument';
+import Table from '../../../../../../../Table';
+import { getClientDocuments, deleteClientDocument } from '../../../../../../../../services/clientDocument';
+
+import EditModal from './components/EditModal';
 
 const ClientDocumentEditor = props => {
   const { clientModel } = props;
@@ -12,11 +14,20 @@ const ClientDocumentEditor = props => {
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
   const [clientDocuments, setClientDocuments] = useState([]);
+  const [selectedClientDocument, setSelectedClientDocument] = useState(null);
 
   const importantFields = clientModel.fields.filter(({ important }) => important);
 
   const handleChangePage = newPageNumber => {
     setPageNumber(newPageNumber);
+  };
+
+  const handleEditDocument = clientDocument => {
+    setSelectedClientDocument(clientDocument);
+  };
+
+  const handleStopEdittingDocument = () => {
+    setSelectedClientDocument(null);
   };
 
   useEffect(() => {
@@ -36,7 +47,6 @@ const ClientDocumentEditor = props => {
   }, [pageNumber]);
 
   const handleDocumentDeletion = clientDocument => {
-    console.log(clientDocument);
     deleteClientDocument(user, clientDocument).then(() => {
       setClientDocuments(
         clientDocuments.filter(_clientDocument => _clientDocument._id !== clientDocument._id)
@@ -46,6 +56,13 @@ const ClientDocumentEditor = props => {
 
   return (
     <div className="editor">
+      {selectedClientDocument && (
+        <EditModal
+          clientModel={clientModel}
+          clientDocument={selectedClientDocument}
+          onClose={handleStopEdittingDocument}
+        />
+      )}
       <PopoverTitle>{`Editor de ${clientModel.table_descriptive_name}`}</PopoverTitle>
       <Table
         selectable
@@ -54,6 +71,7 @@ const ClientDocumentEditor = props => {
         loading={loading}
         rows={clientDocuments}
         onRowDelete={handleDocumentDeletion}
+        onRowEdit={handleEditDocument}
       />
       <style jsx>
         {`

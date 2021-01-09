@@ -1,14 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Spinner from '../Spinner';
 
-import { getLanguage } from './lang';
-
 const Table = props => {
   const { selectable, fields } = props;
-  const language = getLanguage(useSelector(store => store.language));
 
   return (
     <table className="table">
@@ -38,7 +34,7 @@ const Table = props => {
                 </td>
               ))}
               <td>
-                <div className="edit">
+                <div className="edit" onClick={() => props.onRowEdit(row)}>
                   <img className="icon" src="shared/icons/edit-pen.svg" alt="editIcon" />
                 </div>
               </td>
@@ -118,6 +114,7 @@ Table.propTypes = {
   loading: PropTypes.bool,
   onPageChanged: PropTypes.func,
   onRowDelete: PropTypes.func,
+  onRowEdit: PropTypes.func,
   rows: PropTypes.array.isRequired,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
@@ -131,7 +128,8 @@ Table.defaultProps = {
   selectable: false,
   loading: false,
   onPageChanged: () => {},
-  onRowDelete: () => {}
+  onRowDelete: () => {},
+  onRowEdit: () => {}
 };
 
 export default Table;
