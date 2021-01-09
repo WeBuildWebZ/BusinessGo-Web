@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import OpenableImage from '../../../../../../../../../../../OpenableImage';
+import Spinner from '../../../../../../../../../../../Spinner';
 import { uploadImage } from '../../../../../../../../../../../../services/cloudinary/image';
 
 import { getLanguage } from './lang';
@@ -12,7 +13,7 @@ const Text = props => {
   const { field, value } = props;
   const language = getLanguage(useSelector(store => store.language));
   const user = useSelector(store => store.user);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
   const input = useRef(null);
 
   const handleOpenFileSelector = () => {
@@ -24,16 +25,18 @@ const Text = props => {
 
     if (!file) return;
 
+    setUploading(true);
+
     uploadImage(user, file).then(body => {
+      setUploading(false);
       props.onChange(body.secure_url);
     });
   };
 
   return (
     <>
-      {field.name}
-      :
-      <OpenableImage src={value} title={field.name} style={{ width: '20%' }} />
+      {`${field.name}:`}
+      {uploading ? <Spinner /> : <OpenableImage src={value} title={field.name} style={{ width: '20%' }} />}
       <Button size="small" onClick={handleOpenFileSelector}>
         {language.selectImage}
       </Button>
