@@ -6,6 +6,8 @@ import OpenableImage from '../../../../../../../../components/OpenableImage';
 const College = props => {
   const { professional } = props;
 
+  if (!professional.college_degree) return <div />;
+
   return (
     <div className="ProfessionalDetail-Content-College-container">
       <img
@@ -16,11 +18,13 @@ const College = props => {
       <div className="ProfessionalDetail-Content-College-textContainer">
         <div className="ProfessionalDetail-Content-College-collage">{professional.college}</div>
         <div className="ProfessionalDetail-Content-College-collegeDegree">{professional.college_degree}</div>
-        <OpenableImage
-          style={{ float: 'left', width: 100 }}
-          title={professional.college_degree}
-          src={professional.college_degree_photo}
-        />
+        {professional.college_degree_photo && (
+          <OpenableImage
+            style={{ float: 'left', width: 100 }}
+            title={professional.college_degree}
+            src={professional.college_degree_photo}
+          />
+        )}
       </div>
       <style jsx>
         {`
@@ -41,13 +45,13 @@ const College = props => {
           }
 
           .ProfessionalDetail-Content-College-collage {
-            float: left;
             font-size: 16px;
             text-align: left;
             margin: 0 0 0 11px;
           }
 
           .ProfessionalDetail-Content-College-collegeDegree {
+            width: 100%;
             font-size: 14px;
             text-align: left;
             margin: 0 0 0 11px;

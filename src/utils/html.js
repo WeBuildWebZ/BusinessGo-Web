@@ -7,7 +7,7 @@ export const copyToClipboard = str => {
   document.body.removeChild(el);
 };
 
-export const copyNumbers = str =>
+export const copyNumbers = (str = '') =>
   copyToClipboard(
     str
       .split('')

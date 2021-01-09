@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 const Facebook = props => {
   const { professional } = props;
 
+  if (!professional.facebook_url || !professional.facebook_user) return <div />;
+
   return (
     <div className="ProfessionalDetail-Content-Facebook-container">
       <img className="ProfessionalDetail-Content-Facebook-icon" src="icons/facebook.svg" alt="facebookIcon" />

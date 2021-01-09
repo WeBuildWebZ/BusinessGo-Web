@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 const Instagram = props => {
   const { professional } = props;
 
+  if (!professional.instagram_url || !professional.instagram_user) return <div />;
+
   return (
     <div className="ProfessionalDetail-Content-Instagram-container">
       <img
