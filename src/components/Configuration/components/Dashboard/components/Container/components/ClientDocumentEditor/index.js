@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Table from '../../../../../../../Table';
 import { getClientDocuments, deleteClientDocument } from '../../../../../../../../services/clientDocument';
+import { updateClientDocument } from '../../../../../../../../services/clientDocument';
 
 import EditModal from './components/EditModal';
 
@@ -26,8 +27,27 @@ const ClientDocumentEditor = props => {
     setSelectedClientDocument(clientDocument);
   };
 
-  const handleStopEdittingDocument = () => {
+  const handleStopEditingDocument = () => {
     setSelectedClientDocument(null);
+  };
+
+  const handleSaveDocument = clientDocument => {
+    setSelectedClientDocument(null);
+    updateClientDocument(user, clientDocument).then(() => {
+      setClientDocuments(
+        clientDocuments.map(_clientDocument =>
+          _clientDocument._id === clientDocument._id ? clientDocument : _clientDocument
+        )
+      );
+    });
+  };
+
+  const handleDocumentDeletion = clientDocument => {
+    deleteClientDocument(user, clientDocument).then(() => {
+      setClientDocuments(
+        clientDocuments.filter(_clientDocument => _clientDocument._id !== clientDocument._id)
+      );
+    });
   };
 
   useEffect(() => {
@@ -46,21 +66,14 @@ const ClientDocumentEditor = props => {
     };
   }, [pageNumber]);
 
-  const handleDocumentDeletion = clientDocument => {
-    deleteClientDocument(user, clientDocument).then(() => {
-      setClientDocuments(
-        clientDocuments.filter(_clientDocument => _clientDocument._id !== clientDocument._id)
-      );
-    });
-  };
-
   return (
     <div className="editor">
       {selectedClientDocument && (
         <EditModal
           clientModel={clientModel}
           clientDocument={selectedClientDocument}
-          onClose={handleStopEdittingDocument}
+          onClose={handleStopEditingDocument}
+          onEdit={handleSaveDocument}
         />
       )}
       <PopoverTitle>{`Editor de ${clientModel.table_descriptive_name}`}</PopoverTitle>

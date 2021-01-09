@@ -9,3 +9,9 @@ export const deleteClientDocument = (user, clientDocument) =>
   api.delete(
     `users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`
   );
+
+export const updateClientDocument = (user, clientDocument) =>
+  api.put(
+    `users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`,
+    clientDocument
+  );
