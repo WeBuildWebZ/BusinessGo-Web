@@ -72,7 +72,7 @@ const IndexPage = () => (
     <section className="section">
       <div className="container">
         <header className="section__intro">
-          <h4>Porque Elegirnos?</h4>
+          <h4>Por qué elegirnos?</h4>
         </header>
 
         <ul className="shop-data-items">
