@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Layout from '../layouts/Main';
 import Footer from '../components/footer';
 import Breadcrumb from '../components/breadcrumb';
@@ -15,7 +17,6 @@ const Products = () => (
     </section>
     <Footer />
   </Layout>
-)
-  
-export default Products
-  
+);
+
+export default Products;
