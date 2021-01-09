@@ -35,8 +35,8 @@ const Content = ({ product }) => {
         name: product.name,
         thumb: product.images[0],
         price: product.currentPrice,
-        count: count,
-        color: color,
+        count,
+        color,
         size: itemSize
       })
     );
@@ -44,7 +44,7 @@ const Content = ({ product }) => {
 
   return (
     <section className="product-content">
-      <div className="product-content__intro">
+      <div className="product-content__intro" key={1}>
         <h5 className="product__id">
           Product ID:<br></br>
           {product.id}
@@ -58,7 +58,7 @@ const Content = ({ product }) => {
         </div>
       </div>
 
-      <div className="product-content__filters">
+      <div className="product-content__filters" key={2}>
         <div className="product-filter-item">
           <h5>Color:</h5>
           <div className="checkbox-color-wrapper">
@@ -74,22 +74,24 @@ const Content = ({ product }) => {
             ))}
           </div>
         </div>
-        <div className="product-filter-item">
+        <div className="product-filter-item" key={3}>
           <h5>
             Size: <strong>See size table</strong>
           </h5>
           <div className="checkbox-color-wrapper">
             <div className="select-wrapper">
               <select onChange={onSelectChange}>
-                <option>Choose size</option>
-                {productsSizes.map(type => (
-                  <option value={type.label}>{type.label}</option>
+                <option key={0}>Choose size</option>
+                {productsSizes.map((type, i) => (
+                  <option value={type.label} key={i + 1}>
+                    {type.label}
+                  </option>
                 ))}
               </select>
             </div>
           </div>
         </div>
-        <div className="product-filter-item">
+        <div className="product-filter-item" key={4}>
           <h5>Quantity:</h5>
           <div className="quantity-buttons">
             <div className="quantity-button">
@@ -110,7 +112,7 @@ const Content = ({ product }) => {
               onClick={toggleFav}
               className={`btn-heart ${isFavourite ? 'btn-heart--active' : ''}`}
             >
-              <i className="icon-heart"></i>
+              <i className="icon-heart" />
             </button>
           </div>
         </div>

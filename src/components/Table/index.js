@@ -86,6 +86,8 @@ const Table = props => {
             height: 100%;
           }
           .delete {
+            width: fit-content;
+            height: fit-content;
             padding: 2px;
             background-color: red;
             border-radius: 5px;

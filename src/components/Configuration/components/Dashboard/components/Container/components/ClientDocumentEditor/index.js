@@ -115,6 +115,7 @@ const ClientDocumentEditor = props => {
           clientDocument={selectedClientDocument}
           onClose={handleStopEditingDocument}
           onEdit={handleSaveDocument}
+          action={isNewDocument ? 'create' : 'edit'}
         />
       )}
       <PopoverTitle>{`Editor de ${clientModel.table_descriptive_name}`}</PopoverTitle>

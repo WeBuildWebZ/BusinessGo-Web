@@ -1,9 +1,11 @@
 export const getLanguage = language_code =>
   ({
     es: {
-      edit: 'Editar'
+      edit: 'Editar',
+      create: 'Crear'
     },
     en: {
-      edit: 'Edit'
+      edit: 'Edit',
+      create: 'Create'
     }
   }[language_code]);

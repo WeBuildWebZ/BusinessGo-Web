@@ -5,6 +5,7 @@ import { combineReducers, createStore } from 'redux';
 import Router from 'next/router';
 
 // global styles
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'swiper/swiper.scss';
 import 'rc-slider/assets/index.css';
 import 'react-rater/lib/react-rater.css';

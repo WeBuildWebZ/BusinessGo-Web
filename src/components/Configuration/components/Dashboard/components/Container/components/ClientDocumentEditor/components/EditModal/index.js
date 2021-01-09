@@ -23,7 +23,7 @@ const EditModal = props => {
       <Modal show backdrop="static" onHide={props.onClose}>
         <Modal.Header closeButton>
           <PopoverTitle>
-            {language.edit}
+            {language[props.action]}
             &nbsp;
             {clientModel.name}
           </PopoverTitle>
@@ -110,7 +110,8 @@ EditModal.propTypes = {
   clientModel: PropTypes.object.isRequired,
   clientDocument: PropTypes.object.isRequired,
   onClose: PropTypes.func,
-  onEdit: PropTypes.func
+  onEdit: PropTypes.func,
+  action: PropTypes.string.isRequired
 };
 
 EditModal.defaultProps = {

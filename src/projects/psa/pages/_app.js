@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { combineReducers, createStore } from 'redux';
 import PropTypes from 'prop-types';
 
-import 'react-phone-number-input/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../styles/globals.css';
 
