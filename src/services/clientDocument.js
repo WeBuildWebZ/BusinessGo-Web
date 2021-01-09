@@ -13,7 +13,7 @@ export const getClientDocuments = (
       table_name,
       page_size,
       page_number,
-      ...filters,
+      ...Object.fromEntries(Object.keys(filters).map(key => [`value.${key}`, filters[key]])),
       regex_flags: 'i',
       regex_normalize_characters: true,
       regex_fields: text_search_fields.map(field => `value.${field}`),
