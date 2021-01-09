@@ -26,7 +26,6 @@ const Product = ({ product }) => {
 
   return (
     <Layout>
-      z
       <Breadcrumb currentPage={product.name} />
       <section className="product-single">
         <div className="container">
