@@ -1,6 +1,3 @@
-import React from 'react';
-import Head from 'next/head';
-
 import Layout from '../layouts/Main';
 import PageIntro from '../components/page-intro';
 import ProductsFeatured from '../components/products-featured';
@@ -14,36 +11,18 @@ const IndexPage = () => (
     {/* LEAN- si yo te digo es Carnaval- vos apreta el pomo */}
     <section className="featured">
       <div className="container">
-        <Head>
-          <article
-            style={{ backgroundImage: 'url(/images/featured-1.jpg)' }}
-            className="featured-item featured-item-large"
-          >
-            <div className="featured-item__content">
-              <h3>Articulos recien llegados</h3>
-              <a href="#" className="btn btn--rounded">
-                Mostrar Coleccion
-              </a>
-            </div>
-          </article>
-          {/* etiquetas og facebook */}
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="Blanquería Wow" />
-          <meta
-            property="og:description"
-            content="Blanquería Wow, el mejor precio para el confort de tu hogar."
-          />
-          <meta property="og:image" content="https://blanqueriawow.com/images/page.png" />
-          <meta property="og:image:width" content="828" />
-          <meta property="og:image:height" content="450" />
-          <meta property="og:url" content="https://blanqueriawow.com/" />
-          <meta property="og:site_name" content="Blanquería Wow" />
-          {/* aditional */}
-          <meta name="author" content="Blanquería Wow" />
-          <meta name="copyright" content="Blanquería Wow" />
-          <meta name="Description" content="Blanquería Wow, el mejor precio para el confort de tu hogar." />
-        </Head>
-        <PageIntro />
+        <article
+          style={{ backgroundImage: 'url(/images/featured-1.jpg)' }}
+          className="featured-item featured-item-large"
+        >
+          <div className="featured-item__content">
+            <h3>Articulos recien llegados</h3>
+            <a href="#" className="btn btn--rounded">
+              Mostrar Coleccion
+            </a>
+          </div>
+        </article>
+
         <article
           style={{ backgroundImage: 'url(/images/featured-2.jpg)' }}
           className="featured-item featured-item-small-first"
@@ -55,6 +34,7 @@ const IndexPage = () => (
             </a>
           </div>
         </article>
+
         <article
           style={{ backgroundImage: 'url(/images/featured-3.jpg)' }}
           className="featured-item featured-item-small"
@@ -72,7 +52,7 @@ const IndexPage = () => (
     <section className="section">
       <div className="container">
         <header className="section__intro">
-          <h4>Por qué elegirnos?</h4>
+          <h4>Porque Elegirnos?</h4>
         </header>
 
         <ul className="shop-data-items">
