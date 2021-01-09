@@ -4,8 +4,12 @@ import { PopoverTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import Table from '../../../../../../../Table';
-import { getClientDocuments, deleteClientDocument } from '../../../../../../../../services/clientDocument';
-import { updateClientDocument } from '../../../../../../../../services/clientDocument';
+import {
+  updateClientDocument,
+  getClientDocuments,
+  deleteClientDocument
+} from '../../../../../../../../services/clientDocument';
+import { elementScrolledToBottom } from '../../../../../../../../utils/html';
 
 import EditModal from './components/EditModal';
 
@@ -16,8 +20,15 @@ const ClientDocumentEditor = props => {
   const [pageNumber, setPageNumber] = useState(1);
   const [clientDocuments, setClientDocuments] = useState([]);
   const [selectedClientDocument, setSelectedClientDocument] = useState(null);
+  const [canChangePage, setCanChangePage] = useState(true);
 
   const importantFields = clientModel.fields.filter(({ important }) => important);
+
+  const handleScroll = e => {
+    if (!elementScrolledToBottom(e.target) || !canChangePage) return;
+    setPageNumber(pageNumber + 1);
+    e.target.scrollBy(0, -5);
+  };
 
   const handleChangePage = newPageNumber => {
     setPageNumber(newPageNumber);
@@ -53,11 +64,14 @@ const ClientDocumentEditor = props => {
   useEffect(() => {
     let mounted = true;
 
+    setLoading(true);
+    setCanChangePage(false);
     getClientDocuments(clientModel.table_name, props.pageSize, pageNumber).then(
       ({ data: newClientDocuments }) => {
         if (!mounted) return;
-        setClientDocuments(newClientDocuments);
+        setClientDocuments([...clientDocuments, ...newClientDocuments]);
         setLoading(false);
+        setCanChangePage(true);
       }
     );
 
@@ -67,7 +81,7 @@ const ClientDocumentEditor = props => {
   }, [pageNumber]);
 
   return (
-    <div className="editor">
+    <div className="editor" onScroll={handleScroll}>
       {selectedClientDocument && (
         <EditModal
           clientModel={clientModel}
@@ -89,6 +103,8 @@ const ClientDocumentEditor = props => {
       <style jsx>
         {`
           .editor {
+            height: 100%;
+            overflow-y: auto;
           }
         `}
       </style>

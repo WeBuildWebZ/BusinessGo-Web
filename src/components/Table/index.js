@@ -17,6 +17,27 @@ const Table = props => {
           ))}
         </tr>
 
+        {props.rows.map((row, i) => (
+          <tr key={i} className="fila">
+            {fields.map((field, ii) => (
+              <td key={ii} className="td">
+                {row[field.key]}
+              </td>
+            ))}
+            <td>
+              <div className="edit" onClick={() => props.onRowEdit(row)}>
+                <img className="icon" src="shared/icons/edit-pen.svg" alt="editIcon" />
+              </div>
+            </td>
+
+            <td>
+              <div className="delete" onClick={() => props.onRowDelete(row)}>
+                <img className="icon" src="shared/icons/trash.svg" alt="trashIcon" />
+              </div>
+            </td>
+          </tr>
+        ))}
+
         {props.loading && (
           <tr>
             <td>
@@ -24,28 +45,6 @@ const Table = props => {
             </td>
           </tr>
         )}
-
-        {!props.loading &&
-          props.rows.map((row, i) => (
-            <tr key={i} className="fila">
-              {fields.map((field, ii) => (
-                <td key={ii} className="td">
-                  {row[field.key]}
-                </td>
-              ))}
-              <td>
-                <div className="edit" onClick={() => props.onRowEdit(row)}>
-                  <img className="icon" src="shared/icons/edit-pen.svg" alt="editIcon" />
-                </div>
-              </td>
-
-              <td>
-                <div className="delete" onClick={() => props.onRowDelete(row)}>
-                  <img className="icon" src="shared/icons/trash.svg" alt="trashIcon" />
-                </div>
-              </td>
-            </tr>
-          ))}
       </tbody>
 
       <style jsx>

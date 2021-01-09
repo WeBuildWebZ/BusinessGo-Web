@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+
+import { elementScrolledToBottom } from '../../../../../../utils/html';
 
 import ClientDocumentEditor from './components/ClientDocumentEditor';
 
@@ -17,7 +19,6 @@ const Container = () => {
             width: 60%;
             height: 90vh;
             border-radius: 5px;
-            overflow: auto;
             animation: arrive 1s linear;
           }
 
