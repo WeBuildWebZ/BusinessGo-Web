@@ -8,7 +8,7 @@ const Login = () => (
     <Paper
       style={{
         marginTop: 50,
-        width: '50%'
+        width: '30%'
       }}
     >
       <Form />

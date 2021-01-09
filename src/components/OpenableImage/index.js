@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Paper } from '@material-ui/core';
 import { HighlightOff } from '@material-ui/icons';
 import PropTypes from 'prop-types';
+import Image from 'next/image';
 
 const OpenableImage = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,7 @@ const OpenableImage = props => {
 
   return (
     <>
-      <img
+      <Image
         alt={props.title}
         src={props.src}
         className="OpenableImage"
