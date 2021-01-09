@@ -4,6 +4,7 @@ import { Modal, PopoverTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import Text from './components/Text';
+import Image from './components/Image';
 import { getLanguage } from './lang';
 
 const EditModal = props => {
@@ -33,6 +34,15 @@ const EditModal = props => {
               case 'text':
                 return (
                   <Text
+                    field={field}
+                    value={newClientDocument[field.key]}
+                    onChange={value => handleUpdateDocument(field.key, value)}
+                    key={i}
+                  />
+                );
+              case 'image':
+                return (
+                  <Image
                     field={field}
                     value={newClientDocument[field.key]}
                     onChange={value => handleUpdateDocument(field.key, value)}
