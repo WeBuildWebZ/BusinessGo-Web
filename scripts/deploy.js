@@ -22,7 +22,6 @@ if (!project) throw new Error(`Didn't found project with name ${projectName}`);
   await runExec(`cd ${repoPath} && git reset --hard HEAD^`);
   await copy('scripts', `${repoPath}/scripts`);
   await copy('src', `${repoPath}/src`);
-  await copy('src/shared/public', `${repoPath}/public/shared`);
   await copy('projects.json', `${repoPath}/projects.json`);
   await runExec(`cp package.json ${repoPath}`);
   await runExec(`cp next.config.js ${repoPath}`);

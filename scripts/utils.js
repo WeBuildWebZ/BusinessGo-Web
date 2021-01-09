@@ -22,7 +22,7 @@ export const runExec = command =>
 export const copy = (source, destination) =>
   new Promise(resolve => {
     ncp(source, destination, err => {
-      if (err) throw err;
+      if (err) throw new Error(err);
       resolve();
     });
   });
