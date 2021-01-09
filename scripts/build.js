@@ -7,5 +7,5 @@ import { project } from './project';
   await runExec(`mv ${project.path}/.next .`);
   await runExec('rm -rf public');
   await runExec(`cp -r ${project.path}/public .`);
-  await copy('src/shared/public', `${project.path}/public/shared`);
+  await runExec(`cp -r src/shared/public public/shared`);
 })();
