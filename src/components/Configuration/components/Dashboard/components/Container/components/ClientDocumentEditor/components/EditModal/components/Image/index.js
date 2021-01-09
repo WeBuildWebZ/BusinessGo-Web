@@ -1,15 +1,13 @@
 import React, { useRef, useState } from 'react';
-import { Button } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import OpenableImage from '../../../../../../../../../../../OpenableImage';
 import Spinner from '../../../../../../../../../../../Spinner';
 import { uploadImage } from '../../../../../../../../../../../../services/cloudinary/image';
 
 import { getLanguage } from './lang';
 
-const Text = props => {
+const Image = props => {
   const { field, value } = props;
   const language = getLanguage(useSelector(store => store.language));
   const user = useSelector(store => store.user);
@@ -36,17 +34,31 @@ const Text = props => {
   return (
     <>
       {`${field.name}:`}
-      {uploading ? <Spinner /> : <OpenableImage src={value} title={field.name} style={{ width: '20%' }} />}
-      <Button size="small" onClick={handleOpenFileSelector}>
-        {language.selectImage}
-      </Button>
+      {uploading ? (
+        <Spinner />
+      ) : (
+        <img
+          alt={field.name}
+          src={value || 'shared/icons/upload.svg'}
+          className="image"
+          onClick={handleOpenFileSelector}
+        />
+      )}
       <input ref={input} type="file" style={{ display: 'none' }} onChange={handleChangeImage} />
+      <style jsx>
+        {`
+          .image {
+            width: 50px;
+            cursor: pointer;
+          }
+        `}
+      </style>
     </>
   );
 };
 
-Text.propTypes = {
-  value: PropTypes.any.isRequired,
+Image.propTypes = {
+  value: PropTypes.string,
   field: PropTypes.shape({
     key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -57,8 +69,9 @@ Text.propTypes = {
   onChange: PropTypes.func
 };
 
-Text.defaultProps = {
+Image.defaultProps = {
+  value: '',
   onChange: () => {}
 };
 
-export default Text;
+export default Image;

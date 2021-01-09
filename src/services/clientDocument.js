@@ -26,6 +26,12 @@ export const deleteClientDocument = (user, clientDocument) =>
     `users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`
   );
 
+export const createClientDocument = (user, clientModel, clientDocument) =>
+  api.post(`users/${encodeURIComponent(user._id)}/client_documents`, {
+    table_name: clientModel.table_name,
+    value: clientDocument
+  });
+
 export const updateClientDocument = (user, clientDocument) =>
   api.put(
     `users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`,

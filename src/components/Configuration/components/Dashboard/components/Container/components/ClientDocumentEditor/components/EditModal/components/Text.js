@@ -21,7 +21,7 @@ const Text = props => {
 };
 
 Text.propTypes = {
-  value: PropTypes.any.isRequired,
+  value: PropTypes.string,
   field: PropTypes.shape({
     key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -33,6 +33,7 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
+  value: '',
   onChange: () => {}
 };
 

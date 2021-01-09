@@ -15,6 +15,11 @@ const Table = props => {
               {field.name}
             </th>
           ))}
+          <th>
+            <div className="new" onClick={() => props.onNewRow({})}>
+              <img className="icon" src="shared/icons/plus.svg" alt="newIcon" />
+            </div>
+          </th>
         </tr>
 
         {props.rows.map((row, i) => (
@@ -32,7 +37,7 @@ const Table = props => {
 
             <td>
               <div className="delete" onClick={() => props.onRowDelete(row)}>
-                <img className="icon" src="shared/icons/trash.svg" alt="trashIcon" />
+                <img src="shared/icons/trash.svg" alt="trashIcon" />
               </div>
             </td>
           </tr>
@@ -76,6 +81,10 @@ const Table = props => {
             color: white;
           }
 
+          .icon {
+            width: 100%;
+            height: 100%;
+          }
           .delete {
             padding: 2px;
             background-color: red;
@@ -101,6 +110,20 @@ const Table = props => {
             background-color: #b8903f;
             box-shadow: 0 0 1px 1px #b8903f;
           }
+
+          .new {
+            border-radius: 5px;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            background-color: #87e41e;
+            transition: 0.2s;
+          }
+
+          .new:hover {
+            background-color: #79bd2b;
+            box-shadow: 0 0 1px 1px #79bd2b;
+          }
           // ===============================
         `}
       </style>
@@ -111,9 +134,9 @@ const Table = props => {
 Table.propTypes = {
   selectable: PropTypes.bool,
   loading: PropTypes.bool,
-  onPageChanged: PropTypes.func,
   onRowDelete: PropTypes.func,
   onRowEdit: PropTypes.func,
+  onNewRow: PropTypes.func,
   rows: PropTypes.array.isRequired,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
@@ -126,9 +149,9 @@ Table.propTypes = {
 Table.defaultProps = {
   selectable: false,
   loading: false,
-  onPageChanged: () => {},
   onRowDelete: () => {},
-  onRowEdit: () => {}
+  onRowEdit: () => {},
+  onNewRow: () => {}
 };
 
 export default Table;

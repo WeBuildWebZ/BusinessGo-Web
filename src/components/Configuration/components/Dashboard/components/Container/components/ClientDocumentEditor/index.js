@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import Table from '../../../../../../../Table';
 import {
+  createClientDocument,
   updateClientDocument,
   getClientDocuments,
   deleteClientDocument
@@ -23,6 +24,7 @@ const ClientDocumentEditor = props => {
   const [selectedClientDocument, setSelectedClientDocument] = useState(null);
   const [canChangePage, setCanChangePage] = useState(true);
   const [textSearch, setTextSearch] = useState('');
+  const [isNewDocument, setIsNewDocument] = useState(false);
 
   const importantFields = clientModel.fields.filter(({ important }) => important);
 
@@ -37,6 +39,12 @@ const ClientDocumentEditor = props => {
   };
 
   const handleEditDocument = clientDocument => {
+    setIsNewDocument(false);
+    setSelectedClientDocument(clientDocument);
+  };
+
+  const handleCreateDocument = clientDocument => {
+    setIsNewDocument(true);
     setSelectedClientDocument(clientDocument);
   };
 
@@ -46,13 +54,20 @@ const ClientDocumentEditor = props => {
 
   const handleSaveDocument = clientDocument => {
     setSelectedClientDocument(null);
-    updateClientDocument(user, clientDocument).then(() => {
-      setClientDocuments(
-        clientDocuments.map(_clientDocument =>
-          _clientDocument._id === clientDocument._id ? clientDocument : _clientDocument
-        )
-      );
-    });
+
+    if (isNewDocument) {
+      createClientDocument(user, clientModel, clientDocument).then(({ data: createdClientDocument }) => {
+        setClientDocuments([createdClientDocument, ...clientDocuments]);
+      });
+    } else {
+      updateClientDocument(user, clientDocument).then(() => {
+        setClientDocuments(
+          clientDocuments.map(_clientDocument =>
+            _clientDocument._id === clientDocument._id ? clientDocument : _clientDocument
+          )
+        );
+      });
+    }
   };
 
   const handleDocumentDeletion = clientDocument => {
@@ -112,6 +127,7 @@ const ClientDocumentEditor = props => {
         rows={clientDocuments}
         onRowDelete={handleDocumentDeletion}
         onRowEdit={handleEditDocument}
+        onNewRow={handleCreateDocument}
       />
       <style jsx>
         {`
