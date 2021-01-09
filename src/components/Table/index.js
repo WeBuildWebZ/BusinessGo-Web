@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
 
 import { getLanguage } from './lang';
-import Button from './components/Button';
 
 const Table = props => {
   const { selectable, fields } = props;

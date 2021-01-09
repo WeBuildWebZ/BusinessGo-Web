@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { PopoverTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import Table from '../../../../../../Table';
-import { getClientDocuments } from '../../../../../../../services/clientDocument';
+import { getClientDocuments, deleteClientDocument } from '../../../../../../../services/clientDocument';
 
 const ClientDocumentEditor = props => {
   const { clientModel } = props;
+  const user = useSelector(store => store.user);
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
   const [clientDocuments, setClientDocuments] = useState([]);
@@ -20,16 +22,27 @@ const ClientDocumentEditor = props => {
   useEffect(() => {
     let mounted = true;
 
-    getClientDocuments(clientModel.table_name, props.pageSize, pageNumber).then(newClientDocuments => {
-      if (!mounted) return;
-      setClientDocuments(newClientDocuments);
-      setLoading(false);
-    });
+    getClientDocuments(clientModel.table_name, props.pageSize, pageNumber).then(
+      ({ data: newClientDocuments }) => {
+        if (!mounted) return;
+        setClientDocuments(newClientDocuments);
+        setLoading(false);
+      }
+    );
 
     return () => {
       mounted = false;
     };
   }, [pageNumber]);
+
+  const handleDocumentDeletion = clientDocument => {
+    console.log(clientDocument);
+    deleteClientDocument(user, clientDocument).then(() => {
+      setClientDocuments(
+        clientDocuments.filter(_clientDocument => _clientDocument._id !== clientDocument._id)
+      );
+    });
+  };
 
   return (
     <div className="editor">
@@ -40,6 +53,7 @@ const ClientDocumentEditor = props => {
         onPageChanged={handleChangePage}
         loading={loading}
         rows={clientDocuments}
+        onRowDelete={handleDocumentDeletion}
       />
       <style jsx>
         {`

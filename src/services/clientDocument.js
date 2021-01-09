@@ -1,11 +1,11 @@
-import qs from 'qs';
+import api from '../utils/axios';
 
 export const getClientDocuments = (table_name, page_size, page_number, filters = {}, text_search = '') =>
-  fetch(
-    `${process.env.API_URL}/client_documents?${qs.stringify({
-      table_name,
-      page_size,
-      page_number,
-      ...filters
-    })}`
-  ).then(response => response.json());
+  api.get('client_documents', {
+    params: { table_name, page_size, page_number, ...filters }
+  });
+
+export const deleteClientDocument = (user, clientDocument) =>
+  api.delete(
+    `users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`
+  );
