@@ -12,6 +12,7 @@ import {
 import { elementScrolledToBottom } from '../../../../../../../../utils/html';
 
 import EditModal from './components/EditModal';
+import SearchInput from './components/SearchInput';
 
 const ClientDocumentEditor = props => {
   const { clientModel } = props;
@@ -21,6 +22,7 @@ const ClientDocumentEditor = props => {
   const [clientDocuments, setClientDocuments] = useState([]);
   const [selectedClientDocument, setSelectedClientDocument] = useState(null);
   const [canChangePage, setCanChangePage] = useState(true);
+  const [textSearch, setTextSearch] = useState('');
 
   const importantFields = clientModel.fields.filter(({ important }) => important);
 
@@ -61,24 +63,34 @@ const ClientDocumentEditor = props => {
     });
   };
 
+  const handleTextSearch = text => {
+    setTextSearch(text);
+    setPageNumber(1);
+  };
+
   useEffect(() => {
     let mounted = true;
 
     setLoading(true);
     setCanChangePage(false);
-    getClientDocuments(clientModel.table_name, props.pageSize, pageNumber).then(
-      ({ data: newClientDocuments }) => {
-        if (!mounted) return;
-        setClientDocuments([...clientDocuments, ...newClientDocuments]);
-        setLoading(false);
-        setCanChangePage(true);
-      }
-    );
+    getClientDocuments(
+      clientModel.table_name,
+      props.pageSize,
+      pageNumber,
+      {},
+      textSearch,
+      clientModel.fields.filter(field => field.important).map(field => field.key)
+    ).then(({ data: newClientDocuments }) => {
+      if (!mounted) return;
+      setClientDocuments([...(pageNumber === 1 ? [] : clientDocuments), ...newClientDocuments]);
+      setLoading(false);
+      setCanChangePage(true);
+    });
 
     return () => {
       mounted = false;
     };
-  }, [pageNumber]);
+  }, [pageNumber, textSearch]);
 
   return (
     <div className="editor" onScroll={handleScroll}>
@@ -91,6 +103,7 @@ const ClientDocumentEditor = props => {
         />
       )}
       <PopoverTitle>{`Editor de ${clientModel.table_descriptive_name}`}</PopoverTitle>
+      <SearchInput onChange={handleTextSearch} />
       <Table
         selectable
         fields={importantFields}
