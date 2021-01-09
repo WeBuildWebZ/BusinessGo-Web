@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { PopoverTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
+import InfiniteScroll from '../../../../../../../InfiniteScroll';
 import Table from '../../../../../../../Table';
 import {
   createClientDocument,
@@ -10,7 +11,6 @@ import {
   getClientDocuments,
   deleteClientDocument
 } from '../../../../../../../../services/clientDocument';
-import { elementScrolledToBottom } from '../../../../../../../../utils/html';
 
 import EditModal from './components/EditModal';
 import SearchInput from './components/SearchInput';
@@ -19,24 +19,12 @@ const ClientDocumentEditor = props => {
   const { clientModel } = props;
   const user = useSelector(store => store.user);
   const [loading, setLoading] = useState(true);
-  const [pageNumber, setPageNumber] = useState(1);
   const [clientDocuments, setClientDocuments] = useState([]);
   const [selectedClientDocument, setSelectedClientDocument] = useState(null);
-  const [canChangePage, setCanChangePage] = useState(true);
   const [textSearch, setTextSearch] = useState('');
   const [isNewDocument, setIsNewDocument] = useState(false);
 
   const importantFields = clientModel.fields.filter(({ important }) => important);
-
-  const handleScroll = e => {
-    if (!elementScrolledToBottom(e.target) || !canChangePage) return;
-    setPageNumber(pageNumber + 1);
-    e.target.scrollBy(0, -5);
-  };
-
-  const handleChangePage = newPageNumber => {
-    setPageNumber(newPageNumber);
-  };
 
   const handleEditDocument = clientDocument => {
     setIsNewDocument(false);
@@ -80,14 +68,10 @@ const ClientDocumentEditor = props => {
 
   const handleTextSearch = text => {
     setTextSearch(text);
-    setPageNumber(1);
   };
 
-  useEffect(() => {
-    let mounted = true;
-
+  const handleChangePage = pageNumber => {
     setLoading(true);
-    setCanChangePage(false);
     getClientDocuments(
       clientModel.table_name,
       props.pageSize,
@@ -96,49 +80,44 @@ const ClientDocumentEditor = props => {
       textSearch,
       clientModel.fields.filter(field => field.important).map(field => field.key)
     ).then(({ data: newClientDocuments }) => {
-      if (!mounted) return;
       setClientDocuments([...(pageNumber === 1 ? [] : clientDocuments), ...newClientDocuments]);
       setLoading(false);
-      setCanChangePage(true);
     });
-
-    return () => {
-      mounted = false;
-    };
-  }, [pageNumber, textSearch]);
+  };
 
   return (
-    <div className="editor" onScroll={handleScroll}>
-      {selectedClientDocument && (
-        <EditModal
-          clientModel={clientModel}
-          clientDocument={selectedClientDocument}
-          onClose={handleStopEditingDocument}
-          onEdit={handleSaveDocument}
-          action={isNewDocument ? 'create' : 'edit'}
+    <InfiniteScroll onPageChange={handleChangePage} data={clientDocuments} resetPageChanger={textSearch}>
+      <div className="editor">
+        {selectedClientDocument && (
+          <EditModal
+            clientModel={clientModel}
+            clientDocument={selectedClientDocument}
+            onClose={handleStopEditingDocument}
+            onEdit={handleSaveDocument}
+            action={isNewDocument ? 'create' : 'edit'}
+          />
+        )}
+        <PopoverTitle>{`Editor de ${clientModel.table_descriptive_name}`}</PopoverTitle>
+        <SearchInput onChange={handleTextSearch} />
+        <Table
+          fields={importantFields}
+          onPageChanged={handleChangePage}
+          loading={loading}
+          rows={clientDocuments}
+          onRowDelete={handleDocumentDeletion}
+          onRowEdit={handleEditDocument}
+          onNewRow={handleCreateDocument}
         />
-      )}
-      <PopoverTitle>{`Editor de ${clientModel.table_descriptive_name}`}</PopoverTitle>
-      <SearchInput onChange={handleTextSearch} />
-      <Table
-        selectable
-        fields={importantFields}
-        onPageChanged={handleChangePage}
-        loading={loading}
-        rows={clientDocuments}
-        onRowDelete={handleDocumentDeletion}
-        onRowEdit={handleEditDocument}
-        onNewRow={handleCreateDocument}
-      />
-      <style jsx>
-        {`
-          .editor {
-            height: 100%;
-            overflow-y: auto;
-          }
-        `}
-      </style>
-    </div>
+        <style jsx>
+          {`
+            .editor {
+              height: 100%;
+              overflow-y: auto;
+            }
+          `}
+        </style>
+      </div>
+    </InfiniteScroll>
   );
 };
 

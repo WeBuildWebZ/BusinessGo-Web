@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Spinner from '../Spinner';
 
 const Table = props => {
-  const { selectable, fields } = props;
+  const { fields } = props;
 
   return (
     <table className="table">
@@ -12,7 +12,7 @@ const Table = props => {
         <tr className="tr">
           {fields.map((field, i) => (
             <th className="th" key={i}>
-              {field.name}
+              <div className="headerTextContainer">{field.name}</div>
             </th>
           ))}
           <th>
@@ -26,7 +26,11 @@ const Table = props => {
           <tr key={i} className="fila">
             {fields.map((field, ii) => (
               <td key={ii} className="td">
-                {row[field.key]}
+                {field.input_type === 'image' ? (
+                  <img className="image" src={row[field.key]} />
+                ) : (
+                  row[field.key]
+                )}
               </td>
             ))}
             <td>
@@ -63,6 +67,10 @@ const Table = props => {
           .th {
             padding: 0 0 0 0.3em;
             text-align: center;
+          }
+
+          .headerTextContainer {
+            padding-top: 8px;
           }
 
           .td {
@@ -126,7 +134,9 @@ const Table = props => {
             background-color: #79bd2b;
             box-shadow: 0 0 1px 1px #79bd2b;
           }
-          // ===============================
+          .image {
+            width: 50px;
+          }
         `}
       </style>
     </table>
@@ -134,7 +144,6 @@ const Table = props => {
 };
 
 Table.propTypes = {
-  selectable: PropTypes.bool,
   loading: PropTypes.bool,
   onRowDelete: PropTypes.func,
   onRowEdit: PropTypes.func,
@@ -149,7 +158,6 @@ Table.propTypes = {
 };
 
 Table.defaultProps = {
-  selectable: false,
   loading: false,
   onRowDelete: () => {},
   onRowEdit: () => {},
