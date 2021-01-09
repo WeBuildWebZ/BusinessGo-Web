@@ -9,7 +9,7 @@ const ProductsContent = () => {
     <section className="products-content">
       <div className="products-content__intro">
         <h2>
-          Men's Tops&nbsp;
+          Catálogo&nbsp;
           <span>(133)</span>
         </h2>
         <button

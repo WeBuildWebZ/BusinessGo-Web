@@ -3,15 +3,15 @@ import { remove } from 'lodash';
 
 const initialState = {
   user: 'Lucas Pulliese',
-  favProducts: [],
-}
+  favProducts: []
+};
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'TOGGLE_FAV_PRODUCT':   
+    case 'TOGGLE_FAV_PRODUCT':
       const index = state.favProducts.includes(action.id);
 
-      if(!index) {
+      if (!index) {
         state.favProducts.push(action.id);
 
         return {
@@ -21,7 +21,7 @@ const userReducer = (state = initialState, action) => {
       }
 
       remove(state.favProducts, id => id === action.id);
-      
+
       return {
         ...state,
         favProducts: state.favProducts
@@ -30,6 +30,6 @@ const userReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default userReducer;

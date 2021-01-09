@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
 const CheckoutItems = () => {
-  const { cartItems } = useSelector(state => state.cart);
+  const cartItems = useSelector(state => state.cartItems);
 
   return (
     <ul className="checkout-items">
@@ -21,8 +21,7 @@ const CheckoutItems = () => {
         </li>
       ))}
     </ul>
-  )
+  );
 };
 
-  
-export default CheckoutItems
+export default CheckoutItems;

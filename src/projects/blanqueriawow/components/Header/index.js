@@ -8,7 +8,7 @@ import Logo from '../../assets/icons/logo';
 
 const Header = ({ isErrorPage }) => {
   const router = useRouter();
-  const { cartItems } = useSelector(state => state.cart);
+  const cartItems = useSelector(state => state.cartItems);
   const arrayPaths = ['/products', '/product/[pid]', '/login', '/cart', '/register', '/cart/checkout'];
 
   const [onTop, setOnTop] = useState(!(arrayPaths.includes(router.pathname) || isErrorPage));

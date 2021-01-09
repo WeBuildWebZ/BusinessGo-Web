@@ -98,6 +98,9 @@
     "react/forbid-prop-types": "off",
     "react/jsx-wrap-multilines": "off",
     "react/no-unescaped-entities": "off",
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/alt-text": "off",
+    "react/jsx-one-expression-per-line": "off",
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
