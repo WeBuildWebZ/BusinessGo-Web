@@ -4,8 +4,7 @@ import { some } from 'lodash';
 
 import { setCartItem } from '../../../actions/cartItems';
 import { toggleFavoriteProduct } from '../../../actions/favoriteProducts';
-
-const getFinalPrice = product => product.price * (1 - (product.discount || 0) / 100);
+import { getFinalPrice } from '../../../utils/product';
 
 const Content = ({ product }) => {
   const dispatch = useDispatch();

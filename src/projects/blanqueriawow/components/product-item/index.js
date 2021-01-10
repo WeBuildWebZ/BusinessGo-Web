@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { some } from 'lodash';
 
+import { getFinalPrice } from '../../utils/product';
 import { toggleFavoriteProduct } from '../../actions/favoriteProducts';
-
-const getFinalPrice = product => product.price * (1 - (product.discount || 0) / 100);
 
 const ProductItem = props => {
   const { product } = props;
