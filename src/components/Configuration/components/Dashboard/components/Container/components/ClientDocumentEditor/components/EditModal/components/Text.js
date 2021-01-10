@@ -9,7 +9,7 @@ const Text = props => {
     <>
       <TextField
         label={field.name}
-        defaultValue={value}
+        defaultValue={value || field.default_value}
         variant="outlined"
         required={field.is_required}
         style={{ width: '100%', margin: '16px 0 16px 0' }}
@@ -25,6 +25,7 @@ Text.propTypes = {
   field: PropTypes.shape({
     key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    default_value: PropTypes.string,
     important: PropTypes.bool.isRequired,
     input_type: PropTypes.string.isRequired, // text | number | photo | email | phone
     is_required: PropTypes.bool.isRequired

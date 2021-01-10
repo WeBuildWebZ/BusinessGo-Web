@@ -1,21 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { some } from 'lodash';
 
-import { toggleFavProduct } from '../../store/actions/userActions';
+import { toggleFavoriteProduct } from '../../actions/favoriteProducts';
 
-const ProductItem = ({ discount, productImage, id, name, price, currentPrice }) => {
+const getFinalPrice = product => product.price * (1 - (product.discount || 0) / 100);
+
+const ProductItem = props => {
+  const { product } = props;
   const dispatch = useDispatch();
-  const favProducts = useSelector(state => state.favProducts);
+  const favoriteProducts = useSelector(state => state.favoriteProducts);
 
-  const isFavourite = some(favProducts, productId => productId === id);
+  const isFavourite = some(favoriteProducts, productId => productId === product._id);
 
   const toggleFav = () => {
-    dispatch(
-      toggleFavProduct({
-        id
-      })
-    );
+    dispatch(toggleFavoriteProduct(product));
   };
 
   return (
@@ -29,24 +29,28 @@ const ProductItem = ({ discount, productImage, id, name, price, currentPrice }) 
           <i className="icon-heart" />
         </button>
 
-        <Link href={`/product/${id}`}>
+        <Link href={`/product/${product._id}`}>
           <a href="#">
-            <img src={productImage} alt="product" />
-            {discount && <span className="product__discount">{discount}%</span>}
+            <img src={product.photo} alt="product" />
+            {product.discount && <span className="product__discount">{product.discount}%</span>}
           </a>
         </Link>
       </div>
 
       <div className="product__description">
-        <h3>{name}</h3>
-        <div className={'product__price ' + (discount ? 'product__price--discount' : '')}>
-          <h4>${currentPrice}</h4>
+        <h3>{product.name}</h3>
+        <div className={`product__price ${product.discount ? 'product__price--discount' : ''}`}>
+          <h4>${getFinalPrice(product)}</h4>
 
-          {discount && <span>${price}</span>}
+          {product.discount && <span>${product.price}</span>}
         </div>
       </div>
     </div>
   );
+};
+
+ProductItem.propTypes = {
+  product: PropTypes.object.isRequired
 };
 
 export default ProductItem;

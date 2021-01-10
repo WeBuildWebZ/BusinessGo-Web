@@ -1,35 +1,41 @@
-import useSwr from 'swr';
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import ProductItem from '../../product-item';
+import { getProducts } from '../../../services/product';
 
 import ProductsLoading from './loading';
 
-const ProductsContent = () => {
-  const fetcher = url => fetch(url).then(res => res.json());
-  const { data, error } = useSwr('/api/products', fetcher);
+const ProductsContent = props => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [pageNumber, setPageNumber] = useState(1);
 
-  if (error) return <div>Failed to load users</div>;
+  useEffect(() => {
+    setLoading(true);
+    getProducts(props.pageSize, pageNumber).then(({ data: newProducts }) => {
+      setProducts(newProducts);
+      setLoading(false);
+    });
+  }, [pageNumber]);
+
   return (
     <>
-      {!data && <ProductsLoading />}
+      {loading && <ProductsLoading />}
 
-      {data && (
+      {!loading && (
         <section className="products-list">
-          {data.map(item => (
-            <ProductItem
-              discount={item.discount}
-              key={item.id}
-              id={item.id}
-              price={item.price}
-              currentPrice={item.currentPrice}
-              productImage={item.images[0]}
-              name={item.name}
-            />
+          {products.map((product, i) => (
+            <ProductItem key={i} product={product} />
           ))}
         </section>
       )}
     </>
   );
+};
+
+ProductsContent.propTypes = {
+  pageSize: PropTypes.number.isRequired
 };
 
 export default ProductsContent;

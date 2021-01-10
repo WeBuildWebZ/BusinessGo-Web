@@ -37,3 +37,8 @@ export const updateClientDocument = (user, clientDocument) =>
     `users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`,
     clientDocument
   );
+
+export const getDistinctClientDocuments = (keys = []) =>
+  api.get('client_document_distinct', {
+    params: Object.fromEntries(keys.map(key => [`value.${key}`, true]))
+  });

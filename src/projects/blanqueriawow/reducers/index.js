@@ -1,7 +1,9 @@
 import cartItems from './cartItems';
+import favoriteProducts from './favoriteProducts';
 
 const CommonReducers = {
-  cartItems
+  cartItems,
+  favoriteProducts
 };
 
 export default CommonReducers;

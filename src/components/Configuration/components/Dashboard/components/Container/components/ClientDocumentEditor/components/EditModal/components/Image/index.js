@@ -39,7 +39,7 @@ const Image = props => {
       ) : (
         <img
           alt={field.name}
-          src={value || 'shared/icons/upload.svg'}
+          src={value || field.default_value || 'shared/icons/upload.svg'}
           className="image"
           onClick={handleOpenFileSelector}
         />
@@ -62,6 +62,7 @@ Image.propTypes = {
   field: PropTypes.shape({
     key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    default_value: PropTypes.string,
     important: PropTypes.bool.isRequired,
     input_type: PropTypes.string.isRequired,
     is_required: PropTypes.bool.isRequired
