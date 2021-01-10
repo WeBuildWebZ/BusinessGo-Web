@@ -58,16 +58,7 @@ const ShoppingCart = () => {
             <p className="cart-actions__total">
               Costo total <strong>${priceTotal.toFixed(2)}</strong>
             </p>
-            <div className="subscribe__form">
-              <input
-                className="emailInput"
-                type="email"
-                placeholder="Correo electrénico"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-              />
-            </div>
-            <a href="#" className="btn btn--rounded btn--yellow">
+            <a href="/cart/checkout" className="btn btn--rounded btn--yellow">
               Pedir
             </a>
           </div>
