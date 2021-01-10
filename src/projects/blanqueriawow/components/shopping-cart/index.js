@@ -31,23 +31,12 @@ const ShoppingCart = () => {
               <tbody>
                 <tr>
                   <th style={{ textAlign: 'left' }}>Product</th>
-                  <th>Color</th>
-                  <th>Size</th>
                   <th>Ammount</th>
                   <th>Price</th>
-                  <th />
                 </tr>
 
-                {cartItems.map(item => (
-                  <Item
-                    id={item.id}
-                    thumb={item.thumb}
-                    name={item.name}
-                    color={item.color}
-                    price={item.price}
-                    size={item.size}
-                    count={item.count}
-                  />
+                {cartItems.map((item, i) => (
+                  <Item key={i} product={item.product} count={item.count} />
                 ))}
               </tbody>
             </table>
@@ -58,16 +47,16 @@ const ShoppingCart = () => {
 
         <div className="cart-actions">
           <a href="/products" className="cart__btn-back">
-            <i className="icon-left"></i> Continue Shopping
+            <i className="icon-left" /> Seguir navegando
           </a>
           <input type="text" placeholder="Promo Code" className="cart__promo-code" />
 
-          <div class="cart-actions__items-wrapper">
+          <div className="cart-actions__items-wrapper">
             <p className="cart-actions__total">
-              Total cost <strong>${priceTotal.toFixed(2)}</strong>
+              Costo total <strong>${priceTotal.toFixed(2)}</strong>
             </p>
             <a href="/cart/checkout" className="btn btn--rounded btn--yellow">
-              Checkout
+              Pedir
             </a>
           </div>
         </div>

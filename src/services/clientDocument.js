@@ -42,3 +42,5 @@ export const getDistinctClientDocuments = (keys = []) =>
   api.get('client_document_distinct', {
     params: Object.fromEntries(keys.map(key => [`value.${key}`, true]))
   });
+
+export const showClientDocument = _id => api.get(`client_documents/${encodeURIComponent(_id)}`);

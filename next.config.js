@@ -13,11 +13,11 @@ env.PROJECT_NAME = env.PROJECT_NAME || process.argv[4];
 
 module.exports = {
   webpack: (config, { defaultLoaders, isServer }) => {
-    config.module.rules.push({
-      test: /\.+(jsx?)$/,
-      loader: defaultLoaders.babel,
-      include: path.resolve(__dirname, './src')
-    });
+    // config.module.rules.push({
+    //   test: /\.+(jsx?)$/,
+    //   loader: defaultLoaders.babel,
+    //   include: path.resolve(__dirname, './src')
+    // });
 
     config.module.rules.push({
       test: /\.(woff|woff2|eot|ttf|otf)$/,
