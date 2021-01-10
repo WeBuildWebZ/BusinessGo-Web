@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ProductItem from '../../product-item';
@@ -7,17 +8,20 @@ import { getProducts } from '../../../services/product';
 import ProductsLoading from './loading';
 
 const ProductsContent = props => {
+  const selectedCategories = useSelector(store => store.filters.categories);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
     setLoading(true);
-    getProducts(props.pageSize, pageNumber).then(({ data: newProducts }) => {
-      setProducts(newProducts);
-      setLoading(false);
-    });
-  }, [pageNumber]);
+    getProducts(props.pageSize, pageNumber, { 'value.category': selectedCategories }).then(
+      ({ data: newProducts }) => {
+        setProducts(newProducts);
+        setLoading(false);
+      }
+    );
+  }, [pageNumber, selectedCategories]);
 
   return (
     <>

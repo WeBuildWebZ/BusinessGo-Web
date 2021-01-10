@@ -1,28 +1,38 @@
 import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { updateFilters } from '../../actions/filters';
 import { getDistinctProducts } from '../../services/product';
 import Spinner from '../../../../components/Spinner';
 
 import Checkbox from './form-builder/checkbox';
 
 const ProductsFilter = () => {
+  const dispatch = useDispatch();
+  const selectedCategories = useSelector(store => store.filters.categories);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const addQueryParams = () => {
-    // query params changes
-  };
 
   useEffect(() => {
     getDistinctProducts().then(({ data: distinct }) => {
       setCategories(distinct['value.category']);
       setLoading(false);
     });
-  }, []);
+  }, [selectedCategories]);
+
+  const handleToggleCategory = category => {
+    const isSelected = selectedCategories.includes(category);
+
+    const newSelectedCategories = isSelected
+      ? selectedCategories.filter(_category => _category !== category)
+      : [...selectedCategories, category];
+
+    dispatch(updateFilters('categories', newSelectedCategories));
+  };
 
   return (
-    <form className="products-filter" onChange={addQueryParams}>
+    <form className="products-filter">
       <button
         type="button"
         onClick={() => setFiltersOpen(!filtersOpen)}
@@ -37,7 +47,7 @@ const ProductsFilter = () => {
           {loading && <Spinner />}
           <div className="products-filter__block__content">
             {categories.map((category, i) => (
-              <Checkbox key={i} label={category} />
+              <Checkbox key={i} label={category} onChange={() => handleToggleCategory(category)} />
             ))}
           </div>
         </div>
