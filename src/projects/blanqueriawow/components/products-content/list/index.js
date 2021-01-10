@@ -15,7 +15,7 @@ const ProductsContent = props => {
 
   useEffect(() => {
     setLoading(true);
-    getProducts(props.pageSize, pageNumber, { 'value.category': selectedCategories }).then(
+    getProducts(props.pageSize, pageNumber, { category: selectedCategories }).then(
       ({ data: newProducts }) => {
         setProducts(newProducts);
         setLoading(false);
