@@ -58,9 +58,11 @@ const ShoppingCart = () => {
             <p className="cart-actions__total">
               Costo total <strong>${priceTotal.toFixed(2)}</strong>
             </p>
-            <a href="/cart/checkout" className="btn btn--rounded btn--yellow">
-              Pedir
-            </a>
+            {priceTotal > 0 && (
+              <a href="/cart/checkout" className="btn btn--rounded btn--yellow">
+                Pedir
+              </a>
+            )}
           </div>
         </div>
       </div>

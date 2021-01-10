@@ -10,6 +10,7 @@
     "wow": "npm run copy-env src/projects/blanqueriawow && next dev src/projects/blanqueriawow",
     "build": "node -r esm scripts/build",
     "now-build": "node -r esm scripts/build",
+    "export": "next export",
     "start": "next start -p $PORT",
     "lint": "eslint scripts",
     "copy-env": "node -r esm scripts/copy_env",

@@ -17,6 +17,10 @@ const CartItems = (state = initialState, action = {}) => {
     case 'removeCartItem': {
       return state.filter(item => item.product._id !== action.payload.product._id);
     }
+    case 'removeAllCartItems': {
+      sessionStorage.setItem('cartItems', '[]');
+      return [];
+    }
     default: {
       return state;
     }

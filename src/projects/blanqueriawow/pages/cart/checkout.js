@@ -4,10 +4,12 @@ import { useSelector } from 'react-redux';
 import Layout from '../../layouts/Main';
 import CheckoutStatus from '../../components/checkout-status';
 import CheckoutInputs from '../../components/checkout-inputs';
+import CheckoutModal from '../../components/checkout-modal';
 import CheckoutItems from '../../components/checkout/items';
 import { getFinalPrice } from '../../utils/product';
 
 const CheckoutPage = () => {
+  const [openModal, setOpenModal] = useState(false);
   const [data, setData] = useState({});
 
   const priceTotal = useSelector(state => {
@@ -22,6 +24,7 @@ const CheckoutPage = () => {
 
   return (
     <Layout>
+      {openModal && <CheckoutModal data={data} />}
       <section className="cart">
         <div className="container">
           <div className="cart__intro">
@@ -54,9 +57,15 @@ const CheckoutPage = () => {
                   Seguir navegando
                 </button>
               </a>
-              <button type="button" className="btn btn--rounded btn--yellow">
-                Generar pedido
-              </button>
+              {priceTotal > 0 && (
+                <button
+                  type="button"
+                  className="btn btn--rounded btn--yellow"
+                  onClick={() => setOpenModal(true)}
+                >
+                  Generar pedido
+                </button>
+              )}
             </div>
           </div>
         </div>
