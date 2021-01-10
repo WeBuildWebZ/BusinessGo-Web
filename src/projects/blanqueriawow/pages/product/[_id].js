@@ -10,7 +10,7 @@ import Description from '../../components/product-single/description';
 import { server } from '../../utils/server';
 
 export async function getServerSideProps({ query }) {
-  const { pid } = query;
+  const { _id } = query;
   const res = await fetch(`${server}/api/product/${pid}`);
   const product = await res.json();
 

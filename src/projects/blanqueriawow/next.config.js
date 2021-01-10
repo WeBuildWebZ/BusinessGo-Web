@@ -24,6 +24,6 @@ module.exports = {
   env: { ...env },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')]
-  }
-  // target: 'serverless'
+  },
+  target: 'serverless'
 };
