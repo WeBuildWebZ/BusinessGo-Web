@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getFinalPrice } from '../../utils/product';
@@ -7,6 +8,7 @@ import Item from './item';
 
 const ShoppingCart = () => {
   const cartItems = useSelector(state => state.cartItems);
+  const [email, setEmail] = useState('');
 
   const priceTotal = useSelector(state => {
     const _cartItems = state.cartItems;
@@ -56,12 +58,30 @@ const ShoppingCart = () => {
             <p className="cart-actions__total">
               Costo total <strong>${priceTotal.toFixed(2)}</strong>
             </p>
+            <div className="subscribe__form">
+              <input
+                className="emailInput"
+                type="email"
+                placeholder="Correo electrénico"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </div>
             <a href="#" className="btn btn--rounded btn--yellow">
               Pedir
             </a>
           </div>
         </div>
       </div>
+      <style jsx>
+        {`
+          .emailInput {
+            padding: 8px 0 8px 15px;
+            border-radius: 50px;
+            background-color: aquamarine;
+          }
+        `}
+      </style>
     </section>
   );
 };
