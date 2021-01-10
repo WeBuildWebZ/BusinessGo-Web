@@ -1,11 +1,15 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import Layout from '../../layouts/Main';
 import CheckoutStatus from '../../components/checkout-status';
+import CheckoutInputs from '../../components/checkout-inputs';
 import CheckoutItems from '../../components/checkout/items';
 import { getFinalPrice } from '../../utils/product';
 
 const CheckoutPage = () => {
+  const [data, setData] = useState({});
+
   const priceTotal = useSelector(state => {
     const { cartItems } = state;
     let totalPrice = 0;
@@ -26,46 +30,7 @@ const CheckoutPage = () => {
           </div>
 
           <div className="checkout-content">
-            <div className="checkout__col-6">
-              <div className="block">
-                <h3 className="block__title">Información de contacto</h3>
-                <form className="form">
-                  <div className="form__input-row form__input-row--two">
-                    <div className="form__col">
-                      <input
-                        className="form__input form__input--sm"
-                        type="text"
-                        placeholder="Nombre / empresa"
-                      />
-                    </div>
-
-                    <div className="form__col">
-                      <input className="form__input form__input--sm" type="text" placeholder="Domicilio" />
-                    </div>
-                  </div>
-
-                  <div className="form__input-row form__input-row--two">
-                    <div className="form__col">
-                      <input className="form__input form__input--sm" type="text" placeholder="Teléfono" />
-                    </div>
-
-                    <div className="form__col">
-                      <input className="form__input form__input--sm" type="text" placeholder="Email" />
-                    </div>
-                  </div>
-
-                  <div className="form__input-row form__input-row--two">
-                    <div className="form__col">
-                      <input className="form__input form__input--sm" type="text" placeholder="Provincia" />
-                    </div>
-                    <div className="form__col">
-                      <input className="form__input form__input--sm" type="text" placeholder="Localidad" />
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-
+            <CheckoutInputs onChange={setData} />
             <div className="checkout__col-2">
               <div className="block">
                 <h3 className="block__title">Tu carrito</h3>
