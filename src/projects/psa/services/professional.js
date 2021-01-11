@@ -19,5 +19,5 @@ export const getProfessionals = (page_number, filters = {}, text_search = '') =>
 
 export const getProfessionalFilters = () =>
   fetch(
-    `${process.env.API_URL}/client_document_distinct?value.region&value.city&value.work_area`
+    `${process.env.API_URL}/api/client_document_distinct?value.region&value.city&value.work_area`
   ).then(response => response.json());
