@@ -8,6 +8,7 @@ import { setUser } from '../../actions/user';
 import { setClientModels } from '../../actions/clientModels';
 import { setSelectedClientModel } from '../../actions/selectedClientModel';
 import LoadingPage from '../LoadingPage';
+import Spinner from '../Spinner';
 
 import Background from './components/background';
 import Title from './components/title';
@@ -18,6 +19,8 @@ const Configuration = props => {
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
   const selectedClientModel = useSelector(store => store.selectedClientModel);
+  const adminSection = useSelector(store => store.adminSection);
+  const project = useSelector(store => store.project);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -30,6 +33,9 @@ const Configuration = props => {
 
       getClientModels(newUser).then(({ data: clientModels }) => {
         dispatch(setClientModels(clientModels));
+
+        if (adminSection) return;
+
         if (!selectedClientModel && clientModels[0]) dispatch(setSelectedClientModel(clientModels[0]));
       });
     });
@@ -38,7 +44,8 @@ const Configuration = props => {
   return (
     <div className="Configuration">
       <Background backgroundImage={props.backgroundImage} />
-      <Title title={props.title} />
+      {!project && <Spinner />}
+      {project && <Title title={`${project.name} / Admin`} />}
       {loading && <LoadingPage />}
       {!loading && (
         <>
@@ -58,12 +65,10 @@ const Configuration = props => {
 };
 
 Configuration.propTypes = {
-  backgroundImage: PropTypes.string,
-  title: PropTypes.string
+  backgroundImage: PropTypes.string
 };
 Configuration.defaultProps = {
-  backgroundImage: '',
-  title: ''
+  backgroundImage: ''
 };
 
 export default Configuration;

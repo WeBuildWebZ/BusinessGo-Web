@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { Modal, PopoverTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import Text from './components/Text';
-import Image from './components/Image';
+import FieldRenderer from '../../../../../../../../../FieldRenderer';
+
 import { getLanguage } from './lang';
 
 const EditModal = props => {
@@ -13,10 +13,6 @@ const EditModal = props => {
   const language = getLanguage(useSelector(store => store.language));
 
   const { fields } = clientModel;
-
-  const handleUpdateDocument = (key, value) => {
-    setNewClientDocument({ ...newClientDocument, [key]: value });
-  };
 
   return (
     <div>
@@ -28,48 +24,20 @@ const EditModal = props => {
             {clientModel.name}
           </PopoverTitle>
         </Modal.Header>
-        <div className="fieldContainer">
-          {fields.map((field, i) => {
-            switch (field.input_type) {
-              case 'text':
-                return (
-                  <Text
-                    field={field}
-                    value={newClientDocument[field.key]}
-                    onChange={value => handleUpdateDocument(field.key, value)}
-                    key={i}
-                  />
-                );
-              case 'image':
-                return (
-                  <Image
-                    field={field}
-                    value={newClientDocument[field.key]}
-                    onChange={value => handleUpdateDocument(field.key, value)}
-                    key={i}
-                  />
-                );
-              default:
-                return <div key={i} />;
-            }
-          })}
-        </div>
-
-        <center>
+        <Modal.Body>
+          <FieldRenderer fields={fields} data={clientDocument} onChange={setNewClientDocument} />
+        </Modal.Body>
+        <Modal.Footer>
           <div className="iconContainer saveIconContainer" onClick={() => props.onEdit(newClientDocument)}>
             <img className="icon" src="/shared/icons/accept.svg" alt="saveIcon" />
           </div>
           <div className="iconContainer deleteIconContainer" onClick={props.onClose}>
             <img className="icon" src="/shared/icons/close.svg" alt="closeIcon" />
           </div>
-        </center>
+        </Modal.Footer>
       </Modal>
       <style jsx>
         {`
-          .fieldContainer {
-            width: 80%;
-            margin-left: 10%;
-          }
           .iconContainer {
             float: right;
             width: 40px;

@@ -13,6 +13,7 @@ const Title = props => {
       <style jsx>
         {`
           .title {
+            font-size: 19px;
             text-align: center;
           }
         `}

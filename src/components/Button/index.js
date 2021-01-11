@@ -18,6 +18,7 @@ const Button = props => {
             transition: 0.2s;
             cursor: pointer;
             background-color: rgba(0, 0, 0, 0.05);
+            font-size: 14px;
             user-select: none;
           }
 

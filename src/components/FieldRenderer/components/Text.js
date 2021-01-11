@@ -2,6 +2,8 @@ import React from 'react';
 import { TextField } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
+import { fieldShape } from '../../../utils/field';
+
 const Text = props => {
   const { field, value } = props;
 
@@ -10,6 +12,8 @@ const Text = props => {
       <TextField
         label={field.name}
         defaultValue={value || field.default_value}
+        rows={props.rows}
+        multiline={props.multiline}
         variant="outlined"
         required={field.is_required}
         style={{ width: '100%', margin: '16px 0 16px 0' }}
@@ -22,19 +26,16 @@ const Text = props => {
 
 Text.propTypes = {
   value: PropTypes.string,
-  field: PropTypes.shape({
-    key: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    default_value: PropTypes.string,
-    important: PropTypes.bool.isRequired,
-    input_type: PropTypes.string.isRequired, // text | number | photo | email | phone
-    is_required: PropTypes.bool.isRequired
-  }).isRequired,
+  multiline: PropTypes.bool,
+  rows: PropTypes.number,
+  field: fieldShape.isRequired,
   onChange: PropTypes.func
 };
 
 Text.defaultProps = {
   value: '',
+  multiline: false,
+  rows: 1,
   onChange: () => {}
 };
 

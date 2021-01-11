@@ -2,14 +2,11 @@ import React, { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Spinner from '../../../../../../../../../../../Spinner';
-import { uploadImage } from '../../../../../../../../../../../../services/cloudinary/image';
-
-import { getLanguage } from './lang';
+import Spinner from '../../../Spinner';
+import { uploadImage } from '../../../../services/cloudinary/image';
 
 const Image = props => {
   const { field, value } = props;
-  const language = getLanguage(useSelector(store => store.language));
   const user = useSelector(store => store.user);
   const [uploading, setUploading] = useState(false);
   const input = useRef(null);
