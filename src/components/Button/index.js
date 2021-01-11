@@ -17,7 +17,7 @@ const Button = props => {
             text-align: center;
             transition: 0.2s;
             cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.05);
+            background-color: rgba(65, 63, 63, 0.2);
             font-size: 14px;
             user-select: none;
           }

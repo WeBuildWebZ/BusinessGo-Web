@@ -8,7 +8,6 @@ import { setUser } from '../../actions/user';
 import { setClientModels } from '../../actions/clientModels';
 import { setSelectedClientModel } from '../../actions/selectedClientModel';
 import LoadingPage from '../LoadingPage';
-import Spinner from '../Spinner';
 
 import Background from './components/background';
 import Title from './components/title';
@@ -44,18 +43,23 @@ const Configuration = props => {
   return (
     <div className="Configuration">
       <Background backgroundImage={props.backgroundImage} />
-      {!project && <Spinner />}
-      {project && <Title title={`${project.name} / Admin`} />}
       {loading && <LoadingPage />}
       {!loading && (
         <>
-          {user && <Dashboard />}
+          {user && (
+            <>
+              {project && <Title title={`${project.name} / Admin`} />}
+              <Dashboard />
+            </>
+          )}
           {!user && <Login />}
         </>
       )}
       <style jsx>
         {`
           .Configuration {
+            position: absolute;
+            width: 100%;
             height: 100vh;
           }
         `}
