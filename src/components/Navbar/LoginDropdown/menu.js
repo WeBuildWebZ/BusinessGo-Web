@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Form, Button, ModalTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import { createSession } from '../../../services/session';
+import { createSession } from '../../../services/api/session';
 
 import { getLanguage } from './lang';
 import useStyle from './style';

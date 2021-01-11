@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { setUser } from '../actions/user';
-import { getSessions } from '../services/session';
+import { getSessions } from '../services/api/session';
 
 import LoadingPage from './LoadingPage';
 

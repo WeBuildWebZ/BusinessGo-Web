@@ -1,6 +1,6 @@
-const Language = (state = "es", action = {}) => {
+const Language = (state = 'es', action = {}) => {
   switch (action.type) {
-    case "setLanguage": {
+    case 'setLanguage': {
       return action.payload;
     }
     default: {

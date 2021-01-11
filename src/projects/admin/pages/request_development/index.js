@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { PopoverTitle, FormText, Button, Spinner, Form } from 'react-bootstrap';
-import { TextareaAutosize } from '@material-ui/core';
 
-import { getChecklistItems } from '../../../../services/checklistItem';
+import { getChecklistItems } from '../../../../services/api/checklistItem';
 import Navbar from '../../../../components/Navbar';
 import Checklist from '../../components/Checklist';
-import { getBasePrices } from '../../../../services/basePrice';
-import { createDevelopmentRequest } from '../../../../services/user';
+import { getBasePrices } from '../../../../services/api/basePrice';
+import { createDevelopmentRequest } from '../../../../services/api/user';
 
 import { getLanguage } from './lang';
 import useStyle from './style';

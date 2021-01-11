@@ -10,7 +10,7 @@ import {
   updateClientDocument,
   getClientDocuments,
   deleteClientDocument
-} from '../../../../../../../../services/clientDocument';
+} from '../../../../../../../../services/api/clientDocument';
 
 import EditModal from './components/EditModal';
 import SearchInput from './components/SearchInput';

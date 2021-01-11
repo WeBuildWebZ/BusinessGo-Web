@@ -4,7 +4,7 @@ import { Form, Button, PopoverTitle, ModalTitle, Alert } from 'react-bootstrap';
 import PhoneInput from 'react-phone-number-input';
 import PropTypes from 'prop-types';
 
-import { registerUser } from '../../../services/user';
+import { registerUser } from '../../../services/api/user';
 
 import { getLanguage } from './lang';
 import useStyle from './style';

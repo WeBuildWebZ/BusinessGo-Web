@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button, ModalTitle } from 'react-bootstrap';
 
-import { createSession } from '../../../../../../services/session';
+import { createSession } from '../../../../../../services/api/session';
 import { setUser } from '../../../../../../actions/user';
-import { getClientModels } from '../../../../../../services/user';
+import { getClientModels } from '../../../../../../services/api/user';
 import { setClientModels } from '../../../../../../actions/clientModels';
 import { setSelectedClientModel } from '../../../../../../actions/selectedClientModel';
 

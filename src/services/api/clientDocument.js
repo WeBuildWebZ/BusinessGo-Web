@@ -1,4 +1,4 @@
-import api from '../utils/axios';
+import api from '../../utils/axios';
 
 export const getClientDocuments = (
   table_name,
@@ -8,7 +8,7 @@ export const getClientDocuments = (
   text_search = '',
   text_search_fields = []
 ) =>
-  api.get('client_documents', {
+  api.get('api/client_documents', {
     params: {
       table_name,
       page_size,
@@ -23,24 +23,24 @@ export const getClientDocuments = (
 
 export const deleteClientDocument = (user, clientDocument) =>
   api.delete(
-    `users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`
+    `api/users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`
   );
 
 export const createClientDocument = (user, clientModel, clientDocument) =>
-  api.post(`users/${encodeURIComponent(user._id)}/client_documents`, {
+  api.post(`api/users/${encodeURIComponent(user._id)}/client_documents`, {
     table_name: clientModel.table_name,
     value: clientDocument
   });
 
 export const updateClientDocument = (user, clientDocument) =>
   api.put(
-    `users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`,
+    `api/users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`,
     clientDocument
   );
 
 export const getDistinctClientDocuments = (keys = []) =>
-  api.get('client_document_distinct', {
+  api.get('api/client_document_distinct', {
     params: Object.fromEntries(keys.map(key => [`value.${key}`, true]))
   });
 
-export const showClientDocument = _id => api.get(`client_documents/${encodeURIComponent(_id)}`);
+export const showClientDocument = _id => api.get(`api/client_documents/${encodeURIComponent(_id)}`);

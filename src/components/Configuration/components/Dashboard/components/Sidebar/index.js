@@ -2,11 +2,14 @@ import React from 'react';
 
 import Split from '../../../../../Split';
 
+import ConfigurationButton from './components/ConfigurationButton';
 import Title from './components/Title';
 import TablesSection from './components/TablesSection';
 
 const Sidebar = () => (
   <div className="sidebar">
+    <ConfigurationButton />
+    <Split />
     <Title code="tables" />
     <Split />
     <TablesSection />
