@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { elementScrolledToBottom } from '../../../../../../utils/html';
-
 import ClientDocumentEditor from './components/ClientDocumentEditor';
+import ConfigurationEditor from './components/ConfigurationEditor';
 
 const Container = () => {
   const selectedClientModel = useSelector(store => store.selectedClientModel);
+  const adminSection = useSelector(store => store.adminSection);
 
   return (
     <div className="container">
+      {adminSection === 'configuration' && <ConfigurationEditor />}
       {selectedClientModel && <ClientDocumentEditor clientModel={selectedClientModel} />}
       <style jsx>
         {`

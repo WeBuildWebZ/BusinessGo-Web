@@ -39,7 +39,7 @@ const Image = props => {
       ) : (
         <img
           alt={field.name}
-          src={value || field.default_value || 'shared/icons/upload.svg'}
+          src={value || field.default_value || '/shared/icons/upload.svg'}
           className="image"
           onClick={handleOpenFileSelector}
         />

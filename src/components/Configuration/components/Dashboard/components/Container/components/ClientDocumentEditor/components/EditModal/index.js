@@ -57,10 +57,10 @@ const EditModal = props => {
 
         <center>
           <div className="iconContainer saveIconContainer" onClick={() => props.onEdit(newClientDocument)}>
-            <img className="icon" src="shared/icons/accept.svg" alt="saveIcon" />
+            <img className="icon" src="/shared/icons/accept.svg" alt="saveIcon" />
           </div>
           <div className="iconContainer deleteIconContainer" onClick={props.onClose}>
-            <img className="icon" src="shared/icons/close.svg" alt="closeIcon" />
+            <img className="icon" src="/shared/icons/close.svg" alt="closeIcon" />
           </div>
         </center>
       </Modal>

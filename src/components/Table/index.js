@@ -17,7 +17,7 @@ const Table = props => {
           ))}
           <th>
             <div className="new" onClick={() => props.onNewRow({})}>
-              <img className="icon" src="shared/icons/plus.svg" alt="newIcon" />
+              <img className="icon" src="/shared/icons/plus.svg" alt="newIcon" />
             </div>
           </th>
         </tr>
@@ -35,13 +35,13 @@ const Table = props => {
             ))}
             <td>
               <div className="edit" onClick={() => props.onRowEdit(row)}>
-                <img className="icon" src="shared/icons/edit-pen.svg" alt="editIcon" />
+                <img className="icon" src="/shared/icons/edit-pen.svg" alt="editIcon" />
               </div>
             </td>
 
             <td>
               <div className="delete" onClick={() => props.onRowDelete(row)}>
-                <img src="shared/icons/trash.svg" alt="trashIcon" />
+                <img src="/shared/icons/trash.svg" alt="trashIcon" />
               </div>
             </td>
           </tr>
