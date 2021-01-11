@@ -31,6 +31,7 @@ const Container = () => {
               -webkit-transform: translate(100%);
               -o-transform: translate(100%);
               transform: translate(100%);
+              background-color: rgb(42, 42, 209);
               height: 0;
             }
             100% {

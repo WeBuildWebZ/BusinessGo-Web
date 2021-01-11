@@ -32,6 +32,7 @@ const Sidebar = () => (
             -o-transform: translate(-100%);
             transform: translate(-100%);
             height: 0;
+            background-color: rgb(42, 42, 209);
           }
           100% {
             opacity: 1;

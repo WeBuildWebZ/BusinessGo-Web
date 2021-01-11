@@ -79,7 +79,7 @@ const ProjectSelector = () => {
             0% {
               width: 0;
               opacity: 0;
-              background-color: green;
+              background-color: rgb(42, 42, 209);
               margin: 100% 0 100% 0;
             }
             100% {
@@ -91,7 +91,7 @@ const ProjectSelector = () => {
             100% {
               width: 0;
               opacity: 0;
-              background-color: green;
+              background-color: rgb(42, 42, 209);
               margin: 100% 0 100% 0;
             }
           }
