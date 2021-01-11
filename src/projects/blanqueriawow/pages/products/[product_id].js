@@ -11,9 +11,9 @@ import Description from '../../components/product-single/description';
 import { showClientDocument } from '../../../../services/clientDocument';
 
 export async function getServerSideProps({ query }) {
-  const { _id } = query;
+  const { product_id } = query;
 
-  const { data: product } = await showClientDocument(_id);
+  const { data: product } = await showClientDocument(product_id);
 
   return { props: { product } };
 }

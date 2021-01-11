@@ -28,7 +28,7 @@ const ProductItem = props => {
           <i className="icon-heart" />
         </button>
 
-        <Link href={`/product/${product._id}`}>
+        <Link href={`/products/${product._id}`}>
           <a href="#">
             <img src={product.photo} alt="product" />
             {product.discount && <span className="product__discount">{product.discount}%</span>}
