@@ -1,14 +1,16 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { PopoverTitle } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Popover, PopoverTitle, Toast } from 'react-bootstrap';
 
-import Spinner from '../../../../../../../Spinner';
-import FieldRenderer from '../../../../../../../FieldRenderer';
 import { updateProjectConfiguration } from '../../../../../../../../services/api/project';
+import FieldRenderer from '../../../../../../../FieldRenderer';
+import Spinner from '../../../../../../../Spinner';
+import { pushAlert } from '../../../../../../../../actions/alerts';
 
 import { getLanguage } from './lang';
 
 const ConfigurationEditor = () => {
+  const dispatch = useDispatch();
   const language = getLanguage(useSelector(store => store.language));
   const user = useSelector(store => store.user);
   const project = useSelector(store => store.project);
@@ -16,8 +18,14 @@ const ConfigurationEditor = () => {
 
   const handleUpdateConfiguration = newConfiguration => {
     setConfiguration(newConfiguration);
-
     updateProjectConfiguration(user, project, newConfiguration);
+    dispatch(
+      pushAlert({
+        icon: 'success',
+        title: language.configurationUpdated.title,
+        message: language.configurationUpdated.message
+      })
+    );
   };
 
   return (
@@ -37,6 +45,9 @@ const ConfigurationEditor = () => {
           .configuration {
             height: 100%;
             overflow-y: auto;
+          }
+          .icon {
+            width: 20px;
           }
         `}
       </style>

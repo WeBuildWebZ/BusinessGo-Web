@@ -13,6 +13,7 @@ import '../assets/css/styles.scss';
 import * as gtag from '../utils/gtag';
 import commonReducer from '../../../reducers';
 import reducer from '../reducers';
+import AlertStack from '../../../components/AlertStack';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -27,6 +28,7 @@ const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
 const App = ({ Component, pageProps }) => (
   <>
     <Provider store={store}>
+      <AlertStack position="bottomRight" />
       <Component {...pageProps} />
     </Provider>
   </>

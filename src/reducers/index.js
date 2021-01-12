@@ -1,4 +1,5 @@
 import user from './user';
+import alerts from './alerts';
 import project from './project';
 import language from './language';
 import adminSection from './adminSection';
@@ -7,8 +8,9 @@ import selectedClientModel from './selectedClientModel';
 
 const CommonReducers = {
   user,
-  language,
+  alerts,
   project,
+  language,
   adminSection,
   clientModels,
   selectedClientModel
