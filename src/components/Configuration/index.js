@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 import { getSessions } from '../../services/api/session';
 import { getClientModels } from '../../services/api/user';
-import { setUser } from '../../actions/user';
-import { setClientModels } from '../../actions/clientModels';
-import { setSelectedClientModel } from '../../actions/selectedClientModel';
+import { setUser } from '../../shared/actions/user';
+import { setClientModels } from '../../shared/actions/clientModels';
+import { setSelectedClientModel } from '../../shared/actions/selectedClientModel';
 import LoadingPage from '../LoadingPage';
 
 import Background from './components/background';

@@ -2,7 +2,7 @@ import { Toast } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { _popAlert, _hideAlert } from '../../actions/alerts';
+import { _popAlert, _hideAlert } from '../../shared/actions/alerts';
 
 import { iconMapper } from './constants';
 
@@ -16,7 +16,7 @@ const AlertStack = props => {
     dispatch(_hideAlert(alert));
     setTimeout(() => {
       dispatch(_popAlert(alert));
-    }, alert.duration);
+    }, 300);
   };
 
   if (!alerts.length) return <div />;

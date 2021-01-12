@@ -5,7 +5,7 @@ import { Popover, PopoverTitle, Toast } from 'react-bootstrap';
 import { updateProjectConfiguration } from '../../../../../../../../services/api/project';
 import FieldRenderer from '../../../../../../../FieldRenderer';
 import Spinner from '../../../../../../../Spinner';
-import { pushAlert } from '../../../../../../../../actions/alerts';
+import { pushAlert } from '../../../../../../../../shared/actions/alerts';
 
 import { getLanguage } from './lang';
 

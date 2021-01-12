@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../../../../../../../Button';
-import { setAdminSection } from '../../../../../../../../actions/adminSection';
-import { setSelectedClientModel } from '../../../../../../../../actions/selectedClientModel';
+import { setAdminSection } from '../../../../../../../../shared/actions/adminSection';
+import { setSelectedClientModel } from '../../../../../../../../shared/actions/selectedClientModel';
 
 import { getLanguage } from './lang';
 

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getSessions } from '../../../services/api/session';
 import LoadingPage from '../../../components/LoadingPage';
 import Navbar from '../../../components/Navbar';
-import { setUser } from '../../../actions/user';
+import { setUser } from '../../../shared/actions/user';
 
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);

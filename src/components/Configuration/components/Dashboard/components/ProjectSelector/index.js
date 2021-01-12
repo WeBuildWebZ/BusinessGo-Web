@@ -5,7 +5,7 @@ import { PopoverTitle } from 'react-bootstrap';
 import Spinner from '../../../../../Spinner';
 import Button from '../../../../../Button';
 import { getProjects } from '../../../../../../services/api/project';
-import { setProject } from '../../../../../../actions/project';
+import { setProject } from '../../../../../../shared/actions/project';
 
 import { getLanguage } from './lang';
 
