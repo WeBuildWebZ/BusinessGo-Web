@@ -5,6 +5,6 @@ const Products = () => (
   <Layout>
     <ShoppingCart />
   </Layout>
-)
+);
 
-export default Products
+export default Products;
