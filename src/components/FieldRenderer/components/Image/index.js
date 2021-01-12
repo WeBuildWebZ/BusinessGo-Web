@@ -59,7 +59,7 @@ Image.propTypes = {
   field: PropTypes.shape({
     key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    default_value: PropTypes.string,
+    default_value: PropTypes.any,
     important: PropTypes.bool.isRequired,
     input_type: PropTypes.string.isRequired,
     is_required: PropTypes.bool.isRequired
