@@ -97,17 +97,11 @@
     "jsx-a11y/click-events-have-key-events": "off",
     "react/forbid-prop-types": "off",
     "react/jsx-wrap-multilines": "off",
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": [
-          "Link"
-        ],
-        "specialLink": [
-          "to"
-        ]
-      }
-    ],
+    "react/no-unescaped-entities": "off",
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/alt-text": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "react/destructuring-assignment": "off",
     "import/no-cycle": "off"
   }

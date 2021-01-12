@@ -7,7 +7,7 @@ export const copyToClipboard = str => {
   document.body.removeChild(el);
 };
 
-export const copyNumbers = str =>
+export const copyNumbers = (str = '') =>
   copyToClipboard(
     str
       .split('')
@@ -20,3 +20,6 @@ export const copyNumbers = str =>
 
 export const scrolledToBottom = () =>
   document.documentElement.scrollTop + window.innerHeight >= document.body.scrollHeight;
+
+export const elementScrolledToBottom = element =>
+  element.clientHeight + element.scrollTop >= element.scrollHeight;

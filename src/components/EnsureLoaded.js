@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { setUser } from '../actions/user';
-import { getSessions } from '../services/session';
+import { setUser } from '../shared/actions/user';
+import { getSessions } from '../services/api/session';
 
 import LoadingPage from './LoadingPage';
 

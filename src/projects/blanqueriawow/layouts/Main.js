@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import Header from '../components/Header';
 
-export default ({ children, title = 'Next.js Ecommerce' }) => {
+const Main = ({ children, title = 'Blanquería Wow' }) => {
   const router = useRouter();
   const { pathname } = router;
 
@@ -20,3 +20,5 @@ export default ({ children, title = 'Next.js Ecommerce' }) => {
     </div>
   );
 };
+
+export default Main;

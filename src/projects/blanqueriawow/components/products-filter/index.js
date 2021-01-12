@@ -1,88 +1,73 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { updateFilters } from '../../actions/filters';
+import { getDistinctProducts } from '../../services/product';
+import Spinner from '../../../../components/Spinner';
+
 import Checkbox from './form-builder/checkbox';
-import CheckboxColor from './form-builder/checkbox-color';
-import Slider from 'rc-slider';
-import Tooltip from 'rc-tooltip';
-import { useForm } from "react-hook-form";
-
-// data
-import productsTypes from './../../utils/data/products-types';
-import productsColors from './../../utils/data/products-colors';
-import productsSizes from './../../utils/data/products-sizes';
-
-const { createSliderWithTooltip } = Slider;
-const Range = createSliderWithTooltip(Slider.Range);
-const { Handle } = Slider;
-
-const handle = props => {
-  const { value, dragging, index, ...restProps } = props;
-  return (
-    <Tooltip
-      prefixCls="rc-slider-tooltip"
-      overlay={value}
-      visible={dragging}
-      placement="top"
-      key={index}
-    >
-      <Handle value={value} {...restProps} />
-    </Tooltip>
-  );
-};
 
 const ProductsFilter = () => {
-  const router = useRouter();
+  const dispatch = useDispatch();
+  const selectedCategories = useSelector(store => store.filters.categories);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const { handleSubmit, register, getValues } = useForm();
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const addQueryParams = () => {
-    // query params changes
-  }
+  useEffect(() => {
+    getDistinctProducts().then(({ data: distinct }) => {
+      setCategories(distinct['value.category']);
+      setLoading(false);
+    });
+  }, [selectedCategories]);
+
+  const handleToggleCategory = category => {
+    const isSelected = selectedCategories.includes(category);
+
+    const newSelectedCategories = isSelected
+      ? selectedCategories.filter(_category => _category !== category)
+      : [...selectedCategories, category];
+
+    dispatch(updateFilters('categories', newSelectedCategories));
+  };
 
   return (
-    <form className="products-filter" onChange={addQueryParams}>
-      <button type="button" 
-        onClick={() => setFiltersOpen(!filtersOpen)} 
-        className={`products-filter__menu-btn ${filtersOpen ? 'products-filter__menu-btn--active' : ''}`}>
-          Add Filter <i className="icon-down-open"></i>
+    <form className="products-filter">
+      <button
+        type="button"
+        onClick={() => setFiltersOpen(!filtersOpen)}
+        className={`products-filter__menu-btn ${filtersOpen ? 'products-filter__menu-btn--active' : ''}`}
+      >
+        Add Filter <i className="icon-down-open" />
       </button>
-      
+
       <div className={`products-filter__wrapper ${filtersOpen ? 'products-filter__wrapper--open' : ''}`}>
         <div className="products-filter__block">
-          <button type="button">Product type</button>
+          <button type="button">Categoría</button>
+          {loading && <Spinner />}
           <div className="products-filter__block__content">
-            {productsTypes.map(type => (
-              <Checkbox 
-                key={type.id} 
-                ref={register} 
-                name="product-type" 
-                label={type.name} 
-              />
+            {categories.map((category, i) => (
+              <Checkbox key={i} label={category} onChange={() => handleToggleCategory(category)} />
             ))}
           </div>
         </div>
 
-        <div className="products-filter__block">
+        {/* <div className="products-filter__block">
           <button type="button">Price</button>
           <div className="products-filter__block__content">
             <Range min={0} max={20} defaultValue={[3, 10]} tipFormatter={value => `${value}%`} />
           </div>
-        </div>
-        
-        <div className="products-filter__block">
+        </div> */}
+
+        {/* <div className="products-filter__block">
           <button type="button">Size</button>
           <div className="products-filter__block__content checkbox-square-wrapper">
             {productsSizes.map(type => (
-              <Checkbox 
-                type="square" 
-                key={type.id} 
-                ref={register}
-                name="product-size" 
-                label={type.label} />
+              <Checkbox type="square" key={type.id} ref={register} name="product-size" label={type.label} />
             ))}
           </div>
         </div>
-        
+
         <div className="products-filter__block">
           <button type="button">Color</button>
           <div className="products-filter__block__content">
@@ -92,13 +77,14 @@ const ProductsFilter = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <button type="submit" className="btn btn-submit btn--rounded btn--yellow">Apply</button>
+        <button type="submit" className="btn btn-submit btn--rounded btn--yellow">
+          Apply
+        </button>
       </div>
     </form>
-  )
-}
-  
-export default ProductsFilter
-  
+  );
+};
+
+export default ProductsFilter;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Button, Nav } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
-import { deleteSessions } from '../../services/session';
+import { deleteSessions } from '../../services/api/session';
 
 import RegisterDropdown from './RegisterDropdown';
 import LoginDropdown from './LoginDropdown';

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getSessions } from '../../services/session';
-import { getClientModels } from '../../services/user';
-import { setUser } from '../../actions/user';
-import { setClientModels } from '../../actions/clientModels';
-import { setSelectedClientModel } from '../../actions/selectedClientModel';
+import { getSessions } from '../../services/api/session';
+import { getClientModels } from '../../services/api/user';
+import { setUser } from '../../shared/actions/user';
+import { setClientModels } from '../../shared/actions/clientModels';
+import { setSelectedClientModel } from '../../shared/actions/selectedClientModel';
 import LoadingPage from '../LoadingPage';
 
 import Background from './components/background';
@@ -18,6 +18,8 @@ const Configuration = props => {
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
   const selectedClientModel = useSelector(store => store.selectedClientModel);
+  const adminSection = useSelector(store => store.adminSection);
+  const project = useSelector(store => store.project);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -30,6 +32,9 @@ const Configuration = props => {
 
       getClientModels(newUser).then(({ data: clientModels }) => {
         dispatch(setClientModels(clientModels));
+
+        if (adminSection) return;
+
         if (!selectedClientModel && clientModels[0]) dispatch(setSelectedClientModel(clientModels[0]));
       });
     });
@@ -38,17 +43,23 @@ const Configuration = props => {
   return (
     <div className="Configuration">
       <Background backgroundImage={props.backgroundImage} />
-      <Title title={props.title} />
       {loading && <LoadingPage />}
       {!loading && (
         <>
-          {user && <Dashboard />}
+          {user && (
+            <>
+              {project && <Title title={`${project.name} / Admin`} />}
+              <Dashboard />
+            </>
+          )}
           {!user && <Login />}
         </>
       )}
       <style jsx>
         {`
           .Configuration {
+            position: absolute;
+            width: 100%;
             height: 100vh;
           }
         `}
@@ -58,12 +69,10 @@ const Configuration = props => {
 };
 
 Configuration.propTypes = {
-  backgroundImage: PropTypes.string,
-  title: PropTypes.string
+  backgroundImage: PropTypes.string
 };
 Configuration.defaultProps = {
-  backgroundImage: '',
-  title: ''
+  backgroundImage: ''
 };
 
 export default Configuration;

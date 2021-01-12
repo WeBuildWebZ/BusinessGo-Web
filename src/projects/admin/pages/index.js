@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Toast } from 'react-bootstrap';
 
 import Navbar from '../../../components/Navbar';
-import { clearEmailNotification } from '../../../services/user';
+import { clearEmailNotification } from '../../../services/api/user';
 import WelcomeModal from '../components/WelcomeModal';
 
 import { getLanguage } from './lang';

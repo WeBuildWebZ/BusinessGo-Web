@@ -1,4 +1,4 @@
-import { runExec } from './utils';
+import { runExec, copy } from './utils';
 import { project } from './project';
 
 (async () => {
@@ -7,4 +7,5 @@ import { project } from './project';
   await runExec(`mv ${project.path}/.next .`);
   await runExec('rm -rf public');
   await runExec(`cp -r ${project.path}/public .`);
+  await runExec(`cp -r src/shared/public public/shared`);
 })();

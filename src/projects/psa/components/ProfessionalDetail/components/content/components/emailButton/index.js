@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 const EmailButton = props => {
   const { professional } = props;
 
+  if (!professional.email) return <div />;
+
   return (
     <div className="ProfessionalDetail-Content-EmailButton">
       <a

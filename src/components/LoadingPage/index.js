@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { LinearProgress } from '@material-ui/core';
 
-import useStyles from './style';
-
 const getRandomInt = maxValue => Math.floor(Math.random() * maxValue);
 
 const getRandomStyle = () => {
@@ -24,7 +22,6 @@ const getRandomStyles = n =>
     .map(() => getRandomStyle());
 
 export default function LoadingPage() {
-  const classes = useStyles();
   const [spinnerStyles, setSpinnerStyles] = useState([]);
 
   const changeStyle = () => setSpinnerStyles(getRandomStyles(10));
@@ -34,8 +31,8 @@ export default function LoadingPage() {
   }, []);
 
   return (
-    <div className={classes.background}>
-      <LinearProgress className={classes.spinner} />
+    <div className="loadingPage">
+      <LinearProgress />
 
       {spinnerStyles.map((spinnerStyle, i) => (
         <Spinner
@@ -46,6 +43,18 @@ export default function LoadingPage() {
         />
       ))}
       <h1>Cargando...</h1>
+      <style jsx>
+        {`
+          .loadingPage {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #55f;
+          }
+        `}
+      </style>
     </div>
   );
 }

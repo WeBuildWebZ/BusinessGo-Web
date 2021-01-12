@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import ClientDocumentEditor from './components/ClientDocumentEditor';
+import ConfigurationEditor from './components/ConfigurationEditor';
 
 const Container = () => {
   const selectedClientModel = useSelector(store => store.selectedClientModel);
+  const adminSection = useSelector(store => store.adminSection);
 
   return (
     <div className="container">
+      {adminSection === 'configuration' && <ConfigurationEditor />}
       {selectedClientModel && <ClientDocumentEditor clientModel={selectedClientModel} />}
       <style jsx>
         {`
@@ -17,7 +20,6 @@ const Container = () => {
             width: 60%;
             height: 90vh;
             border-radius: 5px;
-            overflow: auto;
             animation: arrive 1s linear;
           }
 
@@ -29,6 +31,7 @@ const Container = () => {
               -webkit-transform: translate(100%);
               -o-transform: translate(100%);
               transform: translate(100%);
+              background-color: rgb(42, 42, 209);
               height: 0;
             }
             100% {

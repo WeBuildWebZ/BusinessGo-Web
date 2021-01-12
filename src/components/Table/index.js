@@ -1,14 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Spinner from '../Spinner';
 
-import { getLanguage } from './lang';
-
 const Table = props => {
-  const { selectable, fields } = props;
-  const language = getLanguage(useSelector(store => store.language));
+  const { fields } = props;
 
   return (
     <table className="table">
@@ -16,10 +12,40 @@ const Table = props => {
         <tr className="tr">
           {fields.map((field, i) => (
             <th className="th" key={i}>
-              {field.name}
+              <div className="headerTextContainer">{field.name}</div>
             </th>
           ))}
+          <th>
+            <div className="new" onClick={() => props.onNewRow({})}>
+              <img className="icon" src="/shared/icons/plus.svg" alt="newIcon" />
+            </div>
+          </th>
         </tr>
+
+        {props.rows.map((row, i) => (
+          <tr key={i} className="fila">
+            {fields.map((field, ii) => (
+              <td key={ii} className="td">
+                {field.input_type === 'image' ? (
+                  <img className="image" src={row[field.key]} />
+                ) : (
+                  row[field.key]
+                )}
+              </td>
+            ))}
+            <td>
+              <div className="edit" onClick={() => props.onRowEdit(row)}>
+                <img className="icon" src="/shared/icons/edit-pen.svg" alt="editIcon" />
+              </div>
+            </td>
+
+            <td>
+              <div className="delete" onClick={() => props.onRowDelete(row)}>
+                <img src="/shared/icons/trash.svg" alt="trashIcon" />
+              </div>
+            </td>
+          </tr>
+        ))}
 
         {props.loading && (
           <tr>
@@ -28,28 +54,6 @@ const Table = props => {
             </td>
           </tr>
         )}
-
-        {!props.loading &&
-          props.rows.map((row, i) => (
-            <tr key={i} className="fila">
-              {fields.map((field, ii) => (
-                <td key={ii} className="td">
-                  {row[field.key]}
-                </td>
-              ))}
-              <td>
-                <div className="edit">
-                  <img className="icon" src="shared/icons/edit-pen.svg" alt="editIcon" />
-                </div>
-              </td>
-
-              <td>
-                <div className="delete" onClick={() => props.onRowDelete(row)}>
-                  <img className="icon" src="shared/icons/trash.svg" alt="trashIcon" />
-                </div>
-              </td>
-            </tr>
-          ))}
       </tbody>
 
       <style jsx>
@@ -63,6 +67,10 @@ const Table = props => {
           .th {
             padding: 0 0 0 0.3em;
             text-align: center;
+          }
+
+          .headerTextContainer {
+            padding-top: 8px;
           }
 
           .td {
@@ -81,7 +89,13 @@ const Table = props => {
             color: white;
           }
 
+          .icon {
+            width: 100%;
+            height: 100%;
+          }
           .delete {
+            width: fit-content;
+            height: fit-content;
             padding: 2px;
             background-color: red;
             border-radius: 5px;
@@ -106,7 +120,23 @@ const Table = props => {
             background-color: #b8903f;
             box-shadow: 0 0 1px 1px #b8903f;
           }
-          // ===============================
+
+          .new {
+            border-radius: 5px;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            background-color: #87e41e;
+            transition: 0.2s;
+          }
+
+          .new:hover {
+            background-color: #79bd2b;
+            box-shadow: 0 0 1px 1px #79bd2b;
+          }
+          .image {
+            width: 50px;
+          }
         `}
       </style>
     </table>
@@ -114,10 +144,10 @@ const Table = props => {
 };
 
 Table.propTypes = {
-  selectable: PropTypes.bool,
   loading: PropTypes.bool,
-  onPageChanged: PropTypes.func,
   onRowDelete: PropTypes.func,
+  onRowEdit: PropTypes.func,
+  onNewRow: PropTypes.func,
   rows: PropTypes.array.isRequired,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
@@ -128,10 +158,10 @@ Table.propTypes = {
 };
 
 Table.defaultProps = {
-  selectable: false,
   loading: false,
-  onPageChanged: () => {},
-  onRowDelete: () => {}
+  onRowDelete: () => {},
+  onRowEdit: () => {},
+  onNewRow: () => {}
 };
 
 export default Table;

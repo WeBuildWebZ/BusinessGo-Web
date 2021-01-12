@@ -5,7 +5,7 @@ const Button = props => {
   const className = `button${props.selected ? ' button-selected' : ''}`;
 
   return (
-    <div className={className} onClick={props.onClick}>
+    <div className={className} onClick={props.onClick} style={props.style}>
       {props.text}
       <style jsx>
         {`
@@ -17,7 +17,8 @@ const Button = props => {
             text-align: center;
             transition: 0.2s;
             cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.05);
+            background-color: rgba(65, 63, 63, 0.2);
+            font-size: 14px;
             user-select: none;
           }
 
@@ -38,11 +39,13 @@ const Button = props => {
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   selected: PropTypes.bool,
+  style: PropTypes.object,
   onClick: PropTypes.func
 };
 
 Button.defaultProps = {
   selected: false,
+  style: {},
   onClick: () => {}
 };
 

@@ -1,34 +1,18 @@
-import React from 'react';
 import Head from 'next/head';
-import { Provider } from 'react-redux';
-import { combineReducers, createStore } from 'redux';
-import PropTypes from 'prop-types';
-
-import 'react-phone-number-input/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../../styles/globals.css';
 
-import commonReducer from '../../../reducers';
+import getApp from '../../../shared/pages/_app';
+import '../../../styles/globals.css';
 import reducer from '../reducers';
+import * as constants from '../constants';
+
 import './index.css';
 
-const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
+const AppendHead = () => (
+  <Head>
+    <title>Performance System Automotive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </Head>
+);
 
-export default function App({ Component, pageProps }) {
-  return (
-    <>
-      <Head>
-        <title>Performance System Automotive</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
-    </>
-  );
-}
-
-App.propTypes = {
-  Component: PropTypes.func.isRequired,
-  pageProps: PropTypes.objectOf(PropTypes.any).isRequired
-};
+export default getApp(reducer, constants, AppendHead);

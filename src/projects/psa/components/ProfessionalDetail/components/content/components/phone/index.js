@@ -10,6 +10,8 @@ const Phone = props => {
     copyNumbers(professional.phone);
   };
 
+  if (!professional.phone) return <div />;
+
   return (
     <div className="ProfessionalDetail-Content-Phone-container">
       <img className="ProfessionalDetail-Content-Phone-icon" src="icons/phone-gray.svg" alt="phoneGrayIcon" />

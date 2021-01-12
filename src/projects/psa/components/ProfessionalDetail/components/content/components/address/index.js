@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 const Address = props => {
   const { professional } = props;
 
+  if (!professional.address) return <div />;
+
   return (
     <div className="ProfessionalDetail-Content-Address-container">
       <img

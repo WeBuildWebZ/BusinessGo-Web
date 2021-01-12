@@ -1,12 +1,13 @@
-import React from 'react';
-
 import Split from '../../../../../Split';
 
+import ConfigurationButton from './components/ConfigurationButton';
 import Title from './components/Title';
 import TablesSection from './components/TablesSection';
 
 const Sidebar = () => (
   <div className="sidebar">
+    <ConfigurationButton />
+    <Split />
     <Title code="tables" />
     <Split />
     <TablesSection />
@@ -31,6 +32,7 @@ const Sidebar = () => (
             -o-transform: translate(-100%);
             transform: translate(-100%);
             height: 0;
+            background-color: rgb(42, 42, 209);
           }
           100% {
             opacity: 1;

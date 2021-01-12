@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 const Email = props => {
   const { professional } = props;
 
+  if (!professional.email) return <div />;
+
   return (
     <div className="ProfessionalDetail-Content-Email-container">
       <img className="ProfessionalDetail-Content-Email-icon" src="icons/email.svg" alt="emailIcon" />
