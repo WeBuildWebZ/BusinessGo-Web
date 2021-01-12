@@ -5,11 +5,12 @@ import { combineReducers, createStore } from 'redux';
 import commonReducer from '../reducers';
 import AlertStack from '../../components/AlertStack';
 
-const getApp = (reducer, constants) => {
+const getApp = (reducer, constants, AppendComponent) => {
   const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
 
   const App = ({ Component, pageProps }) => (
     <>
+      <AppendComponent />
       <Provider store={store}>
         <AlertStack position={constants.ALERT_STACK_POSITION} />
         <Component {...pageProps} />
