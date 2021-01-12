@@ -41,7 +41,7 @@ const Menu = () => {
       <ModalTitle className={classes.title}>{language.title}</ModalTitle>
       <Form className={classes.form} onSubmit={handleLogin}>
         <Form.Group controlId="email">
-          <Form.Label>{language.username}</Form.Label>
+          <Form.Label className="form-label text-left" >{language.username }</Form.Label>
           <Form.Control
             type="text"
             required
@@ -56,6 +56,7 @@ const Menu = () => {
         <Form.Group controlId="password">
           <Form.Label>{language.password}</Form.Label>
           <Form.Control
+
             type="password"
             required
             maxLength={200}
