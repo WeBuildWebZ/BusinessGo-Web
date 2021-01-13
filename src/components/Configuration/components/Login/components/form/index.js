@@ -7,6 +7,7 @@ import { setUser } from '../../../../../../shared/actions/user';
 import { getClientModels } from '../../../../../../services/api/user';
 import { setClientModels } from '../../../../../../shared/actions/clientModels';
 import { setSelectedClientModel } from '../../../../../../shared/actions/selectedClientModel';
+import Spinner from '../../../../../Spinner';
 
 import { getLanguage } from './lang';
 import useStyle from './style';
@@ -19,12 +20,15 @@ const Menu = () => {
   const selectedClientModel = useSelector(store => store.selectedClientModel);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = e => {
     e.preventDefault();
     if (user) return;
+    setLoading(true);
     createSession(email, password)
       .then(({ data: sessions }) => {
+        setLoading(false);
         const [{ user: newUser }] = sessions;
         dispatch(setUser(newUser));
 
@@ -33,7 +37,9 @@ const Menu = () => {
           if (!selectedClientModel && clientModels[0]) dispatch(setSelectedClientModel(clientModels[0]));
         });
       })
-      .catch(() => {});
+      .catch(({ response }) => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -41,7 +47,7 @@ const Menu = () => {
       <ModalTitle className={classes.title}>{language.title}</ModalTitle>
       <Form className={classes.form} onSubmit={handleLogin}>
         <Form.Group controlId="email">
-          <Form.Label className="form-label text-left" >{language.username }</Form.Label>
+          <Form.Label className="form-label text-left">{language.username}</Form.Label>
           <Form.Control
             type="text"
             required
@@ -56,7 +62,6 @@ const Menu = () => {
         <Form.Group controlId="password">
           <Form.Label>{language.password}</Form.Label>
           <Form.Control
-
             type="password"
             required
             maxLength={200}
@@ -66,7 +71,8 @@ const Menu = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className={classes.submit}>
+        {loading && <Spinner style={{ position: 'absolute' }} />}
+        <Button variant="primary" type="submit" className={classes.submit} disabled={loading}>
           {language.submit}
         </Button>
       </Form>
