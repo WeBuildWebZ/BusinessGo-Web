@@ -18,5 +18,9 @@
   "blanqueriawow": {
     "path": "src/projects/blanqueriawow",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/DancotLL/BGO-Blanqueria_Wow"
+  },
+  "bob": {
+    "path": "src/projects/bob",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/DancotLL/BGO-Bob"
   }
 }

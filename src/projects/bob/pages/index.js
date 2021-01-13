@@ -5,6 +5,7 @@ import Subscribe from '../components/subscribe';
 import Link from 'next/link';
 
 
+<<<<<<< HEAD
 const IndexPage = () => {
   return (
     <Layout>
@@ -30,13 +31,54 @@ const IndexPage = () => {
           </article>
         </div>
       </section>
+=======
+const IndexPage = () => (
+  <Layout>
+    <PageIntro />
 
-      <section className="section">
-        <div className="container">
-          <header className="section__intro">
-            <h4>Porque Elegirnos?</h4>
-          </header>
+    {/* LEAN- si yo te digo es Carnaval- vos apreta el pomo */}
+    <section className="featured">
+      <div className="container">
+        <article
+          style={{ backgroundImage: 'url(/images/featured-1.jpg)' }}
+          className="featured-item featured-item-large"
+        >
+          <div className="featured-item__content">
+            <h3>Articulos recien llegados</h3>
+            <a href="#" className="btn btn--rounded">
+              Mostrar Coleccion
+            </a>
+          </div>
+        </article>
 
+        <article
+          style={{ backgroundImage: 'url(/images/featured-2.jpg)' }}
+          className="featured-item featured-item-small-first"
+        >
+          <div className="featured-item__content">
+            <h3>Juego de sabanas simple</h3>
+            <a href="#" className="btn btn--rounded">
+              Mas detalles
+            </a>
+          </div>
+        </article>
+>>>>>>> 999910e3687007923d988a10278e1affb36fe937
+
+        <article
+          style={{ backgroundImage: 'url(/images/featured-3.jpg)' }}
+          className="featured-item featured-item-small"
+        >
+          <div className="featured-item__content">
+            <h3>Este invierno</h3>
+            <a href="#" className="btn btn--rounded">
+              Mas detalles
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+<<<<<<< HEAD
           <ul className="shop-data-items">
             <li>
               <i className="icon-shipping"></i>
@@ -70,6 +112,54 @@ const IndexPage = () => {
     </Layout>
   )
 }
+=======
+    <section className="section">
+      <div className="container">
+        <header className="section__intro">
+          <h4>Por qué elegirnos?</h4>
+        </header>
 
+        <ul className="shop-data-items">
+          <li>
+            <i className="icon-shipping" />
+            <div className="data-item__content">
+              <h4>Entregas a todo el pais.</h4>
+              <p>Utilizamos encomiendas como Via Cargo, expreso Bahia, etc.</p>
+            </div>
+          </li>
 
-export default IndexPage
+          <li>
+            <i className="icon-payment" />
+            <div className="data-item__content">
+              <h4>Medios de pago Seguros</h4>
+              <p>Podes utilizar , Mercado Pago, Paypal entre otros.</p>
+            </div>
+          </li>
+
+          <li>
+            <i className="icon-cash" />
+            <div className="data-item__content">
+              <h4>compra Transparente</h4>
+              <p>Derribamos cualquier pirateria, y/o compras fraudulentas por facebook.</p>
+            </div>
+          </li>
+
+          <li>
+            <i className="icon-materials" />
+            <div className="data-item__content">
+              <h4>Calidad Premium</h4>
+              <p>Nuestros precios y calidad van de la mano, es cuestion de que lo veas!</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+>>>>>>> 999910e3687007923d988a10278e1affb36fe937
+
+    {/* <ProductsFeatured /> */}
+    <Subscribe />
+    <Footer />
+  </Layout>
+);
+
+export default IndexPage;
