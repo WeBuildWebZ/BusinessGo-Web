@@ -14,6 +14,8 @@ import Facebook from './components/facebook';
 import Whatsapp from './components/whatsapp';
 import Instagram from './components/instagram';
 import EmailButton from './components/emailButton';
+import PatentPhoto from './components/patentPhoto';
+import SIIPhoto from './components/SIIPhoto';
 
 const Content = props => {
   const { professional } = props;
@@ -31,6 +33,8 @@ const Content = props => {
       <Whatsapp professional={professional} />
       <Facebook professional={professional} />
       <Instagram professional={professional} />
+      <PatentPhoto professional={professional} />
+      <SIIPhoto professional={professional} />
       <EmailButton professional={professional} />
     </>
   );

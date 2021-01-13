@@ -27,6 +27,7 @@ const OpenableImage = props => {
         <Modal
           open
           onClose={handleClose}
+          style={{ overflowY: 'auto' }}
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
         >
@@ -39,10 +40,17 @@ const OpenableImage = props => {
           </Paper>
         </Modal>
       )}
-      <style jsx global>
+      <style jsx>
         {`
           .OpenableImage {
+            border-radius: 5px;
             cursor: pointer;
+            transition: 0.2s;
+            animation: arrive 1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+          }
+          .OpenableImage:hover {
+            border-radius: 8px;
+            box-shadow: 0 0 1px 1px #dddddd;
           }
 
           .OpenableImage-modalPaper {
@@ -66,6 +74,16 @@ const OpenableImage = props => {
           .OpenableImage-modalImage {
             width: 80%;
             margin-bottom: 10px;
+          }
+
+          @keyframes arrive {
+            0% {
+              opacity: 0;
+              box-shadow: 0 0 3px 3px rgb(41, 190, 41);
+            }
+            100% {
+              opacity: 1;
+            }
           }
         `}
       </style>

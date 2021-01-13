@@ -20,7 +20,7 @@ const College = props => {
         <div className="ProfessionalDetail-Content-College-collegeDegree">{professional.college_degree}</div>
         {professional.college_degree_photo && (
           <OpenableImage
-            style={{ float: 'left', width: 100 }}
+            style={{ float: 'left', width: 100, marginLeft: 11 }}
             title={professional.college_degree}
             src={professional.college_degree_photo}
           />

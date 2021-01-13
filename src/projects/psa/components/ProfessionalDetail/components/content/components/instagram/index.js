@@ -26,8 +26,8 @@ const Instagram = props => {
         {`
           .ProfessionalDetail-Content-Instagram-container {
             float: left;
-            margin: 10px 0 0 20px;
-            width: calc(100% - 20px);
+            margin: 10px 0 0 18px;
+            width: calc(100% - 18px);
           }
 
           .ProfessionalDetail-Content-Instagram-icon {
@@ -38,7 +38,7 @@ const Instagram = props => {
             float: left;
             font-size: 16px;
             text-align: left;
-            margin: 0 0 0 15px;
+            margin: 0 0 0 17px;
             color: white;
           }
 
