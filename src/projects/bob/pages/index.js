@@ -1,58 +1,32 @@
 import Layout from '../layouts/Main';
 import PageIntro from '../components/page-intro';
-import ProductsFeatured from '../components/products-featured';
 import Footer from '../components/footer';
 import Subscribe from '../components/subscribe';
+import Link from 'next/link';
+
 
 const IndexPage = () => {
   return (
     <Layout>
       <PageIntro />
 
-
-<<<<<<< HEAD
-      {/* LEAN- si yo te digo es Carnaval- vos apreta el pomo */}
       <section className="featured">
         <div className="container">
           <article style={{backgroundImage: 'url(/images/featured-1.jpg)'}} className="featured-item featured-item-large">
             <div className="featured-item__content">
-              <h3>Articulos recien llegados</h3>
-              <a href="#" className="btn btn--rounded">Mostrar Coleccion</a>
+            <h3>Todos Nuestros Trabajos.</h3>
+            <Link href="/galeria">
+              <button className="btn btn--rounded">Ver Galeria</button>
+            </Link>
             </div>
           </article>
-=======
-      {/* etiquetas og facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="Blanquería Wow" />
-      <meta
-        property="og:description"
-        content="Blanquería Wow, el mejor precio para el confort de tu hogar."
-      />
-      <meta property="og:image" content="https://blanqueriawow.com/images/page.png" />
-      <meta property="og:image:width" content="828" />
-      <meta property="og:image:height" content="450" />
-      <meta property="og:url" content="https://blanqueriawow.com/" />
-      <meta property="og:site_name" content="Blanquería Wow" />
-      {/* aditional */}
-      <meta name="author" content="Blanquería Wow" />
-      <meta name="copyright" content="Blanquería Wow" />
-      <meta name="Description" content="Blanquería Wow, el mejor precio para el confort de tu hogar." />
-    </Head>
-    <PageIntro />
->>>>>>> d23c22a8f33870d2b52b1b585f78b28669a0bb1c
 
           <article style={{backgroundImage: 'url(/images/featured-2.jpg)'}} className="featured-item featured-item-small-first">
-            <div className="featured-item__content">
-              <h3>Juego de sabanas simple</h3>
-              <a href="#" className="btn btn--rounded">Mas detalles</a>
-            </div>
+            <div className="featured-item__content"></div>
           </article>
 
           <article style={{backgroundImage: 'url(/images/featured-3.jpg)'}} className="featured-item featured-item-small">
-            <div className="featured-item__content">
-              <h3>Este invierno</h3>
-              <a href="#" className="btn btn--rounded">Mas detalles</a>
-            </div>
+            <div className="featured-item__content"></div>
           </article>
         </div>
       </section>
@@ -67,39 +41,30 @@ const IndexPage = () => {
             <li>
               <i className="icon-shipping"></i>
               <div className="data-item__content">
-                <h4>Entregas a todo el pais.</h4>
-                <p>Utilizamos encomiendas como Via Cargo, expreso Bahia, etc.</p>
-              </div>
-            </li>
-
-            <li>
-              <i className="icon-payment"></i>
-              <div className="data-item__content">
-                <h4>Medios de pago Seguros</h4>
-                <p>Podes utilizar , Mercado Pago, Paypal entre otros.</p>
+                <h4>Viajamos a todo el pais.</h4>
+                <p>Tenemos movilidad propia para todas nuestras herramientas,maquinas,etc.</p>
               </div>
             </li>
 
             <li>
               <i className="icon-cash"></i>
               <div className="data-item__content">
-                <h4>compra Transparente</h4>
-                <p>Derribamos cualquier pirateria, y/o compras fraudulentas por facebook.</p>
+                <h4>Presupuesto Libre</h4>
+                <p>Podes contactarme a travez de mis redes, me contas lo queres y te presupuesto.</p>
               </div>
             </li>
 
             <li>
               <i className="icon-materials"></i>
               <div className="data-item__content">
-                <h4>Calidad Premium</h4>
-                <p>Nuestros precios y calidad van de la mano, es cuestion de que lo veas!</p>
+                <h4>Tiempo y forma</h4>
+                <p>Trabajamos de manera responsable, respetando el tiempo establecido.</p>
               </div>
             </li>
           </ul>
         </div>
       </section>
 
-      <ProductsFeatured />
       <Subscribe />
       <Footer />
     </Layout>

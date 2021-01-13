@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
 import useOnClickOutside from 'use-onclickoutside';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -8,8 +7,7 @@ import Logo from '../../assets/icons/logo';
 
 const Header = ({ isErrorPage }) => {
   const router = useRouter();
-  const { cartItems } = useSelector(state => state.cart);
-  const arrayPaths = ['/products', '/product/[pid]', '/login', '/cart', '/register', '/cart/checkout'];
+  const arrayPaths = [];
 
   const [onTop, setOnTop] = useState(!(arrayPaths.includes(router.pathname) || isErrorPage));
   const [menuOpen, setMenuOpen] = useState(false);
@@ -55,48 +53,29 @@ const Header = ({ isErrorPage }) => {
           <a>
             <h1 className="site-logo">
               <Logo />
-              Blanqueria- Wow
+              Construcciones - Pilar
             </h1>
           </a>
         </Link>
         <nav ref={navRef} className={`site-nav ${menuOpen ? 'site-nav--open' : ''}`}>
-          <Link href="/products">
-            <a>Productos</a>
-          </Link>
-          <a href="#">Preguntas Frecuentes</a>
-          <a href="#">Contacto</a>
-          <button className="site-nav__btn">
-            <p>Cuenta</p>
-          </button>
+         
         </nav>
 
-        <div className="site-header__actions">
-          <button
-            ref={searchRef}
-            className={`search-form-wrapper ${searchOpen ? 'search-form--active' : ''}`}
-          >
-            <form className="search-form">
-              <i className="icon-cancel" onClick={() => setSearchOpen(!searchOpen)} />
-              <input type="text" name="search" placeholder="Enter the product you are looking for" />
-            </form>
-            <i onClick={() => setSearchOpen(!searchOpen)} className="icon-search" />
-          </button>
-          <Link href="/cart">
-            <button className="btn-cart">
-              <i className="icon-cart" />
-              {cartItems.length > 0 && <span className="btn-cart__count">{cartItems.length}</span>}
-            </button>
-          </Link>
-          <Link href="/login">
-            <button className="site-header__btn-avatar">
-              <i className="icon-avatar" />
-            </button>
-          </Link>
-          <button onClick={() => setMenuOpen(true)} className="site-header__btn-menu">
-            <i className="btn-hamburger">
-              <span />
-            </i>
-          </button>
+        <div className="icons">
+             <a href="https://www.facebook.com/piscinas.dehormigon.902" target="_blank"><i className="icon-facebook size" ></i></a>
+             <a href="#"><i className="icon-linkedin size"></i></a>
+            <a href="https://www.instagram.com/piscinasdehormigo/" target="_blank"><i className="icon-instagram size"></i></a>
+             <a href="#"><i className="icon-youtube-play size"></i></a>
+
+             <style jsx>{`
+             .icons{
+              margin-left:auto;
+             }
+             .size{
+               font-size:1.2em;
+               margin:3px;
+             }
+             `}</style>
         </div>
       </div>
     </header>
