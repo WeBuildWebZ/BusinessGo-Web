@@ -5,54 +5,64 @@ SwiperCore.use([EffectFade, Navigation]);
 
 
 
-const Galeria = () => {
+const Galeria = ({ items }) => {
     return (
         <section className="page-intro">
-    <Swiper navigation effect="fade" className="swiper-wrapper">
+    <Swiper
+     navigation effect="fade"
+     className="swiper-wrapper"
+     >
       <SwiperSlide>
-        <div
-          className="page-intro__slide"
-          style={{
-            backgroundImage: "url('/images/slide-1.jpg')",
-            backgroundPosition: 'bottom'
-          }}
-        >
-          <div className="container">
-            <div className="page-intro__slide__content">
-            </div>
-          </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <div
-          className="page-intro__slide"
-          style={{ backgroundImage: "url('/images/slide-2.jpg')", backgroundPosition: 'bottom' }}
-        >
-          <div className="container">
-            <div className="page-intro__slide__content">
-            </div>
-          </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <div
-          className="page-intro__slide"
-          style={{ backgroundImage: "url('/images/slide-3.jpg')", backgroundPosition: 'bottom' }}
-        >
-          <div className="container">
-            <div className="page-intro__slide__content">
-            </div>
-          </div>
+      <div className="cards">
+          {items?.length &&
+            items.map((i) => {
+              return (
+                <div
+                  className="card"
+                  key={i.title}
+                  title={i.title}
+                  picture={i.image}
+                  link={i.slug}
+                />
+              )
+            })}
         </div>
       </SwiperSlide>
     </Swiper>
+
+    <style jsx>{`
+
+        .cards {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+        }
+        .card {
+          width:150px;
+          height:200px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          flex-flow:column;
+        }
+      `}</style>
   </section>
     )
 }
-
 export default Galeria;
+// lean arregla el path del js..no tuve tiempo y me fui..
+export async function getStaticProps() {
+  const imagesData = await import(`../utils/images`)
+
+  return {
+    props: {
+      items: imagesData.items,
+    },
+  }
+}
+
 
 
 
