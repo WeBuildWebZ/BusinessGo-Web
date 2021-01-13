@@ -11,15 +11,11 @@ let timeoutId;
 const FieldRenderer = props => {
   const { fields, data, updateAfter } = props;
 
-  console.log(data);
-
   const handleUpdateData = (key, value) => {
-    console.log('change', key, value);
     if (!updateAfter) return props.onChange({ ...data, [key]: value });
 
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
-      console.log('change', key, value);
       props.onChange({ ...data, [key]: value });
     }, updateAfter);
   };
@@ -97,7 +93,7 @@ const FieldRenderer = props => {
 };
 
 FieldRenderer.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
   fields: PropTypes.arrayOf(fieldShape),
   updateAfter: PropTypes.number,
   onChange: PropTypes.func
@@ -105,6 +101,7 @@ FieldRenderer.propTypes = {
 
 FieldRenderer.defaultProps = {
   fields: [],
+  data: {},
   updateAfter: 0,
   onChange: () => {}
 };

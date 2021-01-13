@@ -28,8 +28,8 @@ const Content = props => {
       <Region professional={professional} />
       <Email professional={professional} />
       <Phone professional={professional} />
-      <Facebook professional={professional} />
       <Whatsapp professional={professional} />
+      <Facebook professional={professional} />
       <Instagram professional={professional} />
       <EmailButton professional={professional} />
     </>

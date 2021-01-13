@@ -25,7 +25,6 @@ const Image = props => {
     uploadImage(user, file).then(body => {
       setUploading(false);
       props.onChange(body.secure_url);
-      console.log('onChange', body.secure_url);
     });
   };
 
