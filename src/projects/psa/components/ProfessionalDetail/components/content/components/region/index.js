@@ -1,31 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const WorkArea = props => {
+const Region = props => {
   const { professional } = props;
 
+  if (!professional.address) return <div />;
+
   return (
-    <div className="workArea-container">
-      <img className="workArea-workshopIcon" src="icons/workshop.svg" alt="workshopIcon" />
-      <div className="workArea-text">{professional.work_area}</div>
+    <div className="region-container">
+      <img className="region-icon" src="icons/region.png" alt="locationIcon" />
+      <div className="region-text">{professional.region}</div>
       <style jsx>
         {`
-          .workArea-container {
+          .region-container {
             float: left;
             margin: 10px 0 0 20px;
             width: calc(100% - 20px);
           }
 
-          .workArea-workshopIcon {
+          .region-icon {
             float: left;
-            width: 22px;
+            width: 18px;
           }
 
-          .workArea-text {
+          .region-text {
             float: left;
             font-size: 16px;
             text-align: left;
-            margin: 0 0 0 17px;
+            margin: 0 0 0 21px;
           }
         `}
       </style>
@@ -33,8 +35,8 @@ const WorkArea = props => {
   );
 };
 
-WorkArea.propTypes = {
+Region.propTypes = {
   professional: PropTypes.object.isRequired
 };
 
-export default WorkArea;
+export default Region;

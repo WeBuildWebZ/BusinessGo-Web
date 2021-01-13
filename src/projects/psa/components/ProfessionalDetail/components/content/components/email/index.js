@@ -14,7 +14,8 @@ const Email = props => {
         {`
           .ProfessionalDetail-Content-Email-container {
             float: left;
-            margin-left: 20px;
+            margin: 10px 0 0 20px;
+            width: calc(100% - 20px);
           }
 
           .ProfessionalDetail-Content-Email-icon {

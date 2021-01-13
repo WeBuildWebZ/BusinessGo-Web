@@ -7,9 +7,11 @@ import Profile from './components/profile';
 import College from './components/college';
 import WorkArea from './components/workArea';
 import Address from './components/address';
+import Region from './components/region';
 import Email from './components/email';
 import Phone from './components/phone';
 import Facebook from './components/facebook';
+import Whatsapp from './components/whatsapp';
 import Instagram from './components/instagram';
 import EmailButton from './components/emailButton';
 
@@ -23,9 +25,11 @@ const Content = props => {
       <College professional={professional} />
       <WorkArea professional={professional} />
       <Address professional={professional} />
+      <Region professional={professional} />
       <Email professional={professional} />
       <Phone professional={professional} />
       <Facebook professional={professional} />
+      <Whatsapp professional={professional} />
       <Instagram professional={professional} />
       <EmailButton professional={professional} />
     </>

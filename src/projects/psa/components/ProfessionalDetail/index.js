@@ -20,9 +20,6 @@ const ProfessionalDetail = props => {
       <style jsx>
         {`
           .ProfessionalDetail {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
             position: fixed;
             left: 100%;
             top: 0;

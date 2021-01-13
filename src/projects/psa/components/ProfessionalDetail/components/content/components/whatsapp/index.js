@@ -7,38 +7,43 @@ const Facebook = props => {
   if (!professional.facebook_url || !professional.facebook_user) return <div />;
 
   return (
-    <div className="facebook-container">
-      <img className="facebook-icon" src="icons/facebook.svg" alt="facebookIcon" />
-      <div className="facebook-text">
-        <a className="facebook-link" target="blank" href={professional.facebook_url}>
-          {professional.facebook_user}
+    <div className="whatsapp-container">
+      <img className="whatsapp-icon" src="icons/whatsapp.png" alt="whatsappIcon" />
+      <div className="whatsapp-text">
+        <a
+          className="whatsapp-link"
+          target="blank"
+          href={`https://api.whatsapp.com/send?phone=${professional.whatsapp_number}`}
+        >
+          {professional.whatsapp_number}
         </a>
       </div>
       <style jsx>
         {`
-          .facebook-container {
+          .whatsapp-container {
             float: left;
-            margin: 10px 0 0 20px;
-            width: calc(100% - 20px);
+            margin: 10px 0 0 17px;
+            width: calc(100% - 17px);
           }
 
-          .facebook-icon {
+          .whatsapp-icon {
             float: left;
+            width: 22px;
           }
 
-          .facebook-text {
+          .whatsapp-text {
             float: left;
             font-size: 16px;
             text-align: left;
-            margin: 0 0 0 25px;
+            margin: 0 0 0 17px;
             color: white;
           }
 
-          .facebook-link {
+          .whatsapp-link {
             color: #0cc44a;
           }
 
-          .facebook-link:hover {
+          .whatsapp-link:hover {
             color: #14a042;
           }
         `}

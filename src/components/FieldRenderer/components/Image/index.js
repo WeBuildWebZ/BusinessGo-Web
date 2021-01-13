@@ -25,12 +25,13 @@ const Image = props => {
     uploadImage(user, file).then(body => {
       setUploading(false);
       props.onChange(body.secure_url);
+      console.log('onChange', body.secure_url);
     });
   };
 
   return (
-    <>
-      {`${field.name}:`}
+    <div className="imageContainer">
+      <div className="imageText">{`${field.name}:`}</div>
       {uploading ? (
         <Spinner />
       ) : (
@@ -44,13 +45,22 @@ const Image = props => {
       <input ref={input} type="file" style={{ display: 'none' }} onChange={handleChangeImage} />
       <style jsx>
         {`
+          .imageContainer {
+            margin: 16px 0 16px 0;
+          }
+          .imageText {
+            width: fit-content;
+            display: inline-block;
+          }
           .image {
+            display: inline-block;
             width: 50px;
+            margin-left: 10px;
             cursor: pointer;
           }
         `}
       </style>
-    </>
+    </div>
   );
 };
 

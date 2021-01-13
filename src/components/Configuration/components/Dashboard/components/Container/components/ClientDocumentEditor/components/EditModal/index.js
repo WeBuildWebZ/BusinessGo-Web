@@ -25,7 +25,7 @@ const EditModal = props => {
           </PopoverTitle>
         </Modal.Header>
         <Modal.Body>
-          <FieldRenderer fields={fields} data={clientDocument} onChange={setNewClientDocument} />
+          <FieldRenderer fields={fields} data={newClientDocument} onChange={setNewClientDocument} />
         </Modal.Body>
         <Modal.Footer>
           <div className="iconContainer deleteIconContainer" onClick={props.onClose}>
