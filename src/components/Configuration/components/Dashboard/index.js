@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProjectSelector from './components/ProjectSelector';
 import Sidebar from './components/Sidebar';
 import Container from './components/Container';
+import ButtonPanel from './components/ButtonPanel';
 
 const Dashboard = () => {
   const project = useSelector(store => store.project);
@@ -14,6 +15,7 @@ const Dashboard = () => {
         {project && (
           <>
             <Sidebar />
+            <ButtonPanel />
             <Container />
           </>
         )}

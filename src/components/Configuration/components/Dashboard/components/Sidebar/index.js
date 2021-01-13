@@ -17,9 +17,9 @@ const Sidebar = () => (
           background-color: #ffffff;
           box-shadow: 0 0 2px 2px #ffffff;
           width: 20%;
+          margin: auto;
           height: 87vh;
           border-radius: 5px;
-          margin-left: 15px;
           animation: arrive 1s linear;
         }
 
