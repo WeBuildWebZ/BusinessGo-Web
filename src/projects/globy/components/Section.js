@@ -35,7 +35,6 @@ const Section = () => {
         margin-bottom:1.5em;
         flex-wrap: wrap;
         box-sizing:border-box;
-
     }
     .box-one,
     .box-two,
@@ -84,7 +83,20 @@ const Section = () => {
 .text b{
     color:#86a8e7;
 }
+// =============================================
+@media(max-width:1000px){
+    .section{
+        flex-flow:column;
+        background:yellow;
+    }
+    .box-one,
+    .box-two,
+    .box-three{
+        flex:1;
+        height: 100%;
 
+}
+}
 
 
 

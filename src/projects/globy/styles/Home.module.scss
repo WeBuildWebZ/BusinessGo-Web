@@ -1,3 +1,4 @@
+
 @mixin flex-center{
     display: flex;
     justify-content: center;
@@ -40,23 +41,21 @@
     @include flex-center();
     flex-direction: column;
     flex-wrap: wrap;
-
 }
 
 .header {
     @include flex-center();
-    flex-flow: column;
     width: 100vw;
     height: 100vh;
     margin: 1em 0;
-    flex-wrap: wrap;
-
 }
 
 // ==========================================
 
 .img{
     border-radius:1em;
+    width: 500px;
+    height: 500px;
 }
 // ==========================================
 .backgrounfinal {
