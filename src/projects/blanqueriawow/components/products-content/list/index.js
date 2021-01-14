@@ -12,6 +12,7 @@ const ProductsContent = props => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     setLoading(true);
@@ -21,7 +22,15 @@ const ProductsContent = props => {
         setLoading(false);
       }
     );
-  }, [pageNumber, selectedCategories]);
+  }, [pageNumber, counter]);
+
+  useEffect(() => {
+    setLoading(true);
+    setProducts([]);
+    setPageNumber(1);
+    setCounter(counter + 1);
+    window.scrollTo(0, 0);
+  }, [selectedCategories]);
 
   const handleLastVisible = () => {
     setPageNumber(pageNumber + 1);

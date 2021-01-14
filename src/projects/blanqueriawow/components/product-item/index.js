@@ -42,7 +42,7 @@ const ProductItem = props => {
   };
 
   return (
-    <div className="product-item" onScroll={console.log} id={elementId} draggable>
+    <div className="product-item" id={elementId} draggable>
       <div className="product__image">
         <button
           type="button"
