@@ -19,7 +19,6 @@ const ButtonPanel = () => {
   return (
     <div className="buttonPanel">
       <Button icon="/shared/icons/logout.png" text={language.logout} onClick={handleLogout} />
-      <Button />
       <style jsx>
         {`
           .buttonPanel {

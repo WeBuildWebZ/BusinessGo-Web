@@ -27,9 +27,12 @@ const ClientDocumentEditor = props => {
 
   const importantFields = clientModel.fields.filter(({ important }) => important);
 
-  useEffect(() => () => {
-    setMounted(false);
-  });
+  useEffect(
+    () => () => {
+      setMounted(false);
+    },
+    []
+  );
 
   const handleEditDocument = clientDocument => {
     setIsNewDocument(false);

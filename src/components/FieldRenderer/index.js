@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { fieldShape } from '../../utils/field';
 
 import Text from './components/Text';
+import Number from './components/Number';
 import Image from './components/Image';
 
 let timeoutId;
@@ -24,6 +25,15 @@ const FieldRenderer = props => {
     <div className="fieldContainer">
       {fields.map((field, i) => {
         switch (field.input_type) {
+          case 'number':
+            return (
+              <Number
+                field={field}
+                value={data[field.key]}
+                onChange={value => handleUpdateData(field.key, value)}
+                key={i}
+              />
+            );
           case 'text':
             return (
               <Text
