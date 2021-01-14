@@ -17,35 +17,32 @@ const ProductsContent = props => {
     setLoading(true);
     getProducts(props.pageSize, pageNumber, { category: selectedCategories }).then(
       ({ data: newProducts }) => {
-        setProducts(newProducts);
+        setProducts([...products, ...newProducts]);
         setLoading(false);
       }
     );
   }, [pageNumber, selectedCategories]);
 
   const handleLastVisible = () => {
-    console.log('is visible!');
+    setPageNumber(pageNumber + 1);
   };
 
   return (
     <>
+      <section className="products-list">
+        {products.map((product, i) => {
+          const isLast = i === products.length - 1;
+          return (
+            <ProductItem
+              key={i}
+              product={product}
+              visibilityHookEnabled={isLast}
+              onVisible={handleLastVisible}
+            />
+          );
+        })}
+      </section>
       {loading && <ProductsLoading />}
-
-      {!loading && (
-        <section className="products-list">
-          {products.map((product, i) => {
-            const isLast = i === products.length - 1;
-            return (
-              <ProductItem
-                key={i}
-                product={product}
-                visibilityHookEnabled={isLast}
-                onVisible={handleLastVisible}
-              />
-            );
-          })}
-        </section>
-      )}
     </>
   );
 };
