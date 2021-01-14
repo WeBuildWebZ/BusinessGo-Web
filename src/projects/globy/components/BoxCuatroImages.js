@@ -46,7 +46,6 @@ const BoxCuatroImages = () => {
                 display: flex;
                 justify-content:center;
                 align-items:flex-start;
-                flex-wrap:wrap;
                 flex-flow:column;
                 padding:2em;
             }
@@ -56,12 +55,18 @@ const BoxCuatroImages = () => {
     .right h2{
         font-size:3em;
         }
+    .right p{
+        width:70%;
+        }
 
 
     // ============================================
     @media(max-width:1000px){
         .image {
             flex-flow:column;
+        }
+        p{
+            width: 100%;
         }
     }
 

@@ -30,7 +30,7 @@ const Section = () => {
         justify-content: center;
         align-items: center;
         width: 100vw;
-        height: 100%;
+        height: 100vh;
         padding:2em;
         margin-bottom:1.5em;
         flex-wrap: wrap;

@@ -21,14 +21,13 @@ const Links = () => {
                 <h5>Galery </h5>
                 <h5>Contact </h5>
             </span>
-    <style>{`
+    <style jsx>{`
 
 
     .social{
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-wrap:wrap;
         width: 100vw;
         height: 100%;
     }
@@ -46,16 +45,13 @@ const Links = () => {
         padding:.5em;
     }
     // ========================================
-    @media(max-width:1000px){
+    @media(max-width:430px){
+        .social{
+            height: 100vh;
+            flex-flow:column;
 
+        }
     }
-
-
-
-
-
-
-
 
     `}</style>
         </div>

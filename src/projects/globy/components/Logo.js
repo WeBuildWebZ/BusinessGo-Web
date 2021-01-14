@@ -45,6 +45,25 @@ const Logo = () => {
             width: 100%;
           }
         }
+        @media(max-width:430px){
+
+          .logo {
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            width: 100%;
+          }
+
+          h1 {
+
+            line-height: 1em;
+
+          }
+          h1::first-line {
+            font-size: 1em;
+            color: #86a8e7;
+          }
+        }
       `}</style>
     </div>
   );

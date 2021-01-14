@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
-
 import styles from '../styles/Home.module.scss';
+import Image from 'next/image';
+
+
 import Spinner from '../../../components/Spinner';
 
 const Frase = () => {
@@ -28,7 +30,17 @@ const Frase = () => {
         )}
       </div>
 
-      <div className="right">{!project && <Spinner />}</div>
+      <div className="right">{!project && <Spinner />}
+
+      <Image
+          src="/images/header-image.jpg"
+          alt="calling taxi portada"
+          width={250}
+          height={250}
+          className={styles.img}
+         />
+
+      </div>
 
       <style jsx>
         {`
@@ -37,7 +49,7 @@ const Frase = () => {
             align-items: center;
             justify-content: center;
             width: 100vw;
-            height: 100%;
+            height: 100vh;
           }
 
           .left {
@@ -84,14 +96,12 @@ const Frase = () => {
 
           .right {
             flex: 1;
+            width: 100%;
+            height: 100%;
+            padding:2em;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%;
-            height: 100%;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
           }
           @media (max-width: 1000px) {
             .frase {
@@ -105,17 +115,32 @@ const Frase = () => {
             h2,
             h3,
             p {
-              width: 100%;
-            }
+              width: 80%;
+              margin-bottom:.5em;
 
-            .right {
+            }
+            h3,
+            p {
+              font-size:1.3em;
+
+            }
+          }
+          @media (max-width: 430px) {
+
+            .left {
+              padding: 0 1em;
+            }
+            h2,
+            h3,
+            p {
               width: 100%;
-              height: 100%;
-              ${project ? `background-image: url(${project.configuration.main_image});` : ''}
-              background-image: url(/images/header-image.jpg);
-              background-repeat: no-repeat;
-              background-size: cover;
-              background-position: 0px -300px;
+              margin-bottom:.5em;
+
+            }
+            h3,
+            p {
+              font-size:1.3em;
+
             }
           }
         `}
