@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Layout from '../layouts/Main';
-import Footer from '../components/footer';
-import Breadcrumb from '../components/breadcrumb';
-import ProductsFilter from '../components/products-filter';
-import ProductsContent from '../components/products-content';
+import Layout from '../../layouts/Main';
+import Footer from '../../components/footer';
+import Breadcrumb from '../../components/breadcrumb';
+import ProductsFilter from '../../components/products-filter';
+import ProductsContent from '../../components/products-content';
 
 const Products = () => (
   <Layout>

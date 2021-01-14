@@ -23,15 +23,27 @@ const ProductsContent = props => {
     );
   }, [pageNumber, selectedCategories]);
 
+  const handleLastVisible = () => {
+    console.log('is visible!');
+  };
+
   return (
     <>
       {loading && <ProductsLoading />}
 
       {!loading && (
         <section className="products-list">
-          {products.map((product, i) => (
-            <ProductItem key={i} product={product} />
-          ))}
+          {products.map((product, i) => {
+            const isLast = i === products.length - 1;
+            return (
+              <ProductItem
+                key={i}
+                product={product}
+                visibilityHookEnabled={isLast}
+                onVisible={handleLastVisible}
+              />
+            );
+          })}
         </section>
       )}
     </>
