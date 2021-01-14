@@ -35,8 +35,8 @@ const Frase = () => {
       <Image
           src="/images/header-image.jpg"
           alt="calling taxi portada"
-          width={250}
-          height={250}
+          width={500}
+          height={400}
           className={styles.img}
          />
 
@@ -101,7 +101,7 @@ const Frase = () => {
             padding:2em;
             display: flex;
             justify-content: center;
-            align-items: center;
+
           }
           @media (max-width: 1000px) {
             .frase {
@@ -117,12 +117,13 @@ const Frase = () => {
             p {
               width: 80%;
               margin-bottom:.5em;
-
             }
             h3,
             p {
               font-size:1.3em;
-
+            }
+            p{
+              margin-bottom:0;
             }
           }
           @media (max-width: 430px) {

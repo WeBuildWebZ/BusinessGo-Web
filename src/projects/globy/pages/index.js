@@ -7,16 +7,13 @@ import Pregunta from '../components/Pregunta';
 import Copyright from '../components/Copyright';
 import styles from '../styles/Home.module.scss';
 import Links from '../components/Links';
+import Suscripcion from '../components/Suscripcion';
 
 export default function Home() {
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
-      <Logo />
-
-        <header className={styles.header}>
-          <Frase />
-        </header>
+        <Logo />
+        <Frase />
 
         {/* seccion color negro con iconos verdes */}
         <section>
@@ -40,9 +37,9 @@ export default function Home() {
             <b>Damos lo Mejor de Nosotros cada dia</b>, para brindarte a ti, el mejor servicio en tu ciudad.
           </h3>
         </section>
-      </main>
 
       <Logo />
+      <Suscripcion />
       <footer className={styles.footer}>
         <Links />
       </footer>

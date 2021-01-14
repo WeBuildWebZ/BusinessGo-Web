@@ -30,7 +30,7 @@ const Section = () => {
         justify-content: center;
         align-items: center;
         width: 100vw;
-        height: 100vh;
+        height: 50vh;
         padding:2em;
         margin-bottom:1.5em;
         flex-wrap: wrap;
@@ -85,8 +85,10 @@ const Section = () => {
 }
 // =============================================
 @media(max-width:1000px){
+
     .section{
         flex-flow:column;
+        height: 100vh;
     }
     .box-one,
     .box-two,

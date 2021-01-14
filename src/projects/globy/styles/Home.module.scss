@@ -35,20 +35,6 @@
     }
 
 }
-// ==============================================
-.main {
-    flex: 1;
-    @include flex-center();
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-.header {
-    @include flex-center();
-    width: 100vw;
-    height: 100vh;
-    margin: 1em 0;
-}
 
 // ==========================================
 

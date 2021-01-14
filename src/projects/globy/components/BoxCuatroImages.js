@@ -28,6 +28,7 @@ const BoxCuatroImages = () => {
             width: 100vw;
             height: 100vh;
             margin: 1.5em 0;
+
         }
         .left{
             flex:1;
