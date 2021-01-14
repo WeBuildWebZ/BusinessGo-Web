@@ -25,6 +25,7 @@ export const elementScrolledToBottom = element =>
   element.clientHeight + element.scrollTop >= element.scrollHeight;
 
 export const isInViewport = (element, offset = 0) => {
+  if (!element) return;
   const { top } = element.getBoundingClientRect();
   return top + offset >= 0 && top - offset <= window.innerHeight;
 };
