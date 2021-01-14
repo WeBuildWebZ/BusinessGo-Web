@@ -14,7 +14,7 @@ export const images = [
   {
     title: 'imagen 3',
     description: 'texto de prueba 3',
-    image: ['/images/products/product3.jpg'],
+    image: ['/images/products/product-3.jpg'],
     slug: 'mirage'
   }
 ];
