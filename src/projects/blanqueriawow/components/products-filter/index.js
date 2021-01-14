@@ -10,6 +10,7 @@ import Checkbox from './form-builder/checkbox';
 const ProductsFilter = () => {
   const dispatch = useDispatch();
   const selectedCategories = useSelector(store => store.filters.categories);
+  const project = useSelector(store => store.project);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -38,7 +39,7 @@ const ProductsFilter = () => {
         onClick={() => setFiltersOpen(!filtersOpen)}
         className={`products-filter__menu-btn ${filtersOpen ? 'products-filter__menu-btn--active' : ''}`}
       >
-        Add Filter <i className="icon-down-open" />
+        {project && project.configuration.articles_filter} <i className="icon-down-open" />
       </button>
 
       <div className={`products-filter__wrapper ${filtersOpen ? 'products-filter__wrapper--open' : ''}`}>
