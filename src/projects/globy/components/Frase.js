@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import Image from 'next/image';
 
 import styles from '../styles/Home.module.scss';
 import Spinner from '../../../components/Spinner';
@@ -17,7 +16,10 @@ const Frase = () => {
             <h3>{project.configuration.description_2}</h3>
 
             <a href={project.configuration.app_link} target="blank">
-              <button>GooglePlay</button>
+              <button>
+                <a href="https://play.google.com/store/apps/details?id=com.globy.app.usuario&hl=es_419&gl=US" target="_blank">GooglePlay</a>
+                </button>
+                <button>AppleStore</button>
             </a>
             <p>{project.configuration.description_3}</p>
           </>
@@ -52,7 +54,7 @@ const Frase = () => {
           display: flex;
           justify-content: center;
           align-items: flex-start;
-          min-width: 400px;
+          width: 100%;
           height: 100%;
           flex-flow: column;
           padding: 3em;
@@ -85,8 +87,20 @@ const Frase = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-          min-width: 400px;
+          width: 100%;
           height: 100%;
+        }
+        @media(max-width:1000px){
+          .frase {
+            flex-flow:column;
+          }
+          .right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+          }
         }
       `}</style>
     </div>

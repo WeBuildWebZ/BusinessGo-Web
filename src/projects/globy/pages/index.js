@@ -12,8 +12,9 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
+      <Logo />
+
         <header className={styles.header}>
-          <Logo />
           <Frase />
         </header>
 

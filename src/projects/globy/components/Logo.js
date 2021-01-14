@@ -36,6 +36,15 @@ const Logo = () => {
           font-size: 3em;
           color: #86a8e7;
         }
+        @media(max-width:1000px){
+
+          .logo {
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            width: 100%;
+          }
+        }
       `}</style>
     </div>
   );
