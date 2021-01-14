@@ -1,7 +1,12 @@
-const AdminSectionReducer = (state = null, action = {}) => {
+const initialState = null;
+
+const AdminSectionReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case 'setAdminSection': {
       return action.payload;
+    }
+    case 'resetAdminSection': {
+      return initialState;
     }
     default: {
       return state;

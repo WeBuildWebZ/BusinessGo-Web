@@ -19,10 +19,15 @@ const ProjectSelector = () => {
   const [leaving, setLeaving] = useState(false);
 
   useEffect(() => {
+    let mounted = true;
     getProjects(user).then(({ data: _projects }) => {
+      if (!mounted) return;
       setProjects(_projects);
       setLoading(false);
     });
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   const handleSelectProject = project => {

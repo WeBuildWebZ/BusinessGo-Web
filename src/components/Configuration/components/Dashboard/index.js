@@ -7,6 +7,7 @@ import Container from './components/Container';
 import ButtonPanel from './components/ButtonPanel';
 
 const Dashboard = () => {
+  const user = useSelector(store => store.user);
   const project = useSelector(store => store.project);
 
   return (
@@ -19,7 +20,7 @@ const Dashboard = () => {
             <Container />
           </>
         )}
-        {!project && <ProjectSelector />}
+        {user && !project && <ProjectSelector />}
       </div>
       <style jsx>
         {`
@@ -28,6 +29,7 @@ const Dashboard = () => {
             flex-wrap: wrap;
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
             flex-grow: 1;
           }
 

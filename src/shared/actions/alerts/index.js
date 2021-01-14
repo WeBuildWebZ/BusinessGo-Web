@@ -27,3 +27,5 @@ export const _popAlert = alert => ({ type: '_popAlert', payload: alert });
 
 /** @param {Alert} alert */
 export const _hideAlert = alert => ({ type: '_hideAlert', payload: alert });
+
+export const resetAlerts = () => ({ type: 'resetAlerts', payload: null });

@@ -1,4 +1,6 @@
-const Language = (state = [], action = {}) => {
+const initialState = [];
+
+const Language = (state = initialState, action = {}) => {
   switch (action.type) {
     case 'pushAlert': {
       return [...state, action.payload];
@@ -8,6 +10,9 @@ const Language = (state = [], action = {}) => {
     }
     case '_hideAlert': {
       return state.map(alert => (alert.id === action.payload.id ? { ...alert, _show: false } : alert));
+    }
+    case 'resetAlerts': {
+      return initialState;
     }
     default: {
       return state;

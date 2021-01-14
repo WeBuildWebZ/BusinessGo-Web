@@ -1,7 +1,12 @@
-const ProjectReducer = (state = null, action = {}) => {
+const iniitalState = null;
+
+const ProjectReducer = (state = iniitalState, action = {}) => {
   switch (action.type) {
     case 'setProject': {
       return action.payload;
+    }
+    case 'resetProject': {
+      return iniitalState;
     }
     default: {
       return state;

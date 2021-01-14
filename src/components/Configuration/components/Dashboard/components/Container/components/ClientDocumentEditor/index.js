@@ -23,8 +23,13 @@ const ClientDocumentEditor = props => {
   const [selectedClientDocument, setSelectedClientDocument] = useState(null);
   const [textSearch, setTextSearch] = useState('');
   const [isNewDocument, setIsNewDocument] = useState(false);
+  const [mounted, setMounted] = useState(true);
 
   const importantFields = clientModel.fields.filter(({ important }) => important);
+
+  useEffect(() => () => {
+    setMounted(false);
+  });
 
   const handleEditDocument = clientDocument => {
     setIsNewDocument(false);
@@ -45,10 +50,12 @@ const ClientDocumentEditor = props => {
 
     if (isNewDocument) {
       createClientDocument(user, clientModel, clientDocument).then(({ data: createdClientDocument }) => {
+        if (!mounted) return;
         setClientDocuments([createdClientDocument, ...clientDocuments]);
       });
     } else {
       updateClientDocument(user, clientDocument).then(() => {
+        if (!mounted) return;
         setClientDocuments(
           clientDocuments.map(_clientDocument =>
             _clientDocument._id === clientDocument._id ? clientDocument : _clientDocument
