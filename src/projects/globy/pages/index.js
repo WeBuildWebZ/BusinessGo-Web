@@ -42,8 +42,8 @@ export default function Home() {
         </section>
       </main>
 
+      <Logo />
       <footer className={styles.footer}>
-        <Logo />
         <Links />
       </footer>
       <Copyright />

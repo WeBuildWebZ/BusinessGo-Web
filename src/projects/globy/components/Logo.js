@@ -43,7 +43,6 @@ const Logo = () => {
             justify-content:center;
             align-items: center;
             width: 100%;
-            background:pink;
           }
         }
       `}</style>

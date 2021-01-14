@@ -29,8 +29,8 @@ const Links = () => {
         justify-content: center;
         align-items: center;
         flex-wrap:wrap;
-        width: 50vw;
-        height: 30vh;
+        width: 100vw;
+        height: 100%;
     }
     .menu{
         flex:1;
@@ -38,15 +38,17 @@ const Links = () => {
         height: 100%;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         flex-flow:column;
     }
+    .h3{
+        flex:1;
+        padding:.5em;
+    }
+    // ========================================
+    @media(max-width:1000px){
 
-
-        .h3{
-            flex:1;
-            padding:.5em;
-        }
+    }
 
 
 

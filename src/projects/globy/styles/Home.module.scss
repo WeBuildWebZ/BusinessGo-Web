@@ -93,12 +93,17 @@
 
 .footer {
     @include flex-center();
-    flex-wrap: wrap;
     width: 100vw;
-    height: 30vh;
-    margin: 1em 0 0 0;
+    height: 25vh;
 }
 // ==================================
 @media(max-width:1000px){
+    .backgrounfinal {
+        padding: 1em 1em 0 1em;
+        //
+        h3 {
+            width: 100%;
+        }
 
+    }
 }

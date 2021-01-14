@@ -26,7 +26,7 @@ const BoxCuatroImages = () => {
             justify-content:center;
             align-items:center;
             width: 100vw;
-            height: 70vh;
+            height: 100vh;
             margin: 1.5em 0;
         }
         .left{
@@ -36,16 +36,19 @@ const BoxCuatroImages = () => {
             display: flex;
             justify-content:center;
             align-items:center;
+            padding:2em;
+
         }
         .right
             {   flex:1;
+                width: 100%;
+                height: 100%;
                 display: flex;
                 justify-content:center;
                 align-items:flex-start;
                 flex-wrap:wrap;
                 flex-flow:column;
-                width: 100%;
-                height: 100%;
+                padding:2em;
             }
 
             // ===============================
@@ -54,10 +57,13 @@ const BoxCuatroImages = () => {
         font-size:3em;
         }
 
-    .right p{
-        width: 60%;
-        }
 
+    // ============================================
+    @media(max-width:1000px){
+        .image {
+            flex-flow:column;
+        }
+    }
 
          `}</style>
         </div>

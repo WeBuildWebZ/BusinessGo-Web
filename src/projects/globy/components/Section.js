@@ -87,7 +87,6 @@ const Section = () => {
 @media(max-width:1000px){
     .section{
         flex-flow:column;
-        background:yellow;
     }
     .box-one,
     .box-two,
