@@ -25,22 +25,24 @@ const Header = ({ isErrorPage }) => {
   const navRef = useRef(null);
   const searchRef = useRef(null);
 
-  const headerClass = () => {
-    if (window.pageYOffset === 0) {
-      setOnTop(true);
-    } else {
-      setOnTop(false);
-    }
-  };
-
   useEffect(() => {
     if (arrayPaths.includes(router.pathname) || isErrorPage) {
       return;
     }
 
-    headerClass();
-    window.onscroll = function () {
-      headerClass();
+    const handleScroll = () => {
+      if (window.pageYOffset === 0) {
+        setOnTop(true);
+      } else {
+        setOnTop(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
