@@ -1524,6 +1524,8 @@ h5 {
   color: #000;
   margin-bottom: 18px;
   align-items: center;
+  transition: 0.2s;
+  cursor: pointer;
   .checkbox__check {
     display: block;
     width: 26px;
@@ -1601,6 +1603,11 @@ h5 {
       }
     }
   }
+}
+
+.checkbox:hover {
+  background-color: #837e7e2f;
+  border-radius: 5px;
 }
 
 .checkbox-square-wrapper {

@@ -25,9 +25,7 @@ const ProductsFilter = () => {
   const handleToggleCategory = category => {
     const isSelected = selectedCategories.includes(category);
 
-    const newSelectedCategories = isSelected
-      ? selectedCategories.filter(_category => _category !== category)
-      : [...selectedCategories, category];
+    const newSelectedCategories = isSelected ? [] : [category];
 
     dispatch(updateFilters('categories', newSelectedCategories));
   };
@@ -47,9 +45,18 @@ const ProductsFilter = () => {
           <button type="button">Categoría</button>
           {loading && <Spinner />}
           <div className="products-filter__block__content">
-            {categories.map((category, i) => (
-              <Checkbox key={i} label={category} onChange={() => handleToggleCategory(category)} />
-            ))}
+            {categories.map((category, i) => {
+              const isSelected = selectedCategories.includes(category);
+
+              return (
+                <Checkbox
+                  key={i}
+                  label={category}
+                  checked={isSelected}
+                  onChange={() => handleToggleCategory(category)}
+                />
+              );
+            })}
           </div>
         </div>
 
