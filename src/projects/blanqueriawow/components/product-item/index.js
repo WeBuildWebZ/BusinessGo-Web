@@ -43,32 +43,30 @@ const ProductItem = props => {
 
   return (
     <div className="product-item" id={elementId} draggable>
-      <div className="product__image">
-        <button
-          type="button"
-          onClick={toggleFav}
-          className={`btn-heart ${isFavourite ? 'btn-heart--active' : ''}`}
-        >
-          <i className="icon-heart" />
-        </button>
+      <button
+        type="button"
+        onClick={toggleFav}
+        className={`btn-heart ${isFavourite ? 'btn-heart--active' : ''}`}
+      >
+        <i className="icon-heart" />
+      </button>
 
-        <Link href={`/products/${product._id}`}>
-          <a href="#">
-            <img
-              src={product.photo}
-              alt="product"
-              style={{
-                display: 'block',
-                maxWidth: '100%',
-                maxHeight: '100%',
-                width: 'auto',
-                height: 'auto'
-              }}
-            />
-            {product.discount && <span className="product__discount">{product.discount}%</span>}
-          </a>
-        </Link>
-      </div>
+      <Link href={`/products/${product._id}`}>
+        <a href="#">
+          <img
+            src={product.photo}
+            alt="product"
+            style={{
+              display: 'block',
+              maxWidth: '100%',
+              maxHeight: '100%',
+              width: 'auto',
+              height: 'auto'
+            }}
+          />
+          {product.discount && <span className="product__discount">{product.discount}%</span>}
+        </a>
+      </Link>
 
       <div className="product__description">
         <h3>{product.name}</h3>
