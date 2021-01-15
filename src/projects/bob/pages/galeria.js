@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import PropTypes from 'prop-types';
 import SwiperCore, { EffectFade, Navigation } from 'swiper';
+import Link from 'next/link'
 
 SwiperCore.use([EffectFade, Navigation]);
 
@@ -11,42 +12,83 @@ export async function getStaticProps() {
 }
 
 const Galeria = ({ images }) => (
-  <section className="page-intro">
-    <Swiper navigation effect="fade" className="swiper-wrapper">
-      <SwiperSlide>
+  <section className="galeria">
+    <Link href="/">
+        <button className="inicio">Volver a Inicio</button>
+    </Link>
+    <h2>Galeria</h2>
+
         <div className="cards">
           {images.length &&
+
             images.map(image => (
-              // <div className="card" key={i.title} title={i.title} picture={i.image} link={i.slug} />
-              // lo puse como imagen porque los div no tinen las prop picture ni link
+
+            <div>
               <img
-                className="card"
                 key={image.title}
                 title={image.title}
                 src={image.image}
                 link={image.slug}
+                className="card"
               />
+              <h4>Titulo imagen</h4>
+              <p>Descripcion</p>
+            </div>
+
             ))}
         </div>
-      </SwiperSlide>
-    </Swiper>
+
+
 
     <style jsx>
       {`
-        .cards {
+      .galeria{
+          width:100vw;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-flow:column;
+      }
+
+      .inicio{
+          width:100vw;
+          height: 10vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background:white;
+      }
+      h2{
+        font-size:2em;
+      }
+      h4{
+        font-size:2em;
+      }
+      p{
+        font-size:1.5em;
+        margin-bottom:3em;
+      }
+
+      .cards {
+          width:100vw;
+          height: 100%;
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           align-items: center;
-        }
-        .card {
-          width: 150px;
-          height: 200px;
+          flex-flow:column;
+          overflow-y: hidden;
+      }
+
+      .card {
+          width: 100%;
+          height:100%;
           display: flex;
-          flex-wrap: wrap;
           justify-content: center;
           align-items: center;
-          flex-flow: column;
+          border-radius:1em;
+          margin:5px;
         }
       `}
     </style>
