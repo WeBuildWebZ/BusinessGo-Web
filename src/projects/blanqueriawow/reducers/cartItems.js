@@ -5,8 +5,6 @@ if (process.browser) initialState = JSON.parse(sessionStorage.getItem('cartItems
 const CartItems = (state = initialState, action = {}) => {
   switch (action.type) {
     case 'setCartItems': {
-      if (process.browser) sessionStorage.removeItem('cartItems');
-
       return action.payload;
     }
     case 'setCartItem': {
