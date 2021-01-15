@@ -54,7 +54,17 @@ const ProductItem = props => {
 
         <Link href={`/products/${product._id}`}>
           <a href="#">
-            <img src={product.photo} alt="product" />
+            <img
+              src={product.photo}
+              alt="product"
+              style={{
+                display: 'block',
+                maxWidth: '100%',
+                maxHeight: '100%',
+                width: 'auto',
+                height: 'auto'
+              }}
+            />
             {product.discount && <span className="product__discount">{product.discount}%</span>}
           </a>
         </Link>
