@@ -8,6 +8,7 @@ import { getClientModels } from '../../../../../../services/api/user';
 import { setClientModels } from '../../../../../../shared/actions/clientModels';
 import { setSelectedClientModel } from '../../../../../../shared/actions/selectedClientModel';
 import Spinner from '../../../../../Spinner';
+import { pushAlert } from '../../../../../../shared/actions/alerts';
 
 import { getLanguage } from './lang';
 import useStyle from './style';
@@ -32,13 +33,23 @@ const Menu = () => {
         const [{ user: newUser }] = sessions;
         dispatch(setUser(newUser));
 
-        getClientModels(newUser).then(({ data: clientModels }) => {
-          dispatch(setClientModels(clientModels));
-          if (!selectedClientModel && clientModels[0]) dispatch(setSelectedClientModel(clientModels[0]));
-        });
+        // getClientModels(newUser).then(({ data: clientModels }) => {
+        //   dispatch(setClientModels(clientModels));
+        //   if (!selectedClientModel && clientModels[0]) dispatch(setSelectedClientModel(clientModels[0]));
+        // });
       })
       .catch(({ response }) => {
+        const { code: errorCode } = response.data.error;
         setLoading(false);
+
+        dispatch(
+          pushAlert({
+            icon: 'error',
+            title: language.errors[errorCode].title,
+            message: language.errors[errorCode].message,
+            duration: 3000
+          })
+        );
       });
   };
 

@@ -11,7 +11,9 @@ const Container = () => {
   return (
     <div className="container">
       {adminSection === 'configuration' && <ConfigurationEditor />}
-      {selectedClientModel && <ClientDocumentEditor clientModel={selectedClientModel} />}
+      {adminSection === 'tables' && selectedClientModel && (
+        <ClientDocumentEditor clientModel={selectedClientModel} />
+      )}
       <style jsx>
         {`
           .container {
@@ -20,7 +22,11 @@ const Container = () => {
             width: 60%;
             height: 90vh;
             border-radius: 5px;
+            transition: 0.8s;
             animation: arrive 1s linear;
+          }
+          .container:hover {
+            background-color: #fffffff3;
           }
 
           @keyframes arrive {

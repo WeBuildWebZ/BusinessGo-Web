@@ -5,6 +5,7 @@ import language from './language';
 import adminSection from './adminSection';
 import clientModels from './clientModels';
 import selectedClientModel from './selectedClientModel';
+import configurationSection from './admin/configurationSection';
 
 const CommonReducers = {
   user,
@@ -13,7 +14,8 @@ const CommonReducers = {
   language,
   adminSection,
   clientModels,
-  selectedClientModel
+  selectedClientModel,
+  configurationSection
 };
 
 export default CommonReducers;

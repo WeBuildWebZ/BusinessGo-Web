@@ -1,30 +1,36 @@
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Button from '../../../../../../../Button';
 import { setAdminSection } from '../../../../../../../../shared/actions/adminSection';
-import { setSelectedClientModel } from '../../../../../../../../shared/actions/selectedClientModel';
+import { setConfigurationSection } from '../../../../../../../../shared/actions/configurationSection';
 
-import { getLanguage } from './lang';
-
-const Configuration = () => {
+const ConfigurationButton = props => {
   const dispatch = useDispatch();
-  const language = getLanguage(useSelector(store => store.language));
   const adminSection = useSelector(store => store.adminSection);
-  const isSelected = adminSection === 'configuration';
+  const configurationSection = useSelector(store => store.configurationSection);
+
+  const isSelected =
+    adminSection === 'configuration' &&
+    configurationSection.form_code === props.configurationSection.form_code;
 
   const handleSelectSection = () => {
     dispatch(setAdminSection('configuration'));
-    dispatch(setSelectedClientModel(null));
+    dispatch(setConfigurationSection(props.configurationSection));
   };
 
   return (
-    <Button
-      style={{ marginTop: 10 }}
-      text={language.configuration}
-      onClick={handleSelectSection}
-      selected={isSelected}
-    />
+    <Button style={{ marginTop: 10 }} text={props.text} onClick={handleSelectSection} selected={isSelected} />
   );
 };
 
-export default Configuration;
+ConfigurationButton.propTypes = {
+  text: PropTypes.string,
+  configurationSection: PropTypes.object.isRequired
+};
+
+ConfigurationButton.defaultProps = {
+  text: ''
+};
+
+export default ConfigurationButton;

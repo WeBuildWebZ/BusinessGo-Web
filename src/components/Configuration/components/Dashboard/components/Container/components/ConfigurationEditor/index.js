@@ -14,31 +14,37 @@ const ConfigurationEditor = () => {
   const language = getLanguage(useSelector(store => store.language));
   const user = useSelector(store => store.user);
   const project = useSelector(store => store.project);
+  const configurationSection = useSelector(store => store.configurationSection);
   const [configuration, setConfiguration] = useState(project.configuration);
 
-  const handleUpdateConfiguration = newConfiguration => {
+  const handleUpdateConfiguration = changedConfiguration => {
+    const newConfiguration = { ...configuration, [configurationSection.form_code]: changedConfiguration };
+
     setConfiguration(newConfiguration);
-    updateProjectConfiguration(user, project, newConfiguration);
-    dispatch(
-      pushAlert({
-        icon: 'success',
-        title: language.configurationUpdated.title,
-        message: language.configurationUpdated.message
-      })
-    );
+    updateProjectConfiguration(user, project, newConfiguration).then(() => {
+      dispatch(
+        pushAlert({
+          icon: 'success',
+          title: language.configurationUpdated.title,
+          message: language.configurationUpdated.message
+        })
+      );
+    });
   };
 
   return (
     <div className="configuration">
-      <PopoverTitle>{language.configuration}</PopoverTitle>
       {!project && <Spinner />}
       {project && (
-        <FieldRenderer
-          fields={project.fields}
-          data={configuration}
-          onChange={handleUpdateConfiguration}
-          updateAfter={1000}
-        />
+        <>
+          <PopoverTitle>{configurationSection.form.name}</PopoverTitle>
+          <FieldRenderer
+            fields={configurationSection.form.fields}
+            data={configuration[configurationSection.form_code] || {}}
+            onChange={handleUpdateConfiguration}
+            updateAfter={1000}
+          />
+        </>
       )}
       <style jsx>
         {`

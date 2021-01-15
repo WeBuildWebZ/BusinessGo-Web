@@ -30,13 +30,13 @@ const Configuration = props => {
 
       dispatch(setUser(newUser));
 
-      getClientModels(newUser).then(({ data: clientModels }) => {
-        dispatch(setClientModels(clientModels));
+      // getClientModels(newUser, project).then(({ data: clientModels }) => {
+      //   dispatch(setClientModels(clientModels));
 
-        if (adminSection) return;
+      //   if (adminSection) return;
 
-        if (!selectedClientModel && clientModels[0]) dispatch(setSelectedClientModel(clientModels[0]));
-      });
+      //   if (!selectedClientModel && clientModels[0]) dispatch(setSelectedClientModel(clientModels[0]));
+      // });
     });
   }, [dispatch]);
 

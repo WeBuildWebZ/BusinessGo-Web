@@ -1,4 +1,4 @@
-const initialState = [];
+const initialState = null;
 
 const ClientModels = (state = initialState, action = {}) => {
   switch (action.type) {

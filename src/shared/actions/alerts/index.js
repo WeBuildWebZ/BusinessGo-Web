@@ -1,14 +1,14 @@
 import { getId } from './utils';
 
 /** @typedef {object} Alert
- *  @property {number} id
+ *  @property {number=} id
  *  @property {string} title
- *  @property {string} time
- *  @property {'success'} icon
+ *  @property {string=} time
+ *  @property {'success' | 'error'} icon
  *  @property {string} message
- *  @property {number} duration
- *  @property {boolean} _show
- *  @property {boolean} _started
+ *  @property {number=} duration
+ *  @property {boolean=} _show
+ *  @property {boolean=} _started
  */
 
 /** @param {Alert} alert */

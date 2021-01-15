@@ -11,9 +11,13 @@ const ReduxFiller = props => {
   const dispatch = useDispatch();
   const { constants } = props;
 
-  showProject(constants.PROJECT_CODE).then(({ data: project }) => {
-    dispatch(setProject(project));
-  });
+  const isAdminPage = process.browser && window.location.pathname === '/admin';
+
+  if (!isAdminPage) {
+    showProject(constants.PROJECT_CODE).then(({ data: project }) => {
+      dispatch(setProject(project));
+    });
+  }
   return <div />;
 };
 

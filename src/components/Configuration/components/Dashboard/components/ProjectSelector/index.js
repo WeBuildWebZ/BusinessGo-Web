@@ -6,6 +6,10 @@ import Spinner from '../../../../../Spinner';
 import Button from '../../../../../Button';
 import { getProjects } from '../../../../../../services/api/project';
 import { setProject } from '../../../../../../shared/actions/project';
+import { getClientModels } from '../../../../../../services/api/user';
+import { setClientModels } from '../../../../../../shared/actions/clientModels';
+import { setAdminSection } from '../../../../../../shared/actions/adminSection';
+import { setConfigurationSection } from '../../../../../../shared/actions/configurationSection';
 
 import { getLanguage } from './lang';
 
@@ -33,9 +37,19 @@ const ProjectSelector = () => {
   const handleSelectProject = project => {
     setLeaving(true);
     setSelectedProject(project);
+
+    getClientModels(user, project).then(({ data: clientModels }) => {
+      dispatch(setClientModels(clientModels));
+      dispatch(setAdminSection('configuration'));
+    });
   };
 
   const handleAnimationEnd = () => {
+    if (!selectedProject) return;
+
+    const [newConfigurationSection] = selectedProject.configuration_sections;
+
+    if (newConfigurationSection) dispatch(setConfigurationSection(newConfigurationSection));
     dispatch(setProject(selectedProject));
   };
 

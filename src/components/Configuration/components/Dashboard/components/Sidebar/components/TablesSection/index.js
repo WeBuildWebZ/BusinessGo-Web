@@ -3,32 +3,41 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setSelectedClientModel } from '../../../../../../../../shared/actions/selectedClientModel';
 import { setAdminSection } from '../../../../../../../../shared/actions/adminSection';
+import { setConfigurationSection } from '../../../../../../../../shared/actions/configurationSection';
 import Spinner from '../../../../../../../Spinner';
 import Button from '../../../../../../../Button';
 
+import { getLanguage } from './lang';
+
 const TablesSection = () => {
   const dispatch = useDispatch();
+  const language = getLanguage(useSelector(store => store.language));
   const clientModels = useSelector(store => store.clientModels);
   const selectedClientModel = useSelector(store => store.selectedClientModel);
   const adminSection = useSelector(store => store.adminSection);
-  const isLoading = !clientModels.length;
+  const isLoading = !clientModels;
 
   const handleSelectClientModel = clientModel => {
-    dispatch(setAdminSection(null));
+    dispatch(setAdminSection('tables'));
     dispatch(setSelectedClientModel(clientModel));
   };
 
   return isLoading ? (
     <Spinner />
   ) : (
-    clientModels.map((clientModel, i) => (
-      <Button
-        key={i}
-        text={clientModel.table_descriptive_name}
-        onClick={() => handleSelectClientModel(clientModel)}
-        selected={clientModel._id === (selectedClientModel && selectedClientModel._id) && !adminSection}
-      />
-    ))
+    <>
+      {!clientModels.length && language.noTables}
+      {clientModels.map((clientModel, i) => (
+        <Button
+          key={i}
+          text={clientModel.table_descriptive_name}
+          onClick={() => handleSelectClientModel(clientModel)}
+          selected={
+            clientModel._id === (selectedClientModel && selectedClientModel._id) && adminSection === 'tables'
+          }
+        />
+      ))}
+    </>
   );
 };
 
