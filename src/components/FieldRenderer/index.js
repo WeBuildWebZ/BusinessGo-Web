@@ -5,6 +5,7 @@ import { fieldShape } from '../../utils/field';
 
 import Text from './components/Text';
 import Enum from './components/Enum';
+import Select from './components/Select';
 import Number from './components/Number';
 import Image from './components/Image';
 
@@ -93,6 +94,15 @@ const FieldRenderer = props => {
                 field={field}
                 value={data[field.key]}
                 multiline={false}
+                onChange={value => handleUpdateData(field.key, value)}
+                key={field.key}
+              />
+            );
+          case 'select':
+            return (
+              <Select
+                field={field}
+                value={data[field.key]}
                 onChange={value => handleUpdateData(field.key, value)}
                 key={field.key}
               />
