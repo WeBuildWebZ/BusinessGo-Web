@@ -13,7 +13,7 @@ import reducer from '../reducers';
 
 const AppendHead = () => (
   <Head>
-    <title>Blanquería Wow</title>
+    <title>Construcción Pilar</title>
     <link rel="icon" href="/favicon.ico" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -24,17 +24,20 @@ const AppendHead = () => (
 
     {/* etiquetas og facebook */}
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Blanquería Wow" />
-    <meta property="og:description" content="Blanquería Wow, el mejor precio para el confort de tu hogar." />
+    <meta property="og:title" content="Construcción Pilar" />
+    <meta
+      property="og:description"
+      content="Construcción Pilar, el mejor precio en construcción de piscinas."
+    />
     <meta property="og:image" content="/page.png" />
     <meta property="og:image:width" content="828" />
     <meta property="og:image:height" content="450" />
-    <meta property="og:url" content="https://blanqueriawow.com/" />
-    <meta property="og:site_name" content="Blanquería Wow" />
+    <meta property="og:url" content="https://www.construccionpilar.dancotll.com" />
+    <meta property="og:site_name" content="Construcción Pilar" />
     {/* aditional */}
-    <meta name="author" content="Blanquería Wow" />
-    <meta name="copyright" content="Blanquería Wow" />
-    <meta name="description" content="Blanquería Wow, el mejor precio para el confort de tu hogar." />
+    <meta name="author" content="Construcción Pilar" />
+    <meta name="copyright" content="Construcción Pilar" />
+    <meta name="description" content="Construcción Pilar, el mejor precio en construcción de piscinas." />
   </Head>
 );
 
