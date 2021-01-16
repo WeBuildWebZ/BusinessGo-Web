@@ -1,20 +1,22 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import SwiperCore, { EffectFade, Navigation } from 'swiper';
 import Link from 'next/link';
-import { useState } from 'react';
 
 import Spinner from '../../../components/Spinner';
 import { getClientDocuments } from '../../../services/api/clientDocument';
 
 SwiperCore.use([EffectFade, Navigation]);
 
-const Galeria = ({ images = [] }) => {
+const Galeria = () => {
   const project = useSelector(store => store.project);
   const [posts, setPosts] = useState(null);
 
-  getClientDocuments('bob-posts', 3, 1).then(({ data: givenPosts }) => {
-    setPosts(givenPosts);
-  });
+  useEffect(() => {
+    getClientDocuments('bob-posts', 3, 1).then(({ data: givenPosts }) => {
+      setPosts(givenPosts);
+    });
+  }, []);
 
   return (
     <section className="galeria">
@@ -26,17 +28,11 @@ const Galeria = ({ images = [] }) => {
 
       <div className="cards">
         {posts &&
-          posts.map((image, i) => (
+          posts.map((post, i) => (
             <div key={i}>
-              <img
-                key={image.title}
-                title={image.title}
-                src={image.image}
-                link={image.slug}
-                className="card"
-              />
-              <h4>Titulo imagen</h4>
-              <p>Descripcion</p>
+              <img key={post.title} title={post.title} src={post.photo} className="card" />
+              <h4>{console.log(post) || post.title}</h4>
+              <p>{post.description}</p>
             </div>
           ))}
       </div>
