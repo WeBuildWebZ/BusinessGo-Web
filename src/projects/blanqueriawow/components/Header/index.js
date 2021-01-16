@@ -97,11 +97,6 @@ const Header = ({ isErrorPage }) => {
               {cartItems.length > 0 && <span className="btn-cart__count">{cartItems.length}</span>}
             </button>
           </Link>
-          <Link href="/login">
-            <button className="site-header__btn-avatar">
-              <i className="icon-avatar" />
-            </button>
-          </Link>
           <button onClick={() => setMenuOpen(true)} className="site-header__btn-menu">
             <i className="btn-hamburger">
               <span />
