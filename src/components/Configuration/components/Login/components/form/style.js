@@ -11,6 +11,7 @@ export default makeStyles({
     margin: 10
   },
   submit: {
-    marginBottom: 5
+    marginBottom: 5,
+    color: '#ffffff'
   }
 });
