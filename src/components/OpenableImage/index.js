@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Modal, Paper } from '@material-ui/core';
-import { HighlightOff } from '@material-ui/icons';
+import { Paper } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { Modal } from 'react-bootstrap';
 
 const OpenableImage = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,20 +24,15 @@ const OpenableImage = props => {
         onClick={handleImageClick}
       />
       {isOpen && (
-        <Modal
-          open
-          onClose={handleClose}
-          style={{ overflowY: 'auto' }}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-        >
-          <Paper className="OpenableImage-modalPaper">
-            <HighlightOff className="OpenableImage-modalClose" onClick={handleClose} />
-            <h4 className="OpenableImage-modalTitle">{props.title}</h4>
+        <Modal show onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>{props.title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
             <center>
               <img alt={props.title} src={props.src} className="OpenableImage-modalImage" />
             </center>
-          </Paper>
+          </Modal.Body>
         </Modal>
       )}
       <style jsx>
@@ -61,10 +56,6 @@ const OpenableImage = props => {
             margin-top: 15px;
           }
 
-          .OpenableImage-modalTitle {
-            text-align: center;
-          }
-
           .OpenableImage-modalClose {
             float: right;
             margin: 8px 8px 0 0;
@@ -72,7 +63,8 @@ const OpenableImage = props => {
           }
 
           .OpenableImage-modalImage {
-            width: 80%;
+            max-width: 80%;
+            max-height: 80%;
             margin-bottom: 10px;
           }
 
