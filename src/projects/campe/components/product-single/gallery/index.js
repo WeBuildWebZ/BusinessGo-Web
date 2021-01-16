@@ -17,6 +17,5 @@ const Gallery = ({ images }) => {
     </section>
   );
 };
-  
+
 export default Gallery;
-  

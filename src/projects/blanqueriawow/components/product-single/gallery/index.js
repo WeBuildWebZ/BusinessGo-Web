@@ -1,22 +1,32 @@
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+
 const Gallery = ({ images }) => {
-  const featImage = images[0];
+  const [selectedImage, setSelectedImage] = useState(images[0]);
+
+  const handleSelectImage = ({ target }) => {
+    setSelectedImage(target.src);
+  };
 
   return (
     <section className="product-gallery">
-      <div className="product-gallery__thumbs">
+      <div style={{ width: 320 }}>
         {images.map(image => (
-          <div key={image} className="product-gallery__thumb">
-            <img src={image} alt="" />
+          <div key={image}>
+            <img src={image} alt="" style={{ width: '100%' }} onClick={handleSelectImage} />
           </div>
         ))}
       </div>
 
-      <div className="product-gallery__image">
-        <img src={featImage} alt="" />
+      <div>
+        <img src={selectedImage} alt="" style={{ width: '100%' }} />
       </div>
     </section>
   );
 };
-  
+
+Gallery.propTypes = {
+  images: PropTypes.array.isRequired
+};
+
 export default Gallery;
-  
