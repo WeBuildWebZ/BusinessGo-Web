@@ -38,7 +38,7 @@ const ProjectSelector = () => {
     setLeaving(true);
     setSelectedProject(project);
 
-    getClientModels(user, project).then(({ data: clientModels }) => {
+    getClientModels(project).then(({ data: clientModels }) => {
       dispatch(setClientModels(clientModels));
       dispatch(setAdminSection('configuration'));
     });

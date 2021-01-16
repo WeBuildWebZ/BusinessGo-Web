@@ -14,7 +14,5 @@ export const createDevelopmentRequest = (userId, name, summary, checklist_items)
     checklist_items
   });
 
-export const getClientModels = (user, project) =>
-  api.get(
-    `api/users/${encodeURIComponent(user._id)}/projects/${encodeURIComponent(project.code)}/client_models`
-  );
+export const getClientModels = project =>
+  api.get(`api/projects/${encodeURIComponent(project.code)}/client_models`);

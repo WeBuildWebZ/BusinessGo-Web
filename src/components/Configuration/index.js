@@ -29,14 +29,6 @@ const Configuration = props => {
       const [{ user: newUser }] = sessions;
 
       dispatch(setUser(newUser));
-
-      // getClientModels(newUser, project).then(({ data: clientModels }) => {
-      //   dispatch(setClientModels(clientModels));
-
-      //   if (adminSection) return;
-
-      //   if (!selectedClientModel && clientModels[0]) dispatch(setSelectedClientModel(clientModels[0]));
-      // });
     });
   }, [dispatch]);
 
