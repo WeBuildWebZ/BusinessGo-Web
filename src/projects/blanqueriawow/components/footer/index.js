@@ -15,12 +15,12 @@ const Footer = () => {
               <Logo /> <span>E</span>-Shop
             </h6>
             {!project && <Spinner />}
-            {project && <p>{project.configuration.description}</p>}
+            {project && <p>{project.configuration.basic_info.description}</p>}
             <ul className="site-footer__social-networks">
               <li>
                 {!project && <Spinner />}
                 {project && (
-                  <a href={project.configuration.facebook_url} target="blank">
+                  <a href={project.configuration.basic_info.facebook_url} target="blank">
                     <i className="icon-facebook" />
                   </a>
                 )}
@@ -28,7 +28,7 @@ const Footer = () => {
               <li>
                 {!project && <Spinner />}
                 {project && (
-                  <a href={project.configuration.twitter_url} target="blank">
+                  <a href={project.configuration.basic_info.twitter_url} target="blank">
                     <i className="icon-twitter" />
                   </a>
                 )}
@@ -36,7 +36,7 @@ const Footer = () => {
               <li>
                 {!project && <Spinner />}
                 {project && (
-                  <a href={project.configuration.linkedin_url} target="blank">
+                  <a href={project.configuration.basic_info.linkedin_url} target="blank">
                     <i className="icon-linkedin" />
                   </a>
                 )}
@@ -44,7 +44,7 @@ const Footer = () => {
               <li>
                 {!project && <Spinner />}
                 {project && (
-                  <a href={project.configuration.instagram_url} target="blank">
+                  <a href={project.configuration.basic_info.instagram_url} target="blank">
                     <i className="icon-instagram" />
                   </a>
                 )}
@@ -52,7 +52,7 @@ const Footer = () => {
               <li>
                 {!project && <Spinner />}
                 {project && (
-                  <a href={project.configuration.youtube_url} target="blank">
+                  <a href={project.configuration.basic_info.youtube_url} target="blank">
                     <i className="icon-youtube-play" />
                   </a>
                 )}

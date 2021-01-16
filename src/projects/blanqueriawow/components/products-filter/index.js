@@ -37,7 +37,7 @@ const ProductsFilter = () => {
         onClick={() => setFiltersOpen(!filtersOpen)}
         className={`products-filter__menu-btn ${filtersOpen ? 'products-filter__menu-btn--active' : ''}`}
       >
-        {project && project.configuration.articles_filter} <i className="icon-down-open" />
+        {project && project.configuration.products_page.articles_filter} <i className="icon-down-open" />
       </button>
 
       <div className={`products-filter__wrapper ${filtersOpen ? 'products-filter__wrapper--open' : ''}`}>
