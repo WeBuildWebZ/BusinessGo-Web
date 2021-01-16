@@ -7,35 +7,17 @@
 - npm run deploy **nombre-proyecto**
 - npm start
 
-scrapper
+Pedido PSA:
 
-```js
-clear();
-getNumbers = str =>
-  str
-    .split('')
-    .filter(char => {
-      const charCode = char.charCodeAt();
-      return charCode >= 48 && charCode <= 57;
-    })
-    .join('');
-products = [];
-cards = document.getElementsByClassName('card-body');
+1. Region y Cuidad (deben estar todas las regiones y cuidades de chile en el filtro)
 
-for (let i = 0; i < cards.length; i += 1) {
-  const card = cards[i];
-  products.push({
-    category: 'Almohadas',
-    photo: card.children[0].children[0].src,
-    price: +getNumbers(card.children[1].children[0].innerHTML),
-    name: card.children[2].children[1].innerHTML,
-    code: getNumbers(card.children[2].children[2].children[0].innerHTML),
-    stock: +getNumbers(card.children[2].children[3].children[0].innerHTML)
-  });
-}
-console.log(
-  `db.client_documents.insertMany(${JSON.stringify(
-    products.map(p => ({ table_name: 'wow-products', ...p }))
-  )})`
-);
-```
+2. cuando seleccione la Region y cuidad me figure el logo del taller y cuando lo pinche se despliegue centrado la información.
+
+3. la informacion del profesional debe ordenarse.
+
+en relacion a encabezado y pie de la pagina deben figurar los datos de la Confederacion Nacional de Talleres Automotriz Chile
+
+Psa envió 13 de enero a las 19:03
+la orientacion de esta pagina es publicitar los servicios del profesional segun su region y cuidad
+Psa envió 13 de enero a las 19:03
+tambien debe tener un formulario para que se puedan contactarse con la confederacion para reclamar, consultas o felicitar.

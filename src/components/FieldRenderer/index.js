@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { fieldShape } from '../../utils/field';
 
 import Text from './components/Text';
+import Enum from './components/Enum';
 import Number from './components/Number';
 import Image from './components/Image';
 
@@ -82,6 +83,16 @@ const FieldRenderer = props => {
               <Image
                 field={field}
                 value={data[field.key]}
+                onChange={value => handleUpdateData(field.key, value)}
+                key={field.key}
+              />
+            );
+          case 'enum':
+            return (
+              <Enum
+                field={field}
+                value={data[field.key]}
+                multiline={false}
                 onChange={value => handleUpdateData(field.key, value)}
                 key={field.key}
               />
