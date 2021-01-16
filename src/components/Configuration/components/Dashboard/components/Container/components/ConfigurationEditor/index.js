@@ -12,7 +12,6 @@ import { getLanguage } from './lang';
 const ConfigurationEditor = () => {
   const dispatch = useDispatch();
   const language = getLanguage(useSelector(store => store.language));
-  const user = useSelector(store => store.user);
   const project = useSelector(store => store.project);
   const configurationSection = useSelector(store => store.configurationSection);
   const [configuration, setConfiguration] = useState(project.configuration);

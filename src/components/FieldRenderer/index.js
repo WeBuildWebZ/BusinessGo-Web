@@ -31,7 +31,7 @@ const FieldRenderer = props => {
                 field={field}
                 value={data[field.key]}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={i}
+                key={field.key}
               />
             );
           case 'text':
@@ -41,7 +41,7 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 multiline={false}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={i}
+                key={field.key}
               />
             );
           case 'textarea-small':
@@ -52,7 +52,7 @@ const FieldRenderer = props => {
                 multiline
                 rows={4}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={i}
+                key={field.key}
               />
             );
           case 'textarea-medium':
@@ -63,7 +63,7 @@ const FieldRenderer = props => {
                 multiline
                 rows={11}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={i}
+                key={field.key}
               />
             );
           case 'textarea-big':
@@ -74,7 +74,7 @@ const FieldRenderer = props => {
                 multiline
                 rows={17}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={i}
+                key={field.key}
               />
             );
           case 'image':
@@ -83,11 +83,11 @@ const FieldRenderer = props => {
                 field={field}
                 value={data[field.key]}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={i}
+                key={field.key}
               />
             );
           default:
-            return <div key={i} />;
+            return <div key={field.key} />;
         }
       })}
       <style jsx>
