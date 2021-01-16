@@ -21,22 +21,14 @@ export const getClientDocuments = (
     }
   });
 
-export const deleteClientDocument = (user, clientDocument) =>
-  api.delete(
-    `api/users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`
-  );
+export const deleteClientDocument = clientDocument =>
+  api.delete(`api/client_documents/${encodeURIComponent(clientDocument._id)}`);
 
-export const createClientDocument = (user, clientModel, clientDocument) =>
-  api.post(`api/users/${encodeURIComponent(user._id)}/client_documents`, {
-    table_name: clientModel.table_name,
-    value: clientDocument
-  });
+export const createClientDocument = (clientModel, clientDocument) =>
+  api.post(`api/client_documents`, { table_name: clientModel.table_name, value: clientDocument });
 
-export const updateClientDocument = (user, clientDocument) =>
-  api.put(
-    `api/users/${encodeURIComponent(user._id)}/client_documents/${encodeURIComponent(clientDocument._id)}`,
-    clientDocument
-  );
+export const updateClientDocument = clientDocument =>
+  api.put(`api/client_documents/${encodeURIComponent(clientDocument._id)}`, clientDocument);
 
 export const getDistinctClientDocuments = (keys = []) =>
   api.get('api/client_document_distinct', {

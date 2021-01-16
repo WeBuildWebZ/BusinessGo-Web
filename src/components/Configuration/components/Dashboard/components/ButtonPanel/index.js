@@ -25,6 +25,27 @@ const ButtonPanel = () => {
             display: flex;
             flex-direction: column;
             height: 87vh;
+            animation: arrive 1s linear;
+          }
+
+          @keyframes arrive {
+            0% {
+              opacity: 0;
+              -ms-transform: translate(500%, 200%);
+              -moz-transform: translate(500%, 200%);
+              -webkit-transform: translate(500%, 200%);
+              -o-transform: translate(500%, 200%);
+              transform: translate(500%, 200%);
+            }
+            100% {
+              opacity: 1;
+              margin-right: 0;
+              -ms-transform: translate(0, 0);
+              -moz-transform: translate(0, 0);
+              -webkit-transform: translate(0, 0);
+              -o-transform: translate(0, 0);
+              transform: translate(0, 0);
+            }
           }
         `}
       </style>

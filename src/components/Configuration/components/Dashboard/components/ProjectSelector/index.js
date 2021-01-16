@@ -24,7 +24,7 @@ const ProjectSelector = () => {
 
   useEffect(() => {
     let mounted = true;
-    getProjects(user).then(({ data: _projects }) => {
+    getProjects().then(({ data: _projects }) => {
       if (!mounted) return;
       setProjects(_projects);
       setLoading(false);

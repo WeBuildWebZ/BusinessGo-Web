@@ -21,7 +21,7 @@ const ConfigurationEditor = () => {
     const newConfiguration = { ...configuration, [configurationSection.form_code]: changedConfiguration };
 
     setConfiguration(newConfiguration);
-    updateProjectConfiguration(user, project, newConfiguration).then(() => {
+    updateProjectConfiguration(project, newConfiguration).then(() => {
       dispatch(
         pushAlert({
           icon: 'success',

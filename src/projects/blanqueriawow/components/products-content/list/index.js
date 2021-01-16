@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import ProductItem from '../../product-item';
 import { getProducts } from '../../../services/product';
+import InfiniteScrollLastElement from '../../../../../components/InfiniteScrollLastElement';
 
 import ProductsLoading from './loading';
 
@@ -32,24 +33,18 @@ const ProductsContent = props => {
     window.scrollTo(0, 0);
   }, [selectedCategories]);
 
-  const handleLastVisible = () => {
-    setPageNumber(pageNumber + 1);
+  const handleChangePageNumber = newPageNumber => {
+    setPageNumber(newPageNumber);
   };
 
   return (
     <>
       <section className="products-list">
-        {products.map((product, i) => {
-          const isLast = i === products.length - 1;
-          return (
-            <ProductItem
-              key={i}
-              product={product}
-              visibilityHookEnabled={isLast}
-              onVisible={handleLastVisible}
-            />
-          );
-        })}
+        <InfiniteScrollLastElement onPageNumberChange={handleChangePageNumber}>
+          {products.map((product, i) => (
+            <ProductItem key={i} product={product} />
+          ))}
+        </InfiniteScrollLastElement>
       </section>
       {loading && <ProductsLoading />}
     </>

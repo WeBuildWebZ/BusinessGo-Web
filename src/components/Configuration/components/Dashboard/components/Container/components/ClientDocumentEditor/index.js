@@ -18,6 +18,7 @@ import SearchInput from './components/SearchInput';
 const ClientDocumentEditor = props => {
   const { clientModel } = props;
   const user = useSelector(store => store.user);
+  const project = useSelector(store => store.project);
   const [loading, setLoading] = useState(true);
   const [clientDocuments, setClientDocuments] = useState([]);
   const [selectedClientDocument, setSelectedClientDocument] = useState(null);
@@ -52,12 +53,12 @@ const ClientDocumentEditor = props => {
     setSelectedClientDocument(null);
 
     if (isNewDocument) {
-      createClientDocument(user, clientModel, clientDocument).then(({ data: createdClientDocument }) => {
+      createClientDocument(clientModel, clientDocument).then(({ data: createdClientDocument }) => {
         if (!mounted) return;
         setClientDocuments([createdClientDocument, ...clientDocuments]);
       });
     } else {
-      updateClientDocument(user, clientDocument).then(() => {
+      updateClientDocument(clientDocument).then(() => {
         if (!mounted) return;
         setClientDocuments(
           clientDocuments.map(_clientDocument =>
@@ -69,7 +70,7 @@ const ClientDocumentEditor = props => {
   };
 
   const handleDocumentDeletion = clientDocument => {
-    deleteClientDocument(user, clientDocument).then(() => {
+    deleteClientDocument(clientDocument).then(() => {
       setClientDocuments(
         clientDocuments.filter(_clientDocument => _clientDocument._id !== clientDocument._id)
       );

@@ -1,18 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { some } from 'lodash';
 
 import { getFinalPrice } from '../../utils/product';
 import { toggleFavoriteProduct } from '../../actions/favoriteProducts';
-import { isInViewport } from '../../../../utils/html';
 
 const ProductItem = props => {
   const { product } = props;
   const dispatch = useDispatch();
-  const [elementId] = useState(uuid());
   const [isVisible, setIsVisible] = useState(false);
   const isVisibleRef = useRef();
   const favoriteProducts = useSelector(state => state.favoriteProducts);
@@ -21,28 +18,12 @@ const ProductItem = props => {
 
   const isFavourite = some(favoriteProducts, productId => productId === product._id);
 
-  useEffect(() => {
-    if (!props.visibilityHookEnabled) return;
-
-    const handleScroll = () => {
-      const productElement = document.getElementById(elementId);
-      const newIsVisible = isInViewport(productElement);
-      if (newIsVisible !== isVisibleRef.current) {
-        setIsVisible(newIsVisible);
-        if (newIsVisible) props.onVisible();
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const toggleFav = () => {
     dispatch(toggleFavoriteProduct(product));
   };
 
   return (
-    <div className="product-item" id={elementId} draggable>
+    <div className="product-item" draggable id={props.elementId}>
       <button
         type="button"
         onClick={toggleFav}
@@ -81,14 +62,12 @@ const ProductItem = props => {
 };
 
 ProductItem.propTypes = {
-  product: PropTypes.object.isRequired,
-  visibilityHookEnabled: PropTypes.bool,
-  onVisible: PropTypes.func
+  elementId: PropTypes.string,
+  product: PropTypes.object.isRequired
 };
 
 ProductItem.defaultProps = {
-  visibilityHookEnabled: false,
-  onVisible: () => {}
+  elementId: ''
 };
 
 export default ProductItem;

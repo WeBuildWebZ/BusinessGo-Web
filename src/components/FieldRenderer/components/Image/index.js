@@ -7,7 +7,7 @@ import { uploadImage } from '../../../../services/cloudinary/image';
 
 const Image = props => {
   const { field, value } = props;
-  const user = useSelector(store => store.user);
+  const project = useSelector(store => store.project);
   const [uploading, setUploading] = useState(false);
   const input = useRef(null);
 
@@ -22,7 +22,7 @@ const Image = props => {
 
     setUploading(true);
 
-    uploadImage(user, file).then(body => {
+    uploadImage(project, file).then(body => {
       setUploading(false);
       props.onChange(body.secure_url);
     });
