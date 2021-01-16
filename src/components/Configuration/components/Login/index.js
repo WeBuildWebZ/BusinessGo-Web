@@ -7,17 +7,28 @@ const Login = () => (
   <center className="loginContainer">
     <Paper
       style={{
-        marginTop: 50,
-        width: '30%'
+        width: '18em',
+        height:'20em',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'flex-start',
+        flexFlow:'column',
+        padding:'1em'
       }}
     >
-      <Form />
+      <Form className="form"/>
     </Paper>
     <style jsx>
       {`
+
         .loginContainer {
           transition: 1s;
           animation: initialAnimation 1s linear;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          width:100vw;
+          height:100vh;
         }
 
         @keyframes initialAnimation {

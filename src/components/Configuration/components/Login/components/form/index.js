@@ -62,7 +62,7 @@ const Menu = () => {
         </Form.Group>
 
         <Form.Group controlId="password">
-          <Form.Label>{language.password}</Form.Label>
+          <Form.Label >{language.password}</Form.Label>
           <Form.Control
             type="password"
             required
