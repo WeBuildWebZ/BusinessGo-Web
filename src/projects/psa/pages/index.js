@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { scrolledToBottom } from '../../../utils/html';
@@ -13,6 +13,10 @@ import { setOptions } from '../actions/options';
 
 const App = () => {
   const dispatch = useDispatch();
+  const project = useSelector(state => state.project);
+  const projectRef = useRef();
+  projectRef.current = project;
+
   const selectedOptions = useSelector(state => state.selectedOptions);
   const [filterViewOpen, setFilterViewOpen] = useState(false);
   const [professionals, setProfessionals] = useState([]);
@@ -28,13 +32,21 @@ const App = () => {
       setLoadingOptions(false);
       dispatch(
         setOptions({
-          regions: filters['value.region'],
           cities: filters['value.city'],
           workAreas: filters['value.work_area']
         })
       );
     });
   }, []);
+
+  useEffect(() => {
+    if (!projectRef.current) return;
+    dispatch(
+      setOptions({
+        regions: projectRef.current.configuration.basic_info.chile_regions
+      })
+    );
+  }, [project]);
 
   const handleSelectProfessional = professional => {
     setSelectedProfessional(professional);

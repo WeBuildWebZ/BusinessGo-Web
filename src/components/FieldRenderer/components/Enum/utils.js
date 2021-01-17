@@ -1,1 +1,1 @@
-export const eachExistingValue = (arr = []) => arr.filter(element => element);
+export const eachExistingValue = (options = []) => options.filter(option => option.value);

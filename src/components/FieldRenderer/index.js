@@ -95,6 +95,7 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 multiline={false}
                 onChange={value => handleUpdateData(field.key, value)}
+                FieldRenderer={FieldRenderer}
                 key={field.key}
               />
             );
