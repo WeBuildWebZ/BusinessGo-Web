@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@material-ui/core';
+import { FormControl, InputLabel, MenuItem, Select as SelectInput } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../../../utils/field';
 
 import { getLanguage } from './lang';
 
-const Text = props => {
+const Select = props => {
   const { field, value } = props;
   const language = getLanguage(useSelector(store => store.language));
   const project = useSelector(store => store.project);
@@ -19,40 +19,40 @@ const Text = props => {
   };
 
   return (
-    <>
-      <FormControl>
-        <InputLabel>{field.name}</InputLabel>
-        <Select
-          label={field.name}
-          value={stateValue}
-          onChange={handleChangeValue}
-          displayEmpty
-          inputProps={{ 'aria-label': 'Without label', style: { width: '100%' } }}
-          style={{ padding: 5, margin: '16px 0 16px 0' }}
-        >
-          <MenuItem value="" disabled>
-            {`${language.select} ${field.name}`}
-          </MenuItem>
-          {project.configuration[field.options_reference.form_code][field.options_reference.field_key].map(
-            currentValue => (
-              <MenuItem value={currentValue}>{currentValue}</MenuItem>
-            )
-          )}
-        </Select>
-      </FormControl>
-    </>
+    <FormControl>
+      <InputLabel>{field.name}</InputLabel>
+      <SelectInput
+        label={field.name}
+        value={stateValue}
+        onChange={handleChangeValue}
+        displayEmpty
+        inputProps={{ 'aria-label': 'Without label', style: { width: '100%' } }}
+        style={{ padding: 5, margin: '16px 0 16px 0' }}
+      >
+        <MenuItem key={-1} value="" disabled>
+          {`${language.select} ${field.name}`}
+        </MenuItem>
+        {project.configuration[field.options_reference.form_code][field.options_reference.field_key].map(
+          (option, i) => (
+            <MenuItem key={i} value={option.value}>
+              {option.value}
+            </MenuItem>
+          )
+        )}
+      </SelectInput>
+    </FormControl>
   );
 };
 
-Text.propTypes = {
+Select.propTypes = {
   value: PropTypes.string,
   field: fieldShape.isRequired,
   onChange: PropTypes.func
 };
 
-Text.defaultProps = {
+Select.defaultProps = {
   value: '',
   onChange: () => {}
 };
 
-export default Text;
+export default Select;
