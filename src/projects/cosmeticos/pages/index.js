@@ -1,10 +1,12 @@
+import '../assets/styles/styles.module.scss';
 
-const Home = () => {
+const index = () => {
     return (
         <div>
-            <h1>aqui vamos!</h1>
+            <h1>hola</h1>
         </div>
     )
 }
 
 export default index
+
