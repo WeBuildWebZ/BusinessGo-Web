@@ -6,6 +6,7 @@ import commonReducer from '../reducers';
 import AlertStack from '../../components/AlertStack';
 import { showProject } from '../../services/api/project';
 import { setProject } from '../actions/project';
+import { initSentry } from '../../utils/sentry';
 
 const ReduxFiller = props => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const ReduxFiller = props => {
   if (!isAdminPage) {
     showProject(constants.PROJECT_CODE).then(({ data: project }) => {
       dispatch(setProject(project));
+      initSentry(project.sentry_settings.dsn);
     });
   }
   return <div />;
