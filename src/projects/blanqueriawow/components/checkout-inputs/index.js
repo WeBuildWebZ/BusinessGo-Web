@@ -9,9 +9,15 @@ const CheckoutInputs = props => {
   const [fields, setFields] = useState([]);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
+  const isDev = process.env.NODE_ENV === 'development';
 
   useEffect(() => {
     getForm(PROJECT_CODE, 'cart').then(({ data: form }) => {
+      if (isDev) {
+        const newData = Object.fromEntries(form.fields.map(field => [field.key, field.testing_value]));
+        setData(newData);
+        props.onChange(newData);
+      }
       setFields(form.fields);
       setLoading(false);
     });
@@ -42,6 +48,7 @@ const CheckoutInputs = props => {
                     <input
                       className="form__input form__input--sm"
                       type="text"
+                      value={data[_field.key]}
                       placeholder={_field.name}
                       onChange={({ target }) => handleChangeData(_field.key, target.value)}
                     />
