@@ -29,9 +29,7 @@ const ProductFilter = () => {
 
   return (
     <div className="products-filter__block" style={{ padding: 15 }}>
-      <button type="button" style={{ marginBottom: 15 }}>
-        Categoría
-      </button>
+      <div style={{ marginBottom: 15, color: 'black' }}>Categoría</div>
       {loading && <Spinner />}
       <div className="products-filter__block__content">
         {categories.map((category, i) => {
