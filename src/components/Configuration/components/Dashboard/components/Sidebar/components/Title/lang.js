@@ -2,11 +2,13 @@ const getLanguage = language_code =>
   ({
     es: {
       configuration: 'Configuración',
-      tables: 'Tablas'
+      tables: 'Tablas',
+      forms: 'Formularios'
     },
     en: {
       configuration: 'Configuration',
-      tables: 'Tables'
+      tables: 'Tables',
+      forms: 'Forms'
     }
   }[language_code]);
 

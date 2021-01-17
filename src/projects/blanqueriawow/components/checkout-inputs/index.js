@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Spinner from '../../../../components/Spinner';
 import { PROJECT_CODE } from '../../constants';
-import { getForm } from '../../../../services/api/form';
+import { showForm } from '../../../../services/api/form';
 
 const CheckoutInputs = props => {
   const [fields, setFields] = useState([]);
@@ -12,7 +12,7 @@ const CheckoutInputs = props => {
   const isDev = process.env.NODE_ENV === 'development';
 
   useEffect(() => {
-    getForm(PROJECT_CODE, 'cart').then(({ data: form }) => {
+    showForm(PROJECT_CODE, 'cart').then(({ data: form }) => {
       if (isDev) {
         const newData = Object.fromEntries(form.fields.map(field => [field.key, field.testing_value]));
         setData(newData);

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setSelectedClientModel } from '../../../../../../../../shared/actions/selectedClientModel';
 import { setAdminSection } from '../../../../../../../../shared/actions/adminSection';
-import { setConfigurationSection } from '../../../../../../../../shared/actions/configurationSection';
 import Spinner from '../../../../../../../Spinner';
 import Button from '../../../../../../../Button';
 
@@ -32,6 +31,7 @@ const TablesSection = () => {
           key={i}
           text={clientModel.table_descriptive_name}
           onClick={() => handleSelectClientModel(clientModel)}
+          style={{ marginTop: 10 }}
           selected={
             clientModel._id === (selectedClientModel && selectedClientModel._id) && adminSection === 'tables'
           }

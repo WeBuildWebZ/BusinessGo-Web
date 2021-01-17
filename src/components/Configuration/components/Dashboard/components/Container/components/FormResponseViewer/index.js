@@ -6,25 +6,22 @@ import PropTypes from 'prop-types';
 import InfiniteScroll from '../../../../../../../InfiniteScroll';
 import Table from '../../../../../../../Table';
 import {
-  createClientDocument,
-  updateClientDocument,
   getClientDocuments,
   deleteClientDocument
 } from '../../../../../../../../services/api/clientDocument';
 
-import EditModal from './components/EditModal';
 import SearchInput from './components/SearchInput';
+import { getLanguage } from './lang';
 
-const ClientDocumentEditor = props => {
-  const { clientModel } = props;
+const FormResponseViewer = props => {
+  const language = getLanguage(useSelector(store => store.language));
+  const selectedForm = useSelector(store => store.selectedForm);
   const [loading, setLoading] = useState(true);
   const [clientDocuments, setClientDocuments] = useState([]);
   const [selectedClientDocument, setSelectedClientDocument] = useState(null);
   const [textSearch, setTextSearch] = useState('');
   const [isNewDocument, setIsNewDocument] = useState(false);
   const [mounted, setMounted] = useState(true);
-
-  const importantFields = clientModel.fields.filter(({ important }) => important);
 
   useEffect(
     () => () => {
@@ -45,26 +42,6 @@ const ClientDocumentEditor = props => {
 
   const handleStopEditingDocument = () => {
     setSelectedClientDocument(null);
-  };
-
-  const handleSaveDocument = clientDocument => {
-    setSelectedClientDocument(null);
-
-    if (isNewDocument) {
-      createClientDocument(clientModel, clientDocument).then(({ data: createdClientDocument }) => {
-        if (!mounted) return;
-        setClientDocuments([createdClientDocument, ...clientDocuments]);
-      });
-    } else {
-      updateClientDocument(clientDocument).then(() => {
-        if (!mounted) return;
-        setClientDocuments(
-          clientDocuments.map(_clientDocument =>
-            _clientDocument._id === clientDocument._id ? clientDocument : _clientDocument
-          )
-        );
-      });
-    }
   };
 
   const handleDocumentDeletion = clientDocument => {
@@ -96,20 +73,11 @@ const ClientDocumentEditor = props => {
 
   return (
     <InfiniteScroll onPageChange={handleChangePage} data={clientDocuments} resetPageChanger={textSearch}>
-      <div className="editor">
-        {selectedClientDocument && (
-          <EditModal
-            clientModel={clientModel}
-            clientDocument={selectedClientDocument}
-            onClose={handleStopEditingDocument}
-            onEdit={handleSaveDocument}
-            action={isNewDocument ? 'create' : 'edit'}
-          />
-        )}
-        <PopoverTitle>{`Editor de ${clientModel.table_descriptive_name}`}</PopoverTitle>
+      <div className="formResponseViewer">
+        <PopoverTitle>{`${language.responsesForForm} ${selectedForm.name}`}</PopoverTitle>
         <SearchInput onChange={handleTextSearch} />
         <Table
-          fields={importantFields}
+          fields={selectedForm.fields}
           onPageChanged={handleChangePage}
           loading={loading}
           rows={clientDocuments}
@@ -119,7 +87,7 @@ const ClientDocumentEditor = props => {
         />
         <style jsx>
           {`
-            .editor {
+            .formResponseViewer {
               height: 100%;
               overflow-y: auto;
             }
@@ -130,13 +98,13 @@ const ClientDocumentEditor = props => {
   );
 };
 
-ClientDocumentEditor.propTypes = {
+FormResponseViewer.propTypes = {
   clientModel: PropTypes.object.isRequired,
   pageSize: PropTypes.number
 };
 
-ClientDocumentEditor.defaultProps = {
+FormResponseViewer.defaultProps = {
   pageSize: 10
 };
 
-export default ClientDocumentEditor;
+export default FormResponseViewer;

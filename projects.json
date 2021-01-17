@@ -23,8 +23,8 @@
     "path": "src/projects/bob",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/DancotLL/BGO-Bob"
   },
-  "campe": {
-    "path": "src/projects/campe",
+  "cosmeticos": {
+    "path": "src/projects/cosmeticos",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/DancotLL/BGO-Campe"
   }
 }

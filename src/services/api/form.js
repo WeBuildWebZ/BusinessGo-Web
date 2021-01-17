@@ -1,4 +1,7 @@
 import api from '../../utils/axios';
 
-export const getForm = (project_code, form_code) =>
+export const showForm = (project_code, form_code) =>
   api.get(`api/projects/${encodeURIComponent(project_code)}/forms/${encodeURIComponent(form_code)}`);
+
+export const listForms = (project_code, showable) =>
+  api.get(`api/projects/${encodeURIComponent(project_code)}/forms`, { params: { showable } });

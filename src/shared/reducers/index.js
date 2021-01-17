@@ -6,6 +6,8 @@ import adminSection from './adminSection';
 import clientModels from './clientModels';
 import selectedClientModel from './selectedClientModel';
 import configurationSection from './admin/configurationSection';
+import selectedForm from './admin/selectedForm';
+import selectedFormSection from './admin/selectedFormSection';
 
 const CommonReducers = {
   user,
@@ -15,7 +17,10 @@ const CommonReducers = {
   adminSection,
   clientModels,
   selectedClientModel,
-  configurationSection
+  // Admin Section
+  configurationSection,
+  selectedForm,
+  selectedFormSection
 };
 
 export default CommonReducers;

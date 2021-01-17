@@ -1,10 +1,14 @@
 import Head from 'next/head';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/styles/globals.css';
 
+import getApp from '../../../shared/pages/_app';
+import * as constants from '../constants';
 
 const AppendHead = () => (
   <Head>
-    <title>Cosmeticos</title>
+    <title>Cosméticos</title>
 
     {/* etiquetas og facebook */}
     <meta property="og:type" content="website" />
@@ -29,4 +33,4 @@ const AppendHead = () => (
   </Head>
 );
 
-export default AppendHead ;
+export default getApp({}, constants, AppendHead);

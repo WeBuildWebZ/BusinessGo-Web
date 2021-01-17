@@ -6,6 +6,7 @@ import Split from '../../../../../Split';
 import ConfigurationButton from './components/ConfigurationButton';
 import Title from './components/Title';
 import TablesSection from './components/TablesSection';
+import FormsSection from './components/FormsSection';
 
 const Sidebar = () => {
   const project = useSelector(store => store.project);
@@ -22,6 +23,10 @@ const Sidebar = () => {
       <Title code="tables" />
       <Split />
       <TablesSection />
+      <Split />
+      <Title code="forms" />
+      <Split />
+      <FormsSection />
       <style jsx>
         {`
           .sidebar {
