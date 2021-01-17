@@ -13,7 +13,8 @@ const Login = () => (
         justifyContent:'center',
         alignItems:'flex-start',
         flexFlow:'column',
-        padding:'1em'
+        padding:'1em',
+        borderRadius:'1em'
       }}
     >
       <Form className="form"/>
