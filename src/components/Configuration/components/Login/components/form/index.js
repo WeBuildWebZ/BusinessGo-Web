@@ -29,16 +29,15 @@ const Menu = () => {
         const [{ user: newUser }] = sessions;
         dispatch(setUser(newUser));
       })
-      .catch(({ response }) => {
-        const errorCode = response ? response.data.error.code : 'connection_error';
+      .catch(error => {
+        const errorCode = error.response ? error.response.data.error.code : 'connection_error';
         setLoading(false);
 
         dispatch(
           pushAlert({
             icon: 'error',
             title: language.errors[errorCode].title,
-            message: language.errors[errorCode].message,
-            duration: 3000
+            message: language.errors[errorCode].message
           })
         );
       });
@@ -62,7 +61,7 @@ const Menu = () => {
         </Form.Group>
 
         <Form.Group controlId="password">
-          <Form.Label >{language.password}</Form.Label>
+          <Form.Label>{language.password}</Form.Label>
           <Form.Control
             type="password"
             required

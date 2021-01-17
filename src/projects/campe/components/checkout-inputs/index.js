@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Spinner from '../../../../components/Spinner';
 import { PROJECT_CODE } from '../../constants';
-import { getCartModel } from '../../../../services/ecommerce_api/cartModel';
+import { getForm } from '../../../../services/api/form';
 
 const CheckoutInputs = props => {
   const [fields, setFields] = useState([]);
@@ -11,7 +11,7 @@ const CheckoutInputs = props => {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    getCartModel(PROJECT_CODE).then(({ data: cartModel }) => {
+    getForm(PROJECT_CODE, 'cart').then(({ data: cartModel }) => {
       setFields(cartModel.fields);
       setLoading(false);
     });

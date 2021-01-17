@@ -22,5 +22,9 @@
   "bob": {
     "path": "src/projects/bob",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/DancotLL/BGO-Bob"
+  },
+  "campe": {
+    "path": "src/projects/campe",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/DancotLL/BGO-Campe"
   }
 }

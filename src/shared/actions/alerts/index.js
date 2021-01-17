@@ -17,7 +17,7 @@ export const pushAlert = alert => ({
   payload: {
     ...alert,
     id: alert.id || getId(),
-    duration: alert.duration || 2000,
+    duration: alert.duration || 4000,
     _show: true
   }
 });

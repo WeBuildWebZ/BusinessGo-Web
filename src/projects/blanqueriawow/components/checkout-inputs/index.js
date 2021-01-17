@@ -3,16 +3,22 @@ import PropTypes from 'prop-types';
 
 import Spinner from '../../../../components/Spinner';
 import { PROJECT_CODE } from '../../constants';
-import { getCartModel } from '../../../../services/ecommerce_api/cartModel';
+import { getForm } from '../../../../services/api/form';
 
 const CheckoutInputs = props => {
   const [fields, setFields] = useState([]);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
+  const isDev = process.env.NODE_ENV === 'development';
 
   useEffect(() => {
-    getCartModel(PROJECT_CODE).then(({ data: cartModel }) => {
-      setFields(cartModel.fields);
+    getForm(PROJECT_CODE, 'cart').then(({ data: form }) => {
+      if (isDev) {
+        const newData = Object.fromEntries(form.fields.map(field => [field.key, field.testing_value]));
+        setData(newData);
+        props.onChange(newData);
+      }
+      setFields(form.fields);
       setLoading(false);
     });
   }, []);
@@ -42,6 +48,7 @@ const CheckoutInputs = props => {
                     <input
                       className="form__input form__input--sm"
                       type="text"
+                      value={data[_field.key]}
                       placeholder={_field.name}
                       onChange={({ target }) => handleChangeData(_field.key, target.value)}
                     />

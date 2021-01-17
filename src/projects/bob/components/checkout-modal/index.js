@@ -14,7 +14,7 @@ const CheckoutModal = props => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    createCart(PROJECT_CODE, props.data, cartItems).then(() => {
+    createCart(PROJECT_CODE, 'cart', props.data, cartItems).then(() => {
       setLoading(false);
     });
   }, []);

@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 
 import Spinner from '../../../../components/Spinner';
 import { PROJECT_CODE } from '../../constants';
-import { getCartModel } from '../../../../services/ecommerce_api/cartModel';
+import { getForm } from '../../../../services/api/form';
 
 const CheckoutInputs = props => {
   const [fields, setFields] = useState([]);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
+  const isLocal = process.env.NODE_ENV === 'localhost';
 
   useEffect(() => {
-    getCartModel(PROJECT_CODE).then(({ data: cartModel }) => {
+    getForm(PROJECT_CODE, 'cart').then(({ data: cartModel }) => {
       setFields(cartModel.fields);
       setLoading(false);
     });
@@ -42,6 +43,7 @@ const CheckoutInputs = props => {
                     <input
                       className="form__input form__input--sm"
                       type="text"
+                      defaultValue={isLocal ? _field.testing_value : ''}
                       placeholder={_field.name}
                       onChange={({ target }) => handleChangeData(_field.key, target.value)}
                     />
