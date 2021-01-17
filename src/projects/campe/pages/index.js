@@ -1,6 +1,5 @@
 import Layout from '../layouts/Main';
 import PageIntro from '../components/page-intro';
-import ProductsFeatured from '../components/products-featured';
 import Footer from '../components/footer';
 import Subscribe from '../components/subscribe';
 
@@ -8,7 +7,6 @@ const IndexPage = () => (
   <Layout>
     <PageIntro />
 
-    {/* LEAN- si yo te digo es Carnaval- vos apreta el pomo */}
     <section className="featured">
       <div className="container">
         <article
@@ -18,33 +16,21 @@ const IndexPage = () => (
           <div className="featured-item__content">
             <h3>Articulos recien llegados</h3>
             <a href="#" className="btn btn--rounded">
-              Mostrar Coleccion
+              Ver Todo
             </a>
           </div>
         </article>
 
         <article
           style={{ backgroundImage: 'url(/images/featured-2.jpg)' }}
-          className="featured-item featured-item-small-first"
-        >
-          <div className="featured-item__content">
-            <h3>Juego de sabanas simple</h3>
-            <a href="#" className="btn btn--rounded">
-              Mas detalles
-            </a>
-          </div>
+          className="featured-item featured-item-small-first">
+          <div className="featured-item__content"></div>
         </article>
 
         <article
           style={{ backgroundImage: 'url(/images/featured-3.jpg)' }}
-          className="featured-item featured-item-small"
-        >
-          <div className="featured-item__content">
-            <h3>Este invierno</h3>
-            <a href="#" className="btn btn--rounded">
-              Mas detalles
-            </a>
-          </div>
+          className="featured-item featured-item-small">
+          <div className="featured-item__content"></div>
         </article>
       </div>
     </section>

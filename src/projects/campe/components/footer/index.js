@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="site-footer__top">
           <div className="site-footer__description">
             <h6>
-              <Logo /> <span>E</span>-Shop
+              <Logo /> <span>Cosmetics</span>-Beauty
             </h6>
             {!project && <Spinner />}
             {project && <p>{project.configuration.description}</p>}
@@ -62,7 +62,7 @@ const Footer = () => {
 
           <div className="site-footer__links">
             <ul>
-              <li>Shopping online</li>
+              <li>Cosmetics - Beauty</li>
               <li>
                 <a href="#">Como comprar</a>
               </li>
@@ -94,7 +94,7 @@ const Footer = () => {
             <ul>
               <li>Contacto</li>
               <li>
-                <a href="#">blanqueria-wow@gmail.com</a>
+                <a href="#">Cosmeticos-beauty@gmail.com</a>
               </li>
               <li>
                 <a href="#">TEL: +15 1122334455</a>

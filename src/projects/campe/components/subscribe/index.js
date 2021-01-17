@@ -5,7 +5,7 @@ const Subscribe = () => (
         <h4>Suscribite a nuestra tienda Online, y recibi ofertas todas las semanas!</h4>
 
         <form className="subscribe__form">
-          <input type="email" placeholder="Correo electrénico" />
+          <input type="email" placeholder="Correo electronico" />
           <button type="submit" className="btn btn--rounded btn--yellow">
             Suscribirse
           </button>

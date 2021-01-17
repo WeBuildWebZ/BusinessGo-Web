@@ -10,10 +10,10 @@ const PageIntro = () => (
         <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-1.jpg')" }}>
           <div className="container">
             <div className="page-intro__slide__content">
-              <h2>El mejor precio en Blanquería</h2>
+              <h2>El mejor precio en Cosmeticos</h2>
               <a href="#" className="btn-shop">
                 <i className="icon-right" />
-                Navegar
+                Ver
               </a>
             </div>
           </div>
@@ -21,13 +21,21 @@ const PageIntro = () => (
       </SwiperSlide>
 
       <SwiperSlide>
-        <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-2.jpg')" }}>
+        <div
+        className="page-intro__slide"
+        style={
+          {
+            backgroundImage: "url('/images/slide-2.jpg')",
+            backgroundPosition: "center"
+
+          }
+          }>
           <div className="container">
             <div className="page-intro__slide__content">
               <h2>Calidad Premium</h2>
               <a href="#" className="btn-shop">
                 <i className="icon-right" />
-                Navegar
+                Ver
               </a>
             </div>
           </div>
@@ -42,15 +50,15 @@ const PageIntro = () => (
             <i className="icon-shipping" />
             <div className="data-item__content">
               <h4>Envío a todo el Pais</h4>
-              <p>con su compra a partir de 20.000$</p>
+              <p>con su compra a partir de 10.000$</p>
             </div>
           </li>
 
           <li>
             <i className="icon-shipping" />
             <div className="data-item__content">
-              <h4>90% Clientes Satisfechos!</h4>
-              <p>Las opiniones de nuestros clientes hablan por sí solas</p>
+              <h4>90% Clientas Satisfechas!</h4>
+              <p>Las opiniones de nuestras clientes hablan por sí solas</p>
             </div>
           </li>
 
