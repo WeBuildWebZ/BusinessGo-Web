@@ -10,6 +10,7 @@
     "wow": "npm run copy-env src/projects/blanqueriawow && next dev src/projects/blanqueriawow",
     "bob": "npm run copy-env src/projects/bob && next dev src/projects/bob",
     "campe": "npm run copy-env src/projects/campe && next dev src/projects/campe",
+    "cosmeticos": "npm run copy-env src/projects/cosmeticos && next dev src/projects/cosmeticos",
     "build": "node -r esm scripts/build",
     "now-build": "node -r esm scripts/build",
     "export": "next export",
