@@ -32,7 +32,6 @@ const App = () => {
       setLoadingOptions(false);
       dispatch(
         setOptions({
-          cities: filters['value.city'],
           workAreas: filters['value.work_area']
         })
       );
@@ -43,7 +42,7 @@ const App = () => {
     if (!projectRef.current) return;
     dispatch(
       setOptions({
-        regions: projectRef.current.configuration.basic_info.chile_regions
+        regions: projectRef.current.configuration.basic_info.chile_regions.map(region => region.value)
       })
     );
   }, [project]);

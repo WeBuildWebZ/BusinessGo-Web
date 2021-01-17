@@ -1,1 +1,1 @@
-export const setOptions = user => ({ type: 'setOptions', payload: user });
+export const setOptions = options => ({ type: 'setOptions', payload: options });

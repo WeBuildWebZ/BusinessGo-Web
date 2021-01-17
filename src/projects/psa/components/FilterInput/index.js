@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Spinner } from 'react-bootstrap';
 
 import { setSelectedOptions } from '../../actions/selectedOptions';
+import { setOptions } from '../../actions/options';
 
 import Select from './components/select';
 import Options from './components/options';
@@ -11,6 +12,7 @@ import Options from './components/options';
 const FilterInput = props => {
   let cancel = false;
   const dispatch = useDispatch();
+  const project = useSelector(store => store.project);
   const selectedOptions = useSelector(store => store.selectedOptions[props.option]);
   const options = useSelector(store => store.options[props.option]);
   const [open, setOpen] = useState(false);
@@ -22,6 +24,15 @@ const FilterInput = props => {
 
   const handleChangeSelectedOptions = newSelectedOptions => {
     dispatch(setSelectedOptions(props.option, newSelectedOptions));
+
+    if (props.option === 'regions') {
+      const cities = project.configuration.basic_info.chile_regions
+        .filter(({ value }) => newSelectedOptions.includes(value))
+        .map(region => region.related_values.cities.map(city => city.value))
+        .flat();
+
+      dispatch(setOptions({ cities }));
+    }
   };
 
   const handleRemoveFilter = e => {
