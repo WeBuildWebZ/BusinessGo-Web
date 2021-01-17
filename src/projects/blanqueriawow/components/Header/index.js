@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import Logo from '../../assets/icons/logo';
+import Filter from '../products-filter/components/Filter';
 
 const Header = ({ isErrorPage }) => {
   const router = useRouter();
@@ -73,11 +74,7 @@ const Header = ({ isErrorPage }) => {
           <Link href="/products">
             <a>Productos</a>
           </Link>
-          <a href="#">Preguntas Frecuentes</a>
-          <a href="#">Contacto</a>
-          <button className="site-nav__btn">
-            <p>Cuenta</p>
-          </button>
+          {menuOpen && <Filter />}
         </nav>
 
         <div className="site-header__actions">

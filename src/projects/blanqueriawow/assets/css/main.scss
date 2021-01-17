@@ -412,6 +412,7 @@ h5 {
       }
     }
     &.site-nav--open {
+      overflow-y: auto;
       right: 0;
     }
     a {
