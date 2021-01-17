@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import Header from '../components/Header';
 
-const Main = ({ children, title = 'Blanquería Wow' }) => {
+const Main = ({ children, title = 'Cosmetics - Beauty' }) => {
   const router = useRouter();
   const { pathname } = router;
 

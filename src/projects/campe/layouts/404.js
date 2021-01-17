@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import Header from '../components/Header';
 
-const NotFound = ({ children, title = 'Blanquería Wow' }) => {
+const NotFound = ({ children, title = 'Cosmetics - Beauty' }) => {
   const router = useRouter();
   const { pathname } = router;
 
