@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import Spinner from '../../../Spinner';
 import { uploadImage } from '../../../../services/cloudinary/image';
+import OpenableImage from '../../../OpenableImage';
 
 const Image = props => {
   const { field, value } = props;
@@ -33,6 +34,8 @@ const Image = props => {
       <div className="imageText">{`${field.name}:`}</div>
       {uploading ? (
         <Spinner />
+      ) : props.readOnly ? (
+        <OpenableImage src={value || field.default_value} title={field.name} />
       ) : (
         <img
           alt={field.name}
@@ -65,6 +68,7 @@ const Image = props => {
 
 Image.propTypes = {
   value: PropTypes.string,
+  readOnly: PropTypes.bool,
   field: PropTypes.shape({
     key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -78,6 +82,7 @@ Image.propTypes = {
 
 Image.defaultProps = {
   value: '',
+  readOnly: false,
   onChange: () => {}
 };
 

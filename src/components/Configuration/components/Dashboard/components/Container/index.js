@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 import ClientDocumentEditor from './components/ClientDocumentEditor';
 import ConfigurationEditor from './components/ConfigurationEditor';
+import FormResponseViewer from './components/FormResponseViewer';
 
 const Container = () => {
   const selectedClientModel = useSelector(store => store.selectedClientModel);
+  const selectedFormSection = useSelector(store => store.selectedFormSection);
   const adminSection = useSelector(store => store.adminSection);
 
   return (
@@ -14,6 +16,7 @@ const Container = () => {
       {adminSection === 'tables' && selectedClientModel && (
         <ClientDocumentEditor clientModel={selectedClientModel} />
       )}
+      {adminSection === 'forms' && selectedFormSection === 'show' && <FormResponseViewer />}
       <style jsx>
         {`
           .container {

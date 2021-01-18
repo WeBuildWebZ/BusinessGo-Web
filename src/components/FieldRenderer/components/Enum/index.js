@@ -82,7 +82,7 @@ const Enum = props => {
           onChange={({ target }) => handleChangeValue(i, option, target.value)}
           InputProps={{
             style: { width: '90%' },
-            endAdornment: (
+            endAdornment: !props.readOnly && (
               <>
                 <ListIcon
                   style={{ cursor: 'pointer', marginRight: 10 }}
@@ -94,9 +94,11 @@ const Enum = props => {
           }}
         />
       ))}
-      <Button onClick={handleAddValue} style={{ marginTop: 8 }}>
-        {language.add} {field.enum_name}
-      </Button>
+      {!props.readOnly && (
+        <Button onClick={handleAddValue} style={{ marginTop: 8 }}>
+          {language.add} {field.enum_name}
+        </Button>
+      )}
       <style jsx>
         {`
           .inputGroup {
@@ -115,12 +117,14 @@ const Enum = props => {
 Enum.propTypes = {
   value: PropTypes.arrayOf(PropTypes.object),
   field: fieldShape.isRequired,
+  readOnly: PropTypes.bool,
   FieldRenderer: PropTypes.any.isRequired,
   onChange: PropTypes.func
 };
 
 Enum.defaultProps = {
   value: [],
+  readOnly: false,
   onChange: () => {}
 };
 

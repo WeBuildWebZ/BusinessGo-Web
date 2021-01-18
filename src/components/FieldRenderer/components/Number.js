@@ -14,6 +14,7 @@ const Number = props => {
         defaultValue={value}
         type="number"
         variant="outlined"
+        disabled={props.readOnly}
         required={field.is_required}
         style={{ width: '100%', margin: '16px 0 16px 0' }}
         size="small"
@@ -25,12 +26,14 @@ const Number = props => {
 
 Number.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  readOnly: PropTypes.bool,
   field: fieldShape.isRequired,
   onChange: PropTypes.func
 };
 
 Number.defaultProps = {
   value: '',
+  readOnly: false,
   onChange: () => {}
 };
 

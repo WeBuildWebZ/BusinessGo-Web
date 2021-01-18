@@ -28,6 +28,7 @@ const Select = props => {
         displayEmpty
         inputProps={{ 'aria-label': 'Without label', style: { width: '100%' } }}
         style={{ padding: 5, margin: '16px 0 16px 0' }}
+        disabled={props.readOnly}
       >
         <MenuItem key={-1} value="" disabled>
           {`${language.select} ${field.name}`}
@@ -47,11 +48,13 @@ const Select = props => {
 Select.propTypes = {
   value: PropTypes.string,
   field: fieldShape.isRequired,
+  readOnly: PropTypes.bool,
   onChange: PropTypes.func
 };
 
 Select.defaultProps = {
   value: '',
+  readOnly: false,
   onChange: () => {}
 };
 

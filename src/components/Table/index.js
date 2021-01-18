@@ -1,4 +1,8 @@
 import React from 'react';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 import PropTypes from 'prop-types';
 
 import Spinner from '../Spinner';
@@ -15,11 +19,13 @@ const Table = props => {
               <div className="headerTextContainer">{field.name}</div>
             </th>
           ))}
-          <th>
-            <div className="new" onClick={() => props.onNewRow({})}>
-              <img className="icon" src="/shared/icons/plus.svg" alt="newIcon" />
-            </div>
-          </th>
+          {props.newButton && (
+            <th>
+              <div className="new" onClick={() => props.onNewRow({})}>
+                <AddCircleIcon style={{ color: 'black' }} />
+              </div>
+            </th>
+          )}
         </tr>
 
         {props.rows.map((row, i) => (
@@ -33,17 +39,29 @@ const Table = props => {
                 )}
               </td>
             ))}
-            <td>
-              <div className="edit" onClick={() => props.onRowEdit(row)}>
-                <img className="icon" src="/shared/icons/edit-pen.svg" alt="editIcon" />
-              </div>
-            </td>
+            {props.viewButton && (
+              <td>
+                <div className="view" onClick={() => props.onRowView(row)}>
+                  <VisibilityIcon />
+                </div>
+              </td>
+            )}
 
-            <td>
-              <div className="delete" onClick={() => props.onRowDelete(row)}>
-                <img src="/shared/icons/trash.svg" alt="trashIcon" />
-              </div>
-            </td>
+            {props.editButton && (
+              <td>
+                <div className="edit" onClick={() => props.onRowEdit(row)}>
+                  <EditIcon />
+                </div>
+              </td>
+            )}
+
+            {props.deleteButton && (
+              <td>
+                <div className="delete" onClick={() => props.onRowDelete(row)}>
+                  <DeleteIcon />
+                </div>
+              </td>
+            )}
           </tr>
         ))}
 
@@ -97,14 +115,14 @@ const Table = props => {
             width: fit-content;
             height: fit-content;
             padding: 2px;
-            background-color: red;
+            background-color: rgb(245, 90, 90);
             border-radius: 5px;
             transition: 0.2s;
           }
           .delete:hover {
             cursor: pointer;
-            background-color: rgb(212, 38, 38);
-            box-shadow: 0 0 1px 1px red;
+            background-color: rgb(206, 76, 76);
+            box-shadow: 0 0 1px 1px rgb(206, 76, 76);
           }
 
           .edit {
@@ -119,6 +137,20 @@ const Table = props => {
           .edit:hover {
             background-color: #b8903f;
             box-shadow: 0 0 1px 1px #b8903f;
+          }
+
+          .view {
+            border-radius: 5px;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            background-color: #37d85f;
+            transition: 0.2s;
+          }
+
+          .view:hover {
+            background-color: #11af39;
+            box-shadow: 0 0 1px 1px #11af39;
           }
 
           .new {
@@ -146,6 +178,11 @@ const Table = props => {
 Table.propTypes = {
   loading: PropTypes.bool,
   onRowDelete: PropTypes.func,
+  newButton: PropTypes.bool,
+  viewButton: PropTypes.bool,
+  editButton: PropTypes.bool,
+  deleteButton: PropTypes.bool,
+  onRowView: PropTypes.func,
   onRowEdit: PropTypes.func,
   onNewRow: PropTypes.func,
   rows: PropTypes.array.isRequired,
@@ -159,6 +196,11 @@ Table.propTypes = {
 
 Table.defaultProps = {
   loading: false,
+  newButton: true,
+  viewButton: true,
+  editButton: true,
+  deleteButton: true,
+  onRowView: () => {},
   onRowDelete: () => {},
   onRowEdit: () => {},
   onNewRow: () => {}

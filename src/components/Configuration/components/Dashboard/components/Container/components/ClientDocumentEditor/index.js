@@ -99,10 +99,12 @@ const ClientDocumentEditor = props => {
       <div className="editor">
         {selectedClientDocument && (
           <EditModal
-            clientModel={clientModel}
-            clientDocument={selectedClientDocument}
+            title={clientModel.name}
+            fields={clientModel.fields}
+            data={selectedClientDocument}
             onClose={handleStopEditingDocument}
             onEdit={handleSaveDocument}
+            editable
             action={isNewDocument ? 'create' : 'edit'}
           />
         )}
@@ -113,6 +115,7 @@ const ClientDocumentEditor = props => {
           onPageChanged={handleChangePage}
           loading={loading}
           rows={clientDocuments}
+          viewButton={false}
           onRowDelete={handleDocumentDeletion}
           onRowEdit={handleEditDocument}
           onNewRow={handleCreateDocument}

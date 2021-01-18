@@ -4,28 +4,32 @@ import { Modal, PopoverTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import FieldRenderer from '../../../../../../../../../FieldRenderer';
+import { fieldShape } from '../../../../../../../../../../utils/field';
 
 import { getLanguage } from './lang';
 
 const EditModal = props => {
-  const { clientModel, clientDocument } = props;
-  const [newClientDocument, setNewClientDocument] = useState(clientDocument);
+  const { fields, data } = props;
+  const [newClientDocument, setNewClientDocument] = useState(data);
   const language = getLanguage(useSelector(store => store.language));
-
-  const { fields } = clientModel;
 
   return (
     <div>
-      <Modal show backdrop="static" onHide={props.onClose}>
+      <Modal show backdrop={props.readOnly ? true : 'static'} onHide={props.onClose}>
         <Modal.Header closeButton>
           <PopoverTitle>
             {language[props.action]}
             &nbsp;
-            {clientModel.name}
+            {props.title}
           </PopoverTitle>
         </Modal.Header>
         <Modal.Body>
-          <FieldRenderer fields={fields} data={newClientDocument} onChange={setNewClientDocument} />
+          <FieldRenderer
+            fields={fields}
+            data={newClientDocument}
+            onChange={setNewClientDocument}
+            readOnly={props.readOnly}
+          />
         </Modal.Body>
         <Modal.Footer>
           <div className="iconContainer deleteIconContainer" onClick={props.onClose}>
@@ -75,14 +79,18 @@ const EditModal = props => {
 };
 
 EditModal.propTypes = {
-  clientModel: PropTypes.object.isRequired,
-  clientDocument: PropTypes.object.isRequired,
+  fields: PropTypes.arrayOf(fieldShape).isRequired,
+  title: PropTypes.string,
+  data: PropTypes.object.isRequired,
+  readOnly: PropTypes.bool,
   onClose: PropTypes.func,
   onEdit: PropTypes.func,
   action: PropTypes.string.isRequired
 };
 
 EditModal.defaultProps = {
+  title: '',
+  readOnly: false,
   onClose: () => {},
   onEdit: () => {}
 };

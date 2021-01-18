@@ -18,6 +18,7 @@ const Text = props => {
       <TextField
         label={field.name}
         value={stateValue}
+        disabled={props.readOnly}
         rows={props.rows}
         multiline={props.multiline}
         variant="outlined"
@@ -33,6 +34,7 @@ const Text = props => {
 Text.propTypes = {
   value: PropTypes.string,
   multiline: PropTypes.bool,
+  readOnly: PropTypes.bool,
   rows: PropTypes.number,
   field: fieldShape.isRequired,
   onChange: PropTypes.func
@@ -41,6 +43,7 @@ Text.propTypes = {
 Text.defaultProps = {
   value: '',
   multiline: false,
+  readOnly: false,
   rows: 1,
   onChange: () => {}
 };

@@ -43,17 +43,19 @@ const CheckoutInputs = props => {
 
             return (
               <div className="form__input-row form__input-row--two" key={i}>
-                {_fields.map((_field, ii) => (
-                  <div className="form__col" key={ii}>
-                    <input
-                      className="form__input form__input--sm"
-                      type="text"
-                      value={data[_field.key]}
-                      placeholder={_field.name}
-                      onChange={({ target }) => handleChangeData(_field.key, target.value)}
-                    />
-                  </div>
-                ))}
+                {_fields
+                  .filter(_field => _field.fillable_by_user !== false)
+                  .map((_field, ii) => (
+                    <div className="form__col" key={ii}>
+                      <input
+                        className="form__input form__input--sm"
+                        type="text"
+                        value={data[_field.key]}
+                        placeholder={_field.name}
+                        onChange={({ target }) => handleChangeData(_field.key, target.value)}
+                      />
+                    </div>
+                  ))}
               </div>
             );
           })}

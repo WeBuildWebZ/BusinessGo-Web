@@ -25,13 +25,16 @@ const FieldRenderer = props => {
 
   return (
     <div className="fieldContainer">
-      {fields.map((field, i) => {
+      {fields.map(field => {
+        if (field.fillable_by_user === false && !props.readOnly) return <div key={field.key} />;
+
         switch (field.input_type) {
           case 'number':
             return (
               <Number
                 field={field}
                 value={data[field.key]}
+                readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
                 key={field.key}
               />
@@ -41,6 +44,7 @@ const FieldRenderer = props => {
               <Text
                 field={field}
                 value={data[field.key]}
+                readOnly={props.readOnly}
                 multiline={false}
                 onChange={value => handleUpdateData(field.key, value)}
                 key={field.key}
@@ -51,6 +55,7 @@ const FieldRenderer = props => {
               <Text
                 field={field}
                 value={data[field.key]}
+                readOnly={props.readOnly}
                 multiline
                 rows={4}
                 onChange={value => handleUpdateData(field.key, value)}
@@ -62,6 +67,7 @@ const FieldRenderer = props => {
               <Text
                 field={field}
                 value={data[field.key]}
+                readOnly={props.readOnly}
                 multiline
                 rows={11}
                 onChange={value => handleUpdateData(field.key, value)}
@@ -73,6 +79,7 @@ const FieldRenderer = props => {
               <Text
                 field={field}
                 value={data[field.key]}
+                readOnly={props.readOnly}
                 multiline
                 rows={17}
                 onChange={value => handleUpdateData(field.key, value)}
@@ -84,6 +91,7 @@ const FieldRenderer = props => {
               <Image
                 field={field}
                 value={data[field.key]}
+                readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
                 key={field.key}
               />
@@ -93,6 +101,7 @@ const FieldRenderer = props => {
               <Enum
                 field={field}
                 value={data[field.key]}
+                readOnly={props.readOnly}
                 multiline={false}
                 onChange={value => handleUpdateData(field.key, value)}
                 FieldRenderer={FieldRenderer}
@@ -104,6 +113,7 @@ const FieldRenderer = props => {
               <Select
                 field={field}
                 value={data[field.key]}
+                readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
                 key={field.key}
               />
@@ -127,13 +137,15 @@ const FieldRenderer = props => {
 FieldRenderer.propTypes = {
   data: PropTypes.object,
   fields: PropTypes.arrayOf(fieldShape),
+  readOnly: PropTypes.bool,
   updateAfter: PropTypes.number,
   onChange: PropTypes.func
 };
 
 FieldRenderer.defaultProps = {
-  fields: [],
   data: {},
+  fields: [],
+  readOnly: false,
   updateAfter: 0,
   onChange: () => {}
 };
