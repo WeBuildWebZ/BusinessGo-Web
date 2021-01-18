@@ -5,7 +5,6 @@ const Copyright = () => {
             <p>Diseñado por
             <a href="https://www.facebook.com/LEFCOTT" target="_blank"> DancotLL</a>- © 2021 todos los derechos reservados.
             </p>
-            {/* soy un genio, admitilo lean jaja */}
             <style jsx>{`
             .copyright{
                 width: 100vw;

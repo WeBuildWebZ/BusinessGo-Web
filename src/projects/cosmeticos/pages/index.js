@@ -6,6 +6,7 @@ import Frase from '../componentss/frase';
 import TresCards from '../componentss/trescards';
 import Empresa from '../componentss/empresa';
 import Copyright from '../componentss/copyrigth';
+import Footer from '../componentss/footer';
 
 const index = () => {
     return (
@@ -16,6 +17,7 @@ const index = () => {
             <Frase />
             <TresCards />
             <Empresa />
+            <Footer />
             <Copyright />
         </main>
     )
