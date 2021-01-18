@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import ClientDocumentEditor from './components/ClientDocumentEditor';
 import ConfigurationEditor from './components/ConfigurationEditor';
+import FormEditor from './components/FormEditor';
 import FormResponseViewer from './components/FormResponseViewer';
 
 const Container = () => {
@@ -16,6 +17,7 @@ const Container = () => {
       {adminSection === 'tables' && selectedClientModel && (
         <ClientDocumentEditor clientModel={selectedClientModel} />
       )}
+      {adminSection === 'forms' && selectedFormSection === 'edit' && <FormEditor />}
       {adminSection === 'forms' && selectedFormSection === 'show' && <FormResponseViewer />}
       <style jsx>
         {`
@@ -27,6 +29,7 @@ const Container = () => {
             border-radius: 5px;
             transition: 0.8s;
             animation: arrive 1s linear;
+            overflow-y: auto;
           }
           .container:hover {
             background-color: #fffffff3;

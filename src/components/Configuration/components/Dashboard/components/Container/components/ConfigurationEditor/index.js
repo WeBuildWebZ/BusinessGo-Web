@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Popover, PopoverTitle, Toast } from 'react-bootstrap';
+import { PopoverTitle } from 'react-bootstrap';
 
 import { updateProjectConfiguration } from '../../../../../../../../services/api/project';
 import FieldRenderer from '../../../../../../../FieldRenderer';
