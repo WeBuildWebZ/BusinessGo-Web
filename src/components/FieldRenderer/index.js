@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../utils/field';
@@ -117,6 +118,19 @@ const FieldRenderer = props => {
                 onChange={value => handleUpdateData(field.key, value)}
                 key={field.key}
               />
+            );
+          case 'button':
+            return (
+              <a href={data[field.key]} target="_blank">
+                <Button
+                  value={data[field.key]}
+                  readOnly={props.readOnly}
+                  onChange={value => handleUpdateData(field.key, value)}
+                  key={field.key}
+                >
+                  {field.name}
+                </Button>
+              </a>
             );
           default:
             return <div key={field.key} />;

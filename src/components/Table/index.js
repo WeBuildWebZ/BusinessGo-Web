@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import EditIcon from '@material-ui/icons/Edit';
@@ -34,6 +35,10 @@ const Table = props => {
               <td key={ii} className="td">
                 {field.input_type === 'image' ? (
                   <img className="image" src={row[field.key]} />
+                ) : field.input_type === 'button' ? (
+                  <a href={row[field.key]} target="_blank">
+                    <Button>{field.name}</Button>
+                  </a>
                 ) : (
                   row[field.key]
                 )}

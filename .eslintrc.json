@@ -104,6 +104,7 @@
     "jsx-a11y/anchor-is-valid": "off",
     "react/destructuring-assignment": "off",
     "import/no-cycle": "off",
-    "react/button-has-type": "off"
+    "react/button-has-type": "off",
+    "react/jsx-no-target-blank": "off"
   }
 }
