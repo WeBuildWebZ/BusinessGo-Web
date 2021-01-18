@@ -14,7 +14,7 @@ import reducer from '../reducers';
 const AppendHead = () => (
   <Head>
     <title>Blanquería Wow</title>
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.png" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -24,17 +24,32 @@ const AppendHead = () => (
 
     {/* etiquetas og facebook */}
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Blanquería Wow" />
     <meta property="og:title" content="Blanquería Wow" />
-    <meta property="og:description" content="Blanquería Wow, el mejor precio para el confort de tu hogar." />
+    <meta
+      property="og:description"
+      content="Somos una empresa familiar Argentina, radicada en Mar del Plata, y distribuimos a todo el país. El equilibrio justo entre calidad y precio."
+    />
     <meta property="og:image" content="/page.png" />
     <meta property="og:image:width" content="828" />
     <meta property="og:image:height" content="450" />
     <meta property="og:url" content="https://blanqueriawow.com/" />
     <meta property="og:site_name" content="Blanquería Wow" />
     {/* aditional */}
-    <meta name="author" content="Blanquería Wow" />
-    <meta name="copyright" content="Blanquería Wow" />
-    <meta name="description" content="Blanquería Wow, el mejor precio para el confort de tu hogar." />
+    <meta
+      name="description"
+      content="Somos una empresa familiar Argentina, radicada en Mar del Plata, y distribuimos a todo el país. El equilibrio justo entre calidad y precio."
+    />
+    <meta name="DC.Language" scheme="RFC1766" content="Spanish" />
+    <meta name="author" content="DancotLL Software" />
+    <meta name="reply-to" content="contact@dancotll.com" />
+    <meta name="copyright" content="DancotLL Software" />
+    <meta
+      name="keywords"
+      content="blanqueria wow,mar del plata,el mejor precio, dancotll, mayorista de blanqueria"
+    />
+    <meta name="Resource-type" content="Catalog" />
+    <meta name="DateCreated" content="Mon, 18 January 2021 00:00:00 GMT+1" />
   </Head>
 );
 
