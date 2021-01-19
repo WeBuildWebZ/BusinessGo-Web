@@ -1,14 +1,18 @@
+import Redes from "../redes"
+import Nombre from "./nombre"
 
 const Empresa = () => {
     return (
         <div className="empresa">
-            <h4>empresa</h4>
+
+            <Nombre className="nombre" />
+            <Redes className="right-box"/>
             <style jsx>{`
             .empresa{
                 display: flex;
                 width: 100vw;
                 height: 40vh;
-                background:violet;
+                background:white;
                 margin:2em 0;
             }
             `}</style>
