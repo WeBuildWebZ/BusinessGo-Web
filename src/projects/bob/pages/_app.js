@@ -10,6 +10,7 @@ import '../assets/css/styles.scss';
 import getApp from '../../../shared/pages/_app';
 import * as constants from '../constants';
 import reducer from '../reducers';
+import { Modal, PopoverTitle } from 'react-bootstrap';
 
 const AppendHead = () => (
   <Head>
@@ -41,4 +42,16 @@ const AppendHead = () => (
   </Head>
 );
 
-export default getApp(reducer, constants, AppendHead);
+// export default getApp(reducer, constants, AppendHead);
+const App = () => (
+  <Modal show backdrop="static">
+    <Modal.Header>
+      <PopoverTitle>Web temporalmente deshabilitada</PopoverTitle>
+    </Modal.Header>
+    <Modal.Body>
+      Esta web se encuentra temporalmente deshabilitada. Para más información consulte con el administrador
+    </Modal.Body>
+  </Modal>
+);
+
+export default App;
