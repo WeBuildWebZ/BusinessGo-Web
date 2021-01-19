@@ -40,7 +40,7 @@ const Pregunta = () => {
         <h2>
           <b>¿Tienes preguntas que hacer? escribenos a:</b> <br />
           {!project && <Spinner />}
-          {project && project.configuration.email}
+          {project && project.configuration.basic_info.email}
         </h2>
       </div>
       <style jsx>{`
@@ -64,7 +64,7 @@ const Pregunta = () => {
           overflow: hidden;
           background: #ebebeb;
           color: black;
-          padding:2em 0;
+          padding: 2em 0;
         }
         // =================================================
 
@@ -120,7 +120,7 @@ const Pregunta = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-          padding:0 2em;
+          padding: 0 2em;
         }
 
         .bottom-text b {

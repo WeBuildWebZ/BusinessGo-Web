@@ -10,9 +10,9 @@ const Logo = () => {
       {!project && <Spinner />}
       {project && (
         <h1>
-          {`${project.configuration.title} `}
+          {`${project.configuration.basic_info.title} `}
           <br />
-          {` ${project.configuration.subtitle}`}
+          {` ${project.configuration.basic_info.subtitle}`}
         </h1>
       )}
 
@@ -36,28 +36,24 @@ const Logo = () => {
           font-size: 3em;
           color: #86a8e7;
         }
-        @media(max-width:1000px){
-
+        @media (max-width: 1000px) {
           .logo {
             display: flex;
-            justify-content:center;
+            justify-content: center;
             align-items: center;
             width: 100%;
           }
         }
-        @media(max-width:430px){
-
+        @media (max-width: 430px) {
           .logo {
             display: flex;
-            justify-content:center;
+            justify-content: center;
             align-items: center;
             width: 100%;
           }
 
           h1 {
-
             line-height: 1em;
-
           }
           h1::first-line {
             font-size: 1em;

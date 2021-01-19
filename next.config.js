@@ -24,5 +24,8 @@ module.exports = {
   env: { ...env },
   sassOptions: {
     includePaths: [path.join(__dirname, 'src/projects')]
+  },
+  images: {
+    domains: ['res.cloudinary.com']
   }
 };
