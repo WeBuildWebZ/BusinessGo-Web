@@ -23,3 +23,9 @@ export const listFormResponses = (
       }
     }
   );
+
+export const createFormResponse = (project_code, form_code, data) =>
+  api.post(
+    `api/projects/${encodeURIComponent(project_code)}/forms/${encodeURIComponent(form_code)}/form_responses`,
+    data
+  );

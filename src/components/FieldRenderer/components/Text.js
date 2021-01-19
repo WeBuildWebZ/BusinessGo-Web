@@ -17,7 +17,7 @@ const Text = props => {
     <>
       <TextField
         label={field.name}
-        value={stateValue}
+        defaultValue={stateValue}
         disabled={props.readOnly}
         rows={props.rows}
         multiline={props.multiline}
