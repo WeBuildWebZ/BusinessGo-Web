@@ -1,4 +1,4 @@
-const initialState = null;
+const initialState = {};
 
 const QueryParamsReducer = (state = initialState, action = {}) => {
   switch (action.type) {

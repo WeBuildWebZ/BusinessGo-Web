@@ -41,11 +41,18 @@ const ProductsContent = props => {
   return (
     <>
       <section className="products-list">
-        <InfiniteScrollLastElement onPageNumberChange={handleChangePageNumber}>
-          {products.map((product, i) => (
-            <ProductItem key={i} product={product} />
-          ))}
-        </InfiniteScrollLastElement>
+        {!products.length && queryParams.search && (
+          <div>
+            No encontramos productos para la búsqueda <b>{queryParams.search}</b>
+          </div>
+        )}
+        {!!products.length && (
+          <InfiniteScrollLastElement onPageNumberChange={handleChangePageNumber}>
+            {products.map((product, i) => (
+              <ProductItem key={i} product={product} />
+            ))}
+          </InfiniteScrollLastElement>
+        )}
       </section>
       {loading && <ProductsLoading />}
     </>
