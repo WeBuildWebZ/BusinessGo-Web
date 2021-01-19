@@ -23,7 +23,7 @@ const Redes = () => {
             }
 
             h3{
-                color:#434af9;
+                color:#2e31be;
                 padding:1em 1.5em;
 
             }

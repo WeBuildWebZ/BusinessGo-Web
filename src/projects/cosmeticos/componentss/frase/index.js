@@ -31,8 +31,9 @@ const Frase = () => {
                 outline:none;
                 border-radius:1em;
                 cursor:pointer;
-                background:yellow;
-                color:white;
+                background: linear-gradient(to right,yellow,#ffa51d);
+                color:#191a35;
+                font-weight:900;
                 padding:.5em 1.5em;
             }
             `}</style>
