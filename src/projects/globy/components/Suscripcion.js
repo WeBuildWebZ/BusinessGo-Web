@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal, PopoverTitle } from 'react-bootstrap';
 
 import FieldRenderer from '../../../components/FieldRenderer';
@@ -11,6 +11,7 @@ import { pushAlert } from '../../../shared/actions/alerts';
 
 const Suscripcion = () => {
   const dispatch = useDispatch();
+  const project = useSelector(store => store.project);
   const [modalOpen, setModalOpen] = useState(false);
   const [suscriptionForm, setSuscriptionForm] = useState(null);
   const [formData, setFormData] = useState({});
@@ -36,7 +37,10 @@ const Suscripcion = () => {
       setIsSubmiting(false);
       setModalOpen(false);
       dispatch(
-        pushAlert({ title: 'Suscribción Realizada', message: 'La suscripción fue realizada con éxito' })
+        pushAlert({
+          title: project.configuration.subscriptions.answer_title,
+          message: project.configuration.subscriptions.answer_message
+        })
       );
     });
   };
