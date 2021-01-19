@@ -8,7 +8,7 @@ const Testimonial = () => {
     .testimonial{
         display: flex;
         width: 100vw;
-        height: 40vh;
+        height: 100vh;
         background:yellow;
         margin:2em 0;
       }
