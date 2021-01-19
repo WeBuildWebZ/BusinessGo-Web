@@ -10,6 +10,7 @@ import Filter from '../products-filter/components/Filter';
 const Header = ({ isErrorPage }) => {
   const router = useRouter();
   const cartItems = useSelector(state => state.cartItems);
+  const queryParams = useSelector(state => state.queryParams);
   const arrayPaths = [
     '/products',
     '/products/[product_id]',
@@ -25,6 +26,7 @@ const Header = ({ isErrorPage }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const navRef = useRef(null);
   const searchRef = useRef(null);
+  const [search, setSearch] = useState(queryParams.search || '');
 
   useEffect(() => {
     if (arrayPaths.includes(router.pathname) || isErrorPage) {
@@ -32,11 +34,7 @@ const Header = ({ isErrorPage }) => {
     }
 
     const handleScroll = () => {
-      if (window.pageYOffset === 0) {
-        setOnTop(true);
-      } else {
-        setOnTop(false);
-      }
+      setOnTop(window.pageYOffset === 0);
     };
 
     handleScroll();
@@ -58,6 +56,11 @@ const Header = ({ isErrorPage }) => {
   // on click outside
   useOnClickOutside(navRef, closeMenu);
   useOnClickOutside(searchRef, closeSearch);
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    window.location.href = `/products?search=${encodeURIComponent(search)}`;
+  };
 
   return (
     <header className={`site-header ${!onTop ? 'site-header--fixed' : ''}`}>
@@ -82,9 +85,15 @@ const Header = ({ isErrorPage }) => {
             ref={searchRef}
             className={`search-form-wrapper ${searchOpen ? 'search-form--active' : ''}`}
           >
-            <form className="search-form">
+            <form className="search-form" onSubmit={handleSubmit}>
               <i className="icon-cancel" onClick={() => setSearchOpen(!searchOpen)} />
-              <input type="text" name="search" placeholder="Enter the product you are looking for" />
+              <input
+                type="text"
+                name="search"
+                value={search}
+                placeholder="Buscá un producto"
+                onChange={({ target }) => setSearch(target.value)}
+              />
             </form>
             <i onClick={() => setSearchOpen(!searchOpen)} className="icon-search" />
           </button>

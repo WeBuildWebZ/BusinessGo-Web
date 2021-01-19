@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectFade, Navigation } from 'swiper';
 
+import Logo from '../../assets/icons/logo';
+
 SwiperCore.use([EffectFade, Navigation]);
 
 const PageIntro = () => (
@@ -16,6 +18,7 @@ const PageIntro = () => (
                 Navegar
               </a>
             </div>
+            <Logo />
           </div>
         </div>
       </SwiperSlide>
@@ -30,6 +33,7 @@ const PageIntro = () => (
                 Navegar
               </a>
             </div>
+            <Logo />
           </div>
         </div>
       </SwiperSlide>
