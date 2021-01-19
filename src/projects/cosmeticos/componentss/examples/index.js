@@ -5,7 +5,7 @@ const Examples = () => {
 
             <div className="box1"></div>
             <div className="box2">
-                <h3>Ver</h3>
+                <h3>Ver Galeria</h3>
             </div>
             <div className="box3"></div>
             <style jsx>{`
@@ -24,13 +24,13 @@ const Examples = () => {
             }
             .box1{
                 background-image:url(/images/featured-1.jpg);
-                background-position:center;
+                background-position:0 -110px;
                 background-size: cover;
                 background-repeat: no-repeat;
             }
             .box2{
                 background-image:url(/images/featured-2.jpg);
-                background-position:0 0;
+                background-position:center;
                 background-size: cover;
                 background-repeat: no-repeat;
                 display: flex;
@@ -39,7 +39,7 @@ const Examples = () => {
             }
             .box3{
                 background-image:url(/images/featured-3.jpg);
-                background-position:center;
+                background-position:0 -50px;
                 background-size: cover;
                 background-repeat: no-repeat;
             }
