@@ -41,7 +41,7 @@ const ProductsContent = props => {
   return (
     <>
       <section className="products-list">
-        {!products.length && queryParams.search && (
+        {!loading && !products.length && queryParams.search && (
           <div>
             No encontramos productos para la búsqueda <b>{queryParams.search}</b>
           </div>
