@@ -13,7 +13,7 @@ const Logo = () => {
                 display:flex;
                 margin:0 5px;
                 color:#2e31be;
-                padding:1em
+                padding:1em;
             }
             .fa-bacon{
                 font-size:2em;

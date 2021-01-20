@@ -27,6 +27,7 @@ const Banner = () => {
                             />
                         </MDBView>
                         <MDBCarouselCaption>
+                            <h2 className="h3-responsive">Mejor Precio del mercado</h2>
                             <h3 className="h3-responsive">Mejor Precio del mercado</h3>
                             <p>First text about this</p>
                         </MDBCarouselCaption>
@@ -43,6 +44,7 @@ const Banner = () => {
                         </MDBView>
 
                         <MDBCarouselCaption>
+                            <h2 className="h3-responsive">Mejor Precio del mercado</h2>
                             <h3 className="h3-responsive">bla blabla blabla</h3>
                             <p>Además de los hombres</p>
                         </MDBCarouselCaption>
@@ -59,6 +61,7 @@ const Banner = () => {
                         </MDBView>
 
                         <MDBCarouselCaption>
+                            <h2 className="h3-responsive">Mejor Precio del mercado</h2>
                             <h3 className="h3-responsive">Sistema de Chofer Por Puntos</h3>
                             <p>First text about this</p>
                         </MDBCarouselCaption>

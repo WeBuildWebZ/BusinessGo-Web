@@ -28,7 +28,9 @@ const Footer = () => {
         justify-content: center;
         align-items: center;
         width: 100vw;
-        height: 100%;
+        height: 50vh;
+        background:black;
+        color:white;
     }
     .menu{
         flex:1;

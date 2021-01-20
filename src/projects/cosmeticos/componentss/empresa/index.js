@@ -5,8 +5,8 @@ const Empresa = () => {
     return (
         <div className="empresa">
 
-            <Nombre className="nombre" />
-            <Redes className="right-box"/>
+            <Nombre/>
+            <Redes/>
             <style jsx>{`
             .empresa{
                 display: flex;

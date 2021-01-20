@@ -7,10 +7,12 @@ import TresCards from '../componentss/trescards';
 import Empresa from '../componentss/empresa';
 import Copyright from '../componentss/copyrigth';
 import Footer from '../componentss/footer';
+import Navbar from '../componentss/navbar';
 
 const index = () => {
     return (
         <main>
+            <Navbar />
             <Banner />
             <Testimonial />
             <Examples />
