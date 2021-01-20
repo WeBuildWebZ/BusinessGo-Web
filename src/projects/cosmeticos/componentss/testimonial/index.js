@@ -9,7 +9,7 @@ const Testimonial = () => {
         display: flex;
         width: 100vw;
         height: 100vh;
-        background:yellow;
+        background:#ebebeb;
         margin:2em 0;
       }
 

@@ -19,7 +19,6 @@ const Logo = () => {
                 font-size:2em;
                 width:30px;
                 height:30px;
-
             }
             `}
 

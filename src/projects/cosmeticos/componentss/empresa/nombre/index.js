@@ -3,7 +3,7 @@ import Logo from "../../logo"
 const Nombre = () => {
     return (
         <div className="nombre">
-            <Logo />
+
             <h6>Empresa Socialmente Responsable</h6>
             <h6>Centro de Ayuda</h6>
             <style jsx>{`

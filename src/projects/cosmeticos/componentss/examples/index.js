@@ -1,11 +1,13 @@
-
+import Link from 'next/link'
 const Examples = () => {
     return (
         <div className="testimonial">
 
             <div className="box1"></div>
             <div className="box2">
-                <h3>Ver Galeria</h3>
+            <Link href="/galeria">
+              <button className="btn btn--rounded">Ver Galeria</button>
+            </Link>
             </div>
             <div className="box3"></div>
             <style jsx>{`
@@ -44,13 +46,13 @@ const Examples = () => {
                 background-repeat: no-repeat;
             }
 
-            h3{
+            button{
                 background: hsla(0, 0%, 100%, 0.6);
                 border-radius:1em;
                 border:2px solid black;
                 padding:.5em 2em;
             }
-            h3:hover{
+            button:hover{
                 background: hsla(0, 0%, 0%, 0.7);
                 color:white;
             }

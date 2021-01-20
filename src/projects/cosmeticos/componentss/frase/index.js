@@ -26,6 +26,9 @@ const Frase = () => {
             }
             h2,h5{
                 color:white;
+                background:hsla(0, 0%, 0%, 0.8);;
+                padding:.5em;
+                border-radius:.5em;
             }
             button{
                 border:none;

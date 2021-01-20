@@ -10,6 +10,9 @@ const Navbar = () => {
 
 
 .navbar{
+    position:fixed;
+    background:white;
+    z-index:10;
     width: 100vw;
     display: flex;
 }
