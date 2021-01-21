@@ -20,12 +20,10 @@ const Menu = () => {
         h3{
             margin:0 .5em;
             cursor:pointer;
-            padding:5px;
         }
         h3:hover{
-            border-radius:1em;
-            border:3px solid #2e31be;
-            color:#2e31be;
+            border-bottom:3px solid #ffa51d;
+            color:#ffa51d;
         }
 
         `}</style>

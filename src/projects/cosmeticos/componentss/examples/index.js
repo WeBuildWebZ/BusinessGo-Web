@@ -1,9 +1,10 @@
 import Link from 'next/link'
+
 const Examples = () => {
     return (
-        <div className="testimonial">
+        <div className="examples">
 
-            <div className="box1"></div>
+            <div className="box1" data-aos="fade-right"></div>
             <div className="box2">
             <Link href="/galeria">
               <button className="btn btn--rounded">Ver Galeria</button>
@@ -11,7 +12,7 @@ const Examples = () => {
             </div>
             <div className="box3"></div>
             <style jsx>{`
-            .testimonial{
+            .examples{
                 display: flex;
                 width: 100vw;
                 height: 40vh;
