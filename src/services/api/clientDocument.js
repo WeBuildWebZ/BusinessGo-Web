@@ -2,8 +2,8 @@ import api from '../../utils/axios';
 
 export const getClientDocuments = (
   table_name,
-  page_size,
-  page_number,
+  page_size = 10,
+  page_number = 1,
   filters = {},
   text_search = '',
   text_search_fields = []
