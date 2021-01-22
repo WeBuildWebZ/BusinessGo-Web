@@ -40,7 +40,14 @@ const Testimonial = () => {
               comments.map((comment, key) => (
                 <MDBCarouselItem itemId={`${key + 1}`} key={key}>
                   <MDBView>
-                    <img src={comment.photo} alt="First slide" className="d-block w-20" />
+                    <img
+                      src={comment.photo}
+                      alt="First slide"
+                      className="d-block w-20"
+                      style={{
+                        opacity: 0.7
+                      }}
+                    />
                   </MDBView>
                   <MDBCarouselCaption>
                     <div className="text">
@@ -59,7 +66,7 @@ const Testimonial = () => {
               display: flex;
               width: 100vw;
               height: 100vh;
-              background: #ebebeb;
+              text-shadow: 0 0 1px 1px black;
               margin: 5em 0;
             }
             img {
@@ -67,10 +74,9 @@ const Testimonial = () => {
               height: 100%;
               object-fit: cover;
             }
-            .text{
+            .text {
               width: 100%;
-              background:white;
-              color:black;
+              color: black;
             }
           `}
         </style>
