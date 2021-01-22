@@ -16,7 +16,8 @@
     "export": "next export",
     "start": "next start -p $PORT",
     "lint": "eslint scripts",
-    "copy-env": "node -r esm scripts/copy_env"
+    "copy-env": "node -r esm scripts/copy_env",
+    "deploy": "branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD) && node -r esm scripts/deploy $branch"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
