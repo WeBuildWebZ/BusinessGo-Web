@@ -38,7 +38,7 @@ const Banner = () => {
             sliderItems.map((sliderItem, key) => (
               <MDBCarouselItem key={key} itemId={`${key + 1}`}>
                 <MDBView>
-                  <img src={sliderItem.photo} alt="Slide" className="d-block w-70" />
+                  <img src={sliderItem.photo} alt="Slide" className="d-block w-50"  />
                 </MDBView>
                 <MDBCarouselCaption>
                   <div className="text">

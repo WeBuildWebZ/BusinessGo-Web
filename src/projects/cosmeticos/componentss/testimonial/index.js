@@ -43,16 +43,13 @@ const Testimonial = () => {
                     <img
                       src={comment.photo}
                       alt="First slide"
-                      className="d-block w-20"
-                      style={{
-                        opacity: 0.7
-                      }}
+                      className="d-block w-100"
                     />
                   </MDBView>
                   <MDBCarouselCaption>
                     <div className="text">
-                      <h2 className="h2-responsive">"{comment.comment}"</h2>
-                      <h5 className="h5-responsive">-{comment.comment}</h5>
+                      <h5 className="h4-responsive">"{comment.comment}"</h5>
+                      <h6 className="h5-responsive">-{comment.user_name}</h6>
                     </div>
                   </MDBCarouselCaption>
                 </MDBCarouselItem>
@@ -65,7 +62,7 @@ const Testimonial = () => {
             .testimonial {
               display: flex;
               width: 100vw;
-              height: 100vh;
+              height: 50vh;
               text-shadow: 0 0 1px 1px black;
               margin: 5em 0;
             }
@@ -76,7 +73,9 @@ const Testimonial = () => {
             }
             .text {
               width: 100%;
-              color: black;
+              color: white;
+              background:hsla(0, 0%, 0%, 0.897);
+              border-radius:1em;
             }
           `}
         </style>
