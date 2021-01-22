@@ -72,9 +72,6 @@ const Footer = () => {
               <li>
                 <a href="#">Metodos de Pago</a>
               </li>
-              <li>
-                <a href="#">Contacto</a>
-              </li>
             </ul>
             <ul>
               <li>Informacion</li>
@@ -84,20 +81,14 @@ const Footer = () => {
               <li>
                 <a href="#">Buscar un articulo</a>
               </li>
-              <li>
-                <a href="#">Suscripciones</a>
-              </li>
-              <li>
-                <a href="#">Compartir</a>
-              </li>
             </ul>
             <ul>
               <li>Contacto</li>
               <li>
-                <a href="#">blanqueria-wow@gmail.com</a>
+                <a href="#">tamara7773@hotmail.com</a>
               </li>
               <li>
-                <a href="#">TEL: +15 1122334455</a>
+                <a href="#">TEL: 2236054852</a>
               </li>
             </ul>
           </div>

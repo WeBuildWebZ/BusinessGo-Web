@@ -2,10 +2,10 @@
 const Frase = () => {
     return (
         <div className="frase">
-            <h2>OMNILIFE se trata de ti,
-                <br/> de tu vida y de tus sueños
+            <h2>Tenemos todas la marcas,
+                <br/> para que te veas BONITA
             </h2>
-            <h5>¡Únete ahora y toma el control!</h5>
+            <h5>Sientete bella por siempre</h5>
             <button>Suscribirse</button>
 
             <style jsx>{`

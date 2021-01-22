@@ -24,14 +24,13 @@ const Testimonial = () => {
 
   return (
     <div className="testimonial">
-      <h2>Opinion de nuestros Clientes:</h2>
       <MDBContainer>
         <MDBCarousel
           activeItem={1}
           length={comments?.length || 0}
           showControls
           showIndicators
-          className="z-depth-1 full"
+
           slide
         >
           <MDBCarouselInner>
@@ -48,7 +47,7 @@ const Testimonial = () => {
                   </MDBView>
                   <MDBCarouselCaption>
                     <div className="text">
-                      <h5 className="h4-responsive">"{comment.comment}"</h5>
+                      <h3 className="h3-responsive">"{comment.comment}"</h3>
                       <h6 className="h5-responsive">-{comment.user_name}</h6>
                     </div>
                   </MDBCarouselCaption>
@@ -60,23 +59,23 @@ const Testimonial = () => {
         <style jsx>
           {`
             .testimonial {
-              display: flex;
               width: 100vw;
               height: 50vh;
+              display: flex;
+              justify-content:center;
+              align-items:center;
               text-shadow: 0 0 1px 1px black;
               margin: 5em 0;
+
             }
-            img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
+
             .text {
               width: 100%;
               color: white;
               background:hsla(0, 0%, 0%, 0.897);
               border-radius:1em;
             }
+
           `}
         </style>
       </MDBContainer>

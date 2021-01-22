@@ -18,7 +18,6 @@ const PageIntro = () => (
                 Navegar
               </a>
             </div>
-            <Logo />
           </div>
         </div>
       </SwiperSlide>

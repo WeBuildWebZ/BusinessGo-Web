@@ -8,6 +8,7 @@ import Empresa from '../componentss/empresa';
 import Copyright from '../componentss/copyrigth';
 import Footer from '../componentss/footer';
 import Navbar from '../componentss/navbar';
+import Ashtags from '../componentss/ashtags';
 
 const index = () => {
     return (
@@ -18,6 +19,7 @@ const index = () => {
             <Testimonial />
             <Frase />
             <TresCards />
+            <Ashtags />
             <Empresa />
             <Footer />
             <Copyright />

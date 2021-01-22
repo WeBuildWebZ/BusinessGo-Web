@@ -3,12 +3,12 @@ import PageIntro from '../components/page-intro';
 import ProductsFeatured from '../components/products-featured';
 import Footer from '../components/footer';
 import Subscribe from '../components/subscribe';
+import Link from 'next/link'
 
 const IndexPage = () => (
   <Layout>
     <PageIntro />
 
-    {/* LEAN- si yo te digo es Carnaval- vos apreta el pomo */}
     <section className="featured">
       <div className="container">
         <article
@@ -17,9 +17,9 @@ const IndexPage = () => (
         >
           <div className="featured-item__content">
             <h3>Articulos recien llegados</h3>
-            <a href="#" className="btn btn--rounded">
-              Mostrar Coleccion
-            </a>
+            <Link href="/products" >
+            <a className="btn btn--rounded">Mostrar Coleccion</a>
+            </Link>
           </div>
         </article>
 
@@ -29,9 +29,6 @@ const IndexPage = () => (
         >
           <div className="featured-item__content">
             <h3>Juego de sabanas simple</h3>
-            <a href="#" className="btn btn--rounded">
-              Mas detalles
-            </a>
           </div>
         </article>
 
@@ -41,9 +38,6 @@ const IndexPage = () => (
         >
           <div className="featured-item__content">
             <h3>Este invierno</h3>
-            <a href="#" className="btn btn--rounded">
-              Mas detalles
-            </a>
           </div>
         </article>
       </div>

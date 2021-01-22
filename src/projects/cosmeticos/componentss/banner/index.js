@@ -38,11 +38,11 @@ const Banner = () => {
             sliderItems.map((sliderItem, key) => (
               <MDBCarouselItem key={key} itemId={`${key + 1}`}>
                 <MDBView>
-                  <img src={sliderItem.photo} alt="Slide" className="d-block w-50"  />
+                  <img src={sliderItem.photo} alt="Slide" className="d-block w-100"  />
                 </MDBView>
                 <MDBCarouselCaption>
                   <div className="text">
-                    <h2 className="h3-responsive">{sliderItem.title}</h2>
+                    <h2 className="h2-responsive">{sliderItem.title}</h2>
                     <h4 className="h3-responsive">{sliderItem.subtitle}</h4>
                   </div>
                 </MDBCarouselCaption>
@@ -58,9 +58,9 @@ const Banner = () => {
               }
               .text {
                 width: 100%;
-                background: white;
+                // background: white;
                 color: black;
-                border-radius: 1em;
+                // border-radius: 1em;
               }
             `}
           </style>
