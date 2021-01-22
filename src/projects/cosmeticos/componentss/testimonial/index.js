@@ -43,8 +43,9 @@ const Testimonial = () => {
                     <img src={comment.photo} alt="First slide" className="d-block w-20" />
                   </MDBView>
                   <MDBCarouselCaption>
-                    <div>
-                      <h2 className="h2-responsive">{comment.comment}</h2>
+                    <div className="text">
+                      <h2 className="h2-responsive">"{comment.comment}"</h2>
+                      <h5 className="h5-responsive">-{comment.comment}</h5>
                     </div>
                   </MDBCarouselCaption>
                 </MDBCarouselItem>
@@ -59,12 +60,17 @@ const Testimonial = () => {
               width: 100vw;
               height: 100vh;
               background: #ebebeb;
-              margin: 2em 0;
+              margin: 5em 0;
             }
             img {
               width: 100%;
               height: 100%;
               object-fit: cover;
+            }
+            .text{
+              width: 100%;
+              background:white;
+              color:black;
             }
           `}
         </style>

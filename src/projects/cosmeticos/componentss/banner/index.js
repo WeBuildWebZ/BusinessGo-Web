@@ -22,14 +22,15 @@ const Banner = () => {
                             <img
                                 src="/images/slide-1.jpg"
                                 alt="First slide"
-                                className="d-block w-100"
+                                className="d-block w-70"
 
                             />
                         </MDBView>
                         <MDBCarouselCaption>
+                        <div className="text">
                             <h2 className="h3-responsive">Mejor Precio del mercado</h2>
-                            <h3 className="h3-responsive">Mejor Precio del mercado</h3>
-                            <p>First text about this</p>
+                            <h4 className="h3-responsive">Sistema de Chofer Por Puntos</h4>
+                        </div>
                         </MDBCarouselCaption>
 
                     </MDBCarouselItem>
@@ -39,14 +40,15 @@ const Banner = () => {
                             <img
                                 src="/images/slide-2.jpg"
                                 alt="Second slide"
-                                className="d-block w-100"
+                                className="d-block w-70"
                             />
                         </MDBView>
 
                         <MDBCarouselCaption>
+                        <div className="text">
                             <h2 className="h3-responsive">Mejor Precio del mercado</h2>
-                            <h3 className="h3-responsive">bla blabla blabla</h3>
-                            <p>Además de los hombres</p>
+                            <h4 className="h3-responsive">Sistema de Chofer Por Puntos</h4>
+                            </div>
                         </MDBCarouselCaption>
 
                     </MDBCarouselItem>
@@ -56,14 +58,17 @@ const Banner = () => {
                             <img
                                 src="/images/slide-3.jpg"
                                 alt="Third slide"
-                                className="d-block w-100"
+                                className="d-block w-70"
                             />
                         </MDBView>
 
                         <MDBCarouselCaption>
+                            <div className="text">
                             <h2 className="h3-responsive">Mejor Precio del mercado</h2>
-                            <h3 className="h3-responsive">Sistema de Chofer Por Puntos</h3>
-                            <p>First text about this</p>
+                            <h4 className="h3-responsive">Sistema de Chofer Por Puntos</h4>
+                            </div>
+
+
                         </MDBCarouselCaption>
 
                     </MDBCarouselItem>
@@ -76,6 +81,12 @@ const Banner = () => {
                         height:100%;
                         object-fit: cover;
                     }
+                    .text{
+                        width: 100%;
+                        background:white;
+                        color:black;
+                        border-radius:1em;
+                      }
 
                     `}
                     </style>

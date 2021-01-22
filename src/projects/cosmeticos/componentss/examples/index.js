@@ -15,8 +15,8 @@ const Examples = () => {
             .examples{
                 display: flex;
                 width: 100vw;
-                height: 40vh;
-                margin:2em 0;
+                height: 70vh;
+                margin:5em 0;
             }
             .box1,
             .box2,

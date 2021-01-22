@@ -14,7 +14,7 @@ const TresCards = () => {
                 align-items:flex-end;
                 justify-content:space-evenly;;
                 width: 100vw;
-                height: 70vh;
+                height: 50vh;
                 background-image: url(/images/card1.jpg);
                 margin:2em 0;
                 padding:0 2em 2em 1em;

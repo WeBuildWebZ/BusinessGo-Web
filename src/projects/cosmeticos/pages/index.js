@@ -14,8 +14,8 @@ const index = () => {
         <main>
             <Navbar />
             <Banner />
-            <Testimonial />
             <Examples />
+            <Testimonial />
             <Frase />
             <TresCards />
             <Empresa />

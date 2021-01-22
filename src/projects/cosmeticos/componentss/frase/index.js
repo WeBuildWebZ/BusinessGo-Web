@@ -15,13 +15,13 @@ const Frase = () => {
                 align-items:flex-start;
                 justify-content:center;
                 width: 100vw;
-                height: 40vh;
+                height: 60vh;
                 background-attachment: fixed;
                 background-image:url(/images/frase.jpg);
                 background-position:0 -150px;
                 background-size: cover;
                 background-repeat: no-repeat;
-                margin:2em 0;
+                margin:5em 0;
                 padding:0 3em;
             }
             h2,h5{

@@ -29,7 +29,10 @@ const Footer = () => {
         align-items: center;
         width: 100vw;
         height: 50vh;
-        background:black;
+        background-image:linear-gradient(to left,hsla(0, 0%, 0%, 0.897), hsla(0, 0%, 0%, 0.897)), url(/images/featured-2.jpg);
+        background-position:0;
+        background-size: cover;
+        background-repeat: no-repeat;
         color:white;
     }
     .menu{
