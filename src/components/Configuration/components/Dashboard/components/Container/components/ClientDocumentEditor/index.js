@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { PopoverTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
@@ -22,6 +22,9 @@ const ClientDocumentEditor = props => {
   const [textSearch, setTextSearch] = useState('');
   const [isNewDocument, setIsNewDocument] = useState(false);
   const [mounted, setMounted] = useState(true);
+  const clientModelRef = useRef();
+
+  clientModelRef.current = clientModel;
 
   const importantFields = clientModel.fields.filter(({ important }) => important);
 
@@ -93,8 +96,18 @@ const ClientDocumentEditor = props => {
     });
   };
 
+  useEffect(() => {
+    setClientDocuments([]);
+    handleChangePage(1);
+  }, [clientModel]);
+
   return (
-    <InfiniteScroll onPageChange={handleChangePage} data={clientDocuments} resetPageChanger={textSearch}>
+    <InfiniteScroll
+      onPageChange={handleChangePage}
+      data={clientDocuments}
+      resetPageChanger={textSearch}
+      firstPageChange={false}
+    >
       <div className="editor">
         {selectedClientDocument && (
           <EditModal

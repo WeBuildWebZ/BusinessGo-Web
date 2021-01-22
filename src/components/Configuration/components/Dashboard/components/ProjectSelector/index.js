@@ -38,15 +38,6 @@ const ProjectSelector = () => {
   const handleSelectProject = newProject => {
     setLeaving(true);
     setSelectedProject(newProject);
-
-    getClientModels(newProject).then(({ data: clientModels }) => {
-      const newAdminSection = newProject.configuration_sections.length ? 'configuration' : 'tables';
-
-      dispatch(setClientModels(clientModels));
-      dispatch(setAdminSection(newAdminSection));
-
-      if (newAdminSection === 'tables') dispatch(setSelectedClientModel(clientModels[0]));
-    });
   };
 
   const handleAnimationEnd = () => {

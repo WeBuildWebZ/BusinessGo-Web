@@ -1,4 +1,4 @@
-const initialState = 'configuration';
+const initialState = 'tables';
 
 const AdminSectionReducer = (state = initialState, action = {}) => {
   switch (action.type) {

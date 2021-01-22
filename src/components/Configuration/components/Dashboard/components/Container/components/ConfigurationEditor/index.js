@@ -34,7 +34,7 @@ const ConfigurationEditor = () => {
   return (
     <div className="configuration">
       {!project && <Spinner />}
-      {project && (
+      {project && configurationSection && (
         <>
           <PopoverTitle>{configurationSection.form.name}</PopoverTitle>
           <FieldRenderer

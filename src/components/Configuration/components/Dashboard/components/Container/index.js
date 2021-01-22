@@ -1,5 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getClientModels } from '../../../../../../services/api/user';
+import { setAdminSection } from '../../../../../../shared/actions/adminSection';
+import { setClientModels } from '../../../../../../shared/actions/clientModels';
+import { setSelectedClientModel } from '../../../../../../shared/actions/selectedClientModel';
 
 import ClientDocumentEditor from './components/ClientDocumentEditor';
 import ConfigurationEditor from './components/ConfigurationEditor';
@@ -7,9 +12,25 @@ import FormEditor from './components/FormEditor';
 import FormResponseViewer from './components/FormResponseViewer';
 
 const Container = () => {
+  const dispatch = useDispatch();
+  const project = useSelector(store => store.project);
   const selectedClientModel = useSelector(store => store.selectedClientModel);
   const selectedFormSection = useSelector(store => store.selectedFormSection);
   const adminSection = useSelector(store => store.adminSection);
+  const adminSectionRef = useRef();
+
+  adminSectionRef.current = adminSection;
+
+  useEffect(() => {
+    if (adminSectionRef.current !== 'tables') return;
+    getClientModels(project).then(({ data: clientModels }) => {
+      if (!clientModels.length) dispatch(setAdminSection('configuration'));
+
+      dispatch(setClientModels(clientModels));
+
+      dispatch(setSelectedClientModel(clientModels[0]));
+    });
+  }, [project, adminSection]);
 
   return (
     <div className="container">
