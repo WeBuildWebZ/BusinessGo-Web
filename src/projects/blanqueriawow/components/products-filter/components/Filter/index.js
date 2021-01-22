@@ -11,6 +11,7 @@ const ProductFilter = () => {
   const selectedCategories = useSelector(store => store.filters.categories);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const showFilters = process.browser && window.location.pathname === '/products';
 
   useEffect(() => {
     getDistinctProducts().then(({ data: distinct }) => {
@@ -26,6 +27,8 @@ const ProductFilter = () => {
 
     dispatch(updateFilters('categories', newSelectedCategories));
   };
+
+  if (!showFilters) return <div />;
 
   return (
     <div className="products-filter__block" style={{ padding: 15 }}>

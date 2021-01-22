@@ -17,7 +17,9 @@ export const getClientDocuments = (
       regex_flags: 'i',
       regex_normalize_characters: true,
       regex_fields: text_search_fields.map(field => `value.${field}`),
-      ...Object.fromEntries(text_search_fields.map(field => [`value.${field}`, text_search]))
+      ...Object.fromEntries(
+        text_search_fields.map(field => [`value.${field}`, text_search || filters[field]])
+      )
     }
   });
 
