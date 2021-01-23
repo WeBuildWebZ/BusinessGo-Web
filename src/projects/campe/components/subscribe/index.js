@@ -2,7 +2,7 @@ const Subscribe = () => (
   <section className="subscribe">
     <div className="container">
       <div style={{ backgroundImage: 'url(/images/subscribe.jpg)' }} className="subscribe__content">
-        <h4>Suscribite a nuestra tienda Online, y recibi ofertas todas las semanas!</h4>
+        <h4>Suscribite a nuestra tienda Online, y recibí ofertas todas las semanas!</h4>
 
         <form className="subscribe__form">
           <input type="email" placeholder="Correo electronico" />
