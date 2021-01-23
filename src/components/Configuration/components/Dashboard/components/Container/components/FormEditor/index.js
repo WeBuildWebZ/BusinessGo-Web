@@ -9,6 +9,7 @@ import InputGroup from '../../../../../../../InputGroup';
 import { updateForm } from '../../../../../../../../services/api/form';
 import { pushAlert } from '../../../../../../../../shared/actions/alerts';
 
+import Notifications from './Notifications';
 import { getLanguage } from './lang';
 import { inputTypes } from './constants';
 import { filterFormFields } from './utils';
@@ -52,6 +53,11 @@ const FormEditor = () => {
     setHasChanged(true);
   };
 
+  const handleChangeNotifications = notifications => {
+    setNewForm({ ...newForm, notifications: { ...(newForm.notifications || {}), ...notifications } });
+    setHasChanged(true);
+  };
+
   const handleSaveChanges = () => {
     updateForm(project.code, newForm).then(() => {
       dispatch(
@@ -68,6 +74,7 @@ const FormEditor = () => {
   return (
     <>
       <PopoverTitle>{language.getTitle(selectedForm)}</PopoverTitle>
+      <Notifications onChange={handleChangeNotifications} />
       {newForm.fields.map((field, i) => (
         <InputGroup key={field.key}>
           <div className="icon">

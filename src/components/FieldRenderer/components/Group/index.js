@@ -55,9 +55,8 @@ const Group = props => {
       )}
       <FormLabel component="legend">{field.name}</FormLabel>
       {stateValue.map((option, i) => (
-        <>
+        <div key={i}>
           <Button
-            key={i}
             variant="outlined"
             required={field.is_required}
             style={{ width: '75%', margin: '16px 0 5px 0', display: 'inline-block' }}
@@ -70,7 +69,7 @@ const Group = props => {
             style={{ cursor: 'pointer', display: 'inline-block' }}
             onClick={() => handleRemoveValue(i)}
           />
-        </>
+        </div>
       ))}
       {!props.readOnly && (
         <Button onClick={handleAddValue} style={{ marginTop: 8 }}>
