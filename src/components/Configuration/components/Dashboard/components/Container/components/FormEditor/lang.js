@@ -15,6 +15,7 @@ export const getLanguage = language_code =>
         'textarea-big': 'Área de texto - grande',
         image: 'Imagen',
         enum: 'Lista de Opciones',
+        group: 'Grupo de Campos',
         select: 'Selector',
         button: 'Botón'
       }
@@ -35,6 +36,7 @@ export const getLanguage = language_code =>
         'textarea-big': 'Text Area - big',
         image: 'Image',
         enum: 'Option List',
+        group: 'Field Group',
         select: 'Select Input',
         button: 'Button'
       }

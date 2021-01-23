@@ -53,13 +53,15 @@ const FormsSection = () => {
             />
             {isSelected && (
               <>
-                <Button
-                  key={i + forms.length}
-                  text={language.editForm}
-                  onClick={() => handleSelectFormSection('edit')}
-                  style={{ marginTop: 10, marginLeft: '15%', width: '70%', fontSize: 11 }}
-                  selected={selectedFormSection === 'edit'}
-                />
+                {form.editable && (
+                  <Button
+                    key={i + forms.length}
+                    text={language.editForm}
+                    onClick={() => handleSelectFormSection('edit')}
+                    style={{ marginTop: 10, marginLeft: '15%', width: '70%', fontSize: 11 }}
+                    selected={selectedFormSection === 'edit'}
+                  />
+                )}
                 <Button
                   key={i + forms.length * 2}
                   text={language.showResponses}

@@ -12,16 +12,15 @@ import { getId } from './utils';
  */
 
 /** @param {Alert} alert */
-export const pushAlert = alert =>
-  console.log(alert) || {
-    type: 'pushAlert',
-    payload: {
-      ...alert,
-      id: alert.id || getId(),
-      duration: alert.duration || 4000,
-      _show: true
-    }
-  };
+export const pushAlert = alert => ({
+  type: 'pushAlert',
+  payload: {
+    ...alert,
+    id: alert.id || getId(),
+    duration: alert.duration || 4000,
+    _show: true
+  }
+});
 
 /** @param {Alert} alert */
 export const _popAlert = alert => ({ type: '_popAlert', payload: alert });

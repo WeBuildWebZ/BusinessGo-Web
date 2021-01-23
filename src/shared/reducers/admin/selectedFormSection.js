@@ -1,4 +1,4 @@
-const initialState = 'edit'; // edit | show
+const initialState = 'show'; // edit | show
 
 const SelectedFormSection = (state = initialState, action = {}) => {
   switch (action.type) {

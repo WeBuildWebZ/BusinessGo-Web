@@ -9,6 +9,7 @@ import Enum from './components/Enum';
 import Select from './components/Select';
 import Number from './components/Number';
 import Image from './components/Image';
+import Group from './components/Group';
 
 let timeoutId;
 
@@ -100,6 +101,18 @@ const FieldRenderer = props => {
           case 'enum':
             return (
               <Enum
+                field={field}
+                value={data[field.key]}
+                readOnly={props.readOnly}
+                multiline={false}
+                onChange={value => handleUpdateData(field.key, value)}
+                FieldRenderer={FieldRenderer}
+                key={field.key}
+              />
+            );
+          case 'group':
+            return (
+              <Group
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}

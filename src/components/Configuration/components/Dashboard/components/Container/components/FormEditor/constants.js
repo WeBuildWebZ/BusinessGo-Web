@@ -6,6 +6,7 @@ export const inputTypes = [
   'textarea-big',
   'image',
   'enum',
+  'group',
   'select',
   'button'
 ];

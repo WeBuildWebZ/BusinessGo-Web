@@ -116,7 +116,6 @@ const ClientDocumentEditor = props => {
             data={selectedClientDocument}
             onClose={handleStopEditingDocument}
             onEdit={handleSaveDocument}
-            editable
             action={isNewDocument ? 'create' : 'edit'}
           />
         )}

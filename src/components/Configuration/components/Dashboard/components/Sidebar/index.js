@@ -38,6 +38,7 @@ const Sidebar = () => {
             border-radius: 5px;
             transition: 0.8s;
             animation: arrive 1s linear;
+            overflow-x: auto;
           }
           .sidebar:hover {
             background-color: #fffffff3;

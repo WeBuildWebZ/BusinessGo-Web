@@ -61,36 +61,20 @@ const Footer = () => {
           </div>
 
           <div className="site-footer__links">
-            <ul>
-              <li>Shopping online</li>
-              <li>
-                <a href="#">Como comprar</a>
-              </li>
-              <li>
-                <a href="#">Envio por encomienda</a>
-              </li>
-              <li>
-                <a href="#">Metodos de Pago</a>
-              </li>
-            </ul>
-            <ul>
-              <li>Informacion</li>
-              <li>
-                <a href="#">Descuentos</a>
-              </li>
-              <li>
-                <a href="#">Buscar un articulo</a>
-              </li>
-            </ul>
-            <ul>
-              <li>Contacto</li>
-              <li>
-                <a href="#">tamara7773@hotmail.com</a>
-              </li>
-              <li>
-                <a href="#">TEL: 2236054852</a>
-              </li>
-            </ul>
+            {!project && <Spinner />}
+            {project &&
+              project.configuration.footer.sections.map((section, i) => (
+                <ul key={i}>
+                  <li>{section.title}</li>
+                  {section.options.map((option, ii) => (
+                    <li key={ii}>
+                      <a href={option.link} target="_blank">
+                        {option.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ))}
           </div>
         </div>
       </div>

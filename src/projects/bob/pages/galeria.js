@@ -31,7 +31,7 @@ const Galeria = () => {
           posts.map((post, i) => (
             <div key={i}>
               <img key={post.title} title={post.title} src={post.photo} className="card" />
-              <h4>{console.log(post) || post.title}</h4>
+              <h4>{post.title}</h4>
               <p>{post.description}</p>
             </div>
           ))}

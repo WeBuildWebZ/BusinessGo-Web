@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectFade, Navigation } from 'swiper';
 
@@ -18,6 +19,7 @@ const PageIntro = () => (
                 Navegar
               </a>
             </div>
+            <Image src="/images/icons/icon.png" alt="Logo" width={450} height={309.375} />
           </div>
         </div>
       </SwiperSlide>
