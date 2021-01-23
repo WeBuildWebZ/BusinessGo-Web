@@ -14,12 +14,12 @@ const PageIntro = () => (
           <div className="container">
             <div className="page-intro__slide__content">
               <h2>El mejor precio en Blanquería</h2>
-              <a href="#" className="btn-shop">
+              <a href="/products" className="btn-shop">
                 <i className="icon-right" />
                 Navegar
               </a>
             </div>
-            <Image src="/images/icons/icon.png" alt="Logo" width={450} height={309.375} />
+            <Logo width={450} height={309.375} />
           </div>
         </div>
       </SwiperSlide>
@@ -29,12 +29,12 @@ const PageIntro = () => (
           <div className="container">
             <div className="page-intro__slide__content">
               <h2>Calidad Premium</h2>
-              <a href="#" className="btn-shop">
+              <a href="/products" className="btn-shop">
                 <i className="icon-right" />
                 Navegar
               </a>
             </div>
-            <Logo />
+            <Logo width={450} height={309.375} />
           </div>
         </div>
       </SwiperSlide>

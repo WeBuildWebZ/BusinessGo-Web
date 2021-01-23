@@ -9,13 +9,13 @@ const ProductsContent = () => {
     <section className="products-content">
       <div className="products-content__intro">
         <h2>Catálogo</h2>
-        <button
+        {/* <button
           type="button"
           onClick={() => setOrderProductsOpen(!orderProductsOpen)}
           className="products-filter-btn"
         >
           <i className="icon-filters" />
-        </button>
+        </button> */}
         {/* <form className={`products-content__filter ${orderProductsOpen ? 'products-order-open' : ''}`}>
           <div className="products__filter__select">
             <h4>Show products: </h4>
