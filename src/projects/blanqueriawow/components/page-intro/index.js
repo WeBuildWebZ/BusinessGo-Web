@@ -46,7 +46,7 @@ const PageIntro = () => (
           <li>
             <i className="icon-shipping" />
             <div className="data-item__content">
-              <h4>Envío a todo el Pais</h4>
+              <h4>Envíos a todo el País</h4>
               <p>con su compra a partir de 20.000$</p>
             </div>
           </li>
