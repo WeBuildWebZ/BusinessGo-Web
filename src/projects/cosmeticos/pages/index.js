@@ -1,4 +1,3 @@
-import '../assets/styles/styles.module.scss';
 import Banner from '../componentss/banner';
 import Testimonial from '../componentss/testimonial';
 import Examples from '../componentss/examples';
@@ -10,22 +9,19 @@ import Footer from '../componentss/footer';
 import Navbar from '../componentss/navbar';
 import Ashtags from '../componentss/ashtags';
 
-const index = () => {
-    return (
-        <main>
-            <Navbar />
-            <Banner />
-            <Examples />
-            <Testimonial />
-            <Frase />
-            <TresCards />
-            <Ashtags />
-            <Empresa />
-            <Footer />
-            <Copyright />
-        </main>
-    )
-}
+const index = () => (
+  <main>
+    <Navbar />
+    <Banner />
+    <Examples />
+    <Testimonial />
+    <Frase />
+    <TresCards />
+    <Ashtags />
+    <Empresa />
+    <Footer />
+    <Copyright />
+  </main>
+);
 
-export default index
-
+export default index;

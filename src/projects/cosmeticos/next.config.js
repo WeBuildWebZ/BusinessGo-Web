@@ -23,7 +23,7 @@ module.exports = {
   },
   env: { ...env },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')]
+    includePaths: [path.join(__dirname, 'assets/styles')]
   },
   target: 'serverless'
 };
