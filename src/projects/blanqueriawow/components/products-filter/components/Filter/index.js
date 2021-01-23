@@ -9,9 +9,16 @@ import Checkbox from '../../form-builder/checkbox';
 const ProductFilter = () => {
   const dispatch = useDispatch();
   const selectedCategories = useSelector(store => store.filters.categories);
+  const queryParams = useSelector(store => store.queryParams);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const showFilters = process.browser && window.location.pathname === '/products';
+  const shouldRedirect = process.browser && window.location.pathname !== '/products';
+
+  useEffect(() => {
+    if (!queryParams.category || selectedCategories.length) return;
+
+    dispatch(updateFilters('categories', [queryParams.category]));
+  }, []);
 
   useEffect(() => {
     getDistinctProducts().then(({ data: distinct }) => {
@@ -21,14 +28,14 @@ const ProductFilter = () => {
   }, [selectedCategories]);
 
   const handleToggleCategory = category => {
+    if (shouldRedirect) return (window.location.href = `/products?category=${encodeURIComponent(category)}`);
+
     const isSelected = selectedCategories.includes(category);
 
     const newSelectedCategories = isSelected ? [] : [category];
 
     dispatch(updateFilters('categories', newSelectedCategories));
   };
-
-  if (!showFilters) return <div />;
 
   return (
     <div className="products-filter__block" style={{ padding: 15 }}>
