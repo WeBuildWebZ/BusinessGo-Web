@@ -17,8 +17,10 @@ const ProductsContent = props => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
+    const search = selectedCategories.length ? '' : queryParams.search;
+
     setLoading(true);
-    getProducts(props.pageSize, pageNumber, { category: selectedCategories }, queryParams.search).then(
+    getProducts(props.pageSize, pageNumber, { category: selectedCategories }, search).then(
       ({ data: newProducts }) => {
         setProducts([...products, ...newProducts]);
         setLoading(false);
