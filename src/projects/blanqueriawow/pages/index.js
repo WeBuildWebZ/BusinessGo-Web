@@ -16,9 +16,9 @@ const IndexPage = () => (
           className="featured-item featured-item-large"
         >
           <div className="featured-item__content">
-            <h3>Articulos recien llegados</h3>
+            <h3>Artículos recién llegados</h3>
             <Link href="/products">
-              <a className="btn btn--rounded">Mostrar Coleccion</a>
+              <a className="btn btn--rounded">Mostrar Colección</a>
             </Link>
           </div>
         </article>
@@ -28,7 +28,7 @@ const IndexPage = () => (
           className="featured-item featured-item-small-first"
         >
           <div className="featured-item__content">
-            <h3>Juego de sabanas simple</h3>
+            <h3>Juego de sábanas simple</h3>
             <a href="/products?search=sabana" className="btn btn--rounded">
               Más detalles
             </a>
@@ -59,8 +59,8 @@ const IndexPage = () => (
           <li>
             <i className="icon-shipping" />
             <div className="data-item__content">
-              <h4>Entregas a todo el pais.</h4>
-              <p>Utilizamos encomiendas como Via Cargo, expreso Bahia, etc.</p>
+              <h4>Entregas a todo el país.</h4>
+              <p>Utilizamos encomiendas como Vía Cargo, expreso Bahía, etc.</p>
             </div>
           </li>
 
@@ -68,7 +68,7 @@ const IndexPage = () => (
             <i className="icon-payment" />
             <div className="data-item__content">
               <h4>Medios de pago Seguros</h4>
-              <p>Podes utilizar , Mercado Pago, Paypal entre otros.</p>
+              <p>Podés utilizar , Mercado Pago, Paypal entre otros.</p>
             </div>
           </li>
 
@@ -76,7 +76,7 @@ const IndexPage = () => (
             <i className="icon-cash" />
             <div className="data-item__content">
               <h4>compra Transparente</h4>
-              <p>Derribamos cualquier pirateria, y/o compras fraudulentas por facebook.</p>
+              <p>Derribamos cualquier piratería, y/o compras fraudulentas por facebook.</p>
             </div>
           </li>
 
@@ -84,7 +84,7 @@ const IndexPage = () => (
             <i className="icon-materials" />
             <div className="data-item__content">
               <h4>Calidad Premium</h4>
-              <p>Nuestros precios y calidad van de la mano, es cuestion de que lo veas!</p>
+              <p>Nuestros precios y calidad van de la mano, es cuestión de que lo veas!</p>
             </div>
           </li>
         </ul>
