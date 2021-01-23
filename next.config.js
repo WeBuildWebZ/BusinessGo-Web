@@ -29,14 +29,3 @@ module.exports = {
     domains: ['res.cloudinary.com']
   }
 };
-// gatsby-config.js
-module.exports = {
-    plugins: [
-        {
-            resolve: `gatsby-plugin-disqus`,
-            options: {
-                shortname: `projct1`
-            }
-        },
-    ]
-}
