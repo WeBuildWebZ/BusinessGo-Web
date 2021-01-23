@@ -3,7 +3,7 @@ import PageIntro from '../components/page-intro';
 import ProductsFeatured from '../components/products-featured';
 import Footer from '../components/footer';
 import Subscribe from '../components/subscribe';
-import Link from 'next/link'
+import Link from 'next/link';
 
 const IndexPage = () => (
   <Layout>
@@ -17,8 +17,8 @@ const IndexPage = () => (
         >
           <div className="featured-item__content">
             <h3>Articulos recien llegados</h3>
-            <Link href="/products" >
-            <a className="btn btn--rounded">Mostrar Coleccion</a>
+            <Link href="/products">
+              <a className="btn btn--rounded">Mostrar Coleccion</a>
             </Link>
           </div>
         </article>
@@ -29,6 +29,9 @@ const IndexPage = () => (
         >
           <div className="featured-item__content">
             <h3>Juego de sabanas simple</h3>
+            <a href="/products?search=sabana" className="btn btn--rounded">
+              Más detalles
+            </a>
           </div>
         </article>
 
@@ -38,6 +41,9 @@ const IndexPage = () => (
         >
           <div className="featured-item__content">
             <h3>Este invierno</h3>
+            <a href="/products?search=acolchado" className="btn btn--rounded">
+              Más detalles
+            </a>
           </div>
         </article>
       </div>
