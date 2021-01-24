@@ -1,10 +1,10 @@
 const Menu = () => (
   <div className="menu">
     <a href="/productos">
-      <h3>Productos</h3>
+      <h5>Productos</h5>
     </a>
-    <h3>Conócenos</h3>
-    <h3>Contacto</h3>
+    <h5>Conócenos</h5>
+    <h5>Contacto</h5>
 
     <style jsx>
       {`
@@ -17,11 +17,11 @@ const Menu = () => (
           align-items: center;
           padding: 0 2em 0 0;
         }
-        h3 {
+        h5 {
           margin: 0 0.5em;
           cursor: pointer;
         }
-        h3:hover {
+        h5:hover {
           border-bottom: 3px solid #ffa51d;
           color: #ffa51d;
         }
