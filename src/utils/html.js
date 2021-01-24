@@ -29,3 +29,11 @@ export const isInViewport = (element, offset = 0) => {
   const { top } = element.getBoundingClientRect();
   return top + offset >= 0 && top - offset <= window.innerHeight;
 };
+
+export const getVisiblePercentage = (element, offset = 0) => {
+  if (!element) return 0;
+  const { top } = element.getBoundingClientRect();
+  const { offsetHeight: height } = element;
+
+  return top >= 0 && top <= window.innerHeight;
+};

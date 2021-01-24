@@ -6,6 +6,7 @@ import adminSection from './adminSection';
 import clientModels from './clientModels';
 import selectedClientModel from './selectedClientModel';
 import queryParams from './queryParams';
+import cartItems from './cartItems';
 import configurationSection from './admin/configurationSection';
 import selectedForm from './admin/selectedForm';
 import selectedFormSection from './admin/selectedFormSection';
@@ -19,6 +20,7 @@ const CommonReducers = {
   clientModels,
   selectedClientModel,
   queryParams,
+  cartItems,
   // Admin Section
   configurationSection,
   selectedForm,

@@ -19,6 +19,7 @@ const Breadcrumb = props => (
       {`
         .breadcrumb {
           padding: 20px 0 2px 0;
+          box-shadow: 0 0 1px 1px #b2b2b2;
         }
         .breadcrumb-list {
           display: flex;
