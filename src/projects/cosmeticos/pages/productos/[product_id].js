@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Navbar from '../../componentss/navbar';
 import Footer from '../../componentss/footer';
+import Copyright from '../../componentss/Copyright';
 import ProductDetail from '../../componentss/ProductDetail';
 import Breadcrumb from '../../../../components/Breadcrumb';
 import Spinner from '../../../../components/Spinner';
@@ -35,6 +36,7 @@ const ProductById = ({ product_id }) => {
       {!product && <Spinner />}
       {product && <ProductDetail product={product} />}
       <Footer />
+      <Copyright />
     </>
   );
 };

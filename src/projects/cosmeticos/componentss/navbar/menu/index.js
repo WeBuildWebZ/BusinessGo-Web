@@ -3,7 +3,9 @@ const Menu = () => (
     <a href="/productos">
       <h5>Productos</h5>
     </a>
-    <h5>Conócenos</h5>
+    <a href="/carrito">
+      <h5>Carrito</h5>
+    </a>
     <h5>Contacto</h5>
 
     <style jsx>

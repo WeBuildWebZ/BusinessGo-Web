@@ -13,7 +13,7 @@ import reducer from '../reducers';
 
 const AppendHead = () => (
   <Head>
-    <title>Blanquería Wow</title>
+    <title>Blanquería Wow • El mejor precio en blanquería</title>
     <link rel="icon" href="/favicon.png" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />

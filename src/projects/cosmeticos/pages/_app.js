@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/styles/globals.css';
@@ -9,30 +10,40 @@ import * as constants from '../constants';
 
 const AppendHead = () => (
   <>
+    <NextSeo
+      title="Cosméticos en México"
+      description="Somos una tienda de productos Omnilife y Cosmética. Distribuimos en México"
+      canonical={constants.URL}
+      openGraph={{
+        url: `${constants.URL}/productos`,
+        title: 'Productos - Cosméticos en México',
+        description: 'Somos una tienda de productos Omnilife y Cosmética. Distribuimos en México',
+        site_name: 'Cosméticos en México',
+        images: [
+          {
+            url: `${constants.URL}/images/page_1.png`,
+            width: 900,
+            height: 382,
+            alt: 'Imagen 1'
+          },
+          {
+            url: `${constants.URL}/images/page_2.png`,
+            width: 900,
+            height: 414,
+            alt: 'Imagen 2'
+          },
+          {
+            url: `${constants.URL}/images/page_3.png`,
+            width: 900,
+            height: 412,
+            alt: 'Imagen 3'
+          }
+        ]
+      }}
+      twitter={{ handle: '@handle', site: '@site', cardType: 'summary_large_image' }}
+    />
     <Head>
-      <title>Cosméticos</title>
       <link rel="icon" href="/favicon.png" />
-
-      {/* etiquetas og facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="Globy Taxi App" />
-      <meta
-        property="og:description"
-        content="Somos una app mexicana de taxis que opera con autos concesionados."
-      />
-      <meta
-        property="og:image"
-        content="https://firebasestorage.googleapis.com/v0/b/sql-demos-3f601.appspot.com/o/globy.jpg?alt=media&token=55c1445f-de46-4b59-b47f-f39dd89899e2"
-      />
-      <meta property="og:image:width" content="828" />
-      <meta property="og:image:height" content="450" />
-      <meta property="og:url" content="https://globy-design.vercel.app/" />
-      <meta property="og:site_name" content="Globy" />
-      <meta property="fb:app_id" content="928977633900253" />
-      {/* aditional */}
-      <meta name="author" content="Globy Mexico" />
-      <meta name="copyright" content="Globy Mexico" />
-      <meta name="Description" content="Globy, la App para taxistas." />
     </Head>
   </>
 );
