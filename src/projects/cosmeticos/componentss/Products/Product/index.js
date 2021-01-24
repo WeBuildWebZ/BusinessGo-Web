@@ -15,7 +15,6 @@ const Product = props => {
           .product {
             display: inline-block;
             width: 180px;
-            height: 250px;
             background-color: lightskyblue;
             box-shadow: 0 0 2px 2px lightskyblue;
             border-top-left-radius: 10px;

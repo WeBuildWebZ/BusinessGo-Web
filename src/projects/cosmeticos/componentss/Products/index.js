@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Spinner from '../../../../components/Spinner';
+import InfiniteScrollLastElement from '../../../../components/InfiniteScrollLastElement';
 import { getClientDocuments } from '../../../../services/api/clientDocument';
 
 import Product from './Product';
@@ -18,7 +19,13 @@ const Products = () => {
   return (
     <div className="products">
       {!products && <Spinner />}
-      {products && products.map((product, i) => <Product key={i} product={product} />)}
+      {products && (
+        <InfiniteScrollLastElement onPageNumberChange={setPageNumber}>
+          {products.map((product, i) => (
+            <Product key={i} product={product} />
+          ))}
+        </InfiniteScrollLastElement>
+      )}
       <style jsx>
         {`
           .products {
