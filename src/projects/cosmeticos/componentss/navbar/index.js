@@ -8,8 +8,8 @@ const Navbar = () => (
     <style jsx>
       {`
         .navbar {
-          position: fixed;
           background: white;
+          margin-bottom: 15px;
           z-index: 10;
           width: 100vw;
           display: flex;

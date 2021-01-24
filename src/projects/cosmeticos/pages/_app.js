@@ -11,7 +11,9 @@ const AppendHead = () => (
   <>
     <Head>
       <title>Cosméticos</title>
-      etiquetas og facebook
+      <link rel="icon" href="/favicon.png" />
+
+      {/* etiquetas og facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Globy Taxi App" />
       <meta

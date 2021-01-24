@@ -1,6 +1,8 @@
 const Menu = () => (
   <div className="menu">
-    <h3>Productos</h3>
+    <a href="/productos">
+      <h3>Productos</h3>
+    </a>
     <h3>Conócenos</h3>
     <h3>Contacto</h3>
 
