@@ -7,7 +7,7 @@ const ProductMessage = () => (
           display: flex;
           flex-direction: column;
           width: 96%;
-          margin-left: 2%;
+          margin: 0 0 15px 2%;
           border-bottom-left-radius: 50px;
           border-bottom-right-radius: 50px;
           height: 100px;

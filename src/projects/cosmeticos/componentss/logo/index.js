@@ -1,5 +1,5 @@
 const Logo = () => (
-  <div className="logo">
+  <a className="logo" href="/">
     <img src="/favicon.png" width={24} height={24} />
     <h4>Cosméticos</h4>
     <style jsx>
@@ -11,6 +11,11 @@ const Logo = () => (
           margin: 0 5px;
           color: #2e31be;
           padding: 0.5em;
+          cursor: pointer;
+          transition: 0.7s;
+        }
+        .logo:hover {
+          border-radius: 2em;
         }
         .fa-bacon {
           font-size: 2em;
@@ -19,7 +24,7 @@ const Logo = () => (
         }
       `}
     </style>
-  </div>
+  </a>
 );
 
 export default Logo;
