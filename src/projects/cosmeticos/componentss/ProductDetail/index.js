@@ -24,7 +24,10 @@ const ProductDetail = ({ product }) => {
   };
 
   const handleToggleCartItem = () => {
-    dispatch(!cartItem ? setCartItem({ product, count }) : removeCartItem({ product }));
+    const shouldSet = !cartItem;
+    dispatch(shouldSet ? setCartItem({ product, count }) : removeCartItem({ product }));
+
+    if (!shouldSet) setCount(1);
   };
 
   return (
@@ -39,7 +42,7 @@ const ProductDetail = ({ product }) => {
           </div>
         )}
         <div className="panel button" onClick={handleToggleCartItem}>
-          {!cartItem ? language.addToCart(count) : language.removeFromCart(count)}
+          {!cartItem ? language.addToCart(count) : language.removeFromCart}
         </div>
         {!cartItem && (
           <div className="panel button" onClick={() => handleChangeCount(1)}>

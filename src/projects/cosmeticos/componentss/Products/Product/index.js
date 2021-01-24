@@ -5,7 +5,7 @@ const Product = props => {
 
   return (
     <div className="product">
-      <div className="price">{product.price}</div>
+      <div className="price">{`${product.price} ${product.currency}`}</div>
       <a className="imageContainer" href={`/productos/${encodeURIComponent(product._id)}`}>
         <img className="image" src={product.photo} />
       </a>
@@ -38,6 +38,8 @@ const Product = props => {
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 0 1px 1px #ffffff;
+            color: green;
+            text-shadow: 1px 1px 2px green;
           }
           .image {
             max-width: 100%;
