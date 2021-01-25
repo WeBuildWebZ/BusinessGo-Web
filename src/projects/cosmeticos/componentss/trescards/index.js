@@ -1,62 +1,68 @@
-const TresCards = () => (
-  <div className="TresCards">
-    <div className="card1">
-      <h4>Increibles ofertas!</h4>
-    </div>
-    <div className="card2">
-      <h4>Lo mejor para ti!</h4>
-    </div>
-    <div className="card3">
-      <h4>Solo entra y mira!</h4>
-    </div>
+import { useSelector } from 'react-redux';
 
-    <style jsx>
-      {`
-        .TresCards {
-          width: 100vw;
-          height: 50vh;
-          background-image: url(/images/card1.jpg);
-          margin: 2em 0;
-          // padding:0 2em 2em 1em;
-          position: relative;
-        }
+import Spinner from '../../../../components/Spinner';
 
-        .card1,
-        .card2,
-        .card3 {
-          width: 260px;
-          height: 120px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 5px;
-          padding: 1em;
-          border-radius: 1em;
-          background: hsla(0, 0%, 0%, 0.9);
-          color: white;
-        }
-        .card1:hover,
-        .card2:hover,
-        .card3:hover {
-          border: 4px solid white;
-        }
-        .card1 {
-          position: absolute;
-          bottom: -3em;
-          left: 4em;
-        }
-        .card2 {
-          position: absolute;
-          bottom: -3em;
-          right: 5em;
-        }
-        .card3 {
-          position: absolute;
-          bottom: -3em;
-          left: 40%;
-        }
-      `}
-    </style>
-  </div>
-);
+const TresCards = () => {
+  const project = useSelector(store => store.project);
+
+  return (
+    <div className="cardContainer">
+      {!project && <Spinner />}
+      {project?.configuration.footer.cards.map(card => (
+        <div className="card">
+          <h4 className="cardText">{card.value}</h4>
+        </div>
+      ))}
+
+      <style jsx>
+        {`
+          .cardContainer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-end;
+            position: relative;
+            width: 100vw;
+            height: fit-content;
+            min-height: 50vh;
+            background-image: url(/images/card1.jpg);
+            margin: 2em 0;
+          }
+
+          .card {
+            transform: translate(0, 50%);
+            width: 260px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            padding: 1em;
+            border-radius: 1em;
+            background: hsla(0, 0%, 0%, 0.9);
+            color: white;
+            transition: 0.7s;
+          }
+          .card:hover {
+            border: 4px solid white;
+          }
+          .cardText {
+            text-align: center;
+          }
+
+          @media only screen and (max-width: 768px) {
+            .card {
+              width: 130px;
+              height: 60px;
+            }
+            .cardText {
+              font-size: 16px;
+            }
+          }
+        `}
+      </style>
+    </div>
+  );
+};
 export default TresCards;

@@ -18,7 +18,7 @@ const Hashtags = () => {
         {`
           .hashtags {
             width: 100vw;
-            height: 10vh;
+            height: fit-content;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
