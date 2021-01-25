@@ -3,7 +3,6 @@ import Testimonial from '../componentss/testimonial';
 import Examples from '../componentss/examples';
 import Frase from '../componentss/frase';
 import TresCards from '../componentss/trescards';
-import Empresa from '../componentss/empresa';
 import Copyright from '../componentss/Copyright';
 import Footer from '../componentss/footer';
 import Navbar from '../componentss/navbar';
@@ -18,7 +17,6 @@ const index = () => (
     <Frase />
     <TresCards />
     <Ashtags />
-    <Empresa />
     <Footer />
     <Copyright />
   </main>

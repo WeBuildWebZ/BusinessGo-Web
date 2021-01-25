@@ -1,26 +1,31 @@
-const Ashtags = () => {
+import { useSelector } from 'react-redux';
+
+import Spinner from '../../../../components/Spinner';
+
+const Hashtags = () => {
+  const project = useSelector(store => store.project);
+
   return (
-    <div className="ashtags">
-      <h4> #Make-Up </h4>
-      <h4> #Labial </h4>
-      <h4> #Brochas </h4>
-      <h4> #Rimel </h4>
-      <h4> #Sombras </h4>
-      <h4> #Mascaras </h4>
-      <h4> #Corrector </h4>
+    <div className="hashtags">
+      {!project && <Spinner />}
+      {project?.configuration.footer.hashtags.map((hashtag, i) => (
+        <a href={`https://twitter.com/hashtag/${encodeURIComponent(hashtag.value)}`} target="blank">
+          <h4 key={i}>#{hashtag.value}</h4>
+        </a>
+      ))}
 
       <style jsx>
         {`
-          .ashtags {
+          .hashtags {
             width: 100vw;
-            heigth: 10vh;
+            height: 10vh;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             padding: 1em;
           }
-          h4{
-            margin:.5em;
+          h4 {
+            margin: 0.5em;
           }
         `}
       </style>
@@ -28,4 +33,4 @@ const Ashtags = () => {
   );
 };
 
-export default Ashtags;
+export default Hashtags;
