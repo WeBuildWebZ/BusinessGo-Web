@@ -1,19 +1,27 @@
 export const Tags = () => (
   <div className="tags">
-    <h2>#Mesas</h2>
-    <h2>#Cama</h2>
-    <h2>#Rinconera</h2>
-    <h2>#Mesa ratona</h2>
-    <h2>#Sillas</h2>
-    <h2>#Cajoneras</h2>
-    <h2>#Lasena</h2>
-    <h2>#Cómoda</h2>
+    <h4>#Mesas</h4>
+    <h4>#Cama</h4>
+    <h4>#Rinconera</h4>
+    <h4>#Mesa ratona</h4>
+    <h4>#Sillas</h4>
+    <h4>#Cajoneras</h4>
+    <h4>#Lasena</h4>
+    <h4>#Cómoda</h4>
     <style jsx>
       {`
         .tags {
           width: 100vw;
           height: 30vh;
-          background: #eff7e1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #fff3e6;
+          color: #0d335d;
+          margin: 2em 0;
+        }
+        h4 {
+          margin: 0 9px;
         }
       `}
     </style>

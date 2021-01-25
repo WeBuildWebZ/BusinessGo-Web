@@ -11,7 +11,7 @@ import {
 import 'bootstrap-css-only/css/bootstrap.min.css';
 
 const Slide = () => (
-  <MDBContainer className="d-flex justify-content-center">
+  <MDBContainer className="m-b 3">
     <MDBCarousel activeItem={1} length={3} showControls={false} showIndicators className="z-depth-1" slide>
       <MDBCarouselInner>
         <MDBCarouselItem itemId="1">
@@ -24,10 +24,10 @@ const Slide = () => (
         </MDBCarouselItem>
         <MDBCarouselItem itemId="2">
           <MDBView>
-            <Image src="/images/calling.jpg" alt="Second slide" width={1200} height={700} />
+            <Image src="/images/slidetwo.jpg" alt="Second slide" width={1200} height={700} />
           </MDBView>
           <MDBCarouselCaption>
-            <h3 className="h3-responsive">Cuidamos nuestros pasajeros</h3>
+            <h3 className="h3-responsive">LLevamos tu producto</h3>
           </MDBCarouselCaption>
         </MDBCarouselItem>
         <MDBCarouselItem itemId="3">
@@ -35,7 +35,7 @@ const Slide = () => (
             <Image src="/images/slidethree.jpg" alt="Third slide" width={1200} height={700} />
           </MDBView>
           <MDBCarouselCaption>
-            <h3 className="h3-responsive">Sistema de Chofer Por Puntos</h3>
+            <h3 className="h3-responsive">Somos fabricantes</h3>
           </MDBCarouselCaption>
         </MDBCarouselItem>
       </MDBCarouselInner>

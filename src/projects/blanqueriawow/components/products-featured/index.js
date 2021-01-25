@@ -1,5 +1,6 @@
-import ProductsCarousel from './carousel';
 import useSwr from 'swr';
+
+import ProductsCarousel from './carousel';
 
 const ProductsFeatured = () => {
   const fetcher = url => fetch(url).then(res => res.json());
