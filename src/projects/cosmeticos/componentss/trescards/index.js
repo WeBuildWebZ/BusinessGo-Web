@@ -48,7 +48,13 @@ const TresCards = () => {
             border: 4px solid white;
           }
           .cardText {
+            height: 100%;
             text-align: center;
+            transition: 0.7s;
+            user-select: none;
+          }
+          .cardText:hover {
+            text-shadow: 2px 2px 2px white;
           }
 
           @media only screen and (max-width: 768px) {
