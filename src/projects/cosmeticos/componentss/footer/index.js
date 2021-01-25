@@ -19,41 +19,43 @@ const Footer = () => {
             ))}
           </span>
         ))}
-      <style jsx>{`
-        .social {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100vw;
-          height: 50vh;
-          background-image: linear-gradient(to left, hsla(0, 0%, 0%, 0.897), hsla(0, 0%, 0%, 0.897)),
-            url(/images/featured-2.jpg);
-          background-position: 0;
-          background-size: cover;
-          background-repeat: no-repeat;
-          color: white;
-        }
-        .menu {
-          flex: 1;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-flow: column;
-        }
-        .h3 {
-          flex: 1;
-          padding: 0.5em;
-        }
-        // ========================================
-        @media (max-width: 430px) {
+      <style jsx>
+        {`
           .social {
-            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 50vh;
+            background-image: linear-gradient(to left, hsla(0, 0%, 0%, 0.897), hsla(0, 0%, 0%, 0.897)),
+              url(/images/featured-2.jpg);
+            background-position: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+          }
+          .menu {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             flex-flow: column;
           }
-        }
-      `}</style>
+          .h3 {
+            flex: 1;
+            padding: 0.5em;
+          }
+          // ========================================
+          @media (max-width: 430px) {
+            .social {
+              height: 100vh;
+              flex-flow: column;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
