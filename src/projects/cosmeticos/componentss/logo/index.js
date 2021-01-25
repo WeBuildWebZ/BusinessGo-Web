@@ -18,6 +18,7 @@ const Logo = () => {
             padding: 0.5em;
             cursor: pointer;
             transition: 0.7s;
+            animation: arrive 1s linear;
           }
           .logo:hover {
             border-radius: 2em;
@@ -26,6 +27,26 @@ const Logo = () => {
             font-size: 2em;
             width: 30px;
             height: 30px;
+          }
+
+          @keyframes arrive {
+            0% {
+              opacity: 0;
+              -ms-transform: rotate(180deg) translate(-200%);
+              -moz-transform: rotate(180deg) translate(-200%);
+              -webkit-transform: rotate(180deg) translate(-200%);
+              -o-transform: rotate(180deg) translate(-200%);
+              transform: rotate(180deg) translate(-200%);
+            }
+            100% {
+              opacity: 1;
+              margin-right: 0;
+              -ms-transform: translate(0, 0);
+              -moz-transform: translate(0, 0);
+              -webkit-transform: translate(0, 0);
+              -o-transform: translate(0, 0);
+              transform: translate(0, 0);
+            }
           }
         `}
       </style>
