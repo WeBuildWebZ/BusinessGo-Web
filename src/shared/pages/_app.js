@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { combineReducers, createStore } from 'redux';
 
 import commonReducer from '../reducers';
+import Chatbot from '../../components/Chatbot';
 import AlertStack from '../../components/AlertStack';
 import { showProject } from '../../services/api/project';
 import { setProject } from '../actions/project';
@@ -36,6 +37,7 @@ const getApp = (reducer, constants, AppendComponent) => {
       <Provider store={store}>
         <ReduxFiller constants={constants} />
         <AlertStack position={constants.ALERT_STACK_POSITION} />
+        <Chatbot />
         <Component {...pageProps} />
       </Provider>
     </>
