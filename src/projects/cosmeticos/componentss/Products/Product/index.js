@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 const Product = props => {
   const { product } = props;
+  const project = useSelector(store => store.project);
 
   return (
     <div className="product">
-      <div className="price">{`${product.price} ${product.currency}`}</div>
+      <div className="price">{`${product.price} ${project?.configuration.basic_info.currency}`}</div>
       <a className="imageContainer" href={`/productos/${encodeURIComponent(product._id)}`}>
         <img className="image" src={product.photo} />
       </a>

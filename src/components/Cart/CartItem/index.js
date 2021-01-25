@@ -10,6 +10,7 @@ import { getLanguage } from './lang';
 const CartItem = ({ product, count }) => {
   const dispatch = useDispatch();
   const language = getLanguage(useSelector(store => store.language));
+  const project = useSelector(store => store.project);
   const productLink = `/productos/${encodeURIComponent(product._id)}`;
   const price = getProductPrice(product, count);
 
@@ -33,7 +34,7 @@ const CartItem = ({ product, count }) => {
         <div className="amount">{`${language.amount}: ${count}`}</div>
 
         <div className="mobileRightFlex">
-          <div className="price">{`${price} ${product.currency}`}</div>
+          <div className="price">{`${price} ${project?.configuration.basic_info.currency}`}</div>
           <div className="remove" onClick={handleRemoveItem}>
             <RemoveIcon />
           </div>
@@ -41,7 +42,7 @@ const CartItem = ({ product, count }) => {
       </div>
 
       <div className="rightFlex">
-        <div className="price">{`${price} ${product.currency}`}</div>
+        <div className="price">{`${price} ${project?.configuration.basic_info.currency}`}</div>
         <div className="remove" onClick={handleRemoveItem}>
           <RemoveIcon />
         </div>

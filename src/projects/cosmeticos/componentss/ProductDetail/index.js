@@ -5,12 +5,14 @@ import PlusIcon from '@material-ui/icons/AddBoxRounded';
 import PropTypes from 'prop-types';
 
 import { setCartItem, removeCartItem } from '../../../../shared/actions/cartItems';
+import { getProductPrice } from '../../../../utils/product';
 
 import { getLanguage } from './lang';
 
 const ProductDetail = ({ product }) => {
   const dispatch = useDispatch();
   const language = getLanguage(useSelector(store => store.language));
+  const project = useSelector(store => store.project);
   const [cartItem] = useSelector(store => store.cartItems).filter(
     _cartItem => _cartItem.product._id === product._id
   );
@@ -49,6 +51,9 @@ const ProductDetail = ({ product }) => {
             <PlusIcon />
           </div>
         )}
+        <div className="productPrice">
+          {`${getProductPrice(product, count)} ${project?.configuration.basic_info.currency}`}
+        </div>
       </div>
       <style jsx>
         {`
@@ -89,6 +94,11 @@ const ProductDetail = ({ product }) => {
             box-shadow: 0 0 5px 2px rgba(135, 206, 250, 0.733);
             border-radius: 7px;
             padding: 9px;
+          }
+          .productPrice {
+            display: inline-block;
+            color: green;
+            text-shadow: 1px 1px 2px green;
           }
 
           @media only screen and (max-width: 768px) {

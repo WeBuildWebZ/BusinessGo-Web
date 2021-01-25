@@ -17,6 +17,7 @@ const RequestCart = () => {
   const dispatch = useDispatch();
   const language = getLanguage(useSelector(store => store.language));
   const cartItems = useSelector(store => store.cartItems);
+  const project = useSelector(store => store.project);
   const [modalOpen, setModalOpen] = useState(false);
   const [form, setForm] = useState(null);
   const [formData, setFormData] = useState({});
@@ -51,9 +52,11 @@ const RequestCart = () => {
               {language.makeRequest}
             </Button>
           </Modal>
-          <div className="productPrice" onClick={() => setModalOpen(true)}>
-            {`Realizar el Pedido (${price} USD)`}
-          </div>
+          {!!cartItems?.length && (
+            <div className="productPrice" onClick={() => setModalOpen(true)}>
+              {`Realizar el Pedido (${price} ${project?.configuration.basic_info.currency || '...'})`}
+            </div>
+          )}
         </>
       )}
       <style jsx>
