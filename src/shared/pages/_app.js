@@ -37,7 +37,8 @@ const getApp = (reducer, constants, AppendComponent) => {
       <Provider store={store}>
         <ReduxFiller constants={constants} />
         <AlertStack position={constants.ALERT_STACK_POSITION} />
-        <Chatbot />
+        {/* <Chatbot /> */}
+        {/* jajaja este lean travieso */}
         <Component {...pageProps} />
       </Provider>
     </>
