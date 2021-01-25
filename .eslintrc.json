@@ -105,6 +105,7 @@
     "react/destructuring-assignment": "off",
     "import/no-cycle": "off",
     "react/button-has-type": "off",
-    "react/jsx-no-target-blank": "off"
+    "react/jsx-no-target-blank": "off",
+    "max-len": "off"
   }
 }
