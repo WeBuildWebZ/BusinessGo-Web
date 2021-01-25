@@ -29,7 +29,6 @@ const Slide = () => {
                         </MDBView>
                         <MDBCarouselCaption>
                             <h3 className="h3-responsive">Mejor Precio del mercado</h3>
-                            <p>First text about this</p>
                         </MDBCarouselCaption>
                     </MDBCarouselItem>
                     <MDBCarouselItem itemId="2">
@@ -42,8 +41,7 @@ const Slide = () => {
                             />
                         </MDBView>
                         <MDBCarouselCaption>
-                            <h3 className="h3-responsive">Mujer a Mujer</h3>
-                            <p>Además de los hombres, queremos mucha seguridad para las mujeres, por eso, una mujer puede pedir viajar con otra mujer</p>
+                            <h3 className="h3-responsive">Cuidamos nuestros pasajeros</h3>
                         </MDBCarouselCaption>
                     </MDBCarouselItem>
                     <MDBCarouselItem itemId="3">
@@ -57,7 +55,6 @@ const Slide = () => {
                         </MDBView>
                         <MDBCarouselCaption>
                             <h3 className="h3-responsive">Sistema de Chofer Por Puntos</h3>
-                            <p>First text about this</p>
                         </MDBCarouselCaption>
                     </MDBCarouselItem>
                 </MDBCarouselInner>

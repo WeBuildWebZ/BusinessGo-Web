@@ -8,15 +8,8 @@ const Logo = props => (
       alt="Logo"
       width={props.width}
       height={props.height}
-      className="colored"
     />
-    <style jsx>
-      {`
-        .colored {
-          background: yellow;
-        }
-      `}
-    </style>
+    {/* lean quite la clase colored y el style jsx..porque no lo usaba */}
   </>
 );
 

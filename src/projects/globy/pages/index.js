@@ -9,15 +9,18 @@ import styles from '../styles/Home.module.scss';
 import Links from '../components/Links';
 import Suscripcion from '../components/Suscripcion';
 
+
 export default function Home() {
   return (
+
     <div className={styles.container}>
-      <Logo />
+      <Logo/>
+
       <Frase />
 
       {/* seccion color negro con iconos verdes */}
       <section>
-        <Section />
+        <Section/>
       </section>
 
       <section className={styles.image}>
