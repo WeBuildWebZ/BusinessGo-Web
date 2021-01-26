@@ -9,6 +9,7 @@ import { setSelectedClientModel } from '../../../../../../shared/actions/selecte
 import ClientDocumentEditor from './components/ClientDocumentEditor';
 import ConfigurationEditor from './components/ConfigurationEditor';
 import FormEditor from './components/FormEditor';
+import ChatbotEditor from './components/ChatbotEditor';
 import FormResponseViewer from './components/FormResponseViewer';
 
 const Container = () => {
@@ -41,6 +42,7 @@ const Container = () => {
       )}
       {adminSection === 'forms' && selectedFormSection === 'edit' && <FormEditor />}
       {adminSection === 'forms' && selectedFormSection === 'show' && <FormResponseViewer />}
+      {adminSection === 'chatbots' && <ChatbotEditor />}
       <style jsx>
         {`
           .container {

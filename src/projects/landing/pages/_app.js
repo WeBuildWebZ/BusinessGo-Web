@@ -1,32 +1,38 @@
-import React from 'react';
+/* eslint-disable react/no-danger */
 import Head from 'next/head';
-import { Provider } from 'react-redux';
-import { combineReducers, createStore } from 'redux';
-import PropTypes from 'prop-types';
+import { NextSeo } from 'next-seo';
 
-import 'react-phone-number-input/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../../styles/globals.css';
 
-import commonReducer from '../../../reducers';
-import reducer from '../reducers';
+import getApp from '../../../shared/pages/_app';
+import * as constants from '../constants';
 
-const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
+const AppendHead = () => (
+  <>
+    <NextSeo
+      title="DancotLL Software"
+      description="Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida"
+      canonical={constants.URL}
+      openGraph={{
+        url: constants.URL,
+        title: 'DancotLL Software',
+        description: 'Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida',
+        site_name: 'DancotLL Software',
+        images: [
+          {
+            url: `${constants.URL}/logo.png`,
+            width: 822,
+            height: 822,
+            alt: 'Imagen 1'
+          }
+        ]
+      }}
+      twitter={{ handle: '@handle', site: '@site', cardType: 'summary_large_image' }}
+    />
+    <Head>
+      <link rel="icon" href="/favicon.png" />
+    </Head>
+  </>
+);
 
-export default function App({ Component, pageProps }) {
-  return (
-    <>
-      <Head>
-        <title>BusinessGo!</title>
-      </Head>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
-    </>
-  );
-}
-
-App.propTypes = {
-  Component: PropTypes.func.isRequired,
-  pageProps: PropTypes.objectOf(PropTypes.any).isRequired
-};
+export default getApp({}, constants, AppendHead);

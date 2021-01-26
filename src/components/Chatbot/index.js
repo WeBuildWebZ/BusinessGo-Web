@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+
+import { showForm } from '../../services/api/form';
 
 import Title from './Title';
 import Input from './Input';
@@ -6,9 +9,9 @@ import { shouldRender } from './utils';
 
 const Chatbot = () => {
   const project = useSelector(store => store.project);
+  const render = shouldRender(project);
 
-  if (!shouldRender(project)) return <div />;
-
+  if (!render) return <div />;
   return (
     <div className="chatbot">
       <Title />
