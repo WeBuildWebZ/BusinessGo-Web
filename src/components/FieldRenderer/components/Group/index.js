@@ -29,11 +29,12 @@ const Group = props => {
     props.onChange(newValue);
   };
 
-  const handleUpdateEnum = newData => {
+  const handleUpdateGroup = newData => {
     setEnumModalOption(null);
     const newValue = stateValue.map((option, i) => (i === enumModalOptionIndex ? newData : option));
 
     setStateValue(newValue);
+
     props.onChange(newValue);
   };
 
@@ -50,7 +51,7 @@ const Group = props => {
           data={enumModalOption}
           FieldRenderer={props.FieldRenderer}
           onClose={() => setEnumModalOption(null)}
-          onChange={handleUpdateEnum}
+          onChange={handleUpdateGroup}
         />
       )}
       <FormLabel component="legend">{field.name}</FormLabel>

@@ -17,13 +17,15 @@ const FieldModal = props => {
     props.onChange(newData);
   };
 
+  console.log('data', data);
+
   return (
     <Modal show backdrop="static" onHide={props.onClose}>
       <Modal.Header closeButton>
         <PopoverTitle>{`${language.fieldsFor} ${field.enum_name}`}</PopoverTitle>
       </Modal.Header>
       <Modal.Body>
-        <FieldRenderer fields={field.subfields} data={givenData} onChange={setData} />
+        <FieldRenderer fields={field.subfields} data={data} onChange={setData} />
       </Modal.Body>
       <Modal.Footer>
         <Button style={{ backgroundColor: 'lightgreen' }} onClick={() => handleChangeData(data)}>

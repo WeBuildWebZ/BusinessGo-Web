@@ -14,14 +14,13 @@ const TablesSection = () => {
   const clientModels = useSelector(store => store.clientModels);
   const selectedClientModel = useSelector(store => store.selectedClientModel);
   const adminSection = useSelector(store => store.adminSection);
-  const isLoading = !clientModels;
 
   const handleSelectClientModel = clientModel => {
     dispatch(setAdminSection('tables'));
     dispatch(setSelectedClientModel(clientModel));
   };
 
-  return isLoading ? (
+  return !clientModels ? (
     <Spinner />
   ) : (
     <>
