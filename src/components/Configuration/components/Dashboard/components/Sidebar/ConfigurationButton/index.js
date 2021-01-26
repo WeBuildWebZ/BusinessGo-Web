@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Button from '../../../../../../../Button';
-import { setAdminSection } from '../../../../../../../../shared/actions/adminSection';
-import { setConfigurationSection } from '../../../../../../../../shared/actions/configurationSection';
+import Button from '../../../../../../Button';
+import { setAdminSection } from '../../../../../../../shared/actions/adminSection';
+import { setConfigurationSection } from '../../../../../../../shared/actions/configurationSection';
 
 const ConfigurationButton = props => {
   const dispatch = useDispatch();

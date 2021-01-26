@@ -3,12 +3,14 @@ const getLanguage = language_code =>
     es: {
       configuration: 'Configuración',
       tables: 'Tablas',
-      forms: 'Formularios'
+      forms: 'Formularios',
+      chatbots: 'Chatbots'
     },
     en: {
       configuration: 'Configuration',
       tables: 'Tables',
-      forms: 'Forms'
+      forms: 'Forms',
+      chatbots: 'Chatbots'
     }
   }[language_code]);
 

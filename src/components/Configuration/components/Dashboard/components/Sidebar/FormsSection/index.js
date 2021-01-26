@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { listForms } from '../../../../../../../../services/api/form';
-import { setSelectedForm } from '../../../../../../../../shared/actions/selectedForm';
-import { setSelectedFormSection } from '../../../../../../../../shared/actions/selectedFormSection';
-import { setAdminSection } from '../../../../../../../../shared/actions/adminSection';
-import Spinner from '../../../../../../../Spinner';
-import Button from '../../../../../../../Button';
+import { listForms } from '../../../../../../../services/api/form';
+import { setSelectedForm } from '../../../../../../../shared/actions/selectedForm';
+import { setSelectedFormSection } from '../../../../../../../shared/actions/selectedFormSection';
+import { setAdminSection } from '../../../../../../../shared/actions/adminSection';
+import Spinner from '../../../../../../Spinner';
+import Button from '../../../../../../Button';
 
 import { getLanguage } from './lang';
 

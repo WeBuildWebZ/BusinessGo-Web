@@ -10,6 +10,7 @@ import cartItems from './cartItems';
 import configurationSection from './admin/configurationSection';
 import selectedForm from './admin/selectedForm';
 import selectedFormSection from './admin/selectedFormSection';
+import selectedChatbotChannel from './admin/selectedChatbotChannel';
 
 const CommonReducers = {
   user,
@@ -24,7 +25,8 @@ const CommonReducers = {
   // Admin Section
   configurationSection,
   selectedForm,
-  selectedFormSection
+  selectedFormSection,
+  selectedChatbotChannel
 };
 
 export default CommonReducers;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setSelectedClientModel } from '../../../../../../../../shared/actions/selectedClientModel';
-import { setAdminSection } from '../../../../../../../../shared/actions/adminSection';
-import Spinner from '../../../../../../../Spinner';
-import Button from '../../../../../../../Button';
+import { setSelectedClientModel } from '../../../../../../../shared/actions/selectedClientModel';
+import { setAdminSection } from '../../../../../../../shared/actions/adminSection';
+import Spinner from '../../../../../../Spinner';
+import Button from '../../../../../../Button';
 
 import { getLanguage } from './lang';
 

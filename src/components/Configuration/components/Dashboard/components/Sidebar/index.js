@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import Spinner from '../../../../../Spinner';
 import Split from '../../../../../Split';
 
-import ConfigurationButton from './components/ConfigurationButton';
-import Title from './components/Title';
-import TablesSection from './components/TablesSection';
-import FormsSection from './components/FormsSection';
+import ConfigurationButton from './ConfigurationButton';
+import Title from './Title';
+import TablesSection from './TablesSection';
+import FormsSection from './FormsSection';
+import ChatbotsSection from './ChatbotsSection';
 
 const Sidebar = () => {
   const project = useSelector(store => store.project);
@@ -27,6 +28,9 @@ const Sidebar = () => {
       <Title code="forms" />
       <Split />
       <FormsSection />
+      <Title code="chatbots" />
+      <Split />
+      <ChatbotsSection />
       <style jsx>
         {`
           .sidebar {
