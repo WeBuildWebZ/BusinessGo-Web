@@ -17,36 +17,29 @@ const Slide = () => {
 
   if (!project) return <Spinner />;
 
-  const slider_sections = project.configuration.basic_info;
+  const { slider_sections } = project.configuration.basic_info;
 
   return (
     <MDBContainer className="m-b 3">
-      <MDBCarousel activeItem={1} length={3} showControls={false} showIndicators className="z-depth-1" slide>
+      <MDBCarousel
+        activeItem={1}
+        length={slider_sections.length}
+        showControls={false}
+        showIndicators
+        className="z-depth-1"
+        slide
+      >
         <MDBCarouselInner>
-          <MDBCarouselItem itemId="1">
-            <MDBView>
-              <Image src="/images/slideone.jpg" alt="First slide" width={1200} height={700} />
-            </MDBView>
-            <MDBCarouselCaption>
-              <h3 className="h3-responsive">Mejor Precio del mercado</h3>
-            </MDBCarouselCaption>
-          </MDBCarouselItem>
-          <MDBCarouselItem itemId="2">
-            <MDBView>
-              <Image src="/images/slidetwo.jpg" alt="Second slide" width={1200} height={700} />
-            </MDBView>
-            <MDBCarouselCaption>
-              <h3 className="h3-responsive">LLevamos tu producto</h3>
-            </MDBCarouselCaption>
-          </MDBCarouselItem>
-          <MDBCarouselItem itemId="3">
-            <MDBView>
-              <Image src="/images/slidethree.jpg" alt="Third slide" width={1200} height={700} />
-            </MDBView>
-            <MDBCarouselCaption>
-              <h3 className="h3-responsive">Somos fabricantes</h3>
-            </MDBCarouselCaption>
-          </MDBCarouselItem>
+          {slider_sections.map((section, i) => (
+            <MDBCarouselItem key={i} itemId={`${i + 1}`}>
+              <MDBView>
+                <Image src={section.photo} alt={`Slide ${i + 1}`} width={1200} height={700} />
+              </MDBView>
+              <MDBCarouselCaption>
+                <h3 className="h3-responsive">{section.description}</h3>
+              </MDBCarouselCaption>
+            </MDBCarouselItem>
+          ))}
         </MDBCarouselInner>
       </MDBCarousel>
     </MDBContainer>
