@@ -26,5 +26,9 @@
   "cosmeticos": {
     "path": "src/projects/cosmeticos",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/DancotLL/BGO-Campe"
+  },
+  "muebles": {
+    "path": "src/projects/muebles",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/DancotLL/BGO-Muebles"
   }
 }
