@@ -6,6 +6,7 @@ import { updateProjectConfiguration } from '../../../../../../../../services/api
 import FieldRenderer from '../../../../../../../FieldRenderer';
 import Spinner from '../../../../../../../Spinner';
 import { pushAlert } from '../../../../../../../../shared/actions/alerts';
+import { setProject } from '../../../../../../../../shared/actions/project';
 
 import { getLanguage } from './lang';
 
@@ -20,7 +21,8 @@ const ConfigurationEditor = () => {
     const newConfiguration = { ...configuration, [configurationSection.form_code]: changedConfiguration };
 
     setConfiguration(newConfiguration);
-    updateProjectConfiguration(project, newConfiguration).then(() => {
+    updateProjectConfiguration(project, newConfiguration).then(({ data: givenConfiguration }) => {
+      dispatch(setProject({ ...project, configuration: givenConfiguration }));
       dispatch(
         pushAlert({
           icon: 'success',

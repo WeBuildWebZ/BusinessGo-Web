@@ -8,8 +8,8 @@ export const Tags = () => {
   return (
     <div className="tags">
       {hashtags.map((hashtag, i) => (
-        <a href={`https://twitter.com/hashtag/${encodeURIComponent(hashtag.value)}`} target="blank">
-          <h4 key={i}>#{hashtag.value}</h4>
+        <a key={i} href={`https://twitter.com/hashtag/${encodeURIComponent(hashtag.value)}`} target="blank">
+          <h4>#{hashtag.value}</h4>
         </a>
       ))}
       <style jsx>

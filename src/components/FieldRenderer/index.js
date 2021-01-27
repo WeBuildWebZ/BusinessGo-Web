@@ -1,5 +1,6 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Modal, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../utils/field';
@@ -10,18 +11,34 @@ import Select from './components/Select';
 import Number from './components/Number';
 import Image from './components/Image';
 import Group from './components/Group';
+import { getLanguage } from './lang';
 
 let timeoutId;
 
 const FieldRenderer = props => {
   const { fields, data, updateAfter } = props;
+  const language = getLanguage(useSelector(store => store.language));
+  const [hasChanged, setHasChanged] = useState(false);
+  const [newData, setNewData] = useState(data);
+
+  const handleChange = updatedData => {
+    if (props.saveButton) {
+      setNewData(updatedData);
+      setHasChanged(true);
+    } else props.onChange(updatedData);
+  };
+
+  const handleSave = () => {
+    props.onChange(newData);
+    setHasChanged(false);
+  };
 
   const handleUpdateData = (key, value) => {
-    if (!updateAfter) return props.onChange({ ...data, [key]: value });
+    if (!updateAfter) return handleChange({ ...newData, [key]: value });
 
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
-      props.onChange({ ...data, [key]: value });
+      handleChange({ ...newData, [key]: value });
     }, updateAfter);
   };
 
@@ -149,6 +166,13 @@ const FieldRenderer = props => {
             return <div key={field.key} />;
         }
       })}
+      {props.saveButton && (
+        <Modal.Footer>
+          <Button disabled={!hasChanged} onClick={handleSave}>
+            {language.save}
+          </Button>
+        </Modal.Footer>
+      )}
       <style jsx>
         {`
           .fieldContainer {
@@ -166,7 +190,8 @@ FieldRenderer.propTypes = {
   fields: PropTypes.arrayOf(fieldShape),
   readOnly: PropTypes.bool,
   updateAfter: PropTypes.number,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  saveButton: PropTypes.bool
 };
 
 FieldRenderer.defaultProps = {
@@ -174,7 +199,8 @@ FieldRenderer.defaultProps = {
   fields: [],
   readOnly: false,
   updateAfter: 0,
-  onChange: () => {}
+  onChange: () => {},
+  saveButton: false
 };
 
 export default FieldRenderer;
