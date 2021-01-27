@@ -2,7 +2,7 @@ const Left = () => (
   <div className="left">
     <span className="top" />
     <span className="down">
-      <h4>Somos una empresa genial, y nos dedicamos a hacer cosas geniales.</h4>
+      <h5 className="title">Somos una empresa genial, y nos dedicamos a hacer cosas geniales.</h5>
       <span>
         <button>ver</button>
         <h6>Somos una empresa genial, y nos dedicamos a hacer cosas geniales.</h6>
@@ -39,10 +39,10 @@ const Left = () => (
           align-items: center;
           flex-flow: column;
         }
-        h4 {
+        .title {
           border: 1px solid #ebebeb;
-          font-size: 3em;
-          line-height: 50px;
+          font-size: 2.5em;
+          line-height: 40px;
           overflow-y: hidden;
           height: 100%;
         }
