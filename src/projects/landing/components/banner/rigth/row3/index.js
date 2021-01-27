@@ -3,7 +3,9 @@ const RowThree = () => (
     <div className="left center">
       <h4>SEO</h4>
     </div>
-    <div className="mid center" />
+    <div className="mid center">
+      <h4>Dominio.com</h4>
+    </div>
     <div className="rigth center" />
     <style jsx>
       {`

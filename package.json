@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "landing": "npm run copy-env src/projects/landing && next dev src/projects/landing",
+    "landing": "npm run copy-env src/projects/landing && next dev src/projects/landing -p 3001",
     "admin": "npm run copy-env src/projects/admin && next dev src/projects/admin",
     "globy": "npm run copy-env src/projects/globy && next dev src/projects/globy",
     "psa": "npm run copy-env src/projects/psa && next dev src/projects/psa",

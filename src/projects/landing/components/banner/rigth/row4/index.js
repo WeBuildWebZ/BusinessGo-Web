@@ -1,12 +1,16 @@
 const RowFour = () => (
   <div className="row4">
-    <div className="left center">left</div>
+    <div className="left center" />
     <div className="mid center">
       <h4>
-        Diseño <br /> Web
+        Diseño
+        <br />
+        Web
       </h4>
     </div>
-    <div className="rigth center" />
+    <div className="rigth center">
+      <h4>Hosting</h4>
+    </div>
     <style jsx>
       {`
         .row4 {

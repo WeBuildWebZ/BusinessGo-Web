@@ -1,7 +1,9 @@
 const RowTwo = () => (
   <div className="row2">
     <div className="left center" />
-    <div className="rigth center" />
+    <div className="rigth center">
+      <h4>Chatbots</h4>
+    </div>
     <style jsx>
       {`
         .row2 {
