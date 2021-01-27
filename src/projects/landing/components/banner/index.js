@@ -27,6 +27,7 @@ const Banner = props => (
           width: 0;
           height: 0;
           padding: 0;
+          border-width: 0;
         }
       `}
     </style>

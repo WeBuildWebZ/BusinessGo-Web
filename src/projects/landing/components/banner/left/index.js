@@ -7,7 +7,7 @@ const Left = props => (
       <h5 className="title">Somos una empresa genial, y nos dedicamos a hacer cosas geniales.</h5>
       <span>
         <button className="seeButton" onClick={props.onClickSee}>
-          ver
+          ver proyectos
         </button>
         <h6>Somos una empresa genial, y nos dedicamos a hacer cosas geniales.</h6>
       </span>
