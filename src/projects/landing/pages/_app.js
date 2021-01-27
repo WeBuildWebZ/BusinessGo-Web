@@ -25,6 +25,12 @@ const AppendHead = () => (
             width: 1366,
             height: 635,
             alt: 'Imagen 1'
+          },
+          {
+            url: `${constants.URL}/favicon.png`,
+            width: 96,
+            height: 96,
+            alt: 'Imagen 2'
           }
         ]
       }}
