@@ -21,9 +21,9 @@ const AppendHead = () => (
         site_name: 'DancotLL Software',
         images: [
           {
-            url: `${constants.URL}/logo.png`,
-            width: 822,
-            height: 822,
+            url: `${constants.URL}/images/page.png`,
+            width: 1366,
+            height: 635,
             alt: 'Imagen 1'
           }
         ]
