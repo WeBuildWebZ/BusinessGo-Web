@@ -15,6 +15,9 @@ const Banner = () => (
           height: 100vh;
           display: flex;
           padding:2em 5em;
+          border-radius: 50px;
+          border-style: solid;
+          border-width: 1px;
       `}
     </style>
   </div>

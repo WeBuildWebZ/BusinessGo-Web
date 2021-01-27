@@ -43,12 +43,14 @@ const Rigth = () => (
           width: 100%;
           height: 100%;
           background: #ebebeb;
+          border-radius: 5px;
         }
         .box {
           width: 100%;
           height: 100%;
           display: flex;
           flex-flow: column;
+          border-radius: 5px;
         }
       `}
     </style>

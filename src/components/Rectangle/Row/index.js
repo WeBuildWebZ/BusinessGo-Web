@@ -14,12 +14,23 @@ const Row = props => (
           white-space: pre-wrap;
           color: ${props.color};
           background: ${props.backgroundColor};
+          user-select: none;
+          transition: 0.7s;
           ${props.imageUrl
             ? `
                 background-image: url(${props.imageUrl});
                 background-size: cover;
                 background-position: 0 0;
                 background-repeat: no-repeat;
+              `
+            : ''}
+        }
+        .row1:hover {
+          opacity: 0.7;
+          filter: brightness(1);
+          ${!props.imageUrl
+            ? `
+                box-shadow: 0 0 2px 2px ${props.backgroundColor};
               `
             : ''}
         }
