@@ -1,12 +1,12 @@
 import Left from './left';
 import Mid from './mid';
-import Rigth from './rigth';
+import Right from './right';
 
 const Banner = () => (
   <div className="banner">
     <Left />
     <Mid />
-    <Rigth />
+    <Right />
 
     <style jsx>
       {`
