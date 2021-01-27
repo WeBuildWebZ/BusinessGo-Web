@@ -16,7 +16,6 @@ const Row = props => (
           color: ${props.color};
           background: ${props.backgroundColor};
           user-select: none;
-          transition: 0.7s;
           ${props.imageUrl
             ? `
                 background-image: url(${props.imageUrl});
@@ -25,6 +24,7 @@ const Row = props => (
                 background-repeat: no-repeat;
               `
             : ''}
+          transition: 0.7s;
         }
         .row1:hover {
           transform: perspective(100px) rotateX(5deg) rotateY(5deg);

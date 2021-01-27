@@ -8,22 +8,12 @@ import { setUser } from '../../../shared/actions/user';
 import Banner from '../components/banner';
 
 export default function LandingPage() {
-  const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch();
+  const [section, setSection] = useState('banner1');
 
-  useEffect(() => {
-    getSessions().then(({ data }) => {
-      setLoading(false);
-      if (!data.length) return;
-      dispatch(setUser(data[0].user));
-    });
-  }, [dispatch]);
-
-  return loading ? (
-    <LoadingPage />
-  ) : (
+  return (
     <>
-      <Banner />
+      <Banner show={section === 'banner1'} onClose={() => setSection('banner2')} />
+      <Banner show={section === 'banner2'} onClose={() => setSection('banner1')} />
     </>
   );
 }

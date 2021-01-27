@@ -1,10 +1,14 @@
-const Left = () => (
+import PropTypes from 'prop-types';
+
+const Left = props => (
   <div className="left">
     <span className="top" />
     <span className="down">
       <h5 className="title">Somos una empresa genial, y nos dedicamos a hacer cosas geniales.</h5>
       <span>
-        <button>ver</button>
+        <button className="seeButton" onClick={props.onClickSee}>
+          ver
+        </button>
         <h6>Somos una empresa genial, y nos dedicamos a hacer cosas geniales.</h6>
       </span>
     </span>
@@ -53,7 +57,8 @@ const Left = () => (
           justify-content: center;
           align-items: center;
         }
-        button {
+        .seeButton {
+          transform-style: preserve-3d;
           padding: 0.3em 3.5em;
           margin-right: 1em;
           outline: none;
@@ -62,6 +67,9 @@ const Left = () => (
           color: white;
           border-radius: 0.3em;
         }
+        .seeButton:hover {
+          transform: perspective(100px) rotateX(5deg) rotateY(-15deg);
+        }
         h6 {
           padding-top: 7px;
         }
@@ -69,5 +77,13 @@ const Left = () => (
     </style>
   </div>
 );
+
+Left.propTypes = {
+  onClickSee: PropTypes.func
+};
+
+Left.defaultProps = {
+  onClickSee: () => {}
+};
 
 export default Left;
