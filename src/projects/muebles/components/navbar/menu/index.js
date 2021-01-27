@@ -1,16 +1,10 @@
 const Menu = () => (
   <div className="menu">
-    <a href="#">
-      <h5>Productos</h5>
-    </a>
+    <h5>Productos</h5>
 
-    <a href="#">
-      <h5>Carrito</h5>
-    </a>
+    <h5>Carrito</h5>
 
-    <a href="#">
-      <h5>Contacto</h5>
-    </a>
+    <h5>Contacto</h5>
 
     <style jsx>
       {`
@@ -28,7 +22,6 @@ const Menu = () => (
           cursor: pointer;
         }
         h5:hover {
-          border-bottom: 3px solid #ffa51d;
           color: #ffa51d;
         }
       `}

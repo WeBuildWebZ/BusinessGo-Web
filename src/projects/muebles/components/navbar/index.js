@@ -8,11 +8,12 @@ const Navbar = () => (
     <style jsx>
       {`
         .navbar {
-          background: transparent;
           z-index: 10;
           width: 100vw;
           height: 10vh;
           display: flex;
+          position: fixed;
+          background: white;
         }
       `}
     </style>

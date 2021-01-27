@@ -18,7 +18,6 @@ export const Logo = () => {
           .fa-dolly {
             width: 50px;
             height: 150px;
-            color: pink;
           }
         `}
       </style>
