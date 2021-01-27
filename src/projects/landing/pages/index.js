@@ -23,7 +23,6 @@ export default function LandingPage() {
     <LoadingPage />
   ) : (
     <>
-      <Navbar />
       <Banner />
     </>
   );
