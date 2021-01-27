@@ -41,6 +41,9 @@ const Left = () => (
         }
         h4 {
           border: 1px solid #ebebeb;
+          font-size: 3em;
+          line-height: 50px;
+          overflow-y: hidden;
         }
         .down span {
           width: 100%;
