@@ -12,6 +12,7 @@ const Banner = () => (
           width: 100vw;
           height: 100vh;
           display: flex;
+          padding:2em 3em 0 2em;
       `}
     </style>
   </div>

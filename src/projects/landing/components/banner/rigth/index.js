@@ -4,6 +4,7 @@ const Rigth = () => (
     <style jsx>
       {`
         .rigth {
+          flex: 2;
           width: 100%;
           height: 100%;
         }
