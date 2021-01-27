@@ -1,12 +1,14 @@
-import { TextField } from '@material-ui/core';
 import { useState } from 'react';
+import { TextField } from '@material-ui/core';
+import { useSelector } from 'react-redux';
 
 const Input = () => {
+  const project = useSelector(store => store.project);
   const [text, setText] = useState('');
 
   return (
     <TextField
-      label="Buscar"
+      label={project.chatbot.configuration.web.placeholder}
       variant="outlined"
       size="small"
       onChange={({ target }) => setText(target.value)}
