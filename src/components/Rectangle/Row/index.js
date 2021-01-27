@@ -7,10 +7,10 @@ const Row = props => (
       {`
         .row1 {
           flex: ${props.flex};
-          border-top-left-radius: ${props.borderTopLeft};
-          border-top-right-radius: ${props.borderTopRight};
-          border-bottom-left-radius: ${props.borderBottomLeft};
-          border-bottom-right-radius: ${props.borderBottomRight};
+          border-top-left-radius: ${props.borderTopLeft}em;
+          border-top-right-radius: ${props.borderTopRight}em;
+          border-bottom-left-radius: ${props.borderBottomLeft}em;
+          border-bottom-right-radius: ${props.borderBottomRight}em;
           white-space: pre-wrap;
           color: ${props.color};
           background: ${props.backgroundColor};
@@ -28,6 +28,10 @@ const Row = props => (
         .row1:hover {
           opacity: 0.7;
           filter: brightness(1);
+          border-top-left-radius: ${props.borderTopLeft * 2}em;
+          border-top-right-radius: ${props.borderTopRight * 2}em;
+          border-bottom-left-radius: ${props.borderBottomLeft * 2}em;
+          border-bottom-right-radius: ${props.borderBottomRight * 2}em;
           ${!props.imageUrl
             ? `
                 box-shadow: 0 0 2px 2px ${props.backgroundColor};
@@ -45,10 +49,10 @@ Row.propTypes = {
   flex: PropTypes.number,
   backgroundColor: PropTypes.string,
   color: PropTypes.string,
-  borderTopLeft: PropTypes.string,
-  borderTopRight: PropTypes.string,
-  borderBottomLeft: PropTypes.string,
-  borderBottomRight: PropTypes.string,
+  borderTopLeft: PropTypes.number,
+  borderTopRight: PropTypes.number,
+  borderBottomLeft: PropTypes.number,
+  borderBottomRight: PropTypes.number,
   style: PropTypes.object
 };
 
@@ -59,10 +63,10 @@ Row.defaultProps = {
   flex: 1,
   backgroundColor: 'black',
   color: 'white',
-  borderTopLeft: '0',
-  borderTopRight: '0',
-  borderBottomLeft: '0',
-  borderBottomRight: '0'
+  borderTopLeft: 0,
+  borderTopRight: 0,
+  borderBottomLeft: 0,
+  borderBottomRight: 0
 };
 
 export default Row;
