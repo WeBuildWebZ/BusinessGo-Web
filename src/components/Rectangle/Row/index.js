@@ -6,6 +6,7 @@ const Row = props => (
     <style jsx>
       {`
         .row1 {
+          transform-style: preserve-3d;
           flex: ${props.flex};
           border-top-left-radius: ${props.borderTopLeft}em;
           border-top-right-radius: ${props.borderTopRight}em;
@@ -26,6 +27,7 @@ const Row = props => (
             : ''}
         }
         .row1:hover {
+          transform: perspective(100px) rotateX(5deg) rotateY(5deg);
           opacity: 0.7;
           filter: brightness(1);
           border-top-left-radius: ${props.borderTopLeft * 2}em;

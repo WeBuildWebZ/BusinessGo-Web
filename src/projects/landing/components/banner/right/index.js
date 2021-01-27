@@ -44,6 +44,7 @@ const Rigth = () => (
           height: 100%;
           background: #ebebeb;
           border-radius: 5px;
+          overflow: visible;
         }
         .box {
           width: 100%;
@@ -51,6 +52,7 @@ const Rigth = () => (
           display: flex;
           flex-flow: column;
           border-radius: 5px;
+          overflow: visible;
         }
       `}
     </style>
