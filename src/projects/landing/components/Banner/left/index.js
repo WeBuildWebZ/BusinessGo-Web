@@ -4,12 +4,12 @@ const Left = props => (
   <div className="left">
     <span className="top" />
     <span className="down">
-      <h5 className="title">Somos una empresa genial, y nos dedicamos a hacer cosas geniales.</h5>
+      <h5 className="title">{props.banner.title}</h5>
       <span>
         <button className="seeButton" onClick={props.onClickSee}>
-          ver proyectos
+          {props.banner.button}
         </button>
-        <h6>Somos una empresa genial, y nos dedicamos a hacer cosas geniales.</h6>
+        <h6>{props.banner.description}</h6>
       </span>
     </span>
 
@@ -30,7 +30,7 @@ const Left = props => (
         }
         .top {
           background-image: linear-gradient(to top, hsla(0, 0%, 100%, 1), hsla(0, 0%, 100%, 0.1)),
-            url(/images/left-top.jpg);
+            url(${props.banner.image});
           background-size: cover;
           background-position: 0 0;
           background-repeat: no-repeat;
@@ -79,6 +79,7 @@ const Left = props => (
 );
 
 Left.propTypes = {
+  banner: PropTypes.object.isRequired,
   onClickSee: PropTypes.func
 };
 

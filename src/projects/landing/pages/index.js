@@ -5,15 +5,22 @@ import { getSessions } from '../../../services/api/session';
 import LoadingPage from '../../../components/LoadingPage';
 import Navbar from '../../../components/Navbar';
 import { setUser } from '../../../shared/actions/user';
-import Banner from '../components/banner';
+import Banner from '../components/Banner';
+
+import banners from './banners.json';
 
 export default function LandingPage() {
-  const [section, setSection] = useState('banner1');
+  const [selectedBanner, setSelectedBanner] = useState(0);
 
-  return (
-    <>
-      <Banner show={section === 'banner1'} onClose={() => setSection('banner2')} />
-      <Banner show={section === 'banner2'} onClose={() => setSection('banner1')} />
-    </>
-  );
+  const handleChangeBanner = () => {
+    let newSelectedBanner = selectedBanner + 1;
+
+    if (newSelectedBanner >= banners.length) newSelectedBanner = 0;
+
+    setSelectedBanner(newSelectedBanner);
+  };
+
+  return banners.map((banner, i) => (
+    <Banner key={i} show={i === selectedBanner} onClose={handleChangeBanner} banner={banner} />
+  ));
 }

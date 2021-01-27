@@ -6,7 +6,7 @@ import Right from './right';
 
 const Banner = props => (
   <div className={`banner${props.show ? '' : ' bannerClosed'}`}>
-    <Left onClickSee={props.onClose} />
+    <Left onClickSee={props.onClose} banner={props.banner} />
     <Mid />
     <Right />
 
@@ -35,6 +35,7 @@ const Banner = props => (
 );
 
 Banner.propTypes = {
+  banner: PropTypes.object.isRequired,
   show: PropTypes.bool.isRequired,
   onClose: PropTypes.func
 };
