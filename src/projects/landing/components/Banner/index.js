@@ -2,13 +2,12 @@ import PropTypes from 'prop-types';
 
 import Left from './left';
 import Mid from './mid';
-import Right from './right';
 
 const Banner = props => (
   <div className={`banner${props.show ? '' : ' bannerClosed'}`}>
     <Left onClickSee={props.onClose} banner={props.banner} />
     <Mid />
-    <Right />
+    {props.banner.Right}
 
     <style jsx>
       {`

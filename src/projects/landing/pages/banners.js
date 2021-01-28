@@ -1,0 +1,39 @@
+import Right from '../components/BannerRight';
+import PageDemo from '../components/PageDemo';
+
+const RightChild = <Right />;
+const PageDemoChild = pageUrl => <PageDemo pageUrl={pageUrl} />;
+
+export const banners = [
+  {
+    image: '/images/left-top.jpg',
+    title: 'DancotLL Software',
+    description: 'Somos una empresa genial, y nos dedicamos a hacer cosas geniales.',
+    button: 'ver proyectos',
+    Right: RightChild
+  },
+  {
+    image: 'https://blanqueriawow.com/images/page.png',
+    title: 'Blanquería Wow',
+    description:
+      'Todo para el confort de tu hogar !!\nLo llevamos a tu domicilio sin importar la zona\nEnvios a todo el país ✈\nVentas por mayor y menor',
+    button: 'siguiente proyecto',
+    Right: PageDemoChild('https://blanqueriawow.com')
+  },
+  {
+    image: 'https://www.omnilifeenmexico.com/images/page_2.png',
+    title: 'Omnilife México',
+    description: 'Somos una tienda de productos Omnilife y Cosmética. Distribuimos en México',
+    button: 'siguiente proyecto',
+    Right: PageDemoChild('https://www.omnilifeenmexico.com')
+  },
+  {
+    image: 'https://res.cloudinary.com/globy/image/upload/v1610558514/s5i6qrthlbbaf2forvq6.webp',
+    title: 'Globy Taxi App',
+    description: 'Somos una app mexicana de taxis que opera con autos concesionados',
+    button: 'volver',
+    Right: PageDemoChild('https://www.globy.dancotll.com')
+  }
+];
+
+export default <div />;

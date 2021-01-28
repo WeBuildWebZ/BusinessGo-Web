@@ -7,7 +7,7 @@ import Navbar from '../../../components/Navbar';
 import { setUser } from '../../../shared/actions/user';
 import Banner from '../components/Banner';
 
-import banners from './banners.json';
+import { banners } from './banners';
 
 export default function LandingPage() {
   const [selectedBanner, setSelectedBanner] = useState(0);

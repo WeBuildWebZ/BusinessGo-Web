@@ -1,4 +1,4 @@
-import Rectangle from '../../../../../components/Rectangle';
+import Rectangle from '../../../../components/Rectangle';
 
 const Rigth = () => (
   <div className="right">
