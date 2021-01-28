@@ -31,8 +31,15 @@ export const banners = [
     image: 'https://res.cloudinary.com/globy/image/upload/v1610558514/s5i6qrthlbbaf2forvq6.webp',
     title: 'Globy Taxi App',
     description: 'Somos una app mexicana de taxis que opera con autos concesionados',
-    button: 'volver',
+    button: 'siguiente proyecto',
     Right: PageDemoChild('https://www.globy.dancotll.com')
+  },
+  {
+    image: 'https://www.muebles.dancotll.com/images/slideone.jpg',
+    title: 'Muebles Horacio',
+    description: 'Somos una tienda de Muebles a medida. Distribuimos en Buenos Aires.',
+    button: 'volver',
+    Right: PageDemoChild('https://www.muebles.dancotll.com')
   }
 ];
 
