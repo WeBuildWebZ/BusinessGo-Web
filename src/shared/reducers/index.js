@@ -11,6 +11,7 @@ import configurationSection from './admin/configurationSection';
 import selectedForm from './admin/selectedForm';
 import selectedFormSection from './admin/selectedFormSection';
 import selectedChatbotChannel from './admin/selectedChatbotChannel';
+import selectedChatbotSection from './admin/selectedChatbotSection';
 
 const CommonReducers = {
   user,
@@ -26,7 +27,8 @@ const CommonReducers = {
   configurationSection,
   selectedForm,
   selectedFormSection,
-  selectedChatbotChannel
+  selectedChatbotChannel,
+  selectedChatbotSection
 };
 
 export default CommonReducers;
