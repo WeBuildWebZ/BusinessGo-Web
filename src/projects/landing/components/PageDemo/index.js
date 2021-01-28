@@ -22,12 +22,13 @@ const PageDemo = props => (
           height: 100%;
           display: flex;
           flex-flow: column;
-          border-radius: 5px;
+          border-radius: 10px;
           overflow: visible;
         }
         .iframe {
           width: 100%;
           height: 100%;
+          border-radius: 10px;
         }
       `}
     </style>
