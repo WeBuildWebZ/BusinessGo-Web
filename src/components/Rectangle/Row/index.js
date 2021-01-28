@@ -7,6 +7,7 @@ const Row = props => (
       {`
         .row1 {
           transform-style: preserve-3d;
+          transform: perspective(100px);
           flex: ${props.flex};
           border-top-left-radius: ${props.borderTopLeft}em;
           border-top-right-radius: ${props.borderTopRight}em;
