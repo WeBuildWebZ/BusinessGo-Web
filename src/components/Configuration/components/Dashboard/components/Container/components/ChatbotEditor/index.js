@@ -74,29 +74,33 @@ const ChatbotEditor = () => {
       <PopoverTitle>{language.chatbotConfig(channel)}</PopoverTitle>
       {hasAuth && (
         <>
-          <h2 className="title">{language.authConfig}</h2>
           {!authForm && <Spinner />}
-          {authForm && (
-            <FieldRenderer
-              key={1}
-              data={authData}
-              fields={authForm.fields}
-              onChange={setAuthData}
-              saveButton
-            />
+          {!!authForm?.fields?.length && (
+            <>
+              <h2 className="title">{language.authConfig}</h2>
+              <FieldRenderer
+                key={1}
+                data={authData}
+                fields={authForm.fields}
+                onChange={setAuthData}
+                saveButton
+              />
+            </>
           )}
         </>
       )}
-      <h2 className="title">{language.basicConfig}</h2>
       {!configForm && <Spinner />}
-      {configForm && (
-        <FieldRenderer
-          key={2}
-          data={configData}
-          fields={configForm.fields}
-          onChange={setConfigData}
-          saveButton
-        />
+      {!!configForm?.fields?.length && (
+        <>
+          <h2 className="title">{language.basicConfig}</h2>
+          <FieldRenderer
+            key={2}
+            data={configData}
+            fields={configForm.fields}
+            onChange={setConfigData}
+            saveButton
+          />
+        </>
       )}
       <style jsx>
         {`
