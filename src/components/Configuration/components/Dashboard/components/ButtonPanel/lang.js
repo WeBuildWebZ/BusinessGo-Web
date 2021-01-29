@@ -1,9 +1,11 @@
 export const getLanguage = language_code =>
   ({
     es: {
-      logout: 'Cerrar Sesión'
+      logout: 'Cerrar Sesión',
+      changeLanguage: 'Cambiar Lenguaje'
     },
     en: {
-      logout: 'Logout'
+      logout: 'Logout',
+      changeLanguage: 'Change Language'
     }
   }[language_code]);

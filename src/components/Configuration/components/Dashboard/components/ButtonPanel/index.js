@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteSessions } from '../../../../../../services/api/session';
 import logout from '../../../../../../shared/actions/multiple/logout';
 
-import Button from './components/Button';
+import Button from './Button';
 import { getLanguage } from './lang';
 
 const ButtonPanel = () => {
@@ -19,6 +19,7 @@ const ButtonPanel = () => {
   return (
     <div className="buttonPanel">
       <Button icon="/shared/icons/logout.png" text={language.logout} onClick={handleLogout} />
+      <Button icon="/shared/icons/language.png" text={language.changeLanguage} />
       <style jsx>
         {`
           .buttonPanel {

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { OverlayTrigger } from 'react-bootstrap';
 
-import AspectRatioKeeper from '../../../../../../../AspectRatioKeeper';
+import AspectRatioKeeper from '../../../../../../AspectRatioKeeper';
 
-import Tooltip from './components/Tooltip';
+import Tooltip from './Tooltip';
 
 const Button = props => (
   <AspectRatioKeeper style={{ margin: '10px 0 10px 0' }}>
