@@ -23,7 +23,7 @@ const Row = props => (
                 background-repeat: no-repeat;
               `
             : ''}
-          transition: 0.7s;
+          transition: 0.4s;
         }
         .row1:hover {
           z-index: 100;
