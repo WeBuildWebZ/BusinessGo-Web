@@ -1,10 +1,18 @@
+import Link from 'next/link';
+
 const Menu = () => (
   <div className="menu">
-    <h5>Productos</h5>
+    <Link href="/" className="link">
+      <a>Inicio</a>
+    </Link>
 
-    <h5>Carrito</h5>
+    <Link href="/catalogo" className="link">
+      <a>Catalogo</a>
+    </Link>
 
-    <h5>Contacto</h5>
+    <Link href="/ubicacion" className="link">
+      <a>ubicacion</a>
+    </Link>
 
     <style jsx>
       {`
@@ -17,12 +25,10 @@ const Menu = () => (
           align-items: center;
           padding: 0 2em 0 0;
         }
-        h5 {
+        link {
           margin: 0 0.5em;
           cursor: pointer;
-        }
-        h5:hover {
-          color: #ffa51d;
+          color: black;
         }
       `}
     </style>

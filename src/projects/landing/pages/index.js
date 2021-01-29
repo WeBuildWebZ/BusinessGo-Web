@@ -22,5 +22,6 @@ export default function LandingPage() {
 
   return banners.map((banner, i) => (
     <Banner key={i} show={i === selectedBanner} onClose={handleChangeBanner} banner={banner} />
+    // <Footer />
   ));
 }
