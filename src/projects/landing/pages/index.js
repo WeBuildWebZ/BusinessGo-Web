@@ -7,6 +7,7 @@ import Navbar from '../../../components/Navbar';
 import { setUser } from '../../../shared/actions/user';
 import Banner from '../components/Banner';
 import Footer from '../components/footer';
+import CardsPrices from '../components/card-prices';
 
 import { banners } from './banners';
 
@@ -26,6 +27,7 @@ export default function LandingPage() {
       {banners.map((banner, i) => (
         <Banner key={i} show={i === selectedBanner} onClose={handleChangeBanner} banner={banner} />
       ))}
+      <CardsPrices />
       <Footer />
     </>
   );

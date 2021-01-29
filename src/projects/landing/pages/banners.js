@@ -7,9 +7,10 @@ const PageDemoChild = pageUrl => <PageDemo pageUrl={pageUrl} />;
 export const banners = [
   {
     image: '/images/left-top.jpg',
-    title: 'DancotLL Software',
-    description: 'Somos una empresa genial, y nos dedicamos a hacer cosas geniales.',
-    button: 'ver proyectos',
+    title: 'En We Build Webz, diseñamos, construimos, pero sobre todo, ayudamos a crecer tu empresa.',
+    description:
+      'Navega en nuestra web, mira nuestros trabajos realizados, Nuestros servicios, y hablamos,sera rapido',
+    button: 'ver',
     Right: RightChild
   },
   {

@@ -44,13 +44,13 @@ const Left = props => (
           flex-flow: column;
         }
         .title {
-          border: 1px solid #ebebeb;
           font-size: 2.5em;
-          line-height: 40px;
+          flex: 1;
+          margin-top: 1.3em;
           overflow-y: hidden;
-          height: 100%;
         }
         .down span {
+          flex: 1;
           width: 100%;
           height: 100%;
           display: flex;
@@ -58,7 +58,6 @@ const Left = props => (
           align-items: center;
         }
         .seeButton {
-          transform-style: preserve-3d;
           padding: 0.3em 3.5em;
           margin-right: 1em;
           outline: none;
@@ -66,9 +65,11 @@ const Left = props => (
           background: #1c1c1c;
           color: white;
           border-radius: 0.3em;
+          transition: all 0.2s ease-in-out;
         }
         .seeButton:hover {
-          transform: perspective(100px) rotateX(5deg) rotateY(-15deg);
+          transform: scale(1.1);
+          border-radius: 0;
         }
         h6 {
           padding-top: 7px;

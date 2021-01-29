@@ -50,7 +50,7 @@ const CardsPrices = () => (
   <ul className="box">
     {Prices.map(({ id, type, note, quality, price, options }) => (
       <li key={id} className="card">
-        <div className="top">{note && <h5>{note}</h5>}</div>
+        <div className="top">{note && <h6>{note}</h6>}</div>
         <div className="mid">
           <h4> {quality} </h4>
           <h2>{price} </h2>
@@ -62,22 +62,27 @@ const CardsPrices = () => (
             <input type="checkbox" name="fieldName" className="input" defaultChecked />
             <p>{options.item1}</p>
           </label>
+
           <label htmlFor="first-name">
             <input type="checkbox" name="fieldName" defaultChecked className="input" />
             <p>{options.item2}</p>
           </label>
+
           <label htmlFor="first-name">
             <input type="checkbox" name="fieldName" defaultChecked className="input" />
             <p>{options.item3}</p>
           </label>
+
           <label htmlFor="first-name">
             <input type="checkbox" name="fieldName" defaultChecked className="input" />
             <p>{options.item4}</p>
           </label>
+
           <label htmlFor="first-name">
             <input type="checkbox" name="fieldName" defaultChecked className="input" />
             <p>{options.item5}</p>
           </label>
+
           <label htmlFor="first-name">
             <input type="checkbox" name="fieldName" defaultChecked className="input" />
             <p>{options.item6}</p>
@@ -146,12 +151,13 @@ const CardsPrices = () => (
           flex-flow: column;
         }
 
-        .top h5 {
+        .top h6 {
           border: 2px solid #ffb52a;
-          padding: 0.5em;
+          padding: 0 0.5em;
           border-radius: 0.5em;
+          overflow-y: hidden;
         }
-
+        // ============================================
         .mid {
           -webkit-box-flex: 3;
           -ms-flex: 3;
@@ -185,9 +191,9 @@ const CardsPrices = () => (
         }
 
         .items {
-          -webkit-box-flex: 4;
-          -ms-flex: 4;
-          flex: 3;
+          -webkit-box-flex: 5;
+          -ms-flex: 5;
+          flex: 5;
           width: 100%;
           height: 100%;
           display: -webkit-box;
@@ -209,8 +215,9 @@ const CardsPrices = () => (
           justify-content: center;
           align-items: center;
           width: 100%;
+          height: 100%;
           margin: 2px 0;
-          // background:pink;
+          overflow-y: hidden;
         }
         .items .input {
           flex: 1;
@@ -218,9 +225,9 @@ const CardsPrices = () => (
 
         p {
           flex: 9;
-          // background:aqua;
+          padding-top: 1em;
         }
-
+        // ==========================================
         .bottom {
           -webkit-box-flex: 1;
           -ms-flex: 1;
