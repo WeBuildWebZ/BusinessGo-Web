@@ -6,6 +6,7 @@ import LoadingPage from '../../../components/LoadingPage';
 import Navbar from '../../../components/Navbar';
 import { setUser } from '../../../shared/actions/user';
 import Banner from '../components/Banner';
+import Footer from '../components/footer';
 
 import { banners } from './banners';
 
@@ -20,8 +21,12 @@ export default function LandingPage() {
     setSelectedBanner(newSelectedBanner);
   };
 
-  return banners.map((banner, i) => (
-    <Banner key={i} show={i === selectedBanner} onClose={handleChangeBanner} banner={banner} />
-    // <Footer />
-  ));
+  return (
+    <>
+      {banners.map((banner, i) => (
+        <Banner key={i} show={i === selectedBanner} onClose={handleChangeBanner} banner={banner} />
+      ))}
+      <Footer />
+    </>
+  );
 }
