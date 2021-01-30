@@ -65,6 +65,7 @@ const ProjectSelector = () => {
               text={project.name}
               disabled={leaving}
               onClick={() => handleSelectProject(project)}
+              style={{ marginBottom: 15 }}
             />
           ))}
         </div>

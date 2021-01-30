@@ -16,6 +16,7 @@ const Title = props => {
             font-size: 19px;
             text-align: center;
             margin-top: 8px;
+            width: 100%;
           }
         `}
       </style>

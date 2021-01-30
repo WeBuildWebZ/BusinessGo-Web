@@ -34,7 +34,7 @@ const ChatbotsSection = () => {
     const isSelected = channel === selectedChannel && adminSection === 'chatbots';
 
     return (
-      <div key={channel}>
+      <div key={channel} className="chatbotButtons">
         <Button
           key="channel"
           text={`${channel[0].toUpperCase()}${channel.substr(1)}`}
@@ -51,6 +51,13 @@ const ChatbotsSection = () => {
             selected={selectedSection === 'intents'}
           />
         )}
+        <style jsx>
+          {`
+            .chatbotButtons {
+              width: 100%;
+            }
+          `}
+        </style>
       </div>
     );
   });
