@@ -46,10 +46,12 @@ const Prices = [
   }
 ];
 
+const fades = ['fade-left', 'fade-down', 'fade-right'];
+
 const CardsPrices = () => (
   <ul className="box">
-    {Prices.map(({ id, type, note, quality, price, options }) => (
-      <li key={id} className="card">
+    {Prices.map(({ id, type, note, quality, price, options }, i) => (
+      <li key={id} className="card" data-aos={fades[i % fades.length]}>
         <div className="top">{note && <h6>{note}</h6>}</div>
         <div className="mid">
           <h4> {quality} </h4>

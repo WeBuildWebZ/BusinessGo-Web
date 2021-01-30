@@ -1,6 +1,9 @@
 import { Provider, useDispatch } from 'react-redux';
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { combineReducers, createStore } from 'redux';
+import { useEffect } from 'react';
+import AOS from 'aos';
 
 import commonReducer from '../reducers';
 import Chatbot from '../../components/Chatbot';
@@ -31,17 +34,27 @@ ReduxFiller.propTypes = {
 const getApp = (reducer, constants, AppendComponent) => {
   const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
 
-  const App = ({ Component, pageProps }) => (
-    <>
-      <AppendComponent />
-      <Provider store={store}>
-        <ReduxFiller constants={constants} />
-        <AlertStack position={constants.ALERT_STACK_POSITION} />
-        <Chatbot />
-        <Component {...pageProps} />
-      </Provider>
-    </>
-  );
+  const App = ({ Component, pageProps }) => {
+    useEffect(() => {
+      AOS.init({
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 50
+      });
+    }, []);
+
+    return (
+      <>
+        <AppendComponent />
+        <Provider store={store}>
+          <ReduxFiller constants={constants} />
+          <AlertStack position={constants.ALERT_STACK_POSITION} />
+          <Chatbot />
+          <Component {...pageProps} />
+        </Provider>
+      </>
+    );
+  };
 
   App.propTypes = {
     Component: PropTypes.func.isRequired,
