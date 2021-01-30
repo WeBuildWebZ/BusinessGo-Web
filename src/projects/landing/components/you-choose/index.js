@@ -1,8 +1,8 @@
 const YouChoose = () => (
   <div className="precios">
     <div className="choose">
-      <h3>You Choose!</h3>
-      <p>
+      <h3 data-aos="fade-right">You Choose!</h3>
+      <p data-aos="fade-left">
         Find you apropiated plan and start to planning with us, how do you like beginning? Haz click en el
         boton y chatea conmigo.
       </p>
