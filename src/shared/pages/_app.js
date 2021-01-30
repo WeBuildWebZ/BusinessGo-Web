@@ -36,11 +36,7 @@ const getApp = (reducer, constants, AppendComponent) => {
 
   const App = ({ Component, pageProps }) => {
     useEffect(() => {
-      AOS.init({
-        easing: 'ease-out-cubic',
-        once: true,
-        offset: 50
-      });
+      AOS.init();
     }, []);
 
     return (
