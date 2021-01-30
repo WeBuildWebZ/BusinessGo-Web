@@ -4,7 +4,7 @@ const Rigth = () => (
   <div className="right">
     <div className="box">
       <Rectangle>
-        <Rectangle.Row text="WeBuildWebz" backgroundColor="yellow" color="black" borderTopRight={4} />
+        <Rectangle.Row text="WeBuildWebZ" backgroundColor="yellow" color="black" borderTopRight={4} />
         <Rectangle.Row backgroundColor="pink" borderBottomRight={4} />
         <Rectangle.Row borderTopLeft={4} />
       </Rectangle>
