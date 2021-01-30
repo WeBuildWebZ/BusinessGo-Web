@@ -12,11 +12,11 @@ const YouChoose = () => (
       {`
         .precios {
           width: 100vw;
-          height: 50vh;
+          height: 60vh;
           display: flex;
           justify-content: center;
           align-items: center;
-          flex-flow: column;
+          background: #ebebeb;
         }
 
         .choose {
@@ -24,6 +24,8 @@ const YouChoose = () => (
           display: flex;
           justify-content: center;
           align-items: center;
+          background: white;
+          border-radius: 1em;
         }
         h3 {
           color: #2f4858;

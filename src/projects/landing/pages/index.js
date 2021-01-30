@@ -10,6 +10,7 @@ import Footer from '../components/footer';
 import CardsPrices from '../components/card-prices';
 import YouChoose from '../components/you-choose';
 import Frase from '../components/frase';
+import Texto from '../components/texto-principal';
 
 import { banners } from './banners';
 
@@ -30,6 +31,7 @@ export default function LandingPage() {
         <Banner key={i} show={i === selectedBanner} onClose={handleChangeBanner} banner={banner} />
       ))}
       <Frase />
+      <Texto />
       <YouChoose />
       <CardsPrices />
       <Footer />
