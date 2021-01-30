@@ -41,12 +41,12 @@ const AppendHead = () => (
       content="Somos una empresa familiar Argentina, radicada en Mar del Plata, y distribuimos a todo el país. El equilibrio justo entre calidad y precio."
     />
     <meta name="DC.Language" scheme="RFC1766" content="Spanish" />
-    <meta name="author" content="DancotLL Software" />
+    <meta name="author" content="WeBuildWebZ" />
     <meta name="reply-to" content="contact@dancotll.com" />
-    <meta name="copyright" content="DancotLL Software" />
+    <meta name="copyright" content="WeBuildWebZ" />
     <meta
       name="keywords"
-      content="blanqueria wow,mar del plata,el mejor precio, dancotll, mayorista de blanqueria"
+      content="blanqueria wow,mar del plata,el mejor precio, WeBuildWebZ, mayorista de blanqueria"
     />
     <meta name="Resource-type" content="Catalog" />
     <meta name="DateCreated" content="Mon, 18 January 2021 00:00:00 GMT+1" />

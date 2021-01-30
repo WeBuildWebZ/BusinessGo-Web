@@ -12,14 +12,14 @@ import * as constants from '../constants';
 const AppendHead = () => (
   <>
     <NextSeo
-      title="DancotLL Software"
+      title="WeBuildWebZ"
       description="Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida"
       canonical={constants.URL}
       openGraph={{
         url: constants.URL,
-        title: 'DancotLL Software',
+        title: 'WeBuildWebZ',
         description: 'Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida',
-        site_name: 'DancotLL Software',
+        site_name: 'WeBuildWebZ',
         images: [
           {
             url: `${constants.URL}/images/page.png`,

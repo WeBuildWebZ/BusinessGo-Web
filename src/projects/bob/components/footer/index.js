@@ -99,7 +99,7 @@ const Footer = () => {
         <div className="container">
           <p>
             Diseñado por
-            <a href="#">DancotLL</a>- © 2021 todos los derechos reservados.
+            <a href="#">WeBuildWebZ</a>- © 2021 todos los derechos reservados.
           </p>
         </div>
       </div>

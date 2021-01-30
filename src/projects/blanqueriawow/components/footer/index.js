@@ -81,7 +81,7 @@ const Footer = () => {
 
       <div className="site-footer__bottom">
         <div className="container">
-          <p>Diseñado por DancotLL - © 2021 todos los derechos reservados.</p>
+          <p>Diseñado por WeBuildWebZ - © 2021 todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

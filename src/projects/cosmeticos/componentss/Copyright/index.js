@@ -4,7 +4,7 @@ const Copyright = () => (
       Diseñado por
       <a href="https://www.facebook.com/LEFCOTT" target="_blank">
         {' '}
-        DancotLL
+        WeBuildWebZ
       </a>
       © 2021 todos los derechos reservados.
     </center>
