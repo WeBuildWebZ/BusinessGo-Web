@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 const CardRow = props => (
   <div className="cardRow">
+    {props.title}
     <style jsx>
       {`
         .cardRow {

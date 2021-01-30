@@ -9,6 +9,7 @@ import Spinner from '../../../../../../../Spinner';
 import { updateChatbotConfiguration } from '../../../../../../../../services/api/project';
 import { setProject } from '../../../../../../../../shared/actions/project';
 
+import Intents from './Intents';
 import { getLanguage } from './lang';
 
 const ChatbotEditor = () => {
@@ -16,6 +17,7 @@ const ChatbotEditor = () => {
   const language = getLanguage(useSelector(store => store.language));
   const project = useSelector(store => store.project);
   const channel = useSelector(store => store.selectedChatbotChannel);
+  const section = useSelector(store => store.selectedChatbotSection);
   const [configForm, setConfigForm] = useState(null);
   const [authForm, setAuthForm] = useState(null);
   const [configData, setConfigData] = useState({});
@@ -72,34 +74,39 @@ const ChatbotEditor = () => {
   return (
     <div className="chatbotEditor">
       <PopoverTitle>{language.chatbotConfig(channel)}</PopoverTitle>
-      {hasAuth && (
+      {section === 'intents' && <Intents />}
+      {!section && (
         <>
-          {!authForm && <Spinner />}
-          {!!authForm?.fields?.length && (
+          {hasAuth && (
             <>
-              <h2 className="title">{language.authConfig}</h2>
+              {!authForm && <Spinner />}
+              {!!authForm?.fields?.length && (
+                <>
+                  <h2 className="title">{language.authConfig}</h2>
+                  <FieldRenderer
+                    key={1}
+                    data={authData}
+                    fields={authForm.fields}
+                    onChange={setAuthData}
+                    saveButton
+                  />
+                </>
+              )}
+            </>
+          )}
+          {!configForm && <Spinner />}
+          {!!configForm?.fields?.length && (
+            <>
+              <h2 className="title">{language.basicConfig}</h2>
               <FieldRenderer
-                key={1}
-                data={authData}
-                fields={authForm.fields}
-                onChange={setAuthData}
+                key={2}
+                data={configData}
+                fields={configForm.fields}
+                onChange={setConfigData}
                 saveButton
               />
             </>
           )}
-        </>
-      )}
-      {!configForm && <Spinner />}
-      {!!configForm?.fields?.length && (
-        <>
-          <h2 className="title">{language.basicConfig}</h2>
-          <FieldRenderer
-            key={2}
-            data={configData}
-            fields={configForm.fields}
-            onChange={setConfigData}
-            saveButton
-          />
         </>
       )}
       <style jsx>

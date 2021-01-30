@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -9,7 +13,6 @@ a {
   padding: 0;
   margin: 0;
   font-family: 'raleway', Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
 }
 
 /* lean, esta es una clase que va a estar a lo largo de la web, para no repetir tanto flex */

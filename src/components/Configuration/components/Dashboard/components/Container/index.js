@@ -54,6 +54,7 @@ const Container = () => {
             transition: 0.8s;
             animation: arrive 1s linear;
             overflow-y: auto;
+            overflow-x: hidden;
           }
           .container:hover {
             background-color: #fffffff3;
