@@ -160,6 +160,7 @@ const FieldRenderer = props => {
             return (
               <Select
                 field={field}
+                optionData={data}
                 value={data[field.key]}
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}

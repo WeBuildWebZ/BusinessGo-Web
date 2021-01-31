@@ -93,6 +93,7 @@ const Intents = () => {
         onCancel={() => setEditing(false)}
         onChange={handleSaveIntent}
         intent={currentIntent}
+        isNew={isNew}
       />
       <style jsx>
         {`

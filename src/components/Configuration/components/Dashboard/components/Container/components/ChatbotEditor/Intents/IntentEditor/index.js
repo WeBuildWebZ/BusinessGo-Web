@@ -26,7 +26,7 @@ const IntentEditor = props => {
 
   return (
     <div className={`newIntent${!props.show ? ' hiddenIntents' : ''}`}>
-      <h2>{language.title(channel)}</h2>
+      <h2>{props.isNew ? language.createIntent(channel) : language.editIntent(channel)}</h2>
       <Button onClick={props.onCancel}>
         <BackIcon style={{ cursor: 'pointer' }} />
         Volver
@@ -57,6 +57,7 @@ const IntentEditor = props => {
 IntentEditor.propTypes = {
   show: PropTypes.bool.isRequired,
   intent: PropTypes.object,
+  isNew: PropTypes.bool.isRequired,
   onCancel: PropTypes.func,
   onChange: PropTypes.func
 };

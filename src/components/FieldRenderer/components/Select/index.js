@@ -11,22 +11,18 @@ const Select = props => {
   const { field, value, FieldRenderer } = props;
   const language = getLanguage(useSelector(store => store.language));
   const project = useSelector(store => store.project);
-  const [stateValue, setStateValue] = useState(value || field.default_value);
-  const [optionData, setOptionData] = useState({});
 
   const options =
     field.options ||
     project.configuration[field.options_reference.form_code][field.options_reference.field_key] ||
     [];
-  const optionFields = options.find(option => option.key === stateValue)?.fields;
+  const optionFields = options.find(option => option.key === value)?.fields;
 
   const handleChangeValue = ({ target }) => {
-    setStateValue(target.value);
     props.onChange(target.value);
   };
 
   const handleChangeData = newData => {
-    setOptionData(newData);
     props.onChangeOptionData(newData);
   };
 
@@ -36,7 +32,7 @@ const Select = props => {
         <InputLabel>{field.name}</InputLabel>
         <SelectInput
           label={field.name}
-          value={stateValue || 'select_a_value'}
+          value={value || 'select_a_value'}
           onChange={handleChangeValue}
           displayEmpty
           inputProps={{ 'aria-label': 'Without label', style: { width: '100%' } }}
@@ -53,7 +49,9 @@ const Select = props => {
           ))}
         </SelectInput>
       </FormControl>
-      {optionFields && <FieldRenderer fields={optionFields} data={optionData} onChange={handleChangeData} />}
+      {optionFields && (
+        <FieldRenderer fields={optionFields} data={props.optionData} onChange={handleChangeData} />
+      )}
     </>
   );
 };
@@ -61,6 +59,7 @@ const Select = props => {
 Select.propTypes = {
   value: PropTypes.string,
   field: fieldShape.isRequired,
+  optionData: PropTypes.object,
   readOnly: PropTypes.bool,
   onChange: PropTypes.func,
   onChangeOptionData: PropTypes.func,
@@ -69,6 +68,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
   value: '',
+  optionData: {},
   readOnly: false,
   onChange: () => {},
   onChangeOptionData: () => {}
