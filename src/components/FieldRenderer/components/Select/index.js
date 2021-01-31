@@ -13,10 +13,16 @@ const Select = props => {
   const project = useSelector(store => store.project);
   const [stateValue, setStateValue] = useState(value || field.default_value);
 
+  const options =
+    field.options ||
+    project.configuration[field.options_reference.form_code][field.options_reference.field_key];
+
   const handleChangeValue = ({ target }) => {
     setStateValue(target.value);
     props.onChange(target.value);
   };
+
+  console.log('field', field);
 
   return (
     <FormControl>
@@ -33,12 +39,13 @@ const Select = props => {
         <MenuItem key={-1} value="" disabled>
           {`${language.select} ${field.name}`}
         </MenuItem>
-        {project.configuration[field.options_reference.form_code][field.options_reference.field_key].map(
-          (option, i) => (
-            <MenuItem key={i} value={option.value}>
-              {option.value}
-            </MenuItem>
-          )
+        {options.map(
+          (option, i) =>
+            console.log(option) || (
+              <MenuItem key={option.key || i} value={option.value}>
+                {option.value}
+              </MenuItem>
+            )
         )}
       </SelectInput>
     </FormControl>

@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Modal, PopoverTitle } from 'react-bootstrap';
 
 // global styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,10 +8,10 @@ import 'rc-slider/assets/index.css';
 import 'react-rater/lib/react-rater.css';
 
 import '../assets/css/styles.scss';
+
 import getApp from '../../../shared/pages/_app';
 import * as constants from '../constants';
 import reducer from '../reducers';
-import { Modal, PopoverTitle } from 'react-bootstrap';
 
 const AppendHead = () => (
   <Head>

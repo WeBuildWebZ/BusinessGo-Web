@@ -7,11 +7,11 @@ import { fieldShape } from '../../utils/field';
 
 import Text from './components/Text';
 import List from './List';
+import Group from './Group';
 import Enum from './components/Enum';
 import Select from './components/Select';
 import Number from './components/Number';
 import Image from './components/Image';
-import Group from './components/Group';
 import { getLanguage } from './lang';
 
 let timeoutId;

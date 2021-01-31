@@ -4,7 +4,7 @@ import { Button } from '@material-ui/core';
 import { Modal, PopoverTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import { fieldShape } from '../../../../../../utils/field';
+import { fieldShape } from '../../../../utils/field';
 
 import { getLanguage } from './lang';
 
@@ -16,8 +16,6 @@ const FieldModal = props => {
   const handleChangeData = newData => {
     props.onChange(newData);
   };
-
-  console.log('data', data);
 
   return (
     <Modal show backdrop="static" onHide={props.onClose}>
