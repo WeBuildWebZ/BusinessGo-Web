@@ -7,3 +7,8 @@ export const createIntent = (project_code, channel, intent) =>
   api.post(`chatbot_api/projects/${encodeURIComponent(project_code)}/intents`, intent, {
     params: { channel }
   });
+
+export const updateIntent = (project_code, channel, intent) =>
+  api.put(`chatbot_api/projects/${encodeURIComponent(project_code)}/intents`, intent, {
+    params: { channel }
+  });
