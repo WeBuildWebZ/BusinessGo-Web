@@ -4,11 +4,21 @@ import PropTypes from 'prop-types';
 const CardRow = props => (
   <div className="cardRow">
     <div className="title">{props.title}</div>
-    {props.buttonText && (
-      <Button style={{ backgroundColor: 'rgb(82, 146, 185)' }} onClick={props.onButtonClick}>
-        {props.buttonText}
-      </Button>
-    )}
+    <div className="buttonContainer">
+      {props.buttonText && (
+        <Button style={{ backgroundColor: 'rgb(82, 146, 185)', margin: 7 }} onClick={props.onButtonClick}>
+          {props.buttonText}
+        </Button>
+      )}
+      {props.deleteButtonText && (
+        <Button
+          style={{ backgroundColor: 'rgb(236, 22, 22)', margin: 7 }}
+          onClick={props.onDeleteButtonClick}
+        >
+          {props.deleteButtonText}
+        </Button>
+      )}
+    </div>
     <style jsx>
       {`
         .cardRow {
@@ -23,6 +33,11 @@ const CardRow = props => (
           background-color: lightskyblue;
           box-shadow: 0 0 2px 1px lightskyblue;
         }
+        .buttonContainer {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+        }
       `}
     </style>
   </div>
@@ -30,13 +45,17 @@ const CardRow = props => (
 
 CardRow.propTypes = {
   title: PropTypes.string.isRequired,
+  deleteButtonText: PropTypes.string,
   buttonText: PropTypes.string,
-  onButtonClick: PropTypes.func
+  onButtonClick: PropTypes.func,
+  onDeleteButtonClick: PropTypes.func
 };
 
 CardRow.defaultProps = {
+  deleteButtonText: '',
   buttonText: '',
-  onButtonClick: () => {}
+  onButtonClick: () => {},
+  onDeleteButtonClick: () => {}
 };
 
 export default CardRow;

@@ -12,3 +12,5 @@ export const updateIntent = (project_code, channel, intent) =>
   api.put(`chatbot_api/projects/${encodeURIComponent(project_code)}/intents`, intent, {
     params: { channel }
   });
+
+export const deleteIntent = intent => api.delete(`chatbot_api/intents/${encodeURIComponent(intent._id)}`);

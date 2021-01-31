@@ -3,6 +3,7 @@ export const getLanguage = language_code =>
     es: {
       title: channel => `Intenciones para canal ${channel}`,
       editIntent: 'Editar',
+      deleteIntent: 'Borrar',
       createIntent: 'Crear Intención',
       intentCreated: {
         title: 'Intención Creada',
@@ -16,6 +17,7 @@ export const getLanguage = language_code =>
     en: {
       title: channel => `Intents for channel ${channel}`,
       editIntent: 'Edit',
+      deleteIntent: 'Delete',
       createIntent: 'Create Intent',
       intentCreated: {
         title: 'Intent Created',

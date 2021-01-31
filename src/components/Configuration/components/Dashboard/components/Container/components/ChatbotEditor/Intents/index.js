@@ -1,9 +1,10 @@
 import { Button } from '@material-ui/core';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   createIntent,
+  deleteIntent,
   listIntents,
   updateIntent
 } from '../../../../../../../../../services/chatbot_api/intent';
@@ -23,6 +24,9 @@ const Intents = () => {
   const [editing, setEditing] = useState(false);
   const [currentIntent, setCurrentIntent] = useState({});
   const [isNew, setIsNew] = useState(true);
+  const [mounted, setMounted] = useState(true);
+  const mountedRef = useRef();
+  mountedRef.current = mounted;
 
   const handleSaveIntent = intent => {
     if (isNew)
@@ -61,14 +65,21 @@ const Intents = () => {
     setCurrentIntent(intent);
   };
 
+  const handleDeleteIntent = deletedIntent => {
+    deleteIntent(deletedIntent).then(() => {
+      if (!mountedRef.current) return;
+      const newIntents = intents.filter(intent => intent._id !== deletedIntent);
+      setIntents(newIntents);
+    });
+  };
+
   useEffect(() => {
     if (editing) return;
-    let mounted = true;
     listIntents(project.code, channel).then(({ data: givenIntents }) => {
-      if (!mounted) return;
+      if (!mountedRef.current) return;
       setIntents(givenIntents);
     });
-    return () => (mounted = false);
+    return () => setMounted(false);
   }, [editing]);
 
   return (
@@ -84,7 +95,9 @@ const Intents = () => {
             key={i}
             title={intent.name}
             buttonText={language.editIntent}
+            deleteButtonText={language.deleteIntent}
             onButtonClick={() => handleEditIntent(intent)}
+            onDeleteButtonClick={() => handleDeleteIntent(intent)}
           />
         ))}
       </div>
