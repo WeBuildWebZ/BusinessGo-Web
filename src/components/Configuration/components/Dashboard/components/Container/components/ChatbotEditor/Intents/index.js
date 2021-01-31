@@ -66,20 +66,25 @@ const Intents = () => {
   };
 
   const handleDeleteIntent = deletedIntent => {
+    setMounted(true);
     deleteIntent(deletedIntent).then(() => {
+      console.log('mountedRef.current', mountedRef.current);
       if (!mountedRef.current) return;
-      const newIntents = intents.filter(intent => intent._id !== deletedIntent);
+      const newIntents = intents.filter(intent => intent._id !== deletedIntent._id);
       setIntents(newIntents);
     });
   };
 
   useEffect(() => {
+    setMounted(true);
     if (editing) return;
     listIntents(project.code, channel).then(({ data: givenIntents }) => {
       if (!mountedRef.current) return;
       setIntents(givenIntents);
     });
-    return () => setMounted(false);
+    return () => {
+      setMounted(false);
+    };
   }, [editing]);
 
   return (
