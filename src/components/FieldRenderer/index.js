@@ -23,10 +23,9 @@ const FieldRenderer = props => {
   const [newData, setNewData] = useState(data);
 
   const handleChange = updatedData => {
-    if (props.saveButton) {
-      setNewData(updatedData);
-      setHasChanged(true);
-    } else props.onChange(updatedData);
+    setNewData(updatedData);
+    if (props.saveButton) setHasChanged(true);
+    else props.onChange(updatedData);
   };
 
   const handleSave = () => {
@@ -156,6 +155,7 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
+                FieldRenderer={FieldRenderer}
                 key={field.key}
               />
             );
@@ -186,8 +186,8 @@ const FieldRenderer = props => {
       <style jsx>
         {`
           .fieldContainer {
-            width: 80%;
-            margin-left: 10%;
+            width: 88%;
+            margin-left: 6%;
           }
         `}
       </style>

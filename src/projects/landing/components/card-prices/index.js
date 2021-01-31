@@ -208,7 +208,6 @@ const CardsPrices = () => (
           border-radius: 1em;
           border: 1px solid silver;
           padding: 3px;
-          background: yellow;
         }
         .items label {
           display: flex;
@@ -264,6 +263,9 @@ const CardsPrices = () => (
           text-transform: uppercase;
           font-weight: bold;
           box-shadow: 0px 3px 9px #ffb52a;
+        }
+        * {
+          overflow-x: hidden;
         }
       `}
     </style>
