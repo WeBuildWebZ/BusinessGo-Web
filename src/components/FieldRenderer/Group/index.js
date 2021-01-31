@@ -32,12 +32,14 @@ const Group = props => {
     <InputGroup>
       <FormLabel component="legend">{field.name}</FormLabel>
       {datas.map((data, i) => (
-        <FieldRenderer
-          key={i}
-          fields={field.subfields}
-          data={data}
-          onChange={newData => handleChangeData(i, newData)}
-        />
+        <InputGroup key={i}>
+          <CloseIcon style={{ cursor: 'pointer', float: 'right', transform: 'translate(-100%)' }} />
+          <FieldRenderer
+            fields={field.subfields}
+            data={data}
+            onChange={newData => handleChangeData(i, newData)}
+          />
+        </InputGroup>
       ))}
       {!props.readOnly && (
         <Button onClick={handleAddValue} style={{ marginTop: 8 }}>
