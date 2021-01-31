@@ -17,7 +17,6 @@ const Prices = [
   {
     id: 2,
     type: 'B',
-    note: 'Recomendada',
     quality: 'Profesional',
     price: '200$',
     options: {
@@ -32,7 +31,6 @@ const Prices = [
   {
     id: 3,
     type: 'C',
-    note: 'Recomendada',
     quality: 'Ejecutiva',
     price: '300$',
     options: {
@@ -41,7 +39,7 @@ const Prices = [
       item3: 'Diseños Exclusivos',
       item4: 'Full SEO y Perforformance',
       item5: 'Servicio de Copywriting',
-      item6: '3 o mas Paginas Internas / Formato SPA'
+      item6: 'Formato SPA'
     }
   }
 ];
@@ -52,12 +50,11 @@ const CardsPrices = () => (
   <ul className="box">
     {Prices.map(({ id, type, note, quality, price, options }, i) => (
       <li key={id} className="card" data-aos={fades[i % fades.length]}>
-        <div className="top">{note && <h6>{note}</h6>}</div>
         <div className="mid">
           <h4> {quality} </h4>
           <h2>{price} </h2>
         </div>
-        <h4>Type: {type}</h4>
+        <h5>Type: {type}</h5>
         <div className="items">
           {/* cada label retorna una caracteristica de cada precio..osea un input por item */}
           <label htmlFor="first-name">
@@ -181,12 +178,12 @@ const CardsPrices = () => (
           flex-flow: column;
         }
 
-        .mid h4 {
+        .mid h5 {
           font-size: 1.5em;
         }
 
         .mid h2 {
-          font-size: 4em;
+          font-size: 3em;
           text-transform: uppercase;
           font-weight: bold;
           color: black;
@@ -211,6 +208,7 @@ const CardsPrices = () => (
           border-radius: 1em;
           border: 1px solid silver;
           padding: 3px;
+          background: yellow;
         }
         .items label {
           display: flex;
@@ -218,7 +216,6 @@ const CardsPrices = () => (
           align-items: center;
           width: 100%;
           height: 100%;
-          margin: 2px 0;
           overflow-y: hidden;
         }
         .items .input {
@@ -227,7 +224,6 @@ const CardsPrices = () => (
 
         p {
           flex: 9;
-          padding-top: 1em;
         }
         // ==========================================
         .bottom {
