@@ -23,7 +23,7 @@ const Frase = () => (
         CRUZAS LA LINEA Y TE ARRIESGAS
       </h4>
       <h4 data-aos="fade-right" data-aos-duration="800">
-        SOLO ASI SE CONSIGUE EXPERIENCIA
+        SOLO ASI, SE CONSIGUE EXPERIENCIA
       </h4>
       <h4 data-aos="fade-right" data-aos-duration="1000">
         SI ASI LO DESEAS, AQUI TE ESPERAMOS.

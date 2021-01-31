@@ -12,6 +12,7 @@ import YouChoose from '../components/you-choose';
 import Frase from '../components/frase';
 import Texto from '../components/texto-principal';
 import ItemsExplicacion from '../components/items-explicacion';
+import BannerSegundo from '../components/segundo-banner';
 
 import { banners } from './banners';
 
@@ -31,6 +32,7 @@ export default function LandingPage() {
       {banners.map((banner, i) => (
         <Banner key={i} show={i === selectedBanner} onClose={handleChangeBanner} banner={banner} />
       ))}
+      <BannerSegundo />
       <Frase />
       <Texto />
       <ItemsExplicacion />

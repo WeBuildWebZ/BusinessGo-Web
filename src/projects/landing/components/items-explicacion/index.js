@@ -123,16 +123,6 @@ const ItemsExplicacion = () => (
           border-radius: 1em;
           position: relative;
         }
-        .image:after {
-          position: absolute;
-          top: 3em;
-          left: 3em;
-          content: '';
-          width: 100%;
-          height: 100%;
-          border-radius: 1em;
-          background: yellow;
-        }
         .card {
           width: 500px;
           display: flex;
@@ -140,6 +130,7 @@ const ItemsExplicacion = () => (
           border-radius: 1em;
           margin: 10px 0;
           padding: 1em;
+          box-shadow: 0.3em 0.3em 0.5em grey;
         }
 
         .icon {
