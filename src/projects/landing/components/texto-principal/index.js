@@ -1,14 +1,14 @@
 const Texto = () => (
   <div className="texto">
-    <h2>En este tiempo, todo tiene una identidad digital.</h2>
-    <h4>Por eso aqui en WeBuildWebz, disponemos para ofrecerte, todo para tu web.</h4>
+    <h2 data-aos="flip-left">En este tiempo, todo tiene una identidad digital.</h2>
+    <h4 data-aos="flip-right">Por eso aqui en WeBuildWebz, disponemos para ofrecerte, todo para tu web.</h4>
     <br />
-    <p>
+    <p data-aos="flip-left">
       SEO, Responsive Design, CopyWritting, exclusividad de diseños, Animaciones, metodos de Pago, Link A
       Redes Sociales, Bases de Datos, Paginas Auto Administrables, Optimizacion de Imagenes, Video, y todas
       las funcionalidades que necesites, mira la siguiente informacion:
     </p>
-    <div className="icons">
+    <div className="icons" data-aos="flip-up">
       <svg
         aria-hidden="true"
         focusable="false"
