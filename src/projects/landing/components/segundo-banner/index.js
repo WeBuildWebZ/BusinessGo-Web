@@ -12,7 +12,7 @@ const BannerSegundo = () => (
     <div className="right" data-aos="fade-left">
       <div className="textlayout">
         <h3>Sabías que...?</h3>
-        <div>
+        <div data-aos="flip-right">
           <span>
             <p>
               El 80% de los negocios son en Internet?, y en su casi totalidad, son efectuados en dispositivos
