@@ -54,7 +54,7 @@ const ItemsExplicacion = () => (
     <div className="top">
       <div className="left">
         {primeras3.map(({ id, image, title, description }) => (
-          <li className="card" key={id}>
+          <li className="card" key={id} data-aos="fade-right">
             <span className="icon">
               <img src={image} alt="" />
             </span>
@@ -66,18 +66,18 @@ const ItemsExplicacion = () => (
           </li>
         ))}
       </div>
-      <div className="right">
+      <div className="right" data-aos="fade-left">
         <img src="/happy-one.jpg" alt="" className="image" />
       </div>
     </div>
 
     <div className="bottom">
-      <div className="right">
+      <div className="right" data-aos="fade-right">
         <img src="/happy-two.jpg" alt="" className="image" />
       </div>
       <div className="left">
         {ultimas3.map(({ id, image, title, description }) => (
-          <li className="card" key={id}>
+          <li className="card" key={id} data-aos="fade-left">
             <span className="icon">
               <img src={image} alt="" />
             </span>
