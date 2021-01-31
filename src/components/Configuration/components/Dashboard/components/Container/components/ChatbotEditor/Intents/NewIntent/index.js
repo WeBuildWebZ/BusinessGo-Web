@@ -25,6 +25,8 @@ const NewIntent = props => {
     });
   }, []);
 
+  console.log('intent', intent);
+
   return (
     <div className={`newIntent${!props.show ? ' hiddenIntents' : ''}`}>
       <h2>{language.title(channel)}</h2>

@@ -10,17 +10,13 @@ import InputGroup from '../../InputGroup';
 
 import { getLanguage } from './lang';
 
-const Enum = props => {
+const List = props => {
   const { field, value } = props;
   const language = getLanguage(useSelector(store => store.language));
   const [stateValue, setStateValue] = useState(value || field.default_value);
 
   const handleChangeValue = (index, option, valueToChange) => {
-    if (!valueToChange) return;
-
-    const newValue = stateValue.map((currentValue, i) =>
-      i === index ? { ...option, value: valueToChange } : currentValue
-    );
+    const newValue = stateValue.map((currentValue, i) => (i === index ? valueToChange : currentValue));
 
     setStateValue(newValue);
     props.onChange(newValue.filter(_value => _value));
@@ -47,7 +43,7 @@ const Enum = props => {
         <TextField
           key={i}
           label={`${field.enum_name} ${i + 1}`}
-          value={option.value}
+          value={option || ''}
           variant="outlined"
           required={field.is_required}
           style={{ width: '100%', margin: '16px 0 5px 0', display: 'inline-block' }}
@@ -72,17 +68,17 @@ const Enum = props => {
   );
 };
 
-Enum.propTypes = {
-  value: PropTypes.arrayOf(PropTypes.object),
+List.propTypes = {
+  value: PropTypes.arrayOf(PropTypes.string),
   field: fieldShape.isRequired,
   readOnly: PropTypes.bool,
   onChange: PropTypes.func
 };
 
-Enum.defaultProps = {
+List.defaultProps = {
   value: [],
   readOnly: false,
   onChange: () => {}
 };
 
-export default Enum;
+export default List;

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../../utils/field';
 import InputGroup from '../../InputGroup';
+import ConfirmModal from '../../ConfirmModal';
 
 import FieldModal from './FieldModal';
 import { getLanguage } from './lang';
@@ -16,9 +17,16 @@ const Group = props => {
   const [enumModalOption, setEnumModalOption] = useState(null);
   const [enumModalOptionIndex, setEnumModalOptionIndex] = useState(null);
   const [datas, setDatas] = useState(value);
+  const [deletingIndex, setDeletingIndex] = useState(null);
 
   const handleAddValue = () => {
     setDatas([...datas, {}]);
+  };
+
+  const handleRemoveData = index => {
+    const newDatas = datas.filter((data, i) => i !== index);
+    setDatas(newDatas);
+    props.onChange(newDatas);
   };
 
   const handleChangeData = (changedIndex, newData) => {
@@ -28,12 +36,32 @@ const Group = props => {
     props.onChange(newDatas);
   };
 
+  const handlePrompt = confirmed => {
+    if (confirmed) handleRemoveData(deletingIndex);
+    setDeletingIndex(null);
+  };
+
   return (
     <InputGroup>
+      <ConfirmModal
+        show={deletingIndex !== null}
+        onPrompt={handlePrompt}
+        message={language.deleteMessage(field)}
+      />
       <FormLabel component="legend">{field.name}</FormLabel>
       {datas.map((data, i) => (
         <InputGroup key={i}>
-          <CloseIcon style={{ cursor: 'pointer', float: 'right', transform: 'translate(-100%)' }} />
+          <CloseIcon
+            onClick={() => setDeletingIndex(i)}
+            style={{
+              cursor: 'pointer',
+              float: 'right',
+              transform: 'translate(-100%)',
+              borderStyle: 'solid',
+              borderWidth: 1,
+              borderRadius: 5
+            }}
+          />
           <FieldRenderer
             fields={field.subfields}
             data={data}

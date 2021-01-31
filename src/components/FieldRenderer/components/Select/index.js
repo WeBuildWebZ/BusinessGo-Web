@@ -18,11 +18,16 @@ const Select = props => {
     field.options ||
     project.configuration[field.options_reference.form_code][field.options_reference.field_key] ||
     [];
-  const optionFields = options.find(option => option.value === stateValue)?.fields;
+  const optionFields = options.find(option => option.key === stateValue)?.fields;
 
   const handleChangeValue = ({ target }) => {
     setStateValue(target.value);
     props.onChange(target.value);
+  };
+
+  const handleChangeData = newData => {
+    setOptionData(newData);
+    props.onChangeOptionData(newData);
   };
 
   return (
@@ -42,13 +47,13 @@ const Select = props => {
             {`${language.select} ${field.name}`}
           </MenuItem>
           {options.map((option, i) => (
-            <MenuItem key={option.key || i} value={option.value}>
+            <MenuItem key={option.key || i} value={option.key}>
               {option.value}
             </MenuItem>
           ))}
         </SelectInput>
       </FormControl>
-      {optionFields && <FieldRenderer fields={optionFields} data={optionData} onChange={setOptionData} />}
+      {optionFields && <FieldRenderer fields={optionFields} data={optionData} onChange={handleChangeData} />}
     </>
   );
 };
@@ -58,13 +63,15 @@ Select.propTypes = {
   field: fieldShape.isRequired,
   readOnly: PropTypes.bool,
   onChange: PropTypes.func,
+  onChangeOptionData: PropTypes.func,
   FieldRenderer: PropTypes.any.isRequired
 };
 
 Select.defaultProps = {
   value: '',
   readOnly: false,
-  onChange: () => {}
+  onChange: () => {},
+  onChangeOptionData: () => {}
 };
 
 export default Select;

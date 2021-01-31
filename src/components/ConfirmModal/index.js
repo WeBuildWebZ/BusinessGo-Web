@@ -8,15 +8,19 @@ const ConfirmModal = props => {
   const language = getLanguage(useSelector(store => store.language));
 
   return (
-    <Modal show={props.show}>
-      {props.title && <Modal.Header>{props.title}</Modal.Header>}
+    <Modal show={props.show} onHide={() => props.onPrompt(false)}>
+      <Modal.Header closeButton>{props.title}</Modal.Header>
       <Modal.Body>{props.message}</Modal.Body>
       <Modal.Footer>
+        <Button
+          key="cancel"
+          onClick={() => props.onPrompt(false)}
+          style={{ backgroundColor: 'red', borderColor: 'red' }}
+        >
+          {language.cancel}
+        </Button>
         <Button key="confirm" onClick={() => props.onPrompt(true)}>
           {language.confirm}
-        </Button>
-        <Button key="cancel" onClick={() => props.onPrompt(true)}>
-          {language.cancel}
         </Button>
       </Modal.Footer>
     </Modal>
@@ -35,4 +39,4 @@ ConfirmModal.defaultProps = {
   onPrompt: () => {}
 };
 
-export default PropTypes;
+export default ConfirmModal;

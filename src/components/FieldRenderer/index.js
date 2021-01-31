@@ -33,13 +33,21 @@ const FieldRenderer = props => {
     setHasChanged(false);
   };
 
-  const handleUpdateData = (key, value) => {
-    if (!updateAfter) return handleChange({ ...newData, [key]: value });
+  const updateData = changedData => {
+    if (!updateAfter) return handleChange(changedData);
 
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
-      handleChange({ ...newData, [key]: value });
+      handleChange(changedData);
     }, updateAfter);
+  };
+
+  const handleUpdateData = (key, value) => {
+    updateData({ ...newData, [key]: value });
+  };
+
+  const handleUpdateOptionData = changedData => {
+    updateData({ ...newData, ...changedData });
   };
 
   return (
@@ -155,6 +163,7 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
+                onChangeOptionData={handleUpdateOptionData}
                 FieldRenderer={FieldRenderer}
                 key={field.key}
               />
