@@ -1,5 +1,6 @@
-import Head from 'next/head';
+import { useEffect, useState } from 'react';
 import { Modal, PopoverTitle } from 'react-bootstrap';
+import Head from 'next/head';
 
 // global styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,6 +13,7 @@ import '../assets/css/styles.scss';
 import getApp from '../../../shared/pages/_app';
 import * as constants from '../constants';
 import reducer from '../reducers';
+import { writeWithAnimation } from '../../../utils/writeAnimation';
 
 const AppendHead = () => (
   <Head>
@@ -44,15 +46,35 @@ const AppendHead = () => (
 );
 
 // export default getApp(reducer, constants, AppendHead);
-const App = () => (
-  <Modal show backdrop="static">
-    <Modal.Header>
-      <PopoverTitle>Web temporalmente deshabilitada</PopoverTitle>
-    </Modal.Header>
-    <Modal.Body>
-      Esta web se encuentra temporalmente deshabilitada. Para más información consulte con el administrador
-    </Modal.Body>
-  </Modal>
-);
+const App = () => {
+  const title = 'Web temporalmente deshabilitada';
+  const message =
+    'Esta web se encuentra temporalmente deshabilitada. Para más información consulte con el administrador';
+  const [currentTitle, setCurrentTitle] = useState('');
+  const [currentMessage, setCurrentMessage] = useState('');
+
+  useEffect(() => {
+    writeWithAnimation(title, newTitle => {
+      setCurrentTitle(newTitle);
+    });
+
+    writeWithAnimation(
+      message,
+      newMessage => {
+        setCurrentMessage(newMessage);
+      },
+      30
+    );
+  }, []);
+
+  return (
+    <Modal show backdrop="static" className="app">
+      <Modal.Header>
+        <PopoverTitle>{currentTitle}</PopoverTitle>
+      </Modal.Header>
+      <Modal.Body>{currentMessage}</Modal.Body>
+    </Modal>
+  );
+};
 
 export default App;

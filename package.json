@@ -48,6 +48,7 @@
     "react-spring-lightbox": "^1.4.11",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
+    "similar-words": "^1.2.0",
     "styled-components": "^5.2.1",
     "swiper": "^6.4.5",
     "swr": "^0.3.11",
