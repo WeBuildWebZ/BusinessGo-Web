@@ -1,6 +1,6 @@
 const BannerSegundo = () => (
   <div className="about">
-    <div className="left">
+    <div className="left" data-aos="fade-right">
       <img
         src="/images/segundo-banner.jpg"
         alt="segunda imagen banner"
@@ -9,14 +9,14 @@ const BannerSegundo = () => (
         className="radius"
       />
     </div>
-    <div className="right">
+    <div className="right" data-aos="fade-left">
       <div className="textlayout">
-        <h3>Sabias que...?</h3>
+        <h3>Sabías que...?</h3>
         <div>
           <span>
             <p>
               El 80% de los negocios son en Internet?, y en su casi totalidad, son efectuados en dispositivos
-              Mobiles? nosotros podemos ayudarte, queremos.
+              Móbiles? nosotros podemos ayudarte, queremos.
             </p>
           </span>
         </div>

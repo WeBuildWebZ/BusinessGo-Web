@@ -1,24 +1,29 @@
+const iconColors = ['#ff5a30', '#ffcc33', '#00f5f3'];
+
 const items = [
   {
     id: 1,
     image: '/bullhorn-solid.svg',
     title: 'SEO',
     description:
-      'Es la dispocion que debe tener en su estructura, para poder ser encontrada en los buscadores e Google, por ej, a mayor calidad de SEO, mas eficacia y posicionamiento'
+      'Es la dispocion que debe tener en su estructura, para poder ser encontrada en los buscadores e Google, por ej, a mayor calidad de SEO, mas eficacia y posicionamiento',
+    color: iconColors[0]
   },
   {
     id: 2,
     image: '/feather-alt-solid.svg',
     title: ' CopyWriting',
     description:
-      'Es redaccion de textos que estimulan en los lectores un movimiento de compra, es usado por las empresas para generar oportunidades de negocios'
+      'Es redaccion de textos que estimulan en los lectores un movimiento de compra, es usado por las empresas para generar oportunidades de negocios',
+    color: iconColors[1]
   },
   {
     id: 3,
     image: '/gem-regular.svg',
     title: 'Exclusividad de Diseños',
     description:
-      'Es la dispocion que debe tener en su estructura, para poder ser encontrada en los buscadores e Google, por ej, a mayor calidad de SEO, mas eficacia y posicionamiento'
+      'Es la dispocion que debe tener en su estructura, para poder ser encontrada en los buscadores e Google, por ej, a mayor calidad de SEO, mas eficacia y posicionamiento',
+    color: iconColors[2]
   },
 
   {
@@ -26,21 +31,24 @@ const items = [
     image: '/handshake-solid.svg',
     title: 'Metodos de Pago',
     description:
-      'Es la dispocion que debe tener en su estructura, para poder ser encontrada en los buscadores e Google, por ej, a mayor calidad de SEO, mas eficacia y posicionamiento'
+      'Es la dispocion que debe tener en su estructura, para poder ser encontrada en los buscadores e Google, por ej, a mayor calidad de SEO, mas eficacia y posicionamiento',
+    color: iconColors[0]
   },
   {
     id: 5,
     image: '/key-solid.svg',
     title: 'Auto Administrables',
     description:
-      'Es la dispocion que debe tener en su estructura, para poder ser encontrada en los buscadores e Google, por ej, a mayor calidad de SEO, mas eficacia y posicionamiento'
+      'Es la dispocion que debe tener en su estructura, para poder ser encontrada en los buscadores e Google, por ej, a mayor calidad de SEO, mas eficacia y posicionamiento',
+    color: iconColors[1]
   },
   {
     id: 6,
     image: '/images-solid.svg',
     title: 'Optimizacion de Imagenes',
     description:
-      'Es la dispocion que debe tener en su estructura, para poder ser encontrada en los buscadores e Google, por ej, a mayor calidad de SEO, mas eficacia y posicionamiento'
+      'Es la dispocion que debe tener en su estructura, para poder ser encontrada en los buscadores e Google, por ej, a mayor calidad de SEO, mas eficacia y posicionamiento',
+    color: iconColors[2]
   }
 ];
 // con este metodo retornamos las 3 primeras posiciones del array,en total son 6
@@ -53,7 +61,7 @@ const ItemsExplicacion = () => (
   <>
     <div className="top">
       <div className="left">
-        {primeras3.map(({ id, image, title, description }) => (
+        {primeras3.map(({ id, image, title, description, color }) => (
           <li className="card" key={id} data-aos="fade-right">
             <span className="icon">
               <img src={image} alt="" />
