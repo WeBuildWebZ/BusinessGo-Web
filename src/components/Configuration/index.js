@@ -56,6 +56,13 @@ const Configuration = props => {
           }
         `}
       </style>
+      <style jsx global>
+        {`
+          * {
+            overflow-x: unset;
+          }
+        `}
+      </style>
     </div>
   );
 };
