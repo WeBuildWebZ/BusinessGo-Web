@@ -3,17 +3,32 @@ const Footer = () => (
     <div className="top" />
     <div className="bottom">
       <span className="column">
-        <h5>Ubicacion</h5>
-        <p>Buenos Aires</p>
-        <p>Argentina</p>
+        <h3>Acerca de Nosotros</h3>
+        <p>
+          Somos una empresa dedicada al desarrollo de software, paginas web, App Nativas para Android, bases
+          de datos, etc-
+        </p>
       </span>
       <span className="column">
-        <h5>En Medium</h5>
-        <p>Posteo #1</p>
-        <p>Posteo #2</p>
+        <h3>Redes sociales</h3>
+        <p className="pointer">Facebook</p>
+        <p className="pointer">LinkedIn</p>
+        <p className="pointer">Instagram</p>
       </span>
       <span className="column">
-        <h5>Redes Sociales</h5>
+        <h3>Informacion de Contacto</h3>
+        <span className="row">
+          <img src="/icon/house.png" alt="" />
+          <p> Buenos Aires - Argentina</p>
+        </span>
+        <span className="row">
+          <img src="/icon/phone.png" alt="" />
+          <p> 1125727617</p>
+        </span>
+        <span className="row">
+          <img src="/icon/contact.png" alt="" />
+          <p> @webuildwebz@gmail.com</p>
+        </span>
       </span>
     </div>
 
@@ -21,7 +36,7 @@ const Footer = () => (
       {`
         .footer {
           width: 100vw;
-          height: 40vh;
+          height: 100vh;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -45,21 +60,32 @@ const Footer = () => (
         }
 
         .column {
-          width: 250px;
+          width: 400px;
           padding: 1em;
           border-radius: 1em;
         }
-        .column:nth-child(2) {
-          margin: 0 1em;
+        .row {
+          width: 100%;
+          display: flex;
+          padding-bottom: 0.5em;
         }
-        h5 {
-          color: grey;
+        h3 {
+          margin-top: 1em;
+          color: white;
+        }
+        img {
+          width: 25px;
+          height: 25px;
         }
         p {
           color: grey;
           margin: 0;
+          padding-left: 0.5em;
         }
-        p:hover {
+        .pointer {
+          color: grey;
+        }
+        .pointer:hover {
           color: white;
           cursor: pointer;
         }
