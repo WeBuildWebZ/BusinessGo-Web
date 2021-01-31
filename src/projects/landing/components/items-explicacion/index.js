@@ -54,7 +54,7 @@ const ItemsExplicacion = () => (
     <div className="top">
       <div className="left">
         {primeras3.map(({ id, image, title, description }) => (
-          <li className="card" key={id}>
+          <li className="card" key={id} data-aos="fade-right">
             <span className="icon">
               <img src={image} alt="" />
             </span>

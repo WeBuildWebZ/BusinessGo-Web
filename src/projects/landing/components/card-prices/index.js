@@ -270,9 +270,6 @@ const CardsPrices = () => (
           font-weight: bold;
           box-shadow: 0px 3px 9px #ffb52a;
         }
-        * {
-          overflow-x: hidden;
-        }
       `}
     </style>
   </ul>
