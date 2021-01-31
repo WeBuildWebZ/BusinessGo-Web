@@ -12,11 +12,10 @@ import Spinner from '../../../../../../../../../Spinner';
 
 import { getLanguage } from './lang';
 
-const NewIntent = props => {
+const IntentEditor = props => {
   const language = getLanguage(useSelector(store => store.language));
   const project = useSelector(store => store.project);
   const channel = useSelector(store => store.selectedChatbotChannel);
-  const [intent, setIntent] = useState({});
   const [form, setForm] = useState(null);
 
   useEffect(() => {
@@ -24,8 +23,6 @@ const NewIntent = props => {
       setForm(givenForm);
     });
   }, []);
-
-  console.log('intent', intent);
 
   return (
     <div className={`newIntent${!props.show ? ' hiddenIntents' : ''}`}>
@@ -35,7 +32,9 @@ const NewIntent = props => {
         Volver
       </Button>
       {!form && <Spinner />}
-      {form && <FieldRenderer fields={form.fields} data={intent} onChange={setIntent} saveButton />}
+      {form && props.show && (
+        <FieldRenderer fields={form.fields} data={props.intent} onChange={props.onChange} saveButton />
+      )}
       <style jsx>
         {`
           .newIntent {
@@ -55,13 +54,17 @@ const NewIntent = props => {
   );
 };
 
-NewIntent.propTypes = {
+IntentEditor.propTypes = {
   show: PropTypes.bool.isRequired,
-  onCancel: PropTypes.func
+  intent: PropTypes.object,
+  onCancel: PropTypes.func,
+  onChange: PropTypes.func
 };
 
-NewIntent.defaultProps = {
-  onCancel: () => {}
+IntentEditor.defaultProps = {
+  intent: {},
+  onCancel: () => {},
+  onChange: () => {}
 };
 
-export default NewIntent;
+export default IntentEditor;

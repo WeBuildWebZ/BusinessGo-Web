@@ -1,29 +1,47 @@
 import { Button } from '@material-ui/core';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { listIntents } from '../../../../../../../../../services/chatbot_api/intent';
+import { createIntent, listIntents } from '../../../../../../../../../services/chatbot_api/intent';
 import CardRow from '../../../../../../../../CardRow';
 import Spinner from '../../../../../../../../Spinner';
+import { pushAlert } from '../../../../../../../../../shared/actions/alerts';
 
-import NewIntent from './NewIntent';
+import IntentEditor from './IntentEditor';
 import { getLanguage } from './lang';
 
 const Intents = () => {
+  const dispatch = useDispatch();
   const language = getLanguage(useSelector(store => store.language));
   const project = useSelector(store => store.project);
   const channel = useSelector(store => store.selectedChatbotChannel);
   const [intents, setIntents] = useState(null);
   const [editing, setEditing] = useState(false);
+  const [isNew, setIsNew] = useState(true);
+
+  const handleSaveIntent = intent => {
+    if (isNew)
+      createIntent(project.code, channel, intent).then(({ data: newIntent }) => {
+        setEditing(false);
+        dispatch(
+          pushAlert({
+            title: language.intentCreated.title,
+            icon: 'success',
+            message: language.intentCreated.message(newIntent)
+          })
+        );
+      });
+  };
 
   useEffect(() => {
+    if (editing) return;
     let mounted = true;
     listIntents(project.code, channel).then(({ data: givenIntents }) => {
       if (!mounted) return;
       setIntents(givenIntents);
     });
     return () => (mounted = false);
-  }, []);
+  }, [editing]);
 
   return (
     <div className="intentContainer">
@@ -32,6 +50,7 @@ const Intents = () => {
         <Button
           style={{ backgroundColor: 'lightskyblue' }}
           onClick={() => {
+            setIsNew(true);
             setEditing(true);
           }}
         >
@@ -42,7 +61,7 @@ const Intents = () => {
           <CardRow title={intent.name} />
         ))}
       </div>
-      <NewIntent show={editing} onCancel={() => setEditing(false)} />
+      <IntentEditor show={editing} onCancel={() => setEditing(false)} onChange={handleSaveIntent} />
       <style jsx>
         {`
           .intentContainer {
