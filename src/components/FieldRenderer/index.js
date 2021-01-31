@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { fieldShape } from '../../utils/field';
 
 import Text from './components/Text';
+import List from './List';
 import Enum from './components/Enum';
 import Select from './components/Select';
 import Number from './components/Number';
@@ -115,13 +116,22 @@ const FieldRenderer = props => {
                 key={field.key}
               />
             );
+          case 'list':
+            return (
+              <List
+                field={field}
+                value={data[field.key]}
+                readOnly={props.readOnly}
+                onChange={value => handleUpdateData(field.key, value)}
+                key={field.key}
+              />
+            );
           case 'enum':
             return (
               <Enum
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}
-                multiline={false}
                 onChange={value => handleUpdateData(field.key, value)}
                 FieldRenderer={FieldRenderer}
                 key={field.key}
