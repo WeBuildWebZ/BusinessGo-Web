@@ -11,6 +11,7 @@ import CardsPrices from '../components/card-prices';
 import YouChoose from '../components/you-choose';
 import Frase from '../components/frase';
 import Texto from '../components/texto-principal';
+import ItemsExplicacion from '../components/items-explicacion';
 
 import { banners } from './banners';
 
@@ -32,6 +33,7 @@ export default function LandingPage() {
       ))}
       <Frase />
       <Texto />
+      <ItemsExplicacion />
       <YouChoose />
       <CardsPrices />
       <Footer />
