@@ -32,11 +32,23 @@ const CardRow = props => (
           border-radius: 7px;
           background-color: lightskyblue;
           box-shadow: 0 0 2px 1px lightskyblue;
+          animation: fadeIn 1s linear;
         }
         .buttonContainer {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
+        }
+
+        @keyframes fadeIn {
+          0% {
+            width: 0;
+            opacity: 0;
+            box-shadow: 0 0 50px 50px rgb(87, 134, 163);
+          }
+          100% {
+            opacity: 1;
+          }
         }
       `}
     </style>

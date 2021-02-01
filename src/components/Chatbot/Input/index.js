@@ -1,20 +1,52 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { TextField } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Input = () => {
+import { createWebMessage } from '../../../services/chatbot_api/web_message';
+
+const Input = props => {
   const project = useSelector(store => store.project);
+  const textInput = useRef(null);
   const [text, setText] = useState('');
+  const [waiting, setWaiting] = useState(false);
+
+  const handleKeyPress = ({ target, charCode }) => {
+    if (charCode !== 13 || !target.value) return;
+
+    setWaiting(true);
+    props.onMessages('user', [{ type: 'text', text: target.value }]);
+
+    createWebMessage(project, target.value).then(({ data: givenMessages }) => {
+      setWaiting(false);
+      textInput.current.focus();
+      setText('');
+      props.onMessages('bot', givenMessages);
+    });
+  };
 
   return (
     <TextField
+      inputRef={textInput}
+      autoFocus
       label={project.chatbot.configuration.web.placeholder}
       variant="outlined"
+      onKeyPress={handleKeyPress}
       size="small"
+      value={text}
+      disabled={waiting}
       onChange={({ target }) => setText(target.value)}
-      style={{ position: 'absolute', bottom: 0, width: '100%' }}
+      style={{ position: 'absolute', bottom: 0, width: '100%', overflowX: 'unset' }}
     />
   );
+};
+
+Input.propTypes = {
+  onMessages: PropTypes.func
+};
+
+Input.defaultProps = {
+  onMessages: () => {}
 };
 
 export default Input;
