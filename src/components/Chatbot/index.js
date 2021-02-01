@@ -26,6 +26,14 @@ const Chatbot = () => {
     textInput.current.focus();
   };
 
+  useEffect(() => {
+    if (!project) return;
+    setMessages([
+      ...messages,
+      { from: 'bot', type: 'text', text: project.chatbot.configuration.web.greeting }
+    ]);
+  }, [project]);
+
   if (!render) return <div />;
   return (
     <div onKeyPress={handleFocusInput} tabIndex={0}>
@@ -42,8 +50,8 @@ const Chatbot = () => {
             transform: translate(-100%, -100%);
             left: calc(100% - 50px);
             top: calc(100% - 23px);
-            width: 350px;
-            height: 480px;
+            width: 320px;
+            height: 448px;
             ${isOpen
               ? ''
               : `
