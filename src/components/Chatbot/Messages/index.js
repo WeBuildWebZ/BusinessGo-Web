@@ -15,7 +15,7 @@ const Messages = props => {
     <div className="messages" ref={messages}>
       {props.messages.map((message, i) => (
         <div key={i} className="messageContainer">
-          <div key={2} className={`message${message.from === 'user' ? ' userMessage' : ''}`}>
+          <div key={2} className={`message${message.from === 'user' ? ' userMessage' : ' botMessage'}`}>
             {message.from === 'bot' && (
               <img className="avatar" src={project.chatbot.configuration.web.avatar} />
             )}
@@ -23,7 +23,9 @@ const Messages = props => {
             {message.type === 'image' && (
               <div className="text">
                 {message.text}
-                <img className="image" src={message.image_url} />
+                <a href={message.image_url} target="_blank">
+                  <img className="image" src={message.image_url} />
+                </a>
               </div>
             )}
           </div>
@@ -60,15 +62,26 @@ const Messages = props => {
           }
           .userMessage {
             float: right;
+            border-top-right-radius: 0;
+          }
+          .botMessage {
+            border-top-left-radius: 0;
           }
           .text {
             display: inline-block;
             float: right;
             white-space: pre-line;
+            overflow: visible;
           }
           .image {
             max-width: 200px;
             max-height: 200px;
+            border-radius: 5px;
+            transition: 0.7s;
+          }
+          .image:hover {
+            transform: scale(1.1);
+            filter: blur(1px);
           }
           @keyframes fadeRight {
             0% {
