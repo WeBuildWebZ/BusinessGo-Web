@@ -7,7 +7,7 @@ const Banner = props => (
   <div className={`banner${props.show ? '' : ' bannerClosed'}`}>
     <Left onClickSee={props.onClose} banner={props.banner} />
     <Mid />
-    {props.banner.Right}
+    {props.show && props.banner.Right}
 
     <style jsx>
       {`
