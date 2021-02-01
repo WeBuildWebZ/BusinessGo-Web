@@ -20,6 +20,12 @@ const Messages = props => {
               <img className="avatar" src={project.chatbot.configuration.web.avatar} />
             )}
             {message.type === 'text' && <div className="text">{message.text}</div>}
+            {message.type === 'image' && (
+              <div className="text">
+                {message.text}
+                <img className="image" src={message.image_url} />
+              </div>
+            )}
           </div>
         </div>
       ))}
@@ -59,6 +65,10 @@ const Messages = props => {
             display: inline-block;
             float: right;
             white-space: pre-line;
+          }
+          .image {
+            max-width: 200px;
+            max-height: 200px;
           }
           @keyframes fadeRight {
             0% {
