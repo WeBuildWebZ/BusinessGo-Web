@@ -27,10 +27,6 @@
     "ValidationError": "readonly"
   },
   "rules": {
-    "indent": [
-      "error",
-      2
-    ],
     "linebreak-style": 0,
     "camelcase": "off",
     "no-underscore-dangle": "off",
@@ -46,11 +42,6 @@
     ],
     "arrow-parens": "off",
     "import/no-dynamic-require": "off",
-    "max-len": [
-      2,
-      132,
-      8
-    ],
     "prettier/prettier": [
       "error",
       {
@@ -106,6 +97,7 @@
     "import/no-cycle": "off",
     "react/button-has-type": "off",
     "react/jsx-no-target-blank": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "jsx-a11y/no-noninteractive-tabindex": "off"
   }
 }

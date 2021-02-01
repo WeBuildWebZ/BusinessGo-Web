@@ -5,8 +5,6 @@ const Avatar = props => {
   const project = useSelector(store => store.project);
   const image = project.chatbot.configuration.web.avatar;
 
-  console.log(image);
-
   return (
     <div className="avatar" onClick={props.onClick}>
       {image && <img className="image" src={image} />}

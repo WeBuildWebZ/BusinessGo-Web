@@ -68,7 +68,6 @@ const Intents = () => {
   const handleDeleteIntent = deletedIntent => {
     setMounted(true);
     deleteIntent(deletedIntent).then(() => {
-      console.log('mountedRef.current', mountedRef.current);
       if (!mountedRef.current) return;
       const newIntents = intents.filter(intent => intent._id !== deletedIntent._id);
       setIntents(newIntents);

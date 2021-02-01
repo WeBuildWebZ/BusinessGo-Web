@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TextField } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ import { createWebMessage } from '../../../services/chatbot_api/web_message';
 
 const Input = props => {
   const project = useSelector(store => store.project);
-  const textInput = useRef(null);
+  const textInput = useRef();
   const [text, setText] = useState('');
   const [waiting, setWaiting] = useState(false);
 
@@ -24,6 +24,10 @@ const Input = props => {
       props.onMessages(givenMessages.map(givenMessage => ({ ...givenMessage, from: 'bot' })));
     });
   };
+
+  useEffect(() => {
+    props.onInputRef(textInput);
+  }, []);
 
   return (
     <TextField
@@ -42,11 +46,13 @@ const Input = props => {
 };
 
 Input.propTypes = {
-  onMessages: PropTypes.func
+  onMessages: PropTypes.func,
+  onInputRef: PropTypes.func
 };
 
 Input.defaultProps = {
-  onMessages: () => {}
+  onMessages: () => {},
+  onInputRef: () => {}
 };
 
 export default Input;

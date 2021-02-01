@@ -14,6 +14,7 @@ const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const render = shouldRender(project);
   const [messages, setMessages] = useState([]);
+  const [textInput, setTextInput] = useState(null);
   const messagesRef = useRef();
   messagesRef.current = messages;
 
@@ -21,14 +22,18 @@ const Chatbot = () => {
     setMessages([...messagesRef.current, ...newMessages]);
   };
 
+  const handleFocusInput = () => {
+    textInput.current.focus();
+  };
+
   if (!render) return <div />;
   return (
-    <>
+    <div onKeyPress={handleFocusInput} tabIndex={0}>
       <Avatar show={!isOpen} onClick={() => setIsOpen(true)} />
       <div className="chatbot">
         <Header onClose={() => setIsOpen(false)} />
         <Messages messages={messages} />
-        <Input onMessages={handleAddMessages} />
+        <Input onMessages={handleAddMessages} onInputRef={setTextInput} />
       </div>
       <style jsx>
         {`
@@ -54,7 +59,7 @@ const Chatbot = () => {
           }
         `}
       </style>
-    </>
+    </div>
   );
 };
 
