@@ -15,13 +15,13 @@ const Input = props => {
     if (charCode !== 13 || !target.value) return;
 
     setWaiting(true);
-    props.onMessages('user', [{ type: 'text', text: target.value }]);
+    props.onMessages([{ type: 'text', from: 'user', text: target.value }]);
 
     createWebMessage(project, target.value).then(({ data: givenMessages }) => {
       setWaiting(false);
       textInput.current.focus();
       setText('');
-      props.onMessages('bot', givenMessages);
+      props.onMessages(givenMessages.map(givenMessage => ({ ...givenMessage, from: 'bot' })));
     });
   };
 

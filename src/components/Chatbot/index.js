@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { showForm } from '../../services/api/form';
@@ -7,11 +7,19 @@ import Header from './Header';
 import Input from './Input';
 import Avatar from './Avatar';
 import { shouldRender } from './utils';
+import Messages from './Messages';
 
 const Chatbot = () => {
   const project = useSelector(store => store.project);
   const [isOpen, setIsOpen] = useState(false);
   const render = shouldRender(project);
+  const [messages, setMessages] = useState([]);
+  const messagesRef = useRef();
+  messagesRef.current = messages;
+
+  const handleAddMessages = newMessages => {
+    setMessages([...messagesRef.current, ...newMessages]);
+  };
 
   if (!render) return <div />;
   return (
@@ -19,7 +27,8 @@ const Chatbot = () => {
       <Avatar show={!isOpen} onClick={() => setIsOpen(true)} />
       <div className="chatbot">
         <Header onClose={() => setIsOpen(false)} />
-        <Input />
+        <Messages messages={messages} />
+        <Input onMessages={handleAddMessages} />
       </div>
       <style jsx>
         {`

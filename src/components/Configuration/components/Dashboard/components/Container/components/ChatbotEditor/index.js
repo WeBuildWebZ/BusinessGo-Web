@@ -8,6 +8,7 @@ import FieldRenderer from '../../../../../../../FieldRenderer';
 import Spinner from '../../../../../../../Spinner';
 import { updateChatbotConfiguration } from '../../../../../../../../services/api/project';
 import { setProject } from '../../../../../../../../shared/actions/project';
+import { pushAlert } from '../../../../../../../../shared/actions/alerts';
 
 import Intents from './Intents';
 import { getLanguage } from './lang';
@@ -25,22 +26,17 @@ const ChatbotEditor = () => {
   const firstRender = useRef(true);
   const hasAuth = !['web'].includes(channel);
 
-  useEffect(() => {
+  const handleUpdateData = (newAuthData, newConfigData) => {
     const previousConfig = project.chatbot.configuration;
     const previousChannelConfig = project.chatbot.configuration[channel] || {};
     const previousAuthConfig = project.chatbot.configuration[channel]?.authentication || {};
-
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
 
     updateChatbotConfiguration(project, {
       ...previousConfig,
       [channel]: {
         ...previousChannelConfig,
-        ...configData,
-        authentication: { ...previousAuthConfig, ...authData }
+        ...newConfigData,
+        authentication: { ...previousAuthConfig, ...newAuthData }
       }
     }).then(({ data: givenChatbotConfig }) => {
       dispatch(
@@ -52,8 +48,15 @@ const ChatbotEditor = () => {
           }
         })
       );
+      dispatch(
+        pushAlert({
+          title: language.configUpdated.title,
+          icon: 'success',
+          message: language.configUpdated.message(channel)
+        })
+      );
     });
-  }, [authData, configData]);
+  };
 
   useEffect(() => {
     setConfigForm(null);
@@ -87,7 +90,7 @@ const ChatbotEditor = () => {
                     key={1}
                     data={authData}
                     fields={authForm.fields}
-                    onChange={setAuthData}
+                    onChange={newAuthData => handleUpdateData(newAuthData, configData)}
                     saveButton
                   />
                 </>
@@ -102,7 +105,7 @@ const ChatbotEditor = () => {
                 key={2}
                 data={configData}
                 fields={configForm.fields}
-                onChange={setConfigData}
+                onChange={newConfigData => handleUpdateData(authData, newConfigData)}
                 saveButton
               />
             </>

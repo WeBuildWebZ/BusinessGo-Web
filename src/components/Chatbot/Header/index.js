@@ -25,7 +25,7 @@ const Header = props => {
             justify-content: space-around;
             align-items: center;
             width: 100%;
-            height: 50px;
+            height: ${project.chatbot.configuration.web.header_size || 50}px;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             background: linear-gradient(to right, rgb(152, 130, 187), rgb(110, 72, 170));
