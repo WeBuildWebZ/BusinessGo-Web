@@ -99,7 +99,6 @@ const Catalogo = () => {
     <>
       <LogoContainer />
       <Layout>
-        <Banner />
         <div className="galery">
           <Modal show={!!selectedFitment} onHide={() => setSelectedFitment(null)}>
             <Modal.Header closeButton>{selectedFitment?.title}</Modal.Header>
