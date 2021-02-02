@@ -3,8 +3,8 @@ const YouChoose = () => (
     <div className="choose">
       <h3 data-aos="fade-right">You Choose!</h3>
       <p data-aos="fade-left">
-        Find you apropiated plan and start to planning with us, how do you like beginning? Haz click en el
-        boton y chatea conmigo.
+        Elige el plan mas apropiado para comenzar a trabajar con nosotros, Haz click en el boton y chatea
+        conmigo.
       </p>
     </div>
 
@@ -16,7 +16,7 @@ const YouChoose = () => (
           display: flex;
           justify-content: center;
           align-items: center;
-          background: #ebebeb;
+          background: #1c1c1c;
         }
 
         .choose {
