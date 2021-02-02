@@ -28,7 +28,7 @@ const ChatbotsSection = () => {
   };
 
   if (!project) return <Spinner />;
-  if (!project.chatbot.enabled) return <div>{language.chatbotsNotEnabled}</div>;
+  if (!project.chatbot.enabled_channels.includes('web')) return <div>{language.chatbotsNotEnabled}</div>;
 
   return CHANNELS.map(channel => {
     const isSelected = channel === selectedChannel && adminSection === 'chatbots';
