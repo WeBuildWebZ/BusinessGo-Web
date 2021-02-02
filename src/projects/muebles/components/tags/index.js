@@ -16,14 +16,16 @@ export const Tags = () => {
         {`
           .tags {
             width: 100vw;
-            height: 30vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
             background: #ebebeb;
+            padding: 1em;
             margin-bottom: 4em;
           }
           h4 {
+            width: 100%;
             margin: 0 9px;
             color: #1a508b;
           }

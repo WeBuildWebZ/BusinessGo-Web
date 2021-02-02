@@ -13,6 +13,7 @@ export const Jumbo = () => {
         {`
           h2 {
             width: 100vw;
+            padding-top: 1em;
             text-align: center;
             color: #1a508b;
           }
