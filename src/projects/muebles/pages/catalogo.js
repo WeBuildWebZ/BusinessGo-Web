@@ -164,7 +164,8 @@ const Catalogo = () => {
             height: 100%;
           }
           .cardImage {
-            width: 252px;
+            width: 96%;
+            margin-left: 2%;
             height: 196px;
             border-radius: 0.5em;
             object-fit: cover;
