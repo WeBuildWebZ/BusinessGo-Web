@@ -2,15 +2,15 @@ import Link from 'next/link';
 
 const Menu = () => (
   <div className="menu">
-    <Link href="/" className="link">
+    <Link href="/">
       <a>Inicio</a>
     </Link>
 
-    <Link href="/catalogo" className="link">
+    <Link href="/catalogo">
       <a>Catalogo</a>
     </Link>
 
-    <Link href="/ubicacion" className="link">
+    <Link href="/ubicacion">
       <a>ubicacion</a>
     </Link>
 
@@ -18,17 +18,24 @@ const Menu = () => (
       {`
         .menu {
           flex: 1;
-          width: 100%;
-          height: 100%;
+          width: 100vw;
+          height: 80px;
           display: flex;
-          justify-content: flex-end;
+          justify-content: center;
           align-items: center;
-          padding: 0 2em 0 0;
         }
-        link {
-          margin: 0 0.5em;
+        a {
+          margin: 0 0.3em;
           cursor: pointer;
-          color: black;
+          color: #0d335d;
+          font-weight: bold;
+          font-size: 1.5em;
+          text-decoration: none;
+        }
+        a:nth-child(2) {
+          padding: 0 0.5em;
+          border-left: 3px solid #0d335d;
+          border-right: 3px solid #0d335d;
         }
       `}
     </style>

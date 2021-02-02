@@ -20,12 +20,12 @@ export const Tags = () => {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #fff3e6;
-            color: #0d335d;
-            margin: 2em 0;
+            background: #ebebeb;
+            margin-bottom: 4em;
           }
           h4 {
             margin: 0 9px;
+            color: #1a508b;
           }
         `}
       </style>

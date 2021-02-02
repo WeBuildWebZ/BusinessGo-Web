@@ -5,8 +5,8 @@ const Footer = () => (
       <span className="column">
         <h3>Acerca de Nosotros</h3>
         <p>
-          Somos una empresa dedicada al desarrollo de software, paginas web, App Nativas para Android, bases
-          de datos, etc-
+          Somos una empresa dedicada a la fabricacion de muebles, visita nuestro catalogo, y envianos tu
+          consulta, contamos con entrega, consultanos por el radio de entrega, te esperamos.
         </p>
       </span>
       <span className="column">
@@ -20,6 +20,7 @@ const Footer = () => (
         <span className="row">
           <img src="/icon/house.png" alt="" />
           <p> Buenos Aires - Argentina</p>
+          <br />
         </span>
         <span className="row">
           <img src="/icon/phone.png" alt="" />
@@ -27,7 +28,7 @@ const Footer = () => (
         </span>
         <span className="row">
           <img src="/icon/contact.png" alt="" />
-          <p> @webuildwebz@gmail.com</p>
+          <p>muebles-horacio@gmail.com</p>
         </span>
       </span>
     </div>

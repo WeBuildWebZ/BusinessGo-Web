@@ -8,15 +8,16 @@ export const Jumbo = () => {
 
   return (
     <div>
-      <Jumbotron className="light">
-        {!project && <Spinner />}
-        {project && (
-          <>
-            <h1>{project.configuration.basic_info.title}</h1>
-            <p>{project.configuration.basic_info.description}</p>
-          </>
-        )}
-      </Jumbotron>
+      <h2>Bienvenidos!</h2>
+      <style jsx>
+        {`
+          h2 {
+            width: 100vw;
+            text-align: center;
+            color: #1a508b;
+          }
+        `}
+      </style>
     </div>
   );
 };
