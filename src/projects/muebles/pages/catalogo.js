@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 
+import Footer from '../components/footer';
+import { Banner } from '../components/banner';
+import { Tags } from '../components/tags';
+import Slide from '../components/slider';
+import Layout from '../Layout';
+import Identidad from '../components/identidad';
+import LogoContainer from '../components/navbar/logo-container';
+
 const fitments = [
   {
     title: 'Nombre de Mueble',
@@ -88,130 +96,139 @@ const Catalogo = () => {
   const [selectedFitment, setSelectedFitment] = useState(null);
 
   return (
-    <div className="galery">
-      <Modal show={!!selectedFitment} onHide={() => setSelectedFitment(null)}>
-        <Modal.Header closeButton>{selectedFitment?.title}</Modal.Header>
-        <Modal.Body>
-          {selectedFitment?.description}
-          <img className="modalImage" src={selectedFitment?.image_url} alt="" />
-        </Modal.Body>
-      </Modal>
-      <h2>Bienvenido/a</h2>
-      <h4>
-        Esta es nuestra galeria de todos los muebles que podras ver, consultame hasta donde es nuestro radio
-        de entrega.
-      </h4>
-      <br />
-      {fitments.map(({ title, image_url, description, price }, id) => (
-        <li className="card" key={id}>
-          <div className="top">
-            <img
-              className="cardImage"
-              src={image_url}
-              alt=""
-              onClick={() => setSelectedFitment({ id, title, image_url, description, price })}
-            />
-          </div>
-          <div className="mid">
-            {description}
-            <h4>{price}$</h4>
-          </div>
+    <>
+      <LogoContainer />
+      <Layout>
+        <Banner />
+        <div className="galery">
+          <Modal show={!!selectedFitment} onHide={() => setSelectedFitment(null)}>
+            <Modal.Header closeButton>{selectedFitment?.title}</Modal.Header>
+            <Modal.Body>
+              {selectedFitment?.description}
+              <img className="modalImage" src={selectedFitment?.image_url} alt="" />
+            </Modal.Body>
+          </Modal>
+          <h2>Bienvenido/a</h2>
+          <h4>
+            Esta es nuestra galeria de todos los muebles que podras ver, consultame hasta donde es nuestro
+            radio de entrega.
+          </h4>
+          <br />
+          {fitments.map(({ title, image_url, description, price }, id) => (
+            <li className="card" key={id}>
+              <div className="top">
+                <img
+                  className="cardImage"
+                  src={image_url}
+                  alt=""
+                  onClick={() => setSelectedFitment({ id, title, image_url, description, price })}
+                />
+              </div>
+              <div className="mid">
+                {description}
+                <h4>{price}$</h4>
+              </div>
 
-          <div className="bottom" onClick={() => setSelectedFitment({ id, image_url, description, price })}>
-            <a href="#">Ver</a>
-          </div>
-        </li>
-      ))}
+              <div
+                className="bottom"
+                onClick={() => setSelectedFitment({ id, image_url, description, price })}
+              >
+                <a href="#">Ver</a>
+              </div>
+            </li>
+          ))}
 
-      <style jsx>
-        {`
-          .galery {
-            width: 100vw;
-            padding: 2em;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: row;
-            flex-wrap: wrap;
-          }
-          h2 {
-            width: 100vw;
-            text-align: center;
-          }
-          // ===========================================================================
-          .card {
-            width: 300px;
-            height: 400px;
-            border: 0.5em solid #ebebeb;
-            border-radius: 1em;
-            padding: 1em;
-            margin: 0.5em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-flow: column;
-            transition: 0.7s;
-          }
-          .card:hover {
-            border: 0.5em solid silver;
-            box-shadow: 0.3em 0.3em 0.5em grey;
-          }
-          // ======================================================================================
-          .top {
-            flex: 5;
-            width: 100%;
-            height: 100%;
-          }
-          .cardImage {
-            width: 96%;
-            margin-left: 2%;
-            height: 196px;
-            border-radius: 0.5em;
-            object-fit: cover;
-            transition: 0.7s;
-            cursor: pointer;
-          }
-          .cardImage:hover {
-            border-radius: 0.8em;
-            box-shadow: 0 0 5px;
-            transform: scale(1.1);
-          }
-          .modalImage {
-            max-width: 100%;
-            border-radius: 0.5em;
-          }
-          // ======================================================================================
-          .mid {
-            flex: 4;
-            width: 100%;
-            height: 100%;
-            margin: 0.5em 0;
-          }
-          // =======================================================================================
-          .bottom {
-            flex: 1;
-            width: 100%;
-            height: 100%;
-            background: #f8ac30;
-            border-radius: 0.5em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-          }
-          a {
-            color: black;
-            transition: 0.7s;
-          }
-          a:hover {
-            color: white;
-            cursor: pointer;
-            transform: scale(1.1);
-          }
-        `}
-      </style>
-    </div>
+          <style jsx>
+            {`
+              .galery {
+                width: 100vw;
+                padding: 2em;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+              }
+              h2 {
+                width: 100vw;
+                text-align: center;
+              }
+              // ===========================================================================
+              .card {
+                width: 300px;
+                height: 400px;
+                border: 0.5em solid #ebebeb;
+                border-radius: 1em;
+                padding: 1em;
+                margin: 0.5em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-flow: column;
+                transition: 0.7s;
+              }
+              .card:hover {
+                border: 0.5em solid silver;
+                box-shadow: 0.3em 0.3em 0.5em grey;
+              }
+              // ======================================================================================
+              .top {
+                flex: 5;
+                width: 100%;
+                height: 100%;
+              }
+              .cardImage {
+                width: 96%;
+                margin-left: 2%;
+                height: 196px;
+                border-radius: 0.5em;
+                object-fit: cover;
+                transition: 0.7s;
+                cursor: pointer;
+              }
+              .cardImage:hover {
+                border-radius: 0.8em;
+                box-shadow: 0 0 5px;
+                transform: scale(1.1);
+              }
+              .modalImage {
+                max-width: 100%;
+                border-radius: 0.5em;
+              }
+              // ======================================================================================
+              .mid {
+                flex: 4;
+                width: 100%;
+                height: 100%;
+                margin: 0.5em 0;
+              }
+              // =======================================================================================
+              .bottom {
+                flex: 1;
+                width: 100%;
+                height: 100%;
+                background: #f8ac30;
+                border-radius: 0.5em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+              }
+              a {
+                color: black;
+                transition: 0.7s;
+              }
+              a:hover {
+                color: white;
+                cursor: pointer;
+                transform: scale(1.1);
+              }
+            `}
+          </style>
+        </div>
+      </Layout>
+    </>
   );
 };
 
