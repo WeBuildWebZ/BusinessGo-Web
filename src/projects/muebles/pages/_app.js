@@ -44,7 +44,7 @@ const AppendHead = () => (
       twitter={{ handle: '@handle', site: '@site', cardType: 'summary_large_image' }}
     />
     <Head>
-      <link rel="icon" href="/favicon.png" />
+      <link rel="icon" href="/icon/home-solid.svg" />
     </Head>
   </>
 );
