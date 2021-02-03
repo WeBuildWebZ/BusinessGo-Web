@@ -23,19 +23,20 @@ const Menu = () => (
           display: flex;
           justify-content: center;
           align-items: center;
+          padding: 0 1em;
         }
         a {
-          margin: 0 0.3em;
+          margin: 0 1em;
           cursor: pointer;
           color: #0d335d;
-          font-weight: bold;
           font-size: 1.5em;
           text-decoration: none;
         }
-        a:nth-child(2) {
-          padding: 0 0.5em;
-          border-left: 3px solid #0d335d;
-          border-right: 3px solid #0d335d;
+        @media (max-width: 363px) {
+          a {
+            margin: 0 0.5em;
+            font-size: 1em;
+          }
         }
       `}
     </style>

@@ -18,6 +18,11 @@ export const Banner = () => {
             background-repeat: no-repeat;
             background-size: cover;
           }
+          @media (max-width: 661px) {
+            .banner {
+              background-attachment: unset;
+            }
+          }
         `}
       </style>
     </div>

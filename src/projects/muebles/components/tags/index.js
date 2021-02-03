@@ -20,13 +20,18 @@ export const Tags = () => {
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            background: #ebebeb;
             padding: 1em;
             margin-bottom: 4em;
           }
+          a {
+            text-decoration: none;
+          }
           h4 {
             width: 100%;
-            margin: 0 9px;
+            margin: 0.5em 1em;
+            color: #1c1c1c;
+          }
+          h4:hover {
             color: #1a508b;
           }
         `}

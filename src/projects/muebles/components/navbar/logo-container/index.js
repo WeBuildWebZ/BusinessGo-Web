@@ -13,6 +13,11 @@ const LogoContainer = () => (
           width: 100vw;
           display: flex;
         }
+        @media (max-width: 395px) {
+          .logocontainer {
+            flex-flow: column;
+          }
+        }
       `}
     </style>
   </div>

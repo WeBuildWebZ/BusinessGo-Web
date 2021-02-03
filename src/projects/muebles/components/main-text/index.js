@@ -1,16 +1,18 @@
 const MainText = () => (
   <div className="maintext">
     <p>
-      like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as
-      their default model text, and a search for 'lorem ipsum'
+      Somos una empresa especializada en el diseño, fabricación y comercialización de mobiliarios, todo a
+      medida, considerando los mejores estadares actuales.
     </p>
+
     <p>
-      like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as
-      their default model text, and a search for 'lorem ipsum'
+      Para ello contamos con vasta experiencia en el rubro y un equipo capacitado para llevar a cabo su
+      proyecto asegurando el mejor costo y calidad del mercado.
     </p>
+
     <p>
-      like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as
-      their default model text, and a search for 'lorem ipsum'
+      Trabajamos de manera personalizada garantizando la satisfacción de todas sus necesidades. Lo invitamos a
+      recorrer nuestro sitio para conocer más de nuestros trabajos.
     </p>
     <style>
       {`
@@ -21,7 +23,7 @@ const MainText = () => (
         display:flex;
         justify-content:center;
         align-items:center;
-        flex-werap:wrap;
+        flex-wrap:wrap;
         padding:1em;
     }
     p{

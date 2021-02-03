@@ -48,6 +48,11 @@ const Identidad = () => (
           padding: 0;
           margin: 0;
         }
+        @media (max-width: 661px) {
+          .identidad {
+            background-attachment: unset;
+          }
+        }
       `}
     </style>
   </div>
