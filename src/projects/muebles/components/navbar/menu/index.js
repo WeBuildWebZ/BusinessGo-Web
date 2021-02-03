@@ -7,11 +7,11 @@ const Menu = () => (
     </Link>
 
     <Link href="/catalogo">
-      <a>Catalogo</a>
+      <a>Catálogo</a>
     </Link>
 
     <Link href="/ubicacion">
-      <a>ubicacion</a>
+      <a>Ubicación</a>
     </Link>
 
     <style jsx>

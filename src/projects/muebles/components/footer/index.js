@@ -1,10 +1,10 @@
 const Footer = () => (
   <div className="footer">
     <div className="top">
-      <p>Catalogo</p>
+      <p>Catálogo</p>
       <p>Presupuesto</p>
       <p>Contacto</p>
-      <p>Ubicacion</p>
+      <p>Ubicación</p>
     </div>
     <div className="bottom">
       <center className="text">

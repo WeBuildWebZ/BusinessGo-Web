@@ -4,7 +4,7 @@ const Footer = () => (
       <span className="column">
         <h3>Acerca de Nosotros</h3>
         <p>
-          Somos una empresa dedicada a la fabricacion de muebles, visita nuestro catalogo, y envianos tu
+          Somos una empresa dedicada a la fabricación de muebles, visitá nuestro catálogo, y envianos tu
           consulta, contamos con entrega, consultanos por el radio de entrega, te esperamos.
         </p>
       </span>
@@ -18,7 +18,7 @@ const Footer = () => (
       </span>
 
       <span className="column">
-        <h3>Informacion de Contacto</h3>
+        <h3>Información de Contacto</h3>
         <span className="row">
           <img src="/icon/house.png" alt="" />
           <p> Buenos Aires - Argentina</p>
@@ -26,11 +26,19 @@ const Footer = () => (
         </span>
         <span className="row">
           <img src="/icon/phone.png" alt="" />
-          <p> 1162329888</p>
+          <p>
+            <a href="tel:1162329888" target="blank">
+              1162329888
+            </a>
+          </p>
         </span>
         <span className="row">
           <img src="/icon/contact.png" alt="" />
-          <p>muebles-horacio@gmail.com</p>
+          <p>
+            <a href="mailto:muebles-horacio@gmail.com" target="blank">
+              muebles-horacio@gmail.com
+            </a>
+          </p>
         </span>
       </span>
     </div>
