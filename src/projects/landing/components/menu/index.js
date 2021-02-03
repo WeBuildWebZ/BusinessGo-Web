@@ -30,7 +30,7 @@ const Navbar = () => (
       {`
         .menu {
           width: 100vw;
-          height: 80px;
+          padding: 1.5em 1em;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -44,6 +44,17 @@ const Navbar = () => (
         }
         a:hover {
           color: black;
+        }
+        @media (max-width: 700px) {
+          a {
+            margin: 0 0.5em;
+            font-size: 1em;
+          }
+        }
+        @media (max-width: 448px) {
+          a {
+            margin: 0 5px;
+          }
         }
       `}
     </style>

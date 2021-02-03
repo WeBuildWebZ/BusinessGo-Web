@@ -2,6 +2,7 @@ const Additional = () => (
   <div className="additional">
     <div className="text">
       <button>Deluxe</button>
+
       <h5>WeBuildWebz</h5>
       <hr />
       <p>Construimos Interfacez de diseño atractivas.</p>
@@ -13,6 +14,7 @@ const Additional = () => (
           display: flex;
           justify-content: center;
           align-items: center;
+          padding: 0 1em;
         }
         .text {
           width: 600px;
@@ -42,6 +44,23 @@ const Additional = () => (
           height: 100%;
           margin: 0;
           padding: 0;
+        }
+
+        @media (max-width: 587px) {
+          .text {
+            width: 100%;
+            flex-flow: column;
+            align-items: flex-start;
+            border-radius: 0.5em;
+            padding: 0.5em;
+          }
+          button {
+            margin-bottom: 5px;
+          }
+          hr {
+            margin: 4px 0;
+            width: 2em;
+          }
         }
       `}
     </style>
