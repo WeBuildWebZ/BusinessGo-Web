@@ -43,7 +43,9 @@ const Navbar = () => (
           text-decoration: none;
         }
         a:hover {
-          color: black;
+          background-image: linear-gradient(to left, #ff8aac, #e396dc, #aca9fa, #63baff, #12c5eb);
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
         }
         @media (max-width: 700px) {
           a {

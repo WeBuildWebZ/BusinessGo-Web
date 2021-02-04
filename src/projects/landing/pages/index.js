@@ -16,6 +16,7 @@ import BannerSegundo from '../components/segundo-banner';
 import LogoBanner from '../components/logo-banner';
 import Navbar from '../components/menu';
 import Additional from '../components/aditional';
+import Layout from '../layout';
 
 import { banners } from './banners';
 
@@ -32,19 +33,17 @@ export default function LandingPage() {
 
   return (
     <>
-      <LogoBanner />
-      <Navbar />
-      <Additional />
-      {banners.map((banner, i) => (
-        <Banner key={i} show={i === selectedBanner} onClose={handleChangeBanner} banner={banner} />
-      ))}
-      <BannerSegundo />
-      <Frase />
-      <Texto />
-      <ItemsExplicacion />
-      <YouChoose />
-      <CardsPrices />
-      <Footer />
+      <Layout>
+        {banners.map((banner, i) => (
+          <Banner key={i} show={i === selectedBanner} onClose={handleChangeBanner} banner={banner} />
+        ))}
+        <BannerSegundo />
+        <Frase />
+        <Texto />
+        <ItemsExplicacion />
+        <YouChoose />
+        <CardsPrices />
+      </Layout>
     </>
   );
 }
