@@ -3,6 +3,7 @@ const galeria = [
     id: 1,
     image_url:
       'https://images.pexels.com/photos/618613/pexels-photo-618613.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    title: 'esto es el titulo del articulo',
     description: 'Mira este articulo y avivate, somos programadores, somos reyes, bitch.',
     url: 'https://www.40defiebre.com/guia-seo/que-es-seo-por-que-necesito'
   },
@@ -10,6 +11,8 @@ const galeria = [
     id: 2,
     image_url:
       'https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
+    title: 'esto es el titulo del articulo',
+
     description: 'Mira este articulo y avivate, somos programadores, somos reyes, bitch.',
     url: 'https://www.40defiebre.com/que-es/diseno-responsive'
   },
@@ -17,6 +20,8 @@ const galeria = [
     id: 3,
     image_url:
       'https://images.pexels.com/photos/1569076/pexels-photo-1569076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    title: 'esto es el titulo del articulo',
+
     description: 'Mira este articulo y avivate, somos programadores, somos reyes, bitch.',
     url: 'https://www.cualhost.com/sitios-web/para-que-sirve-una-pagina-web/'
   }
@@ -32,12 +37,15 @@ const Blog = () => (
       </h4>
     </div>
     <br />
-    {galeria.map(({ id, image_url, description, url }) => (
+    {galeria.map(({ id, image_url, title, description, url }) => (
       <li className="card" key={id}>
         <div className="top">
           <img src={image_url} alt="" />
         </div>
-        <div className="mid">{description}</div>
+        <div className="mid">
+          <h4>{title}</h4>
+          <p>{description}</p>
+        </div>
 
         <div className="bottom">
           <a href={url} target="_blank" rel="noopener noreferrer">
@@ -62,8 +70,8 @@ const Blog = () => (
         .text {
           width: 100vw;
         }
-        h2,
-        h4 {
+        .text h2,
+        .text h4 {
           width: 100vw;
           text-align: center;
         }

@@ -1,4 +1,4 @@
-const iconColors = ['#ff5a30', '#ffcc33', '#00f5f3'];
+const iconColors = ['#F9EE08', '#FF8CAC', '#00E6FF'];
 
 const items = [
   {
@@ -125,6 +125,7 @@ const ItemsExplicacion = () => (
           border-radius: 1em;
           position: relative;
         }
+        // ======================================================================
         .card {
           width: 500px;
           display: flex;
@@ -140,12 +141,12 @@ const ItemsExplicacion = () => (
           height: 100%;
           display: flex;
           align-items: center;
-          flex: 1;
+          flex: 2;
           padding-right: 1em;
         }
         .text {
           width: 500px;
-          flex: 9;
+          flex: 8;
         }
         img {
           width: 50px;

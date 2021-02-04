@@ -52,6 +52,7 @@ const Frase = () => (
           flex-flow: column;
           padding: 1em;
           background: white;
+          box-shadow: 0.3em 0.3em 0.5em silver;
         }
         .fa-quote-left {
           width: 50px;

@@ -28,7 +28,7 @@ const Additional = () => (
         button {
           outline: none;
           border: none;
-          background: linear-gradient(to left, #ff4646, #ff577f);
+          background-image: linear-gradient(to left, #ff8aac, #e396dc, #aca9fa, #63baff, #12c5eb);
           border-radius: 0.5em;
           padding: 3px 5px;
           color: white;
