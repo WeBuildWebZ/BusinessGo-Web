@@ -10,7 +10,7 @@ const Navbar = () => (
       <a>Precios</a>
     </Link>
 
-    <Link href="/Galeria">
+    <Link href="/galeria">
       <a>Galeria</a>
     </Link>
 
@@ -18,11 +18,11 @@ const Navbar = () => (
       <a>Blog</a>
     </Link>
 
-    <Link href="/Contacto">
+    <Link href="/contacto">
       <a>Contacto</a>
     </Link>
 
-    <Link href="/Nosotros">
+    <Link href="/nosotros">
       <a>Nosotros</a>
     </Link>
 
