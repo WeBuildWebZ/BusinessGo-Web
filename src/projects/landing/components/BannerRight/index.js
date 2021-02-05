@@ -39,9 +39,9 @@ const Rigth = () => (
     <style jsx>
       {`
         .right {
-          width: 700px;
-          height: 900px;
-          overflow: hidden;
+          width: 600px;
+          height: 700px;
+          margin-left: 3em;
         }
         .box {
           width: 100%;
@@ -50,6 +50,38 @@ const Rigth = () => (
           flex-flow: column;
           border-radius: 5px;
           overflow: hidden;
+        }
+        // ======================
+        @media (max-width: 1286px) {
+          .right {
+            margin-left: 0;
+          }
+        }
+        @media (max-width: 605px) {
+          .right {
+            width: 100vw;
+          }
+        }
+
+        @media (max-width: 528px) {
+          .right {
+            height: 650px;
+          }
+        }
+        @media (max-width: 454px) {
+          .right {
+            height: 600px;
+          }
+        }
+        @media (max-width: 370px) {
+          .right {
+            height: 500px;
+          }
+        }
+        @media (max-width: 304px) {
+          .right {
+            height: 400px;
+          }
         }
       `}
     </style>

@@ -16,7 +16,7 @@ const Banner = props => (
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
-          padding: 2em 5em;
+          padding: 1em;
           transition: 0.5s;
         }
         .bannerClosed {
@@ -29,6 +29,7 @@ const Banner = props => (
         @media (max-width: 1286px) {
           .banner {
             flex-flow: column;
+            height: 100%;
           }
         }
       `}

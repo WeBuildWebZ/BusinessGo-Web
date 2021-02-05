@@ -16,9 +16,10 @@ const Left = props => (
     <style jsx>
       {`
         .left {
-          width: 700px;
-          height: 900px;
+          width: 600px;
+          height: 700px;
           display: flex;
+          margin-right: 3em;
           flex-flow: column;
         }
         .top,
@@ -74,6 +75,21 @@ const Left = props => (
           padding-top: 7px;
         }
         // =====================================================================
+        @media (max-width: 1286px) {
+          .left {
+            margin-right: 0;
+          }
+        }
+        @media (max-width: 605px) {
+          .left {
+            width: 100vw;
+          }
+        }
+        @media (max-width: 388px) {
+          .down span {
+            flex-flow: column-reverse;
+          }
+        }
       `}
     </style>
   </div>
