@@ -5,19 +5,19 @@ import Layout from '../layout';
 const integrantes = [
   {
     id: 1,
+    background: '/images/yo.jpg',
     imagen: '/images/yo.jpg',
     nombre: 'Jose Rios',
     puesto: 'Front-End',
-    tecnologias: '',
     descripcion:
       'Soy una persona apasionada por aprender todo sobre FrontEnd,interfaces y diseño, estoy a cargo de esta seccion en WeBuildWebz'
   },
   {
     id: 2,
+    background: '/images/el.jpg',
     imagen: '/images/el.jpg',
     nombre: 'Leandro Cotti',
     puesto: 'Back-End',
-    tecnologias: '',
     descripcion:
       'Soy una persona apasionada por aprender todo sobre backend,y los fujos de datos, estoy a cargo de esta seccion en WeBuildWebz'
   }
@@ -27,11 +27,15 @@ const Nosotros = () => (
   <Layout>
     <div className="nosotros">
       <h3>Nosotros</h3>
-      {integrantes.map(({ id, imagen, nombre, puesto, tecnologias, descripcion }) => (
+      {integrantes.map(({ id, background, imagen, nombre, puesto, descripcion }) => (
         <div key={id} className="card">
           <div
             className="foto"
-            style={{ backgroundImage: `linear-gradient(to left, #eb01a500, #d13531DD), url(${imagen})` }}
+            style={{
+              backgroundImage: `linear-gradient(to left,hsla(0, 0%, 75%, 0.5),hsla(0, 0%, 92%, 0.5)), url(${background})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover'
+            }}
           >
             <img src={imagen} alt="" />
           </div>
@@ -51,6 +55,7 @@ const Nosotros = () => (
             align-items: center;
             flex-flow: column;
             background: #ebebeb;
+            padding: 1em;
           }
           .card {
             display: -webkit-box;
@@ -67,7 +72,7 @@ const Nosotros = () => (
             -ms-flex-flow: column;
             flex-flow: column;
             width: 32em;
-            height: 40em;
+            height: 32em;
             border-radius: 1em;
             padding: 1em;
             margin: 2em;
@@ -79,7 +84,7 @@ const Nosotros = () => (
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            // border:4px solid white;
+            border: 4px solid white;
           }
 
           .foto,
@@ -91,6 +96,15 @@ const Nosotros = () => (
           .foto {
             display: flex;
             align-items: flex-end;
+          }
+          h6 {
+            color: grey;
+          }
+          // ==========================================
+          @media (max-width: 541px) {
+            .card {
+              width: 100%;
+            }
           }
         `}
       </style>
