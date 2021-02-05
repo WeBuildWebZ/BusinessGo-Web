@@ -1,13 +1,7 @@
 const BannerSegundo = () => (
   <div className="about">
     <div className="left" data-aos="fade-right">
-      <img
-        src="/images/segundo-banner.jpg"
-        alt="segunda imagen banner"
-        width={400}
-        height={400}
-        className="radius"
-      />
+      <img src="/images/segundo-banner.jpg" alt="segunda imagen banner" className="radius" />
     </div>
     <div className="right" data-aos="fade-left">
       <div className="textlayout">
@@ -31,6 +25,10 @@ const BannerSegundo = () => (
           width: 100vw;
           height: 100vh;
           padding: 2em;
+        }
+        img {
+          width: 400px;
+          height: 400px;
         }
 
         .left {
@@ -167,7 +165,48 @@ const BannerSegundo = () => (
         // =======================================================
         @media (max-width: 1081px) {
           .about {
-            flex-flow: column;
+            height: 100%;
+            flex-flow: column-reverse;
+            padding: 1em;
+          }
+          .textlayout {
+            background: hsla(0, 0%, 100%, 0.331);
+            backdrop-filter: blur(1em);
+          }
+          .right:after {
+            display: none;
+          }
+          .right:before {
+            top: 0;
+            right: 1em;
+            background: #00a1e5;
+          }
+        }
+        @media (max-width: 1081px) {
+          .left::after {
+            width: 8em;
+            height: 8em;
+            top: 0;
+            left: 0;
+          }
+        }
+        @media (max-width: 500px) {
+          img {
+            width: 300px;
+            height: 300px;
+          }
+        }
+        @media (max-width: 408px) {
+          .textlayout {
+            width: 100%;
+          }
+          img {
+            width: 250px;
+            height: 250px;
+          }
+          .left::after {
+            width: 5em;
+            height: 5em;
           }
         }
       `}

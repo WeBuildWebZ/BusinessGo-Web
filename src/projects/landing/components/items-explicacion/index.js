@@ -127,7 +127,7 @@ const ItemsExplicacion = () => (
         }
         // ======================================================================
         .card {
-          width: 500px;
+          width: 70%;
           display: flex;
           flex-flow: row;
           border-radius: 1em;
@@ -152,6 +152,40 @@ const ItemsExplicacion = () => (
           width: 50px;
           height: 50px;
           object-fit: cover;
+        }
+        // ======================
+        @media (max-width: 1022px) {
+          .top,
+          .bottom {
+            height: 100%;
+            flex-flow: column-reverse;
+          }
+          .card {
+            height: 100%;
+            padding: 1em;
+            box-shadow: 0.3em 0.3em 0.5em silver;
+          }
+          .left,
+          .right {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        @media (max-width: 754px) {
+          .card {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        @media (max-width: 534px) {
+          .card {
+            width: 100vw;
+            flex-flow: column;
+            padding: 0.5em;
+          }
+          .text {
+            width: 100%;
+          }
         }
       `}
     </style>

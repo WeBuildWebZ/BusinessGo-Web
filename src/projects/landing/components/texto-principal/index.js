@@ -44,6 +44,7 @@ const Texto = () => (
           display: flex;
           justify-content: center;
           align-items: center;
+          flex-wrap: wrap;
         }
         // ======================================================================================
         .bullhorn {
@@ -110,6 +111,20 @@ const Texto = () => (
         .images:hover {
           -webkit-mask: url(/images-solid.svg) no-repeat 100% 100%;
           background-image: linear-gradient(to left, #ff8aac, #e396dc, #aca9fa, #63baff, #12c5eb);
+        }
+        // =====================================
+        @media (max-width: 608px) {
+          p {
+            width: 100%;
+          }
+        }
+        @media (max-width: 280px) {
+          h2,
+          h4,
+          p {
+            width: 100%;
+            height: 100%;
+          }
         }
       `}
     </style>

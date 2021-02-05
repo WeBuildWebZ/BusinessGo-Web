@@ -71,6 +71,19 @@ const Frase = () => (
           text-align: center;
           font-weight: bold;
         }
+        @media (max-width: 528px) {
+          .text {
+            padding: 1em;
+          }
+          .frase {
+            width: 100%;
+            height: 100%;
+            border-radius: 1em;
+          }
+          h4 {
+            padding: 8px 0;
+          }
+        }
       `}
     </style>
   </article>
