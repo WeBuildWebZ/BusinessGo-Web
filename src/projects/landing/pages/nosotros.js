@@ -28,8 +28,11 @@ const Nosotros = () => (
     <div className="nosotros">
       <h3>Nosotros</h3>
       {integrantes.map(({ id, imagen, nombre, puesto, tecnologias, descripcion }) => (
-        <div className="card">
-          <div className="foto" style={{ backgroundImage: 'url({imagen})' }}>
+        <div key={id} className="card">
+          <div
+            className="foto"
+            style={{ backgroundImage: `linear-gradient(to left, #eb01a500, #d13531DD), url(${imagen})` }}
+          >
             <img src={imagen} alt="" />
           </div>
           <div className="text">
