@@ -18,10 +18,6 @@ const Navbar = () => (
       <a>Blog</a>
     </Link>
 
-    <Link href="/contacto">
-      <a>Contacto</a>
-    </Link>
-
     <Link href="/nosotros">
       <a>Nosotros</a>
     </Link>
@@ -54,6 +50,9 @@ const Navbar = () => (
           }
         }
         @media (max-width: 448px) {
+          .menu {
+            padding: 1 0.5em;
+          }
           a {
             margin: 0 5px;
           }
