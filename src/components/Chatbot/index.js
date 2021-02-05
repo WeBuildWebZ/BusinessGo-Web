@@ -65,6 +65,14 @@ const Chatbot = () => {
             z-index: 999;
             transition: 0.7s;
           }
+          @media only screen and (max-width: 768px) {
+            .chatbot {
+              transform: translate(0, -100%);
+              width: 96%;
+              left: 2%;
+              top: 100%;
+            }
+          }
         `}
       </style>
     </div>
