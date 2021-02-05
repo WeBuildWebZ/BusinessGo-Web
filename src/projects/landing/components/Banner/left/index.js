@@ -16,9 +16,8 @@ const Left = props => (
     <style jsx>
       {`
         .left {
-          flex: 3;
-          width: 100%;
-          height: 100%;
+          width: 700px;
+          height: 900px;
           display: flex;
           flex-flow: column;
         }
@@ -74,6 +73,7 @@ const Left = props => (
         h6 {
           padding-top: 7px;
         }
+        // =====================================================================
       `}
     </style>
   </div>

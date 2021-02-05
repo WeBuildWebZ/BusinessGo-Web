@@ -26,6 +26,15 @@ const galeria = [
 
     description: 'Mira este articulo y avivate, somos programadores, somos reyes, bitch.',
     url: 'https://www.cualhost.com/sitios-web/para-que-sirve-una-pagina-web/'
+  },
+  {
+    id: 4,
+    image_url:
+      'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-pexels.jpg?alt=media&token=15fdf457-6ace-4d8f-b7b3-ed7009aee6df',
+    title: 'Pexels, free Images',
+
+    description: 'Mira este articulo y avivate, somos programadores, somos reyes, bitch.',
+    url: 'https://www.pexels.com/es-es/ '
   }
 ];
 const Blog = () => (
@@ -34,9 +43,8 @@ const Blog = () => (
       <div className="text">
         <h2>Preparamos para ti esta Coleccion de Blogs Destacada</h2>
         <h4>
-          Encuentra toda la informacion que necesitas, diseños, terminos, inclusive banco de imagenes FREE.
-          <br />
-          en esta seccion de nuestra web, te va a gustar, que esperas?
+          Encuentra toda la informacion que necesitas, diseños, terminos, inclusive banco de imagenes FREE. En
+          esta seccion de nuestra web, te va a gustar, que esperas?
         </h4>
       </div>
       <br />
@@ -72,11 +80,19 @@ const Blog = () => (
           }
           .text {
             width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+            margin-bottom: 3em;
           }
-          .text h2,
-          .text h4 {
+          .text h2 {
             width: 100vw;
             text-align: center;
+          }
+          .text h4 {
+            color: grey;
+            width: 60%;
           }
 
           // ===========================================================================

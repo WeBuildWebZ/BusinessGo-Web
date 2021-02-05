@@ -164,6 +164,12 @@ const BannerSegundo = () => (
           text-align: center;
           color: black;
         }
+        // =======================================================
+        @media (max-width: 1081px) {
+          .about {
+            flex-flow: column;
+          }
+        }
       `}
     </style>
   </div>

@@ -29,10 +29,10 @@ const galeria = [
       'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-horacio-muebles.jpg?alt=media&token=4ca6934f-b088-49a0-9a9a-723bb05b1db5',
     description:
       'Muebles-Horacio, una tienda digital, de caracter informativa, en la que el publico contacta al vendedor.',
-    url: 'https://jose-rios.netlify.app/#/'
+    url: 'https://www.muebles.dancotll.com/'
   },
   {
-    id: 4,
+    id: 5,
     image_url:
       'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-webuildwebz.jpg?alt=media&token=cca05d1d-42e8-445e-a346-21c6d4686bfc',
     description:

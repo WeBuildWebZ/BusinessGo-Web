@@ -7,8 +7,6 @@ import LoadingPage from '../../../components/LoadingPage';
 import { setUser } from '../../../shared/actions/user';
 import Banner from '../components/Banner';
 import Footer from '../components/footer';
-import CardsPrices from '../components/card-prices';
-import YouChoose from '../components/you-choose';
 import Frase from '../components/frase';
 import Texto from '../components/texto-principal';
 import ItemsExplicacion from '../components/items-explicacion';
@@ -41,8 +39,6 @@ export default function LandingPage() {
         <Frase />
         <Texto />
         <ItemsExplicacion />
-        <YouChoose />
-        <CardsPrices />
       </Layout>
     </>
   );

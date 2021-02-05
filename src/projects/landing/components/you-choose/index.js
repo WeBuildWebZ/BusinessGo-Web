@@ -1,9 +1,9 @@
 const YouChoose = () => (
   <div className="precios">
     <div className="choose">
-      <h3 data-aos="fade-right">You Choose!</h3>
+      <h3 data-aos="fade-right">Tu Eliges!</h3>
       <p data-aos="fade-left">
-        Elige el plan mas apropiado para comenzar a trabajar con nosotros, Haz click en el boton y chatea
+        Escoge el plan mas apropiado para comenzar a trabajar con nosotros, Haz click en el boton y chatea
         conmigo.
       </p>
     </div>

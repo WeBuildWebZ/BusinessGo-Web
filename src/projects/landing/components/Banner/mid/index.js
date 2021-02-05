@@ -7,6 +7,11 @@ const Mid = () => (
           width: 100%;
           height: 100%;
         }
+        @media (max-width: 1286px) {
+          .mid {
+            display: none;
+          }
+        }
       `}
     </style>
   </div>

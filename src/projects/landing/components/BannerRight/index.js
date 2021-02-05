@@ -39,9 +39,8 @@ const Rigth = () => (
     <style jsx>
       {`
         .right {
-          flex: 3;
-          width: 100%;
-          height: 100%;
+          width: 700px;
+          height: 900px;
           overflow: hidden;
         }
         .box {

@@ -15,6 +15,7 @@ const Additional = () => (
           justify-content: center;
           align-items: center;
           padding: 0 1em;
+          margin-top: 2em;
         }
         .text {
           width: 600px;

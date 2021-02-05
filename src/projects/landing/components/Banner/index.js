@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 
 import Left from './left';
-import Mid from './mid';
 
 const Banner = props => (
   <div className={`banner${props.show ? '' : ' bannerClosed'}`}>
     <Left onClickSee={props.onClose} banner={props.banner} />
-    <Mid />
     {props.show && props.banner.Right}
 
     <style jsx>
@@ -15,6 +13,9 @@ const Banner = props => (
           width: 100vw;
           height: 100vh;
           display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
           padding: 2em 5em;
           transition: 0.5s;
         }
@@ -24,6 +25,11 @@ const Banner = props => (
           height: 0;
           padding: 0;
           border-width: 0;
+        }
+        @media (max-width: 1286px) {
+          .banner {
+            flex-flow: column;
+          }
         }
       `}
     </style>
