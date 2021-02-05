@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FieldRenderer from '../../../../components/FieldRenderer';
 import Spinner from '../../../../components/Spinner';
 import { showForm } from '../../../../services/api/form';
-import { createFormResponse } from '../../../../services/api/formResponse';
+import { createCart } from '../../../../services/ecommerce_api/cart';
 import { pushAlert } from '../../../../shared/actions/alerts';
 import { getProductPrice } from '../../../../utils/product';
 import { PROJECT_CODE } from '../../constants';
@@ -27,7 +27,7 @@ const RequestCart = () => {
   );
 
   const handleMakeRequest = () => {
-    createFormResponse(PROJECT_CODE, 'cart', formData).then(() => {
+    createCart(PROJECT_CODE, 'cart', formData, cartItems).then(() => {
       setModalOpen(false);
       dispatch(pushAlert({ title: language.requestOk.title, message: language.requestOk.message }));
     });
