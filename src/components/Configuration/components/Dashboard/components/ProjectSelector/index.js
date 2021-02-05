@@ -6,8 +6,6 @@ import Spinner from '../../../../../Spinner';
 import Button from '../../../../../Button';
 import { getProjects } from '../../../../../../services/api/project';
 import { setProject } from '../../../../../../shared/actions/project';
-import { getClientModels } from '../../../../../../services/api/user';
-import { setClientModels } from '../../../../../../shared/actions/clientModels';
 import { setSelectedClientModel } from '../../../../../../shared/actions/selectedClientModel';
 import { setAdminSection } from '../../../../../../shared/actions/adminSection';
 import { setConfigurationSection } from '../../../../../../shared/actions/configurationSection';

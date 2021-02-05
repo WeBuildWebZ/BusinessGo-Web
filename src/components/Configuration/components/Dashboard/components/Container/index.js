@@ -25,9 +25,10 @@ const Container = () => {
   useEffect(() => {
     if (adminSectionRef.current !== 'tables') return;
     getClientModels(project).then(({ data: clientModels }) => {
+      dispatch(setClientModels(clientModels));
+
       if (!clientModels.length) {
-        dispatch(setAdminSection('configuration'));
-        return dispatch(setClientModels(clientModels));
+        return dispatch(setAdminSection('configuration'));
       }
 
       dispatch(setSelectedClientModel(clientModels[0]));

@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getSessions } from '../../services/api/session';
-import { getClientModels } from '../../services/api/user';
 import { setUser } from '../../shared/actions/user';
-import { setClientModels } from '../../shared/actions/clientModels';
 import { setSelectedClientModel } from '../../shared/actions/selectedClientModel';
 import LoadingPage from '../LoadingPage';
 
