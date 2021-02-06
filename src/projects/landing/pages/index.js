@@ -32,9 +32,7 @@ export default function LandingPage() {
   return (
     <>
       <Layout>
-        {banners.map((banner, i) => (
-          <Banner key={i} show={i === selectedBanner} onClose={handleChangeBanner} banner={banner} />
-        ))}
+        <Banner />
         <BannerSegundo />
         <Frase />
         <Texto />
