@@ -12,7 +12,7 @@ const Galery = () => {
       <div className="galery">
         <h2>{language.title}</h2>
         <br />
-        {language.items.map(({ id, image_url, description, url }) => (
+        {language.items.map(({ image_url, description, url }, id) => (
           <li className="card" key={id}>
             <div className="top">
               <img src={image_url} alt="" />
