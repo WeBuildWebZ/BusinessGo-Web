@@ -44,4 +44,6 @@ export const banners = [
   // }
 ];
 
-export default () => <div />;
+const Banner = () => <div />;
+
+export default Banner;
