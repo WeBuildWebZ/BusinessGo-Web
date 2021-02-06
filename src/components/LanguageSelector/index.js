@@ -47,7 +47,7 @@ const LanguageSelector = props => {
 };
 
 LanguageSelector.propTypes = {
-  color: 'black'
+  color: PropTypes.string
 };
 
 LanguageSelector.defaultProps = {

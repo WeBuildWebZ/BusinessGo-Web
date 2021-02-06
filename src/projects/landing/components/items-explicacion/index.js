@@ -17,7 +17,7 @@ const ItemsExplicacion = () => {
     <>
       <div className="top">
         <div className="left">
-          {primeras3.map(({ id, image, title, description }) => (
+          {primeras3.map(({ image, title, description }, id) => (
             <li className="card" key={id} data-aos="fade-right">
               <span className="icon">
                 <img src={image} alt="" />
@@ -40,7 +40,7 @@ const ItemsExplicacion = () => {
           <img src="/happy-two.jpg" alt="" className="image" />
         </div>
         <div className="left">
-          {ultimas3.map(({ id, image, title, description }) => (
+          {ultimas3.map(({ image, title, description }, id) => (
             <li className="card" key={id} data-aos="fade-left">
               <span className="icon">
                 <img src={image} alt="" />
