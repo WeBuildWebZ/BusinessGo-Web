@@ -16,28 +16,16 @@ import Navbar from '../components/menu';
 import Additional from '../components/aditional';
 import Layout from '../layout';
 
-import { banners } from './banners';
+const LandingPage = () => (
+  <>
+    <Layout>
+      <Banner />
+      <BannerSegundo />
+      <Frase />
+      <Texto />
+      <ItemsExplicacion />
+    </Layout>
+  </>
+);
 
-export default function LandingPage() {
-  const [selectedBanner, setSelectedBanner] = useState(0);
-
-  const handleChangeBanner = () => {
-    let newSelectedBanner = selectedBanner + 1;
-
-    if (newSelectedBanner >= banners.length) newSelectedBanner = 0;
-
-    setSelectedBanner(newSelectedBanner);
-  };
-
-  return (
-    <>
-      <Layout>
-        <Banner />
-        <BannerSegundo />
-        <Frase />
-        <Texto />
-        <ItemsExplicacion />
-      </Layout>
-    </>
-  );
-}
+export default LandingPage;
