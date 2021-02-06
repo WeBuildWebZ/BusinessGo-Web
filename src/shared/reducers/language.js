@@ -1,6 +1,6 @@
 import { updateLanguage } from '../../services/api/language';
 
-const initialState = 'es';
+const initialState = 'en';
 
 const Language = (state = initialState, action = {}) => {
   switch (action.type) {
