@@ -13,7 +13,7 @@ const Navbar = () => {
       </Link>
 
       <Link href="/precios">
-        <a>{language.prices}</a>
+        <a>{language.pricing}</a>
       </Link>
 
       <Link href="/galeria">

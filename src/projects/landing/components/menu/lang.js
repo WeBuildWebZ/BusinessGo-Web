@@ -2,14 +2,14 @@ export const getLanguage = langCode =>
   ({
     es: {
       home: 'Inicio',
-      prices: 'Precios',
+      pricing: 'Precios',
       gallery: 'Galería',
       blog: 'Blog',
       aboutUs: 'Nosotros'
     },
     en: {
       home: 'Home',
-      prices: 'Prices',
+      pricing: 'Pricing',
       gallery: 'Gallery',
       blog: 'Blog',
       aboutUs: 'About Us'

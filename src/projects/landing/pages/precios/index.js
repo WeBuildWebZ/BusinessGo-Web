@@ -15,8 +15,8 @@ const CardsPrices = () => {
       <YouChoose />
 
       <ul className="box">
-        {language.prices.map(({ id, type, quality, price, options }, i) => (
-          <li key={id} className="card" data-aos={fades[i % fades.length]}>
+        {language.prices.map(({ type, quality, price, options }, id) => (
+          <li key={id} className="card" data-aos={fades[id % fades.length]}>
             <div className="mid">
               <h4> {quality} </h4>
               <h2>{price} </h2>
