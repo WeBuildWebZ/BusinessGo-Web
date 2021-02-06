@@ -1,43 +1,40 @@
 import React, { useEffect, useRef } from 'react';
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
-import { setLanguage } from 'actions/language';
-import { changeLanguage } from 'services/changeLanguage';
-import { getLanguage } from 'services/getLanguage';
+import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
-import getLang from './lang';
+import { showLanguage } from '../../services/api/language';
+import { setLanguage } from '../../shared/actions/language';
+
+import getLanguage from './lang';
 import useStyles from './style';
 import { LANGUAGES } from './constants';
 
-export default function LanguageSelector(props) {
+const LanguageSelector = props => {
   const dispatch = useDispatch();
   const classes = useStyles();
-  const language = getLanguage(useSelector(store => store.language));
-  const lang = getLang(language);
-  const isFirstRun = useRef(true);
+  const languageCode = useSelector(store => store.language);
+  const language = getLanguage(languageCode);
+
   useEffect(() => {
-    if (isFirstRun.current) {
-      let waiting = true;
-      isFirstRun.current = false;
-      getLanguage().then(response => {
-        if (!waiting) return;
-        if (!response || response.status !== 200) return;
-        dispatch(setLanguage(response.body.language));
-      });
-      return function cleanup() {
-        waiting = false;
-      };
-    }
-    changeLanguage(language);
-  }, [dispatch, language]);
+    let waiting = true;
+    showLanguage().then(({ data: givenLanguage }) => {
+      if (!waiting) return;
+      dispatch(setLanguage(givenLanguage.code));
+      return () => (waiting = false);
+    });
+  }, []);
 
   return (
     <FormControl>
-      <InputLabel className={classes.inputLabel}>{lang.language}</InputLabel>
+      <InputLabel style={{ color: props.color }} className={classes.inputLabel}>
+        {language.language}
+      </InputLabel>
       <Select
         className={classes.select}
-        value={language}
+        value={languageCode}
         onChange={({ target }) => dispatch(setLanguage(target.value))}
+        style={{ color: props.color }}
       >
         {Object.values(LANGUAGES).map(l => (
           <MenuItem value={l} key={l}>
@@ -47,4 +44,14 @@ export default function LanguageSelector(props) {
       </Select>
     </FormControl>
   );
-}
+};
+
+LanguageSelector.propTypes = {
+  color: 'black'
+};
+
+LanguageSelector.defaultProps = {
+  color: 'black'
+};
+
+export default LanguageSelector;

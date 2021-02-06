@@ -1,5 +1,8 @@
+import LanguageSelector from '../../../../../components/LanguageSelector';
+
 const Logo = () => (
   <div className="logo center">
+    <LanguageSelector color="white" />
     <svg
       aria-hidden="true"
       focusable="false"
