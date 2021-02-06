@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import getLanguage from './lang';
+import { getLanguage } from './lang';
 
 const FraseLogo = () => {
   const language = getLanguage(useSelector(store => store.language));

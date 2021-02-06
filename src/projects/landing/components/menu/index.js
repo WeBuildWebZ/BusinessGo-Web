@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 
-import getLanguage from './lang';
+import { getLanguage } from './lang';
 
 const Navbar = () => {
   const language = getLanguage(useSelector(store => store.language));

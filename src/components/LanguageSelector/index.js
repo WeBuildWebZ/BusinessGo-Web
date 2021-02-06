@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { showLanguage } from '../../services/api/language';
 import { setLanguage } from '../../shared/actions/language';
 
-import getLanguage from './lang';
+import { getLanguage } from './lang';
 import useStyles from './style';
 import { LANGUAGES } from './constants';
 

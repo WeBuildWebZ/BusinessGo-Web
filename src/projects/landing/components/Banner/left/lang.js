@@ -1,4 +1,4 @@
-export default langCode =>
+export const getLanguage = langCode =>
   ({
     es: {
       title: 'En We Build Webz, diseñamos, construimos, pero sobre todo, ayudamos a crecer tu empresa.',

@@ -1,4 +1,4 @@
-export default langCode =>
+export const getLanguage = langCode =>
   ({
     es: {
       message: 'Construimos Interfacez de diseño atractivas.'
