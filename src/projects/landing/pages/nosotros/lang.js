@@ -44,3 +44,7 @@ export const getLanguage = langCode =>
       ]
     }
   }[langCode]);
+
+const Component = () => <div />;
+
+export default Component;

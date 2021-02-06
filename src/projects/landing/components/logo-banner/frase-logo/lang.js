@@ -7,3 +7,7 @@ export const getLanguage = langCode =>
       title: 'We provide Digital Solutions.'
     }
   }[langCode]);
+
+const Component = () => <div />;
+
+export default Component;

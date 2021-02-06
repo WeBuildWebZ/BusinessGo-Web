@@ -57,7 +57,7 @@ export const getLanguage = langCode =>
     },
     en: {
       title: 'Gallery',
-      visit: 'Visit',
+      visit: 'Take a Look',
       items: [
         {
           ...Globy,
