@@ -24,43 +24,59 @@ const ChatbotsSection = () => {
   };
 
   const handleSelectSection = section => {
-    dispatch(setSelectedChatbotSection('intents'));
+    dispatch(setSelectedChatbotSection(section));
+  };
+
+  const handleSelectConversations = () => {
+    dispatch(setSelectedChatbotSection('conversations'));
+    dispatch(setSelectedChatbotChannel(null));
   };
 
   if (!project) return <Spinner />;
   if (!project.chatbot.enabled_channels.includes('web')) return <div>{language.chatbotsNotEnabled}</div>;
 
-  return CHANNELS.map(channel => {
-    const isSelected = channel === selectedChannel && adminSection === 'chatbots';
+  return (
+    <div>
+      <Button
+        key="conversations"
+        text={language.conversations}
+        onClick={handleSelectConversations}
+        style={{ marginTop: 10 }}
+        selected={selectedSection === 'conversations'}
+      />
+      {CHANNELS.map(channel => {
+        const isSelected = channel === selectedChannel && adminSection === 'chatbots';
 
-    return (
-      <div key={channel} className="chatbotButtons">
-        <Button
-          key="channel"
-          text={`${channel[0].toUpperCase()}${channel.substr(1)}`}
-          onClick={() => handleSelectChannel(channel)}
-          style={{ marginTop: 10 }}
-          selected={isSelected && !selectedSection}
-        />
-        {isSelected && (
-          <Button
-            key="intents"
-            text={language.intents}
-            onClick={() => handleSelectSection('intents')}
-            style={{ marginTop: 5, width: '70%', marginLeft: '15%' }}
-            selected={selectedSection === 'intents'}
-          />
-        )}
-        <style jsx>
-          {`
-            .chatbotButtons {
-              width: 100%;
-            }
-          `}
-        </style>
-      </div>
-    );
-  });
+        return (
+          <div key={channel} className="chatbotButtons">
+            <Button
+              key="channel"
+              text={`${channel[0].toUpperCase()}${channel.substr(1)}`}
+              onClick={() => handleSelectChannel(channel)}
+              style={{ marginTop: 10 }}
+              selected={isSelected && !selectedSection}
+            />
+            {isSelected && (
+              <Button
+                key="intents"
+                text={language.intents}
+                onClick={() => handleSelectSection('intents')}
+                style={{ marginTop: 5, width: '70%', marginLeft: '15%' }}
+                selected={selectedSection === 'intents'}
+              />
+            )}
+            <style jsx>
+              {`
+                .chatbotButtons {
+                  width: 100%;
+                }
+              `}
+            </style>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default ChatbotsSection;

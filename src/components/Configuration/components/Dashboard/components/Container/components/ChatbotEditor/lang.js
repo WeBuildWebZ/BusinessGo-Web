@@ -2,6 +2,7 @@ export const getLanguage = language_code =>
   ({
     es: {
       chatbotConfig: channel => `Chatbot: canal ${channel}`,
+      conversations: 'Chatbot: Conversaciones',
       authConfig: 'Autenticación',
       basicConfig: 'Configuración Básica',
       saveChanges: 'Guardar',
@@ -12,6 +13,7 @@ export const getLanguage = language_code =>
     },
     en: {
       chatbotConfig: channel => `Chatbot: channel ${channel}`,
+      conversations: 'Chatbot: Conversations',
       authConfig: 'Authentication',
       basicConfig: 'Basic Configuration',
       saveChanges: 'Save',

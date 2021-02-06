@@ -59,6 +59,7 @@ const ChatbotEditor = () => {
   };
 
   useEffect(() => {
+    if (!channel) return;
     setConfigForm(null);
     setAuthForm(null);
     setConfigData(project.chatbot.configuration[channel] || {});
@@ -76,7 +77,8 @@ const ChatbotEditor = () => {
 
   return (
     <div className="chatbotEditor">
-      <PopoverTitle>{language.chatbotConfig(channel)}</PopoverTitle>
+      {section === 'conversations' && <PopoverTitle>{language.conversations}</PopoverTitle>}
+      {section !== 'conversations' && <PopoverTitle>{language.chatbotConfig(channel)}</PopoverTitle>}
       {section === 'intents' && <Intents />}
       {!section && (
         <>
