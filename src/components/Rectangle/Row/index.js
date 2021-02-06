@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const Row = props => (
   <div className="row1 center" style={props.style}>
-    {props.text && <h4>{props.text}</h4>}
+    {props.text && <h4 className="text">{props.text}</h4>}
     <style jsx>
       {`
         .row1 {
@@ -39,6 +39,11 @@ const Row = props => (
                 box-shadow: 0 0 2px 2px ${props.backgroundColor};
               `
             : ''}
+        }
+        @media (max-width: 768px) {
+          .text {
+            font-size: 16px;
+          }
         }
       `}
     </style>
