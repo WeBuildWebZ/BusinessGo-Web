@@ -28,10 +28,7 @@ const Chatbot = () => {
 
   useEffect(() => {
     if (!project?.chatbot?.configuration) return;
-    setMessages([
-      ...messages,
-      { from: 'bot', type: 'text', text: project.chatbot.configuration.web.greeting }
-    ]);
+    setMessages([{ from: 'bot', type: 'text', text: project.chatbot.configuration.web.greeting }]);
   }, [project]);
 
   if (!render) return <div />;
