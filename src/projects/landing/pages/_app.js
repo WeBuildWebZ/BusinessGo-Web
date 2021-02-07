@@ -22,7 +22,8 @@ const AppendHead = () => (
         site_name: 'WeBuildWebZ',
         images: [
           {
-            url: `${constants.URL}/images/page.png`,
+            url:
+              'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-webuildwebz.jpg?alt=media&token=cca05d1d-42e8-445e-a346-21c6d4686bfc',
             width: 1366,
             height: 635,
             alt: 'Imagen 1'

@@ -30,7 +30,10 @@ const AppendHead = () => (
       property="og:description"
       content="Somos una empresa familiar Argentina, radicada en Mar del Plata, y distribuimos a todo el país. El equilibrio justo entre calidad y precio."
     />
-    <meta property="og:image" content="/page.png" />
+    <meta
+      property="og:image"
+      content="https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-wow.jpg?alt=media&token=3d21ef80-bd3f-4cc6-9b8b-1d54bfc6897c"
+    />
     <meta property="og:image:width" content="828" />
     <meta property="og:image:height" content="450" />
     <meta property="og:url" content="https://blanqueriawow.com/" />

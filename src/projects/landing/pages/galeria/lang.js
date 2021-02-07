@@ -18,10 +18,10 @@ const MueblesHoracio = {
   image_url:
     'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-horacio-muebles.jpg?alt=media&token=4ca6934f-b088-49a0-9a9a-723bb05b1db5'
 };
-const WeBuildWebz = {
-  url: 'https://www.webuildwebz.com/',
+const WoW = {
+  url: 'https://blanqueriawow.com/',
   image_url:
-    'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-webuildwebz.jpg?alt=media&token=cca05d1d-42e8-445e-a346-21c6d4686bfc'
+    'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-wow.jpg?alt=media&token=3d21ef80-bd3f-4cc6-9b8b-1d54bfc6897c'
 };
 
 export const getLanguage = langCode =>
@@ -36,7 +36,7 @@ export const getLanguage = langCode =>
         },
         {
           ...ZanleGroup,
-          description: 'Zanle Group, web para freelance, dirigida a Latino America'
+          description: 'Zanle Group, web para freelance de Jose Rios, dirigida a Latino America'
         },
         {
           ...JoseRios,
@@ -49,9 +49,9 @@ export const getLanguage = langCode =>
             'Muebles-Horacio, una tienda digital, de caracter informativa, en la que el publico contacta al vendedor.'
         },
         {
-          ...WeBuildWebz,
+          ...WoW,
           description:
-            'En esta nueva entrega, WeBuildWebz, es una plataforma para exponer nuestros trabajos como freelance y buscar clientes, proyecto en colaboracion con el Backend, Leandro Cotti.'
+            'En esta web, desarrollamos una Ecommerce, con un Carousel, Base de Datos y carga de imagenes.'
         }
       ]
     },
@@ -77,9 +77,9 @@ export const getLanguage = langCode =>
             'Muebles-Horacio, a digital store, informative, in which the public contacts the seller.'
         },
         {
-          ...WeBuildWebz,
+          ...WoW,
           description:
-            'In this new installment, WeBuildWebz, is a platform to expose our work as a freelancers and look for clients, project in collaboration with the Backend Dev Leandro Cotti.'
+            'On this website, we develop an Ecommerce, with a Carousel, Database and image loading.'
         }
       ]
     }
