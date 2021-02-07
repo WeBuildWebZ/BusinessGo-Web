@@ -16,6 +16,7 @@ const ChatbotsSection = () => {
   const selectedChannel = useSelector(store => store.selectedChatbotChannel);
   const selectedSection = useSelector(store => store.selectedChatbotSection);
   const adminSection = useSelector(store => store.adminSection);
+  const isChatbotSection = adminSection === 'chatbots';
 
   const handleSelectChannel = channel => {
     dispatch(setAdminSection('chatbots'));
@@ -28,6 +29,7 @@ const ChatbotsSection = () => {
   };
 
   const handleSelectConversations = () => {
+    dispatch(setAdminSection('chatbots'));
     dispatch(setSelectedChatbotSection('conversations'));
     dispatch(setSelectedChatbotChannel(null));
   };
@@ -42,10 +44,10 @@ const ChatbotsSection = () => {
         text={language.conversations}
         onClick={handleSelectConversations}
         style={{ marginTop: 10 }}
-        selected={selectedSection === 'conversations'}
+        selected={selectedSection === 'conversations' && isChatbotSection}
       />
       {CHANNELS.map(channel => {
-        const isSelected = channel === selectedChannel && adminSection === 'chatbots';
+        const isSelected = channel === selectedChannel && isChatbotSection;
 
         return (
           <div key={channel} className="chatbotButtons">

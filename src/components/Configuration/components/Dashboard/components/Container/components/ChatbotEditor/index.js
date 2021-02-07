@@ -11,6 +11,7 @@ import { setProject } from '../../../../../../../../shared/actions/project';
 import { pushAlert } from '../../../../../../../../shared/actions/alerts';
 
 import Intents from './Intents';
+import Conversations from './Conversations';
 import { getLanguage } from './lang';
 
 const ChatbotEditor = () => {
@@ -77,7 +78,12 @@ const ChatbotEditor = () => {
 
   return (
     <div className="chatbotEditor">
-      {section === 'conversations' && <PopoverTitle>{language.conversations}</PopoverTitle>}
+      {section === 'conversations' && (
+        <>
+          <PopoverTitle>{language.conversations}</PopoverTitle>
+          <Conversations />
+        </>
+      )}
       {section !== 'conversations' && <PopoverTitle>{language.chatbotConfig(channel)}</PopoverTitle>}
       {section === 'intents' && <Intents />}
       {!section && (

@@ -98,6 +98,7 @@
     "react/button-has-type": "off",
     "react/jsx-no-target-blank": "off",
     "max-len": "off",
-    "jsx-a11y/no-noninteractive-tabindex": "off"
+    "jsx-a11y/no-noninteractive-tabindex": "off",
+    "import/no-mutable-exports": "off"
   }
 }

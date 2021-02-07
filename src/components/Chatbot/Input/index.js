@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { createWebMessage } from '../../../services/chatbot_api/web_message';
+import { socket } from '../../../shared/sockets/chatbot';
 
 const Input = props => {
   const project = useSelector(store => store.project);
@@ -28,6 +29,17 @@ const Input = props => {
   useEffect(() => {
     props.onInputRef(textInput);
   }, []);
+
+  useEffect(() => {
+    if (!socket) return;
+
+    const onNewMessages = messages => {
+      props.onMessages(messages);
+    };
+
+    socket.on('new_messages', onNewMessages);
+    return () => socket.off('new_messages', onNewMessages);
+  }, [socket]);
 
   return (
     <TextField
