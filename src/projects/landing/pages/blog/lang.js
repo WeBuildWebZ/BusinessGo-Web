@@ -28,23 +28,24 @@ export const getLanguage = langCode =>
       items: [
         {
           ...Article1,
-          title: 'esto es el titulo del articulo',
-          description: 'Mira este articulo y avivate, somos programadores, somos reyes, bitch.'
+          title: 'Que es: SEO?',
+          description: 'Mira este articulo y descucbri que es el SEO, posicionamiento web y mas.'
         },
         {
           ...Article2,
-          title: 'esto es el titulo del articulo',
-          description: 'Mira este articulo y avivate, somos programadores, somos reyes, bitch.'
+          title: 'Que es: Responsive Design?',
+          description:
+            'Mira este articulo y descucbri que es el Responsive Design, o mejor dicho, adaptacion a dispositivos.'
         },
         {
           ...Article3,
-          title: 'esto es el titulo del articulo',
-          description: 'Mira este articulo y avivate, somos programadores, somos reyes, bitch.'
+          title: 'Necesito una Web?',
+          description: 'En este articulo te detallamos porque debes tener tu Web, consejos y recomendaciones.'
         },
         {
           ...Article4,
           title: 'Pexels, imágenes gratis',
-          description: 'Mira este articulo y avivate, somos programadores, somos reyes, bitch.'
+          description: 'Entra en esta web, Cientos, no, Miles de Imagenes gratis para ti.'
         }
       ]
     },

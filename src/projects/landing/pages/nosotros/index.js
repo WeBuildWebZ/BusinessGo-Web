@@ -56,7 +56,7 @@ const Nosotros = () => {
               -ms-flex-flow: column;
               flex-flow: column;
               width: 32em;
-              height: 32em;
+              height: 25em;
               border-radius: 1em;
               padding: 1em;
               margin: 2em;
