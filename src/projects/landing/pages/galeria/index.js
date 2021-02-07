@@ -57,6 +57,9 @@ const Galery = () => {
               align-items: center;
               flex-flow: column;
             }
+            .card:hover {
+              border: 0.3em solid #1c1c1c;
+            }
 
             // ======================================================================================
             .top {
