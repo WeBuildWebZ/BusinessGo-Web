@@ -21,6 +21,7 @@ const YouChoose = () => {
             justify-content: center;
             align-items: center;
             background: #1c1c1c;
+            padding: 0 1em;
           }
 
           .choose {
@@ -30,16 +31,22 @@ const YouChoose = () => {
             align-items: center;
             background: white;
             border-radius: 1em;
+            padding: 1em;
           }
           h3 {
+            width: 100%;
             color: #2f4858;
             font-size: 3em;
-            padding: 0.5em;
           }
           p {
-            width: 50%;
+            width: 100%;
             font-size: 1.1em;
-            padding: 0.5em;
+          }
+          // =========================
+          @media (max-width: 636px) {
+            .choose {
+              flex-flow: column;
+            }
           }
         `}
       </style>

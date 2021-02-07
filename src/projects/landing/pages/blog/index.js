@@ -37,7 +37,7 @@ const Blog = () => {
           {`
             .galery {
               width: 100vw;
-              padding: 2em;
+              padding: 1em;
               margin: 3em 0;
               display: flex;
               justify-content: center;
@@ -54,7 +54,7 @@ const Blog = () => {
               margin-bottom: 3em;
             }
             .text h2 {
-              width: 100vw;
+              width: 100%;
               text-align: center;
             }
             .text h4 {
@@ -114,6 +114,12 @@ const Blog = () => {
             a:hover {
               color: white;
               cursor: pointer;
+            }
+
+            @media (max-width: 870px) {
+              .text h4 {
+                width: 100%;
+              }
             }
           `}
         </style>
