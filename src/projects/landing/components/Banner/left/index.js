@@ -50,6 +50,7 @@ const Left = props => {
             font-size: 2.5em;
             flex: 1;
             margin-top: 1.3em;
+            padding: 0 0.5em;
             overflow-y: hidden;
           }
           .down span {
@@ -59,6 +60,7 @@ const Left = props => {
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 0 1em;
           }
           .seeButton {
             padding: 0.3em 3.5em;
@@ -83,9 +85,13 @@ const Left = props => {
               margin-right: 0;
             }
           }
+
           @media (max-width: 605px) {
             .left {
               width: 100vw;
+            }
+            .left .top {
+              border-radius: 0;
             }
           }
           @media (max-width: 388px) {

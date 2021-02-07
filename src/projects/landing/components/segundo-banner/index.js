@@ -176,6 +176,14 @@ const BannerSegundo = () => {
             .textlayout {
               background: hsla(0, 0%, 100%, 0.331);
               backdrop-filter: blur(1em);
+              margin-bottom: 2em;
+            }
+
+            .textlayout:after {
+              width: 1em;
+              height: 1em;
+              top: 0;
+              left: 0;
             }
             .right:after {
               display: none;
@@ -185,8 +193,6 @@ const BannerSegundo = () => {
               right: 1em;
               background: #00a1e5;
             }
-          }
-          @media (max-width: 1081px) {
             .left::after {
               width: 8em;
               height: 8em;
@@ -194,6 +200,7 @@ const BannerSegundo = () => {
               left: 0;
             }
           }
+
           @media (max-width: 500px) {
             img {
               width: 300px;

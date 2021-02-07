@@ -90,6 +90,7 @@ const ItemsExplicacion = () => {
           // ======================================================================
           .card {
             width: 70%;
+            height: 100%;
             display: flex;
             flex-flow: row;
             border-radius: 1em;
@@ -107,7 +108,12 @@ const ItemsExplicacion = () => {
             padding-right: 1em;
           }
           .text {
-            width: 500px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-flow: column;
             flex: 8;
           }
           img {
@@ -147,6 +153,10 @@ const ItemsExplicacion = () => {
             }
             .text {
               width: 100%;
+            }
+            .image {
+              width: 100%;
+              border-radius: 0;
             }
           }
         `}

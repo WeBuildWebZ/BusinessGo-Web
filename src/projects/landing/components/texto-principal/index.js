@@ -120,7 +120,16 @@ const Texto = () => {
             p {
               width: 100%;
             }
+            .bullhorn,
+            .feather,
+            .gem,
+            .handshake,
+            .key,
+            .images{
+              margin0 .5em;
+            }
           }
+
           @media (max-width: 280px) {
             h2,
             h4,

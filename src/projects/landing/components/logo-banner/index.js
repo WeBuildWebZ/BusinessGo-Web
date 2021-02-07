@@ -16,6 +16,11 @@ const LogoBanner = () => (
           padding: 1em 0.5em;
           background: #1c1c1c;
         }
+        @media (max-width: 700px) {
+          .logobanner {
+            flex-flow: column;
+          }
+        }
         @media (max-width: 485px) {
           .logobanner {
             flex-flow: column;

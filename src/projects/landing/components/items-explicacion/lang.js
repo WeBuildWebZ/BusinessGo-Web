@@ -17,13 +17,14 @@ export const getLanguage = langCode =>
         {
           image: '/gem-regular.svg',
           title: 'Exclusividad de Diseños',
-          description: 'Ofrecemos diseños pensandos exclusivamente para tu negocio.'
+          description:
+            'Ofrecemos diseños exclusivos para tu negocio, Quizas necesites algo a medidad, quizas quieras algo parecido a otra web que viste en otro lugar, bueno, nosotros nos encargamos de construir lo que quieras!'
         },
         {
           image: '/handshake-solid.svg',
           title: 'Métodos de Pago',
           description:
-            'Te damos la posibilidad de que tu web tenga métodos de pago incorporados como Paypal y Mercado Pago.'
+            'Te damos la posibilidad de que tu web tenga métodos de pago incorporados como Paypal y Mercado Pago, Y toda la seguridadd y confianza que aportan estos servicios.'
         },
         {
           image: '/key-solid.svg',
@@ -34,7 +35,8 @@ export const getLanguage = langCode =>
         {
           image: '/images-solid.svg',
           title: 'Optimizacion de Imágenes',
-          description: 'Optimizamos las imágenes!'
+          description:
+            'Optimizamos las imágenes!, quizas necesites quitar el fondo, o algun recorte, bueno te ofrecemos este servicio tambien.'
         }
       ]
     },
@@ -55,13 +57,14 @@ export const getLanguage = langCode =>
         {
           image: '/gem-regular.svg',
           title: 'Design Exclusiveness',
-          description: 'We offer designs exclusively for your business.'
+          description:
+            'We offer designs exclusively for your business.Maybe you need something custom, maybe you want something similar to another website that you saw elsewhere, well, we take care of building what you want!'
         },
         {
           image: '/handshake-solid.svg',
           title: 'Payment Methods',
           description:
-            'We give you the possibility that your website has payment methods incorporated such as Paypal and Mercado Pago.'
+            'We give you the possibility that your website has payment methods incorporated such as Paypal and Mercado Pago,And all the security and confidence that these services provide '
         },
         {
           image: '/key-solid.svg',
@@ -72,7 +75,8 @@ export const getLanguage = langCode =>
         {
           image: '/images-solid.svg',
           title: 'Image Optimization',
-          description: 'We optimize images!'
+          description:
+            'We optimize images! Maybe you need to remove the background, or some cut, well we offer you this service too.'
         }
       ]
     }
