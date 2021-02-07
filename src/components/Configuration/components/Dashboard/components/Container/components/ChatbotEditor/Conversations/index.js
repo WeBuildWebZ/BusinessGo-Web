@@ -1,85 +1,47 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { listConversations } from '../../../../../../../../../services/chatbot_api/conversation';
-import Spinner from '../../../../../../../../Spinner';
+import { initChatbotSocket } from '../../../../../../../../../shared/sockets/chatbot';
 
-import { getLanguage } from './lang';
+import ConversationList from './ConversationList';
+import ConversationChat from './ConversationChat';
 
 const Conversations = () => {
-  const languageCode = useSelector(store => store.language);
-  const language = getLanguage(languageCode);
-  const project = useSelector(store => store.project);
-  const [conversations, setConversations] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  const user = useSelector(store => store.user);
+  const [selectedConversation, setSelectedConversation] = useState(null);
+  const [mounted, setMounted] = useState(true);
+  const officer = { name: `${user.name} ${user.surname}`, _id: user._id };
+  const mountedRef = useRef();
+  mountedRef.current = mounted;
 
-  useEffect(() => {
-    listConversations(project, pageNumber).then(({ data: givenConversations }) => {
-      setConversations(givenConversations);
+  const handleSelectConversation = conversation => {
+    initChatbotSocket(conversation.id, officer).then(() => {
+      if (!mountedRef.current) return;
+      setSelectedConversation(conversation);
     });
-  }, [pageNumber]);
+  };
+
+  useEffect(() => () => setMounted(false), []);
 
   return (
-    <div className="conversationList">
-      {!conversations && <Spinner />}
-      {conversations?.map(conversation => (
-        <div className="conversation">
-          <div className="cardItem">{`${language.channel}: ${conversation.channel}`}</div>
-          {conversation.active && <div className="cardItem activeInactive active">{language.active}</div>}
-          {!conversation.active && (
-            <div className="cardItem activeInactive inactive">{language.inactive}</div>
-          )}
-          <div className="cardItem">{language.messageCount(conversation)}</div>
-          <div className="cardItem date">
-            {Intl.DateTimeFormat(languageCode, { dateStyle: 'full', timeStyle: 'long' }).format(
-              new Date(conversation.createdAt)
-            )}
-          </div>
-        </div>
-      ))}
+    <div className="conversationListContainer">
+      <div className="conversationFlex">
+        <ConversationList show={!selectedConversation} onSelectConversation={handleSelectConversation} />
+        <ConversationChat show={!!selectedConversation} conversationId={selectedConversation?._id} />
+      </div>
       <style jsx>
         {`
-          .conversationList {
+          .conversationListContainer {
+            flex-grow: 100;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            transition: 0.7s;
+          }
+          .conversationFlex {
             display: flex;
+            height: 100%;
             flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-          }
-          .conversation {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            margin: 7px 0 7px 0;
-            padding: 5px;
-            width: 200px;
-            height: 220px;
-            color: #ebebeb;
-            background-image: url('/images/tiled_black.png');
-            background-repeat: repeat;
-            background-size: 50px;
-            border-radius: 5px;
-            user-select: none;
-            transition: 0.5s;
-            cursor: pointer;
-          }
-          .conversation:hover {
-            box-shadow: 0 0 2px 2px black;
-            text-shadow: 0 0 2px;
-          }
-          .cardItem {
-            flex-grow: 1;
-          }
-          .activeInactive {
-            font-size: 20px;
-          }
-          .active {
-            color: greenyellow;
-          }
-          .inactive {
-            color: blue;
-          }
-          .date {
-            font-size: 11px;
           }
         `}
       </style>

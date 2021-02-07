@@ -123,6 +123,7 @@ const ChatbotEditor = () => {
       <style jsx>
         {`
           .chatbotEditor {
+            height: 100%;
           }
           .title {
             width: 100%;
