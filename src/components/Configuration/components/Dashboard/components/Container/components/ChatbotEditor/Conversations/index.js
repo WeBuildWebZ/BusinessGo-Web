@@ -7,6 +7,7 @@ import ConversationList from './ConversationList';
 import ConversationChat from './ConversationChat';
 
 const Conversations = () => {
+  const project = useSelector(store => store.project);
   const user = useSelector(store => store.user);
   const [selectedConversation, setSelectedConversation] = useState(null);
   const [mounted, setMounted] = useState(true);
@@ -15,7 +16,7 @@ const Conversations = () => {
   mountedRef.current = mounted;
 
   const handleSelectConversation = conversation => {
-    initChatbotSocket(conversation.id, officer).then(() => {
+    initChatbotSocket(project.code, conversation.id, officer).then(() => {
       if (!mountedRef.current) return;
       setSelectedConversation(conversation);
     });

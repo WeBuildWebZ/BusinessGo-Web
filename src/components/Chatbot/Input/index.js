@@ -18,6 +18,7 @@ const Input = props => {
     if (charCode !== 13 || !value) return;
     const message = {
       conversation_id,
+      channel: 'web',
       from: 'user',
       type: 'text',
       text: value

@@ -5,7 +5,7 @@ let currentConversationId;
 /** @type {import('socket.io-client').Socket} socket */
 let socket;
 
-export const initChatbotSocket = (conversation_id, officer) =>
+export const initChatbotSocket = (project_code, conversation_id, officer) =>
   new Promise(resolve => {
     if (officer) officer = { officer: JSON.stringify(officer) };
     if (socket) {
@@ -15,7 +15,7 @@ export const initChatbotSocket = (conversation_id, officer) =>
     currentConversationId = conversation_id;
     socket = io(`${process.env.API_URL}/chatbot`, {
       transports: ['websocket'],
-      query: { conversation_id, ...officer }
+      query: { project_code, conversation_id, ...officer }
     });
 
     const onConnect = () => {

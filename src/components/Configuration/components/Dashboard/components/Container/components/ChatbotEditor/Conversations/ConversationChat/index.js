@@ -8,12 +8,17 @@ import { socket } from '../../../../../../../../../../shared/sockets/chatbot';
 import Spinner from '../../../../../../../../../Spinner';
 import MessageBubbles from '../../../../../../../../../MessageBubbles';
 import Input from '../../../../../../../../../Chatbot/Input';
+import Notification from '../../../../../../../../../../utils/notification';
+
+import { getLanguage } from './lang';
 
 const ConversationChat = ({ conversationId, show }) => {
   const project = useSelector(store => store.project);
+  const language = getLanguage(useSelector(store => store.language));
   const user = useSelector(store => store.user);
   const [conversation, setConversation] = useState(null);
   const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState(null);
   const textInput = useRef();
   const [sendingText, setSendingText] = useState(false);
   const from = `${user.name} ${user.surname}`;
@@ -23,6 +28,7 @@ const ConversationChat = ({ conversationId, show }) => {
   conversationRef.current = conversation;
 
   const handleAddMessages = newMessages => {
+    setNewMessage(null);
     setMessages([...messagesRef.current, ...newMessages]);
   };
 
@@ -31,10 +37,12 @@ const ConversationChat = ({ conversationId, show }) => {
     if (charCode !== 13 || !text) return;
     const message = {
       conversation_id: conversation.id,
+      channel: conversation.channel,
       from,
       type: 'text',
       text
     };
+    setNewMessage(null);
     setSendingText(true);
     createWebMessage(project, message, false).then(() => {
       setSendingText(false);
@@ -56,11 +64,12 @@ const ConversationChat = ({ conversationId, show }) => {
 
     const onNewMessages = newMessages => {
       const [{ conversation_id }] = newMessages;
+      const [lastMessage] = newMessages.reverse();
 
-      // console.log('', conversation_id, '\n', conversation?.id);
-      console.log('conversation', conversationRef.current?.id);
       if (conversation_id !== conversationRef.current?.id) return;
 
+      if (lastMessage.from === from) setNewMessage(null);
+      else setNewMessage(lastMessage.text);
       handleAddMessages(newMessages);
     };
 
@@ -70,6 +79,13 @@ const ConversationChat = ({ conversationId, show }) => {
 
   return (
     <div className={`conversationChat${show ? '' : ' hidden'}`}>
+      <Notification
+        show={!!newMessage}
+        title={language.newMessage}
+        message={newMessage}
+        sound="/sounds/notification.mp3"
+        onClose={() => setNewMessage(null)}
+      />
       {!conversation && <Spinner />}
       {conversation && (
         <>

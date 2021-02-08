@@ -38,6 +38,7 @@ const ConversationList = props => {
             <div className="cardItem activeInactive inactive">{language.inactive}</div>
           )}
           <div className="cardItem">{language.messageCount(conversation)}</div>
+          <div className="cardItem">{language.agentCount(conversation)}</div>
           <div className="cardItem date">
             {Intl.DateTimeFormat(languageCode, { dateStyle: 'full', timeStyle: 'long' }).format(
               new Date(conversation.createdAt)
