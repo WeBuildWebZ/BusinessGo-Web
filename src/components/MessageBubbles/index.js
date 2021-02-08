@@ -52,6 +52,8 @@ const MessageBubbles = props => {
             transform: scale(1.2) rotate(-20deg);
           }
           .message {
+            display: flex;
+            flex-direction: column;
             width: fit-content;
             height: fit-content;
             background-color: lightskyblue;
