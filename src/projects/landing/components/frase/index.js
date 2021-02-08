@@ -42,6 +42,7 @@ const Frase = () => {
             justify-content: center;
             align-items: center;
             background: #ebebeb;
+            position: relative;
           }
           .frase {
             width: 500px;
@@ -62,6 +63,7 @@ const Frase = () => {
             margin-bottom: 1em;
           }
           h4 {
+            font-size: 1.5em;
             color: silver;
             background: #1c1c1c;
             font-style: italic;

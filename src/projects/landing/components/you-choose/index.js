@@ -7,9 +7,9 @@ const YouChoose = () => {
 
   return (
     <div className="precios">
-      <div className="choose">
-        <h3 data-aos="fade-right">{language.youChoose}</h3>
-        <p data-aos="fade-left">{language.description}</p>
+      <div className="choose" data-aos="fade-left">
+        <h3>{language.youChoose}</h3>
+        <p>{language.description}</p>
       </div>
 
       <style jsx>

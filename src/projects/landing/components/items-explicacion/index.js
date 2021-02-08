@@ -97,6 +97,7 @@ const ItemsExplicacion = () => {
             margin: 10px 0;
             padding: 1em;
             box-shadow: 0.3em 0.3em 0.5em grey;
+            background: white;
           }
 
           .icon {

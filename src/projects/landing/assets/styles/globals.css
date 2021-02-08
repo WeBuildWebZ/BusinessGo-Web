@@ -24,3 +24,8 @@ a {
 .aos-init:not(.aos-animate):after {
   position: fixed;
 }
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}

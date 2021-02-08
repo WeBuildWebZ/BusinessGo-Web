@@ -11,24 +11,18 @@ const Texto = () => {
       <h4 data-aos="flip-right">{language.subtitle}</h4>
       <br />
       <p data-aos="flip-left">{language.parragraph}</p>
-      <div className="icons" data-aos="flip-up">
-        <div className="bullhorn" />
-        <div className="feather" />
-        <div className="gem" />
-        <div className="handshake" />
-        <div className="key" />
-        <div className="images" />
-      </div>
+
       <style jsx>
         {`
           .texto {
             width: 100vw;
-            height: 100vh;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-flow: column;
             padding: 1em;
+            background:white;
           }
           h2 {
             background-image: linear-gradient(to left, #ff8aac, #e396dc, #aca9fa, #63baff, #12c5eb);
@@ -42,13 +36,7 @@ const Texto = () => {
           p {
             width: 50%;
           }
-          .icons {
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-          }
+
           // ======================================================================================
           .bullhorn {
             width: 30px;
