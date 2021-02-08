@@ -15,6 +15,7 @@ const Buttons = () => (
           display: flex;
           justify-content: center;
           align-items: center;
+          padding:0 0 2em 0;
         }
         button {
           width: 100px;
@@ -25,6 +26,7 @@ const Buttons = () => (
           margin: 5px 10px;
           padding: 5px 8px;
           border: 2px solid #1c1c1c;
+          background:white;
         }
         img {
           width: 25px;

@@ -102,7 +102,7 @@ const Section = () => (
           height: 100%;
           min-height: 300px;
           border-radius: 1em;
-          border: 3px solid #ebebeb;
+          border: 3px solid #86a8e7;
           margin: 7px;
           padding: 7px;
         }
@@ -111,6 +111,7 @@ const Section = () => (
         .fa-location-arrow {
           width: 80px;
           height: 80px;
+          color:#86a8e7;
         }
 
         // =================

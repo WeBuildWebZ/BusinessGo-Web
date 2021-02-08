@@ -62,8 +62,8 @@ const Pregunta = () => {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #ebebeb;
-            color: black;
+            background: #86a8e7;
+            color: white;
             padding: 2em 1em;
           }
           .top-text h3 {
