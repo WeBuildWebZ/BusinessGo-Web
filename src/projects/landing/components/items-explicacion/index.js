@@ -59,7 +59,7 @@ const ItemsExplicacion = () => {
           .top,
           .bottom {
             width: 100vw;
-            height: 100vh;
+            height: 100%;
             display: flex;
             background: #ebebeb;
           }

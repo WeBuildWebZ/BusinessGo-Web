@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 
+
 import { getLanguage } from './lang';
 
 const Left = props => {
@@ -12,10 +13,8 @@ const Left = props => {
       </span>
       <span className="down">
         <h5 className="title">{language.title}</h5>
-        <span>
-          <button className="seeButton">{language.button}</button>
           <p>{language.description}</p>
-        </span>
+      
       </span>
 
       <style jsx>
@@ -31,58 +30,29 @@ const Left = props => {
           .down {
             width: 100%;
             height: 100%;
-            flex: 1;
-          }
-          img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 1em;
-            box-shadow: 0.3em 0.3em 0.5em silver;
-          }
-
-          // ================================
-          .down {
-            width: 100%;
-            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-flow: column;
           }
+          img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 5em .5em;
+            box-shadow: 0.3em 0.3em 0.5em silver;
+          }
+
+          // ================================
+          .down {
+            padding:1em 0;
+          }
           .title {
             width: 100%;
-            height: 100%;
-            font-size: 2.5em;
-            flex: 1;
-            margin-top: 1.3em;
-            padding: 0 0.5em;
-          }
-          .down span {
-            flex: 1;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 1em;
-            margin: 1em;
-          }
-          .seeButton {
-            padding: 0.3em 3.5em;
-            margin-right: 1em;
-            outline: none;
-            border: none;
-            background: #1c1c1c;
-            color: white;
-            border-radius: 0.3em;
-            transition: all 0.2s ease-in-out;
-          }
-          .seeButton:hover {
-            transform: scale(1.1);
-            border-radius: 0;
+            font-size: 2em;
           }
           p {
+            width: 100%;
             padding-top: 7px;
           }
           // =====================================================================

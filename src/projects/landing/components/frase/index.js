@@ -37,12 +37,12 @@ const Frase = () => {
         {`
           .text {
             width: 100vw;
-            height: 100vh;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             background: #ebebeb;
-            position: relative;
+            padding:2em 0;
           }
           .frase {
             width: 500px;

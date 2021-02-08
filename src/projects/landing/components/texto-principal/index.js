@@ -32,6 +32,7 @@ const Texto = () => {
           h4 {
             font-style: italic;
             font-size: 1.2em;
+            padding:.5em;
           }
           p {
             width: 50%;

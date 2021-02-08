@@ -27,8 +27,8 @@ const BannerSegundo = () => {
             justify-content: center;
             align-items: center;
             width: 100vw;
-            height: 100vh;
-            padding: 2em;
+            height: 100%;
+            padding: 1em;
           }
           img {
             width: 400px;
@@ -87,28 +87,16 @@ const BannerSegundo = () => {
             border-radius: 1em;
             position: relative;
           }
-          .right:after {
-            content: 'WeBuildWebz';
-            position: absolute;
-            width: 100px;
-            height: 100%;
-            left: -20px;
-            writing-mode: vertical-lr;
-            font-size: 4em;
-            color: #ebebeb;
-            z-index: 100;
-          }
+          
           .right:before {
             content: '';
             position: absolute;
             width: 6em;
             height: 6em;
-            bottom: 0;
-            right: 30%;
-            background: white;
-            border: 9px solid silver;
+            right: 7%;
+            border: 9px solid #00a1e5;
             border-radius: 50%;
-            box-shadow: 2px 2px 0.5em silver;
+            box-shadow: 2px 2px 0.5em #00a1e5;
           }
 
           .textlayout {
@@ -123,6 +111,8 @@ const BannerSegundo = () => {
             flex-flow: column;
             box-shadow: 2px 2px 1em silver;
             position: relative;
+            background: hsla(0, 0%, 100%, 0.8);
+            backdrop-filter:blur(2em)
           }
 
           .textlayout:after {
@@ -130,9 +120,8 @@ const BannerSegundo = () => {
             position: absolute;
             width: 1em;
             height: 1em;
-            top: 1em;
+            top: 0;
             left: 1em;
-            background: white;
             border: 3px solid silver;
             border-radius: 50%;
           }
@@ -143,7 +132,6 @@ const BannerSegundo = () => {
             height: 3em;
             top: -7em;
             left: 4em;
-            background: white;
             border: 6px solid #ffb52a;
             border-radius: 50%;
             box-shadow: 2px 2px 0.5em silver;
@@ -185,9 +173,7 @@ const BannerSegundo = () => {
               top: 0;
               left: 0;
             }
-            .right:after {
-              display: none;
-            }
+            
             .right:before {
               top: 0;
               right: 1em;
