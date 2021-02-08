@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 
 import 'aos/dist/aos.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/styles/globals.css';
 
 import getApp from '../../../shared/pages/_app';

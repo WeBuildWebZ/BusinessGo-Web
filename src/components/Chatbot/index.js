@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { showForm } from '../../services/api/form';
+import MessageBubbles from '../MessageBubbles';
 
 import Header from './Header';
 import Input from './Input';
 import Avatar from './Avatar';
 import { shouldRender } from './utils';
-import Messages from './Messages';
 
 const Chatbot = () => {
   const project = useSelector(store => store.project);
@@ -37,7 +37,11 @@ const Chatbot = () => {
       <Avatar show={!isOpen} onClick={() => setIsOpen(true)} />
       <div className="chatbot">
         <Header onClose={() => setIsOpen(false)} />
-        <Messages messages={messages} />
+        <MessageBubbles
+          messages={messages}
+          me="user"
+          height={`calc(100% - ${project.chatbot.configuration.web.header_size || 50}px - 44px)`}
+        />
         <Input onMessages={handleAddMessages} onInputRef={setTextInput} />
       </div>
       <style jsx>

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
-const Messages = props => {
+const MessageBubbles = props => {
   const project = useSelector(store => store.project);
   const messages = useRef();
 
@@ -15,7 +15,7 @@ const Messages = props => {
     <div className="messages" ref={messages}>
       {props.messages.map((message, i) => (
         <div key={i} className="messageContainer">
-          <div key={2} className={`message${message.from === 'user' ? ' userMessage' : ' botMessage'}`}>
+          <div key={2} className={`message${message.from === props.me ? ' userMessage' : ' botMessage'}`}>
             {message.from === 'bot' && (
               <img className="avatar" src={project.chatbot.configuration.web.avatar} />
             )}
@@ -35,9 +35,11 @@ const Messages = props => {
         {`
           .messages {
             width: 100%;
-            height: calc(100% - ${project.chatbot.configuration.web.header_size || 50}px - 44px);
+            height: ${props.height};
+            overflow-y: auto;
           }
           .messageContainer {
+            clear: both;
             width: 100%;
           }
           .avatar {
@@ -50,10 +52,13 @@ const Messages = props => {
             transform: scale(1.2) rotate(-20deg);
           }
           .message {
+            display: flex;
+            flex-direction: column;
             width: fit-content;
+            height: fit-content;
             background-color: lightskyblue;
             box-shadow: 0 0 3px 1px lightskyblue;
-            padding: 7px;
+            padding: 10px;
             margin: 14px;
             border-radius: 7px;
             font-size: 14px;
@@ -66,6 +71,7 @@ const Messages = props => {
           }
           .botMessage {
             border-top-left-radius: 0;
+            padding: 10px;
           }
           .text {
             display: inline-block;
@@ -97,8 +103,10 @@ const Messages = props => {
   );
 };
 
-Messages.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.object).isRequired
+MessageBubbles.propTypes = {
+  me: PropTypes.string.isRequired,
+  messages: PropTypes.arrayOf(PropTypes.object).isRequired,
+  height: PropTypes.string.isRequired
 };
 
-export default Messages;
+export default MessageBubbles;

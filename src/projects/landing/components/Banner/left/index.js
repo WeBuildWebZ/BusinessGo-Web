@@ -7,12 +7,14 @@ const Left = props => {
 
   return (
     <div className="left">
-      <span className="top" />
+      <span className="top">
+        <img src="/images/left-top.jpg" alt="esta es la img del left top" />
+      </span>
       <span className="down">
         <h5 className="title">{language.title}</h5>
         <span>
           <button className="seeButton">{language.button}</button>
-          <h6>{language.description}</h6>
+          <p>{language.description}</p>
         </span>
       </span>
 
@@ -20,38 +22,41 @@ const Left = props => {
         {`
           .left {
             width: 600px;
-            height: 700px;
+            height: 100%;
             display: flex;
             margin-right: 3em;
             flex-flow: column;
           }
           .top,
           .down {
-            flex: 1;
             width: 100%;
             height: 100%;
+            flex: 1;
           }
-          .top {
-            background-image: linear-gradient(to top, hsla(0, 0%, 100%, 1), hsla(0, 0%, 100%, 0.1)),
-              url(/images/left-top.jpg);
-            background-size: cover;
-            background-position: 0 0;
-            background-repeat: no-repeat;
+          img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
             border-radius: 1em;
+            box-shadow: 0.3em 0.3em 0.5em silver;
           }
+
           // ================================
           .down {
+            width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-flow: column;
           }
           .title {
+            width: 100%;
+            height: 100%;
             font-size: 2.5em;
             flex: 1;
             margin-top: 1.3em;
             padding: 0 0.5em;
-            overflow-y: hidden;
           }
           .down span {
             flex: 1;
@@ -61,6 +66,7 @@ const Left = props => {
             justify-content: center;
             align-items: center;
             padding: 0 1em;
+            margin: 1em;
           }
           .seeButton {
             padding: 0.3em 3.5em;
@@ -76,7 +82,7 @@ const Left = props => {
             transform: scale(1.1);
             border-radius: 0;
           }
-          h6 {
+          p {
             padding-top: 7px;
           }
           // =====================================================================
@@ -88,10 +94,14 @@ const Left = props => {
 
           @media (max-width: 605px) {
             .left {
-              width: 100vw;
+              width: 100%;
             }
             .left .top {
               border-radius: 0;
+            }
+            img {
+              width: 100%;
+              height: 100%;
             }
           }
           @media (max-width: 388px) {

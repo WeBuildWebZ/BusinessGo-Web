@@ -1,13 +1,28 @@
 import { io } from 'socket.io-client';
 
-import { conversation_id } from '../../../constants';
+let currentConversationId;
 
 /** @type {import('socket.io-client').Socket} socket */
 let socket;
 
-export const initChatbotSocket = () => {
-  if (socket) return;
-  socket = io(`${process.env.API_URL}/chatbot`, { transports: ['websocket'], query: { conversation_id } });
-};
+export const initChatbotSocket = (project_code, conversation_id, officer) =>
+  new Promise(resolve => {
+    if (officer) officer = { officer: JSON.stringify(officer) };
+    if (socket) {
+      if (conversation_id === currentConversationId) return resolve();
+      socket.disconnect();
+    }
+    currentConversationId = conversation_id;
+    socket = io(`${process.env.API_URL}/chatbot`, {
+      transports: ['websocket'],
+      query: { project_code, conversation_id, ...officer }
+    });
+
+    const onConnect = () => {
+      resolve();
+      socket.off('connect', onConnect);
+    };
+    socket.on('connect', onConnect);
+  });
 
 export { socket };

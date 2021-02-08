@@ -3,6 +3,7 @@ import { TextField } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { conversation_id } from '../../../constants';
 import { createWebMessage } from '../../../services/chatbot_api/web_message';
 import { socket } from '../../../shared/sockets/chatbot';
 
@@ -13,16 +14,21 @@ const Input = props => {
   const [waiting, setWaiting] = useState(false);
 
   const handleKeyPress = ({ target, charCode }) => {
-    if (charCode !== 13 || !target.value) return;
+    const value = target.value.trim();
+    if (charCode !== 13 || !value) return;
+    const message = {
+      conversation_id,
+      channel: 'web',
+      from: 'user',
+      type: 'text',
+      text: value
+    };
 
     setWaiting(true);
-    props.onMessages([{ type: 'text', from: 'user', text: target.value }]);
-
-    createWebMessage(project, target.value).then(({ data: givenMessages }) => {
+    createWebMessage(project, message, true).then(() => {
       setWaiting(false);
       textInput.current.focus();
       setText('');
-      props.onMessages(givenMessages.map(givenMessage => ({ ...givenMessage, from: 'bot' })));
     });
   };
 

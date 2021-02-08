@@ -6,47 +6,27 @@ import Slide from '../components/Slide';
 import Pregunta from '../components/Pregunta';
 import Copyright from '../components/Copyright';
 import styles from '../styles/Home.module.scss';
-import Links from '../components/Links';
 import Suscripcion from '../components/Suscripcion';
-
+import Footer from '../components/footer';
 
 export default function Home() {
   return (
-
-    <div className={styles.container}>
-      <Logo/>
-
+    <>
+      <Logo />
       <Frase />
-
-      {/* seccion color negro con iconos verdes */}
-      <section>
-        <Section/>
-      </section>
-
-      <section className={styles.image}>
-        <BoxCuatroImages />
-      </section>
-
-      <section className={styles.pregunta}>
-        <Pregunta />
-      </section>
-
-      <section className={styles.slide}>
-        <Slide />
-      </section>
-
+      <Section />
+      <BoxCuatroImages />
+      <Pregunta />
+      <Slide />
       <section className={styles.backgrounfinal}>
         <h3>
           <b>Damos lo Mejor de Nosotros cada dia</b>, para brindarte a ti, el mejor servicio en tu ciudad.
         </h3>
       </section>
-
       <Logo />
       <Suscripcion />
-      <footer className={styles.footer}>
-        <Links />
-      </footer>
+      <Footer />
       <Copyright />
-    </div>
+    </>
   );
 }

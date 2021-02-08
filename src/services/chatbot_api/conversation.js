@@ -1,5 +1,12 @@
 import api from '../../utils/axios';
 
+export const showConversation = (project, conversation_id) =>
+  api.get(
+    `chatbot_api/projects/${encodeURIComponent(project.code)}/conversations/${encodeURIComponent(
+      conversation_id
+    )}`
+  );
+
 export const listConversations = (
   project,
   page_number,
