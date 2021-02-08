@@ -69,7 +69,7 @@ const Suscripcion = () => {
           {`
             .subs {
               width: 100vw;
-              height: 0vh;
+              height: 100%;
               margin: 2em 0;
               padding: 0 1em;
               display: flex;

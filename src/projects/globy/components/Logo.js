@@ -16,51 +16,52 @@ const Logo = () => {
         </h1>
       )}
 
-      <style jsx>{`
-        .logo {
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          align-self: flex-start;
-          width: 50vw;
-          height: 30vh;
-        }
-        h1 {
-          color: black;
-          line-height: 1.7em;
-          text-align: center;
-          font-family: 'Bitter', serif;
-          font-weight: 700;
-        }
-        h1::first-line {
-          font-size: 3em;
-          color: #86a8e7;
-        }
-        @media (max-width: 1000px) {
+      <style jsx>
+        {`
           .logo {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            width: 100%;
+            width: 100vw;
+            height: 100%;
+            padding: 2em 0 0 2em;
           }
-        }
-        @media (max-width: 430px) {
-          .logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-          }
-
           h1 {
-            line-height: 1em;
+            color: black;
+            line-height: 1.7em;
+            font-family: 'Bitter', serif;
+            font-weight: 700;
           }
           h1::first-line {
-            font-size: 1em;
+            font-size: 3em;
             color: #86a8e7;
           }
-        }
-      `}</style>
+          @media (max-width: 1000px) {
+            .logo {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+            }
+          }
+          @media (max-width: 430px) {
+            .logo {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+            }
+
+            h1 {
+              line-height: 1em;
+            }
+            h1::first-line {
+              font-size: 1em;
+              color: #86a8e7;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };

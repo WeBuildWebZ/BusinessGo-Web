@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import styles from '../styles/Home.module.scss';
-import Image from 'next/image';
 
 import Spinner from '../../../components/Spinner';
+
+import Buttons from './buttons';
 
 const Frase = () => {
   const project = useSelector(store => store.project);
@@ -13,37 +13,17 @@ const Frase = () => {
         {!project && <Spinner />}
         {project && (
           <>
-            <h2>{project.configuration.basic_info.description_1}</h2>
+            <p>{project.configuration.basic_info.description_3}</p>
             <h3>{project.configuration.basic_info.description_2}</h3>
 
-            <p>{project.configuration.basic_info.description_3}</p>
-            <div>
-              <button>
-                <a href={project.configuration.basic_info.playstore_link} target="blank">
-                  GooglePlay
-                </a>
-              </button>
-              <button>
-                <a href={project.configuration.basic_info.appstore_link} target="blank">
-                  AppleStore
-                </a>
-              </button>
-            </div>
+            <Buttons />
           </>
         )}
       </div>
 
       <div className="right">
         {!project && <Spinner />}
-        {project && (
-          <Image
-            src={project.configuration.basic_info.main_image}
-            alt="calling taxi portada"
-            width={500}
-            height={400}
-            className={styles.img}
-          />
-        )}
+        {project && <img src={project.configuration.basic_info.main_image} alt="calling taxi portada" />}
       </div>
 
       <style jsx>
@@ -53,12 +33,14 @@ const Frase = () => {
             align-items: center;
             justify-content: center;
             width: 100vw;
-            height: 100vh;
+            height: 100%;
+            margin: 2em 0;
           }
 
           .left {
             flex: 1;
             display: flex;
+            justify-content: center;
             align-items: center;
             width: 100%;
             height: 100%;
@@ -72,40 +54,32 @@ const Frase = () => {
           }
           h3 {
             width: 60%;
-            margin-bottom: 1em;
+            margin-bottom: 0.5em;
           }
           p {
             width: 60%;
+            line-height: 1.2em;
             font-size: 2em;
             font-style: italic;
             margin-bottom: 1em;
           }
-          button {
-            width: 7em;
-            height: 2.5em;
-            margin: 15px 5px;
-            border-radius: 3em;
-            outline: none;
-            border: 2px solid black;
-            color: black;
-            font-weight: 700;
-            background: white;
-          }
-          button:hover {
-            background: black;
-            color: white;
-          }
-
           // ======================================================
 
           .right {
             flex: 1;
             width: 100%;
             height: 100%;
-            padding: 2em;
             display: flex;
             justify-content: center;
+            align-items: center;
           }
+          img {
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 0.5em 0.5em 0.5em 10em;
+          }
+          // ===================================================
           @media (max-width: 1000px) {
             .frase {
               flex-flow: column;
@@ -113,12 +87,11 @@ const Frase = () => {
             .left {
               width: 100%;
               height: 100%;
-              padding: 0 2em;
+              padding: 1em;
             }
             h2,
             h3,
             p {
-              width: 80%;
               margin-bottom: 0.5em;
             }
             h3,
@@ -129,6 +102,15 @@ const Frase = () => {
               margin-bottom: 0;
             }
           }
+          @media (max-width: 788px) {
+            h2,
+            h3,
+            p {
+              width: 100%;
+              margin-bottom: 0.5em;
+            }
+          }
+
           @media (max-width: 430px) {
             .left {
               padding: 0 1em;
@@ -142,6 +124,12 @@ const Frase = () => {
             h3,
             p {
               font-size: 1.3em;
+            }
+          }
+          @media (max-width: 318px) {
+            img {
+              width: 100%;
+              border-radius: 0;
             }
           }
         `}

@@ -11,6 +11,7 @@ const Galery = () => {
     <Layout>
       <div className="galery">
         <h2>{language.title}</h2>
+        <p>En esta seccion, mira todos nuestros proyectos realizados.</p>
         <br />
         {language.items.map(({ image_url, description, url }, id) => (
           <li className="card" key={id}>
@@ -40,8 +41,13 @@ const Galery = () => {
               flex-wrap: wrap;
             }
             h2 {
-              width: 100vw;
+              width: 100%;
               text-align: center;
+            }
+            p {
+              width: 100%;
+              text-align: center;
+              font-style: italic;
             }
 
             // ===========================================================================

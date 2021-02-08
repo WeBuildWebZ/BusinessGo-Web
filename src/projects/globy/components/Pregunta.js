@@ -43,90 +43,95 @@ const Pregunta = () => {
           {project && project.configuration.basic_info.email}
         </h2>
       </div>
-      <style jsx>{`
-        .section-pregunta {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-flow: column;
-          width: 100vw;
-          height: 100vh;
-          margin: 1.5em 0;
-        }
+      <style jsx>
+        {`
+          .section-pregunta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+            width: 100vw;
+            height: 100%;
+            margin: 2em 0;
+          }
 
-        .top-text {
-          flex: 1;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          overflow: hidden;
-          background: #ebebeb;
-          color: black;
-          padding: 2em 0;
-        }
-        // =================================================
+          .top-text {
+            flex: 1;
+            width: 100vw;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ebebeb;
+            color: black;
+            padding: 2em 1em;
+          }
+          .top-text h3 {
+            width: 100%;
+            text-align: center;
+          }
+          // =================================================
 
-        .mid-text {
-          flex: 2;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-wrap: wrap;
-        }
+          .mid-text {
+            flex: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+          }
 
-        .left-items {
-          width: 600px;
-          height: 220px;
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-          flex-flow: column;
-          border: 3px solid #ebebeb;
-          border-radius: 1em;
-          padding: 1em;
-          margin: 1em;
-        }
+          .left-items {
+            width: 600px;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-flow: column;
+            border: 3px solid #ebebeb;
+            border-radius: 1em;
+            padding: 1em;
+            margin: 1em;
+          }
 
-        .padding-lateral b {
-          font-weight: 800;
-        }
+          .padding-lateral b {
+            font-weight: 800;
+          }
 
-        .right-items {
-          width: 600px;
-          height: 220px;
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-          flex-flow: column;
-          border: 3px solid #ebebeb;
-          border-radius: 1em;
-          padding: 1em;
-          margin: 1em;
-        }
-        .padding-lateral b {
-          font-weight: 800;
-        }
+          .right-items {
+            width: 600px;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-flow: column;
+            border: 3px solid #ebebeb;
+            border-radius: 1em;
+            padding: 1em;
+            margin: 1em;
+          }
+          .padding-lateral b {
+            font-weight: 800;
+          }
 
-        // ===================================================
+          // ===================================================
 
-        .bottom-text {
-          flex: 1;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 0 2em;
-        }
+          .bottom-text {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 2em;
+          }
 
-        .bottom-text b {
-          color: grey;
-        }
-      `}</style>
+          .bottom-text b {
+            color: grey;
+          }
+        `}
+      </style>
     </div>
   );
 };
