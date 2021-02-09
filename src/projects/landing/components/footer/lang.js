@@ -5,13 +5,15 @@ export const getLanguage = langCode =>
       description:
         'Somos una empresa dedicada al desarrollo de páginas web, visita nuestra galería, nuestra sección de Blogs y envíanos tu consulta, te esperamos.',
       socialNetworks: 'Redes sociales',
-      contactInfo: 'Información de Contacto'
+      contactInfo: 'Información de Contacto',
+      privacyPolicy: 'Política de Privacidad'
     },
     en: {
       title: 'About Us',
       description:
         "We are a company dedicated to the development of web pages, take a look at our gallery, our Blogs section and send us your query, we're waiting for you.",
       socialNetworks: 'Social networks',
-      contactInfo: 'Contact Information'
+      contactInfo: 'Contact Information',
+      privacyPolicy: 'Privacy Policy'
     }
   }[langCode]);

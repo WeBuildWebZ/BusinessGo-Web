@@ -44,6 +44,12 @@ const Footer = () => {
               </a>
             </p>
           </span>
+          <span className="row">
+            <img src="/icon/privacy_policy.png" alt="contact icon" />
+            <p>
+              <a href="/privacy_policy">{language.privacyPolicy}</a>
+            </p>
+          </span>
         </span>
       </div>
 

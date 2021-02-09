@@ -11,6 +11,7 @@ const Avatar = props => {
       <style jsx>
         {`
           .avatar {
+            overflow: visible;
             position: fixed;
             transform: translate(-100%, -100%);
             left: calc(100% - 50px);
