@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button, ModalTitle } from 'react-bootstrap';
 
-import { createSession } from '../../../../../../services/api/session';
-import { setUser } from '../../../../../../shared/actions/user';
-import Spinner from '../../../../../Spinner';
-import { pushAlert } from '../../../../../../shared/actions/alerts';
+import { createSession } from '../../../../services/api/session';
+import { setUser } from '../../../../shared/actions/user';
+import Spinner from '../../../Spinner';
+import { pushAlert } from '../../../../shared/actions/alerts';
 
 import { getLanguage } from './lang';
 import useStyle from './style';
@@ -45,7 +45,7 @@ const Menu = () => {
 
   return (
     <>
-      <ModalTitle className={classes.title}>{language.title}</ModalTitle>
+      <h3>{language.title}</h3>
       <Form className={classes.form} onSubmit={handleLogin}>
         <Form.Group controlId="email">
           <Form.Label className="form-label text-left">{language.username}</Form.Label>

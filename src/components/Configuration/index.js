@@ -7,9 +7,9 @@ import { setUser } from '../../shared/actions/user';
 import { setSelectedClientModel } from '../../shared/actions/selectedClientModel';
 import LoadingPage from '../LoadingPage';
 
-import Background from './components/background';
-import Title from './components/title';
-import Login from './components/Login';
+import Background from './Background';
+import Title from './Title';
+import Login from './Login';
 import Dashboard from './components/Dashboard';
 
 const Configuration = props => {
