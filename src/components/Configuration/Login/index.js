@@ -5,20 +5,9 @@ import Form from './Form';
 
 const Login = () => (
   <center className="loginContainer">
-    <Paper
-      style={{
-        width: '18em',
-        height: '20em',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        flexFlow: 'column',
-        padding: '1em',
-        borderRadius: '1em'
-      }}
-    >
+    <div className="paper">
       <Form className="form" />
-    </Paper>
+    </div>
     <style jsx>
       {`
         .loginContainer {
@@ -29,6 +18,17 @@ const Login = () => (
           align-items: center;
           width: 100vw;
           height: 100vh;
+        }
+        .paper {
+          width: 18em;
+          height: 20em;
+          display: flex;
+          background-color: #ebebeb;
+          justify-content: center;
+          align-items: flextart;
+          flex-flow: column;
+          padding: 1em;
+          border-radius: 1em;
         }
 
         @keyframes initialAnimation {
