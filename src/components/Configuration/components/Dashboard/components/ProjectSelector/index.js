@@ -52,7 +52,7 @@ const ProjectSelector = () => {
       className={`projectSelector${leaving ? ' projectSelectorLeave' : ''}`}
       onAnimationEnd={handleAnimationEnd}
     >
-      <PopoverTitle style={{ color: '#345' }}>{language.getTitle(user)}</PopoverTitle>
+      <h2 className="title">{language.getTitle(user)}</h2>
       <p className="message">{language.selectProject}</p>
       {loading && <Spinner />}
       {!loading && (
@@ -85,8 +85,13 @@ const ProjectSelector = () => {
           .projectSelectorLeave {
             animation: leaveAnimation 1s linear;
           }
+          .title {
+            color: #595959;
+            margin: 10px 0 0 15px;
+          }
           .message {
-            margin: 9px;
+            width: fit-content;
+            margin: 9px 0 15px 30px;
           }
 
           @keyframes initialAnimation {
@@ -107,6 +112,11 @@ const ProjectSelector = () => {
               opacity: 0;
               background-color: rgb(42, 42, 209);
               margin: 100% 0 100% 0;
+            }
+          }
+          @media only screen and (max-width: 768px) {
+            .projectSelector {
+              width: 90%;
             }
           }
         `}
