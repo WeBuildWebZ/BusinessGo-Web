@@ -23,7 +23,7 @@ const Login = () => (
           width: 18em;
           height: 20em;
           display: flex;
-          background-color: #ebebeb;
+          background-color: #eaeaea;
           justify-content: center;
           align-items: flextart;
           flex-flow: column;

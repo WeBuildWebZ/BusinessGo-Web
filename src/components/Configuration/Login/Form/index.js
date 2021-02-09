@@ -45,38 +45,80 @@ const Menu = () => {
 
   return (
     <>
-      <h3>{language.title}</h3>
-      <Form className={classes.form} onSubmit={handleLogin}>
-        <Form.Group controlId="email">
-          <Form.Label className="form-label text-left">{language.username}</Form.Label>
-          <Form.Control
-            type="text"
-            required
-            maxLength={200}
-            placeholder={language.username}
-            value={email}
-            onChange={({ target }) => setEmail(target.value)}
-          />
-          <Form.Text className="text-muted">{language.emailMessage}</Form.Text>
-        </Form.Group>
+      <h2>{language.title}</h2>
+      <form className={classes.form} onSubmit={handleLogin}>
+        <div className="label">{language.username}</div>
+        <input
+          className="field"
+          type="text"
+          required
+          maxLength={200}
+          placeholder={language.username}
+          value={email}
+          onChange={({ target }) => setEmail(target.value)}
+        />
 
-        <Form.Group controlId="password">
-          <Form.Label>{language.password}</Form.Label>
-          <Form.Control
-            type="password"
-            required
-            maxLength={200}
-            placeholder={language.password}
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
-          />
-        </Form.Group>
+        <div className="label">{language.password}</div>
+        <input
+          className="field"
+          type="password"
+          required
+          maxLength={200}
+          placeholder={language.password}
+          value={password}
+          onChange={({ target }) => setPassword(target.value)}
+        />
 
         {loading && <Spinner style={{ position: 'absolute' }} />}
-        <Button variant="primary" type="submit" className={classes.submit} disabled={loading}>
+
+        <button className="submit" type="submit" aria-label="submit">
           {language.submit}
-        </Button>
-      </Form>
+        </button>
+      </form>
+      <style jsx>
+        {`
+          .submit {
+            background-color: #030303;
+            border: none;
+            color: white;
+            margin-top: 10px;
+            padding: 7.5px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            user-select: none;
+            outline: none;
+            transition: 0.2s;
+            cursor: pointer;
+          }
+          .submit:hover {
+            box-shadow: 0 0 2px 2px black;
+            border-radius: 5px;
+          }
+          .submit:active {
+            transform: scale(1.05);
+            box-shadow: 0 0 2px 2px black;
+            border-radius: 5px;
+          }
+          .field {
+            width: 90%;
+            height: 30px;
+            padding: 7px;
+            outline: none;
+            border-style: none;
+            border-radius: 5px;
+            transition: 0.7s;
+          }
+          .field:focus {
+            transform: scale(1.05);
+            box-shadow: 0 0 2px 2px white;
+          }
+          .label {
+            margin: 7px 0 7px 0;
+          }
+        `}
+      </style>
     </>
   );
 };
