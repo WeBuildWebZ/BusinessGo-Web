@@ -29,6 +29,11 @@ const Login = () => (
           flex-flow: column;
           padding: 1em;
           border-radius: 1em;
+          transition: 0.7s;
+          box-shadow: -15px -15px 15px #eaeaea34;
+        }
+        .paper:hover {
+          box-shadow: 15px 15px 15px #eaeaea34;
         }
 
         @keyframes initialAnimation {

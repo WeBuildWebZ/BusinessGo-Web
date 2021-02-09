@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Button, ModalTitle } from 'react-bootstrap';
 
 import { createSession } from '../../../../services/api/session';
 import { setUser } from '../../../../shared/actions/user';
@@ -8,10 +7,8 @@ import Spinner from '../../../Spinner';
 import { pushAlert } from '../../../../shared/actions/alerts';
 
 import { getLanguage } from './lang';
-import useStyle from './style';
 
 const Menu = () => {
-  const classes = useStyle();
   const dispatch = useDispatch();
   const user = useSelector(store => store.user);
   const language = getLanguage(useSelector(store => store.language));
@@ -46,7 +43,7 @@ const Menu = () => {
   return (
     <>
       <h2>{language.title}</h2>
-      <form className={classes.form} onSubmit={handleLogin}>
+      <form onSubmit={handleLogin}>
         <div className="label">{language.username}</div>
         <input
           className="field"
