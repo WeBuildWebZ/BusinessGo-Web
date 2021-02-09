@@ -99,12 +99,13 @@ const Menu = () => {
             border-radius: 5px;
           }
           .field {
-            width: 90%;
+            width: 100%;
             height: 30px;
             padding: 7px;
             outline: none;
             border-style: none;
             border-radius: 5px;
+            background: white;
             transition: 0.7s;
           }
           .field:focus {
@@ -113,6 +114,7 @@ const Menu = () => {
           }
           .label {
             margin: 7px 0 7px 0;
+            display: flex;
           }
         `}
       </style>
