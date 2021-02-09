@@ -10,7 +10,7 @@ const Nosotros = () => {
   return (
     <Layout>
       <div className="nosotros">
-        <h3>Nosotros</h3>
+        <h3>{language.aboutUs}</h3>
         {language.members.map(({ background, image, name, position, description }, id) => (
           <div key={id} className="card">
             <div
