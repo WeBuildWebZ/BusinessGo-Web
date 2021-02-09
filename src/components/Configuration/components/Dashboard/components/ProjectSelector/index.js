@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { PopoverTitle } from 'react-bootstrap';
 
 import Spinner from '../../../../../Spinner';
 import Button from '../../../../../Button';
