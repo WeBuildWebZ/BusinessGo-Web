@@ -1,1 +1,1 @@
-export const CHANNELS = ['web', 'facebook', 'telegram'];
+export const CHANNELS = ['web', 'facebook', 'telegram', 'slack'];
