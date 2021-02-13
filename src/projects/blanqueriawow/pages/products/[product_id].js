@@ -11,18 +11,12 @@ import Description from '../../components/product-single/description';
 import { showClientDocument } from '../../../../services/api/clientDocument';
 import Spinner from '../../../../components/Spinner';
 
-export const getServerSideProps = ({ query }) => {
-  const { product_id } = query;
-
-  return { props: { product_id } };
-};
-
-const Product = ({ product_id }) => {
+const Product = ({ query }) => {
   const [showBlock, setShowBlock] = useState('description');
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    showClientDocument(product_id).then(({ data: givenProduct }) => {
+    showClientDocument(query.product_id).then(({ data: givenProduct }) => {
       setProduct(givenProduct);
     });
   }, []);
@@ -66,8 +60,10 @@ const Product = ({ product_id }) => {
   );
 };
 
+Product.getInitialProps = ({ query }) => ({ query });
+
 Product.propTypes = {
-  product_id: PropTypes.string.isRequired
+  query: PropTypes.object.isRequired
 };
 
 export default Product;
