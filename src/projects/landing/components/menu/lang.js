@@ -4,6 +4,7 @@ export const getLanguage = langCode =>
       home: 'Inicio',
       pricing: 'Precios',
       gallery: 'Galería',
+      images: 'Imágenes',
       blog: 'Blog',
       aboutUs: 'Nosotros'
     },
@@ -11,6 +12,7 @@ export const getLanguage = langCode =>
       home: 'Home',
       pricing: 'Pricing',
       gallery: 'Gallery',
+      images: 'Images',
       blog: 'Blog',
       aboutUs: 'About Us'
     }

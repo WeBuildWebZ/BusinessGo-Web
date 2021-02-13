@@ -20,6 +20,10 @@ const Navbar = () => {
         <a>{language.gallery}</a>
       </Link>
 
+      <Link href="/imagenes">
+        <a>{language.images}</a>
+      </Link>
+
       <Link href="/blog">
         <a>{language.blog}</a>
       </Link>
