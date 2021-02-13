@@ -9,10 +9,11 @@ import Spinner from '../../../../../../../../../Spinner';
 import MessageBubbles from '../../../../../../../../../MessageBubbles';
 import Input from '../../../../../../../../../Chatbot/Input';
 import Notification from '../../../../../../../../../../utils/notification';
+import Back from '../../../../../../../../../Back';
 
 import { getLanguage } from './lang';
 
-const ConversationChat = ({ conversationId, show }) => {
+const ConversationChat = ({ conversationId, show, onExit }) => {
   const project = useSelector(store => store.project);
   const language = getLanguage(useSelector(store => store.language));
   const user = useSelector(store => store.user);
@@ -89,16 +90,19 @@ const ConversationChat = ({ conversationId, show }) => {
       {!conversation && <Spinner />}
       {conversation && (
         <>
+          <Back onClick={onExit} />
           <div className="messages">
             <MessageBubbles messages={messages} me={from} height="80%" />
           </div>
           <div className="footer">
+            {!conversation.active && <div>{language.userDisconnected}</div>}
             <input
               className="input"
               type="text"
+              placeholder={language.writeAMessage}
               ref={textInput}
               onKeyPress={handleKeyPress}
-              disabled={sendingText}
+              disabled={sendingText || !conversation.active}
             />
           </div>
         </>
@@ -125,7 +129,22 @@ const ConversationChat = ({ conversationId, show }) => {
             height: fit-content;
           }
           .input {
-            width: 100%;
+            width: 80%;
+            margin-left: 10%;
+            height: 50px;
+            padding: 4px;
+            outline: none;
+            border-style: none;
+            border-bottom-style: solid;
+            border-width: 1px;
+            transition: 0.7s;
+            box-shadow: -7px -7px 10px #00000034;
+            border-radius: 10px;
+          }
+          .input:focus {
+            transform: scale(1.05);
+            border-width: 2px;
+            box-shadow: 15px 15px 15px #00000034;
           }
         `}
       </style>
@@ -135,11 +154,13 @@ const ConversationChat = ({ conversationId, show }) => {
 
 ConversationChat.propTypes = {
   show: PropTypes.bool.isRequired,
-  conversationId: PropTypes.string
+  conversationId: PropTypes.string,
+  onExit: PropTypes.func
 };
 
 ConversationChat.defaultProps = {
-  conversationId: ''
+  conversationId: '',
+  onExit: () => {}
 };
 
 export default ConversationChat;

@@ -10,25 +10,28 @@ const Conversations = () => {
   const project = useSelector(store => store.project);
   const user = useSelector(store => store.user);
   const [selectedConversation, setSelectedConversation] = useState(null);
-  const [mounted, setMounted] = useState(true);
+  let mounted = true;
   const officer = { name: `${user.name} ${user.surname}`, _id: user._id };
-  const mountedRef = useRef();
-  mountedRef.current = mounted;
 
   const handleSelectConversation = conversation => {
     initChatbotSocket(project.code, conversation.id, officer).then(() => {
-      if (!mountedRef.current) return;
+      console.log('mountedRef.current', mounted);
+      if (!mounted) return;
       setSelectedConversation(conversation);
     });
   };
 
-  useEffect(() => () => setMounted(false), []);
+  useEffect(() => () => (mounted = false), []);
 
   return (
     <div className="conversationListContainer">
       <div className="conversationFlex">
         <ConversationList show={!selectedConversation} onSelectConversation={handleSelectConversation} />
-        <ConversationChat show={!!selectedConversation} conversationId={selectedConversation?._id} />
+        <ConversationChat
+          show={!!selectedConversation}
+          conversationId={selectedConversation?._id}
+          onExit={() => setSelectedConversation(null)}
+        />
       </div>
       <style jsx>
         {`
