@@ -16,8 +16,8 @@ const Navbar = () => {
         <a>{language.pricing}</a>
       </Link>
 
-      <Link href="/galeria">
-        <a>{language.gallery}</a>
+      <Link href="/clientes">
+        <a>{language.clients}</a>
       </Link>
 
       <Link href="/imagenes">
@@ -26,10 +26,6 @@ const Navbar = () => {
 
       <Link href="/blog">
         <a>{language.blog}</a>
-      </Link>
-
-      <Link href="/nosotros">
-        <a>{language.aboutUs}</a>
       </Link>
 
       <style jsx>

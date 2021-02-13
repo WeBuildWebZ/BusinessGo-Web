@@ -4,7 +4,7 @@ import Layout from '../../layout';
 
 import { getLanguage } from './lang';
 
-const Galery = () => {
+const Clientes = () => {
   const language = getLanguage(useSelector(store => store.language));
 
   return (
@@ -113,4 +113,4 @@ const Galery = () => {
   );
 };
 
-export default Galery;
+export default Clientes;

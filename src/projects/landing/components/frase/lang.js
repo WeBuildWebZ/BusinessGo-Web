@@ -2,7 +2,7 @@ export const getLanguage = langCode =>
   ({
     es: {
       phrases: [
-        'EL EXITO SOLO VINE CUANDO',
+        'EL EXITO SOLO VIENE CUANDO',
         'CRUZAS LA LINEA Y TE ARRIESGAS',
         'SOLO ASI, SE CONSIGUE EXPERIENCIA',
         'SI ASI LO DESEAS, AQUI TE ESPERAMOS.'

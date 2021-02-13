@@ -27,7 +27,7 @@ const WoW = {
 export const getLanguage = langCode =>
   ({
     es: {
-      title: 'Galería',
+      title: 'Clientes',
       visit: 'Visitar',
       items: [
         {
@@ -56,7 +56,7 @@ export const getLanguage = langCode =>
       ]
     },
     en: {
-      title: 'Gallery',
+      title: 'Clients',
       visit: 'Take a Look',
       items: [
         {

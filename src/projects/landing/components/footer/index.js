@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 
 import { getLanguage } from './lang';
 
@@ -14,11 +15,14 @@ const Footer = () => {
         </span>
 
         <span className="column">
-          <h3>{language.socialNetworks}</h3>
-          <p className="pointer">Facebook</p>
-          <p className="pointer">LinkedIn</p>
-          <p className="pointer">Instagram</p>
-          <p className="pointer">Google+</p>
+          <h3>
+            <Link href="/nosotros">
+              <a className="pointer">{language.socialNetworks}</a>
+            </Link>
+          </h3>
+          <p>Entra en el enlace, y contactanos a travez de todas las redes sociales que usamos.</p>
+          <br />
+          <br />
         </span>
 
         <span className="column">
@@ -47,7 +51,9 @@ const Footer = () => {
           <span className="row">
             <img src="/icon/privacy_policy.png" alt="contact icon" />
             <p>
-              <a href="/privacy_policy">{language.privacyPolicy}</a>
+              <Link href="/privacy_policy">
+                <a>{language.privacyPolicy}</a>
+              </Link>
             </p>
           </span>
         </span>
@@ -97,12 +103,10 @@ const Footer = () => {
             padding: 0 0 0 0.5em;
           }
           .pointer {
-            color: grey;
-          }
-          .pointer:hover {
-            color: white;
             cursor: pointer;
+            color: white;
           }
+
           a {
             color: grey;
           }
