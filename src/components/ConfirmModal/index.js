@@ -1,4 +1,4 @@
-import { Button, Modal } from 'react-bootstrap';
+import { Modal, Button } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -8,10 +8,10 @@ const ConfirmModal = props => {
   const language = getLanguage(useSelector(store => store.language));
 
   return (
-    <Modal show={props.show} onHide={() => props.onPrompt(false)}>
-      <Modal.Header closeButton>{props.title}</Modal.Header>
-      <Modal.Body>{props.message}</Modal.Body>
-      <Modal.Footer>
+    <Modal open={props.show} onClose={() => props.onPrompt(false)}>
+      <div className="modal">
+        <h2 className="title">{props.title}</h2>
+        <p className="message">{props.message}</p>
         <Button
           key="cancel"
           onClick={() => props.onPrompt(false)}
@@ -22,7 +22,24 @@ const ConfirmModal = props => {
         <Button key="confirm" onClick={() => props.onPrompt(true)}>
           {language.confirm}
         </Button>
-      </Modal.Footer>
+        <style jsx>
+          {`
+            .modal {
+              width: 80%;
+              margin: 20px 0 0 10%;
+              background-color: #ebebeb;
+            }
+            .title {
+              width: 100%;
+              padding: 10px;
+            }
+            .message {
+              width: 100%;
+              padding: 12px;
+            }
+          `}
+        </style>
+      </div>
     </Modal>
   );
 };
