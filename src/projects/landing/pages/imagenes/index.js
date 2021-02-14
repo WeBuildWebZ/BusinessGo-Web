@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 
 import Layout from '../../layout';
 import Spinner from '../../../../components/Spinner';
@@ -15,6 +16,10 @@ const Galery = () => {
         <h2>{language.title}</h2>
         <p>{language.subtitle}</p>
         <br />
+        <br />
+        <br />
+        <br />
+
         {!project && <Spinner />}
         {project &&
           project.configuration.images.images.map((image, id) => (
@@ -22,13 +27,12 @@ const Galery = () => {
               <div className="top">
                 <img src={image.url} alt="" />
               </div>
-              <div className="mid">{image.title}</div>
 
-              <div className="bottom">
-                <a href={image.url} target="_blank" rel="noopener noreferrer">
-                  {language.visit}
+              <Link href={image.url} target="_blank" rel="noopener noreferrer">
+                <a className="bottom">
+                  <div>{language.visit}</div>
                 </a>
-              </div>
+              </Link>
             </li>
           ))}
 
@@ -58,9 +62,9 @@ const Galery = () => {
             .card {
               width: 300px;
               height: 400px;
-              border: 0.3em solid #ebebeb;
+              border: 0.2em solid #ebebeb;
               border-radius: 1em;
-              padding: 1em;
+              padding: 0.5em;
               margin: 0.5em;
               display: flex;
               justify-content: center;
@@ -68,30 +72,24 @@ const Galery = () => {
               flex-flow: column;
             }
             .card:hover {
-              border: 0.3em solid #1c1c1c;
+              border: 0.2em solid #1c1c1c;
             }
 
             // ======================================================================================
             .top {
-              flex: 5;
+              flex: 9;
               width: 100%;
               height: 100%;
               overflow-y: hidden;
+              padding: 0 0 0.5em 0;
             }
             img {
               width: 100%;
-              height: 196px;
+              height: 100%;
               border-radius: 0.5em;
               object-fit: cover;
             }
-            // ======================================================================================
-            .mid {
-              flex: 4;
-              width: 100%;
-              height: 100%;
-              margin: 0.5em 0;
-              overflow-y: hidden;
-            }
+
             // =======================================================================================
             .bottom {
               flex: 1;
