@@ -19,8 +19,7 @@ const ReduxFiller = props => {
   const isAdminPage = process.browser && window.location.pathname === '/admin';
 
   if (!isAdminPage) {
-    console.log('is browser', !!process.browser);
-    showProject(constants.PROJECT_CODE).then(({ data: project }) => {
+    showProject(constants.PROJECT_CODE).then(project => {
       dispatch(setProject(project));
       initSentry(project.sentry_settings.dsn);
     });
