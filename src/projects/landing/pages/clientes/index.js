@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 
 import Layout from '../../layout';
 
@@ -20,11 +21,11 @@ const Clientes = () => {
             </div>
             <div className="mid">{description}</div>
 
-            <div className="bottom">
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                {language.visit}
+            <Link href={url} target="_blank" rel="noopener noreferrer">
+              <a className="bottom">
+                <div>{language.visit}</div>
               </a>
-            </div>
+            </Link>
           </li>
         ))}
 
@@ -54,9 +55,9 @@ const Clientes = () => {
             .card {
               width: 300px;
               height: 400px;
-              border: 0.3em solid #ebebeb;
+              border: 0.1em solid #ebebeb;
               border-radius: 1em;
-              padding: 1em;
+              padding: 0.5em;
               margin: 0.5em;
               display: flex;
               justify-content: center;
@@ -64,7 +65,7 @@ const Clientes = () => {
               flex-flow: column;
             }
             .card:hover {
-              border: 0.3em solid #1c1c1c;
+              border: 0.2em solid #1c1c1c;
             }
 
             // ======================================================================================
