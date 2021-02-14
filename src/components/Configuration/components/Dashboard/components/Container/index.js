@@ -51,6 +51,7 @@ const Container = () => {
             box-shadow: 0 0 2px 2px #ffffff;
             width: 60%;
             height: 90vh;
+            margin: auto;
             border-radius: 5px;
             transition: 0.8s;
             animation: arrive 1s linear;

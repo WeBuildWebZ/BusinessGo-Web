@@ -80,7 +80,7 @@ const ChatbotEditor = () => {
     <div className="chatbotEditor">
       {section === 'conversations' && (
         <>
-          <PopoverTitle>{language.conversations}</PopoverTitle>
+          <h2 className="sectionTitle">{language.conversations}</h2>
           <Conversations />
         </>
       )}
@@ -124,6 +124,9 @@ const ChatbotEditor = () => {
         {`
           .chatbotEditor {
             height: 100%;
+          }
+          .sectionTitle {
+            padding: 7px;
           }
           .title {
             width: 100%;

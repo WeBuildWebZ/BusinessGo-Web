@@ -36,7 +36,7 @@ const LanguageSelector = props => {
         onChange={({ target }) => dispatch(setLanguage(target.value))}
         style={{ color: props.color }}
       >
-        {Object.values(LANGUAGES).map(l => (
+        {LANGUAGES.map(l => (
           <MenuItem value={l} key={l}>
             {l.toUpperCase()}
           </MenuItem>

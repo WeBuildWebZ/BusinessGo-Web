@@ -78,8 +78,12 @@ const ProjectSelector = () => {
             height: 300px;
             background-color: #ffffff;
             border-radius: 5px;
-            transition: 1s;
+            transition: 0.7s;
+            box-shadow: -15px -15px 15px #eaeaea34, 0 0 1px 1px #ffffff;
             animation: initialAnimation 1s linear;
+          }
+          .projectSelector:hover {
+            box-shadow: 15px 15px 15px #eaeaea34, 0 0 2px 2px #ffffff;
           }
           .projectSelectorLeave {
             animation: leaveAnimation 1s linear;

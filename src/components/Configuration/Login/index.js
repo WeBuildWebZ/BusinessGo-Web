@@ -30,10 +30,10 @@ const Login = () => (
           padding: 1em;
           border-radius: 1em;
           transition: 0.7s;
-          box-shadow: -15px -15px 15px #eaeaea34;
+          box-shadow: -15px -15px 15px #eaeaea34, 0 0 1px 1px #ffffff;
         }
         .paper:hover {
-          box-shadow: 15px 15px 15px #eaeaea34;
+          box-shadow: 15px 15px 15px #eaeaea34, 0 0 2px 2px #ffffff;
         }
 
         @keyframes initialAnimation {

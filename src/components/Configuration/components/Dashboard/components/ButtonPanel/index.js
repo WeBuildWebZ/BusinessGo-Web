@@ -25,6 +25,7 @@ const ButtonPanel = () => {
           .buttonPanel {
             display: flex;
             flex-direction: column;
+            width: 30px;
             height: 87vh;
             animation: arrive 1s linear;
           }

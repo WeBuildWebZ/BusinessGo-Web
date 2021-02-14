@@ -46,7 +46,7 @@ const Group = props => {
       <ConfirmModal
         show={deletingIndex !== null}
         onPrompt={handlePrompt}
-        message={language.deleteMessage(field)}
+        title={language.deleteMessage(field)}
       />
       <FormLabel component="legend">{field.name}</FormLabel>
       {datas.map((data, i) => (
