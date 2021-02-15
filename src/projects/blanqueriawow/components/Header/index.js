@@ -13,10 +13,10 @@ const Header = ({ isErrorPage }) => {
   const queryParams = useSelector(state => state.queryParams);
   const arrayPaths = [
     '/products',
-    '/products/[product_id]',
+    '/products/product',
     '/login',
     '/cart',
-    '/carts/[cart_id]',
+    '/carts/cart',
     '/register',
     '/cart/checkout'
   ];

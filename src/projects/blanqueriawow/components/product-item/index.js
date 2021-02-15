@@ -32,7 +32,7 @@ const ProductItem = props => {
         <i className="icon-heart" />
       </button>
 
-      <Link href={`/products/${product._id}`}>
+      <Link href={`/products/product?product_id=${encodeURIComponent(product._id)}`}>
         <a href="#">
           <img
             src={product.photo}
