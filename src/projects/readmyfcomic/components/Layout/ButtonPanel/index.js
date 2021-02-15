@@ -26,6 +26,11 @@ const ButtonPanel = () => {
         </Link>
       </Item>
       <Item>
+        <Link href="/forum">
+          <a className="button">{language.forum}</a>
+        </Link>
+      </Item>
+      <Item>
         <Link href="/contact">
           <a className="button">{language.contact}</a>
         </Link>
