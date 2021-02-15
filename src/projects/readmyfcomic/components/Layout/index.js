@@ -1,22 +1,41 @@
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
+import { getSessions } from '../../../../services/api/session';
+import { setSession } from '../../../../shared/actions/session';
 
 import Title from './Title';
 import ButtonPanel from './ButtonPanel';
+import ProfileMenu from './ProfileMenu';
 
-const Layout = ({ children }) => (
-  <div className="layout">
-    <Title />
-    <ButtonPanel />
-    {children}
-    <style jsx>
-      {`
-        .layout {
-          height: fit-content;
-        }
-      `}
-    </style>
-  </div>
-);
+const Layout = ({ children }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getSessions().then(({ data: sessions }) => {
+      if (!sessions[0]) return dispatch(setSession({ user: null }));
+
+      dispatch(setSession(sessions[0]));
+    });
+  }, []);
+
+  return (
+    <div className="layout">
+      <Title />
+      <ButtonPanel />
+      <ProfileMenu />
+      {children}
+      <style jsx>
+        {`
+          .layout {
+            height: fit-content;
+          }
+        `}
+      </style>
+    </div>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.any

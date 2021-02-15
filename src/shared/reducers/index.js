@@ -1,4 +1,5 @@
 import user from './user';
+import session from './session';
 import alerts from './alerts';
 import project from './project';
 import language from './language';
@@ -15,6 +16,7 @@ import selectedChatbotSection from './admin/selectedChatbotSection';
 
 const CommonReducers = {
   user,
+  session,
   alerts,
   project,
   language,
