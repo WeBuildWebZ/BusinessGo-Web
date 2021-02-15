@@ -23,6 +23,12 @@ const Patrocinators = () => {
             border-width: 2px;
             background-color: #dcb3e1;
           }
+          @media only screen and (max-width: 768px) {
+            .sliderContainer {
+              width: 50%;
+              margin-left: 10%;
+            }
+          }
         `}
       </style>
     </div>

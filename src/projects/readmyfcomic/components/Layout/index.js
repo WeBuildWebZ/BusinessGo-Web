@@ -7,7 +7,7 @@ import { setSession } from '../../../../shared/actions/session';
 
 import Title from './Title';
 import ButtonPanel from './ButtonPanel';
-import ProfileMenu from './ProfileMenu';
+import Right from './Right';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
     <div className="layout">
       <Title />
       <ButtonPanel />
-      <ProfileMenu />
+      <Right />
       {children}
       <style jsx>
         {`

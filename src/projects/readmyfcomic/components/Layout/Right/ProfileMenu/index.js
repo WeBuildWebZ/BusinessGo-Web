@@ -14,8 +14,8 @@ const ProfileMenu = () => (
         }
         .picture {
           margin: 14px;
-          max-width: 80px;
-          max-height: 80px;
+          max-width: 40px;
+          max-height: 40px;
         }
       `}
     </style>

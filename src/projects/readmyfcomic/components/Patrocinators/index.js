@@ -16,6 +16,14 @@ const Patrocinators = () => {
             text-align: center;
             font-size: 48px;
           }
+          @media only screen and (max-width: 768px) {
+            .patrocinators {
+              margin-top: 10px;
+            }
+            .title {
+              font-size: 24px;
+            }
+          }
         `}
       </style>
     </div>

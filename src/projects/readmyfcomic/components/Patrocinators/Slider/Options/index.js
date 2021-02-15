@@ -39,6 +39,13 @@ const Options = props => {
             transform: scale(1.12) translate(0, -12%);
             box-shadow: 5px 5px 15px #303030;
           }
+          @media only screen and (max-width: 768px) {
+            .option {
+              width: 13px;
+              height: 13px;
+              margin: 2px;
+            }
+          }
         `}
       </style>
     </div>
