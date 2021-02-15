@@ -48,6 +48,12 @@ const ButtonPanel = () => {
           }
           .button {
             margin: 10px;
+            text-align: center;
+          }
+          @media only screen and (max-width: 768px) {
+            .button {
+              font-size: 10px;
+            }
           }
         `}
       </style>

@@ -18,6 +18,7 @@ const Title = () => (
           transform: translate(-50%, -50%);
           left: 50%;
           top: 50%;
+          width: 100%;
           vertical-align: middle;
           font-size: 48px;
           color: #38a4f1;
@@ -26,6 +27,11 @@ const Title = () => (
         .exclamationMark {
           display: inline-block;
           color: #f13838;
+        }
+        @media only screen and (max-width: 768px) {
+          .text {
+            font-size: 34px;
+          }
         }
       `}
     </style>
