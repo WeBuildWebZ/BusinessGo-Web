@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'GrinchedRegular';
+  src: url('/fonts/GrinchedRegular.otf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'GrinchedRegular';
+}
+
+/* lean, esta es una clase que va a estar a lo largo de la web, para no repetir tanto flex */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aos-init:not(.aos-animate):after {
+  position: fixed;
+}
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
