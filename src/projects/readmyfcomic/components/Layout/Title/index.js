@@ -1,6 +1,8 @@
 const Title = () => (
   <div className="title">
-    <div className="text">Read My F****** Comic!</div>
+    <div className="text">
+      Read My F****** Comic<div className="exclamationMark">!</div>
+    </div>
     <style jsx>
       {`
         .title {
@@ -20,6 +22,10 @@ const Title = () => (
           font-size: 48px;
           color: #38a4f1;
           text-shadow: 0 0 3px black;
+        }
+        .exclamationMark {
+          display: inline-block;
+          color: #f13838;
         }
       `}
     </style>

@@ -32,7 +32,7 @@
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Muebles"
   },
   "readmyfcomic": {
-    "path": "src/projects/muebles",
+    "path": "src/projects/readmyfcomic",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-ReadMyFComic"
   }
 }

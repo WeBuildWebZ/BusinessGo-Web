@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'GrinchedRegular';
-  src: url('/fonts/GrinchedRegular.otf');
+  font-family: 'PinkChickenRegular';
+  src: url('/fonts/PinkChickenRegular.ttf');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -16,7 +16,7 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'GrinchedRegular';
+  font-family: 'PinkChickenRegular';
 }
 
 /* lean, esta es una clase que va a estar a lo largo de la web, para no repetir tanto flex */
