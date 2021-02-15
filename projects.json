@@ -17,7 +17,7 @@
   },
   "blanqueriawow": {
     "path": "src/projects/blanqueriawow",
-    "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Blanqueria_Wow"
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Blanqueria_Wow"
   },
   "bob": {
     "path": "src/projects/bob",
