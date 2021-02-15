@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import Footer from '../../components/footer';
 import Layout from '../../layouts/Main';
@@ -11,15 +11,17 @@ import Description from '../../components/product-single/description';
 import { showClientDocument } from '../../../../services/api/clientDocument';
 import Spinner from '../../../../components/Spinner';
 
-const Product = ({ query }) => {
+const Product = () => {
   const [showBlock, setShowBlock] = useState('description');
   const [product, setProduct] = useState(null);
+  const query = useSelector(store => store.queryParams);
 
   useEffect(() => {
+    if (!query.product_id) return;
     showClientDocument(query.product_id).then(({ data: givenProduct }) => {
       setProduct(givenProduct);
     });
-  }, []);
+  }, [query.product_id]);
 
   return (
     <Layout>
@@ -58,12 +60,6 @@ const Product = ({ query }) => {
       <Footer />
     </Layout>
   );
-};
-
-Product.getInitialProps = ({ query }) => ({ query });
-
-Product.propTypes = {
-  query: PropTypes.object.isRequired
 };
 
 export default Product;

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { combineReducers, createStore } from 'redux';
 import { useEffect } from 'react';
 import AOS from 'aos';
+import { useRouter } from 'next/router';
 
 import commonReducer from '../reducers';
 import Chatbot from '../../components/Chatbot';
@@ -11,10 +12,13 @@ import AlertStack from '../../components/AlertStack';
 import { showProject } from '../../services/api/project';
 import { setProject } from '../actions/project';
 import { initSentry } from '../../utils/sentry';
+import { setQueryParams } from '../actions/queryParams';
 
 const ReduxFiller = props => {
   const dispatch = useDispatch();
   const { constants } = props;
+  const router = useRouter();
+  const { query } = router;
 
   const isAdminPage = process.browser && window.location.pathname === '/admin';
 
@@ -24,6 +28,11 @@ const ReduxFiller = props => {
       initSentry(project.sentry_settings.dsn);
     });
   }
+
+  useEffect(() => {
+    dispatch(setQueryParams(query));
+  }, [query]);
+
   return <div />;
 };
 

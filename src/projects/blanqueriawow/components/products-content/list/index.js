@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -15,18 +15,22 @@ const ProductsContent = props => {
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
   const [counter, setCounter] = useState(0);
+  const search = selectedCategories.length ? '' : queryParams.search;
+  const searchRef = useRef();
+  searchRef.current = search;
 
   useEffect(() => {
-    const search = selectedCategories.length ? '' : queryParams.search;
+    const currentSearch = search;
 
     setLoading(true);
     getProducts(props.pageSize, pageNumber, { category: selectedCategories }, search).then(
       ({ data: newProducts }) => {
+        if (searchRef.current !== currentSearch) return;
         setProducts([...products, ...newProducts]);
         setLoading(false);
       }
     );
-  }, [pageNumber, counter]);
+  }, [queryParams, pageNumber, counter]);
 
   useEffect(() => {
     setLoading(true);
