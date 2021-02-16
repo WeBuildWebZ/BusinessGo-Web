@@ -67,7 +67,7 @@ const ConversationChat = ({ conversationId, show, onExit }) => {
       const [{ conversation_id }] = newMessages;
       const [lastMessage] = newMessages.reverse();
 
-      if (conversation_id !== conversationRef.current?.id) return;
+      if (`${conversation_id}` !== conversationRef.current?.id) return;
 
       if (lastMessage.from === from) setNewMessage(null);
       else setNewMessage(lastMessage.text);
