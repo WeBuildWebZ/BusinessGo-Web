@@ -16,28 +16,34 @@ const MessageBubbles = props => {
 
   return (
     <div className="messages" ref={messages}>
-      {props.messages.map((message, i) => (
-        <div key={i} className="messageContainer">
-          <div key={2} className={`message${message.from === props.me ? ' userMessage' : ' botMessage'}`}>
-            {message.from === 'bot' && (
-              <img className="avatar" src={project.chatbot.configuration.web.avatar} />
-            )}
-            {message.type === 'text' && (
-              <div className="text">
-                <Markdown {...markdownProps}>{message.text}</Markdown>
-              </div>
-            )}
-            {message.type === 'image' && (
-              <div className="text">
-                <Markdown {...markdownProps}>{message.text}</Markdown>
-                <a href={message.image_url} target="_blank">
-                  <img className="image" src={message.image_url} />
-                </a>
-              </div>
-            )}
+      {props.messages.map((message, i) => {
+        const fromPerson = !['bot', 'user'].includes(message.from);
+        const fromMe = message.from === props.me;
+
+        return (
+          <div key={i} className="messageContainer">
+            {fromPerson ? <div className={`from${fromMe ? ' fromRight' : ''}`}>{message.from}</div> : ''}
+            <div key={2} className={`message${fromMe ? ' myMessage' : ' otherMessage'}`}>
+              {message.from === 'bot' && (
+                <img className="avatar" src={project.chatbot.configuration.web.avatar} />
+              )}
+              {message.type === 'text' && (
+                <div className="text">
+                  <Markdown {...markdownProps}>{message.text}</Markdown>
+                </div>
+              )}
+              {message.type === 'image' && (
+                <div className="text">
+                  <Markdown {...markdownProps}>{message.text}</Markdown>
+                  <a href={message.image_url} target="_blank">
+                    <img className="image" src={message.image_url} />
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
       <style jsx>
         {`
           .messages {
@@ -72,11 +78,11 @@ const MessageBubbles = props => {
             animation: fadeRight 0.5s linear;
             transition: 0.5s;
           }
-          .userMessage {
+          .myMessage {
             float: right;
             border-top-right-radius: 0;
           }
-          .botMessage {
+          .otherMessage {
             border-top-left-radius: 0;
             padding: 10px;
           }
@@ -95,6 +101,13 @@ const MessageBubbles = props => {
           .image:hover {
             transform: scale(1.1);
             filter: blur(1px);
+          }
+          .from {
+            font-size: 10px;
+            margin: 0 0 -13px 14px;
+          }
+          .fromRight {
+            float: right;
           }
           @keyframes fadeRight {
             0% {
