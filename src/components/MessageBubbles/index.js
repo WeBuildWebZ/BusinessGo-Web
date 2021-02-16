@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import Markdown from 'react-markdown';
+
+const markdownProps = { linkTarget: 'blank' };
 
 const MessageBubbles = props => {
   const project = useSelector(store => store.project);
@@ -19,10 +22,14 @@ const MessageBubbles = props => {
             {message.from === 'bot' && (
               <img className="avatar" src={project.chatbot.configuration.web.avatar} />
             )}
-            {message.type === 'text' && <div className="text">{message.text}</div>}
+            {message.type === 'text' && (
+              <div className="text">
+                <Markdown {...markdownProps}>{message.text}</Markdown>
+              </div>
+            )}
             {message.type === 'image' && (
               <div className="text">
-                {message.text}
+                <Markdown {...markdownProps}>{message.text}</Markdown>
                 <a href={message.image_url} target="_blank">
                   <img className="image" src={message.image_url} />
                 </a>
