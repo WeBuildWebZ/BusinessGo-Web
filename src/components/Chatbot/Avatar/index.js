@@ -30,7 +30,7 @@ const Avatar = props => {
             z-index: 999;
           }
           .avatar:hover {
-            transform: translate(-100%, -100%) rotate(5deg);
+            transform: translate(-100%, -100%) scale(1.1) rotate(5deg);
           }
           .image {
             max-width: 100%;

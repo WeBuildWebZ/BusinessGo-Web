@@ -7,7 +7,7 @@ const Header = props => {
 
   return (
     <div className="titleContainer">
-      <div className="title">{project.chatbot.configuration.web.title}</div>
+      <div className="title">{props.title}</div>
       <CloseButton
         onClick={props.onClose}
         style={{
@@ -47,7 +47,12 @@ const Header = props => {
 };
 
 Header.propTypes = {
+  title: PropTypes.string,
   onClose: PropTypes.func.isRequired
+};
+
+Header.defaultProps = {
+  title: ''
 };
 
 export default Header;
