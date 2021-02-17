@@ -15,6 +15,7 @@ import LogoBanner from '../components/logo-banner';
 import Navbar from '../components/menu';
 import Additional from '../components/aditional';
 import Layout from '../layout';
+// import ChatbotBanner from '../components/chatbot-banner';
 
 const LandingPage = () => (
   <>
@@ -24,6 +25,7 @@ const LandingPage = () => (
       <Frase />
       <Texto />
       <ItemsExplicacion />
+      {/* <ChatbotBanner /> */}
     </Layout>
   </>
 );
