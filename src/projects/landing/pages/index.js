@@ -15,7 +15,7 @@ import LogoBanner from '../components/logo-banner';
 import Navbar from '../components/menu';
 import Additional from '../components/aditional';
 import Layout from '../layout';
-// import ChatbotBanner from '../components/chatbot-banner';
+import WEChatbot from '../components/we-chatbot';
 
 const LandingPage = () => (
   <>
@@ -23,9 +23,10 @@ const LandingPage = () => (
       <Banner />
       <BannerSegundo />
       <Frase />
+      <WEChatbot />
+
       <Texto />
       <ItemsExplicacion />
-      {/* <ChatbotBanner /> */}
     </Layout>
   </>
 );

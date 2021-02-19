@@ -22,6 +22,7 @@ const Texto = () => {
             align-items: center;
             flex-flow: column;
             padding: 1em;
+            margin: 4em 0;
             background:white;
           }
           h2 {

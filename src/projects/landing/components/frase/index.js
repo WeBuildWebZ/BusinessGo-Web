@@ -42,7 +42,7 @@ const Frase = () => {
             justify-content: center;
             align-items: center;
             background: #ebebeb;
-            padding:2em 0;
+            padding: 2em 0;
           }
           .frase {
             width: 500px;
