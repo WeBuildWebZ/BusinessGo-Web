@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 const WEChatbot = () => (
   <div className="we-chatbot">
     <div className="left" />
@@ -9,14 +7,14 @@ const WEChatbot = () => (
       </h2>
       <p>
         En We Build Webz, desarrollamos la nueva funcionalidad, <b>ChatBot</b>, permite que tus comunicaciones
-        sean <b>administradas automaticamente</b>, cuando no dispongas de tiempo. Conatctanos, y te explicamos
+        sean <b>administradas automaticamente</b>, cuando no dispongas de tiempo. Contactanos, y te explicamos
         como.
       </p>
 
       <button>
-        <Link href="https://www.we-chatbot.com" target="_blank">
-          <a>Visitar</a>
-        </Link>
+        <a href="https://api.whatsapp.com/send?phone=+5491130696440&text=" target="_blank">
+          Contactar
+        </a>
       </button>
     </div>
 

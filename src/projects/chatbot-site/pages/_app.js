@@ -11,18 +11,18 @@ import * as constants from '../constants';
 const AppendHead = () => (
   <>
     <NextSeo
-      title="WeBuildWebZ"
+      title="We-Chat"
       description="Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida"
       canonical={constants.URL}
       openGraph={{
         url: constants.URL,
-        title: 'WeBuildWebZ',
-        description: 'Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida',
-        site_name: 'WeBuildWebZ',
+        title: 'We-Chatbot',
+        description: 'Somos una empresa de desarrollo Chat Bot, y desarrollo web.',
+        site_name: 'We-Chatbot',
         images: [
           {
             url:
-              'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-webuildwebz.jpg?alt=media&token=cca05d1d-42e8-445e-a346-21c6d4686bfc',
+              'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/we-chatbot-banner.png?alt=media&token=714cb48c-c71f-44c4-b79f-91c87c13a209',
             width: 1366,
             height: 635,
             alt: 'Imagen 1'
