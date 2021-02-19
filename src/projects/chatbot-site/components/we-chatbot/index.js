@@ -9,7 +9,8 @@ const WEChatbot = () => (
       </h2>
       <p>
         En We Build Webz, desarrollamos la nueva funcionalidad, <b>ChatBot</b>, permite que tus comunicaciones
-        sean <b>administradas automaticamente</b>, cuando nos dispongas de tiempo.
+        sean <b>administradas automaticamente</b>, cuando no dispongas de tiempo. Conatctanos, y te explicamos
+        como.
       </p>
 
       <button>
@@ -45,14 +46,14 @@ const WEChatbot = () => (
         // ==================
         .left {
           background-image: url(/images/chatbot.jpg);
-          background-position: 0;
+          background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
+          border-radius: 0.5em;
         }
         // =============================
 
         h2 {
-          margin: 1.5em 0 0 0;
           padding: 0;
           font-size: 3em;
           background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);

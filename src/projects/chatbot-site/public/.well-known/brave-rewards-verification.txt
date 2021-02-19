@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: webuildwebz.com
+Token: 7f5e88fdb392aafa439bb764dac5f3e92513fc521c0228a6f591e79024cfbde4
