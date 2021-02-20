@@ -8,12 +8,12 @@ const WEChatbot = () => (
         NUESTRO NUEVO <br /> SERVICIO DE CHATBOT
       </h2>
       <p>
-        En We Build Webz, desarrollamos la nueva funcionalidad, <b>ChatBot</b>, permite que tus comunicaciones
-        sean <b>administradas automaticamente</b>, cuando nos dispongas de tiempo.
+        En We Build Webz, desarrollamos la nueva funcionalidad: <b>ChatBot</b>, permite que tus comunicaciones
+        sean <b>administradas automáticamente</b>, cuando no dispongas de tiempo.
       </p>
 
       <button>
-        <Link href="https://www.we-chatbot.com" target="_blank">
+        <Link href="https://www.chatbot.webuildwebz.com" target="_blank">
           <a>Visitar</a>
         </Link>
       </button>
