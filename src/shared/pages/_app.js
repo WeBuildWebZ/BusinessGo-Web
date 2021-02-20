@@ -3,11 +3,11 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { combineReducers, createStore } from 'redux';
 import { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import AOS from 'aos';
 import { useRouter } from 'next/router';
 
 import commonReducer from '../reducers';
-import Chatbot from '../../components/Chatbot';
 import AlertStack from '../../components/AlertStack';
 import { showProject } from '../../services/api/project';
 import { setProject } from '../actions/project';
@@ -18,7 +18,7 @@ const ReduxFiller = props => {
   const dispatch = useDispatch();
   const { constants } = props;
   const router = useRouter();
-  const { query } = router;
+  const { query } = router || { query: {} };
 
   const isAdminPage = process.browser && window.location.pathname === '/admin';
 
@@ -40,7 +40,7 @@ ReduxFiller.propTypes = {
   constants: PropTypes.shape({ PROJECT_CODE: PropTypes.string.isRequired }).isRequired
 };
 
-const getApp = (reducer, constants, AppendComponent) => {
+const getApp = (reducer, constants, AppendComponent, rootElement) => {
   const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
 
   const App = ({ Component, pageProps }) => {
@@ -48,17 +48,27 @@ const getApp = (reducer, constants, AppendComponent) => {
       AOS.init();
     }, []);
 
-    return (
+    const finalComponent = (
       <>
         <AppendComponent />
         <Provider store={store}>
           <ReduxFiller constants={constants} />
           <AlertStack position={constants.ALERT_STACK_POSITION} />
-          <Chatbot />
           <Component {...pageProps} />
         </Provider>
       </>
     );
+
+    if (rootElement) {
+      window.WeBuildWebz = {
+        renderWidgets: () => {
+          ReactDOM.render(finalComponent, rootElement);
+        }
+      };
+      return <div />;
+    }
+
+    return finalComponent;
   };
 
   App.propTypes = {

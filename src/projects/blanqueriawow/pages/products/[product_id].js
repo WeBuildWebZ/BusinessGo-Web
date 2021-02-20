@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import Footer from '../../components/footer';
 import Layout from '../../layouts/Main';
 import Breadcrumb from '../../components/breadcrumb';
-import ProductsFeatured from '../../components/products-featured';
 import Gallery from '../../components/product-single/gallery';
 import Content from '../../components/product-single/content';
 import Description from '../../components/product-single/description';
@@ -56,7 +55,7 @@ const Product = () => {
           </div>
         </div>
       </section>
-      <div className="product-single-page">{/* <ProductsFeatured /> */}</div>
+      <div className="product-single-page" />
       <Footer />
     </Layout>
   );

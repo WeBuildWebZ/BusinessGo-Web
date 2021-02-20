@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "landing": "npm run copy-env src/projects/landing && next dev src/projects/landing",
+    "widgets": "npm run copy-env src/projects/widgets && next dev src/projects/widgets",
+    "widgets2": "cd src/projects/widgets2 && npm start",
     "chatbot": "npm run copy-env src/projects/chatbot-site && next dev src/projects/chatbot-site",
     "admin": "npm run copy-env src/projects/admin && next dev src/projects/admin",
     "globy": "npm run copy-env src/projects/globy && next dev src/projects/globy",
@@ -55,7 +57,6 @@
     "socket.io-client": "^3.1.1",
     "styled-components": "^5.2.1",
     "swiper": "^6.4.5",
-    "swr": "^0.3.11",
     "use-onclickoutside": "^0.3.1",
     "uuid": "^8.3.2"
   },
