@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "landing": "npm run copy-env src/projects/landing && next dev src/projects/landing -p 3000",
-    "chatbot": "npm run copy-env src/projects/chatbot-site && next dev src/projects/chatbot-site -p 3000",
+    "landing": "npm run copy-env src/projects/landing && next dev src/projects/landing",
+    "chatbot": "npm run copy-env src/projects/chatbot-site && next dev src/projects/chatbot-site",
     "admin": "npm run copy-env src/projects/admin && next dev src/projects/admin",
     "globy": "npm run copy-env src/projects/globy && next dev src/projects/globy",
     "psa": "npm run copy-env src/projects/psa && next dev src/projects/psa",

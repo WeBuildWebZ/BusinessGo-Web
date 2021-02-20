@@ -34,5 +34,9 @@
   "readmyfcomic": {
     "path": "src/projects/readmyfcomic",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-ReadMyFComic"
+  },
+  "chatbot-site": {
+    "path": "src/projects/chatbot-site",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-ChatbotSite"
   }
 }

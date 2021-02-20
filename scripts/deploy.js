@@ -26,6 +26,9 @@ if (!project) throw new Error(`Didn't found project with name ${projectName}`);
   await runExec(`cp package.json ${repoPath}`);
   await runExec(`cp next.config.js ${repoPath}`);
   await runExec(`cp .gitignore ${repoPath}`);
+  await runExec(
+    `cd ${repoPath}/src/projects; find . -maxdepth 1 -mindepth 1 ! -regex '^./${projectName}' -exec rm -rv {} +`
+  );
 
   // Upload to Github Repository
   await runExec(`cd ${repoPath} && git add .`);
