@@ -11,13 +11,14 @@ import * as constants from '../constants';
 const AppendHead = () => (
   <>
     <NextSeo
-      title="We-Chat"
-      description="Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida"
+      title="We-Chatbot"
+      description="Somos una empresa especializada en el desarrollo de chatbots. Ofrecemos chatbots + chat en tiempo real para los canales Web, Telegram, Slack, Line y Viber"
       canonical={constants.URL}
       openGraph={{
         url: constants.URL,
         title: 'We-Chatbot',
-        description: 'Somos una empresa de desarrollo Chat Bot, y desarrollo web.',
+        description:
+          'Somos una empresa especializada en el desarrollo de chatbots. Ofrecemos chatbots + chat en tiempo real para los canales Web, Telegram, Slack, Line y Viber',
         site_name: 'We-Chatbot',
         images: [
           {
