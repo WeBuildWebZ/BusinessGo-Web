@@ -1,7 +1,7 @@
 const Left = () => (
   <div className="banner">
     <div className="left">
-      <h3>Tenemos la solucion para tu stress, falta de tiempo, y organizacion</h3>
+      <h3>Tenemos la solución para tu stress, falta de tiempo, y organizacion</h3>
     </div>
     <div className="mid">
       <h1>We Chatbot</h1>
@@ -9,7 +9,7 @@ const Left = () => (
     </div>
     <div className="right">
       <h3>
-        Hace <br /> tu <br /> vida <br /> mas <br /> simple
+        Hace <br /> tu <br /> vida <br /> más <br /> simple
       </h3>
     </div>
     <style jsx>

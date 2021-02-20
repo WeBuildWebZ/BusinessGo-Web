@@ -21,7 +21,7 @@ const Section = () => (
       <div className="text">
         <h3>Sistema de Puntos</h3>
         <p>
-          <b>Categorizacion.</b>Cada chofer sera evaluado, con el fin de disponer gente mas capacitada y
+          <b>Categorizacion.</b>Cada chofer sera evaluado, con el fin de disponer gente más capacitada y
           brindar un mejor servicio.
         </p>
       </div>
@@ -111,7 +111,7 @@ const Section = () => (
         .fa-location-arrow {
           width: 80px;
           height: 80px;
-          color:#86a8e7;
+          color: #86a8e7;
         }
 
         // =================

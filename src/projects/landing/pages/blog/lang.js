@@ -29,7 +29,7 @@ export const getLanguage = langCode =>
         {
           ...Article1,
           title: 'Que es: SEO?',
-          description: 'Mira este articulo y descucbri que es el SEO, posicionamiento web y mas.'
+          description: 'Mira este articulo y descucbri que es el SEO, posicionamiento web y más.'
         },
         {
           ...Article2,

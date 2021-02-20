@@ -1,5 +1,6 @@
-import Layout from '../layouts/Main';
 import Link from 'next/link';
+
+import Layout from '../layouts/Main';
 
 const LoginPage = () => (
   <Layout>
@@ -7,13 +8,19 @@ const LoginPage = () => (
       <div className="container">
         <div className="back-button-section">
           <Link href="/products">
-            <a><i className="icon-left"></i>Volver a la tienda</a>
+            <a>
+              <i className="icon-left" />
+              Volver a la tienda
+            </a>
           </Link>
         </div>
 
         <div className="form-block">
           <h2 className="form-block__title">Log in</h2>
-          <p className="form-block__description">Registrate utilizando tu correo electronico, o tambien podes usar Facebook o Gmail, es mas facil, animate!</p>
+          <p className="form-block__description">
+            Registrate utilizando tu correo electrónico, o tambien podes usar Facebook o Gmail, es más fácil,
+            animate!
+          </p>
 
           <form className="form">
             <div className="form__input-row">
@@ -26,29 +33,39 @@ const LoginPage = () => (
 
             <div className="form__info">
               <div className="checkbox-wrapper">
-                <label htmlFor="check-signed-in" className={`checkbox checkbox--sm`}>
+                <label htmlFor="check-signed-in" className="checkbox checkbox--sm">
                   <input name="signed-in" type="checkbox" id="check-signed-in" />
-                  <span className="checkbox__check"></span>
+                  <span className="checkbox__check" />
                   <p>Mantenerme conectado</p>
                 </label>
               </div>
-              <a href="#" className="form__info__forgot-password">Olvide mi contraseña</a>
+              <a href="#" className="form__info__forgot-password">
+                Olvide mi contraseña
+              </a>
             </div>
 
             <div className="form__btns">
-              <button type="button" className="btn-social fb-btn"><i className="icon-facebook"></i>Facebook</button>
-              <button type="button" className="btn-social google-btn"><img src="/images/icons/gmail.svg" alt="gmail" /> Gmail</button>
+              <button type="button" className="btn-social fb-btn">
+                <i className="icon-facebook" />
+                Facebook
+              </button>
+              <button type="button" className="btn-social google-btn">
+                <img src="/images/icons/gmail.svg" alt="gmail" /> Gmail
+              </button>
             </div>
 
-            <button type="button" className="btn btn--rounded btn--yellow btn-submit">Sign in</button>
+            <button type="button" className="btn btn--rounded btn--yellow btn-submit">
+              Sign in
+            </button>
 
-            <p className="form__signup-link">No eres miembro aun? <a href="/register">Registrarse</a></p>
+            <p className="form__signup-link">
+              No eres miembro aun? <a href="/register">Registrarse</a>
+            </p>
           </form>
         </div>
-
       </div>
     </section>
   </Layout>
-)
+);
 
-export default LoginPage
+export default LoginPage;
