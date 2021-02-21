@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import Chatbot from './components/Chatbot';
 import store from './store';
 
-export const App = () => (
+const App = () => (
   <>
     <Chatbot />
   </>

@@ -13,7 +13,7 @@ module.exports = {
     config.output = {
       libraryTarget: 'umd',
       library: 'WeBuildWebzWidgets',
-      filename: './widgets.js'
+      filename: './bundle.min.js'
     };
 
     // CSS. "5" is MiniCssPlugin

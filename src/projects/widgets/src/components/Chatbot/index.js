@@ -66,7 +66,7 @@ const Chatbot = () => {
   }, [project]);
 
   useEffect(() => {
-    showProject(window.__WEBUILDWEBZ_DATA.projectCode).then(givenProject => {
+    showProject(window.__WEBUILDWEBZ_DATA.projectToken, true).then(givenProject => {
       dispatch(setProject(givenProject));
     });
   }, [setProject]);
