@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "landing": "npm run copy-env src/projects/landing && next dev src/projects/landing",
-    "widgets": "npm run copy-env src/projects/widgets && next dev src/projects/widgets",
-    "widgets2": "cd src/projects/widgets2 && npm start",
+    "widgets": "cd src/projects/widgets && npm start",
     "chatbot": "npm run copy-env src/projects/chatbot-site && next dev src/projects/chatbot-site",
     "admin": "npm run copy-env src/projects/admin && next dev src/projects/admin",
     "globy": "npm run copy-env src/projects/globy && next dev src/projects/globy",
@@ -25,6 +24,7 @@
     "deploy": "branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD) && node -r esm scripts/deploy $branch"
   },
   "dependencies": {
+    "@babel/core": "^7.12.17",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "@sentry/react": "^5.30.0",

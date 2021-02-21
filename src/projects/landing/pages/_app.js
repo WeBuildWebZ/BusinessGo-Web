@@ -44,3 +44,7 @@ const AppendHead = () => (
 );
 
 export default getApp({}, constants, AppendHead);
+
+export const Hola = () => {
+  console.log('holaaa');
+};

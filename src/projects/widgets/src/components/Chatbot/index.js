@@ -1,10 +1,13 @@
+import { v4 as uuid } from 'uuid';
 import { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { showForm } from '../../services/api/form';
 import MessageBubbles from '../MessageBubbles';
-import { conversation_id } from '../../constants';
+import { conversation_id } from './constants';
 import { createWebMessage } from '../../services/chatbot_api/web_message';
+import { setProject } from '../../store/actions/project';
+import { showProject } from '../../services/api/project';
+import { getQueryParam } from '../../utils/query';
 
 import Header from './Header';
 import Input from './Input';
@@ -14,7 +17,12 @@ import FAQButton from './FAQButton';
 import { shouldRender } from './utils';
 import * as constants from './constants';
 
+const classes = {
+  chatbot: `chatbot-${uuid()}`
+};
+
 const Chatbot = () => {
+  const dispatch = useDispatch();
   const project = useSelector(store => store.project);
   const [isOpen, setIsOpen] = useState(false);
   const render = shouldRender(project);
@@ -53,16 +61,18 @@ const Chatbot = () => {
   };
 
   useEffect(() => {
-    if (!project || !project.chatbot.configuration) return;
+    if (!project?.chatbot?.configuration) return;
     setMessages([{ from: 'bot', type: 'text', text: project.chatbot.configuration.web.greeting }]);
   }, [project]);
 
-  if (!render)
-    return (
-      <div>
-        <div>hola</div>
-      </div>
-    );
+  useEffect(() => {
+    showProject(window.__WEBUILDWEBZ_DATA.projectCode).then(givenProject => {
+      dispatch(setProject(givenProject));
+    });
+  }, [setProject]);
+
+  if (!render) return <div />;
+
   return (
     <div onKeyPress={handleFocusInput} tabIndex={0}>
       <Avatar show={!isOpen} onClick={() => setIsOpen(true)} />
@@ -72,7 +82,7 @@ const Chatbot = () => {
         show={isOpen && !showFaq}
         onClick={() => setShowFaq(true)}
       />
-      <div className="chatbot">
+      <div className={classes.chatbot}>
         <Header title={project.chatbot.configuration.web.title} onClose={() => setIsOpen(false)} />
         <MessageBubbles
           messages={messages}
@@ -88,7 +98,7 @@ const Chatbot = () => {
       </div>
       <style jsx>
         {`
-          .chatbot {
+          .${classes.chatbot} {
             position: fixed;
             transform: translate(-100%, -100%);
             left: calc(100% - 50px);
@@ -109,7 +119,7 @@ const Chatbot = () => {
             transition: 0.7s;
           }
           @media only screen and (max-width: 768px) {
-            .chatbot {
+            .${classes.chatbot} {
               transform: translate(0, -100%);
               width: 96%;
               left: 2%;

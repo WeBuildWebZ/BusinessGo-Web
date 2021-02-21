@@ -1,11 +1,16 @@
-const BASE_URL = 'http://localhost:3000';
+(() => {
+  const { currentScript } = document;
+  const { parentNode: parent } = currentScript;
+  const { webuildwebzProjectCode: projectCode } = currentScript.dataset;
+  const { webuildwebzEnvironment: env } = currentScript.dataset;
 
-fetch(BASE_URL)
-  .then(response => response.text())
-  .then(html => {
-    html = html.replace(/"\//g, `"${BASE_URL}/`);
+  window.__WEBUILDWEBZ_DATA = { projectCode };
 
-    console.log('html', html);
+  const app = document.createElement('div');
+  app.id = 'webuildwebz-widgets';
+  const widgetScript = document.createElement('script');
+  widgetScript.src = 'http://localhost:5000/widgets.js';
 
-    document.write(html);
-  });
+  parent.appendChild(app);
+  parent.appendChild(widgetScript);
+})();
