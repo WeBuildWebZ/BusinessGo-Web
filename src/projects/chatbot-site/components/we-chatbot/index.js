@@ -85,6 +85,18 @@ const WEChatbot = () => (
         }
         // =============MEDIA QUERYS========================
 
+        @media (max-width: 1055px) {
+          .right {
+            padding-left: 0.5em;
+          }
+        }
+        @media (max-width: 1031px) {
+          .right {
+            padding-left: 0;
+            margin-top: 1em;
+          }
+        }
+
         @media (max-width: 455px) {
           p {
             width: 100%;
