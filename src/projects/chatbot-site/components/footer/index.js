@@ -17,7 +17,7 @@ const Footer = () => {
         <span className="column">
           <h3>
             <Link href="https://www.webuildwebz.com">
-              <a className="pointer">{language.socialNetworks}</a>
+              <a className="pointer">{language.webuildwebz}</a>
             </Link>
           </h3>
           <p>Entra en el enlace, y volve a la webuildwebz y todos nuestros trabajos.</p>
