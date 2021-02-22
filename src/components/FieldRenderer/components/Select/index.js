@@ -4,13 +4,17 @@ import { FormControl, InputLabel, MenuItem, Select as SelectInput } from '@mater
 import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../../../utils/field';
+import { getKeyTranslation } from '../../keyTranslator';
 
 import { getLanguage } from './lang';
 
 const Select = props => {
   const { field, value, FieldRenderer } = props;
-  const language = getLanguage(useSelector(store => store.language));
+  const languageCode = useSelector(store => store.language);
+  const keyTranslation = getKeyTranslation(languageCode);
+  const language = getLanguage(languageCode);
   const project = useSelector(store => store.project);
+  const fieldName = field.name || keyTranslation[field.key];
 
   const options =
     field.options ||
@@ -29,9 +33,9 @@ const Select = props => {
   return (
     <>
       <FormControl>
-        <InputLabel>{field.name}</InputLabel>
+        <InputLabel>{fieldName}</InputLabel>
         <SelectInput
-          label={field.name}
+          label={fieldName}
           value={value || 'select_a_value'}
           onChange={handleChangeValue}
           displayEmpty
@@ -40,7 +44,7 @@ const Select = props => {
           disabled={props.readOnly}
         >
           <MenuItem key={-1} value="select_a_value" disabled>
-            {`${language.select} ${field.name}`}
+            {`${language.select} ${fieldName}`}
           </MenuItem>
           {options.map((option, i) => (
             <MenuItem key={option.key || i} value={option.key}>

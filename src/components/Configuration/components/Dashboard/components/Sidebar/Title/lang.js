@@ -4,13 +4,15 @@ const getLanguage = language_code =>
       configuration: 'Configuración',
       tables: 'Tablas',
       forms: 'Formularios',
-      chatbots: 'Chatbots'
+      chatbots: 'Chatbots',
+      widgets: 'Widgets'
     },
     en: {
       configuration: 'Configuration',
       tables: 'Tables',
       forms: 'Forms',
-      chatbots: 'Chatbots'
+      chatbots: 'Chatbots',
+      widgets: 'Widgets'
     }
   }[language_code]);
 

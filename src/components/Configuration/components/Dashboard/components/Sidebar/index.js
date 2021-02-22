@@ -8,6 +8,7 @@ import Title from './Title';
 import TablesSection from './TablesSection';
 import FormsSection from './FormsSection';
 import ChatbotsSection from './ChatbotsSection';
+import WidgetsSection from './WidgetsSection';
 
 const Sidebar = () => {
   const project = useSelector(store => store.project);
@@ -31,6 +32,9 @@ const Sidebar = () => {
       <Title code="chatbots" />
       <Split />
       <ChatbotsSection />
+      <Title code="widgets" />
+      <Split />
+      <WidgetsSection />
       <style jsx>
         {`
           .sidebar {

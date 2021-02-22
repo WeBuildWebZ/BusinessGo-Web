@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { TextField } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import { fieldShape } from '../../../utils/field';
+import { getKeyTranslation } from '../keyTranslator';
 
 const Text = props => {
   const { field, value } = props;
+  const languageCode = useSelector(store => store.language);
+  const keyTranslation = getKeyTranslation(languageCode);
   const [stateValue, setStateValue] = useState(value || field.default_value);
 
   const handleChangeValue = ({ target }) => {
@@ -16,7 +20,7 @@ const Text = props => {
   return (
     <>
       <TextField
-        label={field.name}
+        label={field.name || keyTranslation[field.key]}
         value={stateValue}
         disabled={props.readOnly}
         rows={props.rows}

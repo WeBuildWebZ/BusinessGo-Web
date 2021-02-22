@@ -7,12 +7,15 @@ import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../../utils/field';
 import InputGroup from '../../InputGroup';
+import { getKeyTranslation } from '../keyTranslator';
 
 import { getLanguage } from './lang';
 
 const List = props => {
   const { field, value } = props;
-  const language = getLanguage(useSelector(store => store.language));
+  const languageCode = useSelector(store => store.language);
+  const keyTranslation = getKeyTranslation(languageCode);
+  const language = getLanguage(languageCode);
   const [stateValue, setStateValue] = useState(value || field.default_value);
 
   const handleChangeValue = (index, option, valueToChange) => {
@@ -38,7 +41,7 @@ const List = props => {
 
   return (
     <InputGroup>
-      <FormLabel component="legend">{field.name}</FormLabel>
+      <FormLabel component="legend">{field.name || keyTranslation[field.key]}</FormLabel>
       {stateValue.map((option, i) => (
         <TextField
           key={i}

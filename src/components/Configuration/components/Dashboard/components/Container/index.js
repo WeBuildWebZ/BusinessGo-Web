@@ -11,6 +11,7 @@ import ConfigurationEditor from './components/ConfigurationEditor';
 import FormEditor from './components/FormEditor';
 import ChatbotEditor from './components/ChatbotEditor';
 import FormResponseViewer from './components/FormResponseViewer';
+import Widgets from './components/Widgets';
 
 const Container = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ const Container = () => {
       {adminSection === 'forms' && selectedFormSection === 'edit' && <FormEditor />}
       {adminSection === 'forms' && selectedFormSection === 'show' && <FormResponseViewer />}
       {adminSection === 'chatbots' && <ChatbotEditor />}
+      {adminSection === 'widgets' && <Widgets />}
       <style jsx>
         {`
           .container {

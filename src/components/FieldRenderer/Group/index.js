@@ -7,13 +7,15 @@ import PropTypes from 'prop-types';
 import { fieldShape } from '../../../utils/field';
 import InputGroup from '../../InputGroup';
 import ConfirmModal from '../../ConfirmModal';
+import { getKeyTranslation } from '../keyTranslator';
 
-import FieldModal from './FieldModal';
 import { getLanguage } from './lang';
 
 const Group = props => {
   const { field, value, FieldRenderer } = props;
-  const language = getLanguage(useSelector(store => store.language));
+  const languageCode = useSelector(store => store.language);
+  const keyTranslation = getKeyTranslation(languageCode);
+  const language = getLanguage(languageCode);
   const [enumModalOption, setEnumModalOption] = useState(null);
   const [enumModalOptionIndex, setEnumModalOptionIndex] = useState(null);
   const [datas, setDatas] = useState(value);
@@ -48,7 +50,7 @@ const Group = props => {
         onPrompt={handlePrompt}
         title={language.deleteMessage(field)}
       />
-      <FormLabel component="legend">{field.name}</FormLabel>
+      <FormLabel component="legend">{field.name || keyTranslation[field.key]}</FormLabel>
       {datas.map((data, i) => (
         <InputGroup key={i}>
           <CloseIcon

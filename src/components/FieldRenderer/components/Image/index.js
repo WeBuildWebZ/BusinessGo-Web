@@ -5,12 +5,16 @@ import PropTypes from 'prop-types';
 import Spinner from '../../../Spinner';
 import { uploadImage } from '../../../../services/cloudinary/image';
 import OpenableImage from '../../../OpenableImage';
+import { getKeyTranslation } from '../../keyTranslator';
 
 const Image = props => {
   const { field, value } = props;
+  const languageCode = useSelector(store => store.language);
+  const keyTranslation = getKeyTranslation(languageCode);
   const project = useSelector(store => store.project);
   const [uploading, setUploading] = useState(false);
   const input = useRef(null);
+  const fieldName = field.name || keyTranslation[field.key];
 
   const handleOpenFileSelector = () => {
     input.current.click();
@@ -31,14 +35,14 @@ const Image = props => {
 
   return (
     <div className="imageContainer">
-      <div className="imageText">{`${field.name}:`}</div>
+      <div className="imageText">{`${fieldName}:`}</div>
       {uploading ? (
         <Spinner />
       ) : props.readOnly ? (
-        <OpenableImage src={value || field.default_value} title={field.name} />
+        <OpenableImage src={value || field.default_value} title={fieldName} />
       ) : (
         <img
-          alt={field.name}
+          alt={fieldName}
           src={value || field.default_value || '/shared/icons/upload.svg'}
           className="image"
           onClick={handleOpenFileSelector}

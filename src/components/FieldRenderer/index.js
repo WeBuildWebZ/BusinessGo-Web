@@ -13,12 +13,15 @@ import Select from './components/Select';
 import Number from './components/Number';
 import Image from './components/Image';
 import { getLanguage } from './lang';
+import { getKeyTranslation } from './keyTranslator';
 
 let timeoutId;
 
 const FieldRenderer = props => {
   const { fields, data, updateAfter } = props;
-  const language = getLanguage(useSelector(store => store.language));
+  const languageCode = useSelector(store => store.language);
+  const keyTranslation = getKeyTranslation(languageCode);
+  const language = getLanguage(languageCode);
   const [hasChanged, setHasChanged] = useState(false);
   const [newData, setNewData] = useState(data);
 
@@ -178,7 +181,7 @@ const FieldRenderer = props => {
                   onChange={value => handleUpdateData(field.key, value)}
                   key={field.key}
                 >
-                  {field.name}
+                  {field.name || keyTranslation[field.key]}
                 </Button>
               </a>
             );
