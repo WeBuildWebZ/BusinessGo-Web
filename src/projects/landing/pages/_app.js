@@ -41,7 +41,7 @@ const AppendHead = () => (
       <link rel="icon" href="/favicon.png" />
       <script
         src="https://www.widgets.webuildwebz.com/include.js"
-        data-webuildwebz-page-token="73DCF74F122A4FACADD7B522EC826B8B68594F4D"
+        data-webuildwebz-project-token="73DCF74F122A4FACADD7B522EC826B8B68594F4D"
       />
     </Head>
   </>
