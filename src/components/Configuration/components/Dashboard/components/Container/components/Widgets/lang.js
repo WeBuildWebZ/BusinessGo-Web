@@ -1,9 +1,9 @@
 export const getLanguage = langCode =>
   ({
     es: {
-      title: 'Redes Sociales'
+      title: 'Widgets'
     },
     en: {
-      title: 'Social Networks'
+      title: 'Widgets'
     }
   }[langCode]);
