@@ -40,10 +40,12 @@ const AppendHead = () => (
     <Head>
       <link rel="icon" href="/favicon.png" />
     </Head>
-    <script
-      src="https://www.widgets.webuildwebz.com/include.js"
-      data-webuildwebz-project-token="73DCF74F122A4FACADD7B522EC826B8B68594F4D"
-    />
+    {!window.location.pathname.startsWith('/admin') && (
+      <script
+        src="https://www.widgets.webuildwebz.com/include.js"
+        data-webuildwebz-project-token="73DCF74F122A4FACADD7B522EC826B8B68594F4D"
+      />
+    )}
   </>
 );
 
