@@ -48,7 +48,7 @@ const Select = props => {
           </MenuItem>
           {options.map((option, i) => (
             <MenuItem key={option.key || i} value={option.key}>
-              {option.value}
+              {option.value || keyTranslation[option.key]}
             </MenuItem>
           ))}
         </SelectInput>
