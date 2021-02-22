@@ -55,7 +55,7 @@ const AppendHead = () => (
       <meta name="Resource-type" content="Catalog" />
       <meta name="DateCreated" content="Mon, 18 January 2021 00:00:00 GMT+1" />
     </Head>
-    {!window.location.pathname.startsWith('/admin') && (
+    {process.browser && !window.location.pathname.startsWith('/admin') && (
       <script
         src="https://www.widgets.webuildwebz.com/include.js"
         data-webuildwebz-project-token="52A9CFB17B4E4EFEA78C780D78C45C0AADABFD76"
