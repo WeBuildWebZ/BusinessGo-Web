@@ -19,7 +19,6 @@ const Stripe = ({ product, successUrl, cancelUrl }) => {
     setLoading(true);
     createPaymentSession({ ...product, ...translatedProduct }, successUrl, cancelUrl).then(
       ({ data: sessionId }) => {
-        console.log('sessionId', sessionId);
         setLoading(false);
       }
     );
