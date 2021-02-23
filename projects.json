@@ -38,5 +38,9 @@
   "chatbot-site": {
     "path": "src/projects/chatbot-site",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-ChatbotSite"
+  },
+  "digital-cards": {
+    "path": "src/projects/digital-cards",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-DigitalCards"
   }
 }
