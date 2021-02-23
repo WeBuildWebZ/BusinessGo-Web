@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ProductShape from '../../shapes/Product';
 import { getProductCodeTranslation } from '../../translations/productsCodes';
@@ -9,26 +9,33 @@ import { createPaymentSession } from '../../services/ecommerce_api/payment_sessi
 
 import { getLanguage } from './lang';
 
-const Stripe = ({ product, successUrl, cancelUrl }) => {
+const Stripe = ({ product, successUrl, cancelUrl, publishableKey }) => {
   const languageCode = useSelector(store => store.language);
   const langauge = getLanguage(languageCode);
   const translatedProduct = getProductCodeTranslation(languageCode)[product.code];
   const [loading, setLoading] = useState(false);
+  const [stripe, setStripe] = useState(null);
 
   const handlePay = () => {
     setLoading(true);
     createPaymentSession({ ...product, ...translatedProduct }, successUrl, cancelUrl).then(
-      ({ data: sessionId }) => {
-        setLoading(false);
+      ({ data: session }) => {
+        stripe.redirectToCheckout({ sessionId: session.id });
       }
     );
   };
+
+  useEffect(() => {
+    document.getElementById('stripe-script').onload = () => {
+      setStripe(window.Stripe(publishableKey));
+    };
+  });
 
   return (
     <>
       <Head>
         <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch" />
-        <script src="https://js.stripe.com/v3" />
+        <script id="stripe-script" src="https://js.stripe.com/v3" />
       </Head>
 
       <section>
@@ -52,6 +59,7 @@ const Stripe = ({ product, successUrl, cancelUrl }) => {
 };
 
 Stripe.propTypes = {
+  publishableKey: PropTypes.string.isRequired,
   product: PropTypes.shape(ProductShape).isRequired,
   successUrl: PropTypes.string.isRequired,
   cancelUrl: PropTypes.string.isRequired

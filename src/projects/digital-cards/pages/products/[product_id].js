@@ -5,8 +5,9 @@ import Stripe from '../../../../components/Stripe';
 import { showProduct } from '../../../../services/ecommerce_api/product';
 
 const Product = () => {
-  const [product, setProduct] = useState(null);
+  const project = useSelector(store => store.project);
   const query = useSelector(store => store.queryParams);
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     if (!query.product_id) return;
@@ -17,8 +18,9 @@ const Product = () => {
 
   return (
     <>
-      {product && (
+      {project && product && (
         <Stripe
+          publishableKey={project.ecommerce.stripe.publishable_key}
           product={product}
           successUrl={`${window.location.origin}/success`}
           cancelUrl={`${window.location.origin}/cancel`}
