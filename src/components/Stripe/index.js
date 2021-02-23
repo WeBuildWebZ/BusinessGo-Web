@@ -1,16 +1,29 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 import ProductShape from '../../shapes/Product';
 import { getProductCodeTranslation } from '../../translations/productsCodes';
+import { createPaymentSession } from '../../services/ecommerce_api/payment_session';
 
 import { getLanguage } from './lang';
 
-const Stripe = ({ product }) => {
+const Stripe = ({ product, successUrl, cancelUrl }) => {
   const languageCode = useSelector(store => store.language);
   const langauge = getLanguage(languageCode);
   const translatedProduct = getProductCodeTranslation(languageCode)[product.code];
+  const [loading, setLoading] = useState(false);
+
+  const handlePay = () => {
+    setLoading(true);
+    createPaymentSession({ ...product, ...translatedProduct }, successUrl, cancelUrl).then(
+      ({ data: sessionId }) => {
+        console.log('sessionId', sessionId);
+        setLoading(false);
+      }
+    );
+  };
 
   return (
     <>
@@ -21,7 +34,9 @@ const Stripe = ({ product }) => {
 
       <section>
         <div className="product">
-          <img src="https://i.imgur.com/EHyR2nP.png" alt="The cover of Stubborn Attachments" />
+          {product.images.map((image, i) => (
+            <img key={i} src={image} alt="Product" />
+          ))}
           <div className="description">
             <h3>{translatedProduct.name}</h3>
             <h5>
@@ -29,7 +44,7 @@ const Stripe = ({ product }) => {
             </h5>
           </div>
         </div>
-        <button type="button" id="checkout-button">
+        <button type="button" id="checkout-button" disabled={loading} onClick={handlePay}>
           {langauge.buyCard}
         </button>
       </section>
@@ -38,7 +53,9 @@ const Stripe = ({ product }) => {
 };
 
 Stripe.propTypes = {
-  product: PropTypes.shape(ProductShape).isRequired
+  product: PropTypes.shape(ProductShape).isRequired,
+  successUrl: PropTypes.string.isRequired,
+  cancelUrl: PropTypes.string.isRequired
 };
 
 export default Stripe;

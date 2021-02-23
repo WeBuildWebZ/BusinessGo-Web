@@ -15,7 +15,17 @@ const Product = () => {
     });
   }, [query]);
 
-  return <>{product && <Stripe product={product} />}</>;
+  return (
+    <>
+      {product && (
+        <Stripe
+          product={product}
+          successUrl={`${window.location.origin}/success`}
+          cancelUrl={`${window.location.origin}/cancel`}
+        />
+      )}
+    </>
+  );
 };
 
 export default Product;
