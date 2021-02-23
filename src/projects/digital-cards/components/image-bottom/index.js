@@ -12,10 +12,6 @@ const ImageBackground = () => (
         justify-content:center;
         align-items:center;
     }
-
-
-
-
     `}
     </style>
   </div>

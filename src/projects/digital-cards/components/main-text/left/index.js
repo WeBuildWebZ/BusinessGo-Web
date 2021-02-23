@@ -17,8 +17,6 @@ const Left = () => (
           justify-content: center;
           align-items: center;
           flex-flow: column;
-          margin-right: 3em;
-          background: white;
         }
         h3 {
           font-size: 3em;
@@ -28,7 +26,7 @@ const Left = () => (
           font-weight: bold;
         }
         h4 {
-          color: #86a8e7;
+          color: #3e505b;
         }
       `}
     </style>

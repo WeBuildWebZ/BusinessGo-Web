@@ -24,7 +24,7 @@ const Logo = () => (
           width: 100%;
           flex: 2;
           display: flex;
-          justify-content: center;
+          // justify-content: center;
           align-items: center;
         }
         .fa-address-card {

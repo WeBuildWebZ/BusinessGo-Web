@@ -2,7 +2,7 @@ import Login from './login';
 import Logo from './logo';
 import Menu from './menu';
 
-const Navbar = () => (
+const Navbare = () => (
   <div className="navbar">
     <Logo />
     <Menu />
@@ -12,11 +12,14 @@ const Navbar = () => (
         .navbar {
           width: 100vw;
           display: flex;
-          border-bottom: 1px solid silver;
+          position: fixed;
+          background: hsla(0, 0%, 100%, 0.5);
+          backdrop-filter: blur(1em);
+          z-index: 100;
         }
       `}
     </style>
   </div>
 );
 
-export default Navbar;
+export default Navbare;
