@@ -4,6 +4,7 @@ import { Modal, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../utils/field';
+import { getFieldKeyTranslation } from '../../translations/fieldKeys';
 
 import Text from './components/Text';
 import List from './List';
@@ -13,14 +14,13 @@ import Select from './components/Select';
 import Number from './components/Number';
 import Image from './components/Image';
 import { getLanguage } from './lang';
-import { getKeyTranslation } from './keyTranslator';
 
 let timeoutId;
 
 const FieldRenderer = props => {
   const { fields, data, updateAfter } = props;
   const languageCode = useSelector(store => store.language);
-  const keyTranslation = getKeyTranslation(languageCode);
+  const keyTranslation = getFieldKeyTranslation(languageCode);
   const language = getLanguage(languageCode);
   const [hasChanged, setHasChanged] = useState(false);
   const [newData, setNewData] = useState(data);

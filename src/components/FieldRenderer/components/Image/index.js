@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import Spinner from '../../../Spinner';
 import { uploadImage } from '../../../../services/cloudinary/image';
 import OpenableImage from '../../../OpenableImage';
-import { getKeyTranslation } from '../../keyTranslator';
+import { getFieldKeyTranslation } from '../../../../translations/fieldKeys';
 
 const Image = props => {
   const { field, value } = props;
   const languageCode = useSelector(store => store.language);
-  const keyTranslation = getKeyTranslation(languageCode);
+  const keyTranslation = getFieldKeyTranslation(languageCode);
   const project = useSelector(store => store.project);
   const [uploading, setUploading] = useState(false);
   const input = useRef(null);

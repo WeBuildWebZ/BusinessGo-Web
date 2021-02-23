@@ -1,4 +1,4 @@
-export const getKeyTranslation = language_code =>
+export const getFieldKeyTranslation = language_code =>
   ({
     es: {
       title: 'Título',

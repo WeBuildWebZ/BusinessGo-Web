@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../../../utils/field';
 import InputGroup from '../../../InputGroup';
-import { getKeyTranslation } from '../../keyTranslator';
+import { getFieldKeyTranslation } from '../../../../translations/fieldKeys';
 
 import EnumModal from './components/EnumModal';
 import { getLanguage } from './lang';
@@ -16,7 +16,7 @@ import { eachExistingValue } from './utils';
 const Enum = props => {
   const { field, value } = props;
   const languageCode = useSelector(store => store.language);
-  const keyTranslation = getKeyTranslation(languageCode);
+  const keyTranslation = getFieldKeyTranslation(languageCode);
   const language = getLanguage(languageCode);
   const [stateValue, setStateValue] = useState(value || field.default_value);
   const [enumModalOption, setEnumModalOption] = useState(null);

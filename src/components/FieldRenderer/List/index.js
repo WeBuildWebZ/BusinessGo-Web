@@ -7,14 +7,14 @@ import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../../utils/field';
 import InputGroup from '../../InputGroup';
-import { getKeyTranslation } from '../keyTranslator';
+import { getFieldKeyTranslation } from '../../../translations/fieldKeys';
 
 import { getLanguage } from './lang';
 
 const List = props => {
   const { field, value } = props;
   const languageCode = useSelector(store => store.language);
-  const keyTranslation = getKeyTranslation(languageCode);
+  const keyTranslation = getFieldKeyTranslation(languageCode);
   const language = getLanguage(languageCode);
   const [stateValue, setStateValue] = useState(value || field.default_value);
 

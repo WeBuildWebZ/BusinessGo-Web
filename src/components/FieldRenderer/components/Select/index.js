@@ -4,14 +4,14 @@ import { FormControl, InputLabel, MenuItem, Select as SelectInput } from '@mater
 import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../../../utils/field';
-import { getKeyTranslation } from '../../keyTranslator';
+import { getFieldKeyTranslation } from '../../../../translations/fieldKeys';
 
 import { getLanguage } from './lang';
 
 const Select = props => {
   const { field, value, FieldRenderer } = props;
   const languageCode = useSelector(store => store.language);
-  const keyTranslation = getKeyTranslation(languageCode);
+  const keyTranslation = getFieldKeyTranslation(languageCode);
   const language = getLanguage(languageCode);
   const project = useSelector(store => store.project);
   const fieldName = field.name || keyTranslation[field.key];

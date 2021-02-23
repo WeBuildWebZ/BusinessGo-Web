@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 import { fieldShape } from '../../../utils/field';
-import { getKeyTranslation } from '../keyTranslator';
+import { getFieldKeyTranslation } from '../../../translations/fieldKeys';
 
 const Text = props => {
   const { field, value } = props;
   const languageCode = useSelector(store => store.language);
-  const keyTranslation = getKeyTranslation(languageCode);
+  const keyTranslation = getFieldKeyTranslation(languageCode);
   const [stateValue, setStateValue] = useState(value || field.default_value);
 
   const handleChangeValue = ({ target }) => {
