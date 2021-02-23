@@ -7,10 +7,10 @@ import { createWebMessage } from '../../../../../../../../../../services/chatbot
 import { socket } from '../../../../../../../../../../shared/sockets/chatbot';
 import Spinner from '../../../../../../../../../Spinner';
 import MessageBubbles from '../../../../../../../../../MessageBubbles';
-import Input from '../../../../../../../../../Chatbot/Input';
 import Notification from '../../../../../../../../../../utils/notification';
 import Back from '../../../../../../../../../Back';
 
+import Input from './Input';
 import { getLanguage } from './lang';
 
 const ConversationChat = ({ conversationId, show, onExit }) => {

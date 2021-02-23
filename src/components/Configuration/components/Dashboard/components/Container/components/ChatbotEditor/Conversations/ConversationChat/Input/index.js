@@ -3,8 +3,8 @@ import { TextField } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { createWebMessage } from '../../../services/chatbot_api/web_message';
-import { socket } from '../../../shared/sockets/chatbot';
+import { socket } from '../../../../../../../../../../../shared/sockets/chatbot';
+import { createWebMessage } from '../../../../../../../../../../../services/chatbot_api/web_message';
 
 const Input = props => {
   const project = useSelector(store => store.project);
