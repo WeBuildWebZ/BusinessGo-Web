@@ -35,6 +35,9 @@ const Menu = () => (
           align-items: center;
           justify-content: space-evenly;
         }
+        a {
+          text-decoration: none;
+        }
         h4 {
           margin: 0 0.5em;
         }

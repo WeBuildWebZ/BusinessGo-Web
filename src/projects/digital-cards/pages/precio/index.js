@@ -1,12 +1,12 @@
 import Layout from '../layout';
 
-const Contacto = () => (
+const Precio = () => (
   <Layout>
-    <div className="contacto">
-      <h3>Contacto</h3>
+    <div className="precio">
+      <h3>precio</h3>
       <style jsx>
         {`
-          .contacto {
+          .precio {
             width: 100vw;
             height: 100vh;
           }
@@ -16,4 +16,4 @@ const Contacto = () => (
   </Layout>
 );
 
-export default Contacto;
+export default Precio;
