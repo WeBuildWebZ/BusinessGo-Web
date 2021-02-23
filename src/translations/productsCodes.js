@@ -1,4 +1,4 @@
-export const getFieldKeyTranslation = language_code =>
+export const getProductCodeTranslation = language_code =>
   ({
     es: {
       free: { name: 'Tarjeta Digital Gratuita', description: 'Para individuos, Freelancers y Estudiantes.' },
