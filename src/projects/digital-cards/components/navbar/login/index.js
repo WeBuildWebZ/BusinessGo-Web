@@ -1,6 +1,10 @@
-const Login = () => (
+import Link from 'next/link';
+
+const LoginRoute = () => (
   <div className="login">
-    <h5>Login</h5>
+    <Link href="/login">
+      <a>Login</a>
+    </Link>
     <style jsx>
       {`
         .login {
@@ -15,4 +19,4 @@ const Login = () => (
   </div>
 );
 
-export default Login;
+export default LoginRoute;
