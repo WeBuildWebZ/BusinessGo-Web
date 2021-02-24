@@ -2,8 +2,8 @@ import { v4 as uuid } from 'uuid';
 
 import api from '../../utils/axios';
 
-export const registerUser = (name, surname, phone, email, password) =>
-  api.post('api/users', { name, surname, phone, email, password });
+export const createUserWithEmail = (redirect_to, email, password, data) =>
+  api.post('api/users', { login_type: 'email', redirect_to, email, password, data });
 
 export const clearEmailNotification = () => api.delete('api/email_confirmation_notification');
 
