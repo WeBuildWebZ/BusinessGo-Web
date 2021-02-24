@@ -1,11 +1,13 @@
 const Text = () => (
   <div className="text">
-    <h1>Tarjeta Personal Digital </h1>
-    <hr />
-    <p>
-      Utiliza nuestra tecnologia, y comparte tu tarjeta digital, para compartir tu informacion de contacto en
-      1 segundo.
-    </p>
+    <div className="box">
+      <h1>Tarjeta Personal Digital </h1>
+      <hr />
+      <p>
+        Utiliza nuestra tecnologia, y comparte tu tarjeta digital, para compartir tu informacion de contacto
+        en 1 segundo.
+      </p>
+    </div>
 
     <style jsx>
       {`
@@ -13,6 +15,14 @@ const Text = () => (
           width: 100%;
           height: 100%;
           flex: 1;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+
+        .box {
+          width: 450px;
+          height: 600px;
           display: flex;
           justify-content: center;
           align-items: flex-start;
