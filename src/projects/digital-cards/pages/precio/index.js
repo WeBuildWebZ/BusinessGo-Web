@@ -2,17 +2,20 @@ import Layout from '../layout';
 
 const prices = [
   {
+    className: 'red',
     quality: 'Gratuito',
     price: 'Pruebalo Gratis!',
     description: 'Para Jovenes, Profesionales y freelancers.'
   },
   {
+    className: 'orange',
     quality: 'Profesional',
     price: '180$/año',
     description:
       'Para Empresarios,Freelancers,Restaurantes,Pequeños Negociantes, Agentes de Ventas, Inmobiliarios y de Seguros, PyMES,etc.'
   },
   {
+    className: 'blue',
     quality: 'Organizacion',
     price: '150$/año',
     description:
@@ -28,8 +31,8 @@ const Precio = () => (
     <br />
 
     <ul className="box">
-      {prices.map(({ quality, price, description }, id) => (
-        <li key={id} className="card red">
+      {prices.map(({ className, quality, price, description }, id) => (
+        <li key={id} className={`card ${className}`}>
           <div className="top">
             <h2> {quality} </h2>
             <h5>{price} </h5>
