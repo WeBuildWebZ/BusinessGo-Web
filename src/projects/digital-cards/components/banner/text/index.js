@@ -1,6 +1,6 @@
 const Text = () => (
   <div className="text">
-    <h1>Personal Digital Card</h1>
+    <h1>Tarjeta Personal Digital </h1>
     <hr />
     <p>
       Utiliza nuestra tecnologia, y comparte tu tarjeta digital, para compartir tu informacion de contacto en

@@ -37,6 +37,8 @@ const Menu = () => (
         }
         a {
           text-decoration: none;
+          font-weight: 500;
+          color: #1c1c1c;
         }
         h4 {
           margin: 0 0.5em;

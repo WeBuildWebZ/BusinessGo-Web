@@ -11,8 +11,8 @@ export default function Home() {
     <>
       <Layout>
         <Banner />
-        <RedesSvg />
         <MainText />
+        <RedesSvg />
         <Paragraphs />
         <ImageBackground />
       </Layout>

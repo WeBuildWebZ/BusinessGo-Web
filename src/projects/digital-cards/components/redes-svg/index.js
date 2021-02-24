@@ -109,7 +109,7 @@ const RedesSvg = () => (
       {`
         .redes-svg {
           width: 100vw;
-          height: 300px;
+          height: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
