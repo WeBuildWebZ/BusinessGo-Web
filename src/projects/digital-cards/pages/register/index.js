@@ -1,84 +1,116 @@
 import Link from 'next/link';
+import { useState } from 'react';
 
-const RegisterForm = () => (
-  <div className="register">
-    <form>
-      <div className="top">
-        <input type="text" name="user" autoComplete="none" className="row" placeholder="nombre de usuario" />
-        <input type="password" name="password" className="row" autoComplete="none" placeholder="password" />
-      </div>
-      <div className="bottom">
-        <button className="row">
-          <Link href="/home">
-            <a>Unirme</a>
-          </Link>
-        </button>
-      </div>
-    </form>
-    <style jsx>
-      {`
-        .register {
-          flex: 1;
-          width: 100vw;
-          height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 1em;
-        }
-        form {
-          width: 250px;
-          height: 230px;
-          display: flex;
-          align-items: center;
-          flex-flow: column;
-          border-radius: 1em;
-          border: 1px solid silver;
-          padding: 0.6em;
-          background: white;
-        }
-        .top,
-        .bottom {
-          flex: 1;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-flow: column;
-          justify-content: center;
-          align-items: center;
-        }
-        .row {
-          width: 100%;
-          margin: 0.2em;
-          padding: 0.5em;
-          border-radius: 5px;
-          border: none;
-          outline: none;
-        }
+const RegisterForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-        button {
-          background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
-          color: white;
-        }
-        p {
-          font-size: 0.8em;
-          color: grey;
-        }
-        // ============Button de Crear Cuenta Nueva=======================
-        .crear-button {
-          border: none;
-          outline: none;
-          background: #1c1c1c;
-          padding: 5px;
-          border-radius: 5px;
-        }
-        a {
-          color: white;
-          font-size: 0.8em;
-        }
-      `}
-    </style>
-  </div>
-);
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
+
+  return (
+    <div className="login">
+      <form onSubmit={handleSubmit}>
+        <div className="top">
+          <input
+            type="text"
+            placeholder="Nombre"
+            className="row"
+            autoComplete="off"
+            value={name}
+            onChange={({ target }) => setName(target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Email"
+            className="row"
+            autoComplete="off"
+            value={email}
+            onChange={({ target }) => setEmail(target.value)}
+          />
+
+          <input
+            type="password"
+            placeholder="Contraseña"
+            className="row"
+            autoComplete="off"
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
+          />
+          <button type="submit">Registrarse</button>
+        </div>
+      </form>
+      <style jsx>
+        {`
+          .login {
+            flex: 1;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+          }
+
+          // ==============================================================================
+
+          form {
+            width: 250px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+            border-radius: 1em;
+            padding: 0 1em;
+            background: white;
+          }
+
+          //===============================================================================
+
+          .top {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .row {
+            width: 100%;
+            margin: 0.2em;
+            padding: 0.5em;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+          }
+
+          button {
+            width: 100%;
+            background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
+            color: white;
+            border: none;
+            outline: none;
+            margin-top: 0.2em;
+            padding: 0.5em;
+            border-radius: 5px;
+          }
+
+          a {
+            width: 100%;
+            text-align: center;
+            font-size: 0.8em;
+            text-decoration: none;
+            margin-top: 1em;
+            font-weight: bold;
+          }
+        `}
+      </style>
+    </div>
+  );
+};
 
 export default RegisterForm;

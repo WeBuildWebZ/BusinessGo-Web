@@ -150,22 +150,16 @@ const Precio = () => (
           }
 
           .bottom button {
-            background: #ffb52a;
+            background: transparent;
             outline: none;
             border: none;
             border-radius: 0.5em;
             width: 50%;
             padding: 0.5em 0;
-            color: black;
-            text-transform: uppercase;
-            font-weight: bold;
-          }
-          .bottom button:hover {
-            background: #ffb52a;
             color: white;
             text-transform: uppercase;
             font-weight: bold;
-            box-shadow: 0px 3px 9px #ffb52a;
+            border: 1px solid silver;
           }
 
           .red {
