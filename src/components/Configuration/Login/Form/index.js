@@ -20,7 +20,7 @@ const Menu = () => {
     e.preventDefault();
     if (user) return;
     setLoading(true);
-    createSession(email, password)
+    createSession('all', email, password)
       .then(({ data: sessions }) => {
         setLoading(false);
         const [{ user: newUser }] = sessions;
