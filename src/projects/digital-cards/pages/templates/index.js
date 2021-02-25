@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Layout from '../layout';
 
 import Card1 from './free/card1';
+import Card2 from './free/card2';
+import Card3 from './free/card3';
 
 // const images = [
 //   {
@@ -65,6 +67,9 @@ const Templates = () => (
       <h2>title</h2>
       <p>subtitle</p>
       <Card1 />
+      <Card2 />
+      <Card3 />
+
       {/*
       {images.map(({ image, id }) => (
         <li className="card" key={id}>
@@ -82,7 +87,7 @@ const Templates = () => (
         {`
           .galery {
             width: 100vw;
-            height: 100vh;
+            height: 100%;
             padding: 1em;
             display: flex;
             justify-content: center;

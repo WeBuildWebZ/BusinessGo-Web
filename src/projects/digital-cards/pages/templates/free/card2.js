@@ -1,14 +1,18 @@
-const Card1 = () => (
+const Card2 = () => (
   <div className="card">
     <div className="top">
-      <h2>Nike</h2>
-      <p>Explore</p>
+      <h4>
+        Sammie <br /> Turner
+      </h4>
+      <p>Teacher</p>
     </div>
     <div className="bottom">
-      <img src="/icon/facebook.svg" alt="" />
-      <img src="/icon/instagram.svg" alt="" />
-      <img src="/icon/messenger.svg" alt="" />
-      <img src="/icon/linkedin.svg" alt="" />
+      <div className="box">
+        <div className="icon" />
+        <div className="icon" />
+        <div className="icon" />
+        <div className="icon" />
+      </div>
     </div>
     <div className="select">
       <img src="/icon/hand.svg" alt="" />
@@ -27,49 +31,76 @@ const Card1 = () => (
           justify-content: center;
           align-items: center;
           flex-flow: column;
+          background-image: url(/images/teacher.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          cursor: pointer;
         }
-
+        .card1:hover {
+          box-shadow: 0.3em 0.3em 0.5em silver;
+        }
         .top {
-          flex: 8;
-          width: 100%;
-          height: 100%;
-          padding: 0.5em;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-flow: column;
-          position: relative;
-        }
-        h2 {
-          font-size: 7em;
-          font-weight: bold;
-          transform: rotate(-90deg);
-        }
-        p {
-          position: absolute;
-          bottom: 0;
-          background: #ebebeb;
-          font-weight: bold;
-          width: 50%;
-          text-align: center;
-          padding: 0.3em 0;
-          letter-spacing: 0.5em;
-        }
-
-        //   =========================================================================
-
-        .bottom {
           flex: 1;
           width: 100%;
           height: 100%;
           padding: 0.5em;
           display: flex;
+          justify-content: center;
+          flex-flow: column;
+        }
+        h4 {
+          font-weight: bold;
+          line-height: 0.9em;
+          letter-spacing: 1px;
+        }
+        p {
+          font-weight: 500;
+        }
+
+        //   =========================================================================
+
+        .bottom {
+          flex: 9;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: flex-end;
+          border-radius: 0.5em;
+        }
+        .box {
+          width: 100%;
+          display: flex;
           justify-content: space-evenly;
           align-items: center;
+          background: hsla(0, 0%, 100%, 0.8);
+          border-radius: 0.5em;
+          padding: 0.4em 0;
+          margin: 0 0 0.5em 0;
         }
-        .bottom img {
-          width: 30px;
-          height: 30px;
+
+        .icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 0.5em;
+          color: white;
+        }
+
+        .icon:nth-child(1) {
+          -webkit-mask: url(/icon/facebook.svg) no-repeat 100% 100%;
+          background: #1c1c1c;
+        }
+        .icon:nth-child(2) {
+          -webkit-mask: url(/icon/instagram.svg) no-repeat 100% 100%;
+          background: #1c1c1c;
+        }
+        .icon:nth-child(3) {
+          -webkit-mask: url(/icon/whatsapp.svg) no-repeat 100% 100%;
+          background: #1c1c1c;
+        }
+        .icon:nth-child(4) {
+          -webkit-mask: url(/icon/linkedin.svg) no-repeat 100% 100%;
+          background: #1c1c1c;
         }
         // ===========================================================================
 
@@ -99,4 +130,4 @@ const Card1 = () => (
   </div>
 );
 
-export default Card1;
+export default Card2;
