@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { createUserWithEmail } from '../../../../services/api/user';
-
-import SuccessModal from './SuccessModal';
+import SuccessModal from '../../components/SuccessModal';
 
 const redirectTo = process.browser && `${window.location.origin}/precio`;
 
