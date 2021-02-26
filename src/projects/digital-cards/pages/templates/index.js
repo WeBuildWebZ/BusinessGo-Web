@@ -5,6 +5,7 @@ import Layout from '../layout';
 import Card1 from './free/card1';
 import Card2 from './free/card2';
 import Card3 from './free/card3';
+import Card4 from './free/card4';
 
 // const images = [
 //   {
@@ -69,6 +70,7 @@ const Templates = () => (
       <Card1 />
       <Card2 />
       <Card3 />
+      <Card4 />
 
       {/*
       {images.map(({ image, id }) => (
