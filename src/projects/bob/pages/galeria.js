@@ -13,7 +13,7 @@ const Galeria = () => {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
-    getClientDocuments('bob-posts', 3, 1).then(({ data: givenPosts }) => {
+    getClientDocuments('post', project, 3, 1).then(({ data: givenPosts }) => {
       setPosts(givenPosts);
     });
   }, []);

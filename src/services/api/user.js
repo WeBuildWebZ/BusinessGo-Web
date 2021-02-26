@@ -2,8 +2,14 @@ import { v4 as uuid } from 'uuid';
 
 import api from '../../utils/axios';
 
-export const createUserWithEmail = (redirect_to, email, password, data) =>
-  api.post('api/users', { login_type: 'email', redirect_to, email, password, data });
+export const createUserWithEmail = (project, email_confirmation_redirect, email, password, data) =>
+  api.post(`api/projects/${encodeURIComponent(project.code)}/users`, {
+    login_type: 'email',
+    email_confirmation_redirect,
+    email,
+    password,
+    data
+  });
 
 export const clearEmailNotification = () => api.delete('api/email_confirmation_notification');
 

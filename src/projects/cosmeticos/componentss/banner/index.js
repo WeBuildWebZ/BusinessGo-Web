@@ -10,14 +10,17 @@ import {
 
 import 'bootstrap-css-only/css/bootstrap.min.css';
 
+import { useSelector } from 'react-redux';
+
 import { getClientDocuments } from '../../../../services/api/clientDocument';
 import Spinner from '../../../../components/Spinner';
 
 const Banner = () => {
+  const project = useSelector(store => store.project);
   const [sliderItems, setSliderItems] = useState(null);
 
   useEffect(() => {
-    getClientDocuments('cosmeticos-main_slider').then(({ data: givenSliderItems }) => {
+    getClientDocuments('main_slider', project).then(({ data: givenSliderItems }) => {
       setSliderItems(givenSliderItems);
     });
   }, []);
@@ -38,7 +41,7 @@ const Banner = () => {
             sliderItems.map((sliderItem, key) => (
               <MDBCarouselItem key={key} itemId={`${key + 1}`}>
                 <MDBView>
-                  <img src={sliderItem.photo} alt="Slide" className="d-block w-100"  />
+                  <img src={sliderItem.photo} alt="Slide" className="d-block w-100" />
                 </MDBView>
                 <MDBCarouselCaption>
                   <div className="text">

@@ -1,16 +1,17 @@
 import api from '../../utils/axios';
 
 export const getClientDocuments = (
-  table_name,
+  entity,
+  project,
   page_size = 10,
   page_number = 1,
   filters = {},
   text_search = '',
   text_search_fields = []
 ) =>
-  api.get('api/client_documents', {
+  api.get(`api/projects/${encodeURIComponent(project.code)}/client_documents`, {
     params: {
-      table_name,
+      entity,
       page_size,
       page_number,
       ...Object.fromEntries(Object.keys(filters).map(key => [`value.${key}`, filters[key]])),
@@ -27,7 +28,10 @@ export const deleteClientDocument = clientDocument =>
   api.delete(`api/client_documents/${encodeURIComponent(clientDocument._id)}`);
 
 export const createClientDocument = (clientModel, clientDocument) =>
-  api.post(`api/client_documents`, { table_name: clientModel.table_name, value: clientDocument });
+  api.post(`api/projects/${encodeURIComponent(clientModel.project_code)}/client_documents`, {
+    entity: clientModel.entity,
+    value: clientDocument
+  });
 
 export const updateClientDocument = clientDocument =>
   api.put(`api/client_documents/${encodeURIComponent(clientDocument._id)}`, clientDocument);
