@@ -32,6 +32,12 @@ const Left = () => (
           font-style: italic;
           line-height: 1em;
         }
+        @media (max-width: 527px) {
+          .left {
+            width: 100vw;
+            padding: 0 1em;
+          }
+        }
       `}
     </style>
   </div>

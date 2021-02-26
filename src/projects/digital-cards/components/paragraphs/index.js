@@ -16,7 +16,7 @@ const Paragraphs = () => (
       {`
         .text {
           width: 100vw;
-          height: 50vh;
+          min-height: 50vh;
           display: flex;
           justify-content: center;
           align-items: center;

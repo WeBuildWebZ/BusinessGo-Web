@@ -1,19 +1,12 @@
 const Card4 = () => (
   <div className="card">
     <div className="top">
-      <div className="custom-shape-divider-top-1614316994">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            className="shape-fill"
-          />
-        </svg>
-      </div>
+      <span>
+        <h3>
+          Sandy <br /> Summers
+        </h3>
+        <p>Doctor</p>
+      </span>
     </div>
     <div className="bottom">
       <div className="box">
@@ -43,60 +36,51 @@ const Card4 = () => (
           background-position: center;
           background-repeat: no-repeat;
         }
-        .card1:hover {
-          box-shadow: 0.3em 0.3em 0.5em silver;
-        }
-        .top {
-          flex: 2;
-          width: 100%;
-          height: 100%;
-          border-radius: 1em;
-          position: relative;
-        }
+
         // ======================
 
-        .custom-shape-divider-top-1614316994 {
-          position: absolute;
-          top: 0;
-          left: 0;
+        .top {
+          flex: 1;
           width: 100%;
-          overflow: hidden;
-          line-height: 0;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          background: white;
+          border-radius: 15px 15px 70px 70px;
         }
 
-        .custom-shape-divider-top-1614316994 svg {
-          position: relative;
-          display: block;
-          width: calc(300% + 1.3px);
-          height: 100px;
-          transform: rotateY(180deg);
-        }
-
-        .custom-shape-divider-top-1614316994 .shape-fill {
-          fill: #b65d5d;
-        }
-        Download SVG
         // =====================
-        h4 {
+        h3 {
           font-weight: bold;
           line-height: 0.9em;
           letter-spacing: 1px;
+          width: 100%;
+          margin: 0;
+          padding-top: 0.5em;
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+          background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
         }
         p {
+          width: 100%;
           font-weight: 500;
+          padding-top: 0.3em;
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+          background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
         }
 
         //   =========================================================================
 
         .bottom {
-          flex: 7;
+          flex: 8;
           height: 100%;
           display: flex;
         }
         .box {
           width: 50px;
           display: flex;
-          justify-content: center;
+          justify-content: flex-end;
           align-items: center;
           flex-flow: column;
           border-radius: 0.5em;
@@ -110,24 +94,26 @@ const Card4 = () => (
 
         .icon:nth-child(1) {
           -webkit-mask: url(/icon/facebook.svg) no-repeat 100% 100%;
-          background-image: linear-gradient(to top, rgb(144, 101, 22), orange);
+          background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
         }
         .icon:nth-child(2) {
           -webkit-mask: url(/icon/slack.svg) no-repeat 100% 100%;
-          background-image: linear-gradient(to top, rgb(144, 101, 22), orange);
+          background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
         }
         .icon:nth-child(3) {
           -webkit-mask: url(/icon/whatsapp.svg) no-repeat 100% 100%;
-          background-image: linear-gradient(to top, rgb(144, 101, 22), orange);
+          background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
         }
         .icon:nth-child(4) {
           -webkit-mask: url(/icon/ubication.svg) no-repeat 100% 100%;
-          background-image: linear-gradient(to top, rgb(144, 101, 22), orange);
+          background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
         }
         .icon:nth-child(5) {
           -webkit-mask: url(/icon/world.svg) no-repeat 100% 100%;
-          background-image: linear-gradient(to top, rgb(144, 101, 22), orange);
+          background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+          margin-left: 10px;
         }
+        //
 
         // ===========================================================================
 

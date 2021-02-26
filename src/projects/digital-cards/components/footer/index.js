@@ -4,13 +4,16 @@ const Footer = () => (
   <div className="footer">
     <div className="bottom">
       <span className="column">
-        <h3>title</h3>
-        <p>description</p>
+        <h3>Mas Negocio</h3>
+        <p>
+          Utiliza nuestra tecnologia, y comparte tu tarjeta digital, para mostrar tu informacion de contacto
+          en 1 segundo
+        </p>
       </span>
 
       <span className="column">
         <h3>
-          <Link href="/nosotros">
+          <Link href="#">
             <a className="pointer">socialNetworks</a>
           </Link>
         </h3>
@@ -20,17 +23,17 @@ const Footer = () => (
       </span>
 
       <span className="column">
-        <h3>contactInformation</h3>
+        <h3>Contact Information</h3>
         <span className="row">
           <img src="/icon/house.png" alt="house icon" />
-          <p> Buenos Aires - Argentina</p>
+          <p> Mexico- Mexico</p>
           <br />
         </span>
         <span className="row">
           <img src="/icon/phone.png" alt="phone icon" />
           <p>
             <a href="tel:1162329888" target="blank">
-              1162329888
+              1234567890
             </a>
           </p>
         </span>
@@ -38,7 +41,7 @@ const Footer = () => (
           <img src="/icon/contact.png" alt="contact icon" />
           <p>
             <a href="mailto:lefcott@hotmail.com" target="blank">
-              lefcott@hotmail.com
+              usted@gmail.com
             </a>
           </p>
         </span>
@@ -46,7 +49,7 @@ const Footer = () => (
           <img src="/icon/privacy_policy.png" alt="contact icon" />
           <p>
             <Link href="/privacy_policy">
-              <a>privacyPolicy</a>
+              <a>Privacy Policy</a>
             </Link>
           </p>
         </span>
