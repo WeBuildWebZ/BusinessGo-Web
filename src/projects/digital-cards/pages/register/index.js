@@ -1,17 +1,33 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+import { createUserWithEmail } from '../../../../services/api/user';
+
+import SuccessModal from './SuccessModal';
+
+const redirectTo = process.browser && `${window.location.origin}/precio`;
 
 const RegisterForm = () => {
+  const project = useSelector(store => store.project);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const data = { name };
 
   const handleSubmit = e => {
     e.preventDefault();
+    setLoading(true);
+    createUserWithEmail(project, redirectTo, email, password, data).then(() => {
+      setSuccess(true);
+    });
   };
 
   return (
     <div className="login">
+      <SuccessModal open={success} data={data} email={email} />
       <form onSubmit={handleSubmit}>
         <div className="top">
           <input
@@ -39,7 +55,9 @@ const RegisterForm = () => {
             value={password}
             onChange={({ target }) => setPassword(target.value)}
           />
-          <button type="submit">Registrarse</button>
+          <button type="submit" disabled={loading}>
+            Registrarse
+          </button>
         </div>
       </form>
       <style jsx>
@@ -97,6 +115,9 @@ const RegisterForm = () => {
             margin-top: 0.2em;
             padding: 0.5em;
             border-radius: 5px;
+          }
+          button:disabled {
+            opacity: 0.5;
           }
 
           a {

@@ -16,7 +16,7 @@ const Menu = React.forwardRef(({ style, className, 'aria-labelledby': labeledBy 
 
   const handleLogin = e => {
     e.preventDefault();
-    createSession(email, password)
+    createSession('all', email, password)
       .then(() => {
         window.location.href = process.env.DASHBOARD_URL;
       })
