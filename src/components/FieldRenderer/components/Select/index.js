@@ -17,12 +17,13 @@ const Select = props => {
   const fieldName = field.name || keyTranslation[field.key];
 
   const options =
-    field.options ||
+    (field.options?.length && field.options) ||
     project.configuration[field.options_reference.form_code][field.options_reference.field_key] ||
     [];
   const optionFields = options.find(option => option.key === value)?.fields;
 
   const handleChangeValue = ({ target }) => {
+    console.log('target', target);
     props.onChange(target.value);
   };
 

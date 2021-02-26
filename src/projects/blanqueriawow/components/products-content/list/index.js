@@ -10,6 +10,7 @@ import ProductsLoading from './loading';
 
 const ProductsContent = props => {
   const selectedCategories = useSelector(store => store.filters.categories);
+  const project = useSelector(store => store.project);
   const queryParams = useSelector(store => store.queryParams);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,17 +21,18 @@ const ProductsContent = props => {
   searchRef.current = search;
 
   useEffect(() => {
+    setLoading(true);
+    if (!project) return;
     const currentSearch = search;
 
-    setLoading(true);
-    getProducts(props.pageSize, pageNumber, { category: selectedCategories }, search).then(
+    getProducts(project, props.pageSize, pageNumber, { category: selectedCategories }, search).then(
       ({ data: newProducts }) => {
         if (searchRef.current !== currentSearch) return;
         setProducts([...products, ...newProducts]);
         setLoading(false);
       }
     );
-  }, [queryParams, pageNumber, counter]);
+  }, [queryParams, pageNumber, counter, project]);
 
   useEffect(() => {
     setLoading(true);

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import Spinner from '../../../../components/Spinner';
 import InfiniteScrollLastElement from '../../../../components/InfiniteScrollLastElement';
@@ -7,11 +8,12 @@ import { getClientDocuments } from '../../../../services/api/clientDocument';
 import Product from './Product';
 
 const Products = () => {
+  const project = useSelector(store => store.project);
   const [products, setProducts] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
-    getClientDocuments('cosmeticos-products', 10, pageNumber).then(({ data: givenProducts }) => {
+    getClientDocuments('product', project, 10, pageNumber).then(({ data: givenProducts }) => {
       setProducts(givenProducts);
     });
   }, []);

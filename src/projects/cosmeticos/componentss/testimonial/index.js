@@ -7,16 +7,18 @@ import {
   MDBView,
   MDBContainer
 } from 'mdbreact';
-
 import 'bootstrap-css-only/css/bootstrap.min.css';
+import { useSelector } from 'react-redux';
+
 import { getClientDocuments } from '../../../../services/api/clientDocument';
 import Spinner from '../../../../components/Spinner';
 
 const TestimonialOld = () => {
+  const project = useSelector(store => store.project);
   const [comments, setComments] = useState(null);
 
   useEffect(() => {
-    getClientDocuments('cosmeticos-images').then(({ data: givenComments }) => {
+    getClientDocuments('image').then(({ data: givenComments }) => {
       setComments(givenComments);
     });
   }, []);
