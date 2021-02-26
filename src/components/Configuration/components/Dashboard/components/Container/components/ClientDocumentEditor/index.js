@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PopoverTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import InfiniteScroll from '../../../../../../../InfiniteScroll';
 import Table from '../../../../../../../Table';
@@ -16,6 +17,7 @@ import SearchInput from './components/SearchInput';
 
 const ClientDocumentEditor = props => {
   const { clientModel } = props;
+  const project = useSelector(store => store.project);
   const [loading, setLoading] = useState(true);
   const [clientDocuments, setClientDocuments] = useState([]);
   const [selectedClientDocument, setSelectedClientDocument] = useState(null);
@@ -84,7 +86,8 @@ const ClientDocumentEditor = props => {
   const handleChangePage = pageNumber => {
     setLoading(true);
     getClientDocuments(
-      clientModel.table_name,
+      clientModel.entity,
+      project,
       props.pageSize,
       pageNumber,
       {},
