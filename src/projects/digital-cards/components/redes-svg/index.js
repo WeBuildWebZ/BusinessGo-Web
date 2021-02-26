@@ -109,10 +109,11 @@ const RedesSvg = () => (
       {`
         .redes-svg {
           width: 100vw;
-          height: 100%;
+          min-height: 20vh;
           display: flex;
           justify-content: center;
           align-items: center;
+          flex-wrap: wrap;
         }
         .fa-envelope-square,
         .fa-facebook-messenger,
@@ -125,6 +126,17 @@ const RedesSvg = () => (
           height: 30px;
           color: grey;
           margin: 0 5em;
+        }
+        @media (max-width: 760px) {
+          .fa-envelope-square,
+          .fa-facebook-messenger,
+          .fa-facebook-square,
+          .fa-instagram-square,
+          .fa-linkedin,
+          .fa-slack,
+          .fa-whatsapp-square {
+            margin: 0 2em;
+          }
         }
       `}
     </style>

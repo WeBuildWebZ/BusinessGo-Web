@@ -49,7 +49,7 @@ const Precio = () => (
         {`
           .box {
             width: 100vw;
-            height: 100%;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -57,7 +57,7 @@ const Precio = () => (
           }
           .card {
             width: 18em;
-            height: 25em;
+            min-height: 20em;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -125,6 +125,8 @@ const Precio = () => (
 
           p {
             width: 100%;
+            font-weight: bold;
+            letter-spacing: 1px;
           }
 
           // ==========================================================================
@@ -163,13 +165,13 @@ const Precio = () => (
           }
 
           .red {
-            background-image: linear-gradient(120deg, #bf7fb9 0%, #c45261 100%);
+            background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
           }
           .orange {
-            background-image: linear-gradient(120deg, #e3b885 0%, #e59e55 100%);
+            background-image: linear-gradient(to top, #e6b980 0%, #eacda3 100%);
           }
           .blue {
-            background-image: linear-gradient(120deg, #6475e8 0%, #6887de 100%);
+            background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
           }
         `}
       </style>

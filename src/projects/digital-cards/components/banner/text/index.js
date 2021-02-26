@@ -48,6 +48,12 @@ const Text = () => (
         p:first-letter {
           font-size: 1.5em;
         }
+        // ==============================
+        @media (max-width: 889px) {
+          .text {
+            justify-content: center;
+          }
+        }
       `}
     </style>
   </div>

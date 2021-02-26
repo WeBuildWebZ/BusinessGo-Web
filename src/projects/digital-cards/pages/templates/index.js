@@ -2,83 +2,25 @@ import Link from 'next/link';
 
 import Layout from '../layout';
 
-const images = [
-  {
-    id: 1,
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/sql-demos-3f601.appspot.com/o/image.jpg?alt=media&token=0ee2a779-1a7d-4a2f-9365-ee2aecc05aeb'
-  },
-  {
-    id: 2,
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/sql-demos-3f601.appspot.com/o/zanle-group-portada.jpg?alt=media&token=329e26d9-d08b-454a-a181-669e6cc61f13'
-  },
-  {
-    id: 3,
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-jose-rios-netlify.jpg?alt=media&token=e04a90c5-4dde-47cc-9179-a46f17c6f25b'
-  },
-  {
-    id: 4,
-    url: 'https://www.muebles.dancotll.com/',
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-horacio-muebles.jpg?alt=media&token=4ca6934f-b088-49a0-9a9a-723bb05b1db5'
-  },
-  {
-    id: 5,
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-wow.jpg?alt=media&token=3d21ef80-bd3f-4cc6-9b8b-1d54bfc6897c'
-  },
-  {
-    id: 6,
-    url: 'https://www.muebles.dancotll.com/',
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-horacio-muebles.jpg?alt=media&token=4ca6934f-b088-49a0-9a9a-723bb05b1db5'
-  },
-  {
-    id: 7,
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-wow.jpg?alt=media&token=3d21ef80-bd3f-4cc6-9b8b-1d54bfc6897c'
-  },
-  {
-    id: 8,
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-wow.jpg?alt=media&token=3d21ef80-bd3f-4cc6-9b8b-1d54bfc6897c'
-  },
-  {
-    id: 9,
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-wow.jpg?alt=media&token=3d21ef80-bd3f-4cc6-9b8b-1d54bfc6897c'
-  },
-  {
-    id: 10,
-    image:
-      'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-wow.jpg?alt=media&token=3d21ef80-bd3f-4cc6-9b8b-1d54bfc6897c'
-  }
-];
+import Card1 from './free/card1';
+import Card2 from './free/card2';
+import Card3 from './free/card3';
+import Card4 from './free/card4';
 
 const Templates = () => (
   <Layout>
     <div className="galery">
-      <h2>title</h2>
-      <p>subtitle</p>
+      <h2>Selecciona un Template, y comienza a ingresar tus datos Personales.</h2>
 
-      {images.map(({ image, id }) => (
-        <li className="card" key={id}>
-          <div className="top">
-            <img src={image} />
-          </div>
-
-          <div className="bottom">
-            <div>visit</div>
-          </div>
-        </li>
-      ))}
-
+      <Card1 />
+      <Card2 />
+      <Card3 />
+      <Card4 />
       <style jsx>
         {`
           .galery {
             width: 100vw;
+            height: 100%;
             padding: 1em;
             display: flex;
             justify-content: center;
@@ -88,6 +30,7 @@ const Templates = () => (
           }
           h2 {
             width: 100%;
+            margin: 100px 0 50px 0;
             text-align: center;
           }
           p {

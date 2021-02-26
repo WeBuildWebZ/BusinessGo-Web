@@ -4,8 +4,8 @@ const Logo = () => (
   <div className="logo">
     <Link href="/">
       <a>
-        <h5>MAS</h5>
-        <h5>NEGOCIO</h5>
+        <h5>Mas</h5>
+        <h5>Negocio</h5>
       </a>
     </Link>
     <style jsx>
@@ -24,6 +24,17 @@ const Logo = () => (
         h5 {
           margin: 0;
           line-height: 1em;
+        }
+        // ==============================
+        @media (max-width: 595px) {
+          a {
+            align-items: center;
+            flex-flow: row;
+            padding-bottom: 1em;
+          }
+          h5 {
+            margin: 0 0.3em;
+          }
         }
       `}
     </style>

@@ -9,9 +9,16 @@ const Banner = () => (
       {`
         .banner {
           width: 100vw;
-          height: 95vh;
+          min-height: 95vh;
           display: flex;
+          flex-flow: row;
           padding: 1em;
+        }
+        // ===================================
+        @media (max-width: 889px) {
+          .banner {
+            flex-flow: column;
+          }
         }
       `}
     </style>

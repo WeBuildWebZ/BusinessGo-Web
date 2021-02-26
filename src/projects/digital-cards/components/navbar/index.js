@@ -17,6 +17,12 @@ const Navbare = () => (
           backdrop-filter: blur(1em);
           z-index: 100;
         }
+        // ===========================================
+        @media (max-width: 595px) {
+          .navbar {
+            flex-flow: column;
+          }
+        }
       `}
     </style>
   </div>

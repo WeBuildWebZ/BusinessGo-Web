@@ -10,16 +10,8 @@ const Menu = () => (
       <a>Templates</a>
     </Link>
 
-    <Link href="/clientes">
-      <a>Clientes </a>
-    </Link>
-
     <Link href="/precio">
       <a>Precio</a>
-    </Link>
-
-    <Link href="/blog">
-      <a>Blog</a>
     </Link>
 
     <Link href="/contacto">
