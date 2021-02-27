@@ -10,6 +10,7 @@ const redirectTo = process.browser && `${window.location.origin}/precio`;
 
 const RegisterForm = () => {
   const project = useSelector(store => store.project);
+  const user = useSelector(store => store.user);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,6 +18,8 @@ const RegisterForm = () => {
   const [success, setSuccess] = useState(false);
   const data = { name };
   const handleError = useHandleError();
+
+  if (user) window.location.href = '/';
 
   const handleSubmit = e => {
     e.preventDefault();
