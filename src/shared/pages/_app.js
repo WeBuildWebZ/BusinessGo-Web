@@ -40,7 +40,7 @@ ReduxFiller.propTypes = {
   constants: PropTypes.shape({ PROJECT_CODE: PropTypes.string.isRequired }).isRequired
 };
 
-const getApp = (reducer, constants, AppendComponent, rootElement) => {
+const getApp = (reducer, constants, AppendComponent) => {
   const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
 
   const App = ({ Component, pageProps }) => {
@@ -48,7 +48,7 @@ const getApp = (reducer, constants, AppendComponent, rootElement) => {
       AOS.init();
     }, []);
 
-    const finalComponent = (
+    return (
       <>
         <AppendComponent />
         <Provider store={store}>
@@ -58,17 +58,6 @@ const getApp = (reducer, constants, AppendComponent, rootElement) => {
         </Provider>
       </>
     );
-
-    if (rootElement) {
-      window.WeBuildWebz = {
-        renderWidgets: () => {
-          ReactDOM.render(finalComponent, rootElement);
-        }
-      };
-      return <div />;
-    }
-
-    return finalComponent;
   };
 
   App.propTypes = {
