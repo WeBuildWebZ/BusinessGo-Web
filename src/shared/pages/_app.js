@@ -8,7 +8,7 @@ import AOS from 'aos';
 import { useRouter } from 'next/router';
 
 import commonReducer from '../reducers';
-import AlertStack from '../../components/AlertStack';
+import Alerts from '../../components/Alerts';
 import { showProject } from '../../services/api/project';
 import { setProject } from '../actions/project';
 import { initSentry } from '../../utils/sentry';
@@ -53,7 +53,7 @@ const getApp = (reducer, constants, AppendComponent, rootElement) => {
         <AppendComponent />
         <Provider store={store}>
           <ReduxFiller constants={constants} />
-          <AlertStack position={constants.ALERT_STACK_POSITION} />
+          <Alerts />
           <Component {...pageProps} />
         </Provider>
       </>
