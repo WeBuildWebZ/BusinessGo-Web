@@ -8,7 +8,7 @@ import 'react-phone-number-input/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../styles/globals.css';
 
-import EnsureLoaded from '../../../components/EnsureLoaded';
+import EnsureLoggedIn from '../../../components/EnsureLoggedIn';
 import commonReducer from '../../../reducers';
 import reducer from '../reducers';
 
@@ -21,9 +21,9 @@ export default function App({ Component, pageProps }) {
         <title>BusinessGo!</title>
       </Head>
       <Provider store={store}>
-        <EnsureLoaded>
+        <EnsureLoggedIn redirectUrl={process.env.LANDING_URL}>
           <Component {...pageProps} />
-        </EnsureLoaded>
+        </EnsureLoggedIn>
       </Provider>
     </>
   );
