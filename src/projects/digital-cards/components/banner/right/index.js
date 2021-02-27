@@ -14,7 +14,15 @@ const Right = () => {
 
   return (
     <div className="right">
-      <div className="image" ref={imageRef} />
+      <div
+        className="image"
+        ref={imageRef}
+        style={{
+          width: `calc(450px - ${offsetTop * 0.8}px)`,
+          filter: `blur(${offsetTop * 0.02}px)`,
+          transform: `rotate(${offsetTop * 0.1}deg)`
+        }}
+      />
       <style jsx>
         {`
           .right {
@@ -24,9 +32,6 @@ const Right = () => {
             align-items: center;
           }
           .image {
-            width: calc(450px - ${offsetTop * 0.8}px);
-            filter: blur(${offsetTop * 0.02}px);
-            transform: rotate(${offsetTop * 0.1}deg);
             min-height: 600px;
             background-image: url(/images/banner.jpg);
             background-size: contain;
