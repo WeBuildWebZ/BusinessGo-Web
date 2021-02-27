@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
-import Navbare from '../../components/navbar';
+import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 
 const Layout = ({ children }) => (
   <div>
-    <Navbare />
+    <Navbar />
     <div>{children}</div>
     <Footer />
   </div>

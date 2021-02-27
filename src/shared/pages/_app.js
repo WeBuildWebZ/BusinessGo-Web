@@ -16,6 +16,7 @@ import { initSentry } from '../../utils/sentry';
 import { setQueryParams } from '../actions/queryParams';
 import { getSessions } from '../../services/api/session';
 import useHandleError from '../hooks/useHandleError';
+import { setSession } from '../actions/session';
 
 const ReduxFiller = props => {
   const dispatch = useDispatch();
@@ -36,10 +37,12 @@ const ReduxFiller = props => {
   if (constants.HAS_LOGIN) {
     getSessions()
       .then(({ data: sessions }) => {
-        if (!sessions[0]) return;
-        const [{ user: newUser }] = sessions;
+        const [session] = sessions;
+        if (!session) return dispatch(setSession({ user: null }));
+        const { user: newUser } = session;
 
         dispatch(setUser(newUser));
+        dispatch(setSession(session));
       })
       .catch(handleError);
   }
