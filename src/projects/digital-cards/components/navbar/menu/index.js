@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Menu = () => (
   <div className="menu">
     <Link href="/como-funciona">
-      <a>Como Funciona</a>
+      <a>Cómo Funciona</a>
     </Link>
 
     <Link href="/templates">
