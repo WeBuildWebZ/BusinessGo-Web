@@ -54,7 +54,7 @@ const ReduxFiller = props => {
 ReduxFiller.propTypes = {
   constants: PropTypes.shape({
     PROJECT_CODE: PropTypes.string.isRequired,
-    HAS_LOGIN: PropTypes.string.isRequired
+    HAS_LOGIN: PropTypes.bool.isRequired
   }).isRequired
 };
 
