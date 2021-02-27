@@ -50,7 +50,9 @@ const LoginForm = () => {
             value={password}
             onChange={({ target }) => setPassword(target.value)}
           />
-          <button type="submit">Entrar</button>
+          <button type="submit" disabled={loading}>
+            Entrar
+          </button>
 
           <Link href="/register">
             <a>Crear Una cuenta Nueva</a>
