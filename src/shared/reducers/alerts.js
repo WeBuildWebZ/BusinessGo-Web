@@ -1,6 +1,6 @@
 const initialState = [];
 
-const Language = (state = initialState, action = {}) => {
+const Alerts = (state = initialState, action = {}) => {
   switch (action.type) {
     case 'pushAlert': {
       return [...state, action.payload];
@@ -20,4 +20,4 @@ const Language = (state = initialState, action = {}) => {
   }
 };
 
-export default Language;
+export default Alerts;

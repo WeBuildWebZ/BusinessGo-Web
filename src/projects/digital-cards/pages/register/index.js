@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { createUserWithEmail } from '../../../../services/api/user';
+import useHandleError from '../../../../shared/hooks/useHandleError';
 import SuccessModal from '../../components/SuccessModal';
 
 const redirectTo = process.browser && `${window.location.origin}/precio`;
@@ -15,13 +16,19 @@ const RegisterForm = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const data = { name };
+  const handleError = useHandleError();
 
   const handleSubmit = e => {
     e.preventDefault();
     setLoading(true);
-    createUserWithEmail(project, redirectTo, email, password, data).then(() => {
-      setSuccess(true);
-    });
+    createUserWithEmail(project, redirectTo, email, password, data)
+      .then(() => {
+        setSuccess(true);
+      })
+      .catch(handleError)
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
