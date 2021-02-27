@@ -3,20 +3,27 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { createSession } from '../../../../services/api/session';
-
 import useHandleError from '../../../../shared/hooks/useHandleError';
 
 const LoginForm = () => {
   const project = useSelector(store => store.project);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const handleError = useHandleError();
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    // TODO continuar
-    // createSession(project.code, email, password).then();
+    setLoading(true);
+    createSession(project.code, email, password)
+      .then(() => {
+        window.location.href = '/';
+      })
+      .catch(handleError)
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
