@@ -23,9 +23,29 @@ export const getLanguage = langCode =>
           message: 'No pudimos realizar la consulta por una falla de conexión con el servidor'
         },
         invalid_parameters: {
-          title: 'Datos inválidos',
+          title: 'Datos Inválidos',
           type: 'error',
           message: 'Hay errores en el formulario ingresado'
+        },
+        not_authenticated: {
+          title: 'No Autenticado',
+          type: 'error',
+          message: 'Necesitas estar logueado para realizar la acción'
+        },
+        not_logged_in: {
+          title: 'No estás logueado',
+          type: 'error',
+          message: 'Necesitas estar logueado para realizar la acción'
+        },
+        not_authorized: {
+          title: 'No Authorized',
+          type: 'error',
+          message: 'No estás autorizado para realizar la acción'
+        },
+        not_found: {
+          title: 'No Encontrado',
+          type: 'error',
+          message: 'No se encontró el recurso solicitado'
         }
       }
     },
@@ -47,14 +67,34 @@ export const getLanguage = langCode =>
           message: 'There was an error'
         },
         request_not_sent: {
-          title: 'Conection error',
+          title: 'Conection Error',
           type: 'error',
           message: "We couldn't perform the operation due to a server conection error"
         },
         invalid_parameters: {
-          title: 'Invalid data',
+          title: 'Invalid Data',
           type: 'error',
           message: 'There are errors in the provided form'
+        },
+        not_authenticated: {
+          title: 'Not Authenticated',
+          type: 'error',
+          message: 'You need to be logged in in order to perform that action'
+        },
+        not_logged_in: {
+          title: 'Not Logged in',
+          type: 'error',
+          message: 'You need to be logged in in order to perform that action'
+        },
+        not_authorized: {
+          title: 'No Authorized',
+          type: 'error',
+          message: "You're not authorized to perform that action"
+        },
+        not_found: {
+          title: 'Not Found',
+          type: 'error',
+          message: 'The requested resource was not found'
         }
       }
     }

@@ -1,22 +1,40 @@
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
-const LoginRoute = () => (
-  <div className="login">
-    <Link href="/login">
-      <a>Login</a>
-    </Link>
-    <style jsx>
-      {`
-        .login {
-          width: 100%;
-          flex: 2;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      `}
-    </style>
-  </div>
-);
+import useHandleLogout from '../../../../../shared/hooks/useHandleLogout';
+
+const LoginRoute = () => {
+  const user = useSelector(store => store.user);
+  const handleLogout = useHandleLogout();
+
+  return (
+    <div className="login">
+      {!user && (
+        <Link href="/login">
+          <a>Login</a>
+        </Link>
+      )}{' '}
+      {user && (
+        <div className="logoutButton" onClick={handleLogout}>
+          <a>Logout</a>
+        </div>
+      )}
+      <style jsx>
+        {`
+          .login {
+            width: 100%;
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .logoutButton {
+            cursor: pointer;
+          }
+        `}
+      </style>
+    </div>
+  );
+};
 
 export default LoginRoute;
