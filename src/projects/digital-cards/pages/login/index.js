@@ -1,12 +1,19 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+import { createSession } from '../../../../services/api/session';
 
 const LoginForm = () => {
+  const project = useSelector(store => store.project);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    // TODO continuar
+    // createSession(project.code, email, password).then();
   };
 
   return (
