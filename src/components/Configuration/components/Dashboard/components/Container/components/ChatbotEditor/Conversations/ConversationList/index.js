@@ -73,7 +73,7 @@ const ConversationList = props => {
             width: 200px;
             height: 220px;
             color: #ebebeb;
-            background-image: url('/images/tiled_black.png');
+            background-image: url('/shared/images/tiled_black.png');
             background-repeat: repeat;
             background-size: 50px;
             border-radius: 5px;

@@ -4,7 +4,7 @@ const Text = () => (
       <h1>Tarjeta Personal Digital </h1>
       <hr />
       <p>
-        Utiliza nuestra tecnologia, y comparte tu tarjeta digital, para compartir tu informacion de contacto
+        Utiliza nuestra tecnología, y comparte tu tarjeta digital, para compartir tu información de contacto
         en 1 segundo.
       </p>
     </div>
