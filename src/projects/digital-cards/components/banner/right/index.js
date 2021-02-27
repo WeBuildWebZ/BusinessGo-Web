@@ -19,7 +19,7 @@ const Right = () => {
         ref={imageRef}
         style={{
           width: `calc(450px - ${offsetTop * 0.8}px)`,
-          filter: `blur(${offsetTop * 0.02}px)`,
+          opacity: 1 - offsetTop / 300,
           transform: `rotate(${offsetTop * 0.1}deg)`
         }}
       />
