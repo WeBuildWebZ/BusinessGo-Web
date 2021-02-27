@@ -20,7 +20,7 @@ const Right = () => {
         style={{
           width: `calc(450px - ${offsetTop * 0.8}px)`,
           opacity: 1 - offsetTop / 300,
-          transform: `rotate(${offsetTop * 0.1}deg)`
+          transform: `rotate(${offsetTop * 0.1}deg) translate(${offsetTop}px)`
         }}
       />
       <style jsx>
