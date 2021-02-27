@@ -64,6 +64,9 @@ const RegisterForm = () => {
           <button type="submit" disabled={loading}>
             Registrarse
           </button>
+          <Link href="/login">
+            <a>Iniciar Sesión</a>
+          </Link>
         </div>
       </form>
       <style jsx>
@@ -90,8 +93,17 @@ const RegisterForm = () => {
             border-radius: 1em;
             padding: 0 1em;
             background: white;
+            animation: formArrive 1s linear;
           }
 
+          @keyframes formArrive {
+            0% {
+              opacity: 0;
+              width: 0;
+              height: 0;
+              box-shadow: 0 0 20px 20px white;
+            }
+          }
           //===============================================================================
 
           .top {
