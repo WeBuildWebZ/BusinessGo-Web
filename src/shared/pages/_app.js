@@ -11,11 +11,15 @@ import commonReducer from '../reducers';
 import Alerts from '../../components/Alerts';
 import { showProject } from '../../services/api/project';
 import { setProject } from '../actions/project';
+import { setUser } from '../actions/user';
 import { initSentry } from '../../utils/sentry';
 import { setQueryParams } from '../actions/queryParams';
+import { getSessions } from '../../services/api/session';
+import useHandleError from '../hooks/useHandleError';
 
 const ReduxFiller = props => {
   const dispatch = useDispatch();
+  const handleError = useHandleError();
   const { constants } = props;
   const router = useRouter();
   const { query } = router || { query: {} };
@@ -29,6 +33,17 @@ const ReduxFiller = props => {
     });
   }
 
+  if (constants.HAS_LOGIN) {
+    getSessions()
+      .then(({ data: sessions }) => {
+        if (!sessions[0]) return;
+        const [{ user: newUser }] = sessions;
+
+        dispatch(setUser(newUser));
+      })
+      .catch(handleError);
+  }
+
   useEffect(() => {
     dispatch(setQueryParams(query));
   }, [query]);
@@ -37,7 +52,10 @@ const ReduxFiller = props => {
 };
 
 ReduxFiller.propTypes = {
-  constants: PropTypes.shape({ PROJECT_CODE: PropTypes.string.isRequired }).isRequired
+  constants: PropTypes.shape({
+    PROJECT_CODE: PropTypes.string.isRequired,
+    HAS_LOGIN: PropTypes.string.isRequired
+  }).isRequired
 };
 
 const getApp = (reducer, constants, AppendComponent) => {
