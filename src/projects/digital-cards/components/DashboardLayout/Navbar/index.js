@@ -1,12 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { setNavbarHeight } from '../../../../../shared/actions/navbarHeight';
+import Breadcrumb2 from '../../../../../components/Breadcrumb2';
 
 import Title from './Title';
 import LogoutButton from './LogoutButton';
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const sidebarWidth = useSelector(store => store.sidebarWidth);
   const navbarHeight = 50;
 
   dispatch(setNavbarHeight(navbarHeight));
@@ -18,11 +20,14 @@ const Navbar = () => {
       <style jsx>
         {`
           .navbar {
+            position: absolute;
+            left: ${sidebarWidth}px;
             display: flex;
-            width: 100%;
+            width: calc(100% - ${sidebarWidth}px);
             height: ${navbarHeight}px;
             background-image: linear-gradient(to right, skyblue, rgb(175, 218, 235));
             border-bottom-right-radius: 14px;
+            transition: 0.7s;
           }
         `}
       </style>
