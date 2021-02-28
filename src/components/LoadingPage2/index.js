@@ -29,7 +29,6 @@ const LoadingPage2 = () => {
             position: absolute;
             width: 100vw;
             height: 100%;
-            background-color: rgb(92, 188, 226);
             background-color: ${color};
             transition: 0.7s;
             overflow: hidden;

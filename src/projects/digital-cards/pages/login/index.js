@@ -21,7 +21,7 @@ const LoginForm = () => {
     setLoading(true);
     createSession(project.code, email, password)
       .then(() => {
-        window.location.href = '/';
+        window.location.href = '/dashboard/cards/new';
       })
       .catch(handleError)
       .finally(() => {

@@ -7,7 +7,7 @@ import { resetUser } from '../../actions/user';
 
 import { getLanguage } from './lang';
 
-const useHandleLogout = () => {
+const useHandleLogout = redirectTo => {
   const handleError = useHandleError();
   const dispatch = useDispatch();
   const pushAlert = usePushAlert();
@@ -18,6 +18,7 @@ const useHandleLogout = () => {
       .then(() => {
         pushAlert(language.alerts.logout);
         dispatch(resetUser());
+        if (window.location.pathname !== redirectTo) window.location.href = redirectTo;
       })
       .catch(handleError);
   };

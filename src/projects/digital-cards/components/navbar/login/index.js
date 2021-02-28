@@ -5,7 +5,7 @@ import useHandleLogout from '../../../../../shared/hooks/useHandleLogout';
 
 const LoginRoute = () => {
   const user = useSelector(store => store.user);
-  const handleLogout = useHandleLogout();
+  const handleLogout = useHandleLogout('/');
 
   return (
     <div className="login">
