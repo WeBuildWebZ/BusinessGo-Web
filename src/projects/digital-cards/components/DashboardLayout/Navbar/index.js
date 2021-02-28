@@ -11,8 +11,8 @@ const Navbar = () => (
           display: flex;
           width: 100%;
           height: 50px;
-          background-color: rgb(175, 218, 235);
-          border-bottom-right-radius: 10px;
+          background-image: linear-gradient(to right, skyblue, rgb(175, 218, 235));
+          border-bottom-right-radius: 14px;
         }
       `}
     </style>

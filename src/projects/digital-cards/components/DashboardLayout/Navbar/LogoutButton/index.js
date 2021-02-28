@@ -18,6 +18,7 @@ const LogoutButton = () => {
             padding: 5px;
             text-align: center;
             background-color: skyblue;
+            border-radius: 4px;
             user-select: none;
             cursor: pointer;
             transition: 0.7s;

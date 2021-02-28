@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 
 import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 
 const DashboardLayout = ({ children }) => (
   <div className="dashboardLayout">
     <Navbar />
+    <Sidebar />
     {children}
     <style jsx>
       {`
