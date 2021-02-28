@@ -26,9 +26,18 @@ const Button = props => {
             text-align: center;
             cursor: pointer;
             user-select: none;
+            transition: 0.7s;
+          }
+          .button:hover {
+            background-color: rgb(131, 166, 201);
+          }
+          .button:active {
+            transform: scale(1.1);
+            transition: 0.1s;
           }
           .symbol {
-            margin-left: 7px;
+            margin: 0 7px 0 7px;
+            line-height: 45px;
           }
           .text {
             display: inline-block;

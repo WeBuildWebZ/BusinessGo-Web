@@ -5,8 +5,6 @@ const Content = props => {
   const navbarHeight = useSelector(store => store.navbarHeight);
   const sidebarWidth = useSelector(store => store.sidebarWidth);
 
-  console.log(sidebarWidth, navbarHeight);
-
   return (
     <div className="content">
       {props.children}
@@ -18,6 +16,7 @@ const Content = props => {
             top: ${navbarHeight}px;
             width: calc(100% - ${sidebarWidth}px);
             height: calc(100% - ${navbarHeight}px);
+            transition: 0.7s;
           }
         `}
       </style>

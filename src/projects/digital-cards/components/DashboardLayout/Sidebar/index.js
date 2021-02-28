@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setSidebarWidth } from '../../../../../shared/actions/sidebarWidth';
@@ -12,13 +12,15 @@ const Sidebar = () => {
   const language = getLanguage(useSelector(store => store.language));
   const sidebarWidth = open ? 200 : 50;
 
-  dispatch(setSidebarWidth(sidebarWidth));
-
   const handleToggle = () => {
     setOpen(!open);
     if (open) sessionStorage.removeItem('sidebarOpen');
     else sessionStorage.setItem('sidebarOpen', 'true');
   };
+
+  useEffect(() => {
+    dispatch(setSidebarWidth(sidebarWidth));
+  }, [sidebarWidth]);
 
   return (
     <div className={`sidebar${open ? ' sidebarOpen' : ''}`}>
