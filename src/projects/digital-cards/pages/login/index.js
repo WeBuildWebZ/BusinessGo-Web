@@ -124,6 +124,9 @@ const LoginForm = () => {
             padding: 0.5em;
             border-radius: 5px;
           }
+          button:disabled {
+            opacity: 0.5;
+          }
 
           a {
             width: 100%;
