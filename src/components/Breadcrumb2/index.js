@@ -21,18 +21,18 @@ const Breadcrumb2 = props => {
       {props.items.map((item, i) => {
         const isFirst = i === 0;
         const reverseIndex = props.items.length - 1 - i;
-        const backgroundColor = `rgba(67, 176, 184, ${1 - (0.5 / props.items.length) * i})`;
 
         return (
           <>
             <div
+              key="item"
               className={`item${isFirst ? ' firstItem' : ''}`}
               style={{ zIndex: 2 * reverseIndex + 1 }}
               onClick={() => handleClick(item)}
             >
               <div className={`text${isFirst ? '' : ' notFirstText'}`}>{item.text}</div>
             </div>
-            <div className="itemArrow" style={{ zIndex: 2 * reverseIndex }} />
+            <div key="itemArrow" className="itemArrow" style={{ zIndex: 2 * reverseIndex }} />
           </>
         );
       })}
@@ -67,7 +67,7 @@ const Breadcrumb2 = props => {
             border-bottom-left-radius: 7px;
           }
           .notFirstText {
-            margin-left: ${breadcrumbHeight}px;
+            margin-left: ${breadcrumbHeight * 0.6}px;
           }
           .itemArrow {
             left: 100%;
@@ -82,6 +82,17 @@ const Breadcrumb2 = props => {
             border-radius: 3px;
             border-top-right-radius: 7px;
             cursor: pointer;
+          }
+          @media only screen and (max-width: 768px) {
+            .breadcrumb {
+              font-size: 10px;
+            }
+            .item {
+              padding: 10px;
+            }
+            .notFirstText {
+              margin-left: ${breadcrumbHeight * 0.4}px;
+            }
           }
         `}
       </style>
