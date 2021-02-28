@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 const Breadcrumb2 = props => {
   const breadcrumbRef = useRef();
@@ -19,10 +20,18 @@ const Breadcrumb2 = props => {
         const reverseIndex = props.items.length - 1 - i;
         const backgroundColor = `rgba(67, 176, 184, ${1 - (0.5 / props.items.length) * i})`;
 
+        const itemComponent = <div className={`text${isFirst ? '' : ' notFirstText'}`}>{item.text}</div>;
+
         return (
           <>
             <div className={`item${isFirst ? ' firstItem' : ''}`} style={{ zIndex: 2 * reverseIndex + 1 }}>
-              <div className={`text${isFirst ? '' : ' notFirstText'}`}>{item.text}</div>
+              {item.link ? (
+                <Link href={item.link}>
+                  <a>{itemComponent}</a>
+                </Link>
+              ) : (
+                itemComponent
+              )}
             </div>
             <div className="itemArrow" style={{ zIndex: 2 * reverseIndex }} />
           </>
