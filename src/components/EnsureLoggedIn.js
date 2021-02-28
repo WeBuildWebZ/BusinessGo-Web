@@ -11,9 +11,9 @@ const EnsureLoggedIn = ({ children, redirectTo, Loading }) => {
   const dispatch = useDispatch();
   const session = useSelector(store => store.session);
 
-  return <Loading />;
   if (!session) return <Loading />;
   if (!session.user) {
+    if (!process.browser) return <div />;
     window.location.href = redirectTo;
     return <div />;
   }
@@ -22,8 +22,8 @@ const EnsureLoggedIn = ({ children, redirectTo, Loading }) => {
 };
 
 EnsureLoggedIn.propTypes = {
-  children: PropTypes.element.isRequired,
-  redirectTo: PropTypes.element.isRequired
+  children: PropTypes.any.isRequired,
+  redirectTo: PropTypes.string.isRequired
 };
 
 export default EnsureLoggedIn;

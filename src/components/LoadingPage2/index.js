@@ -22,6 +22,7 @@ const LoadingPage2 = () => {
 
   return (
     <div className="loadingPage">
+      <Window />
       <style jsx>
         {`
           .loadingPage {
@@ -31,6 +32,7 @@ const LoadingPage2 = () => {
             background-color: rgb(92, 188, 226);
             background-color: ${color};
             transition: 0.7s;
+            overflow: hidden;
           }
         `}
       </style>
