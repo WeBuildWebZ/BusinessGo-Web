@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from 'react';
 
 const Breadcrumb2 = props => {
   const breadcrumbRef = useRef();
@@ -13,6 +12,10 @@ const Breadcrumb2 = props => {
     setArrowSize((height ** 2 / 2) ** 0.5);
   }, []);
 
+  const handleClick = item => {
+    if (item.link) window.location.href = item.link;
+  };
+
   return (
     <div className="breadcrumb" ref={breadcrumbRef}>
       {props.items.map((item, i) => {
@@ -20,18 +23,14 @@ const Breadcrumb2 = props => {
         const reverseIndex = props.items.length - 1 - i;
         const backgroundColor = `rgba(67, 176, 184, ${1 - (0.5 / props.items.length) * i})`;
 
-        const itemComponent = <div className={`text${isFirst ? '' : ' notFirstText'}`}>{item.text}</div>;
-
         return (
           <>
-            <div className={`item${isFirst ? ' firstItem' : ''}`} style={{ zIndex: 2 * reverseIndex + 1 }}>
-              {item.link ? (
-                <Link href={item.link}>
-                  <a className="link">{itemComponent}</a>
-                </Link>
-              ) : (
-                itemComponent
-              )}
+            <div
+              className={`item${isFirst ? ' firstItem' : ''}`}
+              style={{ zIndex: 2 * reverseIndex + 1 }}
+              onClick={() => handleClick(item)}
+            >
+              <div className={`text${isFirst ? '' : ' notFirstText'}`}>{item.text}</div>
             </div>
             <div className="itemArrow" style={{ zIndex: 2 * reverseIndex }} />
           </>
@@ -83,10 +82,6 @@ const Breadcrumb2 = props => {
             border-radius: 3px;
             border-top-right-radius: 7px;
             cursor: pointer;
-          }
-          .link:hover {
-            color: inherit;
-            text-decoration: none;
           }
         `}
       </style>
