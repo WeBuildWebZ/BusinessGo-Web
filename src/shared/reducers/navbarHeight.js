@@ -1,8 +1,8 @@
 const initialState = 0;
 
-const SidebarWidth = (state = initialState, action = {}) => {
+const NavbarHeight = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'setSidebarWidth': {
+    case 'setNavbarHeight': {
       return action.payload;
     }
     default: {
@@ -11,4 +11,4 @@ const SidebarWidth = (state = initialState, action = {}) => {
   }
 };
 
-export default SidebarWidth;
+export default NavbarHeight;

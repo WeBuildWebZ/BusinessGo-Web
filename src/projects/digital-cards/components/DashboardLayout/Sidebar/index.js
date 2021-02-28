@@ -1,12 +1,18 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setSidebarWidth } from '../../../../../shared/actions/sidebarWidth';
 
 import Button from './Button';
 import { getLanguage } from './lang';
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(sessionStorage.getItem('sidebarOpen') === 'true');
   const language = getLanguage(useSelector(store => store.language));
+  const sidebarWidth = open ? 200 : 50;
+
+  dispatch(setSidebarWidth(sidebarWidth));
 
   const handleToggle = () => {
     setOpen(!open);
@@ -25,14 +31,14 @@ const Sidebar = () => {
             position: absolute;
             left: 0;
             top: 0;
-            width: 50px;
+            width: ${sidebarWidth}px;
             height: 100%;
             border-top-right-radius: 14px;
             background-image: linear-gradient(to top, skyblue, rgb(175, 218, 235));
             transition: 0.7s;
           }
           .sidebarOpen {
-            width: 200px;
+            width: ${sidebarWidth}px;
           }
           .favicon {
             margin: 5px;
