@@ -1,9 +1,11 @@
 export const getLanguage = langCode =>
   ({
     es: {
-      options: 'Opciones'
+      options: 'Opciones',
+      cards: 'Tarjetas'
     },
     en: {
-      options: 'Options'
+      options: 'Options',
+      cards: 'Cards'
     }
   }[langCode]);

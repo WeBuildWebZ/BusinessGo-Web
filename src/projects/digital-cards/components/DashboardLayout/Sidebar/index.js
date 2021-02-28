@@ -18,7 +18,7 @@ const Sidebar = () => {
     <div className={`sidebar${open ? ' sidebarOpen' : ''}`}>
       <img className="favicon" src="/favicon.png" />
       <Button symbol="≡" text={language.options} showText={open} onClick={handleToggle} />
-      <Button symbol="≡" text={language.options} showText={open} onClick={handleToggle} />
+      <Button symbol="❐" text={language.cards} showText={open} onClick={() => {}} />
       <style jsx>
         {`
           .sidebar {
