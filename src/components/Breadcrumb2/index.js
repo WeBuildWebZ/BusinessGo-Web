@@ -27,7 +27,7 @@ const Breadcrumb2 = props => {
             <div className={`item${isFirst ? ' firstItem' : ''}`} style={{ zIndex: 2 * reverseIndex + 1 }}>
               {item.link ? (
                 <Link href={item.link}>
-                  <a>{itemComponent}</a>
+                  <a className="link">{itemComponent}</a>
                 </Link>
               ) : (
                 itemComponent
@@ -83,6 +83,10 @@ const Breadcrumb2 = props => {
             border-radius: 3px;
             border-top-right-radius: 7px;
             cursor: pointer;
+          }
+          .link:hover {
+            color: inherit;
+            text-decoration: none;
           }
         `}
       </style>
