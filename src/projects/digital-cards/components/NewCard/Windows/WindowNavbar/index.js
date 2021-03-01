@@ -8,12 +8,13 @@ const WindowNavbar = props => (
         .windowNavbar {
           width: 100%;
           height: 30px;
-          background-color: lightgray;
+          background-color: lightskyblue;
           border-radius: inherit;
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
           text-align: center;
           user-select: none;
+          box-shadow: 0 0 5px 1px lightblue;
         }
       `}
     </style>

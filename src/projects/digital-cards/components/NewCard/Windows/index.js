@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import WindowNavbar from './WindowNavbar';
+import Plans from './Plans';
 import { getLanguage } from './lang';
 
 const windows = [{ title: 'title' }];
@@ -14,6 +15,7 @@ const Windows = () => {
   return (
     <div className="window">
       <WindowNavbar title={language.selectPlan} />
+      <Plans />
       <style jsx>
         {`
           .window {
@@ -25,10 +27,18 @@ const Windows = () => {
             animation: appear linear 0.7s;
             box-shadow: 50px 50px 50px rgba(245, 245, 245, 0.5);
             transition: 0.7s;
+            overflow-x: hidden;
+            overflow-y: auto;
           }
           .window:hover {
             box-shadow: 50px 50px 50px rgba(245, 245, 245, 0.5), 0 0 5px 1px whitesmoke;
           }
+
+          ::-webkit-scrollbar {
+            width: 0; /* Remove scrollbar space */
+            background: transparent; /* Optional: just make scrollbar invisible */
+          }
+          /* Optional: show position indicator in red */
           @keyframes appear {
             0% {
               transform: translate(-200%, 100%);
