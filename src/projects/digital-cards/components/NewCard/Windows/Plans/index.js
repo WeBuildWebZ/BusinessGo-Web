@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types'
 
 import { listProducts } from '../../../../../../services/ecommerce_api/product';
 import { getProductCodeTranslation } from '../../../../../../translations/productsCodes';
 
-const Plans = () => {
+const Plans = props => {
   const languageCode = useSelector(store => store.language);
   const project = useSelector(store => store.project);
   const [plans, setPlans] = useState(null);

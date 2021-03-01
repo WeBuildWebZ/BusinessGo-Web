@@ -5,17 +5,24 @@ import WindowNavbar from './WindowNavbar';
 import Plans from './Plans';
 import { getLanguage } from './lang';
 
-const windows = [{ title: 'title' }];
-
 const Windows = () => {
   const language = getLanguage(useSelector(store => store.language));
-  const [index, setIndex] = useState(0);
-  const currWindow = window[index];
+  const [currentWindow, setCurrentWindow] = useState(0);
+  const [plan, setPlan] = useState(null);
+
+  const handleSelectPlan = newPlan => {
+    setPlan(newPlan);
+    setCurrentWindow(currentWindow + 1);
+  };
 
   return (
     <div className="window">
-      <WindowNavbar title={language.selectPlan} />
-      <Plans />
+      {currentWindow === 0 && (
+        <>
+          <WindowNavbar title={language.selectPlan} />
+          <Plans onSelectPlan={handleSelectPlan} />
+        </>
+      )}
       <style jsx>
         {`
           .window {
