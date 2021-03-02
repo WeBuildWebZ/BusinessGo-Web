@@ -29,7 +29,7 @@ const Tabs = () => {
         {`
           .tab {
             display: inline-block;
-            padding: 10px;
+            padding: 5px 10px 5px 10px;
             background-color: skyblue;
             user-select: none;
             cursor: pointer;
