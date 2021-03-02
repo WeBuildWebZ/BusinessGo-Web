@@ -26,6 +26,13 @@ const NewCard = () => {
             .title {
               margin: 10px;
             }
+            @media only screen and (max-width: 768px) {
+              .modalContent {
+                width: 90%;
+                height: 90%;
+                margin-left: 5%;
+              }
+            }
           `}
         </style>
       </div>
