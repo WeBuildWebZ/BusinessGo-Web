@@ -13,14 +13,14 @@ const Step1 = props => {
   return (
     <>
       {props.options.map((option, i) => (
-        <div key={i} className="plan" onClick={() => handleSelectOption(i)}>
+        <div key={i} className="option" onClick={() => handleSelectOption(i)}>
           <div className="title">{option.title}</div>
           <div className="description">{option.description}</div>
         </div>
       ))}
       <style jsx>
         {`
-          .plan {
+          .option {
             display: flex;
             flex-direction: column;
             width: 90%;
@@ -28,17 +28,17 @@ const Step1 = props => {
             height: fit-content;
             margin: 15px 0 10px 5%;
             padding: 10px;
-            background-color: greenyellow;
+            background-color: skyblue;
             border-radius: 7px;
             user-select: none;
             cursor: pointer;
             transition: 0.7s;
           }
-          .plan:hover {
+          .option:hover {
             transform: scale(1.05);
             box-shadow: 0 0 2px 1px rgb(219, 198, 198);
           }
-          .plan:active {
+          .option:active {
             transform: scale(1.12);
             background-color: rgb(199, 177, 177);
             box-shadow: 0 0 4px 1px rgb(199, 177, 177);
