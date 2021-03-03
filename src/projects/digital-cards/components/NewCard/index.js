@@ -2,6 +2,8 @@ import { Modal } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
+import Card from '../Card';
+
 import Tabs from './Tabs';
 import Steps from './Steps';
 import { getLanguage } from './lang';
@@ -27,6 +29,7 @@ const NewCard = () => {
         <h3 className="title">{language.newCard}</h3>
         <Tabs tab={tab} onTabChanged={handleChangeTab} />
         {tab === 'data' && <Steps step={step} onDataAdded={handleAddData} />}
+        {tab === 'preview' && <Card />}
         <style jsx>
           {`
             .modalContent {
