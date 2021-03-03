@@ -6,34 +6,18 @@ import { listProducts } from '../../../../../../services/ecommerce_api/product';
 import { getProductCodeTranslation } from '../../../../../../translations/productsCodes';
 
 const Step1 = props => {
-  const languageCode = useSelector(store => store.language);
-  const project = useSelector(store => store.project);
-  const [plans, setPlans] = useState(null);
-  const productTranslation = getProductCodeTranslation(languageCode);
-
-  const handleSelectPlan = plan => {
-    props.onDataAdded({ card_type: plan.code }, 2);
+  const handleSelectOption = option => {
+    props.onOptionSelected(option);
   };
-
-  useEffect(() => {
-    if (!project) return;
-    listProducts(project, 'card').then(({ data: givenPlans }) => {
-      setPlans(givenPlans);
-    });
-  }, [project]);
 
   return (
     <>
-      {plans?.map((plan, i) => {
-        const translation = productTranslation[plan.code];
-
-        return (
-          <div key={i} className="plan" onClick={() => handleSelectPlan(plan)}>
-            <div className="title">{translation.name}</div>
-            <div className="description">{translation.description}</div>
-          </div>
-        );
-      })}
+      {props.options.map((option, i) => (
+        <div key={i} className="plan" onClick={() => handleSelectOption(i)}>
+          <div className="title">{option.title}</div>
+          <div className="description">{option.description}</div>
+        </div>
+      ))}
       <style jsx>
         {`
           .plan {
@@ -75,7 +59,9 @@ const Step1 = props => {
 };
 
 Step1.propTypes = {
-  onDataAdded: PropTypes.func.isRequired
+  options: PropTypes.arrayOf(PropTypes.shape({ title: PropTypes.string, description: PropTypes.string }))
+    .isRequired,
+  onOptionSelected: PropTypes.func.isRequired
 };
 
 export default Step1;

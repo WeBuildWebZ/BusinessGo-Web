@@ -1,18 +1,21 @@
 import { Modal } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Card from '../Card';
+import { listProducts } from '../../../../services/ecommerce_api/product';
 
 import Tabs from './Tabs';
 import Steps from './Steps';
 import { getLanguage } from './lang';
 
 const NewCard = () => {
+  const language = getLanguage(useSelector(store => store.language));
+  const project = useSelector(store => store.project);
+  const [products, setProducts] = useState(null);
   const [tab, setTab] = useState('data');
   const [step, setStep] = useState(1);
   const [data, setData] = useState({});
-  const language = getLanguage(useSelector(store => store.language));
 
   const handleAddData = (newData, newStep) => {
     setData({ ...data, ...newData });
@@ -23,12 +26,21 @@ const NewCard = () => {
     setTab(newTab);
   };
 
+  useEffect(() => {
+    if (!project) return;
+    listProducts(project, 'card').then(({ data: givenPlans }) => {
+      setProducts(givenPlans);
+    });
+  }, [project]);
+
   return (
     <Modal open>
       <div className="modalContent">
         <h3 className="title">{language.newCard}</h3>
         <Tabs tab={tab} onTabChanged={handleChangeTab} />
-        {tab === 'data' && <Steps step={step} onDataAdded={handleAddData} />}
+        {tab === 'data' && products && (
+          <Steps step={step} data={data} onDataAdded={handleAddData} products={products} />
+        )}
         {tab === 'preview' && <Card />}
         <style jsx>
           {`
