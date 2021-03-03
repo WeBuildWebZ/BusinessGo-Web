@@ -39,7 +39,10 @@ const Steps = props => {
       return <Options options={options} onOptionSelected={handleSelectTemplateOption} />;
     }
     case 3: {
-      return <Form />;
+      const handleDataChange = newData => {
+        props.onDataAdded(newData, 4);
+      };
+      return <Form data={props.data} onDataAdded={handleDataChange} />;
     }
     default: {
       throw new Error(`Wrong step ${props.step}`);
@@ -49,6 +52,7 @@ const Steps = props => {
 
 Steps.propTypes = {
   step: PropTypes.number.isRequired,
+  data: PropTypes.object.isRequired,
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
   onDataAdded: PropTypes.func.isRequired
 };

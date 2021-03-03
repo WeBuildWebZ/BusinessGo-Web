@@ -33,6 +33,8 @@ const NewCard = () => {
     });
   }, [project]);
 
+  console.log('data', data);
+
   return (
     <Modal open>
       <div className="modalContent">
