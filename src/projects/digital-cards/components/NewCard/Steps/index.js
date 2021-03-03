@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { getProductCodeTranslation } from '../../../../../translations/productsCodes';
 
 import Options from './Options';
+import Form from './Form';
 
 const Steps = props => {
   const languageCode = useSelector(store => store.language);
@@ -26,8 +27,8 @@ const Steps = props => {
     }
     case 2: {
       const handleSelectTemplateOption = optionIndex => {
-        const product = props.products[optionIndex];
-        const newData = { card_type: product.code };
+        const template_code = selectedProduct.data.template_codes[optionIndex];
+        const newData = { template_code };
         props.onDataAdded(newData, 3);
       };
       const options = selectedProduct.data.template_codes.map(templateCode => {
@@ -36,6 +37,9 @@ const Steps = props => {
         return { title: template.name, description: template.description };
       });
       return <Options options={options} onOptionSelected={handleSelectTemplateOption} />;
+    }
+    case 3: {
+      return <Form />;
     }
     default: {
       throw new Error(`Wrong step ${props.step}`);

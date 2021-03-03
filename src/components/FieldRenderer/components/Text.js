@@ -11,31 +11,38 @@ const Text = props => {
   const languageCode = useSelector(store => store.language);
   const keyTranslation = getFieldKeyTranslation(languageCode);
   const [stateValue, setStateValue] = useState(value || field.default_value);
+  const label = field.name || keyTranslation[field.key];
 
   const handleChangeValue = ({ target }) => {
     setStateValue(target.value);
     props.onChange(target.value);
   };
 
-  return (
-    <>
-      <TextField
-        label={field.name || keyTranslation[field.key]}
-        value={stateValue}
-        disabled={props.readOnly}
-        rows={props.rows}
-        multiline={props.multiline}
-        variant="outlined"
-        required={field.is_required}
-        style={{ width: '100%', margin: '16px 0 16px 0' }}
-        size="small"
-        onChange={handleChangeValue}
-      />
-    </>
-  );
+  switch (props.template) {
+    case 'default': {
+      return (
+        <TextField
+          label={label}
+          value={stateValue}
+          disabled={props.readOnly}
+          rows={props.rows}
+          multiline={props.multiline}
+          variant="outlined"
+          required={field.is_required}
+          style={{ width: '100%', margin: '16px 0 16px 0' }}
+          size="small"
+          onChange={handleChangeValue}
+        />
+      );
+    }
+    default: {
+      throw new Error(`Unknown template ${props.template}`);
+    }
+  }
 };
 
 Text.propTypes = {
+  template: PropTypes.string.isRequired,
   value: PropTypes.string,
   multiline: PropTypes.bool,
   readOnly: PropTypes.bool,
