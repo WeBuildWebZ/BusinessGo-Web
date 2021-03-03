@@ -7,21 +7,26 @@ import Steps from './Steps';
 import { getLanguage } from './lang';
 
 const NewCard = () => {
+  const [tab, setTab] = useState('data');
   const [step, setStep] = useState(1);
   const [data, setData] = useState({});
   const language = getLanguage(useSelector(store => store.language));
 
-  const handleAddData = (newData, newSetp) => {
+  const handleAddData = (newData, newStep) => {
     setData({ ...data, ...newData });
-    setStep(newSetp);
+    setStep(newStep);
+  };
+
+  const handleChangeTab = newTab => {
+    setTab(newTab);
   };
 
   return (
     <Modal open>
       <div className="modalContent">
         <h3 className="title">{language.newCard}</h3>
-        <Tabs />
-        <Steps step={step} onDataAdded={handleAddData} />
+        <Tabs tab={tab} onTabChanged={handleChangeTab} />
+        {tab === 'data' && <Steps step={step} onDataAdded={handleAddData} />}
         <style jsx>
           {`
             .modalContent {

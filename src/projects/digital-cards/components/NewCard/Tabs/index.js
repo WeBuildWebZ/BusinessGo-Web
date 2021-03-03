@@ -1,27 +1,27 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { getLanguage } from './lang';
 
-const Tabs = () => {
-  const [selectedTab, setSelectedTab] = useState(0);
+const Tabs = props => {
   const language = getLanguage(useSelector(store => store.language));
 
   const handleSelectTab = tab => {
-    setSelectedTab(tab);
+    props.onTabChanged(tab);
   };
 
   return (
     <center>
       <div
-        className={`tab firstTab${selectedTab === 0 ? ' selectedTab' : ''}`}
-        onClick={() => handleSelectTab(0)}
+        className={`tab firstTab${props.tab === 'data' ? ' selectedTab' : ''}`}
+        onClick={() => handleSelectTab('data')}
       >
         {language.data}
       </div>
       <div
-        className={`tab lastTab${selectedTab === 1 ? ' selectedTab' : ''}`}
-        onClick={() => handleSelectTab(1)}
+        className={`tab lastTab${props.tab === 'preview' ? ' selectedTab' : ''}`}
+        onClick={() => handleSelectTab('preview')}
       >
         {language.preview}
       </div>
@@ -67,6 +67,11 @@ const Tabs = () => {
       </style>
     </center>
   );
+};
+
+Tabs.propTypes = {
+  tab: PropTypes.string.isRequired,
+  onTabChanged: PropTypes.func.isRequired
 };
 
 export default Tabs;
