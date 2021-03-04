@@ -40,11 +40,24 @@ const Steps = props => {
     }
     case 3: {
       const handleDataChange = (newData, newStep) => {
-        console.log('newStep', newStep);
         props.onDataAdded(newData, newStep);
       };
       return (
         <Form
+          formCode={`${props.data.card_type}_card_creation_personal_data`}
+          data={props.data}
+          onDataAdded={newData => handleDataChange(newData)}
+          onSubmit={newData => handleDataChange(newData, 4)}
+        />
+      );
+    }
+    case 4: {
+      const handleDataChange = (newData, newStep) => {
+        props.onDataAdded(newData, newStep);
+      };
+      return (
+        <Form
+          formCode={`${props.data.card_type}_card_creation_business_data`}
           data={props.data}
           onDataAdded={newData => handleDataChange(newData)}
           onSubmit={newData => handleDataChange(newData, 4)}

@@ -9,33 +9,33 @@ import Spinner from '../../../../../../components/Spinner';
 const Fields = props => {
   const project = useSelector(store => store.project);
   const [form, setForm] = useState(null);
-  const [data, setData] = useState(props.data);
+  const [formData, setFormData] = useState(props.data.form_data || {});
 
   const handleChangeData = changedData => {
-    const newData = { ...data, ...changedData };
-    setData(newData);
-    props.onDataAdded({ form_data: newData });
+    const newFormData = { ...formData, ...changedData };
+    setFormData(newFormData);
+    props.onDataAdded({ form_data: newFormData });
   };
 
   const handleSubmit = changedData => {
-    const newData = { ...data, ...changedData };
-    setData(newData);
-    props.onSubmit({ form_data: newData });
+    const newFormData = { ...formData, ...changedData };
+    setFormData(newFormData);
+    props.onSubmit({ form_data: newFormData });
   };
 
   useEffect(() => {
     if (!project) return;
-    showForm(project.code, 'free_card_creation_personal_data').then(({ data: givenForm }) => {
+    showForm(project.code, props.formCode).then(({ data: givenForm }) => {
       setForm(givenForm);
     });
-  }, [project]);
+  }, [project, props.formCode]);
 
   return (
     <>
       {!form && <Spinner />}
       {form && (
         <FieldRenderer
-          data={data}
+          data={formData}
           fields={form.fields}
           onPartialChange={handleChangeData}
           onChange={handleSubmit}
@@ -47,6 +47,7 @@ const Fields = props => {
 };
 
 Fields.propTypes = {
+  formCode: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
   onDataAdded: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
