@@ -17,6 +17,12 @@ const Fields = props => {
     props.onDataAdded({ form_data: newData });
   };
 
+  const handleSubmit = changedData => {
+    const newData = { ...data, ...changedData };
+    setData(newData);
+    props.onSubmit({ form_data: newData });
+  };
+
   useEffect(() => {
     if (!project) return;
     showForm(project.code, 'free_card_creation_personal_data').then(({ data: givenForm }) => {
@@ -27,14 +33,23 @@ const Fields = props => {
   return (
     <>
       {!form && <Spinner />}
-      {form && <FieldRenderer data={data} fields={form.fields} onChange={handleChangeData} saveButton />}
+      {form && (
+        <FieldRenderer
+          data={data}
+          fields={form.fields}
+          onPartialChange={handleChangeData}
+          onChange={handleSubmit}
+          saveButton
+        />
+      )}
     </>
   );
 };
 
 Fields.propTypes = {
   data: PropTypes.object.isRequired,
-  onDataAdded: PropTypes.func.isRequired
+  onDataAdded: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default Fields;

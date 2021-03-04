@@ -19,7 +19,7 @@ const NewCard = () => {
 
   const handleAddData = (newData, newStep) => {
     setData({ ...data, ...newData });
-    setStep(newStep);
+    if (newStep) setStep(newStep);
   };
 
   const handleChangeTab = newTab => {

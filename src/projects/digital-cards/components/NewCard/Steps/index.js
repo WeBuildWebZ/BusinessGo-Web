@@ -39,10 +39,17 @@ const Steps = props => {
       return <Options options={options} onOptionSelected={handleSelectTemplateOption} />;
     }
     case 3: {
-      const handleDataChange = newData => {
-        props.onDataAdded(newData, 4);
+      const handleDataChange = (newData, newStep) => {
+        console.log('newStep', newStep);
+        props.onDataAdded(newData, newStep);
       };
-      return <Form data={props.data} onDataAdded={handleDataChange} />;
+      return (
+        <Form
+          data={props.data}
+          onDataAdded={newData => handleDataChange(newData)}
+          onSubmit={newData => handleDataChange(newData, 4)}
+        />
+      );
     }
     default: {
       throw new Error(`Wrong step ${props.step}`);

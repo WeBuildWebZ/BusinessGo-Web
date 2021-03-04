@@ -27,6 +27,8 @@ const FieldRenderer = props => {
 
   const handleChange = updatedData => {
     setNewData(updatedData);
+    props.onPartialChange(updatedData);
+
     if (props.saveButton) setHasChanged(true);
     else props.onChange(updatedData);
   };
@@ -226,6 +228,7 @@ FieldRenderer.propTypes = {
   updateAfter: PropTypes.number,
   template: PropTypes.string,
   onChange: PropTypes.func,
+  onPartialChange: PropTypes.func,
   saveButton: PropTypes.bool
 };
 
@@ -236,6 +239,7 @@ FieldRenderer.defaultProps = {
   updateAfter: 0,
   template: 'default',
   onChange: () => {},
+  onPartialChange: () => {},
   saveButton: false
 };
 
