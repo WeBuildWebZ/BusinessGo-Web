@@ -40,6 +40,7 @@ const Fields = props => {
           onPartialChange={handleChangeData}
           onChange={handleSubmit}
           saveButton
+          alwaysShowSaveButton
         />
       )}
     </>

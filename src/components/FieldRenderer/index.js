@@ -204,7 +204,7 @@ const FieldRenderer = props => {
       })}
       {props.saveButton && (
         <Modal.Footer>
-          <Button disabled={!hasChanged} onClick={handleSave}>
+          <Button disabled={!hasChanged && !props.alwaysShowSaveButton} onClick={handleSave}>
             {language.save}
           </Button>
         </Modal.Footer>
@@ -229,7 +229,8 @@ FieldRenderer.propTypes = {
   template: PropTypes.string,
   onChange: PropTypes.func,
   onPartialChange: PropTypes.func,
-  saveButton: PropTypes.bool
+  saveButton: PropTypes.bool,
+  alwaysShowSaveButton: PropTypes.bool
 };
 
 FieldRenderer.defaultProps = {
@@ -240,7 +241,8 @@ FieldRenderer.defaultProps = {
   template: 'default',
   onChange: () => {},
   onPartialChange: () => {},
-  saveButton: false
+  saveButton: false,
+  alwaysShowSaveButton: false
 };
 
 export default FieldRenderer;
