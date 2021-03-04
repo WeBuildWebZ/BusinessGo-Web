@@ -21,7 +21,7 @@ const LoginForm = () => {
     setLoading(true);
     createSession(project.code, email, password)
       .then(() => {
-        window.location.href = '/';
+        window.location.href = '/dashboard/cards/new';
       })
       .catch(handleError)
       .finally(() => {
@@ -123,6 +123,9 @@ const LoginForm = () => {
             margin-top: 0.2em;
             padding: 0.5em;
             border-radius: 5px;
+          }
+          button:disabled {
+            opacity: 0.5;
           }
 
           a {
