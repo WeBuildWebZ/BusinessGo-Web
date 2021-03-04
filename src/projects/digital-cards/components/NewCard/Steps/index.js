@@ -71,7 +71,8 @@ const Steps = props => {
       );
     }
     case 5: {
-      createClientDocument('card', project.code, props.data).then(() => {
+      createClientDocument('card', project.code, props.data).then(({ data: newClientDocument }) => {
+        window.location.href = `/cards/${encodeURIComponent(newClientDocument._id)}`;
         pushAlert({
           type: 'info',
           title: language.cardCreated.title,
