@@ -41,7 +41,7 @@ const NewCard = () => {
         {tab === 'data' && products && (
           <Steps step={step} data={data} onDataAdded={handleAddData} products={products} />
         )}
-        {tab === 'preview' && <Card />}
+        {tab === 'preview' && <Card showAsTemplate templateCode="free1" />}
         <style jsx>
           {`
             .modalContent {
