@@ -27,9 +27,9 @@ export const getClientDocuments = (
 export const deleteClientDocument = clientDocument =>
   api.delete(`api/client_documents/${encodeURIComponent(clientDocument._id)}`);
 
-export const createClientDocument = (clientModel, clientDocument) =>
-  api.post(`api/projects/${encodeURIComponent(clientModel.project_code)}/client_documents`, {
-    entity: clientModel.entity,
+export const createClientDocument = (entity, project_code, clientDocument) =>
+  api.post(`api/projects/${encodeURIComponent(project_code)}/client_documents`, {
+    entity,
     value: clientDocument
   });
 

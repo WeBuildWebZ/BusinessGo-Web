@@ -2,13 +2,19 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
 import { getProductCodeTranslation } from '../../../../../translations/productsCodes';
+import { createClientDocument } from '../../../../../services/api/clientDocument';
+import usePushAlert from '../../../../../shared/hooks/usePushAlert';
 
 import Options from './Options';
 import Form from './Form';
+import { getLanguage } from './lang';
 
 const Steps = props => {
   const languageCode = useSelector(store => store.language);
+  const project = useSelector(store => store.project);
+  const language = getLanguage(languageCode);
   const productTranslation = getProductCodeTranslation(languageCode);
+  const pushAlert = usePushAlert();
   const selectedProduct = props.products.find(product => product.code === props.data.card_type);
 
   switch (props.step) {
@@ -60,9 +66,20 @@ const Steps = props => {
           formCode={`${props.data.card_type}_card_creation_business_data`}
           data={props.data}
           onDataAdded={newData => handleDataChange(newData)}
-          onSubmit={newData => handleDataChange(newData, 4)}
+          onSubmit={newData => handleDataChange(newData, 5)}
         />
       );
+    }
+    case 5: {
+      createClientDocument('card', project.code, props.data).then(() => {
+        pushAlert({
+          type: 'info',
+          title: language.cardCreated.title,
+          message: language.cardCreated.message
+        });
+      });
+
+      return <div>{language.creatingCard}</div>;
     }
     default: {
       throw new Error(`Wrong step ${props.step}`);
