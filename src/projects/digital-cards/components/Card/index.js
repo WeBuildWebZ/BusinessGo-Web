@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Spinner from '../../../../components/Spinner';
 import { showClientDocument } from '../../../../services/api/clientDocument';
 
-import Free1 from './Free1';
+import Free1 from './Free1/Real';
 
 const Card = props => {
   const [card, setCard] = useState({});
@@ -22,7 +22,7 @@ const Card = props => {
 
   switch (templateCode) {
     case 'free1': {
-      return <Free1 showAsTemplate={false} card={card} />;
+      return <Free1 card={card} />;
     }
     default: {
       throw new Error(`Unknown card template code ${templateCode}`);

@@ -9,7 +9,7 @@ const Cards = () => {
   return (
     <>
       {!query.card_id && <Spinner />}
-      {query.card_id && <Card id={query.card_id} />}
+      {query.card_id && <Card id={query.card_id} showAsTemplate={false} />}
     </>
   );
 };
