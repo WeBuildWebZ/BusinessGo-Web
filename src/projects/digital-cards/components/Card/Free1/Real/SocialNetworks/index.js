@@ -4,18 +4,21 @@ import PropTypes from 'prop-types';
 import * as constants from '../../../constants';
 
 const SocialNetworks = props => {
-  const { card } = props;
+  const { card, getClassName } = props;
 
   const socialNetworks = constants.SOCIAL_NETWORKS.filter(
     socialNetwork => !!card.form_data[socialNetwork.key]
   ).map(socialNetwork => ({ ...socialNetwork, url: card.form_data[socialNetwork.key] }));
 
   return (
-    <div className="socialNetworks">
+    <div className={getClassName('socialNetworks')}>
       {socialNetworks.map(socialNetwork => (
         <Link href={socialNetwork.url}>
           <a target="blank">
-            <div className="button" style={{ WebkitMaskImage: `url(${socialNetwork.icon})` }} />
+            <div
+              className={getClassName('button')}
+              style={{ WebkitMaskImage: `url(${socialNetwork.icon})` }}
+            />
           </a>
         </Link>
       ))}
@@ -34,6 +37,8 @@ const SocialNetworks = props => {
             padding: 10px;
             border-radius: 17px;
             background-color: #030303;
+          }
+          .socialNetworks .free1 {
           }
           .button {
             width: 50px;
@@ -70,7 +75,8 @@ const SocialNetworks = props => {
 };
 
 SocialNetworks.propTypes = {
-  card: PropTypes.object.isRequired
+  card: PropTypes.object.isRequired,
+  getClassName: PropTypes.func.isRequired
 };
 
 export default SocialNetworks;
