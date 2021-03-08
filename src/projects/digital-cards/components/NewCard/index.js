@@ -14,7 +14,7 @@ const NewCard = () => {
   const project = useSelector(store => store.project);
   const [products, setProducts] = useState(null);
   const [tab, setTab] = useState('data');
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState('plan');
   const [data, setData] = useState({});
 
   const handleAddData = (newData, newStep) => {

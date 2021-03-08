@@ -10,7 +10,7 @@ const Free1 = props => {
   return (
     <div className={getClassName('_card')}>
       <div className={getClassName('top')}>
-        <img className={getClassName('photo')} src={card.form_data.photo} />
+        <img className={getClassName('profile_photo')} src={card.form_data.profile_photo} />
         <div className={getClassName('personalData')}>
           <div className={getClassName('text name')}>
             {`${card.form_data.name} ${card.form_data.surname}`}
@@ -48,7 +48,7 @@ const Free1 = props => {
             border-bottom-left-radius: 40%;
             border-bottom-right-radius: 40%;
           }
-          .photo {
+          .profile_photo {
             max-width: 100%;
             height: 80%;
             margin: 0 0 0 14px;
