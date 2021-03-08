@@ -15,7 +15,7 @@ const NewCard = () => {
   const [products, setProducts] = useState(null);
   const [tab, setTab] = useState('data');
   const [step, setStep] = useState('plan');
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ form_data: {} });
 
   const handleAddData = (newData, newStep) => {
     setData({ ...data, ...newData });
@@ -41,7 +41,7 @@ const NewCard = () => {
         {tab === 'data' && products && (
           <Steps step={step} data={data} onDataAdded={handleAddData} products={products} />
         )}
-        {tab === 'preview' && <Card showAsTemplate templateCode="free1" />}
+        {tab === 'preview' && <Card card={data} templateCode="free1" />}
         <style jsx>
           {`
             .modalContent {

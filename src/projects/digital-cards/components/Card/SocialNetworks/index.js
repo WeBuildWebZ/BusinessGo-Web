@@ -28,7 +28,7 @@ const SocialNetworks = props => {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            position: fixed;
+            position: absolute;
             transform: translate(0, -100%);
             left: 0;
             top: 100%;

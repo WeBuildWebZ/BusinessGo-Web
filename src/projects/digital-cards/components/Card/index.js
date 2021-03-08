@@ -20,25 +20,32 @@ const Card = props => {
 
   if (!card) return <Spinner />;
 
+  const hasName = !!(card.form_data.name || card.form_data.surname);
+  const hasJobTitle = !!card.form_data.job_title;
+
   return (
     <div className={getClassName('_card')}>
       <div className={getClassName('top')}>
         <img className={getClassName('profile_photo')} src={card.form_data.profile_photo} />
         <div className={getClassName('personalData')}>
-          <div className={getClassName('text name')}>
-            {`${card.form_data.name} ${card.form_data.surname}`}
-          </div>
-          <div className={getClassName('text job_title')}>{card.form_data.job_title}</div>
+          {hasName && (
+            <div className={getClassName('text name')}>
+              {`${card.form_data.name} ${card.form_data.surname}`}
+            </div>
+          )}
+          {hasJobTitle && <div className={getClassName('text job_title')}>{card.form_data.job_title}</div>}
         </div>
-        <div className={getClassName('text job_title')}>{card.form_data.job_title}</div>
+        {hasJobTitle && <div className={getClassName('text job_title')}>{card.form_data.job_title}</div>}
       </div>
       <div className="left">
         <div>{card.form_data.country}</div>
         <div>{card.form_data.state}</div>
       </div>
-      <div className={getClassName('text name')}>{`${card.form_data.name} ${card.form_data.surname}`}</div>
-      {/* <div className={getClassName('middle')}>
-      </div> */}
+      {hasName && (
+        <div className={getClassName('text name')}>
+          {card.form_data.name} {card.form_data.surname}
+        </div>
+      )}
       <SocialNetworks card={card} getClassName={getClassName} />
       <style jsx>
         {`
@@ -98,16 +105,10 @@ const Card = props => {
             padding: 7px;
             border-radius: 10px;
             color: whitesmoke;
-            background-color: rgba(245, 245, 245, 0.445);
+            background-color: #03030355;
           }
           .job_title.free2 {
             font-size: 20px;
-          }
-          .middle {
-            display: none;
-          }
-          .middle.free1 {
-            display: block;
           }
           .name.free1 {
             position: absolute;
@@ -115,8 +116,11 @@ const Card = props => {
             left: 50%;
             top: 50%;
             width: fit-content;
+            padding: 7px;
+            border-radius: 7px;
             font-size: 40px;
             color: whitesmoke;
+            background-color: #03030355;
           }
           .left {
             margin-left: 14px;
@@ -129,11 +133,12 @@ const Card = props => {
 };
 
 Card.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
   card: PropTypes.any
 };
 
 Card.defaultProps = {
+  id: null,
   card: null
 };
 
