@@ -18,11 +18,11 @@ const Steps = props => {
   const selectedProduct = props.products.find(product => product.code === props.data.card_type);
 
   switch (props.step) {
-    case 1: {
+    case 'plan': {
       const handleSelectProductOption = optionIndex => {
         const product = props.products[optionIndex];
         const newData = { card_type: product.code };
-        props.onDataAdded(newData, 2);
+        props.onDataAdded(newData, 'template');
       };
 
       const options = props.products.map(product => {
@@ -31,11 +31,11 @@ const Steps = props => {
       });
       return <Options options={options} onOptionSelected={handleSelectProductOption} />;
     }
-    case 2: {
+    case 'template': {
       const handleSelectTemplateOption = optionIndex => {
         const template_code = selectedProduct.data.template_codes[optionIndex];
         const newData = { template_code };
-        props.onDataAdded(newData, 3);
+        props.onDataAdded(newData, 'personal_data');
       };
       const options = selectedProduct.data.template_codes.map(templateCode => {
         const translation = productTranslation[selectedProduct.code];
@@ -44,7 +44,7 @@ const Steps = props => {
       });
       return <Options options={options} onOptionSelected={handleSelectTemplateOption} />;
     }
-    case 3: {
+    case 'personal_data': {
       const handleDataChange = (newData, newStep) => {
         props.onDataAdded(newData, newStep);
       };
@@ -53,11 +53,26 @@ const Steps = props => {
           formCode={`${props.data.card_type}_card_creation_personal_data`}
           data={props.data}
           onDataAdded={newData => handleDataChange(newData)}
-          onSubmit={newData => handleDataChange(newData, 4)}
+          onGoBack={() => props.onDataAdded({}, 'template')}
+          onSubmit={newData => handleDataChange(newData, 'photos')}
         />
       );
     }
-    case 4: {
+    case 'photos': {
+      const handleDataChange = (newData, newStep) => {
+        props.onDataAdded(newData, newStep);
+      };
+      return (
+        <Form
+          formCode={`${props.data.card_type}_card_creation_photos`}
+          data={props.data}
+          onDataAdded={newData => handleDataChange(newData)}
+          onGoBack={() => props.onDataAdded({}, 'personal_data')}
+          onSubmit={newData => handleDataChange(newData, 'business_data')}
+        />
+      );
+    }
+    case 'business_data': {
       const handleDataChange = (newData, newStep) => {
         props.onDataAdded(newData, newStep);
       };
@@ -66,11 +81,26 @@ const Steps = props => {
           formCode={`${props.data.card_type}_card_creation_business_data`}
           data={props.data}
           onDataAdded={newData => handleDataChange(newData)}
-          onSubmit={newData => handleDataChange(newData, 5)}
+          onGoBack={() => props.onDataAdded({}, 'photos')}
+          onSubmit={newData => handleDataChange(newData, 'social_networks')}
         />
       );
     }
-    case 5: {
+    case 'social_networks': {
+      const handleDataChange = (newData, newStep) => {
+        props.onDataAdded(newData, newStep);
+      };
+      return (
+        <Form
+          formCode={`${props.data.card_type}_card_creation_social_networks`}
+          data={props.data}
+          onDataAdded={newData => handleDataChange(newData)}
+          onGoBack={() => props.onDataAdded({}, 'business_data')}
+          onSubmit={newData => handleDataChange(newData, 'final')}
+        />
+      );
+    }
+    case 'final': {
       createClientDocument('card', project.code, props.data).then(({ data: newClientDocument }) => {
         window.location.href = `/cards/${encodeURIComponent(newClientDocument._id)}`;
         pushAlert({
@@ -89,7 +119,7 @@ const Steps = props => {
 };
 
 Steps.propTypes = {
-  step: PropTypes.number.isRequired,
+  step: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
   onDataAdded: PropTypes.func.isRequired

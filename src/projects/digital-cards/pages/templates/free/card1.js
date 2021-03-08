@@ -28,6 +28,11 @@ const Card1 = () => (
           align-items: center;
           flex-flow: column;
         }
+        .card:hover {
+          box-shadow: 0.3em 0.3em 0.5em silver;
+          cursor: pointer;
+          /* background: hsla(0, 0%, 0%, 0.657); */
+        }
 
         .top {
           flex: 8;

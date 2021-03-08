@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 
+import Spinner from '../../../../components/Spinner';
 import Card from '../../components/Card';
 
 const Cards = () => {
@@ -7,7 +8,8 @@ const Cards = () => {
 
   return (
     <>
-      <Card />
+      {!query.card_id && <Spinner />}
+      {query.card_id && <Card id={query.card_id} showAsTemplate={false} />}
     </>
   );
 };

@@ -202,13 +202,11 @@ const FieldRenderer = props => {
             return <div key={field.key} />;
         }
       })}
-
+      {props.backButton && <Button onClick={props.onGoBack}>{language.back}</Button>}
       {props.saveButton && (
-        <Modal.Footer>
-          <Button disabled={!hasChanged && !props.alwaysShowSaveButton} onClick={handleSave}>
-            {language.save}
-          </Button>
-        </Modal.Footer>
+        <Button disabled={!hasChanged && !props.alwaysShowSaveButton} onClick={handleSave}>
+          {language.save}
+        </Button>
       )}
       <style jsx>
         {`
@@ -230,7 +228,9 @@ FieldRenderer.propTypes = {
   template: PropTypes.string,
   onChange: PropTypes.func,
   onPartialChange: PropTypes.func,
+  onGoBack: PropTypes.func,
   saveButton: PropTypes.bool,
+  backButton: PropTypes.bool,
   alwaysShowSaveButton: PropTypes.bool
 };
 
@@ -242,7 +242,9 @@ FieldRenderer.defaultProps = {
   template: 'default',
   onChange: () => {},
   onPartialChange: () => {},
+  onGoBack: () => {},
   saveButton: false,
+  backButton: false,
   alwaysShowSaveButton: false
 };
 
