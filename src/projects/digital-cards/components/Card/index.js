@@ -18,7 +18,7 @@ const Card = props => {
 
   const handleDownloadVCard = () => {
     const vCard = new VCard();
-    vCard.addName(card.form_data.surname, card.form_data.name);
+    vCard.addName(card.form_data.surname, card.form_data.name).addPhoneNumber(card.form_data.whatsapp_number);
     const cardContent = window.btoa(vCard.toString());
     const fileName = `${card.form_data.name}${
       card.form_data.surname ? `_${card.form_data.surname}` : ''
