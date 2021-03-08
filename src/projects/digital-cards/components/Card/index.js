@@ -1,15 +1,34 @@
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import VCard from 'vcard-creator';
 
 import Spinner from '../../../../components/Spinner';
 import { showClientDocument } from '../../../../services/api/clientDocument';
 
 import SocialNetworks from './SocialNetworks';
+import { getLanguage } from './lang';
 
 const Card = props => {
+  const language = getLanguage(useSelector(store => store.language));
   const [card, setCard] = useState(props.card);
 
   const getClassName = name => `${name} ${card.template_code}`;
+
+  const handleDownloadVCard = () => {
+    const vCard = new VCard();
+    vCard.addName(card.form_data.surname, card.form_data.name);
+    const cardContent = window.btoa(vCard.toString());
+    const fileName = `${card.form_data.name}${
+      card.form_data.surname ? `_${card.form_data.surname}` : ''
+    }.vcf`;
+    const a = document.createElement('a');
+    a.download = `${fileName}.vcf`;
+    a.textContent = fileName;
+    a.href = `data:text/vcard;base64,${cardContent}`;
+    a.click();
+  };
 
   useEffect(() => {
     if (card) return;
@@ -39,13 +58,25 @@ const Card = props => {
           <div className={getClassName('text job_title outer_job_title')}>{card.form_data.job_title}</div>
         )}
       </div>
-      <div className="left">
+      <div className={getClassName('left')}>
         <div>{card.form_data.country}</div>
         <div>
           {card.form_data.state}
           {card.form_data.municipality && `, ${card.form_data.municipality}`}
         </div>
+        {card.form_data.personal_email && (
+          <Link href={`mailto:${card.form_data.personal_email}`}>
+            <a target="blank">
+              <div className={getClassName('email')}>{card.form_data.personal_email}</div>
+            </a>
+          </Link>
+        )}
       </div>
+      {card.form_data.whatsapp_number && (
+        <div className="addToContacts" onClick={handleDownloadVCard}>
+          {language.addToContacts}
+        </div>
+      )}
       {hasName && (
         <div className={getClassName('text name outer_name')}>
           {card.form_data.name} {card.form_data.surname}
@@ -60,6 +91,7 @@ const Card = props => {
             background-size: cover;
             width: 100%;
             height: 100%;
+            color: whitesmoke;
           }
           .text.free4 {
             -webkit-text-fill-color: transparent;
@@ -136,6 +168,13 @@ const Card = props => {
             font-size: 40px;
             color: whitesmoke;
             background-color: #03030355;
+          }
+          .addToContacts {
+            background-color: #03030355;
+            width: fit-content;
+            padding: 7px;
+            border-radius: 7px;
+            font-size: 13px;
           }
           .left {
             margin-left: 14px;
