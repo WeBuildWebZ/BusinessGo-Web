@@ -175,6 +175,7 @@ const Card = props => {
             padding: 7px;
             border-radius: 7px;
             font-size: 13px;
+            cursor: pointer;
           }
           .left {
             margin-left: 14px;
