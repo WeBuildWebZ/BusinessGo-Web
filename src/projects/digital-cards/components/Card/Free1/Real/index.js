@@ -45,10 +45,12 @@ const Free1 = props => {
           }
           .top.free4 {
             background-color: whitesmoke;
+            border-bottom-left-radius: 40%;
+            border-bottom-right-radius: 40%;
           }
           .photo {
             max-width: 100%;
-            height: 100%;
+            height: 80%;
             margin: 0 0 0 14px;
             border-radius: 10px;
           }
