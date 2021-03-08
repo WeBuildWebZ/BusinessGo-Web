@@ -202,6 +202,7 @@ const FieldRenderer = props => {
             return <div key={field.key} />;
         }
       })}
+
       {props.saveButton && (
         <Modal.Footer>
           <Button disabled={!hasChanged && !props.alwaysShowSaveButton} onClick={handleSave}>
