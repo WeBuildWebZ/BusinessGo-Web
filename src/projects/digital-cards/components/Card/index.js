@@ -91,8 +91,14 @@ const Card = props => {
             font-size: 32px;
           }
           .job_title.free1 {
-            font-size: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 22px;
+            padding: 7px;
+            border-radius: 10px;
             color: whitesmoke;
+            background-color: rgba(245, 245, 245, 0.445);
           }
           .job_title.free2 {
             font-size: 20px;
