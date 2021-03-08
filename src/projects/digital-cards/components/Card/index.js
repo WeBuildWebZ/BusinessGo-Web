@@ -35,14 +35,19 @@ const Card = props => {
           )}
           {hasJobTitle && <div className={getClassName('text job_title')}>{card.form_data.job_title}</div>}
         </div>
-        {hasJobTitle && <div className={getClassName('text job_title')}>{card.form_data.job_title}</div>}
+        {hasJobTitle && (
+          <div className={getClassName('text job_title outer_job_title')}>{card.form_data.job_title}</div>
+        )}
       </div>
       <div className="left">
         <div>{card.form_data.country}</div>
-        <div>{card.form_data.state}</div>
+        <div>
+          {card.form_data.state}
+          {card.form_data.municipality && `, ${card.form_data.municipality}`}
+        </div>
       </div>
       {hasName && (
-        <div className={getClassName('text name')}>
+        <div className={getClassName('text name outer_name')}>
           {card.form_data.name} {card.form_data.surname}
         </div>
       )}
@@ -50,6 +55,7 @@ const Card = props => {
       <style jsx>
         {`
           ._card {
+            position: relative;
             background-image: url(${card.form_data.background_image});
             background-size: cover;
             width: 100%;
@@ -94,8 +100,17 @@ const Card = props => {
           .name {
             font-size: 20px;
           }
+          .outer_name {
+            display: none;
+          }
+          .outer_name.free1 {
+            display: block;
+          }
           .name.free2 {
             font-size: 32px;
+          }
+          .outer_job_title {
+            display: none;
           }
           .job_title.free1 {
             display: flex;

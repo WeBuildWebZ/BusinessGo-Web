@@ -53,6 +53,7 @@ const Steps = props => {
           formCode={`${props.data.card_type}_card_creation_personal_data`}
           data={props.data}
           onDataAdded={newData => handleDataChange(newData)}
+          onGoBack={() => props.onDataAdded({}, 'template')}
           onSubmit={newData => handleDataChange(newData, 'photos')}
         />
       );
@@ -66,6 +67,7 @@ const Steps = props => {
           formCode={`${props.data.card_type}_card_creation_photos`}
           data={props.data}
           onDataAdded={newData => handleDataChange(newData)}
+          onGoBack={() => props.onDataAdded({}, 'personal_data')}
           onSubmit={newData => handleDataChange(newData, 'business_data')}
         />
       );
@@ -79,6 +81,7 @@ const Steps = props => {
           formCode={`${props.data.card_type}_card_creation_business_data`}
           data={props.data}
           onDataAdded={newData => handleDataChange(newData)}
+          onGoBack={() => props.onDataAdded({}, 'photos')}
           onSubmit={newData => handleDataChange(newData, 'social_networks')}
         />
       );
@@ -92,6 +95,7 @@ const Steps = props => {
           formCode={`${props.data.card_type}_card_creation_social_networks`}
           data={props.data}
           onDataAdded={newData => handleDataChange(newData)}
+          onGoBack={() => props.onDataAdded({}, 'business_data')}
           onSubmit={newData => handleDataChange(newData, 'final')}
         />
       );
