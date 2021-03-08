@@ -36,9 +36,12 @@ const SocialNetworks = props => {
             height: 60px;
             padding: 10px;
             border-radius: 17px;
-            background-color: #030303;
+            background-color: #03030355;
           }
-          .socialNetworks .free1 {
+          .socialNetworks.free4 {
+            flex-direction: column;
+            width: 60px;
+            height: 50%;
           }
           .button {
             width: 50px;
@@ -48,6 +51,9 @@ const SocialNetworks = props => {
             cursor: pointer;
             transition: 0.7s;
             animation: buttonAppear linear 0.7s;
+          }
+          .button.free4 {
+            background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
           }
           .button:hover {
             transform: scale(1.1);

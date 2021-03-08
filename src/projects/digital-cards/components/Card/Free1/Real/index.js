@@ -12,8 +12,10 @@ const Free1 = props => {
       <div className={getClassName('top')}>
         <img className={getClassName('photo')} src={card.form_data.photo} />
         <div className={getClassName('personalData')}>
-          <div className={getClassName('name')}>{`${card.form_data.name} ${card.form_data.surname}`}</div>
-          <div>{card.form_data.job_title}</div>
+          <div className={getClassName('text name')}>
+            {`${card.form_data.name} ${card.form_data.surname}`}
+          </div>
+          <div className={getClassName('text')}>{card.form_data.job_title}</div>
         </div>
       </div>
       <div className="left">
@@ -29,12 +31,20 @@ const Free1 = props => {
             width: 100%;
             height: 100%;
           }
+          .text.free4 {
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+          }
           .top {
             display: flex;
             flex-direction: row;
             width: 100%;
             height: 100px;
             padding-top: 10px;
+          }
+          .top.free4 {
+            background-color: whitesmoke;
           }
           .photo {
             max-width: 100%;

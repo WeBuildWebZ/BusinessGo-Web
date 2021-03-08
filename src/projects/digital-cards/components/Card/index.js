@@ -20,6 +20,7 @@ const Card = props => {
 
   if (!templateCode) return <Spinner />;
 
+  return <Free1 card={card} />;
   switch (templateCode) {
     case 'free1': {
       return <Free1 card={card} />;
