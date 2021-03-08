@@ -1,5 +1,5 @@
-const Card2 = () => (
-  <div className="card">
+const Card2 = props => (
+  <div className="card" onClick={props.onClick}>
     <div className="top">
       <h4>
         Sammie <br /> Turner

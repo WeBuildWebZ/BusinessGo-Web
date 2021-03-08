@@ -1,5 +1,5 @@
-const Card4 = () => (
-  <div className="card">
+const Card4 = props => (
+  <div className="card" onClick={props.onClick}>
     <div className="top">
       <span>
         <h3>
