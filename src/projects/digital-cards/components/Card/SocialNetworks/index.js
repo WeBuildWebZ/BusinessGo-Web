@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-import * as constants from '../../../constants';
+import * as constants from '../constants';
 
 const SocialNetworks = props => {
   const { card, getClassName } = props;
@@ -38,6 +38,9 @@ const SocialNetworks = props => {
             border-radius: 17px;
             background-color: #03030355;
           }
+          .socialNetworks.free2 {
+            background-color: #e0d0d055;
+          }
           .socialNetworks.free4 {
             flex-direction: column;
             width: 60px;
@@ -47,10 +50,16 @@ const SocialNetworks = props => {
             width: 50px;
             height: 50px;
             -webkit-mask-repeat: no-repeat;
-            background-image: linear-gradient(to top, rgb(144, 101, 22), orange);
             cursor: pointer;
             transition: 0.7s;
             animation: buttonAppear linear 0.7s;
+          }
+          .button.free1 {
+            background-image: linear-gradient(to top, rgb(144, 101, 22), orange);
+          }
+          .button.free2 {
+            background-image: linear-gradient(to right, rgb(43, 39, 33), rgb(0, 0, 0));
+            color: white;
           }
           .button.free4 {
             background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
