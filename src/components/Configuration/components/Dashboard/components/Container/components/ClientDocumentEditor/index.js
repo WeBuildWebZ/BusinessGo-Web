@@ -55,10 +55,12 @@ const ClientDocumentEditor = props => {
     setSelectedClientDocument(null);
 
     if (isNewDocument) {
-      createClientDocument(clientModel, clientDocument).then(({ data: createdClientDocument }) => {
-        if (!mounted) return;
-        setClientDocuments([createdClientDocument, ...clientDocuments]);
-      });
+      createClientDocument(clientModel.entity, clientModel.project_code, clientDocument).then(
+        ({ data: createdClientDocument }) => {
+          if (!mounted) return;
+          setClientDocuments([createdClientDocument, ...clientDocuments]);
+        }
+      );
     } else {
       updateClientDocument(clientDocument).then(() => {
         if (!mounted) return;

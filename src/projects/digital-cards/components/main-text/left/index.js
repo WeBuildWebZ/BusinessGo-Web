@@ -1,7 +1,7 @@
 const Left = () => (
   <div className="left">
-    <h3>La mejor y mas facil forma de generar</h3>
-    <h4>MAS NEGOCIO !</h4>
+    <h3>La mejor y más fácil forma de generar</h3>
+    <h4>MÁS NEGOCIO !</h4>
     <p>"Comparte tus datos e info de negocios con tus contactos, de forma inmediata".</p>
 
     <style jsx>

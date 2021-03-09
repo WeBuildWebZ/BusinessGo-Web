@@ -6,6 +6,8 @@ import language from './language';
 import adminSection from './adminSection';
 import clientModels from './clientModels';
 import selectedClientModel from './selectedClientModel';
+import sidebarWidth from './sidebarWidth';
+import navbarHeight from './navbarHeight';
 import queryParams from './queryParams';
 import cartItems from './cartItems';
 import configurationSection from './admin/configurationSection';
@@ -23,6 +25,8 @@ const CommonReducers = {
   adminSection,
   clientModels,
   selectedClientModel,
+  sidebarWidth,
+  navbarHeight,
   queryParams,
   cartItems,
   // Admin Section

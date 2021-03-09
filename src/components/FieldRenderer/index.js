@@ -27,6 +27,8 @@ const FieldRenderer = props => {
 
   const handleChange = updatedData => {
     setNewData(updatedData);
+    props.onPartialChange(updatedData);
+
     if (props.saveButton) setHasChanged(true);
     else props.onChange(updatedData);
   };
@@ -62,6 +64,7 @@ const FieldRenderer = props => {
           case 'number':
             return (
               <Number
+                template={props.template}
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}
@@ -72,6 +75,7 @@ const FieldRenderer = props => {
           case 'text':
             return (
               <Text
+                template={props.template}
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}
@@ -83,6 +87,7 @@ const FieldRenderer = props => {
           case 'textarea-small':
             return (
               <Text
+                template={props.template}
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}
@@ -95,6 +100,7 @@ const FieldRenderer = props => {
           case 'textarea-medium':
             return (
               <Text
+                template={props.template}
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}
@@ -107,6 +113,7 @@ const FieldRenderer = props => {
           case 'textarea-big':
             return (
               <Text
+                template={props.template}
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}
@@ -119,6 +126,7 @@ const FieldRenderer = props => {
           case 'image':
             return (
               <Image
+                template={props.template}
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}
@@ -129,6 +137,7 @@ const FieldRenderer = props => {
           case 'list':
             return (
               <List
+                template={props.template}
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}
@@ -139,6 +148,7 @@ const FieldRenderer = props => {
           case 'enum':
             return (
               <Enum
+                template={props.template}
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}
@@ -150,6 +160,7 @@ const FieldRenderer = props => {
           case 'group':
             return (
               <Group
+                template={props.template}
                 field={field}
                 value={data[field.key]}
                 readOnly={props.readOnly}
@@ -162,6 +173,7 @@ const FieldRenderer = props => {
           case 'select':
             return (
               <Select
+                template={props.template}
                 field={field}
                 optionData={data}
                 value={data[field.key]}
@@ -176,6 +188,7 @@ const FieldRenderer = props => {
             return (
               <a href={data[field.key]} target="_blank">
                 <Button
+                  template={props.template}
                   value={data[field.key]}
                   readOnly={props.readOnly}
                   onChange={value => handleUpdateData(field.key, value)}
@@ -191,7 +204,7 @@ const FieldRenderer = props => {
       })}
       {props.saveButton && (
         <Modal.Footer>
-          <Button disabled={!hasChanged} onClick={handleSave}>
+          <Button disabled={!hasChanged && !props.alwaysShowSaveButton} onClick={handleSave}>
             {language.save}
           </Button>
         </Modal.Footer>
@@ -213,8 +226,11 @@ FieldRenderer.propTypes = {
   fields: PropTypes.arrayOf(fieldShape),
   readOnly: PropTypes.bool,
   updateAfter: PropTypes.number,
+  template: PropTypes.string,
   onChange: PropTypes.func,
-  saveButton: PropTypes.bool
+  onPartialChange: PropTypes.func,
+  saveButton: PropTypes.bool,
+  alwaysShowSaveButton: PropTypes.bool
 };
 
 FieldRenderer.defaultProps = {
@@ -222,8 +238,11 @@ FieldRenderer.defaultProps = {
   fields: [],
   readOnly: false,
   updateAfter: 0,
+  template: 'default',
   onChange: () => {},
-  saveButton: false
+  onPartialChange: () => {},
+  saveButton: false,
+  alwaysShowSaveButton: false
 };
 
 export default FieldRenderer;

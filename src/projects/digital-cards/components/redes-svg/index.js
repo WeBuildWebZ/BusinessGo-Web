@@ -115,17 +115,27 @@ const RedesSvg = () => (
           align-items: center;
           flex-wrap: wrap;
         }
-        .fa-envelope-square,
-        .fa-facebook-messenger,
-        .fa-facebook-square,
-        .fa-instagram-square,
-        .fa-linkedin,
-        .fa-slack,
-        .fa-whatsapp-square {
+        svg {
           width: 30px;
           height: 30px;
           color: grey;
           margin: 0 5em;
+          border-radius: 5px;
+          transition: 0.7s;
+          cursor: pointer;
+        }
+        svg:hover {
+          transform: scale(1.1);
+        }
+        svg:active {
+          transform: scale(1.2) rotate(5deg);
+          box-shadow: 5px 5px 1px gray;
+          transition: 0.1s;
+        }
+        @media (max-width: 760px) {
+          svg {
+            margin: 0 2em;
+          }
         }
         @media (max-width: 760px) {
           .fa-envelope-square,

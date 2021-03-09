@@ -1,12 +1,32 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+import { createSession } from '../../../../services/api/session';
+import useHandleError from '../../../../shared/hooks/useHandleError';
 
 const LoginForm = () => {
+  const project = useSelector(store => store.project);
+  const user = useSelector(store => store.user);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const handleError = useHandleError();
+
+  if (user) window.location.href = '/';
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    setLoading(true);
+    createSession(project.code, email, password)
+      .then(() => {
+        window.location.href = '/dashboard/cards/new';
+      })
+      .catch(handleError)
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
@@ -30,7 +50,9 @@ const LoginForm = () => {
             value={password}
             onChange={({ target }) => setPassword(target.value)}
           />
-          <button type="submit">Entrar</button>
+          <button type="submit" disabled={loading}>
+            Entrar
+          </button>
 
           <Link href="/register">
             <a>Crear Una cuenta Nueva</a>
@@ -61,8 +83,17 @@ const LoginForm = () => {
             border-radius: 1em;
             padding: 0 1em;
             background: white;
+            animation: formArrive 1s linear;
           }
 
+          @keyframes formArrive {
+            0% {
+              opacity: 0;
+              width: 0;
+              height: 0;
+              box-shadow: 0 0 20px 20px white;
+            }
+          }
           //===============================================================================
 
           .top {
@@ -92,6 +123,9 @@ const LoginForm = () => {
             margin-top: 0.2em;
             padding: 0.5em;
             border-radius: 5px;
+          }
+          button:disabled {
+            opacity: 0.5;
           }
 
           a {
