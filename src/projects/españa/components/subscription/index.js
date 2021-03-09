@@ -1,9 +1,14 @@
 const Subscription = () => (
   <div className="subs">
-    <h4>Suscríbete Gratis!</h4>
-    <h2>
-      Lorem <br /> ipsum <br /> dolor sit.
-    </h2>
+    <div className="left">
+      <button>Suscríbete Gratis!</button>
+    </div>
+    <div className="right">
+      <h2>Queremos</h2>
+      <h2>Brindarte</h2>
+      <h2>Comfort.</h2>
+    </div>
+
     <style jsx>
       {`
         .subs {
@@ -15,20 +20,35 @@ const Subscription = () => (
           justify-content: center;
           align-items: center;
         }
-        h4 {
+
+        .left,
+        .right {
+          width: 500px;
+        }
+
+        button {
+          width: 400px;
           color: white;
           padding: 1em 2em;
           border-radius: 1em;
           background-image: linear-gradient(to right, #6e3e76 0%, #da7c7a 100%);
           cursor: pointer;
+          border: none;
+          outline: none;
+          font-size: 2em;
         }
         h2 {
           background-image: linear-gradient(to right, #6e3e76 0%, #da7c7a 100%);
           -webkit-text-fill-color: transparent;
           -webkit-background-clip: text;
-          margin: 1em;
           font-size: 2.5em;
           font-family: playfair display;
+        }
+        h2:nth-child(2) {
+          padding-left: 1em;
+        }
+        h2:nth-child(3) {
+          padding-left: 2em;
         }
       `}
     </style>

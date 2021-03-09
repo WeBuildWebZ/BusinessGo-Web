@@ -1,17 +1,14 @@
 import Navbar from '../navbar';
 
+import Left from './left';
+import Right from './right';
+
 const Banner = () => (
   <div className="banner">
     <Navbar />
-    <div className="content">
-      <p>
-        kcjnkcjhkjndkjnckdjcnkdjnckdfbfbf <br /> bfbbbbbbbfdbdfbdfbdfbdfjcndkc
-      </p>
-      <h2>WE MAKE</h2>
-      <h2>YOU LIVE</h2>
-      <button>Ver lala</button>
-    </div>
-    <img src="/images/she.jpg" alt="ñalal" />
+    <Left />
+    <Right />
+
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path
         fill="#da7c7a"
@@ -24,53 +21,13 @@ const Banner = () => (
         .banner {
           width: 100vw;
           min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
           background-image: linear-gradient(to right, #6e3e76 0%, #da7c7a 100%);
           position: relative;
         }
-        .content {
-          width: 600px;
-          position: absolute;
-          padding-left: 1em;
-          top: 30%;
-          left: 2em;
-          display: flex;
-          flex-flow: column;
-          z-index: 200;
-        }
-        p {
-          color: white;
-        }
-        h2 {
-          font-size: 5em;
-          color: white;
-          font-family: playfair display;
-        }
-        h2:nth-child(3) {
-          padding-left: 2em;
-          margin: 0 0 0.3em 0;
-        }
-        button {
-          width: 150px;
-          padding: 1em 0;
-          border: none;
-          outline: none;
-          background: #f8ac30;
-          color: white;
-        }
-
-        // =====================================
-        img {
-          width: 350px;
-          height: 450px;
-          object-fit: cover;
-          position: absolute;
-          right: 11em;
-          bottom: 4em;
-          z-index: 150;
-          border-radius: 0 8em;
-        }
-
-        // ==============================================
         svg {
           width: 100vw;
           position: absolute;

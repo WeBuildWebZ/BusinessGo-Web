@@ -1,20 +1,18 @@
 const Right = () => (
   <div className="right">
-    <img src="/images/she.jpg" alt="" />
+    <img src="/images/armario.jpg" alt="" />
     <style jsx>
       {`
         .right {
           width: 100%;
-          min-height: 350px;
           flex: 1;
           display: flex;
-          justify-content: center;
-          padding: 1em;
         }
         img {
-          width: 300px;
-          height: 300px;
+          width: 700px;
+          height: 700px;
           object-fit: cover;
+          border-radius: 1em;
         }
       `}
     </style>
