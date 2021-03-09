@@ -1,5 +1,5 @@
-const Card1 = () => (
-  <div className="card">
+const Card1 = props => (
+  <div className="card" onClick={props.onClick}>
     <div className="top">
       <h2>Nike</h2>
       <p>Explore</p>
@@ -27,6 +27,11 @@ const Card1 = () => (
           justify-content: center;
           align-items: center;
           flex-flow: column;
+        }
+        .card:hover {
+          box-shadow: 0.3em 0.3em 0.5em silver;
+          cursor: pointer;
+          /* background: hsla(0, 0%, 0%, 0.657); */
         }
 
         .top {
