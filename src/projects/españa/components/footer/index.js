@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const Footer = () => (
   <div className="footer">
@@ -6,8 +6,8 @@ const Footer = () => (
       <span className="column">
         <h3>Mas Negocio</h3>
         <p>
-          Utiliza nuestra tecnologia, y comparte tu tarjeta digital, para
-          mostrar tu informacion de contacto en 1 segundo
+          Utiliza nuestra tecnologia, y comparte tu tarjeta digital, para mostrar tu informacion de contacto
+          en 1 segundo
         </p>
       </span>
 
@@ -17,10 +17,7 @@ const Footer = () => (
             <a className="pointer">socialNetworks</a>
           </Link>
         </h3>
-        <p>
-          Entra en el enlace, y contactanos a travez de todas las redes sociales
-          que usamos.
-        </p>
+        <p>Entra en el enlace, y contactanos a travez de todas las redes sociales que usamos.</p>
         <br />
         <br />
       </span>
