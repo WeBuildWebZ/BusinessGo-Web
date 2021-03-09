@@ -4,10 +4,10 @@ const Footer = () => (
   <div className="footer">
     <div className="bottom">
       <span className="column">
-        <h3>Mas Negocio</h3>
+        <h3>Ordenando Y mas.</h3>
         <p>
-          Utiliza nuestra tecnologia, y comparte tu tarjeta digital, para mostrar tu informacion de contacto
-          en 1 segundo
+          Somos tu empresa de orden y organización, recuperA el control de tu casa, que el caos no te invada
+          optimizamos los espacios de tu casa, facilitando y aportando una mejor funcionalidad.
         </p>
       </span>
 
@@ -23,10 +23,10 @@ const Footer = () => (
       </span>
 
       <span className="column">
-        <h3>Contact Information</h3>
+        <h3>Informacion de Contacto</h3>
         <span className="row">
           <img src="/icon/house.png" alt="house icon" />
-          <p> Mexico- Mexico</p>
+          <p> España - Murcia</p>
           <br />
         </span>
         <span className="row">
@@ -41,16 +41,8 @@ const Footer = () => (
           <img src="/icon/contact.png" alt="contact icon" />
           <p>
             <a href="mailto:lefcott@hotmail.com" target="blank">
-              usted@gmail.com
+              info@ordenandoymás.es
             </a>
-          </p>
-        </span>
-        <span className="row">
-          <img src="/icon/privacy_policy.png" alt="contact icon" />
-          <p>
-            <Link href="/privacy_policy">
-              <a>Privacy Policy</a>
-            </Link>
           </p>
         </span>
       </span>

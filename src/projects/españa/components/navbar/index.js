@@ -10,7 +10,7 @@ const Navbar = () => (
       {`
         .navbar {
           width: 100vw;
-          height: 80px;
+          height: 10vh;
           display: flex;
           // position: fixed;
           // background: hsla(0, 0%, 100%, 0.5);

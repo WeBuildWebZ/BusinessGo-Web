@@ -137,6 +137,17 @@ const RedesSvg = () => (
             margin: 0 2em;
           }
         }
+        @media (max-width: 760px) {
+          .fa-envelope-square,
+          .fa-facebook-messenger,
+          .fa-facebook-square,
+          .fa-instagram-square,
+          .fa-linkedin,
+          .fa-slack,
+          .fa-whatsapp-square {
+            margin: 0 2em;
+          }
+        }
       `}
     </style>
   </div>

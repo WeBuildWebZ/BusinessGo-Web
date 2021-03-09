@@ -10,6 +10,7 @@
     "chatbot": "npm run copy-env src/projects/chatbot-site && next dev src/projects/chatbot-site",
     "admin": "npm run copy-env src/projects/admin && next dev src/projects/admin",
     "globy": "npm run copy-env src/projects/globy && next dev src/projects/globy",
+    "españa": "npm run copy-env src/projects/españa && next dev src/projects/españa",
     "psa": "npm run copy-env src/projects/psa && next dev src/projects/psa",
     "wow": "npm run copy-env src/projects/blanqueriawow && next dev src/projects/blanqueriawow",
     "bob": "npm run copy-env src/projects/bob && next dev src/projects/bob",

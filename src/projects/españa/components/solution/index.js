@@ -13,7 +13,8 @@ const Solution = () => (
           display: flex;
           justify-content: center;
           align-items: center;
-          background: white;
+          padding: 1em;
+          background-image: linear-gradient(to bottom, white, #f4edef);
         }
       `}
     </style>

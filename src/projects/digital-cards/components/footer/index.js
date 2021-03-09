@@ -4,10 +4,10 @@ const Footer = () => (
   <div className="footer">
     <div className="bottom">
       <span className="column">
-        <h3>Más Negocio</h3>
+        <h3>Mas Negocio</h3>
         <p>
-          Utiliza nuestra tecnología, y comparte tu tarjeta digital, para mostrar tu información de contacto
-          en 1 segundo.
+          Utiliza nuestra tecnologia, y comparte tu tarjeta digital, para mostrar tu informacion de contacto
+          en 1 segundo
         </p>
       </span>
 

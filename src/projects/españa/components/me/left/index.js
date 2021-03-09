@@ -9,9 +9,7 @@ const Left = () => (
           width: 100%;
           min-height: 350px;
           flex: 1;
-          display: flex;
-          justify-content: flex-end;
-          padding: 1em 3em 1em 1em;
+          position: relative;
         }
         img {
           width: 150px;
@@ -19,6 +17,9 @@ const Left = () => (
           border-radius: 50%;
           border: 3px solid white;
           object-fit: cover;
+          position: absolute;
+          top: -4em;
+          right: 2em;
         }
       `}
     </style>
