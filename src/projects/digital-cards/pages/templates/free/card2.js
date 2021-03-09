@@ -1,5 +1,5 @@
-const Card2 = () => (
-  <div className="card">
+const Card2 = props => (
+  <div className="card" onClick={props.onClick}>
     <div className="top">
       <h4>
         Sammie <br /> Turner
@@ -36,6 +36,11 @@ const Card2 = () => (
           background-repeat: no-repeat;
           background-position: center;
           cursor: pointer;
+        }
+        .card:hover {
+          box-shadow: 0.3em 0.3em 0.5em silver;
+          cursor: pointer;
+          /* background: hsla(0, 0%, 0%, 0.657); */
         }
         .card1:hover {
           box-shadow: 0.3em 0.3em 0.5em silver;
