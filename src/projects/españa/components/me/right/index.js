@@ -14,9 +14,8 @@ const Right = () => (
     <style jsx>
       {`
         .right {
-          width: 100%;
+          min-width: 600px;
           min-height: 350px;
-          flex: 1;
           display: flex;
           justify-content: center;
           flex-flow: column;

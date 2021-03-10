@@ -7,7 +7,7 @@ const Left = () => (
       </p>
       <h2>Ordenando </h2>
       <h2>Y mas.</h2>
-      <button>ver Mas.</button>
+      <button>ver</button>
     </div>
     <style jsx>
       {`
@@ -35,14 +35,6 @@ const Left = () => (
         h2:nth-child(3) {
           padding-left: 2em;
           margin: 0 0 0.3em 0;
-        }
-        button {
-          width: 150px;
-          padding: 1em 0;
-          border: none;
-          outline: none;
-          background: #f8ac30;
-          color: white;
         }
       `}
     </style>

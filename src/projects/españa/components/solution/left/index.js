@@ -18,11 +18,6 @@ const Left = () => (
       <p>Vaciado de casas.</p>
       <p>Trasteros.</p>
 
-      <h4>¿Cuáles son los beneficios que te aporta el orden y la organización?</h4>
-      <p>Tomar el control de tu casa y tu vida.</p>
-      <p>Tendrás más tiempo para dedicarle a las cosas que son importantes.</p>
-      <p>Vaciado de casas.</p>
-      <p>Reducirás el gasto, no malgastaras el dinero.</p>
       <h4>De forma online:</h4>
       <p>
         Mediante mis servicios online, te ayudaré a gestionar mejor tus espacios mediante tips y herramientas
@@ -34,15 +29,13 @@ const Left = () => (
     <style jsx>
       {`
         .left {
-          width: 100%;
-          min-height: 350px;
-          flex: 1;
+          min-width: 600px;
           display: flex;
           justify-content: flex-end;
           align-items: center;
         }
         span {
-          width: 650px;
+          width: 600px;
         }
 
         span h4 {
@@ -66,6 +59,17 @@ const Left = () => (
         }
         h5 {
           color: grey;
+        }
+
+        // ===================================================================
+        @media (max-width: 1199px) {
+          .left {
+            display: flex;
+            justify-content: flex-start;
+          }
+          span {
+            width: 100%;
+          }
         }
       `}
     </style>

@@ -1,25 +1,23 @@
 const Right = () => (
   <div className="right">
-    <h4>QUE HACEMOS ?</h4>
-    <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, unde. Ad, distinctio?</h3>
+    <h3>¿Cuáles son los beneficios que te aporta el orden y la organización?</h3>
     <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt a consequatur voluptatum. Dolorem
-      illo quo sapiente odio aut eveniet suscipit eos unde, facere placeat commodi omnis minus eaque atque,
-      dicta saepe tempora voluptas odit?
+      Tomar el control de tu casa y tu vida. Tendrás más tiempo para dedicarle a las cosas que son
+      importantes. Vaciado de casas. Reducirás el gasto, no malgastaras el dinero.
     </p>
     <button>Ver</button>
     <style jsx>
       {`
         .right {
-          width: 100%;
-          min-height: 350px;
-          flex: 1;
+          min-width: 500px;
           display: flex;
           justify-content: center;
           flex-flow: column;
+          padding-bottom: 1em;
         }
         h4 {
           margin-bottom: 0.7em;
+          font-style: italic;
         }
         h4,
         p {

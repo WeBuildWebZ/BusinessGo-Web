@@ -12,16 +12,12 @@ const Navbar = () => (
           width: 100vw;
           height: 10vh;
           display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
           // position: fixed;
           // background: hsla(0, 0%, 100%, 0.5);
           // backdrop-filter: blur(1em);
           // z-index: 100;
-        }
-        // ===========================================
-        @media (max-width: 595px) {
-          .navbar {
-            flex-flow: column;
-          }
         }
       `}
     </style>

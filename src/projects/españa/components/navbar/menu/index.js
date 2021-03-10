@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const Menu = () => (
   <div className="menu">
@@ -25,8 +25,7 @@ const Menu = () => (
     <style jsx>
       {`
         .menu {
-          width: 100%;
-          flex: 8;
+          min-width: 900px;
           display: flex;
           align-items: center;
           justify-content: flex-end;
@@ -39,6 +38,13 @@ const Menu = () => (
           font-size: 1.5em;
           margin: 0 0.8em;
           text-transform: uppercase;
+        }
+        // ===========================================
+        @media (max-width: 1199px) {
+          .menu {
+            width: 100%;
+            margin-top: 2.5em;
+          }
         }
       `}
     </style>

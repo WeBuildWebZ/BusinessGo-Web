@@ -50,6 +50,16 @@ const Subscription = () => (
         h2:nth-child(3) {
           padding-left: 2em;
         }
+        @media (max-width: 970px) {
+          .subs {
+            margin: 2em 0;
+            flex-flow: column;
+          }
+          .left,
+          .right {
+            width: 100%;
+          }
+        }
       `}
     </style>
   </div>

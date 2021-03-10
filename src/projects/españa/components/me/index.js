@@ -13,8 +13,16 @@ const Me = () => (
           display: flex;
           justify-content: center;
           align-items: center;
-          flex-wrap: wrap;
           background: #da7c7a;
+        }
+        // ======================================================
+        @media (max-width: 1199px) {
+          .me {
+            flex-wrap: wrap;
+
+            align-items: center;
+            padding: 1em;
+          }
         }
       `}
     </style>

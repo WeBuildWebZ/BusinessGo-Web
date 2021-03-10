@@ -1,14 +1,11 @@
-import React from 'react';
-
 const Left = () => (
   <div className="left">
     <img src="/images/she.jpg" alt="" />
     <style jsx>
       {`
         .left {
-          width: 100%;
+          min-width: 600px;
           min-height: 350px;
-          flex: 1;
           position: relative;
         }
         img {
@@ -20,6 +17,16 @@ const Left = () => (
           position: absolute;
           top: -4em;
           right: 2em;
+        }
+        // ===========================================
+        @media (max-width: 1199px) {
+          .left {
+            min-height: auto;
+          }
+          img {
+            top: 0;
+            left: 0;
+          }
         }
       `}
     </style>

@@ -1,22 +1,26 @@
-import React from 'react';
-
 const Left = () => (
   <div className="left">
-    <img src="/images/she.jpg" alt="" />
+    <img src="/images/image2.jpg" alt="" />
     <style jsx>
       {`
         .left {
-          width: 100%;
-          min-height: 350px;
-          flex: 1;
+          min-width: 500px;
           display: flex;
           justify-content: center;
-          padding: 1em;
+          padding: 1em 0;
         }
         img {
-          width: 300px;
-          height: 300px;
+          width: 500px;
+          height: 500px;
           object-fit: cover;
+          border-radius: 1em;
+        }
+        @media (max-width: 970px) {
+          img {
+            width: 100%;
+            height: 500px;
+            border-radius: 0;
+          }
         }
       `}
     </style>

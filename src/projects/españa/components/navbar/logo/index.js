@@ -5,17 +5,20 @@ const Logo = () => (
     <Link href="/">
       <a>
         <img src="/icons/logo.png" alt="logo" />
+        <h2>
+          Ordenando <br /> y Mas.
+        </h2>
       </a>
     </Link>
     <style jsx>
       {`
         .logo {
-          width: 100%;
+          min-width: 300px;
           height: 100%;
-          flex: 2;
           display: flex;
           justify-content: center;
           align-item: center;
+          position: relative;
         }
         a {
           width: 100%;
@@ -27,8 +30,17 @@ const Logo = () => (
           color: white;
         }
         img {
-          width: 100px;
-          height: 100%;
+          width: 200px;
+          height: 150px;
+          object-fit: contain;
+          position: absolute;
+          top: -1em;
+          left: -1.5em;
+        }
+        h2 {
+          position: absolute;
+          top: 1em;
+          right: 0;
         }
 
         // ==============================

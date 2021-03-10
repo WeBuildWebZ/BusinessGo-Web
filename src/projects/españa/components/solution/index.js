@@ -14,6 +14,7 @@ const Solution = () => (
           justify-content: center;
           align-items: center;
           padding: 1em;
+          flex-wrap: wrap;
           background-image: linear-gradient(to bottom, white, #f4edef);
         }
       `}

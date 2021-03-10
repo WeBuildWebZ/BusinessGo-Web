@@ -4,15 +4,19 @@ const Right = () => (
     <style jsx>
       {`
         .right {
-          width: 100%;
-          flex: 1;
+          min-width: 600px;
           display: flex;
         }
         img {
-          width: 700px;
-          height: 700px;
+          width: 500px;
+          height: 500px;
           object-fit: cover;
           border-radius: 1em;
+        }
+        @media (max-width: 1199px) {
+          .right {
+            display: none;
+          }
         }
       `}
     </style>

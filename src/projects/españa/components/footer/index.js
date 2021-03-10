@@ -25,12 +25,12 @@ const Footer = () => (
       <span className="column">
         <h3>Informacion de Contacto</h3>
         <span className="row">
-          <img src="/icon/house.png" alt="house icon" />
+          <img src="/icons/house.png" alt="house icon" />
           <p> España - Murcia</p>
           <br />
         </span>
         <span className="row">
-          <img src="/icon/phone.png" alt="phone icon" />
+          <img src="/icons/phone.png" alt="phone icon" />
           <p>
             <a href="tel:1162329888" target="blank">
               1234567890
@@ -38,7 +38,7 @@ const Footer = () => (
           </p>
         </span>
         <span className="row">
-          <img src="/icon/contact.png" alt="contact icon" />
+          <img src="/icons/contact.png" alt="contact icon" />
           <p>
             <a href="mailto:lefcott@hotmail.com" target="blank">
               info@ordenandoymás.es

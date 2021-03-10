@@ -9,11 +9,18 @@ const Herramientas = () => (
       {`
         .herramientas {
           width: 100vw;
-          min-height: 100vh;
+          min-height: auto;
           display: flex;
           justify-content: center;
           align-items: center;
           background: #f4edef;
+          padding: 0 1em;
+        }
+        // =================================================
+        @media (max-width: 970px) {
+          .herramientas {
+            flex-wrap: wrap;
+          }
         }
       `}
     </style>

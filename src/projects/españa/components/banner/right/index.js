@@ -16,6 +16,18 @@ const Right = () => (
           height: 550px;
           object-fit: cover;
           border-radius: 0 8em;
+          -moz-transform: scaleX(-1);
+          -o-transform: scaleX(-1);
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+        }
+
+        // =========================================
+        @media (max-width: 550px) {
+          img {
+            width: 100vw;
+            height: 550px;
+          }
         }
       `}
     </style>
