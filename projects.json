@@ -46,5 +46,9 @@
   "guitar": {
     "path": "src/projects/guitar",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Guitar"
+  },
+  "orden": {
+    "path": "src/projects/españa",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Orden"
   }
 }
