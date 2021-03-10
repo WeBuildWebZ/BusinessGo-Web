@@ -42,5 +42,9 @@
   "digital-cards": {
     "path": "src/projects/digital-cards",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-DigitalCards"
+  },
+  "guitar": {
+    "path": "src/projects/guitar",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Guitar"
   }
 }

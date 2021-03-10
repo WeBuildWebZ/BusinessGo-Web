@@ -18,6 +18,7 @@
     "cosmeticos": "npm run copy-env src/projects/cosmeticos && next dev src/projects/cosmeticos",
     "muebles": "npm run copy-env src/projects/muebles && next dev src/projects/muebles",
     "readmyfcomic": "npm run copy-env src/projects/readmyfcomic && next dev src/projects/readmyfcomic",
+    "guitar": "npm run copy-env src/projects/guitar && next dev src/projects/guitar",
     "build": "node -r esm scripts/build",
     "now-build": "node -r esm scripts/build",
     "export": "next export",
