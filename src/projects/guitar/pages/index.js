@@ -1,11 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 
-const controls = {
+const keyboardControls = {
   q: 'green',
   w: 'red',
   e: 'yellow',
   r: 'blue',
   t: 'orange'
+};
+
+const guitarControls = {
+  5: 'green',
+  1: 'red',
+  0: 'yellow',
+  2: 'blue',
+  3: 'orange'
 };
 
 const Guitar = () => {
@@ -15,7 +23,7 @@ const Guitar = () => {
 
   useEffect(() => {
     const handleKeyDown = event => {
-      const control = controls[event.key];
+      const control = keyboardControls[event.key];
       if (!control) return;
       setSelectedButtons({
         ...selectedButtonsRef.current,
@@ -23,7 +31,7 @@ const Guitar = () => {
       });
     };
     const handleKeyUp = event => {
-      const control = controls[event.key];
+      const control = keyboardControls[event.key];
       if (!control) return;
       setSelectedButtons({
         ...selectedButtonsRef.current,
@@ -37,6 +45,36 @@ const Guitar = () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
+  }, []);
+
+  useEffect(() => {
+    const readValues = () => {
+      const gamepads = navigator.getGamepads();
+      Object.keys(gamepads).forEach(index => {
+        const gamepad = gamepads[index];
+
+        if (!gamepad) return;
+
+        const { buttons } = gamepad;
+        buttons.forEach((button, buttonIndex) => {
+          const control = guitarControls[buttonIndex];
+          if (!control) return;
+          if (button.pressed && !selectedButtonsRef.current[control]) {
+            setSelectedButtons({
+              ...selectedButtonsRef.current,
+              [control]: false
+            });
+          } else if (!button.pressed && selectedButtonsRef.current[control]) {
+            setSelectedButtons({
+              ...selectedButtonsRef.current,
+              [control]: false
+            });
+          }
+        });
+      });
+      window.requestAnimationFrame(readValues);
+    };
+    readValues();
   }, []);
 
   return (
