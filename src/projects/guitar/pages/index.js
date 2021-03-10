@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 
 const keyboardControls = {
-  q: 'green',
-  w: 'red',
-  e: 'yellow',
-  r: 'blue',
-  t: 'orange'
+  Q: 'green',
+  W: 'red',
+  E: 'yellow',
+  R: 'blue',
+  T: 'orange'
 };
 
 const guitarControls = {
@@ -23,7 +23,7 @@ const Guitar = () => {
 
   useEffect(() => {
     const handleKeyDown = event => {
-      const control = keyboardControls[event.key];
+      const control = keyboardControls[event.key.toUpperCase()];
       if (!control) return;
       setSelectedButtons({
         ...selectedButtonsRef.current,
@@ -31,7 +31,7 @@ const Guitar = () => {
       });
     };
     const handleKeyUp = event => {
-      const control = keyboardControls[event.key];
+      const control = keyboardControls[event.key.toUpperCase()];
       if (!control) return;
       setSelectedButtons({
         ...selectedButtonsRef.current,
@@ -81,11 +81,11 @@ const Guitar = () => {
   return (
     <div className="page">
       <div className="track">
-        <div className={`button green${selectedButtons.green ? ' selected' : ''}`} />
-        <div className={`button red${selectedButtons.red ? ' selected' : ''}`} />
-        <div className={`button yellow${selectedButtons.yellow ? ' selected' : ''}`} />
-        <div className={`button blue${selectedButtons.blue ? ' selected' : ''}`} />
-        <div className={`button orange${selectedButtons.orange ? ' selected' : ''}`} />
+        <div className={`button green${selectedButtons.green ? ' selected' : ''}`}>Q</div>
+        <div className={`button red${selectedButtons.red ? ' selected' : ''}`}>W</div>
+        <div className={`button yellow${selectedButtons.yellow ? ' selected' : ''}`}>E</div>
+        <div className={`button blue${selectedButtons.blue ? ' selected' : ''}`}>R</div>
+        <div className={`button orange${selectedButtons.orange ? ' selected' : ''}`}>T</div>
       </div>
       <style jsx>
         {`
@@ -95,6 +95,7 @@ const Guitar = () => {
             height: 100%;
             background-image: url(/images/background.jpeg);
             background-size: cover;
+            color: whitesmoke;
           }
           .track {
             position: absolute;
@@ -108,15 +109,22 @@ const Guitar = () => {
             justify-content: space-around;
           }
           .button {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
             width: 70px;
             height: 40px;
             margin: 10px;
             border-radius: 50px;
             border-style: solid;
             transition: 0.1s;
+            text-align: center;
+            font-size: 18px;
           }
           .button.selected {
             transform: scale(1.15);
+            font-size: 26px;
+            text-shadow: 0 0 2px whitesmoke;
           }
           .button.green {
             background-color: rgba(102, 201, 22, 0.5);

@@ -3,6 +3,7 @@ const Note = () => (
     <style jsx>
       {`
         .note {
+          position: absolute;
         }
       `}
     </style>
