@@ -3,6 +3,7 @@ import { project } from './project';
 
 (async () => {
   await runExec(`cd ${project.path}; next build`);
+  await runExec(`cd ${project.path}; ls -la`);
   await runExec('rm -rf .next');
   await runExec(`mv ${project.path}/.next .`);
   await runExec('rm -rf public');
