@@ -50,6 +50,7 @@ const Guitar = () => {
   useEffect(() => {
     const readValues = () => {
       const gamepads = navigator.getGamepads();
+      console.log('read', gamepads);
       Object.keys(gamepads).forEach(index => {
         const gamepad = gamepads[index];
 
@@ -58,6 +59,7 @@ const Guitar = () => {
         const { buttons } = gamepad;
         buttons.forEach((button, buttonIndex) => {
           const control = guitarControls[buttonIndex];
+          if (button.pressed) console.log('pressed', buttonIndex, control);
           if (!control) return;
           if (button.pressed && !selectedButtonsRef.current[control]) {
             setSelectedButtons({
