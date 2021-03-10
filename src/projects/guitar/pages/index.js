@@ -20,6 +20,13 @@ const Guitar = () => {
   const [selectedButtons, setSelectedButtons] = useState({});
   const selectedButtonsRef = useRef();
   selectedButtonsRef.current = selectedButtons;
+  const selectedClasses = {
+    green: selectedButtons.green ? ' selected' : '',
+    red: selectedButtons.red ? ' selected' : '',
+    yellow: selectedButtons.yellow ? ' selected' : '',
+    blue: selectedButtons.blue ? ' selected' : '',
+    orange: selectedButtons.orange ? ' selected' : ''
+  };
 
   useEffect(() => {
     const handleKeyDown = event => {
@@ -80,12 +87,19 @@ const Guitar = () => {
 
   return (
     <div className="page">
+      <div className="lines">
+        <div className={`line${selectedClasses.green}`} />
+        <div className={`line${selectedClasses.red}`} />
+        <div className={`line${selectedClasses.yellow}`} />
+        <div className={`line${selectedClasses.blue}`} />
+        <div className={`line${selectedClasses.orange}`} />
+      </div>
       <div className="track">
-        <div className={`button green${selectedButtons.green ? ' selected' : ''}`}>Q</div>
-        <div className={`button red${selectedButtons.red ? ' selected' : ''}`}>W</div>
-        <div className={`button yellow${selectedButtons.yellow ? ' selected' : ''}`}>E</div>
-        <div className={`button blue${selectedButtons.blue ? ' selected' : ''}`}>R</div>
-        <div className={`button orange${selectedButtons.orange ? ' selected' : ''}`}>T</div>
+        <div className={`button green${selectedClasses.green}`}>Q</div>
+        <div className={`button red${selectedClasses.red}`}>W</div>
+        <div className={`button yellow${selectedClasses.yellow}`}>E</div>
+        <div className={`button blue${selectedClasses.blue}`}>R</div>
+        <div className={`button orange${selectedClasses.orange}`}>T</div>
       </div>
       <style jsx>
         {`
@@ -107,6 +121,29 @@ const Guitar = () => {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            overflow: visible;
+          }
+          .lines {
+            position: absolute;
+            transform: translate(-50%);
+            left: 50%;
+            top: 0;
+            width: 450px;
+            height: calc(100% - 50px);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+          }
+          .line {
+            background-color: rgba(245, 245, 245, 0.66);
+            width: 10px;
+            height: 100%;
+            border-radius: 7px;
+            transition: 0.1s;
+          }
+          .line.selected {
+            background-color: whitesmoke;
+            box-shadow: 0 2px 2px whitesmoke;
           }
           .button {
             display: flex;
