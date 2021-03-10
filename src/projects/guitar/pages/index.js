@@ -101,14 +101,14 @@ const Guitar = () => {
             transform: translate(-50%, -100%);
             left: 50%;
             top: 100%;
-            width: 40%;
+            width: fit-content;
             height: fit-content;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
           }
           .button {
-            width: 40px;
+            width: 70px;
             height: 40px;
             margin: 10px;
             border-radius: 50px;
