@@ -63,7 +63,7 @@ const Guitar = () => {
           if (button.pressed && !selectedButtonsRef.current[control]) {
             setSelectedButtons({
               ...selectedButtonsRef.current,
-              [control]: false
+              [control]: true
             });
           } else if (!button.pressed && selectedButtonsRef.current[control]) {
             setSelectedButtons({
