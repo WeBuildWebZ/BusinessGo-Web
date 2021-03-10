@@ -5,7 +5,7 @@ const Left = () => (
       {`
         .left {
           min-width: 600px;
-          min-height: 350px;
+          min-height: 700px;
           position: relative;
         }
         img {
@@ -15,17 +15,20 @@ const Left = () => (
           border: 3px solid white;
           object-fit: cover;
           position: absolute;
-          top: -4em;
+          top: 0;
           right: 2em;
         }
         // ===========================================
         @media (max-width: 1199px) {
           .left {
-            min-height: auto;
+            min-height: 22vh;
+            min-width: 100vw;
+            padding: 0 1em;
+            background: pink;
           }
           img {
             top: 0;
-            left: 0;
+            left: 11em;
           }
         }
       `}

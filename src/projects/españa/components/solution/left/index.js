@@ -66,8 +66,25 @@ const Left = () => (
           .left {
             display: flex;
             justify-content: flex-start;
+            padding: 0 1em;
           }
           span {
+            width: 100%;
+          }
+        }
+        @media (max-width: 620px) {
+          .left {
+            min-width: 100vw;
+          }
+          span {
+            width: 100vw;
+          }
+          h3 {
+            width: 100vw;
+          }
+        }
+        @media (max-width: 440px) {
+          p {
             width: 100%;
           }
         }

@@ -36,6 +36,34 @@ const Left = () => (
           padding-left: 2em;
           margin: 0 0 0.3em 0;
         }
+
+        // ==============================
+        @media (max-width: 600px) {
+          .text {
+            justify-content: center;
+            width: 100vw;
+            min-height: 80vh;
+          }
+          .content {
+            width: 100vw;
+            padding: 0 1em;
+          }
+          h2 {
+            line-height: 0.9em;
+          }
+          h2:nth-child(3) {
+            padding-left: 0;
+            margin: 0 0 0.3em 0;
+          }
+          button {
+            margin: auto;
+          }
+        }
+        @media (max-width: 456px) {
+          h2 {
+            font-size: 3em;
+          }
+        }
       `}
     </style>
   </div>

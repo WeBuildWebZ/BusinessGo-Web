@@ -9,7 +9,7 @@ const Me = () => (
       {`
         .me {
           width: 100vw;
-          min-height: 100vh;
+          min-height: auto;
           display: flex;
           justify-content: center;
           align-items: center;

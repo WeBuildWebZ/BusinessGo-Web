@@ -15,7 +15,7 @@ const Right = () => (
       {`
         .right {
           min-width: 600px;
-          min-height: 350px;
+          min-height: 700px;
           display: flex;
           justify-content: center;
           flex-flow: column;
@@ -38,6 +38,31 @@ const Right = () => (
         p {
           width: 70%;
           line-height: 1.5em;
+        }
+        // ===========================
+        @media (max-width: 1199px) {
+          .right {
+            min-height: 60vh;
+            min-width: 100vw;
+            padding: 1em;
+            align-items: center;
+            background: yellow;
+          }
+          img {
+            top: 0;
+            left: 0;
+          }
+        }
+        @media (max-width: 500px) {
+          p {
+            width: 100%;
+            line-height: 1.5em;
+          }
+        }
+        @media (max-width: 300px) {
+          h3 {
+            width: 100%;
+          }
         }
       `}
     </style>
