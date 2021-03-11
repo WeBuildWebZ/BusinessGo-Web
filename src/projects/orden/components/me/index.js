@@ -19,7 +19,6 @@ const Me = () => (
         @media (max-width: 1199px) {
           .me {
             flex-wrap: wrap;
-
             align-items: center;
             padding: 1em;
           }

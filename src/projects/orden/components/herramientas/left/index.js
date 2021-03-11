@@ -7,7 +7,6 @@ const Left = () => (
           min-width: 500px;
           display: flex;
           justify-content: center;
-          padding: 1em 0;
         }
         img {
           width: 500px;

@@ -24,7 +24,6 @@ const Left = () => (
             min-height: 22vh;
             min-width: 100vw;
             padding: 0 1em;
-            background: pink;
           }
           img {
             top: 0;

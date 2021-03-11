@@ -25,7 +25,7 @@ const Banner = () => (
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
-          background-image: linear-gradient(to right, #6e3e76 0%, #da7c7a 100%);
+          background-image: linear-gradient(to right, #ebb0dc 0%, #da7c7a 100%);
           position: relative;
         }
         svg {

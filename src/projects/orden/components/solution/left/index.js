@@ -88,6 +88,11 @@ const Left = () => (
             width: 100%;
           }
         }
+        @media (max-width: 334px) {
+          h3 {
+            width: 100%;
+          }
+        }
       `}
     </style>
   </div>

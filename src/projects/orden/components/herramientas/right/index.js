@@ -9,11 +9,10 @@ const Right = () => (
     <style jsx>
       {`
         .right {
-          min-width: 500px;
+          width: 650px;
           display: flex;
           justify-content: center;
           flex-flow: column;
-          padding-bottom: 1em;
         }
         h4 {
           margin-bottom: 0.7em;
@@ -33,13 +32,16 @@ const Right = () => (
         p {
           width: 70%;
         }
-        button {
-          width: 150px;
-          padding: 1em 0;
-          border: none;
-          outline: none;
-          background: #f8ac30;
-          color: white;
+        // ==============================
+        @media (max-width: 500px) {
+          p {
+            width: 100%;
+          }
+        }
+        @media (max-width: 368px) {
+          h3 {
+            width: 100%;
+          }
         }
       `}
     </style>
