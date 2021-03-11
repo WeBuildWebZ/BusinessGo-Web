@@ -2,6 +2,7 @@ export const getFieldKeyTranslation = language_code =>
   ({
     es: {
       title: 'Título',
+      title2: 'Título 2',
       subtitle: 'Subtitle',
       whatsapp: 'Whatsapp',
       whatsapp_url: 'URL de Whatsapp',
@@ -78,10 +79,12 @@ export const getFieldKeyTranslation = language_code =>
       url: 'URL',
       bot_name: 'Nombre del Bot',
       social_networks: 'Redes Sociales',
-      social_network: 'Red Social'
+      social_network: 'Red Social',
+      view_button: 'Botón "Ver"'
     },
     en: {
       title: 'Title',
+      title2: 'Title 2',
       subtitle: 'Subtitle',
       whatsapp: 'Whatsapp',
       whatsapp_url: 'Whatsapp URL',
@@ -158,6 +161,7 @@ export const getFieldKeyTranslation = language_code =>
       url: 'URL',
       bot_name: 'Bot Name',
       social_networks: 'Social Networks',
-      social_network: 'Social Network'
+      social_network: 'Social Network',
+      view_button: 'Botón "Ver"'
     }
   }[language_code]);

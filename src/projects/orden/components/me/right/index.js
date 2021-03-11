@@ -1,6 +1,6 @@
 const Right = () => (
   <div className="right">
-    <h4>Somos , Ordenando y mas</h4>
+    <h4>Somos , Ordenando y más</h4>
     <h3>
       Queremos que recuperes el control de tu casa, que el caos no te invada, y a través de mis servicios, te
       ayudaré a optimizar tus espacios.
