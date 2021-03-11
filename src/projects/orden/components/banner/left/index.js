@@ -25,7 +25,12 @@ const Left = () => (
           flex-flow: column;
         }
         p {
+          font-weight: bold;
           color: white;
+          letter-spacing: 1px;
+        }
+        p::first-letter {
+          font-size: 2em;
         }
         h2 {
           font-size: 5em;

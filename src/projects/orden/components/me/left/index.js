@@ -24,11 +24,16 @@ const Left = () => (
             min-height: 22vh;
             min-width: 100vw;
             padding: 0 1em;
-            background: pink;
           }
           img {
             top: 0;
             left: 11em;
+          }
+        }
+        @media (max-width: 522px) {
+          img {
+            top: 0;
+            left: 1em;
           }
         }
       `}

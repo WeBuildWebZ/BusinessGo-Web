@@ -14,10 +14,6 @@ const Navbar = () => (
           display: flex;
           justify-content: space-between;
           flex-wrap: wrap;
-          // position: fixed;
-          // background: hsla(0, 0%, 100%, 0.5);
-          // backdrop-filter: blur(1em);
-          // z-index: 100;
         }
       `}
     </style>

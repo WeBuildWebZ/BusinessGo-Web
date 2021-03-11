@@ -6,7 +6,7 @@ const Subscription = () => (
     <div className="right">
       <h2>Queremos</h2>
       <h2>Brindarte</h2>
-      <h2>Comfort.</h2>
+      <h2>Comfort</h2>
     </div>
 
     <style jsx>
@@ -15,7 +15,6 @@ const Subscription = () => (
           width: 100vw;
           min-height: 30vh;
           margin: 2em 0;
-          padding: 1em;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -24,6 +23,7 @@ const Subscription = () => (
         .left,
         .right {
           width: 500px;
+          padding: 0 1em;
         }
 
         button {
@@ -53,11 +53,32 @@ const Subscription = () => (
         @media (max-width: 970px) {
           .subs {
             margin: 2em 0;
-            flex-flow: column;
           }
           .left,
           .right {
-            width: 100%;
+            width: 100vw;
+          }
+        }
+        @media (max-width: 710px) {
+          .subs {
+            flex-wrap: wrap;
+          }
+          .left,
+          .right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+          }
+        }
+        @media (max-width: 434px) {
+          button {
+            width: auto;
+          }
+        }
+        @media (max-width: 294px) {
+          button {
+            border-radius: 0;
           }
         }
       `}

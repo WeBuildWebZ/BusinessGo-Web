@@ -1,6 +1,6 @@
 const Right = () => (
   <div className="right">
-    <h4>SOMOS, ORDENANDO Y MÁS</h4>
+    <h4>Somos , Ordenando y mas</h4>
     <h3>
       Queremos que recuperes el control de tu casa, que el caos no te invada, y a través de mis servicios, te
       ayudaré a optimizar tus espacios.
@@ -22,6 +22,7 @@ const Right = () => (
         }
         h4 {
           margin-bottom: 0.7em;
+          letter-spacing: 1px;
         }
         h4,
         p {
@@ -46,7 +47,6 @@ const Right = () => (
             min-width: 100vw;
             padding: 1em;
             align-items: center;
-            background: yellow;
           }
           img {
             top: 0;

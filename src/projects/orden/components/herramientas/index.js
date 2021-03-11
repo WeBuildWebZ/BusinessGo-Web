@@ -11,10 +11,10 @@ const Herramientas = () => (
           width: 100vw;
           min-height: auto;
           display: flex;
-          justify-content: center;
+          justify-content: space-evenly;
           align-items: center;
           background: #f4edef;
-          padding: 0 1em;
+          padding: 1em 1em 3em 1em;
         }
         // =================================================
         @media (max-width: 970px) {

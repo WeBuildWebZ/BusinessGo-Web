@@ -1,5 +1,5 @@
 const Prices = () => (
-  <div className="prices">
+  <div className="prices" id="precios">
     <span className="texto">
       <h3>Precios</h3>
       <p>
