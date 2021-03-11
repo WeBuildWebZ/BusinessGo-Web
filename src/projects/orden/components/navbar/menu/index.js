@@ -6,19 +6,19 @@ const Menu = () => (
       <a>Inicio</a>
     </Link>
 
-    <Link href="/">
+    <Link href="/#me">
       <a>Sobre mi</a>
     </Link>
 
-    <Link href="/">
+    <Link href="/#servicios">
       <a>Servicios</a>
     </Link>
 
-    <Link href="/">
+    <Link href="/#precios">
       <a>Precio</a>
     </Link>
 
-    <Link href="/">
+    <Link href="/#contacto">
       <a>Contacto</a>
     </Link>
 
@@ -42,7 +42,8 @@ const Menu = () => (
         // ===========================================
         @media (max-width: 1199px) {
           .menu {
-            width: 100%;
+            width: 100vw;
+            justify-content: center;
             margin-top: 2.5em;
           }
         }

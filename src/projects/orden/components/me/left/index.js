@@ -30,6 +30,12 @@ const Left = () => (
             left: 11em;
           }
         }
+        @media (max-width: 522px) {
+          img {
+            top: 0;
+            left: 1em;
+          }
+        }
       `}
     </style>
   </div>

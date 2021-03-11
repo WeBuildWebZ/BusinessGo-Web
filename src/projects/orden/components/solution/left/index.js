@@ -69,7 +69,7 @@ const Left = () => (
             padding: 0 1em;
           }
           span {
-            width: 100%;
+            width: 100vw;
           }
         }
         @media (max-width: 620px) {
@@ -78,6 +78,7 @@ const Left = () => (
           }
           span {
             width: 100vw;
+            background: aqua;
           }
           h3 {
             width: 100vw;

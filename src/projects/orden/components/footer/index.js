@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const Footer = () => (
-  <div className="footer">
+  <div className="footer" id="contacto">
     <div className="bottom">
       <span className="column">
         <h3>Ordenando Y mas.</h3>

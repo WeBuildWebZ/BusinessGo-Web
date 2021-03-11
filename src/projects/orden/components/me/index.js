@@ -2,7 +2,7 @@ import Left from './left';
 import Right from './right';
 
 const Me = () => (
-  <div className="me">
+  <div className="me" id="me">
     <Left />
     <Right />
     <style jsx>
