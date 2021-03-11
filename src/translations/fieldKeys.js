@@ -3,7 +3,7 @@ export const getFieldKeyTranslation = language_code =>
     es: {
       title: 'Título',
       title2: 'Título 2',
-      subtitle: 'Subtitle',
+      subtitle: 'Subtítulo',
       whatsapp: 'Whatsapp',
       whatsapp_url: 'URL de Whatsapp',
       whatsapp_number: 'Número de Whatsapp',
@@ -123,7 +123,7 @@ export const getFieldKeyTranslation = language_code =>
       answer_title: 'Answer Title',
       answer_message: 'Answer Message',
       subscription_button: 'Suscription Button',
-      sections: 'Section',
+      sections: 'Sections',
       options: 'Options',
       text: 'Text',
       link: 'Link',
