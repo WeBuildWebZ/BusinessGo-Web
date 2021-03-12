@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
@@ -69,7 +70,7 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={field.key}
+                key={uuid()}
               />
             );
           case 'text':
@@ -81,7 +82,7 @@ const FieldRenderer = props => {
                 readOnly={props.readOnly}
                 multiline={false}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={field.key}
+                key={uuid()}
               />
             );
           case 'textarea-small':
@@ -94,7 +95,7 @@ const FieldRenderer = props => {
                 multiline
                 rows={4}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={field.key}
+                key={uuid()}
               />
             );
           case 'textarea-medium':
@@ -107,7 +108,7 @@ const FieldRenderer = props => {
                 multiline
                 rows={11}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={field.key}
+                key={uuid()}
               />
             );
           case 'textarea-big':
@@ -120,7 +121,7 @@ const FieldRenderer = props => {
                 multiline
                 rows={17}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={field.key}
+                key={uuid()}
               />
             );
           case 'image':
@@ -131,7 +132,7 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={field.key}
+                key={uuid()}
               />
             );
           case 'list':
@@ -142,7 +143,7 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={field.key}
+                key={uuid()}
               />
             );
           case 'enum':
@@ -154,7 +155,7 @@ const FieldRenderer = props => {
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
                 FieldRenderer={FieldRenderer}
-                key={field.key}
+                key={uuid()}
               />
             );
           case 'group':
@@ -167,7 +168,7 @@ const FieldRenderer = props => {
                 multiline={false}
                 onChange={value => handleUpdateData(field.key, value)}
                 FieldRenderer={FieldRenderer}
-                key={field.key}
+                key={uuid()}
               />
             );
           case 'select':
@@ -181,7 +182,7 @@ const FieldRenderer = props => {
                 onChange={value => handleUpdateData(field.key, value)}
                 onChangeOptionData={handleUpdateOptionData}
                 FieldRenderer={FieldRenderer}
-                key={field.key}
+                key={uuid()}
               />
             );
           case 'button':
@@ -192,14 +193,14 @@ const FieldRenderer = props => {
                   value={data[field.key]}
                   readOnly={props.readOnly}
                   onChange={value => handleUpdateData(field.key, value)}
-                  key={field.key}
+                  key={uuid()}
                 >
                   {field.name || keyTranslation[field.key]}
                 </Button>
               </a>
             );
           default:
-            return <div key={field.key} />;
+            return <div key={uuid()} />;
         }
       })}
       {props.backButton && <Button onClick={props.onGoBack}>{language.back}</Button>}

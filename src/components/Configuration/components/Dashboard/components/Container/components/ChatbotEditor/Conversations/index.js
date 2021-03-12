@@ -15,7 +15,6 @@ const Conversations = () => {
 
   const handleSelectConversation = conversation => {
     initChatbotSocket(project.code, conversation.id, officer).then(() => {
-      console.log('mountedRef.current', mounted);
       if (!mounted) return;
       setSelectedConversation(conversation);
     });

@@ -23,7 +23,6 @@ const Select = props => {
   const optionFields = options.find(option => option.key === value)?.fields;
 
   const handleChangeValue = ({ target }) => {
-    console.log('target', target);
     props.onChange(target.value);
   };
 

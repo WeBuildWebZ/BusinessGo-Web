@@ -6,6 +6,7 @@ import Spinner from '../../../Spinner';
 import { uploadImage } from '../../../../services/cloudinary/image';
 import OpenableImage from '../../../OpenableImage';
 import { getFieldKeyTranslation } from '../../../../translations/fieldKeys';
+import { fieldShape } from '../../../../utils/field';
 
 const Image = props => {
   const { field, value } = props;
@@ -73,14 +74,7 @@ const Image = props => {
 Image.propTypes = {
   value: PropTypes.string,
   readOnly: PropTypes.bool,
-  field: PropTypes.shape({
-    key: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    default_value: PropTypes.any,
-    important: PropTypes.bool.isRequired,
-    input_type: PropTypes.string.isRequired,
-    is_required: PropTypes.bool.isRequired
-  }).isRequired,
+  field: fieldShape.isRequired,
   onChange: PropTypes.func
 };
 
