@@ -20,12 +20,14 @@ if (!project) throw new Error(`Didn't found project with name ${projectName}`);
   await runExec(`git clone ${project.repo} ${repoPath}`);
   await runExec(`cd ${repoPath} && git checkout ${branch}`);
   await runExec(`cd ${repoPath} && git reset --hard HEAD^`);
+  console.log('copying files...');
   await copy('scripts', `${repoPath}/scripts`);
   await copy('src', `${repoPath}/src`);
   await copy('projects.json', `${repoPath}/projects.json`);
   await runExec(`cp package.json ${repoPath}`);
   await runExec(`cp next.config.js ${repoPath}`);
   await runExec(`cp .gitignore ${repoPath}`);
+  console.log('copied files');
   await runExec(
     `cd ${repoPath}/src/projects; find . -maxdepth 1 -mindepth 1 ! -regex '^./${projectName}' -exec rm -rv {} +`
   );

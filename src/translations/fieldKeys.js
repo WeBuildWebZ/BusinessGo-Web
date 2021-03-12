@@ -18,6 +18,7 @@ export const getFieldKeyTranslation = language_code =>
       youtube_url: 'URL de Youtube',
       contact_email: 'Email de Contacto',
       description: 'Descripción',
+      description2: 'Descripción 2',
       articles_filter: 'Filtro de Artículos',
       categories: 'Categorías',
       chile_regions: 'Regiones de Chile',
@@ -81,7 +82,10 @@ export const getFieldKeyTranslation = language_code =>
       social_networks: 'Redes Sociales',
       social_network: 'Red Social',
       view_button: 'Botón "Ver"',
-      services: 'Servicios'
+      services: 'Servicios',
+      card1: 'Tarjeta 1',
+      card2: 'Tarjeta 2',
+      card3: 'Tarjeta 3'
     },
     en: {
       title: 'Title',
@@ -101,6 +105,7 @@ export const getFieldKeyTranslation = language_code =>
       youtube_url: 'Youtube URL',
       contact_email: 'Contact Email',
       description: 'Description',
+      description2: 'Description 2',
       articles_filter: 'Articles Filter',
       categories: 'Categories',
       chile_regions: 'Chile Regions',
@@ -164,6 +169,9 @@ export const getFieldKeyTranslation = language_code =>
       social_networks: 'Social Networks',
       social_network: 'Social Network',
       view_button: 'Botón "Ver"',
-      services: 'Services'
+      services: 'Services',
+      card1: 'Card 1',
+      card2: 'Card 2',
+      card3: 'Card 3'
     }
   }[language_code]);
