@@ -80,7 +80,8 @@ export const getFieldKeyTranslation = language_code =>
       bot_name: 'Nombre del Bot',
       social_networks: 'Redes Sociales',
       social_network: 'Red Social',
-      view_button: 'Botón "Ver"'
+      view_button: 'Botón "Ver"',
+      services: 'Servicios'
     },
     en: {
       title: 'Title',
@@ -162,6 +163,7 @@ export const getFieldKeyTranslation = language_code =>
       bot_name: 'Bot Name',
       social_networks: 'Social Networks',
       social_network: 'Social Network',
-      view_button: 'Botón "Ver"'
+      view_button: 'Botón "Ver"',
+      services: 'Services'
     }
   }[language_code]);
