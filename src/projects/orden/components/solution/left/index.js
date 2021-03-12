@@ -78,7 +78,7 @@ const Left = () => (
           }
           span {
             width: 100vw;
-            background: aqua;
+            padding: 1em;
           }
           h3 {
             width: 100vw;
