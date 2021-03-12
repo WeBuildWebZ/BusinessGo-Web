@@ -9,38 +9,36 @@ const Prices = () => {
     <div className="prices" id="precios">
       <span className="texto">
         {!project && <Spinner />}
-        <h3>{project.configuration.prices.title}</h3>
-        <p>{project.configuration.prices.description}</p>
-        <p>
-          A continuación, te detallo las tarifas de mis servicios, la primera visita tendrá un coste de 50€
-          (que se reembolsarán si se contratan los servicios).
-        </p>
+        <h3>{project?.configuration.prices.title}</h3>
+        <p>{project?.configuration.prices.description}</p>
       </span>
       <span className="card-container">
         <div className="card1">
           <div className="icon" />
           <div className="text">
-            <h4>40€/hora (IVA no incluido) </h4>
+            <h4>{project?.configuration.prices.card1}</h4>
           </div>
         </div>
         <div className="card2">
           <div className="icon" />
           <div className="text">
-            <h4>40€/hora (IVA no incluido) </h4>
+            <h4>{project?.configuration.prices.card2}</h4>
           </div>
         </div>
         <div className="card3">
           <div className="icon" />
           <div className="text">
-            <h4>40€/hora (IVA no incluido) </h4>
+            <h4>{project?.configuration.prices.card3}</h4>
           </div>
         </div>
       </span>
       <span className="li">
-        <li>Desplazamiento hasta 30 km.</li>
+        {project?.configuration.prices.items?.map(price => (
+          <li>{price}</li>
+        ))}
       </span>
       <span className="regala">
-        <h5>Regala orden Con las mismas condiciones que las tarifas anteriores</h5>
+        <h5>{project?.configuration.prices.description2}</h5>
       </span>
 
       <style jsx>
