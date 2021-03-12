@@ -5,30 +5,14 @@ const Left = props => (
     <span>
       {props.children}
       <br />
-      {/* {props.service.sections.map((section, i) => (
-        <div key={i}>{section.title && <h3>{section.title}</h3>}</div>
-      ))} */}
-      <h3>
-        Ni todas las casas son iguales, ni las personas,el primer paso a tomar es valorar lo que necesitas y
-        buscar soluciones.
-      </h3>
-      <h4>De forma presencial:</h4>
-      <p>{'Organización de la casa en general.\nCambios de armario.'}</p>
-      <p>Cambios de armario.</p>
-      <p>Cocinas.</p>
-      <p>Pre-mudanzas.</p>
-      <p>Nacimientos.</p>
-      <p>Fallecimientos.</p>
-      <p>Divorcios.</p>
-      <p>Vaciado de casas.</p>
-      <p>Trasteros.</p>
-
-      <h4>De forma online:</h4>
-      <p>
-        Mediante mis servicios online, te ayudaré a gestionar mejor tus espacios mediante tips y herramientas
-        útiles para que introduzcas rutinas y con ello el orden se apodere y se cree la armonía y paz en tu
-        hogar.
-      </p>
+      {props.service.title && <h3>{props.service.title}</h3>}
+      {props.service.sections.map((section, i) => (
+        <div key={i}>
+          {section.subtitle && <h4>{section.subtitle}</h4>}
+          {section.description && <p>{section.description}</p>}
+        </div>
+      ))}
+      {props.service.view_button && <button>Ver</button>}
     </span>
 
     <style jsx>
