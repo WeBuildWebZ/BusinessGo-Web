@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
@@ -70,7 +69,7 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={uuid()}
+                key={`${props.formCode}-${field.key}`}
               />
             );
           case 'text':
@@ -82,7 +81,7 @@ const FieldRenderer = props => {
                 readOnly={props.readOnly}
                 multiline={false}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={uuid()}
+                key={`${props.formCode}-${field.key}`}
               />
             );
           case 'textarea-small':
@@ -95,7 +94,7 @@ const FieldRenderer = props => {
                 multiline
                 rows={4}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={uuid()}
+                key={`${props.formCode}-${field.key}`}
               />
             );
           case 'textarea-medium':
@@ -108,7 +107,7 @@ const FieldRenderer = props => {
                 multiline
                 rows={11}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={uuid()}
+                key={`${props.formCode}-${field.key}`}
               />
             );
           case 'textarea-big':
@@ -121,7 +120,7 @@ const FieldRenderer = props => {
                 multiline
                 rows={17}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={uuid()}
+                key={`${props.formCode}-${field.key}`}
               />
             );
           case 'image':
@@ -132,7 +131,7 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={uuid()}
+                key={`${props.formCode}-${field.key}`}
               />
             );
           case 'list':
@@ -143,7 +142,7 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
-                key={uuid()}
+                key={`${props.formCode}-${field.key}`}
               />
             );
           case 'enum':
@@ -155,7 +154,7 @@ const FieldRenderer = props => {
                 readOnly={props.readOnly}
                 onChange={value => handleUpdateData(field.key, value)}
                 FieldRenderer={FieldRenderer}
-                key={uuid()}
+                key={`${props.formCode}-${field.key}`}
               />
             );
           case 'group':
@@ -168,7 +167,7 @@ const FieldRenderer = props => {
                 multiline={false}
                 onChange={value => handleUpdateData(field.key, value)}
                 FieldRenderer={FieldRenderer}
-                key={uuid()}
+                key={`${props.formCode}-${field.key}`}
               />
             );
           case 'select':
@@ -182,7 +181,7 @@ const FieldRenderer = props => {
                 onChange={value => handleUpdateData(field.key, value)}
                 onChangeOptionData={handleUpdateOptionData}
                 FieldRenderer={FieldRenderer}
-                key={uuid()}
+                key={`${props.formCode}-${field.key}`}
               />
             );
           case 'button':
@@ -193,14 +192,14 @@ const FieldRenderer = props => {
                   value={data[field.key]}
                   readOnly={props.readOnly}
                   onChange={value => handleUpdateData(field.key, value)}
-                  key={uuid()}
+                  key={`${props.formCode}-${field.key}`}
                 >
                   {field.name || keyTranslation[field.key]}
                 </Button>
               </a>
             );
           default:
-            return <div key={uuid()} />;
+            return <div key={`${props.formCode}-${field.key}`} />;
         }
       })}
       {props.backButton && <Button onClick={props.onGoBack}>{language.back}</Button>}
@@ -223,6 +222,7 @@ const FieldRenderer = props => {
 
 FieldRenderer.propTypes = {
   data: PropTypes.object,
+  formCode: PropTypes.string,
   fields: PropTypes.arrayOf(fieldShape),
   readOnly: PropTypes.bool,
   updateAfter: PropTypes.number,
@@ -237,6 +237,7 @@ FieldRenderer.propTypes = {
 
 FieldRenderer.defaultProps = {
   data: {},
+  formCode: '',
   fields: [],
   readOnly: false,
   updateAfter: 0,
