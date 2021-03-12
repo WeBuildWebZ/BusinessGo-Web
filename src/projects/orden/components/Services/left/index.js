@@ -59,6 +59,7 @@ const Left = props => (
           }
           span {
             width: 100vw;
+            padding: 0 1em;
           }
         }
         @media (max-width: 620px) {
@@ -67,7 +68,6 @@ const Left = props => (
           }
           span {
             width: 100vw;
-            background: aqua;
           }
           h3 {
             width: 100vw;

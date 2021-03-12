@@ -35,7 +35,9 @@ const Left = () => (
           align-items: center;
         }
         span {
-          width: 600px;
+          min-width: 600px;
+          padding: 0 1em;
+          background: white;
         }
 
         span h4 {
@@ -69,7 +71,7 @@ const Left = () => (
             padding: 0 1em;
           }
           span {
-            width: 100vw;
+            min-width: 100vw;
           }
         }
         @media (max-width: 620px) {
@@ -77,8 +79,8 @@ const Left = () => (
             min-width: 100vw;
           }
           span {
-            width: 100vw;
-            padding: 1em;
+            min-width: 100vw;
+            background: white;
           }
           h3 {
             width: 100vw;
