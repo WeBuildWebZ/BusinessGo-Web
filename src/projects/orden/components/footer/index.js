@@ -4,7 +4,7 @@ const Footer = () => (
   <div className="footer" id="contacto">
     <div className="bottom">
       <span className="column">
-        <h3>Ordenando Y mas.</h3>
+        <h3>Ordenando Y más.</h3>
         <p>
           Somos tu empresa de orden y organización, recuperA el control de tu casa, que el caos no te invada
           optimizamos los espacios de tu casa, facilitando y aportando una mejor funcionalidad.
