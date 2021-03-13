@@ -75,7 +75,7 @@ const Steps = props => {
       };
       return (
         <Form
-          formCode={`${props.data.card_type}_card_creation_photos`}
+          formCode={`${props.data.card_type}_${props.data.destination}_card_creation_photos`}
           data={props.data}
           onDataAdded={newData => handleDataChange(newData)}
           onGoBack={() => props.onDataAdded({}, 'personal_data')}

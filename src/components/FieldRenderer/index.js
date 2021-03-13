@@ -13,6 +13,7 @@ import Enum from './components/Enum';
 import Select from './components/Select';
 import Number from './components/Number';
 import Image from './components/Image';
+import { getDataFromFields } from './utils';
 import { getLanguage } from './lang';
 
 let timeoutId;
@@ -26,15 +27,17 @@ const FieldRenderer = props => {
   const [newData, setNewData] = useState(data);
 
   const handleChange = updatedData => {
-    setNewData(updatedData);
-    props.onPartialChange(updatedData);
+    const formattedData = getDataFromFields(fields, updatedData);
+    setNewData(formattedData);
+    props.onPartialChange(formattedData);
 
     if (props.saveButton) setHasChanged(true);
-    else props.onChange(updatedData);
+    else props.onChange(formattedData);
   };
 
   const handleSave = () => {
-    props.onChange(newData);
+    const formattedData = getDataFromFields(fields, newData);
+    props.onChange(formattedData);
     setHasChanged(false);
   };
 
