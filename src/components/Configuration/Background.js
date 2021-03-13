@@ -6,8 +6,8 @@ const Background = ({ backgroundImage }) => (
     style={{
       position: 'absolute',
       backgroundImage: `url(${backgroundImage})`,
-      width: '100%',
-      height: '100%',
+      width: '100vw',
+      minHeight: '100vh',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       zIndex: -1

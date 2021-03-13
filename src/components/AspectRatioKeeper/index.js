@@ -7,8 +7,9 @@ const AspectRatioKeeper = props => (
       {`
         .container {
           width: 100%;
-          padding-top: ${100 / props.divider}%; /* 1:1 Aspect Ratio */
-          position: relative; /* If you want text inside of it */
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       `}
     </style>

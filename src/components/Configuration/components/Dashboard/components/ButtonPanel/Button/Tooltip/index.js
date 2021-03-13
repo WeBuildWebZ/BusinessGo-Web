@@ -12,9 +12,11 @@ const TooltipComponent = props => {
         <Tooltip
           {...props}
           style={{
-            backgroundColor: 'blue',
-            padding: 3,
-            boxShadow: '0 0 2px 2px blue'
+            backgroundColor: '#ebebeb',
+            padding: 8,
+            borderRadius: 5,
+            zIndex: 1,
+            fontWeight: 'bold'
           }}
         >
           {props.text}

@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 
 import Spinner from '../../../../../Spinner';
 import Split from '../../../../../Split';
+import ButtonPanel from '../ButtonPanel';
 
 import ConfigurationButton from './ConfigurationButton';
 import Title from './Title';
@@ -35,42 +36,52 @@ const Sidebar = () => {
       <Title code="widgets" />
       <Split />
       <WidgetsSection />
+      <ButtonPanel />
       <style jsx>
         {`
           .sidebar {
-            background-color: #ffffff;
-            box-shadow: 0 0 2px 2px #ffffff;
-            width: 20%;
-            margin: auto;
-            height: 87vh;
-            border-radius: 5px;
+            min-width: 350px;
+            min-height: 100vh;
+            border-radius: 0.5em;
             transition: 0.8s;
             animation: arrive 1s linear;
             overflow-x: auto;
-          }
-          .sidebar:hover {
-            background-color: #fffffff3;
+            overflow-y: hidden;
+            padding: 3em 1em 0 1em;
+            margin-right: 0.5em;
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+            border: 2px solid #ebebeb;
+            background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+            color: white;
           }
 
           @keyframes arrive {
             0% {
               opacity: 0;
-              -ms-transform: translate(-100%);
-              -moz-transform: translate(-100%);
-              -webkit-transform: translate(-100%);
-              -o-transform: translate(-100%);
-              transform: translate(-100%);
-              height: 0;
-              background-color: rgb(42, 42, 209);
+              -ms-transform: translateX(-100%);
+              -moz-transform: translateX(-100%);
+              -webkit-transform: translateX(-100%);
+              -o-transform: translateX(-100%);
+              transform: translateX(-100%);
             }
             100% {
               opacity: 1;
+              -ms-transform: translateX(0);
+              -moz-transform: translateX(0);
+              -webkit-transform: translateX(0);
+              -o-transform: translateX(0);
+              transform: translateX(0);
+            }
+          }
+          // ===================================
+          @media (max-width: 1168px) {
+            .sidebar {
+              width: 100vw;
+              border: none;
               margin-right: 0;
-              -ms-transform: translate(0);
-              -moz-transform: translate(0);
-              -webkit-transform: translate(0);
-              -o-transform: translate(0);
-              transform: translate(0);
+              padding: 0.5em;
             }
           }
         `}

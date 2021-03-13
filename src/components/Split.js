@@ -7,10 +7,10 @@ const Split = props => (
       {`
         .split {
           float: left;
-          width: 90%;
+          width: 100%;
           height: 1px;
           margin: 10px 0 5px 5%;
-          background-color: rgba(128, 128, 128, 0.5);
+          background: rgba(128, 128, 128, 0.5);
         }
       `}
     </style>

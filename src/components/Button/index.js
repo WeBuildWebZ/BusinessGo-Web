@@ -11,9 +11,8 @@ const Button = props => {
         {`
           .button {
             float: left;
-            width: 80%;
-            margin-left: 10%;
-            padding: 5px 0 5px 0;
+            width: 100%;
+            padding: 5px 0;
             text-align: center;
             transition: 0.2s;
             cursor: pointer;

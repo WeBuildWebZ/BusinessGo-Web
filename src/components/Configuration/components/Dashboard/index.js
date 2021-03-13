@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ProjectSelector from './components/ProjectSelector';
 import Sidebar from './components/Sidebar';
 import Container from './components/Container';
-import ButtonPanel from './components/ButtonPanel';
+// import ButtonPanel from './components/ButtonPanel';
 
 const Dashboard = () => {
   const user = useSelector(store => store.user);
@@ -16,7 +16,6 @@ const Dashboard = () => {
         {project && (
           <>
             <Sidebar />
-            <ButtonPanel />
             <Container />
           </>
         )}
@@ -25,23 +24,20 @@ const Dashboard = () => {
       <style jsx>
         {`
           .dashboard {
+            width: 100vw;
+            min-height: 100vh;
             display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            flex-grow: 1;
+            justify-content: center;
+            padding: 0 1em;
           }
-
-          .middleSpace {
-            flex-grow: 1;
-          }
-          .bottomSpace {
-            flex-grow: 0.1;
+          @media (max-width: 1168px) {
+            .dashboard {
+              flex-wrap: wrap;
+              padding: 0;
+            }
           }
         `}
       </style>
-      <div className="bottomSpace" />
     </>
   );
 };

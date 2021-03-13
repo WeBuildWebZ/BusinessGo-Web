@@ -49,19 +49,14 @@ const Container = () => {
       <style jsx>
         {`
           .container {
-            background-color: #ffffff;
-            box-shadow: 0 0 2px 2px #ffffff;
-            width: 60%;
-            height: 90vh;
-            margin: auto;
-            border-radius: 5px;
+            padding: 2em 0 0 0;
+            margin-left: 0.5em;
+            min-width: 800px;
+            min-height: 100vh;
+            border-radius: 0.5em;
             transition: 0.8s;
             animation: arrive 1s linear;
-            overflow-y: auto;
             overflow-x: hidden;
-          }
-          .container:hover {
-            background-color: #fffffff3;
           }
 
           @keyframes arrive {
@@ -72,17 +67,20 @@ const Container = () => {
               -webkit-transform: translate(100%);
               -o-transform: translate(100%);
               transform: translate(100%);
-              background-color: rgb(42, 42, 209);
-              height: 0;
             }
             100% {
               opacity: 1;
-              margin-right: 0;
               -ms-transform: translate(0);
               -moz-transform: translate(0);
               -webkit-transform: translate(0);
               -o-transform: translate(0);
               transform: translate(0);
+            }
+          }
+          @media (max-width: 1168px) {
+            .container {
+              min-width: 100vw;
+              margin-left: 0;
             }
           }
         `}

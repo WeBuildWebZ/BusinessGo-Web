@@ -47,6 +47,11 @@ const Menu = () => (
             margin-top: 2.5em;
           }
         }
+        @media (max-width: 790px) {
+          .menu {
+            display: none;
+          }
+        }
       `}
     </style>
   </div>
