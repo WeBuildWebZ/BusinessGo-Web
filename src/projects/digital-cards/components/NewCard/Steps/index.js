@@ -22,7 +22,7 @@ const Steps = props => {
       const handleSelectProductOption = optionIndex => {
         const product = props.products[optionIndex];
         const newData = { card_type: product.code };
-        props.onDataAdded(newData, 'template');
+        props.onDataAdded(newData, 'destination');
       };
 
       const options = props.products.map(product => {
@@ -30,6 +30,17 @@ const Steps = props => {
         return { title: translation.name, description: translation.description };
       });
       return <Options options={options} onOptionSelected={handleSelectProductOption} />;
+    }
+    case 'destination': {
+      const destinations = ['person', 'business'];
+      const options = destinations.map(destination => language.destinations[destination]);
+      const handleSelectOption = optionIndex => {
+        const destination = destinations[optionIndex];
+        const newData = { destination };
+        props.onDataAdded(newData, 'template');
+      };
+
+      return <Options options={options} onOptionSelected={handleSelectOption} />;
     }
     case 'template': {
       const handleSelectTemplateOption = optionIndex => {
@@ -64,7 +75,7 @@ const Steps = props => {
       };
       return (
         <Form
-          formCode={`${props.data.card_type}_card_creation_photos`}
+          formCode={`${props.data.card_type}_${props.data.destination}_card_creation_photos`}
           data={props.data}
           onDataAdded={newData => handleDataChange(newData)}
           onGoBack={() => props.onDataAdded({}, 'personal_data')}
