@@ -39,6 +39,7 @@ const Options = props => {
             user-select: none;
             overflow: hidden;
             z-index: 1000;
+            animation: optionsAppear linear 0.4s;
           }
           .options.hidden {
             display: none;
@@ -57,6 +58,11 @@ const Options = props => {
             transform: scale(1.3);
             background-color: #00000033;
             transition: 0.1s;
+          }
+          @keyframes optionsAppear {
+            0% {
+              opacity: 0;
+            }
           }
         `}
       </style>
