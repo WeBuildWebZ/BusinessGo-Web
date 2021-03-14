@@ -14,6 +14,7 @@ const Select = props => {
 
   const handleChangeOption = option => {
     setShowOptions(false);
+    if (option === selectedOption) return;
     props.onOptionChanged(option);
   };
 
