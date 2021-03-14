@@ -12,8 +12,6 @@ const Patrocinators = () => {
       <style jsx>
         {`
           .sliderContainer {
-            width: 70%;
-            margin-left: 15%;
           }
           .slider {
             width: 100%;

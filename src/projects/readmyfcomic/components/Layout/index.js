@@ -25,11 +25,16 @@ const Layout = ({ children }) => {
       <Title />
       <ButtonPanel />
       <Right />
-      {children}
+      <div className="children">{children}</div>
       <style jsx>
         {`
           .layout {
             height: fit-content;
+          }
+          .children {
+            width: 70%;
+            margin-left: 15%;
+            padding-bottom: 25px;
           }
         `}
       </style>

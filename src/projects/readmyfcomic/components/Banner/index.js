@@ -26,8 +26,7 @@ const Banner = props => (
     <style jsx>
       {`
         .bannerContainer {
-          width: 70%;
-          margin: 15px 0 0 15%;
+          margin-top: 15px;
         }
         .title {
           display: flex;

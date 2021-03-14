@@ -33,7 +33,7 @@ const Banners = () => {
       <Banner
         title={language.topN}
         images={topImages}
-        button={{ text: language.discoverMoreComics, href: '#' }}
+        button={{ text: language.discoverMoreComics, href: '/comics' }}
       />
       <Banner title={language.hotChapters} images={hotImages} />
       <Banner title={language.newComics} images={newImages} />
