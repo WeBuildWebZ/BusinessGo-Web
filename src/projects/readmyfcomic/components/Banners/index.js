@@ -31,12 +31,13 @@ const Banners = () => {
   return (
     <>
       <Banner
+        key="topN"
         title={language.topN}
         images={topImages}
         button={{ text: language.discoverMoreComics, href: '/comics' }}
       />
-      <Banner title={language.hotChapters} images={hotImages} />
-      <Banner title={language.newComics} images={newImages} />
+      <Banner key="hotChapters" title={language.hotChapters} images={hotImages} />
+      <Banner key="newComics" title={language.newComics} images={newImages} />
     </>
   );
 };

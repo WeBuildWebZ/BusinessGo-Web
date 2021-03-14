@@ -9,7 +9,7 @@ import Title from './Title';
 import ButtonPanel from './ButtonPanel';
 import Right from './Right';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, page }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Title />
-      <ButtonPanel />
+      <ButtonPanel page={page} />
       <Right />
       <div className="children">{children}</div>
       <style jsx>
@@ -43,6 +43,7 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
+  page: PropTypes.string.isRequired,
   children: PropTypes.any
 };
 

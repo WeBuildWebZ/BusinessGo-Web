@@ -15,8 +15,8 @@ const Banner = props => (
       )}
     </div>
     <div className="banner">
-      {props.images.map(image => (
-        <Link href="#">
+      {props.images.map((image, i) => (
+        <Link key={i} href="/">
           <a>
             <img className="comic" src={image} />
           </a>

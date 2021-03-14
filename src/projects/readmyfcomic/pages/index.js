@@ -4,7 +4,7 @@ import Banners from '../components/Banners';
 import CheckForums from '../components/CheckForums';
 
 const ReadMyFComic = () => (
-  <Layout>
+  <Layout page="frontPage">
     <Patrocinators />
     <Banners />
     <CheckForums />
