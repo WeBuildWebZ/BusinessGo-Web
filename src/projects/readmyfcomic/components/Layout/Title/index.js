@@ -1,8 +1,14 @@
+import Link from 'next/link';
+
 const Title = () => (
   <div className="title">
-    <div className="text">
-      Read My F****** Comic<div className="exclamationMark">!</div>
-    </div>
+    <Link href="/">
+      <a>
+        <div className="text">
+          Read My F****** Comic<div className="exclamationMark">!</div>
+        </div>
+      </a>
+    </Link>
     <style jsx>
       {`
         .title {
