@@ -14,6 +14,7 @@ import { setProject } from '../actions/project';
 import { setUser } from '../actions/user';
 import { initSentry } from '../../utils/sentry';
 import { setQueryParams } from '../actions/queryParams';
+import { setLanguage } from '../actions/language';
 import { getSessions } from '../../services/api/session';
 import useHandleError from '../hooks/useHandleError';
 import { setSession } from '../actions/session';
@@ -33,6 +34,8 @@ const ReduxFiller = props => {
       initSentry(project.sentry_settings.dsn);
     });
   }
+
+  dispatch(setLanguage(constants.DEFAULT_LANGUAGE));
 
   if (constants.HAS_LOGIN) {
     getSessions()
@@ -57,7 +60,8 @@ const ReduxFiller = props => {
 ReduxFiller.propTypes = {
   constants: PropTypes.shape({
     PROJECT_CODE: PropTypes.string.isRequired,
-    HAS_LOGIN: PropTypes.bool.isRequired
+    HAS_LOGIN: PropTypes.bool.isRequired,
+    DEFAULT_LANGUAGE: PropTypes.string.isRequired
   }).isRequired
 };
 

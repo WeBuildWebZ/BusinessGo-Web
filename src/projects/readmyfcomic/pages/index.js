@@ -1,11 +1,11 @@
 import Layout from '../components/Layout';
 import Patrocinators from '../components/Patrocinators';
-import TopN from '../components/TopN';
+import Banners from '../components/Banners';
 
 const ReadMyFComic = () => (
   <Layout>
     <Patrocinators />
-    <TopN />
+    <Banners />
   </Layout>
 );
 
