@@ -23,30 +23,11 @@ const filters = ['Popular Now', 'Most Viewed', 'Most Liked', 'Oldest', 'Newest']
 
 const Filters = () => {
   const language = getLanguage(useSelector(store => store.language));
-  const query = useSelector(store => store.queryParams);
-  const changeQuery = useChangeQuery();
   const [category, setCategory] = useState(null);
   const [sortBy, setSortBy] = useState(null);
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    setCategory(query.category);
-    setSortBy(query.sort_by);
-  }, [query]);
-
-  const handleChangeCategory = newCategory => {
-    setCategory(newCategory);
-    changeQuery({ category: newCategory });
-  };
-
-  const handleChangeSortBy = newSortBy => {
-    setSortBy(newSortBy);
-    changeQuery({ sort_by: newSortBy });
-  };
-
-  const handleChangeSearch = newSearch => {
-    setSearch(newSearch);
-  };
+  useEffect(() => {}, [category, sortBy, search]);
 
   return (
     <>
@@ -54,7 +35,7 @@ const Filters = () => {
         <Search
           placeholder={language.searchByTags}
           style={{ flex: 5, margin: '26px 0 0 7px' }}
-          onChange={handleChangeSearch}
+          onChange={newSearch => setSearch(newSearch)}
           updateAfter={500}
         />
       </div>
@@ -63,20 +44,20 @@ const Filters = () => {
           title={language.categories}
           options={categories}
           selectedOption={category}
-          onOptionChanged={handleChangeCategory}
+          onOptionChanged={newCategory => setCategory(newCategory)}
         />
         <Select
           title={language.filter}
           options={filters}
           selectedOption={sortBy}
-          onOptionChanged={handleChangeSortBy}
+          onOptionChanged={newSortBy => setSortBy(newSortBy)}
           style={{ marginLeft: 7 }}
         />
         <div className="searchBar">
           <Search
             placeholder={language.searchByTags}
             style={{ flex: 5, margin: '26px 0 0 7px' }}
-            onChange={handleChangeSearch}
+            onChange={newSearch => setSearch(newSearch)}
             updateAfter={500}
           />
         </div>
