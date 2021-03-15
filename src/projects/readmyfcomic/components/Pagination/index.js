@@ -4,11 +4,26 @@ import { useState } from 'react';
 const Pagination = props => {
   const { pagination } = props;
   const [minPage, setMinPage] = useState(1);
-  const pages = Math.ceil(pagination.count / pagination.pageSize);
+  const totalPages = Math.ceil(pagination.count / pagination.pageSize);
+  const morePages = Math.max(0, totalPages - pagination.maxPages);
+  const pagesToShow = totalPages - morePages;
+
+  const handleSumPage = amount => {
+    const newPage = pagination.pageNumber + amount;
+    const newMinPage = Math.max(1, newPage - pagination.maxPages + 1);
+    if (newPage > totalPages) return;
+    setMinPage(newMinPage);
+    props.onPageChanged(newPage);
+  };
 
   return (
     <div className="pagination">
-      {Array(pages)
+      {pagination.pageNumber > 1 && (
+        <div className="button iconButton" onClick={() => handleSumPage(-1)}>
+          <img className="icon" src="/icons/arrowLeft.webp" />
+        </div>
+      )}
+      {Array(pagesToShow)
         .fill(0)
         .map((_, i) => {
           const currentPage = minPage + i;
@@ -24,6 +39,11 @@ const Pagination = props => {
             </div>
           );
         })}
+      {pagination.pageNumber < totalPages && (
+        <div className="button iconButton" onClick={() => handleSumPage(1)}>
+          <img className="icon" src="/icons/arrowRight.webp" />
+        </div>
+      )}
       <style jsx>
         {`
           .pagination {
@@ -50,6 +70,12 @@ const Pagination = props => {
           }
           .button.selected {
             background-color: #8dd4e4;
+          }
+          .iconButton:hover {
+            background-color: unset;
+          }
+          .icon {
+            width: 20px;
           }
         `}
       </style>
