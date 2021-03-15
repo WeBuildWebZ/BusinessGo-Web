@@ -80,6 +80,15 @@ const Select = props => {
             position: absolute;
             margin-left: 7px;
           }
+          @media only screen and (max-width: 768px) {
+            .title {
+              margin-bottom: 2px;
+              font-size: 12px;
+            }
+            .selectedItem {
+              font-size: 11px;
+            }
+          }
         `}
       </style>
     </div>

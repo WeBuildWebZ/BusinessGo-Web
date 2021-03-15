@@ -49,26 +49,38 @@ const Filters = () => {
   };
 
   return (
-    <div className="filters">
-      <Select
-        title={language.categories}
-        options={categories}
-        selectedOption={category}
-        onOptionChanged={handleChangeCategory}
-      />
-      <Select
-        title={language.filter}
-        options={filters}
-        selectedOption={sortBy}
-        onOptionChanged={handleChangeSortBy}
-        style={{ marginLeft: 7 }}
-      />
-      <Search
-        placeholder={language.searchByTags}
-        style={{ flex: 5, margin: '26px 0 0 7px' }}
-        onChange={handleChangeSearch}
-        updateAfter={500}
-      />
+    <>
+      <div className="mobileSearchBar">
+        <Search
+          placeholder={language.searchByTags}
+          style={{ flex: 5, margin: '26px 0 0 7px' }}
+          onChange={handleChangeSearch}
+          updateAfter={500}
+        />
+      </div>
+      <div className="filters">
+        <Select
+          title={language.categories}
+          options={categories}
+          selectedOption={category}
+          onOptionChanged={handleChangeCategory}
+        />
+        <Select
+          title={language.filter}
+          options={filters}
+          selectedOption={sortBy}
+          onOptionChanged={handleChangeSortBy}
+          style={{ marginLeft: 7 }}
+        />
+        <div className="searchBar">
+          <Search
+            placeholder={language.searchByTags}
+            style={{ flex: 5, margin: '26px 0 0 7px' }}
+            onChange={handleChangeSearch}
+            updateAfter={500}
+          />
+        </div>
+      </div>
       <style jsx>
         {`
           .filters {
@@ -76,9 +88,23 @@ const Filters = () => {
             flex-direction: row;
             justify-content: space-around;
           }
+          .searchBar {
+            flex: 5;
+          }
+          .mobileSearchBar {
+            display: none;
+          }
+          @media only screen and (max-width: 768px) {
+            .searchBar {
+              display: none;
+            }
+            .mobileSearchBar {
+              display: block;
+            }
+          }
         `}
       </style>
-    </div>
+    </>
   );
 };
 
