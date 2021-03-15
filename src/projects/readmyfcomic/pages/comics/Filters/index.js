@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import useChangeQuery from '../../../../../shared/hooks/useChangeQuery';
 import Select from '../../../components/Select';
 import Search from '../../../components/Search';
+import { setComics } from '../../../actions/comics';
 import { getClientDocuments } from '../../../../../services/api/clientDocument';
 
 import { getLanguage } from './lang';
@@ -23,6 +24,7 @@ const categories = [
 const filters = ['Popular Now', 'Most Viewed', 'Most Liked', 'Oldest', 'Newest'];
 
 const Filters = () => {
+  const dispatch = useDispatch();
   const project = useSelector(store => store.project);
   const language = getLanguage(useSelector(store => store.language));
   const [pageNumber, setPageNumber] = useState(1);
@@ -33,7 +35,9 @@ const Filters = () => {
   useEffect(() => {
     if (!project) return;
     const categoryFilter = category === 'All' ? {} : { category };
-    getClientDocuments('comic', project, 5, pageNumber, categoryFilter);
+    getClientDocuments('comic', project, 5, pageNumber, categoryFilter).then(({ data: comics }) => {
+      dispatch(setComics(comics));
+    });
   }, [project, category, sortBy, search]);
 
   return (
