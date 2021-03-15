@@ -28,12 +28,14 @@ const ReduxFiller = props => {
 
   const isAdminPage = process.browser && window.location.pathname === '/admin';
 
-  if (!isAdminPage) {
-    showProject(constants.PROJECT_CODE).then(project => {
-      dispatch(setProject(project));
-      initSentry(project.sentry_settings.dsn);
-    });
-  }
+  useEffect(() => {
+    if (!isAdminPage) {
+      showProject(constants.PROJECT_CODE).then(project => {
+        dispatch(setProject(project));
+        initSentry(project.sentry_settings.dsn);
+      });
+    }
+  }, []);
 
   dispatch(setLanguage(constants.DEFAULT_LANGUAGE));
 

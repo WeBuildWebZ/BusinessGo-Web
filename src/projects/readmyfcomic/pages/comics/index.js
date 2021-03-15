@@ -11,7 +11,7 @@ const Comics = () => {
 
   return (
     <Layout page="findComic">
-      <Title title="FIND COMIC" />
+      <Title title={language.title} />
       <Filters />
     </Layout>
   );
