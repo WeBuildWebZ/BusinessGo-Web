@@ -5,6 +5,7 @@ import useChangeQuery from '../../../../../shared/hooks/useChangeQuery';
 import Select from '../../../components/Select';
 import Search from '../../../components/Search';
 import { setComics } from '../../../actions/comics';
+import { setComicPagination } from '../../../actions/comicPagination';
 import { getClientDocuments } from '../../../../../services/api/clientDocument';
 
 import { getLanguage } from './lang';
@@ -20,25 +21,31 @@ const categories = [
   'Sports',
   'Slice of Life'
 ];
-
 const filters = ['Popular Now', 'Most Viewed', 'Most Liked', 'Oldest', 'Newest'];
+const pageSize = 2;
 
 const Filters = () => {
   const dispatch = useDispatch();
   const project = useSelector(store => store.project);
+  const pagination = useSelector(store => store.comicPagination);
   const language = getLanguage(useSelector(store => store.language));
-  const [pageNumber, setPageNumber] = useState(1);
   const [category, setCategory] = useState(categories[0]);
   const [sortBy, setSortBy] = useState(filters[0]);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
+    const pageNumber = pagination?.pageNumber || 1;
     if (!project) return;
     const categoryFilter = category === 'All' ? {} : { category };
-    getClientDocuments('comic', project, 5, pageNumber, categoryFilter).then(({ data: comics }) => {
+    getClientDocuments('comic', project, pageSize, pageNumber, categoryFilter).then(({ data: comics }) => {
       dispatch(setComics(comics));
     });
-  }, [project, category, sortBy, search]);
+    getClientDocuments('comic', project, pageSize, pageNumber, categoryFilter, '', [], true).then(
+      ({ data }) => {
+        dispatch(setComicPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
+      }
+    );
+  }, [project, category, sortBy, search, pagination?.pageNumber]);
 
   return (
     <>

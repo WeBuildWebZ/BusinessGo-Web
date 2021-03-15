@@ -4,32 +4,34 @@ import Link from 'next/link';
 const ComicList = () => {
   const comics = useSelector(store => store.comics);
 
-  console.log('comics', comics);
-
   return (
     <div className="comicList">
       {comics?.map((comic, i) => (
-        <Link href={`/comics/${encodeURIComponent(comic._id)}`}>
-          <a>
-            <div key={i} className="comic">
+        <div key={i} className="comic">
+          <Link href={`/comics/${encodeURIComponent(comic._id)}`}>
+            <a>
               <img className="image" src={comic.image} />
+            </a>
+          </Link>
+          <Link href={`/comics/${encodeURIComponent(comic._id)}`}>
+            <a>
               <div className="infoContainer">
                 <div className="title">{comic.title}</div>
                 <div className="description">{comic.description}</div>
               </div>
-              <div className="statiscsContainer">
-                <div className="viewsContainer">
-                  <img className="icon" src="/icons/eye.png" />
-                  <div className="views">{comic.views.length}</div>
-                </div>
-                <div className="reactionsContainer">
-                  <img className="icon" src="/icons/heart.png" />
-                  <div className="reactions">{comic.reactions.length}</div>
-                </div>
-              </div>
+            </a>
+          </Link>
+          <div className="statisticContainer">
+            <div className="statistic viewsContainer">
+              <img className="icon" src="/icons/eye.png" />
+              <div className="views">{comic.views.length}</div>
             </div>
-          </a>
-        </Link>
+            <div className="statistic reactionsContainer">
+              <img className="icon" src="/icons/heart.png" />
+              <div className="reactions">{comic.reactions.length}</div>
+            </div>
+          </div>
+        </div>
       ))}
       <style jsx>
         {`
@@ -40,10 +42,9 @@ const ComicList = () => {
           .comic {
             display: flex;
             flex-direction: row;
-            width: 100%;
+            width: fit-content;
             margin-bottom: 14px;
             user-select: none;
-            cursor: pointer;
             transition: 0.7s;
           }
           .comic:hover {
@@ -65,13 +66,24 @@ const ComicList = () => {
           .title {
             font-size: 24px;
           }
-          .statiscsContainer {
+          .statisticContainer {
             display: flex;
             flex-direction: column;
           }
           .icon {
             display: inline-block;
             width: 20px;
+          }
+          .statistic {
+            transition: 0.7s;
+            cursor: pointer;
+          }
+          .statistic:hover {
+            transform: scale(1.2);
+          }
+          .statistic:active {
+            transform: scale(1.5) rotate(-5deg);
+            transition: 0.1s;
           }
           .viewsContainer {
             display: flex;

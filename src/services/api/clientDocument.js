@@ -7,7 +7,8 @@ export const getClientDocuments = (
   page_number = 1,
   filters = {},
   text_search = '',
-  text_search_fields = []
+  text_search_fields = [],
+  count = false
 ) =>
   api.get(`api/projects/${encodeURIComponent(project.code)}/client_documents`, {
     params: {
@@ -20,7 +21,8 @@ export const getClientDocuments = (
       regex_fields: text_search_fields.map(field => `value.${field}`),
       ...Object.fromEntries(
         text_search_fields.map(field => [`value.${field}`, text_search || filters[field]])
-      )
+      ),
+      count
     }
   });
 

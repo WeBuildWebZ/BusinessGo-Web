@@ -1,7 +1,9 @@
 import comics from './comics';
+import comicPagination from './comicPagination';
 
 const Reducers = {
-  comics
+  comics,
+  comicPagination
 };
 
 export default Reducers;
