@@ -4,6 +4,7 @@ import Layout from '../../components/Layout';
 import Title from '../../components/Title';
 
 import Filters from './Filters';
+import ComicList from './ComicList';
 import { getLanguage } from './lang';
 
 const Comics = () => {
@@ -13,6 +14,7 @@ const Comics = () => {
     <Layout page="findComic">
       <Title title={language.title} />
       <Filters />
+      <ComicList />
     </Layout>
   );
 };

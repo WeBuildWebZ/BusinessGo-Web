@@ -7,6 +7,7 @@ import '../assets/styles/globals.css';
 
 import getApp from '../../../shared/pages/_app';
 import * as constants from '../constants';
+import reducers from '../reducers';
 
 const AppendHead = () => (
   <>
@@ -43,4 +44,4 @@ const AppendHead = () => (
   </>
 );
 
-export default getApp({}, constants, AppendHead);
+export default getApp(reducers, constants, AppendHead);
