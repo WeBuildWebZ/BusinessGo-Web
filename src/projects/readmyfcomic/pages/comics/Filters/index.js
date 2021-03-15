@@ -22,7 +22,7 @@ const categories = [
   'Slice of Life'
 ];
 const filters = ['Popular Now', 'Most Viewed', 'Most Liked', 'Oldest', 'Newest'];
-const pageSize = 2;
+const pageSize = 5;
 
 const Filters = () => {
   const dispatch = useDispatch();
