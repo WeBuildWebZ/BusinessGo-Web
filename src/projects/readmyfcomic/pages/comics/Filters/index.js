@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import useChangeQuery from '../../../../../shared/hooks/useChangeQuery';
 import Select from '../../../components/Select';
+import Search from '../../../components/Search';
 
 import { getLanguage } from './lang';
 
@@ -26,12 +27,11 @@ const Filters = () => {
   const changeQuery = useChangeQuery();
   const [category, setCategory] = useState(null);
   const [sortBy, setSortBy] = useState(null);
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     setCategory(query.category);
     setSortBy(query.sort_by);
-    setSearch(query.search);
   }, [query]);
 
   const handleChangeCategory = newCategory => {
@@ -42,6 +42,10 @@ const Filters = () => {
   const handleChangeSortBy = newSortBy => {
     setSortBy(newSortBy);
     changeQuery({ sort_by: newSortBy });
+  };
+
+  const handleChangeSearch = newSearch => {
+    setSearch(newSearch);
   };
 
   return (
@@ -57,6 +61,13 @@ const Filters = () => {
         options={filters}
         selectedOption={sortBy}
         onOptionChanged={handleChangeSortBy}
+        style={{ marginLeft: 7 }}
+      />
+      <Search
+        placeholder={language.searchByTags}
+        style={{ flex: 5, margin: '26px 0 0 7px' }}
+        onChange={handleChangeSearch}
+        updateAfter={500}
       />
       <style jsx>
         {`

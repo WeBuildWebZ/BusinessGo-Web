@@ -19,7 +19,7 @@ const Select = props => {
   };
 
   return (
-    <div className="select">
+    <div className="select" style={props.style}>
       <div className="title">{props.title}</div>
       <div className="selector" onClick={handleToggleOptions}>
         <div className="picker">
@@ -90,12 +90,14 @@ Select.propTypes = {
   title: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectedOption: PropTypes.string,
-  onOptionChanged: PropTypes.func
+  onOptionChanged: PropTypes.func,
+  style: PropTypes.object
 };
 
 Select.defaultProps = {
   selectedOption: '',
-  onOptionChanged: () => {}
+  onOptionChanged: () => {},
+  style: {}
 };
 
 export default Select;
