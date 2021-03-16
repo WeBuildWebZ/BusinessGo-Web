@@ -20,7 +20,7 @@ const Select = props => {
 
   return (
     <div className="select" style={props.style}>
-      <div className="title">{props.title}</div>
+      {props.title && <div className="title">{props.title}</div>}
       <div className="selector" onClick={handleToggleOptions}>
         <div className="picker">
           <img className="arrow" src="/icons/arrowDown.webp" />
@@ -96,7 +96,7 @@ const Select = props => {
 };
 
 Select.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectedOption: PropTypes.string,
   onOptionChanged: PropTypes.func,
@@ -104,6 +104,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+  title: '',
   selectedOption: '',
   onOptionChanged: () => {},
   style: {}
