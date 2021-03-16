@@ -9,7 +9,7 @@ const CheckForums = () => {
   return (
     <div className="checkForumsContainer">
       {language.checkForumsMessage}
-      <Link href="/forum">
+      <Link href="/forums">
         <div className="goToForums">{language.goToForums}</div>
       </Link>
       <style jsx>

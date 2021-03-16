@@ -26,8 +26,8 @@ const ButtonPanel = props => {
           <a className="button">{language.findProfile}</a>
         </Link>
       </Item>
-      <Item selected={props.page === 'forum'}>
-        <Link href="/forum">
+      <Item selected={props.page === 'forums'}>
+        <Link href="/forums">
           <a className="button">{language.forum}</a>
         </Link>
       </Item>
