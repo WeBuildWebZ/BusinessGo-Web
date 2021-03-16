@@ -21,6 +21,7 @@ body,
 html {
   width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -38,6 +39,7 @@ p {
 button {
   width: 150px;
   padding: 1em 0;
+  margin: 1em 0;
   border: none;
   outline: none;
   background: #f8ac30;

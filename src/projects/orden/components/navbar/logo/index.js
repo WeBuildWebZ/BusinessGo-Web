@@ -34,7 +34,7 @@ const Logo = () => (
           height: 150px;
           object-fit: contain;
           position: absolute;
-          top: -1em;
+          top: 0.3em;
           left: -1.5em;
         }
         h2 {

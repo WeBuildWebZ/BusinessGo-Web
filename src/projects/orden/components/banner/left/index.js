@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 
 import Spinner from '../../../../../components/Spinner';
 
@@ -12,7 +13,12 @@ const Left = () => {
         <p>{project?.configuration.basic_info.description}</p>
         <h2>{project?.configuration.basic_info.title}</h2>
         <h2>{project?.configuration.basic_info.title2}</h2>
-        <button>{project?.configuration.basic_info.view_button}</button>
+
+        <Link href="/#me">
+          <button>
+            <a>{project?.configuration.basic_info.view_button}</a>
+          </button>
+        </Link>
       </div>
       <style jsx>
         {`

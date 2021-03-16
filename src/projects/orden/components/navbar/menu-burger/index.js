@@ -1,10 +1,13 @@
-const burger = document.querySelector('#burger');
-const nav = document.querySelector('#nav');
+import Link from 'next/link';
 
-const menu = burger.addEventListener('click', () => {
-  nav.classList.toggle('spread');
-  return menu();
-});
+if (typeof window === 'object') {
+  const burger = document.querySelector('#burger');
+  const nav = document.querySelector('#nav');
+
+  const menu = burger.addEventListener('click', () => {
+    nav.classList.toggle('spread');
+  });
+}
 
 const MenuBurger = () => (
   <div className="menu">
@@ -16,43 +19,57 @@ const MenuBurger = () => (
       </span>
 
       <nav id="nav">
-        <a href="inicio">inicio</a>
-        <a href="nosotros">nosotros</a>
-        <a href="productos">productos</a>
-        <a href="precios">precios</a>
-        <a href="contacto">contacto</a>
+        <Link href="/">
+          <a>Inicio</a>
+        </Link>
+
+        <Link href="/#me">
+          <a>Sobre mi</a>
+        </Link>
+
+        <Link href="/#servicios">
+          <a>Servicios</a>
+        </Link>
+
+        <Link href="/#precios">
+          <a>Precio</a>
+        </Link>
+
+        <Link href="/#contacto">
+          <a>Contacto</a>
+        </Link>
       </nav>
     </div>
     <style jsx>
       {`
-        .card {
-          width: 100%;
-          height: 200px;
+        .menu {
+          width:100vw;
+          height: 300px;
           display: flex;
           flex-flow: column;
-          box-shadow: 0.3em 0.3em 0.5em hsla(0, 0%, 0%, 0.349);
-          border-radius: 2em;
           padding: 0.5em;
-          background: white;
+          position:absolute;
+          top:0;
+          z-index:1000;
+          background:white;
         }
 
-        /* top */
+// ======================================================================
         .top-icons {
           display: flex;
           justify-content: flex-end;
           align-items: center;
           width: 100%;
-          background: pink;
         }
 
         .top-icons i {
           font-size: 2em;
           color: rgb(12, 7, 0);
         }
-
-        /* ==================================================== */
+        
+// ==========================================================================
         #burger {
-          z-index: 100;
+          z-index: 1000;
           background: white;
           border-radius: 0.5em;
         }

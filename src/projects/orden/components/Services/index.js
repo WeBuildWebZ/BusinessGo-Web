@@ -40,7 +40,7 @@ const Services = () => {
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 1em;
+            padding: 2em 1em;
             flex-wrap: wrap;
             background-image: linear-gradient(to bottom, white, #f4edef);
           }

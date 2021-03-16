@@ -13,6 +13,15 @@ const Right = () => (
           object-fit: cover;
           border-radius: 1em;
         }
+
+        // ========================
+
+        @media (max-width: 1223px) {
+          img {
+            padding: 1em 0;
+            border-radius: 1em;
+          }
+        }
         @media (max-width: 1199px) {
           .right {
             display: none;
