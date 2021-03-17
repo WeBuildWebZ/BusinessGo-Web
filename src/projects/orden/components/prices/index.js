@@ -50,7 +50,7 @@ const Prices = () => {
             justify-content: center;
             align-items: center;
             flex-flow: column;
-            background: #da7c7a;
+            background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
           }
           .regala,
           .texto {
@@ -84,17 +84,17 @@ const Prices = () => {
           .card1 .icon {
             -webkit-mask: url(/icons/certificate.svg) 50% 100% no-repeat;
             background-position: center;
-            background-image: linear-gradient(to right, #6e3e76 0%, #da7c7a 100%);
+            background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
           }
           .card2 .icon {
             -webkit-mask: url(/icons/child.svg) 50% 100% no-repeat;
             background-position: center;
-            background-image: linear-gradient(to right, #6e3e76 0%, #da7c7a 100%);
+            background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
           }
           .card3 .icon {
             -webkit-mask: url(/icons/cocktail.svg) 50% 100% no-repeat;
             background-position: center;
-            background-image: linear-gradient(to right, #6e3e76 0%, #da7c7a 100%);
+            background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
           }
 
           .icon,

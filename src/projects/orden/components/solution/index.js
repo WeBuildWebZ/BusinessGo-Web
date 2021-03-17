@@ -15,7 +15,7 @@ const Solution = () => (
           align-items: center;
           padding: 1em;
           flex-wrap: wrap;
-          background-image: linear-gradient(to bottom, white, #f4edef);
+          background: #f5efef;
         }
       `}
     </style>

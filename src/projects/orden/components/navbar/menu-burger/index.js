@@ -43,18 +43,19 @@ const MenuBurger = () => (
     <style jsx>
       {`
         .menu {
-          width:100vw;
+          width: 100vw;
           height: 300px;
           display: flex;
           flex-flow: column;
           padding: 0.5em;
-          position:absolute;
-          top:0;
-          z-index:1000;
-          background:white;
+          position: absolute;
+          top: 0;
+          z-index: 1000;
+          background: white;
+          display:none;
         }
 
-// ======================================================================
+        // ======================================================================
         .top-icons {
           display: flex;
           justify-content: flex-end;
@@ -66,8 +67,8 @@ const MenuBurger = () => (
           font-size: 2em;
           color: rgb(12, 7, 0);
         }
-        
-// ==========================================================================
+
+        // ==========================================================================
         #burger {
           z-index: 1000;
           background: white;
@@ -100,10 +101,7 @@ const MenuBurger = () => (
         }
 
         // =========================================
-        @media (max-width: 1300px) {
-          .menu {
-            display: none;
-          }
+
         }
         @media (max-width: 790px) {
           .menu {

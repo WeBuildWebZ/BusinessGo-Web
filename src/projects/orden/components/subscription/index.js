@@ -31,14 +31,14 @@ const Subscription = () => (
           color: white;
           padding: 1em 2em;
           border-radius: 1em;
-          background-image: linear-gradient(to right, #6e3e76 0%, #da7c7a 100%);
+          background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
           cursor: pointer;
           border: none;
           outline: none;
           font-size: 2em;
         }
         h2 {
-          background-image: linear-gradient(to right, #6e3e76 0%, #da7c7a 100%);
+          background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
           -webkit-text-fill-color: transparent;
           -webkit-background-clip: text;
           font-size: 2.5em;

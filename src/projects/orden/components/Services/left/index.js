@@ -41,7 +41,7 @@ const Left = props => (
           font-size: 2em;
           -webkit-text-fill-color: transparent;
           -webkit-background-clip: text;
-          background-image: linear-gradient(to right, #6e3e76 0%, #da7c7a 100%);
+          background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
         }
         p {
           width: 70%;

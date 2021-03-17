@@ -30,7 +30,7 @@ const Right = () => {
           }
           h4,
           p {
-            color: white;
+            color: #1c1c1c;
           }
           p:first-letter {
             font-size: 2em;
@@ -38,7 +38,9 @@ const Right = () => {
           h3 {
             width: 70%;
             font-size: 2em;
-            color: #6e3e76;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
           }
           p {
             width: 70%;

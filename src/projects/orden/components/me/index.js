@@ -13,7 +13,7 @@ const Me = () => (
           display: flex;
           justify-content: center;
           align-items: center;
-          background: #da7c7a;
+          background: #f5efef;
         }
         // ======================================================
         @media (max-width: 1199px) {

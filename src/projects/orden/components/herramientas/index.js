@@ -13,7 +13,7 @@ const Herramientas = () => (
           display: flex;
           justify-content: space-evenly;
           align-items: center;
-          background: #f4edef;
+          background-image: linear-gradient(to top, #6a85b6 0%, #f5efef 100%);
           padding: 1em 1em 3em 1em;
         }
         // =================================================
