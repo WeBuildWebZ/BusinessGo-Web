@@ -23,6 +23,11 @@ const WoW = {
   image_url:
     'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-wow.jpg?alt=media&token=3d21ef80-bd3f-4cc6-9b8b-1d54bfc6897c'
 };
+const WeChat = {
+  url: 'https://www.chatbot.webuildwebz.com/',
+  image_url:
+    'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-we-chat.jpg?alt=media&token=a209759c-c743-4747-bac5-ae66cc25705b'
+};
 const Orden = {
   url: 'https://orden.webuildwebz.com/',
   image_url:
@@ -59,6 +64,11 @@ export const getLanguage = langCode =>
             'En esta web, desarrollamos una Ecommerce, con un Carousel, Base de Datos y carga de imagenes.'
         },
         {
+          ...WeChat,
+          description:
+            'Sitio web anexo a webuildwebz, en esta sub seccion ofrecemos nuestro servicio de Chat Bot'
+        },
+        {
           ...Orden,
           description:
             'Desarrollo de sitio para proyecto familiar de España, Murcia. Orden Y Mas, organiza el espacio de tu vivienda.'
@@ -90,6 +100,10 @@ export const getLanguage = langCode =>
           ...WoW,
           description:
             'On this website, we develop an Ecommerce, with a Carousel, Database and image loading.'
+        },
+        {
+          ...WeChat,
+          description: 'Website attached to webuildwebz, in this sub section we offer our Chat Bot service'
         },
         {
           ...Orden,
