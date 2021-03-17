@@ -76,9 +76,9 @@ const Left = () => {
               margin: auto;
             }
           }
-          @media (max-width: 456px) {
+          @media (max-width: 790px) {
             h2 {
-              font-size: 3em;
+              display: none;
             }
           }
         `}

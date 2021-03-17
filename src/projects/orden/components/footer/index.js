@@ -6,8 +6,8 @@ const Footer = () => (
       <span className="column">
         <h3>Ordenando Y más.</h3>
         <p>
-          Somos tu empresa de orden y organización, recuperA el control de tu casa, que el caos no te invada
-          optimizamos los espacios de tu casa, facilitando y aportando una mejor funcionalidad.
+          Somos tu empresa de orden y organización, que el caos no te invada, optimizamos los espacios de tu
+          casa, facilitando todo.
         </p>
       </span>
 

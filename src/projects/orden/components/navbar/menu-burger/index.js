@@ -44,14 +44,12 @@ const MenuBurger = () => (
       {`
         .menu {
           width: 100vw;
-          height: 300px;
           display: flex;
           flex-flow: column;
           padding: 0.5em;
           position: absolute;
           top: 0;
           z-index: 1000;
-          background: white;
           display:none;
         }
 
@@ -70,29 +68,33 @@ const MenuBurger = () => (
 
         // ==========================================================================
         #burger {
-          z-index: 1000;
+          z-index: 10000;
           background: white;
           border-radius: 0.5em;
         }
         /* NAV */
         nav {
           width: 100%;
-          height: 60%;
+          height: 200px;
           display: flex;
           justify-content: flex-start;
-          align-items: flex-start;
+          align-items: center;
           flex-flow: column;
-          background: rgb(0, 0, 0, 0.8);
+          background:#bac8e0;
           transition: transform 0.5s ease-in;
           transform: translatey(-300px);
-          opacity: 0;
+          opacity: 1;
+          position:absolute;
+          top:0;
+          left:0;
+
         }
 
         a {
           margin: 0 0 0.3em 1em;
           text-decoration: none;
           font-size: 1.5em;
-          color: silver;
+          color: white;
         }
 
         .spread {
