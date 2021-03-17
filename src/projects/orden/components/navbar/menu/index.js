@@ -6,7 +6,7 @@ const Menu = () => (
       <a>Inicio</a>
     </Link>
 
-    <Link href="/#me">
+    <Link href="/#nosotros">
       <a>Sobre mi</a>
     </Link>
 

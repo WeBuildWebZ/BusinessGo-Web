@@ -28,7 +28,7 @@ const MenuBurger = props => {
         <nav className={`nav${spread ? ' spread' : ''}`}>
           {props.links.map((link, i) => (
             <Link key={i} href={link.href}>
-              <a>{link.text}</a>
+              <a onClick={handleToggle}>{link.text}</a>
             </Link>
           ))}
         </nav>
@@ -42,7 +42,7 @@ const MenuBurger = props => {
           padding: 0.5em;
           position: absolute;
           top: 0;
-          z-index: 1000;
+          z-index: 2;
           display:none;
         }
 
@@ -61,12 +61,15 @@ const MenuBurger = props => {
 
         // ==========================================================================
         .burger {
-          z-index: 10000;
+          z-index: 1;
           background: white;
           border-radius: 0.5em;
         }
         /* NAV */
         .nav {
+          position: absolute;
+          top: 0;
+          left: 0;
           width: 100%;
           height: 200px;
           display: flex;
@@ -74,12 +77,9 @@ const MenuBurger = props => {
           align-items: center;
           flex-flow: column;
           background:#bac8e0;
-          transition: transform 0.5s ease-in;
+          transition: 0.5s ease-in;
           transform: translatey(-300px);
-          opacity: 1;
-          position:absolute;
-          top:0;
-          left:0;
+          opacity: 0;
         }
 
         a {

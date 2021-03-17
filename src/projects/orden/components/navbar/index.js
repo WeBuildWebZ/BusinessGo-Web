@@ -4,10 +4,10 @@ import Logo from './logo';
 import Menu from './menu';
 
 const links = [
-  { text: 'inicio', href: '#inicio' },
+  { text: 'inicio', href: '/' },
   { text: 'nosotros', href: '#nosotros' },
-  { text: 'productos', href: '#productos' },
-  { text: 'precio', href: '#precio' },
+  { text: 'productos', href: '#servicios' },
+  { text: 'precios', href: '#precios' },
   { text: 'contacto', href: '#contacto' }
 ];
 

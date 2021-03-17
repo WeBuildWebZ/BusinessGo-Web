@@ -2,12 +2,12 @@ import Left from './left';
 import Right from './right';
 
 const Me = () => (
-  <div className="me" id="me">
+  <div className="nosotros" id="nosotros">
     <Left />
     <Right />
     <style jsx>
       {`
-        .me {
+        .nosotros {
           width: 100vw;
           min-height: auto;
           display: flex;
@@ -17,7 +17,7 @@ const Me = () => (
         }
         // ======================================================
         @media (max-width: 1199px) {
-          .me {
+          .nosotros {
             flex-wrap: wrap;
             align-items: center;
             padding: 1em;

@@ -14,7 +14,7 @@ const Left = () => {
         <h2>{project?.configuration.basic_info.title}</h2>
         <h2>{project?.configuration.basic_info.title2}</h2>
 
-        <Link href="/#me">
+        <Link href="/#nosotros">
           <button>
             <a>{project?.configuration.basic_info.view_button}</a>
           </button>
@@ -28,7 +28,7 @@ const Left = () => {
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            z-index: 1000;
+            z-index: 1;
           }
           .content {
             width: 600px;
