@@ -1,15 +1,18 @@
 import React from 'react';
-import { ModalTitle } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const Title = props => (
-  <ModalTitle
-    style={{
-      color: 'white'
-    }}
-  >
+  <h2 className="title">
     {props.title}
-  </ModalTitle>
+    <style jsx>
+      {`
+        .title {
+          margin: 7px;
+          color: whitesmoke;
+        }
+      `}
+    </style>
+  </h2>
 );
 
 Title.propTypes = {
