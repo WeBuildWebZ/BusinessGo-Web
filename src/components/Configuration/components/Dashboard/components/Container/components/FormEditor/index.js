@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { FormControl, InputLabel, MenuItem, Select, TextField } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/CloseRounded';
-import { PopoverTitle, Button, ModalFooter } from 'react-bootstrap';
+import { Button, ModalFooter } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
 import InputGroup from '../../../../../../../InputGroup';
@@ -73,7 +73,7 @@ const FormEditor = () => {
 
   return (
     <>
-      <PopoverTitle>{language.getTitle(selectedForm)}</PopoverTitle>
+      <h3>{language.getTitle(selectedForm)}</h3>
       <Notifications onChange={handleChangeNotifications} />
       {newForm.fields.map((field, i) => (
         <InputGroup key={field.key}>

@@ -74,6 +74,20 @@ const Left = props => (
           }
         }
         @media (max-width: 440px) {
+          .left {
+            min-width: unset;
+            width: 100%;
+            padding-left: 0;
+          }
+          span {
+            min-width: unset;
+            width: 100%;
+            padding: 0;
+          }
+          h3 {
+            min-width: unset;
+            width: 100%;
+          }
           p {
             width: 100%;
           }

@@ -18,10 +18,9 @@ const Sidebar = () => {
     <div className="sidebar">
       <Title code="configuration" />
       {!project && <Spinner />}
-      {project &&
-        project.configuration_sections.map((section, i) => (
-          <ConfigurationButton key={i} text={section.form.name} configurationSection={section} />
-        ))}
+      {project?.configuration_sections.map((section, i) => (
+        <ConfigurationButton key={i} text={section.form.name} configurationSection={section} />
+      ))}
       <Split />
       <Title code="tables" />
       <Split />

@@ -26,7 +26,15 @@ const Right = props => (
         }
         @media (max-width: 1199px) {
           .right {
-            display: none;
+          }
+        }
+        @media only screen and (max-width: 768px) {
+          .right {
+            min-width: unset;
+            width: 100%;
+          }
+          img {
+            width: 100%;
           }
         }
       `}

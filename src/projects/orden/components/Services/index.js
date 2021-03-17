@@ -46,11 +46,23 @@ const Services = () => {
             background: #f5efef;
           }
           .service {
+            width: 100%;
             display: flex;
             flex-direction: row;
           }
           .service:not(:first-child) {
             margin-top: 8em;
+          }
+          @media only screen and (max-width: 768px) {
+            .service {
+              flex-direction: column;
+            }
+            .service:nth-child(2n) {
+              flex-direction: column-reverse;
+            }
+            .service:not(:first-child) {
+              margin-top: 5em;
+            }
           }
         `}
       </style>
