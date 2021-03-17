@@ -59,14 +59,13 @@ const NewCard = () => {
           {`
             .modalContent {
               width: 50%;
-              height: 70%;
-              margin: 20px 0 0 25%;
+              min-height: 100vh;
+              margin: auto;
               background-color: #ebebeb;
               outline: none;
-              border-radius: 5px;
-              box-shadow: 0px 5px 10px whitesmoke;
+              border-radius: 1em;
+              box-shadow: 0px 5px 10px #1c1c1c;
               overflow-x: hidden;
-              overflow-y: auto;
             }
             .title {
               margin: 10px;
@@ -75,15 +74,17 @@ const NewCard = () => {
               width: fit-content;
               margin-left: 7px;
               padding: 5px 10px 5px 10px;
-              background-color: skyblue;
+              background-color: #ebebeb;
+              color: #1c1c1c;
+              border: 1px solid #1c1c1c;
               user-select: none;
               cursor: pointer;
-              transition: 0.7s;
+              transition: 0.3s;
               border-radius: 5px;
             }
             .backButton:hover {
               transform: scale(1.1);
-              box-shadow: 0 0 2px 2px skyblue;
+              box-shadow: 0 0 2px 2px silver;
             }
             .backButton:active {
               transform: scale(1.15);

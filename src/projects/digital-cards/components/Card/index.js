@@ -42,66 +42,85 @@ const Card = props => {
 
   return (
     <div className={getClassName('_card')}>
-      <div className={getClassName('top')}>
-        <img className={getClassName('profile_photo')} src={card.form_data.profile_photo} />
-        <div className={getClassName('personalData')}>
-          {hasName && (
-            <div className={getClassName('text name')}>
-              {`${card.form_data.name} ${card.form_data.surname}`}
-            </div>
-          )}
-          {hasJobTitle && <div className={getClassName('text job_title')}>{card.form_data.job_title}</div>}
-        </div>
-        {hasJobTitle && (
-          <div className={getClassName('text job_title outer_job_title')}>{card.form_data.job_title}</div>
+      {/* ======================================================================================================================= */}
+      {/* ===============================ARRIBA---FOTO-PERFIL===================================================================== */}
+
+      <div className={getClassName('top')} />
+      <div className={getClassName('personalData')}>
+        {hasName && (
+          <div className={getClassName('text name')}>
+            {`${card.form_data.name} ${card.form_data.surname}`}
+          </div>
         )}
+        {hasJobTitle && <div className={getClassName('text job_title')}>{card.form_data.job_title}</div>}
       </div>
-      <div className={getClassName('left')}>
-        <div>{card.form_data.country}</div>
-        <div>
+      {/* ====================================================================================================================== */}
+      {/* ================================PUESTO LABORAL Y NOMBRE=============================================================== */}
+      {hasJobTitle && (
+        <div className={getClassName('text job_title outer_job_title')}>
+          <h3>{card.form_data.job_title}</h3>
+        </div>
+      )}
+
+      {hasName && (
+        <div className={getClassName('text name outer_name')}>
+          {card.form_data.name} {card.form_data.surname}
+        </div>
+      )}
+      {/* ====================================================================================================================== */}
+      {/* =========================================REDES SOCIALES=============================================================== */}
+
+      <div className="mid">
+        <SocialNetworks card={card} getClassName={getClassName} />
+      </div>
+      {/* ====================================================================================================================== */}
+      {/* ========================================ABAJO DE TODO=============================================================== */}
+
+      <div className={getClassName('bottom')}>
+        {card.form_data.whatsapp_number && (
+          <div className="add" onClick={handleDownloadVCard}>
+            {language.addToContacts}
+          </div>
+        )}
+        <div className="country">{card.form_data.country}</div>
+        <div className="state">
           {card.form_data.state}
           {card.form_data.municipality && `, ${card.form_data.municipality}`}
         </div>
         {card.form_data.personal_email && (
-          <Link href={`mailto:${card.form_data.personal_email}`}>
+          <Link href={`mailto:${card.form_data.personal_email}`} className="email">
             <a target="blank">
               <div className={getClassName('email')}>{card.form_data.personal_email}</div>
             </a>
           </Link>
         )}
       </div>
-      {card.form_data.whatsapp_number && (
-        <div className="addToContacts" onClick={handleDownloadVCard}>
-          {language.addToContacts}
-        </div>
-      )}
-      {hasName && (
-        <div className={getClassName('text name outer_name')}>
-          {card.form_data.name} {card.form_data.surname}
-        </div>
-      )}
-      <SocialNetworks card={card} getClassName={getClassName} />
+
       <style jsx>
         {`
           ._card {
-            position: relative;
-            background-image: url(${card.form_data.background_image});
-            background-size: cover;
             width: 100%;
-            height: 100%;
-            color: whitesmoke;
+            min-height: 100vh;
+            display: flex;
+            flex-flow: column;
+            background: white;
           }
           .text.free4 {
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
             background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
           }
+
+          // ======================================================================
+
           .top {
-            display: flex;
-            flex-direction: row;
+            flex: 7;
             width: 100%;
-            height: 100px;
-            padding-top: 10px;
+            height: 100%;
+            background-image: url(${card.form_data.profile_photo});
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
           }
           .top.free2 {
             flex-direction: row-reverse;
@@ -112,12 +131,15 @@ const Card = props => {
             border-bottom-left-radius: 40%;
             border-bottom-right-radius: 40%;
           }
+
+          // ===============================================
           .profile_photo {
-            max-width: 100%;
-            height: 80%;
-            margin: 0 0 0 14px;
-            border-radius: 10px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            fit-content: cover;
           }
+          // ================================================
           .personalData {
             display: flex;
             flex-direction: column;
@@ -133,51 +155,80 @@ const Card = props => {
           .outer_name {
             display: none;
           }
-          .outer_name.free1 {
-            display: block;
-          }
+
           .name.free2 {
             font-size: 32px;
           }
           .outer_job_title {
             display: none;
           }
+          // ============================================================
           .job_title.free1 {
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            font-size: 22px;
-            padding: 7px;
-            border-radius: 10px;
-            color: whitesmoke;
-            background-color: #03030355;
+            position: relative;
           }
+          .job_title.free1 h3 {
+            position: absolute;
+            top: -0.7em;
+            font-size: 2em;
+            padding: 7px 1em;
+            border: 3px solid white;
+            border-radius: 0.7em;
+            background: #28527a;
+            color: white;
+          }
+          .outer_name.free1 {
+            display: block;
+            margin-top: 1.2em;
+          }
+
           .job_title.free2 {
             font-size: 20px;
           }
+          // ==============================================
           .name.free1 {
-            position: absolute;
-            transform: translate(-50%, -50%) rotate(270deg);
-            left: 50%;
-            top: 50%;
-            width: fit-content;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
             padding: 7px;
             border-radius: 7px;
-            font-size: 40px;
-            color: whitesmoke;
-            background-color: #03030355;
+            font-size: 20px;
+            font-weight: bold;
           }
-          .addToContacts {
-            background-color: #03030355;
-            width: fit-content;
-            padding: 7px;
-            border-radius: 7px;
-            font-size: 13px;
+
+          // =============================================
+          .mid {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-flow: column;
+            background: #ebebeb;
+          }
+          // ==============================================
+
+          .bottom {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            color: white;
+            background: #1c1c1c;
+          }
+          .add,
+          .country,
+          .state,
+          .email {
+            margin: 0 5px;
+            background: black;
+            height: 50px;
+            border-radius: 5px;
             cursor: pointer;
-          }
-          .left {
-            margin-left: 14px;
-            color: whitesmoke;
           }
         `}
       </style>

@@ -28,16 +28,15 @@ const SocialNetworks = props => {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
-            position: absolute;
-            transform: translate(0, -100%);
-            left: 0;
-            top: 100%;
+            align-items: center;
             width: 100%;
-            height: 60px;
-            padding: 10px;
+            height: 100%;
+            flex: 1;
             border-radius: 17px;
-            background-color: #03030355;
           }
+
+          // =============================================================
+
           .socialNetworks.free2 {
             background-color: #e0d0d055;
           }
@@ -55,7 +54,7 @@ const SocialNetworks = props => {
             animation: buttonAppear linear 0.7s;
           }
           .button.free1 {
-            background-image: linear-gradient(to top, rgb(144, 101, 22), orange);
+            background: #28527a;
           }
           .button.free2 {
             background-image: linear-gradient(to right, rgb(43, 39, 33), rgb(0, 0, 0));
