@@ -86,7 +86,8 @@ export const getFieldKeyTranslation = language_code =>
       card1: 'Tarjeta 1',
       card2: 'Tarjeta 2',
       card3: 'Tarjeta 3',
-      items: 'Items'
+      items: 'Items',
+      location: 'Ubicación'
     },
     en: {
       title: 'Title',
@@ -174,6 +175,7 @@ export const getFieldKeyTranslation = language_code =>
       card1: 'Card 1',
       card2: 'Card 2',
       card3: 'Card 3',
-      items: 'Items'
+      items: 'Items',
+      location: 'Location'
     }
   }[language_code]);
