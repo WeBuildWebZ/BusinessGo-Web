@@ -23,6 +23,11 @@ const WoW = {
   image_url:
     'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-wow.jpg?alt=media&token=3d21ef80-bd3f-4cc6-9b8b-1d54bfc6897c'
 };
+const Orden = {
+  url: 'https://orden.webuildwebz.com/',
+  image_url:
+    'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-orden.jpg?alt=media&token=9545ae58-713e-4485-801c-9f68eb86b8e9'
+};
 
 export const getLanguage = langCode =>
   ({
@@ -52,6 +57,11 @@ export const getLanguage = langCode =>
           ...WoW,
           description:
             'En esta web, desarrollamos una Ecommerce, con un Carousel, Base de Datos y carga de imagenes.'
+        },
+        {
+          ...Orden,
+          description:
+            'Desarrollo de sitio para proyecto familiar de España, Murcia. Orden Y Mas, organiza el espacio de tu vivienda.'
         }
       ]
     },
@@ -80,6 +90,11 @@ export const getLanguage = langCode =>
           ...WoW,
           description:
             'On this website, we develop an Ecommerce, with a Carousel, Database and image loading.'
+        },
+        {
+          ...Orden,
+          description:
+            'Site development for a family project in Spain, Murcia. Orden Y Mas, organize the space of your home.'
         }
       ]
     }
