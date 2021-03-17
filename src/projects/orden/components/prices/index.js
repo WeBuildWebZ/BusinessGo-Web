@@ -33,8 +33,8 @@ const Prices = () => {
         </div>
       </span>
       <span className="li">
-        {project?.configuration.prices.items?.map(price => (
-          <li>{price}</li>
+        {project?.configuration.prices.items?.map((price, i) => (
+          <li key={i}>{price}</li>
         ))}
       </span>
       <span className="regala">
