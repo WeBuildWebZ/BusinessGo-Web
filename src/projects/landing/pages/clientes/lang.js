@@ -33,6 +33,14 @@ const Orden = {
   image_url:
     'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-orden.jpg?alt=media&token=9545ae58-713e-4485-801c-9f68eb86b8e9'
 };
+const MasNegocio = {
+  url: 'https://masnegocio.webuildwebz.com/',
+  image_url: 'https://masnegocio.webuildwebz.com/images/page.png'
+};
+const ReadMyFComic = {
+  url: 'https://readmyfcomic.webuildwebz.com/',
+  image_url: 'https://readmyfcomic.webuildwebz.com/images/page.png'
+};
 
 export const getLanguage = langCode =>
   ({
@@ -72,6 +80,16 @@ export const getLanguage = langCode =>
           ...Orden,
           description:
             'Desarrollo de sitio para proyecto familiar de España, Murcia. Orden Y Mas, organiza el espacio de tu vivienda.'
+        },
+        {
+          ...MasNegocio,
+          description:
+            'Utiliza nuestra tecnología, y comparte tu tarjeta digital, para compartir tu información de contacto en 1 segundo.'
+        },
+        {
+          ...ReadMyFComic,
+          description:
+            'Plataforma óptima en que autores y lectores de todo el mundo pueden compartir y leer cómics de forma gratuita sin restricción de estilo y contenido.'
         }
       ]
     },
@@ -109,6 +127,16 @@ export const getLanguage = langCode =>
           ...Orden,
           description:
             'Site development for a family project in Spain, Murcia. Orden Y Mas, organize the space of your home.'
+        },
+        {
+          ...MasNegocio,
+          description:
+            'Use our technology, and share your digital card, to share your contact information in 1 second.'
+        },
+        {
+          ...ReadMyFComic,
+          description:
+            'Optimal platform where authors and readers from all over the world can share and read comics for free without restriction of style and content.'
         }
       ]
     }
