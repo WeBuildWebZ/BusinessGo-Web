@@ -1,6 +1,8 @@
-const Right = () => (
+import PropTypes from 'prop-types';
+
+const Right = props => (
   <div className="right">
-    <img src="/images/armario.jpg" alt="" />
+    <img src={props.service.photo} alt="" />
     <style jsx>
       {`
         .right {
@@ -31,5 +33,9 @@ const Right = () => (
     </style>
   </div>
 );
+
+Right.propTypes = {
+  service: PropTypes.object.isRequired
+};
 
 export default Right;

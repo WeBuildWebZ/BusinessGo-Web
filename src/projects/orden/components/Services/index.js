@@ -14,10 +14,10 @@ const Services = () => {
       {project?.configuration.services.services.map((service, i) => {
         const isPair = !(i % 2);
         const left = <Left service={service}>{i === 0 && <h5>SERVICIOS</h5>}</Left>;
-        const right = <Right />;
+        const right = <Right service={service} />;
 
         return (
-          <div key={i}>
+          <div key={i} className="service">
             {isPair ? (
               <>
                 {left}
@@ -44,6 +44,13 @@ const Services = () => {
             margin: 0 0 3em 0;
             flex-wrap: wrap;
             background: #f5efef;
+          }
+          .service {
+            display: flex;
+            flex-direction: row;
+          }
+          .service:not(:first-child) {
+            margin-top: 8em;
           }
         `}
       </style>
