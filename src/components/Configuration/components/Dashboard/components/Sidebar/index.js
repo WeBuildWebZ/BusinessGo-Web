@@ -53,7 +53,7 @@ const Sidebar = () => {
             align-items: center;
             flex-flow: column;
             border: 2px solid #ebebeb;
-            background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+            background-color: #3b5998;
             color: white;
           }
 

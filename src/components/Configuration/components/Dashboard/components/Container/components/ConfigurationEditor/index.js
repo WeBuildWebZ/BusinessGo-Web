@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { PopoverTitle } from 'react-bootstrap';
 
 import { updateProjectConfiguration } from '../../../../../../../../services/api/project';
 import FieldRenderer from '../../../../../../../FieldRenderer';
@@ -42,7 +41,7 @@ const ConfigurationEditor = () => {
       {!project && <Spinner />}
       {project && configurationSection && (
         <>
-          <PopoverTitle>{configurationSection.form.name}</PopoverTitle>
+          <h2 className="title">{configurationSection.form.name}</h2>
           <FieldRenderer
             formCode={configurationSection.form_code}
             fields={configurationSection.form.fields}
@@ -59,8 +58,8 @@ const ConfigurationEditor = () => {
             height: 100%;
             overflow-y: auto;
           }
-          .icon {
-            width: 20px;
+          .title {
+            margin-left: 7px;
           }
         `}
       </style>

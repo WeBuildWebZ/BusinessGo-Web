@@ -2,17 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Background = ({ backgroundImage }) => (
-  <div
-    style={{
-      position: 'absolute',
-      backgroundImage: `url(${backgroundImage})`,
-      width: '100vw',
-      minHeight: '100vh',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      zIndex: -1
-    }}
-  />
+  <div className="background">
+    <style jsx>
+      {`
+        .background {
+          position: fixed;
+          background-image: url(${backgroundImage});
+          width: 100vw;
+          min-height: 100vh;
+          background-repeat: no-repeat;
+          background-size: cover;
+          z-index: -1;
+        }
+      `}
+    </style>
+  </div>
 );
 
 Background.propTypes = {

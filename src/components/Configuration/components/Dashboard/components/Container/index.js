@@ -57,6 +57,7 @@ const Container = () => {
             transition: 0.8s;
             animation: arrive 1s linear;
             overflow-x: hidden;
+            background-color: whitesmoke;
           }
 
           @keyframes arrive {
