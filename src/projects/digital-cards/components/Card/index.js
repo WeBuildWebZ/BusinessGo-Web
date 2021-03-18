@@ -45,7 +45,13 @@ const Card = props => {
       {/* ======================================================================================================================= */}
       {/* ===============================ARRIBA---FOTO-PERFIL===================================================================== */}
 
-      <div className={getClassName('top')} />
+      <div className={getClassName('top')}>
+        <div className="country">{card.form_data.country}</div>
+        <div className="state">
+          {card.form_data.state}
+          {card.form_data.municipality && `, ${card.form_data.municipality}`}
+        </div>
+      </div>
       <div className={getClassName('personalData')}>
         {hasName && (
           <div className={getClassName('text name')}>
@@ -79,14 +85,9 @@ const Card = props => {
       <div className={getClassName('bottom')}>
         {card.form_data.whatsapp_number && (
           <div className="add" onClick={handleDownloadVCard}>
-            {language.addToContacts}
+            <img className="addIcon" src="/icon/addContact.png" />
           </div>
         )}
-        <div className="country">{card.form_data.country}</div>
-        <div className="state">
-          {card.form_data.state}
-          {card.form_data.municipality && `, ${card.form_data.municipality}`}
-        </div>
         {card.form_data.personal_email && (
           <Link href={`mailto:${card.form_data.personal_email}`} className="email">
             <a target="blank">
@@ -140,6 +141,9 @@ const Card = props => {
             fit-content: cover;
           }
           // ================================================
+          .addIcon {
+            width: 40px;
+          }
           .personalData {
             display: flex;
             flex-direction: column;
@@ -221,14 +225,22 @@ const Card = props => {
             background: #1c1c1c;
           }
           .add,
-          .country,
-          .state,
           .email {
             margin: 0 5px;
+            padding: 5px;
             background: black;
             height: 50px;
             border-radius: 5px;
             cursor: pointer;
+          }
+          .country,
+          .state {
+            width: fit-content;
+            margin: 21px 0 0 21px;
+            padding: 7px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.514);
+            color: whitesmoke;
           }
         `}
       </style>
