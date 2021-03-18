@@ -3,11 +3,6 @@ const Globy = {
   image_url:
     'https://firebasestorage.googleapis.com/v0/b/sql-demos-3f601.appspot.com/o/image.jpg?alt=media&token=0ee2a779-1a7d-4a2f-9365-ee2aecc05aeb'
 };
-const ZanleGroup = {
-  url: 'https://zanle-group.vercel.app/',
-  image_url:
-    'https://firebasestorage.googleapis.com/v0/b/sql-demos-3f601.appspot.com/o/zanle-group-portada.jpg?alt=media&token=329e26d9-d08b-454a-a181-669e6cc61f13'
-};
 const JoseRios = {
   url: 'https://jose-rios.netlify.app/#/',
   image_url:
@@ -53,10 +48,6 @@ export const getLanguage = langCode =>
           description: 'Globy, es una empresa Mexicana de taxi al estilo Uber, en proceso de formacion.'
         },
         {
-          ...ZanleGroup,
-          description: 'Zanle Group, web para freelance de Jose Rios, dirigida a Latino America'
-        },
-        {
           ...JoseRios,
           description:
             'Portfolio web desarrollado con React js, algunas animaciones ligeras, orientado al diseño UX/UI.'
@@ -100,10 +91,6 @@ export const getLanguage = langCode =>
         {
           ...Globy,
           description: 'Globy is a Mexican Uber-style Taxi company, in formation process.'
-        },
-        {
-          ...ZanleGroup,
-          description: 'Zanle Group, web for freelance, directed to Latin America.'
         },
         {
           ...JoseRios,
