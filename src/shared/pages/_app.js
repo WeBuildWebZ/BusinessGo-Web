@@ -2,7 +2,7 @@ import { Provider, useDispatch } from 'react-redux';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { combineReducers, createStore } from 'redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import AOS from 'aos';
 import { useRouter } from 'next/router';
@@ -19,6 +19,8 @@ import { getSessions } from '../../services/api/session';
 import useHandleError from '../hooks/useHandleError';
 import { setSession } from '../actions/session';
 
+import DisabledPage from './DisabledPage';
+
 const ReduxFiller = props => {
   const dispatch = useDispatch();
   const handleError = useHandleError();
@@ -33,6 +35,7 @@ const ReduxFiller = props => {
       showProject(constants.PROJECT_CODE).then(project => {
         dispatch(setProject(project));
         initSentry(project.sentry_settings.dsn);
+        if (project.disabled) props.onDisabled();
       });
     }
   }, []);
@@ -60,6 +63,7 @@ const ReduxFiller = props => {
 };
 
 ReduxFiller.propTypes = {
+  onDisabled: PropTypes.func.isRequired,
   constants: PropTypes.shape({
     PROJECT_CODE: PropTypes.string.isRequired,
     HAS_LOGIN: PropTypes.bool.isRequired,
@@ -71,6 +75,8 @@ const getApp = (reducer, constants, AppendComponent) => {
   const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
 
   const App = ({ Component, pageProps }) => {
+    const [isDisabled, setIsDisabled] = useState(false);
+
     useEffect(() => {
       AOS.init();
     }, []);
@@ -79,7 +85,8 @@ const getApp = (reducer, constants, AppendComponent) => {
       <>
         <AppendComponent />
         <Provider store={store}>
-          <ReduxFiller constants={constants} />
+          <ReduxFiller constants={constants} onDisabled={() => setIsDisabled(true)} />
+          {isDisabled && <DisabledPage />}
           <Alerts />
           <Component {...pageProps} />
         </Provider>
