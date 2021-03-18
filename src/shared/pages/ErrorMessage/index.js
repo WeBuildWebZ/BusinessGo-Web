@@ -1,17 +1,18 @@
 import { Modal } from '@material-ui/core';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { getLanguage } from './lang';
 
-const DisabledPage = () => {
+const PageDisabled = props => {
   const language = getLanguage(useSelector(store => store.language));
 
   return (
     <>
       <Modal open>
         <div className="modal">
-          <h3 className="title">{language.title}</h3>
-          <p className="message">{language.message}</p>
+          <h3 className="title">{language[props.code].title}</h3>
+          <p className="message">{language[props.code].message}</p>
         </div>
       </Modal>
       <style jsx>
@@ -39,4 +40,8 @@ const DisabledPage = () => {
   );
 };
 
-export default DisabledPage;
+PageDisabled.propTypes = {
+  code: PropTypes.string.isRequired
+};
+
+export default PageDisabled;

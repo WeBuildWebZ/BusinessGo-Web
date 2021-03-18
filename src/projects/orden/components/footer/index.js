@@ -10,7 +10,7 @@ const Footer = () => {
     <div className="footer" id="contacto">
       <div className="bottom">
         {!project && <Spinner />}
-        {project?.configuration.footer.sections.map(section => {
+        {project?.configuration.footer.sections.map((section, i) => {
           const title = section.link ? (
             <h3>
               <Link href={section.link}>
@@ -22,7 +22,7 @@ const Footer = () => {
           );
 
           return (
-            <span className="column">
+            <span key={i} className="column">
               {title}
               <p>{section.description}</p>
             </span>

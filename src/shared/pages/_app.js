@@ -19,7 +19,7 @@ import { getSessions } from '../../services/api/session';
 import useHandleError from '../hooks/useHandleError';
 import { setSession } from '../actions/session';
 
-import DisabledPage from './DisabledPage';
+import ErrorMessage from './ErrorMessage';
 
 const ReduxFiller = props => {
   const dispatch = useDispatch();
@@ -32,11 +32,16 @@ const ReduxFiller = props => {
 
   useEffect(() => {
     if (!isAdminPage) {
-      showProject(constants.PROJECT_CODE).then(project => {
-        dispatch(setProject(project));
-        initSentry(project.sentry_settings.dsn);
-        if (project.disabled) props.onDisabled();
-      });
+      showProject(constants.PROJECT_CODE)
+        .then(({ data: project }) => {
+          dispatch(setProject(project));
+          initSentry(project.sentry_settings.dsn);
+          if (project.disabled) props.onError('disabled');
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 404) return props.onError('notFound');
+          throw error;
+        });
     }
   }, []);
 
@@ -63,7 +68,7 @@ const ReduxFiller = props => {
 };
 
 ReduxFiller.propTypes = {
-  onDisabled: PropTypes.func.isRequired,
+  onError: PropTypes.func.isRequired,
   constants: PropTypes.shape({
     PROJECT_CODE: PropTypes.string.isRequired,
     HAS_LOGIN: PropTypes.bool.isRequired,
@@ -75,7 +80,8 @@ const getApp = (reducer, constants, AppendComponent) => {
   const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
 
   const App = ({ Component, pageProps }) => {
-    const [isDisabled, setIsDisabled] = useState(false);
+    const [errorCode, setErrorCode] = useState(null);
+    const [wasNotFound, setWasNotFound] = useState(false);
 
     useEffect(() => {
       AOS.init();
@@ -85,8 +91,8 @@ const getApp = (reducer, constants, AppendComponent) => {
       <>
         <AppendComponent />
         <Provider store={store}>
-          <ReduxFiller constants={constants} onDisabled={() => setIsDisabled(true)} />
-          {isDisabled && <DisabledPage />}
+          <ReduxFiller constants={constants} onError={setErrorCode} />
+          {errorCode && <ErrorMessage code={errorCode} />}
           <Alerts />
           <Component {...pageProps} />
         </Provider>

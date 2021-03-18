@@ -1,7 +1,6 @@
 import api from '../../utils/axios';
 
-export const showProject = code =>
-  fetch(`${process.env.API_URL}/api/projects/${encodeURIComponent(code)}`).then(response => response.json());
+export const showProject = code => api.get(`api/projects/${encodeURIComponent(code)}`);
 
 export const updateProjectConfiguration = (project, configuration) =>
   api.put(`api/projects/${project._id}/configuration`, configuration);
