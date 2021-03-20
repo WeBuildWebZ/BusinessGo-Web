@@ -1,5 +1,4 @@
 import Banner from '../components/banner';
-import MainText from '../components/main-text';
 import RedesSvg from '../components/redes-svg';
 import Paragraphs from '../components/paragraphs';
 import ImageBackground from '../components/image-bottom';
@@ -11,7 +10,6 @@ export default function Home() {
     <>
       <Layout>
         <Banner />
-        <MainText />
         <RedesSvg />
         <Paragraphs />
         <ImageBackground />

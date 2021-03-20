@@ -5,6 +5,7 @@ body {
   font-family: 'raleway', BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
     Droid Sans, Helvetica Neue, sans-serif;
   overflow-x: hidden;
+  background-color: #c800cd11;
 }
 #__next {
   height: 100%;

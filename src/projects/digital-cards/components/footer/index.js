@@ -4,26 +4,31 @@ const Footer = () => (
   <div className="footer">
     <div className="bottom">
       <span className="column">
-        <h3>Mas Negocio</h3>
-        <p>
-          Utiliza nuestra tecnologia, y comparte tu tarjeta digital, para mostrar tu informacion de contacto
-          en 1 segundo
-        </p>
+        <h3>
+          <Link href="/">
+            <a className="pointer">Preguntas Frecuentes</a>
+          </Link>
+        </h3>
       </span>
 
       <span className="column">
         <h3>
-          <Link href="#">
-            <a className="pointer">socialNetworks</a>
+          <Link href="/">
+            <a className="pointer">Términos y Condiciones</a>
           </Link>
         </h3>
-        <p>Entra en el enlace, y contactanos a travez de todas las redes sociales que usamos.</p>
-        <br />
-        <br />
       </span>
 
       <span className="column">
-        <h3>Contact Information</h3>
+        <h3>
+          <Link href="/">
+            <a className="pointer">Aviso de Privacidad</a>
+          </Link>
+        </h3>
+      </span>
+
+      <span className="column">
+        <h3>Información de Contacto</h3>
         <span className="row">
           <img src="/icon/house.png" alt="house icon" />
           <p> Mexico- Mexico</p>

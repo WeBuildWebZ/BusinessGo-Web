@@ -6,7 +6,6 @@ import { Jumbo } from '../components/jumbotron';
 import Layout from '../Layout';
 import Identidad from '../components/identidad';
 import LogoContainer from '../components/navbar/logo-container';
-import MainText from '../components/main-text';
 
 const index = () => (
   <>
@@ -14,7 +13,6 @@ const index = () => (
     <Layout>
       <Banner />
       <Jumbo />
-      <MainText />
       <Slide />
       <Identidad />
       <Tags />

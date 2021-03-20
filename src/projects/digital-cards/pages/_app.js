@@ -39,13 +39,13 @@ const AppendHead = () => (
     />
     <Head>
       <link rel="icon" href="/favicon.png" />
+      {process.browser && !window.location.pathname.startsWith('/admin') && (
+        <script
+          src="https://www.widgets.webuildwebz.com/include.js"
+          data-webuildwebz-project-token="99E424DD30DD41248E5446C17CD137E3D18CA2D9"
+        />
+      )}
     </Head>
-    {process.browser && !window.location.pathname.startsWith('/admin') && (
-      <script
-        src="https://www.widgets.webuildwebz.com/include.js"
-        data-webuildwebz-project-token="73DCF74F122A4FACADD7B522EC826B8B68594F4D"
-      />
-    )}
   </>
 );
 

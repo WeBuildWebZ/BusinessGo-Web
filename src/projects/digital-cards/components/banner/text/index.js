@@ -1,11 +1,12 @@
 const Text = () => (
   <div className="text">
     <div className="box">
-      <h1>Tarjeta Personal Digital </h1>
+      <h1 className="title">
+        Quieres <b>Vender</b> más?
+      </h1>
       <hr />
-      <p>
-        Utiliza nuestra tecnología, y comparte tu tarjeta digital, para compartir tu información de contacto
-        en 1 segundo.
+      <p className="description">
+        Dale a tu Emprendimiento o Negocio, una <b>*MiniWeb</b>!
       </p>
     </div>
 
@@ -33,19 +34,17 @@ const Text = () => (
           height: 2px;
           background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
         }
-        h1 {
+        .title {
           font-size: 4em;
-          font-weight: bold;
           -webkit-text-fill-color: transparent;
           -webkit-background-clip: text;
-          background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+          background-image: linear-gradient(to top, #c800cd 0%, #ed8cec 100%);
         }
-        p {
-          font-weight: bold;
-          text-transform: uppercase;
-          color: #1c1c1c;
+        .description {
+          color: #c800cd;
+          font-size: 24px;
         }
-        p:first-letter {
+        .description:first-letter {
           font-size: 1.5em;
         }
         // ==============================

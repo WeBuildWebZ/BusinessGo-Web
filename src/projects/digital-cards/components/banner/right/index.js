@@ -11,8 +11,8 @@ const Right = () => (
         }
         .image {
           width: 450px;
-          min-height: 600px;
-          background-image: url(/images/banner.jpg);
+          min-height: 400px;
+          background-image: url(/images/banner.png);
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;

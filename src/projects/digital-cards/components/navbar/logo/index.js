@@ -1,24 +1,20 @@
 import Link from 'next/link';
 
 const Logo = () => (
-  <div className="logo">
+  <div className="logoContainer">
     <Link href="/">
       <a>
-        <h5>Mas</h5>
-        <h5>Negocio</h5>
+        <img className="logoImage" src="/images/logo.png" />
       </a>
     </Link>
     <style jsx>
       {`
-        .logo {
+        .logoContainer {
           width: 100%;
           flex: 2;
         }
-        a {
-          text-decoration: none;
-          display: flex;
-          justify-content: center;
-          flex-flow: column;
+        .logoImage {
+          width: 110px;
         }
 
         h5 {
