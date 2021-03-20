@@ -18,12 +18,14 @@ import { setLanguage } from '../actions/language';
 import { getSessions } from '../../services/api/session';
 import useHandleError from '../hooks/useHandleError';
 import { setSession } from '../actions/session';
+import useChangeLanguage from '../hooks/useChangeLanguage';
 
 import ErrorMessage from './ErrorMessage';
 
 const ReduxFiller = props => {
   const dispatch = useDispatch();
   const handleError = useHandleError();
+  const changeLanguage = useChangeLanguage();
   const { constants } = props;
   const router = useRouter();
   const { query } = router || { query: {} };
@@ -45,7 +47,9 @@ const ReduxFiller = props => {
     }
   }, []);
 
-  dispatch(setLanguage(constants.DEFAULT_LANGUAGE));
+  useEffect(() => {
+    changeLanguage(constants.DEFAULT_LANGUAGE, false);
+  }, []);
 
   if (constants.HAS_LOGIN) {
     getSessions()
