@@ -112,7 +112,11 @@ const Steps = props => {
       );
     }
     case 'final': {
-      createClientDocument('card', project.code, props.data).then(({ data: newClientDocument }) => {
+      const card = {
+        ...props.data,
+        switch_to_premium_email_sent: false
+      };
+      createClientDocument('card', project.code, card).then(({ data: newClientDocument }) => {
         window.location.href = `/cards/${encodeURIComponent(newClientDocument._id)}`;
         pushAlert({
           type: 'info',
