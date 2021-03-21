@@ -1,4 +1,7 @@
-/* eslint-disable no-await-in-loop */
+import rimraf from 'rimraf';
+
+import fs from 'fs';
+
 import projects from '../projects.json';
 
 import { runExec, copy } from './utils';
@@ -28,9 +31,10 @@ if (!project) throw new Error(`Didn't found project with name ${projectName}`);
   await runExec(`cp next.config.js ${repoPath}`);
   await runExec(`cp .gitignore ${repoPath}`);
   console.log('copied files');
-  await runExec(
-    `cd ${repoPath}/src/projects; find . -maxdepth 1 -mindepth 1 ! -regex '^./${projectName}' -exec rm -rv {} +`
-  );
+
+  fs.readdirSync(`${repoPath}/src/projects`)
+    .filter(dir => dir !== projectName)
+    .forEach(dir => rimraf.sync(`${repoPath}/src/projects/${dir}`));
 
   // Upload to Github Repository
   await runExec(`cd ${repoPath} && git add .`);

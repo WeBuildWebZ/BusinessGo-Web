@@ -54,5 +54,9 @@
   "orden": {
     "path": "src/projects/orden",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Orden"
+  },
+  "dashboard": {
+    "path": "src/projects/dashboard",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-dashboard"
   }
 }

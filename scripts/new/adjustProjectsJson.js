@@ -12,7 +12,7 @@ const adjustProjectsJson = projectsJson => {
 
   projectsJson[project_name] = {
     path: `src/projects/${project_name}`,
-    repo: `https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-${project_name}`
+    repo: `https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-${project_name}`
   };
 
   const fileContent = JSON.stringify(projectsJson, null, 2);
