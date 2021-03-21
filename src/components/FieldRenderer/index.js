@@ -215,7 +215,7 @@ const FieldRenderer = props => {
         {`
           .fieldContainer {
             width: 88%;
-            margin-left: 6%;
+            margin: 0 0 21px 6%;
           }
         `}
       </style>
