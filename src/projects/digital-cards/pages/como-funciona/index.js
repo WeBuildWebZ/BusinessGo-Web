@@ -24,7 +24,7 @@ const Funciona = () => (
           <b>MiniWeb</b> ya!
         </div>
       </div>
-      <img src="/images/banner.png" />
+      <img className="image" src="/images/banner.png" />
 
       <style jsx>
         {`
@@ -53,6 +53,14 @@ const Funciona = () => (
             border-radius: 7px;
             background-color: #c800cd33;
             user-select: none;
+          }
+          @media only screen and (max-width: 768px) {
+            .textContainer {
+              margin-top: 60px;
+            }
+            .image {
+              width: 140px;
+            }
           }
         `}
       </style>

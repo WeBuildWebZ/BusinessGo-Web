@@ -208,7 +208,7 @@ const FieldRenderer = props => {
       {props.backButton && <Button onClick={props.onGoBack}>{language.back}</Button>}
       {props.saveButton && (
         <Button disabled={!hasChanged && !props.alwaysShowSaveButton} onClick={handleSave}>
-          {language.save}
+          {props.saveButtonText || language.save}
         </Button>
       )}
       <style jsx>
@@ -234,6 +234,7 @@ FieldRenderer.propTypes = {
   onPartialChange: PropTypes.func,
   onGoBack: PropTypes.func,
   saveButton: PropTypes.bool,
+  saveButtonText: PropTypes.string,
   backButton: PropTypes.bool,
   alwaysShowSaveButton: PropTypes.bool
 };
@@ -249,6 +250,7 @@ FieldRenderer.defaultProps = {
   onPartialChange: () => {},
   onGoBack: () => {},
   saveButton: false,
+  saveButtonText: '',
   backButton: false,
   alwaysShowSaveButton: false
 };

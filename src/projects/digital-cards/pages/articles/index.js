@@ -20,6 +20,11 @@ const Blog = () => (
           .title {
             color: #c800cd;
           }
+          @media only screen and (max-width: 768px) {
+            .title {
+              margin-top: 50px;
+            }
+          }
         `}
       </style>
     </div>

@@ -1,4 +1,3 @@
-import Login from './login';
 import Logo from './logo';
 import Menu from './menu';
 
@@ -6,7 +5,6 @@ const Navbare = () => (
   <div className="navbar">
     <Logo />
     <Menu />
-    <Login />
     <style jsx>
       {`
         .navbar {
@@ -23,7 +21,6 @@ const Navbare = () => (
         // ===========================================
         @media (max-width: 595px) {
           .navbar {
-            flex-flow: column;
           }
         }
       `}

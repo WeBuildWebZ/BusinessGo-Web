@@ -79,6 +79,17 @@ const ArticleList = () => {
             transform: scale(1.1);
             transition: 0.1s;
           }
+          @media only screen and (max-width: 768px) {
+            .image {
+              width: 50px;
+            }
+            .title {
+              font-size: 20px;
+            }
+            .description {
+              font-size: 12px;
+            }
+          }
         `}
       </style>
     </div>

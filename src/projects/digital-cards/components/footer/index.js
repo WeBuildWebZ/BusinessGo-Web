@@ -9,9 +9,9 @@ const Footer = () => {
       <div className="bottom">
         {project?.configuration.footer.sections.map((section, i) => (
           <span key={i} className="column">
-            <h3>
+            <h3 className="title">
               <Link href={section.link}>
-                <a className="pointer">{section.title}</a>
+                <a>{section.title}</a>
               </Link>
             </h3>
             <p>{section.description}</p>
@@ -19,7 +19,7 @@ const Footer = () => {
         ))}
 
         <span className="column">
-          <h3>{project?.configuration.footer.contact_info_title}</h3>
+          <h3 className="title">{project?.configuration.footer.contact_info_title}</h3>
           <span className="row">
             <img src="/icon/house.png" alt="house icon" />
             <p>{project?.configuration.footer.location}</p>
@@ -91,16 +91,15 @@ const Footer = () => {
             margin: 0;
             padding: 0 0 0 0.5em;
           }
-          .pointer {
+          a:hover {
+            color: whitesmoke;
+          }
+          .title {
             cursor: pointer;
             color: white;
           }
 
-          a {
-            color: grey;
-          }
-
-          @media (max-width: 840px) {
+          @media (max-width: 768px) {
             .bottom {
               flex-flow: column;
             }
@@ -114,6 +113,9 @@ const Footer = () => {
             }
             .row {
               padding: 0 0 1em 1em;
+            }
+            .title {
+              font-size: 20px;
             }
           }
         `}

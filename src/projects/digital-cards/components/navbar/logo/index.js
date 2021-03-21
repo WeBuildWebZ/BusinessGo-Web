@@ -10,8 +10,6 @@ const Logo = () => (
     <style jsx>
       {`
         .logoContainer {
-          width: 100%;
-          flex: 2;
         }
         .logoImage {
           width: 110px;
@@ -22,14 +20,13 @@ const Logo = () => (
           line-height: 1em;
         }
         // ==============================
-        @media (max-width: 595px) {
+        @media (max-width: 768px) {
           a {
-            align-items: center;
-            flex-flow: row;
-            padding-bottom: 1em;
           }
           h5 {
-            margin: 0 0.3em;
+          }
+          .logoImage {
+            width: 80px;
           }
         }
       `}
