@@ -18,6 +18,7 @@ const Navbare = () => (
           background-color: #c800cd33;
           box-shadow: 0 0 2px 2px #c800cd33;
           backdrop-filter: blur(1em);
+          z-index: 100;
         }
         // ===========================================
         @media (max-width: 595px) {

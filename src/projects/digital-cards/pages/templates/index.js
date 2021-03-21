@@ -18,18 +18,33 @@ const Templates = () => {
 
   return (
     <Layout>
-      <div className="galery">
-        <h2>Selecciona un Template, y comienza a ingresar tus datos Personales.</h2>
+      <div className="templates">
+        <h2>Selecciona una plantilla, y comienza a ingresar tus datos Personales.</h2>
 
-        <Card1 onClick={handleSelectCard} />
+        <div className="content">
+          <div className="register">
+            Inicia tu registro y selecciona una plantilla
+            <Link href="/register">
+              <a>
+                <div className="message">
+                  <b>Iniciar</b>
+                  {`\n`}registro
+                </div>
+              </a>
+            </Link>
+          </div>
+          <div />
+        </div>
+
+        {/* <Card1 onClick={handleSelectCard} />
         <Card2 onClick={handleSelectCard} />
         <Card3 onClick={handleSelectCard} />
-        <Card4 onClick={handleSelectCard} />
+        <Card4 onClick={handleSelectCard} /> */}
         <style jsx>
           {`
-            .galery {
+            .templates {
               width: 100vw;
-              height: 100%;
+              height: 100vh;
               padding: 1em;
               display: flex;
               justify-content: center;
@@ -42,12 +57,36 @@ const Templates = () => {
               margin: 100px 0 50px 0;
               text-align: center;
             }
-            p {
-              width: 100%;
-              text-align: center;
-              font-style: italic;
-            }
 
+            .content {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-around;
+              width: 100%;
+            }
+            .register {
+              display: flex;
+              flex-direction: column;
+              max-width: 130px;
+            }
+            .message {
+              white-space: pre-line;
+              line-height: 16px;
+              margin-top: 7px;
+              padding: 7px;
+              border-radius: 7px;
+              background-color: #c800cd33;
+              text-align: center;
+              user-select: none;
+              transition: 0.7s;
+            }
+            .message:hover {
+              transform: scale(1.1);
+            }
+            .message:active {
+              transform: scale(1.2) rotate(3deg);
+              transition: 0.1s;
+            }
             // ===========================================================================
             .card {
               width: 300px;
