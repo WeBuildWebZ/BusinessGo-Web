@@ -7,10 +7,6 @@
     "path": "src/projects/landing",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Landing"
   },
-  "dashboard": {
-    "path": "src/projects/dashboard",
-    "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Dashboard"
-  },
   "admin": {
     "path": "src/projects/admin",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Admin"
