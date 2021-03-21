@@ -19,7 +19,7 @@ const Templates = () => {
   return (
     <Layout>
       <div className="templates">
-        <h2>Selecciona una plantilla, y comienza a ingresar tus datos Personales.</h2>
+        <h2 className="title">Selecciona una plantilla, y comienza a ingresar tus datos Personales.</h2>
 
         <div className="content">
           <div className="register">
@@ -52,10 +52,11 @@ const Templates = () => {
               flex-direction: row;
               flex-wrap: wrap;
             }
-            h2 {
+            .title {
               width: 100%;
               margin: 100px 0 50px 0;
               text-align: center;
+              color: #c800cd;
             }
 
             .content {

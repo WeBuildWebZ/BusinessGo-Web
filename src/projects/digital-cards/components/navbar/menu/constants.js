@@ -17,7 +17,7 @@ export const sections = [
   },
   {
     title: 'Blog',
-    link: '/blog'
+    link: '/articles'
   },
   {
     title: 'Contacto',
