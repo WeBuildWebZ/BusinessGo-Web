@@ -5,7 +5,6 @@
   "scripts": {
     "empty": "npm run copy-env src/projects/empty && next dev src/projects/empty",
     "landing": "npm run copy-env src/projects/landing && next dev src/projects/landing",
-    "dashboard": "npm run copy-env src/projects/dashboard && next dev src/projects/dashboard",
     "orden": "npm run copy-env src/projects/orden && next dev src/projects/orden",
     "digital-cards": "npm run copy-env src/projects/digital-cards && next dev src/projects/digital-cards",
     "widgets": "cd src/projects/widgets && npm start",
