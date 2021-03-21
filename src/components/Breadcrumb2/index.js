@@ -23,46 +23,47 @@ const Breadcrumb2 = props => {
         const reverseIndex = props.items.length - 1 - i;
 
         return (
-          <>
-            <div
-              key="item"
-              className={`item${isFirst ? ' firstItem' : ''}`}
-              style={{ zIndex: 2 * reverseIndex + 1 }}
-              onClick={() => handleClick(item)}
-            >
+          <div key={i} className="itemContainer">
+            <div className="item" style={{ zIndex: 2 * reverseIndex + 1 }} onClick={() => handleClick(item)}>
               <div className={`text${isFirst ? '' : ' notFirstText'}`}>{item.text}</div>
             </div>
-            <div key="itemArrow" className="itemArrow" style={{ zIndex: 2 * reverseIndex }} />
-          </>
+            <div className="itemArrow" style={{ zIndex: 2 * reverseIndex }} />
+          </div>
         );
       })}
       <style jsx>
         {`
           .breadcrumb {
-            margin: 0;
+            display: flex;
+            flex-direction: row;
+            height: calc(100% - 16px);
+            margin: 8px 0 0 14px;
             padding: 0;
             background-color: transparent;
-            height: 100%;
+          }
+          .itemContainer {
+            display: flex;
+            flex-direction: row;
           }
           .item {
             height: 100%;
             padding: 5px;
-            background-color: rgb(67, 176, 184);
+            background-color: #ebebeb;
             user-select: none;
             transition: 0.4s;
             cursor: pointer;
-            box-shadow: 0 0 2px 1px rgb(67, 176, 184);
+            box-shadow: 0 0 2px 1px #ebebeb;
           }
           .item:hover {
-            box-shadow: 0 0 3px 2px rgb(67, 176, 184);
+            box-shadow: 0 0 3px 2px #ebebeb;
           }
           .item:active {
             transform: scale(1.1);
-            box-shadow: 0 0 7px 1px rgb(67, 176, 184);
+            box-shadow: 0 0 7px 1px #ebebeb;
             transition: 0.1s;
             border-radius: 7px;
           }
-          .firstItem {
+          .item:first-child {
             border-top-left-radius: 7px;
             border-bottom-left-radius: 7px;
           }
@@ -77,7 +78,7 @@ const Breadcrumb2 = props => {
             margin-right: -${arrowSize}px;
             width: ${arrowSize}px;
             height: ${arrowSize}px;
-            background-color: rgb(67, 176, 184);
+            background-color: #ebebeb;
             box-shadow: 0 0 1px 1px rgb(89, 125, 139);
             border-radius: 3px;
             border-top-right-radius: 7px;

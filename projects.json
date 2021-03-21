@@ -1,7 +1,15 @@
 {
+  "empty": {
+    "path": "src/projects/empty",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Empty"
+  },
   "landing": {
     "path": "src/projects/landing",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Landing"
+  },
+  "dashboard": {
+    "path": "src/projects/dashboard",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Dashboard"
   },
   "admin": {
     "path": "src/projects/admin",
