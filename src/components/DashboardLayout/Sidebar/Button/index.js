@@ -74,13 +74,14 @@ const Button = props => {
 };
 
 Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   symbol: PropTypes.any.isRequired,
   showText: PropTypes.bool.isRequired,
   text: PropTypes.string
 };
 
 Button.defaultProps = {
+  onClick: () => {},
   text: ''
 };
 

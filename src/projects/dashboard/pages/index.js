@@ -1,10 +1,13 @@
-import EmptyComponent from '../components/EmptyComponent';
+import { useSelector } from 'react-redux';
 
-const Empty = () => (
-  <div>
-    Empty project
-    <EmptyComponent />
-  </div>
-);
+import DashboardLayout from '../../../components/DashboardLayout';
 
-export default Empty;
+import { getLanguage } from './lang';
+
+const Dashboard = () => {
+  const language = getLanguage(useSelector(store => store.language));
+
+  return <DashboardLayout breadcrumbItems={language.breadcrumbItems}>body</DashboardLayout>;
+};
+
+export default Dashboard;

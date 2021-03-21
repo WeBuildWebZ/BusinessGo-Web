@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { setNavbarHeight } from '../../../shared/actions/navbarHeight';
 
 import Title from './Title';
 import LogoutButton from './LogoutButton';
 
-const Navbar = () => {
+const Navbar = props => {
   const dispatch = useDispatch();
   const sidebarWidth = useSelector(store => store.sidebarWidth);
   const navbarHeight = 50;
@@ -14,7 +15,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <Title />
+      <Title breadcrumbItems={props.breadcrumbItems} />
       <LogoutButton />
       <style jsx>
         {`
@@ -32,6 +33,10 @@ const Navbar = () => {
       </style>
     </div>
   );
+};
+
+Navbar.propTypes = {
+  breadcrumbItems: PropTypes.object.isRequired
 };
 
 export default Navbar;

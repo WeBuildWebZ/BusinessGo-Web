@@ -1,17 +1,15 @@
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 
 import Breadcrumb2 from '../../../Breadcrumb2';
 
-import { getLanguage } from './lang';
-
-const Title = () => {
+const Title = props => {
   const router = useRouter();
-  const language = getLanguage(useSelector(store => store.language));
 
   return (
     <div className="title">
-      <Breadcrumb2 items={language.breadcrumbItems[router.pathname]} />
+      <Breadcrumb2 items={props.breadcrumbItems} />
 
       <style jsx>
         {`
@@ -23,6 +21,10 @@ const Title = () => {
       </style>
     </div>
   );
+};
+
+Title.propTypes = {
+  breadcrumbItems: PropTypes.object.isRequired
 };
 
 export default Title;

@@ -11,12 +11,12 @@ const AppendHead = () => (
   <>
     <NextSeo
       title="WeBuildWebZ"
-      description="Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida"
+      description="Aquí podrás administrar el contenido de tu web."
       canonical={constants.URL}
       openGraph={{
         url: constants.URL,
         title: 'WeBuildWebZ',
-        description: 'Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida',
+        description: 'Aquí podrás administrar el contenido de tu web.',
         site_name: 'WeBuildWebZ',
         images: [
           {
@@ -43,7 +43,7 @@ const AppendHead = () => (
         !window.location.pathname.startsWith('/dashboard') && (
           <script
             src="https://www.widgets.webuildwebz.com/include.js"
-            data-webuildwebz-project-token="73DCF74F122A4FACADD7B522EC826B8B68594F4D"
+            data-webuildwebz-project-token="5729AADFA12F43A4B556C74BD9631C81D5318A5B"
           />
         )}
     </Head>

@@ -4,11 +4,11 @@ import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Content from './Content';
 
-const DashboardLayout = ({ children }) => (
+const DashboardLayout = props => (
   <div className="dashboardLayout">
-    <Navbar />
+    <Navbar breadcrumbItems={props.breadcrumbItems} />
     <Sidebar />
-    <Content>{children}</Content>
+    <Content>{props.children}</Content>
     <style jsx>
       {`
         .dashboardLayout {
@@ -23,6 +23,8 @@ const DashboardLayout = ({ children }) => (
 );
 
 DashboardLayout.propTypes = {
-  children: PropTypes.any.isRequired
+  children: PropTypes.any.isRequired,
+  breadcrumbItems: PropTypes.object.isRequired
 };
+
 export default DashboardLayout;
