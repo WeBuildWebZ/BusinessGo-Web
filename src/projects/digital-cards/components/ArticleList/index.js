@@ -4,13 +4,13 @@ import Link from 'next/link';
 const ArticleList = () => {
   const [articles, setArticles] = useState([
     {
-      _id: 1,
+      _id: 2,
       photo: 'https://markateur.com/wp-content/uploads/2017/04/articles.jpg',
       title: 'Segundo Artículo!',
       description: 'Este es nuestro segundo artículo!'
     },
     {
-      _id: 2,
+      _id: 1,
       photo: 'https://www.digitalvidya.com/wp-content/uploads/2019/03/How-To-Write-An-Article.jpg',
       title: 'Primer Artículo!',
       description: 'Este es nuestro primer artículo!'
