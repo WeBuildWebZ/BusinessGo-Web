@@ -14,7 +14,7 @@ a {
 
 input[type='text'],
 input[type='password'] {
-  cursor: url('/images/text-cursor.png'), auto !important;
+  cursor: url('/images/text-cursor.png') 16 16, auto !important;
 }
 
 /* lean, esta es una clase que va a estar a lo largo de la web, para no repetir tanto flex */
