@@ -10,7 +10,7 @@ const Dashboard = () => {
   const language = getLanguage(useSelector(store => store.language));
 
   return (
-    <EnsureLoggedIn redirectTo="/login" Loading={LoadingPage2}>
+    <EnsureLoggedIn redirectOnNotLoggedIn="/login" Loading={LoadingPage2}>
       <DashboardLayout breadcrumbItems={language.breadcrumbItems}>body</DashboardLayout>
     </EnsureLoggedIn>
   );

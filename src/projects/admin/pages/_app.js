@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
         <title>BusinessGo!</title>
       </Head>
       <Provider store={store}>
-        <EnsureLoggedIn redirectUrl={process.env.LANDING_URL}>
+        <EnsureLoggedIn redirectOnNotLoggedIn={process.env.LANDING_URL}>
           <Component {...pageProps} />
         </EnsureLoggedIn>
       </Provider>

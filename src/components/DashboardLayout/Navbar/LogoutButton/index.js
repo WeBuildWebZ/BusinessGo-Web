@@ -5,7 +5,7 @@ import useHandleLogout from '../../../../shared/hooks/useHandleLogout';
 import { getLanguage } from './lang';
 
 const LogoutButton = () => {
-  const handleLogout = useHandleLogout('/');
+  const handleLogout = useHandleLogout('/login');
   const language = getLanguage(useSelector(store => store.language));
 
   return (

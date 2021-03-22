@@ -7,23 +7,37 @@ import { getSessions } from '../services/api/session';
 
 import LoadingPage from './LoadingPage';
 
-const EnsureLoggedIn = ({ children, redirectTo, Loading }) => {
+const EnsureLoggedIn = props => {
   const dispatch = useDispatch();
   const session = useSelector(store => store.session);
 
-  if (!session) return <Loading />;
+  if (!session) return <props.Loading />;
   if (!session.user) {
     if (!process.browser) return <div />;
-    window.location.href = redirectTo;
+    if (props.redirectOnNotLoggedIn) {
+      window.location.href = props.redirectOnNotLoggedIn;
+      return <div />;
+    }
+  }
+
+  if (session.user && props.redirectOnLoggedIn) {
+    window.location.href = props.redirectOnLoggedIn;
     return <div />;
   }
 
-  return <>{children}</>;
+  return <>{props.children}</>;
 };
 
 EnsureLoggedIn.propTypes = {
   children: PropTypes.any.isRequired,
-  redirectTo: PropTypes.string.isRequired
+  redirectOnNotLoggedIn: PropTypes.string,
+  redirectOnLoggedIn: PropTypes.string,
+  Loading: PropTypes.any.isRequired
+};
+
+EnsureLoggedIn.defaultProps = {
+  redirectOnNotLoggedIn: '',
+  redirectOnLoggedIn: ''
 };
 
 export default EnsureLoggedIn;
