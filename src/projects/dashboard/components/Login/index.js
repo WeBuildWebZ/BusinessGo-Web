@@ -69,8 +69,9 @@ const Login = () => {
             background-image: url(/images/login.png);
             background-size: cover;
             background-position-y: 0;
-            background-repeat: no-repeat;
-            animation: backgroundAppear 1.5s ease;
+            background-position-x: 0;
+            background-repeat: repeat-x;
+            animation: backgroundAppear 1.5s ease, backgroundMovement 20s linear infinite;
           }
           .title {
             width: fit-content;
@@ -87,6 +88,11 @@ const Login = () => {
           @keyframes backgroundAppear {
             0% {
               background-position-y: 150px;
+            }
+          }
+          @keyframes backgroundMovement {
+            0% {
+              background-position-x: 100vw;
             }
           }
           @keyframes titleAppear {
