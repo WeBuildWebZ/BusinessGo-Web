@@ -7,10 +7,10 @@ const Button = props => {
   if (props.showText && !wasShown) setWasShown(true);
 
   return (
-    <div className="button" onClick={props.onClick}>
+    <div className="button pointer-cursor" onClick={props.onClick}>
       <div className="symbol">{props.symbol}</div>
       <div
-        className={`text${props.showText ? '' : ' hideText'}${
+        className={`text pointer-cursor${props.showText ? '' : ' hideText'}${
           !props.showText && !wasShown ? ' textWasShown' : ''
         }`}
       >
@@ -25,7 +25,6 @@ const Button = props => {
             font-size: 26px;
             height: 30px;
             text-align: center;
-            cursor: pointer;
             user-select: none;
             transition: 0.7s;
           }

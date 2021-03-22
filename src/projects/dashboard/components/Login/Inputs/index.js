@@ -14,14 +14,14 @@ const Inputs = props => {
   return (
     <>
       <input
-        className="input"
+        className="input text-cursor"
         type="text"
         placeholder={language.username}
         onChange={props.onChangeEmail}
         onKeyPress={handleKeyPress}
       />
       <input
-        className="input"
+        className="input text-cursor"
         type="password"
         placeholder={language.password}
         onChange={props.onChangePassword}

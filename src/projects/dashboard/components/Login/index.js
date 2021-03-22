@@ -6,7 +6,7 @@ import { setUser } from '../../../../shared/actions/user';
 import useHandleError from '../../../../shared/hooks/useHandleError';
 import usePushAlert from '../../../../shared/hooks/usePushAlert';
 
-import Inputs from './Input';
+import Inputs from './Inputs';
 import Loading from './Loading';
 import SubmitButton from './SubmitButton';
 import { getLanguage } from './lang';

@@ -12,12 +12,14 @@ a {
   cursor: url('/images/cursor.png'), auto;
 }
 
-input[type='text'],
-input[type='password'] {
+.pointer-cursor {
+  cursor: url('/images/pointer-cursor.png') 14 0, auto !important ;
+}
+
+.text-cursor {
   cursor: url('/images/text-cursor.png') 16 16, auto !important;
 }
 
-/* lean, esta es una clase que va a estar a lo largo de la web, para no repetir tanto flex */
 .center {
   display: flex;
   justify-content: center;
