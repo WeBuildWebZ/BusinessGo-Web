@@ -9,6 +9,12 @@ a {
   padding: 0;
   margin: 0;
   font-family: 'raleway', Arial, Helvetica, sans-serif;
+  cursor: url('/images/cursor.png'), auto;
+}
+
+input[type='text'],
+input[type='password'] {
+  cursor: url('/images/text-cursor.png'), auto !important;
 }
 
 /* lean, esta es una clase que va a estar a lo largo de la web, para no repetir tanto flex */
