@@ -94,6 +94,9 @@ const Login = () => {
             0% {
               background-position-x: 100vw;
             }
+            50% {
+              background-position-y: 150px;
+            }
           }
           @keyframes titleAppear {
             0% {
