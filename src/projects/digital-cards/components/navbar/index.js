@@ -13,8 +13,8 @@ const Navbare = () => (
           display: flex;
           position: fixed;
           background: hsla(0, 0%, 100%, 0.5);
-          background-color: #c800cd33;
-          box-shadow: 0 0 2px 2px #c800cd33;
+          background-color: whitesmoke;
+          box-shadow: 0 0 2px 2px whitesmoke;
           backdrop-filter: blur(1em);
           z-index: 100;
         }
