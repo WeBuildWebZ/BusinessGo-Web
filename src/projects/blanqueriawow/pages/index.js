@@ -46,6 +46,18 @@ const IndexPage = () => (
             </a>
           </div>
         </article>
+
+        <article
+          style={{ backgroundImage: 'url(/images/featured-3.jpg)' }}
+          className="featured-item featured-item-small"
+        >
+          <div className="featured-item__content">
+            <h3>Este invierno2</h3>
+            <a href="/products?search=acolchado" className="btn btn--rounded">
+              Más detalles
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 

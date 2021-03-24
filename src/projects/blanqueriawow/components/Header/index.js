@@ -78,6 +78,9 @@ const Header = ({ isErrorPage }) => {
           <Link href="/products">
             <a>Productos</a>
           </Link>
+          <Link href="https://colchonesmdq.com">
+            <a target="blank">Colchones</a>
+          </Link>
           {menuOpen && <Filter />}
         </nav>
 
