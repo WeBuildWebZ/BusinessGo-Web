@@ -15,14 +15,17 @@ if (!githubToken) throw new Error('no github username provided');
 if (!project) throw new Error(`Didn't found project with name ${projectName}`);
 
 (async () => {
-  await runExec('rm -rf repos');
+  if (fs.existsSync('repos')) fs.rmdirSync('repos', { recursive: true, force: true });
+
   const repoPath = `repos/${projectName}`;
 
   project.repo = project.repo.replace('{{GITHUB_TOKEN}}', githubToken);
 
   await runExec(`git clone ${project.repo} ${repoPath}`);
   await runExec(`cd ${repoPath} && git checkout ${branch}`);
-  await runExec(`cd ${repoPath} && git reset --hard HEAD^`);
+  await runExec(`cd ${repoPath} && git reset --hard HEAD~1`);
+  await runExec(`cd ${repoPath} && git reset --hard HEAD~1`);
+  await runExec(`cd ${repoPath} && git reset --hard HEAD~1`);
   console.log('copying files...');
   await copy('scripts', `${repoPath}/scripts`);
   console.log('copied scripts');
@@ -30,14 +33,14 @@ if (!project) throw new Error(`Didn't found project with name ${projectName}`);
   console.log('copied src');
   await copy('projects.json', `${repoPath}/projects.json`);
   console.log('copied projects.json');
-  await runExec(`cp package.json ${repoPath}`);
-  await runExec(`cp next.config.js ${repoPath}`);
-  await runExec(`cp .gitignore ${repoPath}`);
+  fs.copyFileSync('package.json', `${repoPath}/package.json`);
+  fs.copyFileSync('next.config.js', `${repoPath}/next.config.js`);
+  fs.copyFileSync('.gitignore', `${repoPath}/.gitignore`);
   console.log('copied files');
 
   fs.readdirSync(`${repoPath}/src/projects`)
     .filter(dir => dir !== projectName)
-    .forEach(dir => rimraf.sync(`${repoPath}/src/projects/${dir}`));
+    .forEach(dir => fs.rmdirSync(`${repoPath}/src/projects/${dir}`, { recursive: true, force: true }));
 
   // Upload to Github Repository
   await runExec(`cd ${repoPath} && git add .`);
