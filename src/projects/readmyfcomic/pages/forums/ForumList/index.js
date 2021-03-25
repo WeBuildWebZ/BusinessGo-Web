@@ -10,11 +10,11 @@ const ForumList = () => {
         const link = `/forums/${encodeURIComponent(forum._id)}`;
 
         return (
-          <div key={i} className="profile">
+          <div key={i} className="forum">
             <Link href={link}>
               <a>
                 <img className="image" src={forum.user.image} />
-                <div className="questionContainer">{forum.question}</div>
+                <div className="titleContainer">{forum.title}</div>
               </a>
             </Link>
             <div className="infoContainer">
@@ -61,7 +61,7 @@ const ForumList = () => {
             max-height: 150px;
             border-radius: 5px;
           }
-          .questionContainer {
+          .titleContainer {
             flex: 5;
           }
           .infoContainer {
