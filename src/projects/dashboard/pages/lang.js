@@ -2,12 +2,14 @@ export const getLanguage = langCode =>
   ({
     es: {
       breadcrumbItems: {
-        '/': [{ text: 'Tarjetas', link: '/dashboard/cards' }, { text: 'Dashboard' }]
+        '/': [{ text: 'Dashboard' }],
+        '/content_editor': [{ text: 'Dashboard', link: '/' }, { text: 'Editor de Contenido' }]
       }
     },
     en: {
       breadcrumbItems: {
-        '/': [{ text: 'Cards', link: '/dashboard/cards' }, { text: 'Dashboard' }]
+        '/': [{ text: 'Dashboard' }],
+        '/content_editor': [{ text: 'Dashboard', link: '/' }, { text: 'Content Editor' }]
       }
     }
   }[langCode]);

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import MenuOpenRounded from '@material-ui/icons/MenuOpenRounded';
 import MenuRounded from '@material-ui/icons/MenuRounded';
 import SettingsRounded from '@material-ui/icons/SettingsRounded';
+import BorderColorRounded from '@material-ui/icons/BorderColorRounded';
 
 import { setSidebarWidth } from '../../../shared/actions/sidebarWidth';
 
@@ -50,14 +51,14 @@ const Sidebar = () => {
         showText={open}
         onClick={handleToggle}
       />
-      <Link href="/dashboard/configuration">
+      <Link href="/configuration">
         <a>
-          <Button
-            symbol={<SettingsRounded />}
-            text={language.basicConfig}
-            showText={open}
-            // onClick={handleRedirect('/dashboard/cards')}
-          />
+          <Button symbol={<SettingsRounded />} text={language.basicConfig} showText={open} />
+        </a>
+      </Link>
+      <Link href="/content_editor">
+        <a>
+          <Button symbol={<BorderColorRounded />} text={language.contentEditor} showText={open} />
         </a>
       </Link>
       <style jsx>
