@@ -9,7 +9,7 @@ const Title = () => {
 
   return (
     <div className="title">
-      {process.browser ? <Breadcrumb2 items={language.breadcrumbItems[window.location.pathname]} /> : ''}
+      {process.browser ? <Breadcrumb2 items={language.breadcrumbItems} /> : ''}
 
       <style jsx>
         {`
