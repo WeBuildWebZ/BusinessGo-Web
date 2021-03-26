@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import DashboardLayout from '../../../../components/DashboardLayout';
 import EnsureLoggedIn from '../../../../components/EnsureLoggedIn';
 import LoadingPage2 from '../../../../components/LoadingPage2';
-
 import { getLanguage } from '../lang';
 
 const Dashboard = () => {

@@ -7,7 +7,7 @@ import Content from './Content';
 const DashboardLayout = props => (
   <div className="dashboardLayout">
     <Navbar breadcrumbItems={props.breadcrumbItems} />
-    <Sidebar />
+    <Sidebar buttons={props.sidebarButtons} />
     <Content>{props.children}</Content>
     <style jsx>
       {`
@@ -24,7 +24,8 @@ const DashboardLayout = props => (
 
 DashboardLayout.propTypes = {
   children: PropTypes.any.isRequired,
-  breadcrumbItems: PropTypes.object.isRequired
+  breadcrumbItems: PropTypes.object.isRequired,
+  sidebarButtons: PropTypes.array.isRequired
 };
 
 export default DashboardLayout;
