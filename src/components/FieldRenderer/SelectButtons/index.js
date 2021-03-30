@@ -2,20 +2,19 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { listProducts } from '../../../../../../services/ecommerce_api/product';
-import { getProductCodeTranslation } from '../../../../../../translations/productsCodes';
+const SelectButtons = props => {
+  const languageCode = useSelector(store => store.language);
 
-const Step1 = props => {
   const handleSelectOption = option => {
-    props.onOptionSelected(option);
+    props.onChange(option);
   };
 
   return (
     <>
       {props.options.map((option, i) => (
-        <div key={i} className="option" onClick={() => handleSelectOption(i)}>
-          <div className="title">{option.title}</div>
-          <div className="description">{option.description}</div>
+        <div key={i} className="option" onClick={() => handleSelectOption(option.value)}>
+          <div className="title">{option.language[languageCode].title}</div>
+          <div className="description">{option.language[languageCode].description}</div>
         </div>
       ))}
       <style jsx>
@@ -40,8 +39,6 @@ const Step1 = props => {
           }
           .option:active {
             transform: scale(1.12);
-            background-color: rgb(199, 177, 177);
-            box-shadow: 0 0 4px 1px rgb(199, 177, 177);
             transition: 0.1s;
           }
           .title {
@@ -58,10 +55,17 @@ const Step1 = props => {
   );
 };
 
-Step1.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.shape({ title: PropTypes.string, description: PropTypes.string }))
-    .isRequired,
-  onOptionSelected: PropTypes.func.isRequired
+SelectButtons.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      language: PropTypes.shape({
+        en: PropTypes.shape({ title: PropTypes.string, description: PropTypes.string }),
+        es: PropTypes.shape({ title: PropTypes.string, description: PropTypes.string })
+      })
+    })
+  ).isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
-export default Step1;
+export default SelectButtons;

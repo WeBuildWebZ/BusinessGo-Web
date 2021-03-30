@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react';
 
 import Card from '../Card';
 import { listProducts } from '../../../../services/ecommerce_api/product';
+import FieldRenderer from '../../../../components/FieldRenderer';
+import { showForm } from '../../../../services/api/form';
 
 import Tabs from './Tabs';
-import Steps from './Steps';
 import { getLanguage } from './lang';
 import * as constants from './constants';
 
@@ -14,8 +15,9 @@ const NewCard = () => {
   const language = getLanguage(useSelector(store => store.language));
   const project = useSelector(store => store.project);
   const [products, setProducts] = useState(null);
+  const [form, setForm] = useState(null);
   const [tab, setTab] = useState('data');
-  const [step, setStep] = useState('plan');
+  const [step, setStep] = useState(0);
   const [data, setData] = useState({ form_data: {} });
   const stepIndex = constants.STEPS.indexOf(step);
   const canGoBack = stepIndex - 1 >= 0;
@@ -41,8 +43,15 @@ const NewCard = () => {
     });
   }, [project]);
 
+  useEffect(() => {
+    if (!project) return;
+    showForm(project.code, 'miniweb_creation').then(({ data: givenForm }) => {
+      setForm(givenForm);
+    });
+  }, [project]);
+
   return (
-    <Modal open>
+    <Modal open BackdropProps={{ style: { opacity: 0.5 } }}>
       <div className="modalContent">
         <h3 className="title">{language.newCard}</h3>
         <Tabs tab={tab} onTabChanged={handleChangeTab} />
@@ -51,7 +60,7 @@ const NewCard = () => {
             <div className={`backButton${canGoBack ? '' : ' disabledButton'}`} onClick={handleGoBack}>
               {language.goBack}
             </div>
-            <Steps step={step} data={data} onDataAdded={handleAddData} products={products} />
+            {form && <FieldRenderer fields={form.steps[step].fields} />}
           </>
         )}
         {tab === 'preview' && <Card card={data} templateCode="free1" />}
@@ -59,12 +68,13 @@ const NewCard = () => {
           {`
             .modalContent {
               width: 50%;
-              min-height: 100vh;
+              height: 80vh;
               margin: auto;
-              background-color: #ebebeb;
+              margin-top: 10vh;
+              background-color: white;
               outline: none;
-              border-radius: 1em;
-              box-shadow: 0px 5px 10px #1c1c1c;
+              border-radius: 5px;
+              box-shadow: 0px 14px 50px 5px #1c1c1c7c;
               overflow-x: hidden;
             }
             .title {

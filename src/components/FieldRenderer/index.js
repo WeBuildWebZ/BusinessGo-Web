@@ -11,6 +11,7 @@ import List from './List';
 import Group from './Group';
 import Enum from './components/Enum';
 import Select from './components/Select';
+import SelectButtons from './SelectButtons';
 import Number from './components/Number';
 import Image from './components/Image';
 import { getDataFromFields } from './utils';
@@ -184,6 +185,15 @@ const FieldRenderer = props => {
                 onChange={value => handleUpdateData(field.key, value)}
                 onChangeOptionData={handleUpdateOptionData}
                 FieldRenderer={FieldRenderer}
+                key={`${props.formCode}-${field.key}`}
+              />
+            );
+          case 'select-buttons':
+            return (
+              <SelectButtons
+                options={field.select_button_options}
+                optionData={data}
+                onChange={value => handleUpdateData(field.key, value)}
                 key={`${props.formCode}-${field.key}`}
               />
             );
