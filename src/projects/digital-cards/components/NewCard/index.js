@@ -19,8 +19,7 @@ const NewCard = () => {
   const [tab, setTab] = useState('data');
   const [step, setStep] = useState(0);
   const [data, setData] = useState({ form_data: {} });
-  const stepIndex = constants.STEPS.indexOf(step);
-  const canGoBack = stepIndex - 1 >= 0;
+  const canGoBack = step > 0;
 
   const handleAddData = (newData, newStep) => {
     setData({ ...data, ...newData });
@@ -33,7 +32,7 @@ const NewCard = () => {
 
   const handleGoBack = () => {
     if (!canGoBack) return;
-    setStep(constants.STEPS[stepIndex - 1]);
+    setStep(step - 1);
   };
 
   useEffect(() => {
