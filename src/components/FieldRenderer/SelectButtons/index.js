@@ -11,12 +11,20 @@ const SelectButtons = props => {
 
   return (
     <>
-      {props.options.map((option, i) => (
-        <div key={i} className="option" onClick={() => handleSelectOption(option.value)}>
-          <div className="title">{option.language[languageCode].title}</div>
-          <div className="description">{option.language[languageCode].description}</div>
-        </div>
-      ))}
+      {props.options.map((option, i) => {
+        const isSelected = option.value === props.value;
+
+        return (
+          <div
+            key={i}
+            className={`option${isSelected ? ' selected' : ''}`}
+            onClick={() => handleSelectOption(option.value)}
+          >
+            <div className="title">{option.language[languageCode].title}</div>
+            <div className="description">{option.language[languageCode].description}</div>
+          </div>
+        );
+      })}
       <style jsx>
         {`
           .option {
@@ -41,6 +49,11 @@ const SelectButtons = props => {
             transform: scale(1.12);
             transition: 0.1s;
           }
+          .option.selected {
+            border-style: solid;
+            border-color: #333333;
+            border-width: 1px;
+          }
           .title {
             font-size: 20px;
             line-height: 25px;
@@ -56,6 +69,7 @@ const SelectButtons = props => {
 };
 
 SelectButtons.propTypes = {
+  value: PropTypes.any,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string.isRequired,
@@ -66,6 +80,10 @@ SelectButtons.propTypes = {
     })
   ).isRequired,
   onChange: PropTypes.func.isRequired
+};
+
+SelectButtons.defaultProps = {
+  value: ''
 };
 
 export default SelectButtons;

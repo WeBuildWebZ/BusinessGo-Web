@@ -6,9 +6,10 @@ import PropTypes from 'prop-types';
 import { fieldShape } from '../../utils/field';
 import { getFieldKeyTranslation } from '../../translations/fieldKeys';
 
-import Text from './components/Text';
 import List from './List';
 import Group from './Group';
+import Checkbox from './Checkbox';
+import Text from './components/Text';
 import Enum from './components/Enum';
 import Select from './components/Select';
 import SelectButtons from './SelectButtons';
@@ -192,7 +193,16 @@ const FieldRenderer = props => {
             return (
               <SelectButtons
                 options={field.select_button_options}
-                optionData={data}
+                value={data[field.key]}
+                onChange={value => handleUpdateData(field.key, value)}
+                key={`${props.formCode}-${field.key}`}
+              />
+            );
+          case 'checkbox':
+            return (
+              <Checkbox
+                value={data[field.key]}
+                field={field}
                 onChange={value => handleUpdateData(field.key, value)}
                 key={`${props.formCode}-${field.key}`}
               />
