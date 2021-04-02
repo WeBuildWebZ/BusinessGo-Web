@@ -1,19 +1,16 @@
 import { useState } from 'react';
 
 const useUpdateAfter = () => {
-  const [timeoutId, setTimeoutId] = useState(null);
+  let timeoutId = null;
 
-  return (value, timeout, callback) =>
-    new Promise(resolve => {
-      if (timeoutId !== null) clearTimeout(timeoutId);
+  return (value, timeout, callback) => {
+    if (timeoutId !== null) clearTimeout(timeoutId);
 
-      setTimeoutId(
-        setTimeout(() => {
-          setTimeoutId(null);
-          callback(value);
-        }, timeout)
-      );
-    });
+    timeoutId = setTimeout(() => {
+      timeoutId = null;
+      callback(value);
+    }, timeout);
+  };
 };
 
 export default useUpdateAfter;

@@ -1,32 +1,25 @@
 import { TextField } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import InputGroup from '../../../../components/InputGroup';
 
-import { getLanguage } from './lang';
+import Field from './Field';
 
 const FieldEditor = props => {
-  const language = getLanguage(useSelector(store => store.language));
+  const handleChange = (fieldIndex, attribute, value) => {
+    const newFields = [
+      ...props.form.fields.map((field, i) => (i === fieldIndex ? { ...field, [attribute]: value } : field))
+    ];
+    props.onChange(newFields);
+  };
 
   return (
     <>
       <div className="fieldEditor">
         {props.form.fields.map((field, i) => (
-          <InputGroup key={i}>
-            <div className="fieldContainer">
-              <div className="text">{field.name}</div>
-              <TextField
-                label={language.step}
-                value={field.step}
-                type="number"
-                variant="outlined"
-                onChange={e => props.onChange(i, 'step', +e.target.value)}
-                required={field.is_required}
-                size="small"
-              />
-            </div>
-          </InputGroup>
+          <Field key={i} field={field} onChange={(attribute, value) => handleChange(i, attribute, value)} />
         ))}
       </div>
       <style jsx>
@@ -34,13 +27,6 @@ const FieldEditor = props => {
           .fieldEditor {
             width: 70%;
             margin-left: 15%;
-          }
-          .fieldContainer {
-            display: flex;
-            flex-direction: column;
-          }
-          .text {
-            margin-bottom: 14px;
           }
         `}
       </style>

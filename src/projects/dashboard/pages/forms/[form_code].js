@@ -21,22 +21,18 @@ const ShowForm = ({ form_code }) => {
   const [form, setForm] = useState(null);
   const [updating, setUpdating] = useState(false);
 
-  const handleChange = (fieldIndex, attribute, value) => {
-    const newForm = {
-      ...form,
-      fields: [
-        ...form.fields.map((field, i) => (i === fieldIndex ? { ...field, [attribute]: value } : field))
-      ]
-    };
-
+  const handleChange = newFields => {
+    const newForm = { ...form, fields: newFields };
     setForm(newForm);
   };
 
   const handleSaveChanges = () => {
+    if (updating) return;
     setUpdating(true);
     updateForm(dashboardProject.code, form).then(() => {
       setUpdating(false);
       pushAlert({
+        type: 'info',
         title: language.formUpdated(form).title,
         message: language.formUpdated(form).message
       });
@@ -82,9 +78,11 @@ const ShowForm = ({ form_code }) => {
             border-radius: 5px;
             background-color: rgb(109, 164, 185);
             user-select: none;
+            transition: 0.7s;
           }
           .saveButton.disabled {
             opacity: 0.7;
+            transform: scale(0.9);
           }
         `}
       </style>
