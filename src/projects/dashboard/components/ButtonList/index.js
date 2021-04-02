@@ -23,7 +23,6 @@ const ButtonList = props => (
           border-radius: 5px;
           background-color: rgb(94, 156, 180);
           color: whitesmoke;
-          z-index: 999;
         }
         .button:hover {
           transform: scale(1.1);

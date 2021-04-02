@@ -10,7 +10,7 @@ import ButtonList from '../../components/ButtonList';
 
 import { getLanguage } from './lang';
 
-const ContentEditor = () => {
+const Forms = () => {
   const dashboardProject = useSelector(store => store.dashboardProject);
   const dashboardConfiguration = useDashboardConfiguration();
   const language = getLanguage(useSelector(store => store.language));
@@ -32,7 +32,10 @@ const ContentEditor = () => {
         <h1 className="title">{language.title}</h1>
         {forms && (
           <ButtonList
-            buttons={forms.map(form => ({ text: form.name, link: `/forms/${encodeURIComponent(form._id)}` }))}
+            buttons={forms.map(form => ({
+              text: form.name,
+              link: `/forms/${encodeURIComponent(form.code)}`
+            }))}
           />
         )}
       </DashboardLayout>
@@ -47,4 +50,4 @@ const ContentEditor = () => {
   );
 };
 
-export default ContentEditor;
+export default Forms;

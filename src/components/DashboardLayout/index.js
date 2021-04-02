@@ -23,9 +23,13 @@ const DashboardLayout = props => (
 );
 
 DashboardLayout.propTypes = {
-  children: PropTypes.any.isRequired,
-  breadcrumbItems: PropTypes.object.isRequired,
+  children: PropTypes.any,
+  breadcrumbItems: PropTypes.array.isRequired,
   sidebarButtons: PropTypes.array.isRequired
+};
+
+DashboardLayout.defaultProps = {
+  children: ''
 };
 
 export default DashboardLayout;

@@ -17,6 +17,7 @@ const Content = props => {
             width: calc(100% - ${sidebarWidth}px);
             height: calc(100% - ${navbarHeight}px);
             transition: 0.7s;
+            overflow-y: auto;
           }
         `}
       </style>
@@ -25,7 +26,11 @@ const Content = props => {
 };
 
 Content.propTypes = {
-  children: PropTypes.any.isRequired
+  children: PropTypes.any
+};
+
+Content.defaultProps = {
+  children: ''
 };
 
 export default Content;

@@ -36,7 +36,7 @@ const Navbar = props => {
 };
 
 Navbar.propTypes = {
-  breadcrumbItems: PropTypes.object.isRequired
+  breadcrumbItems: PropTypes.any.isRequired
 };
 
 export default Navbar;

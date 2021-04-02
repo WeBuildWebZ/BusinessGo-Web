@@ -12,7 +12,7 @@ const ContentEditor = () => {
         breadcrumbItems={dashboardConfiguration.breadcrumbItems}
         sidebarButtons={dashboardConfiguration.sidebarButtons}
       >
-        Content Editor
+        Próximamente...
       </DashboardLayout>
     </EnsureLoggedIn>
   );

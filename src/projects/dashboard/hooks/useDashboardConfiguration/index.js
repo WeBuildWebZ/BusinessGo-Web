@@ -12,11 +12,21 @@ const useDashboardConfiguration = () => {
       { text: language.forms_editor, link: '/forms', symbol: <FormatIndentIncreaseRounded /> },
       { text: language.content_editor, link: '/content_editor', symbol: <BorderColorRounded /> }
     ],
-    breadcrumbItems: {
-      '/': [{ text: language.dashboard }],
-      '/content_editor': [{ text: language.dashboard, link: '/' }, { text: language.content_editor }],
-      '/forms': [{ text: language.dashboard, link: '/' }, { text: language.forms_editor }]
-    }
+    breadcrumbItems: [
+      { regex: /^\/$/, items: [{ text: language.dashboard }] },
+      {
+        regex: /^\/content_editor$/,
+        items: [{ text: language.dashboard, link: '/' }, { text: language.content_editor }]
+      },
+      {
+        regex: /^\/forms$/,
+        items: [{ text: language.dashboard, link: '/' }, { text: language.forms_editor }]
+      },
+      {
+        regex: /^\/forms\/[^/]+$/,
+        items: [{ text: language.dashboard, link: '/' }, { text: language.forms_editor }]
+      }
+    ]
   };
 };
 

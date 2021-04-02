@@ -24,6 +24,7 @@ const NewCard = () => {
   const [step, setStep] = useState(0);
   const [data, setData] = useState({ form_data: {} });
   const canGoBack = step > 0;
+  const fields = !form ? null : form.fields.filter(field => field.step === step + 1);
 
   const handlePartialChange = changedData => {
     const newData = { ...data, ...changedData };
@@ -82,9 +83,9 @@ const NewCard = () => {
             <div className={`backButton${canGoBack ? '' : ' disabledButton'}`} onClick={handleGoBack}>
               {language.goBack}
             </div>
-            {form && (
+            {fields && (
               <FieldRenderer
-                fields={form.steps[step].fields}
+                fields={fields}
                 data={data}
                 onChange={handleAddData}
                 onPartialChange={handlePartialChange}

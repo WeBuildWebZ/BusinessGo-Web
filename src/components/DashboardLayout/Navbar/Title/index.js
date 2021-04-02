@@ -24,7 +24,7 @@ const Title = props => {
 };
 
 Title.propTypes = {
-  breadcrumbItems: PropTypes.object.isRequired
+  breadcrumbItems: PropTypes.any.isRequired
 };
 
 export default Title;

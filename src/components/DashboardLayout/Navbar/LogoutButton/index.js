@@ -16,7 +16,7 @@ const LogoutButton = () => {
           .logoutButton {
             position: absolute;
             transform: translate(-100%, -50%);
-            left: 100%;
+            left: calc(100% - 5px);
             top: 50%;
             width: fit-content;
             height: 70%;
