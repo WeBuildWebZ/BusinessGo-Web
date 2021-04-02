@@ -33,7 +33,9 @@ const Login = () => {
           title: language.loginOk.title,
           message: language.loginOk.message
         });
-        window.location.href = '/';
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 500);
       })
       .catch(error => {
         setLoading(false);

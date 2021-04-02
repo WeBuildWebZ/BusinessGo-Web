@@ -1,4 +1,4 @@
-import { Provider, useDispatch } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { combineReducers, createStore } from 'redux';
@@ -26,6 +26,7 @@ const ReduxFiller = props => {
   const dispatch = useDispatch();
   const handleError = useHandleError();
   const changeLanguage = useChangeLanguage();
+  const session = useSelector(store => store.session);
   const { constants } = props;
   const router = useRouter();
   const { query } = router || { query: {} };
@@ -51,18 +52,19 @@ const ReduxFiller = props => {
     changeLanguage(constants.DEFAULT_LANGUAGE, false);
   }, []);
 
-  if (constants.HAS_LOGIN) {
+  useEffect(() => {
+    if (!constants.HAS_LOGIN || session) return;
     getSessions()
-      .then(({ data: sessions }) => {
-        const [session] = sessions;
-        if (!session) return dispatch(setSession({ user: null }));
-        const { user: newUser } = session;
+      .then(({ data: givenSessions }) => {
+        const [newSession] = givenSessions;
+        if (!newSession) return dispatch(setSession({ user: null }));
+        const { user: newUser } = newSession;
 
         dispatch(setUser(newUser));
-        dispatch(setSession(session));
+        dispatch(setSession(newSession));
       })
       .catch(handleError);
-  }
+  }, [session]);
 
   useEffect(() => {
     dispatch(setQueryParams(query));
@@ -93,8 +95,8 @@ const getApp = (reducer, constants, AppendComponent) => {
 
     return (
       <>
-        <AppendComponent />
         <Provider store={store}>
+          <AppendComponent />
           <ReduxFiller constants={constants} onError={setErrorCode} />
           {errorCode && <ErrorMessage code={errorCode} />}
           <Alerts />

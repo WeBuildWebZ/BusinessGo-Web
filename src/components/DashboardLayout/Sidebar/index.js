@@ -50,12 +50,12 @@ const Sidebar = props => {
         showText={open}
         onClick={handleToggle}
       />
-      {props.buttons.map(button => {
+      {props.buttons.map((button, i) => {
         const buttonComponent = <Button symbol={button.symbol} text={button.text} showText={open} />;
 
         if (!button.link) return buttonComponent;
         return (
-          <Link href={button.link}>
+          <Link href={button.link} key={i}>
             <a>{buttonComponent}</a>
           </Link>
         );

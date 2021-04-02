@@ -13,7 +13,11 @@ a {
 }
 
 .pointer-cursor {
-  cursor: url('/images/pointer-cursor.png') 14 0, auto !important ;
+  cursor: url('/images/pointer-cursor.png') 14 0, auto !important;
+}
+
+a {
+  cursor: url('/images/pointer-cursor.png') 14 0, auto !important;
 }
 
 .text-cursor {

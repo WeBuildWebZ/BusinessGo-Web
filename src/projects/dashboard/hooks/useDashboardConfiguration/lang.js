@@ -2,12 +2,12 @@ export const getLanguage = langCode =>
   ({
     es: {
       dashboard: 'Dashboard',
-      basic_config: 'Configuración Básica',
+      forms_editor: 'Editor de formularios',
       content_editor: 'Editor de Contenido'
     },
     en: {
       dashboard: 'Dashboard',
-      basic_config: 'Basic Configuration',
+      forms_editor: 'Form Editor',
       content_editor: 'Content Editor'
     }
   }[langCode]);
