@@ -190,6 +190,7 @@ const Prices = () => {
             cursor: pointer;
             user-select: none;
             transition: 0.7s;
+            color: whitesmoke;
           }
           .socialNetworkContainer:hover {
             transform: scale(1.05);
@@ -204,7 +205,6 @@ const Prices = () => {
           }
           .socialNetworkContainer.facebook {
             background-color: #405c9c;
-            color: whitesmoke;
           }
           .socialNetworkImage {
             width: 22px;
