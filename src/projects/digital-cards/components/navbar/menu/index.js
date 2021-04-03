@@ -1,26 +1,25 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import useHandleLogout from '../../../../../shared/hooks/useHandleLogout';
 
 import * as constants from './constants';
 
-const getIsSelected = (router, path) => router.pathname === path;
-
 const Menu = () => {
-  const router = useRouter();
   const user = useSelector(store => store.user);
+  const [selectedSection, setSelectedSection] = useState(0);
   const handleLogout = useHandleLogout('/');
 
   return (
     <div className="menu">
       {constants.sections.map((section, i) => {
-        const isSelected = getIsSelected(router, section.link);
+        const isSelected = selectedSection === i;
 
         return (
           <Link key={i} href={section.link}>
-            <a>
+            <a onClick={() => setSelectedSection(i)}>
               <div className={`item ${isSelected ? 'selected' : ''}`}>{section.title}</div>
             </a>
           </Link>

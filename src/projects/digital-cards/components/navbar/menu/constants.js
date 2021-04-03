@@ -1,26 +1,26 @@
 export const sections = [
   {
     title: 'Home',
-    link: '/'
+    link: '/#home'
   },
   {
     title: 'Cómo Funciona',
-    link: '/como-funciona'
+    link: '/#how-it-works'
   },
   {
     title: 'Plantillas',
-    link: '/templates'
+    link: '/#templates'
   },
   {
     title: 'Clientes',
-    link: '/clientes'
+    link: '/#clients'
   },
   {
     title: 'Blog',
-    link: '/articles'
+    link: '/#articles'
   },
   {
     title: 'Contacto',
-    link: '/contacto'
+    link: '/#contact'
   }
 ];
