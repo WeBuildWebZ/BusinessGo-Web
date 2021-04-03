@@ -41,7 +41,9 @@ const List = props => {
 
   return (
     <InputGroup>
-      <FormLabel component="legend">{field.name || keyTranslation[field.key]}</FormLabel>
+      <FormLabel component="legend">
+        {(field.names && field.names[languageCode]) || field.name || keyTranslation[field.key]}
+      </FormLabel>
       {stateValue.map((option, i) => (
         <TextField
           key={i}

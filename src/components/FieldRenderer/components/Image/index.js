@@ -15,7 +15,7 @@ const Image = props => {
   const project = useSelector(store => store.project);
   const [uploading, setUploading] = useState(false);
   const input = useRef(null);
-  const fieldName = field.name || keyTranslation[field.key];
+  const fieldName = (field.names && field.names[languageCode]) || field.name || keyTranslation[field.key];
 
   const handleOpenFileSelector = () => {
     input.current.click();

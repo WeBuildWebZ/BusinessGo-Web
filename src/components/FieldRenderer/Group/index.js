@@ -50,7 +50,9 @@ const Group = props => {
         onPrompt={handlePrompt}
         title={language.deleteMessage(field)}
       />
-      <FormLabel component="legend">{field.name || keyTranslation[field.key]}</FormLabel>
+      <FormLabel component="legend">
+        {(field.names && field.names[languageCode]) || field.name || keyTranslation[field.key]}
+      </FormLabel>
       {datas.map((data, i) => (
         <InputGroup key={i}>
           <CloseIcon

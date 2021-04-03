@@ -73,7 +73,9 @@ const Enum = props => {
           onChange={handleUpdateEnum}
         />
       )}
-      <FormLabel component="legend">{field.name || keyTranslation[field.key]}</FormLabel>
+      <FormLabel component="legend">
+        {(field.names && field.names[languageCode]) || field.name || keyTranslation[field.key]}
+      </FormLabel>
       {stateValue.map((option, i) => (
         <TextField
           key={i}

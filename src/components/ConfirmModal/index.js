@@ -9,7 +9,7 @@ const ConfirmModal = props => {
 
   return (
     <Modal open={props.show} onClose={() => props.onPrompt(false)}>
-      <div className="modal">
+      <div className="modalContainer">
         <h2 className="title">{props.title}</h2>
         <p className="message">{props.message}</p>
         <Button
@@ -24,9 +24,11 @@ const ConfirmModal = props => {
         </Button>
         <style jsx>
           {`
-            .modal {
+            .modalContainer {
               width: 80%;
               margin: 20px 0 0 10%;
+              padding: 14px;
+              border-radius: 5px;
               background-color: #ebebeb;
             }
             .title {

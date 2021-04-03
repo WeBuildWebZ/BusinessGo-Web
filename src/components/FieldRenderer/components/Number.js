@@ -19,7 +19,7 @@ const Number = props => {
 
   return (
     <TextField
-      label={field.name || keyTranslation[field.key]}
+      label={(field.names && field.names[languageCode]) || field.name || keyTranslation[field.key]}
       value={stateValue}
       type="number"
       variant="outlined"

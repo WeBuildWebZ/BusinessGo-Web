@@ -11,7 +11,7 @@ const Text = props => {
   const languageCode = useSelector(store => store.language);
   const keyTranslation = getFieldKeyTranslation(languageCode);
   const [stateValue, setStateValue] = useState(value || field.default_value);
-  const label = field.name || keyTranslation[field.key];
+  const label = (field.names && field.names[languageCode]) || field.name || keyTranslation[field.key];
 
   const handleChangeValue = ({ target }) => {
     setStateValue(target.value);
