@@ -20,7 +20,7 @@ const Footer = () => {
               <a className="pointer">{language.socialNetworks}</a>
             </Link>
           </h3>
-          <p>Entra en el enlace, y contactanos a travez de todas las redes sociales que usamos.</p>
+          <p>Entra en el enlace, y contactanos a través de todas las redes sociales que usamos.</p>
           <br />
           <br />
         </span>
