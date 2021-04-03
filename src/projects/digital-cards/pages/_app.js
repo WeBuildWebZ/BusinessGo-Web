@@ -39,7 +39,7 @@ const AppendHead = () => (
     />
     <Head>
       <link rel="icon" href="/favicon.png" />
-      {process.browser && !window.location.pathname.startsWith('/admin') && (
+      {process.browser && !window.location.pathname.startsWith('/cards') && (
         <script
           src="https://www.widgets.webuildwebz.com/include.js"
           data-webuildwebz-project-token="99E424DD30DD41248E5446C17CD137E3D18CA2D9"
