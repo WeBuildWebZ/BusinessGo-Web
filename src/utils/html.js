@@ -37,3 +37,10 @@ export const getVisiblePercentage = (element, offset = 0) => {
 
   return top >= 0 && top <= window.innerHeight;
 };
+
+export const goToLink = (href, target = '') => {
+  const a = document.createElement('a');
+  a.href = href;
+  a.target = target;
+  a.click();
+};
