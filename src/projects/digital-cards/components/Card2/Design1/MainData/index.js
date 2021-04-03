@@ -32,7 +32,6 @@ const MainData = props => {
             display: flex;
             flex-direction: row;
             justify-content: center;
-            z-index: 1;
           }
           .dataContainer {
             display: flex;
