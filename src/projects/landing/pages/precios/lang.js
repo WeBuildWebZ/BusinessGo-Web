@@ -14,7 +14,7 @@ export const getLanguage = langCode =>
       totalPrice: 'Precio Total',
       perMonth: 'por mes',
       descriptions: {
-        webDevelopment: 'Este precio incluye tanto el diseño de la web como desarrollo frontend',
+        webDevelopment: 'Este precio incluye tanto el diseño de la web como desarrollo frontend.',
         loginRegister:
           'Desarrollamos la funcionalidad de login y registro para que tu web pueda tener usuarios. Estos se guardarán en una base de datos.',
         animations: 'Agregamos efectos al hacer scroll y en los botones.',
@@ -88,7 +88,7 @@ export const getLanguage = langCode =>
       totalPrice: 'Total Price',
       perMonth: 'per month',
       descriptions: {
-        webDevelopment: 'Este precio incluye tanto el diseño de la web como desarrollo frontend',
+        webDevelopment: 'This price includes both web design and frontend development',
         loginRegister:
           'We develop the login and registration functionality so that your website can have users. These will be saved in a database.',
         animations: 'We add scroll effects and button animations.',

@@ -29,80 +29,70 @@ const Prices = () => {
   const language = getLanguage(useSelector(store => store.language));
   const [checkboxes, setCheckboxes] = useState([
     {
-      text: language.webDevelopment,
-      description: language.descriptions.webDevelopment,
+      key: 'webDevelopment',
       defaultChecked: true,
       blocked: true,
       initialPrice: 100,
       monthlyPrice: 0
     },
     {
-      text: language.loginRegister,
-      description: language.descriptions.loginRegister,
+      key: 'loginRegister',
       defaultChecked: false,
       blocked: false,
       initialPrice: 40,
       monthlyPrice: 3
     },
     {
-      text: language.animations,
-      description: language.descriptions.animations,
+      key: 'animations',
       defaultChecked: false,
       blocked: false,
       initialPrice: 10,
       monthlyPrice: 0
     },
     {
-      text: language.chatbot,
-      description: language.descriptions.chatbot,
+      key: 'chatbot',
       defaultChecked: false,
       blocked: false,
       initialPrice: 3,
       monthlyPrice: 5
     },
     {
-      text: language.contentManager,
-      description: language.descriptions.contentManager,
+      key: 'contentManager',
       defaultChecked: false,
       blocked: false,
       initialPrice: 3,
       monthlyPrice: 4
     },
     {
-      text: language.emailSending,
-      description: language.descriptions.emailSending,
+      key: 'emailSending',
       defaultChecked: false,
       blocked: false,
       initialPrice: 1,
       monthlyPrice: 1
     },
     {
-      text: language.domainName,
-      description: language.descriptions.domainName,
+      key: 'domainName',
       defaultChecked: false,
       blocked: false,
       initialPrice: 10,
       monthlyPrice: 1
     },
     {
-      text: language.hosting,
-      description: language.descriptions.hosting,
+      key: 'hosting',
       defaultChecked: false,
       blocked: false,
       initialPrice: 1,
       monthlyPrice: 1
     },
     {
-      text: language.seo,
-      description: language.descriptions.seo,
+      key: 'seo',
       defaultChecked: false,
       blocked: false,
       initialPrice: 10,
       monthlyPrice: 0
     },
     {
-      text: language.payments,
-      description: language.descriptions.payments,
+      key: 'payments',
       defaultChecked: false,
       blocked: false,
       initialPrice: 45,
@@ -140,14 +130,14 @@ const Prices = () => {
           <div key={i}>
             <Checkbox
               key={i}
-              text={`${checkbox.text}: ${checkbox.initialPrice} USD${
+              text={`${language[checkbox.key]}: ${checkbox.initialPrice} USD${
                 checkbox.monthlyPrice ? ` + ${checkbox.monthlyPrice} USD ${language.perMonth}` : ''
               }`}
               blocked={checkbox.blocked}
               defaultChecked={checkbox.defaultChecked}
               onChange={_checked => handleChangePrice(i, _checked)}
             />
-            {checked && <p className="description">{checkbox.description}</p>}
+            {checked && <p className="description">{language.descriptions[checkbox.key]}</p>}
           </div>
         );
       })}
