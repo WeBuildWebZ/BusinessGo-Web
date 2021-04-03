@@ -157,8 +157,9 @@ const Prices = () => {
       </h2>
 
       <h3 className="letsTalk">{language.letsTalk}</h3>
-      {socialNetworks.map(socialNetwork => (
+      {socialNetworks.map((socialNetwork, i) => (
         <div
+          key={i}
           className={`socialNetworkContainer ${socialNetwork.className}`}
           onClick={() => goToLink(socialNetwork.link, 'blank')}
         >
