@@ -1,4 +1,4 @@
-import { TextField } from '@material-ui/core';
+import { Checkbox, FormControlLabel, TextField } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -21,6 +21,13 @@ const Field = props => {
     updateAfter(value, 500, () => {
       props.onChange(attribute, value);
     });
+  };
+
+  const handleToggleVariant = (checked, variant) => {
+    const newVariants = checked
+      ? [...stateField.show_on_variants, variant.key]
+      : stateField.show_on_variants.filter(_variant => _variant !== variant.key);
+    handleChange('show_on_variants', newVariants);
   };
 
   return (
@@ -50,6 +57,24 @@ const Field = props => {
           onChange={e => handleChange('step', +e.target.value)}
           size="small"
         />
+        {language.showIn}
+        {props.variants.map((variant, i) => {
+          const checked = stateField.show_on_variants.includes(variant.key);
+
+          return (
+            <FormControlLabel
+              key={i}
+              control={
+                <Checkbox
+                  checked={checked}
+                  onChange={e => handleToggleVariant(e.target.checked, variant)}
+                  color="primary"
+                />
+              }
+              label={variant.names[languageCode]}
+            />
+          );
+        })}
       </div>
       <style jsx>
         {`
@@ -74,6 +99,7 @@ const Field = props => {
 };
 
 Field.propTypes = {
+  variants: PropTypes.array.isRequired,
   field: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired
 };

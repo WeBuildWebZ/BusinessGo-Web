@@ -19,7 +19,12 @@ const FieldEditor = props => {
     <>
       <div className="fieldEditor">
         {props.form.fields.map((field, i) => (
-          <Field key={i} field={field} onChange={(attribute, value) => handleChange(i, attribute, value)} />
+          <Field
+            key={i}
+            field={field}
+            onChange={(attribute, value) => handleChange(i, attribute, value)}
+            variants={props.form.variants}
+          />
         ))}
       </div>
       <style jsx>
