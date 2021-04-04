@@ -8,10 +8,18 @@ const CoverPhoto = props => {
       <style jsx>
         {`
           .coverPhoto {
-            position: relative;
-            width: 100%;
+            transform: translate(-30px);
+            width: calc(100% + 60px);
             height: 190px;
             background-image: url(${card.cover_photo});
+            background-size: cover;
+            animation: photoAppear 1.5s ease;
+          }
+          @keyframes photoAppear {
+            0% {
+              transform: translate(0, -100%);
+              opacity: 0;
+            }
           }
         `}
       </style>

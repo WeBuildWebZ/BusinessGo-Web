@@ -9,7 +9,9 @@ export const getLanguage = langCode =>
         debit_card: 'Tarjeta de Débito'
       },
       aboutBusiness: 'Acerca del negocio',
-      aboutPerson: 'Acerca de mí'
+      aboutPerson: 'Acerca de mí',
+      address: 'Domicilio',
+      businessHours: 'Días y horarios de operación'
     },
     en: {
       businessFlags: {
@@ -20,6 +22,8 @@ export const getLanguage = langCode =>
         debit_card: 'Debit card'
       },
       aboutBusiness: 'About business',
-      aboutPerson: 'About me'
+      aboutPerson: 'About me',
+      address: 'Address',
+      businessHours: 'Operation days and hours'
     }
   }[langCode]);

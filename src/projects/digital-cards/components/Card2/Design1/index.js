@@ -4,6 +4,8 @@ import CoverPhoto from './CoverPhoto';
 import MainData from './MainData';
 import BusinessFlags from './BusinessFlags';
 import Description from './Description';
+import Address from './Address';
+import BusinessHours from './BusinessHours';
 
 const Design1 = props => {
   const { card } = props;
@@ -11,13 +13,17 @@ const Design1 = props => {
 
   return (
     <div className="card">
-      <CoverPhoto card={card} />
       <div className="content">
+        <CoverPhoto card={card} />
         <MainData card={card} />
         <hr />
         <BusinessFlags card={card} />
         <hr />
         <Description card={card} />
+        <hr />
+        <Address card={card} />
+        <hr />
+        <BusinessHours card={card} />
       </div>
       <style jsx>
         {`
@@ -27,7 +33,6 @@ const Design1 = props => {
           }
           .content {
             padding: 0 30px 0 30px;
-            z-index: 1;
           }
         `}
       </style>

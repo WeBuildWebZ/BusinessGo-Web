@@ -32,16 +32,18 @@ const MainData = props => {
             display: flex;
             flex-direction: row;
             justify-content: center;
+            z-index: 1;
           }
           .dataContainer {
             display: flex;
             flex-direction: column;
           }
           .logoContainer {
+            transform: translate(0, -60px);
+            margin-bottom: -60px;
             display: flex;
             flex-direction: row;
             justify-content: center;
-            margin-top: -60px;
           }
           .logo {
             width: 120px;
@@ -49,6 +51,7 @@ const MainData = props => {
             background-image: url(${logo});
             background-size: cover;
             border-radius: 50%;
+            animation: logoAppear 1.5s ease;
           }
           .name {
             text-align: center;
@@ -61,6 +64,12 @@ const MainData = props => {
           }
           .websiteUrl {
             font-weight: bold;
+          }
+          @keyframes logoAppear {
+            0% {
+              transform: scale(0) rotate(360deg);
+              opacity: 0;
+            }
           }
         `}
       </style>

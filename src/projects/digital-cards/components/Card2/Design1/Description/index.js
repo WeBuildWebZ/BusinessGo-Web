@@ -10,8 +10,8 @@ const Description = props => {
   const description = card.business_description || card.person_description;
 
   return (
-    <div className="descriptionContainer">
-      <h2 className="title">{title}</h2>
+    <div>
+      <h3 className="title">{title}</h3>
       {description}
       <style jsx>
         {`
@@ -20,8 +20,6 @@ const Description = props => {
           }
           .title {
             font-weight: bold;
-          }
-          .description {
           }
         `}
       </style>
