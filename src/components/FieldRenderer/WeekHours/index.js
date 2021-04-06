@@ -48,8 +48,6 @@ const WeekHours = props => {
     props.onChange(newValue);
   };
 
-  console.log('props.value', props.value);
-
   return (
     <>
       <h5>{fieldName}</h5>
