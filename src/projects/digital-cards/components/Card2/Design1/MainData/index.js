@@ -46,11 +46,14 @@ const MainData = props => {
             justify-content: center;
           }
           .logo {
-            width: 120px;
-            height: 120px;
+            width: 40vw;
+            height: 40vw;
             background-image: url(${logo});
             background-size: cover;
             border-radius: 50%;
+            border-style: solid;
+            border-width: 7px;
+            border-color: whitesmoke;
             animation: logoAppear 1.5s ease;
           }
           .name {

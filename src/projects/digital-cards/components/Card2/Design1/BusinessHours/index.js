@@ -12,7 +12,7 @@ const BusinessHours = props => {
       <h3 className="title">{language.businessHours}</h3>
       <div className="businessHoursContainer">
         <div className="businessHours">
-          {card.business_hours.map((business_hour, i) => (
+          {card.business_hours?.map((business_hour, i) => (
             <div key={i} className="businessHour">
               <div>{business_hour.day}</div>
               <div className="hour">{business_hour.hour}</div>
