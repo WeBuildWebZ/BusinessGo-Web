@@ -10,6 +10,7 @@ import List from './List';
 import Group from './Group';
 import Checkbox from './Checkbox';
 import WeekHours from './WeekHours';
+import ColorPicker from './ColorPicker';
 import Text from './components/Text';
 import Enum from './components/Enum';
 import Select from './components/Select';
@@ -211,6 +212,15 @@ const FieldRenderer = props => {
           case 'week-hours':
             return (
               <WeekHours
+                value={data[field.key]}
+                field={field}
+                onChange={value => handleUpdateData(field.key, value)}
+                key={`${props.formCode}-${field.key}`}
+              />
+            );
+          case 'color':
+            return (
+              <ColorPicker
                 value={data[field.key]}
                 field={field}
                 onChange={value => handleUpdateData(field.key, value)}
