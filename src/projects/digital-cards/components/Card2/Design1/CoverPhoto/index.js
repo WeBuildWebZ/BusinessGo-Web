@@ -8,7 +8,10 @@ const CoverPhoto = props => {
   return (
     <>
       <div className="coverPhoto" />
-      <div className="coverPhotoBorder" style={{ backgroundColor: color }} />
+      <div
+        className="coverPhotoBorder"
+        style={{ backgroundColor: color, boxShadow: `0 0 2px 2px ${card.border_color}` }}
+      />
       <style jsx>
         {`
           .coverPhoto {

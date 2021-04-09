@@ -6,6 +6,8 @@ import BusinessFlags from './BusinessFlags';
 import Description from './Description';
 import Address from './Address';
 import BusinessHours from './BusinessHours';
+import AddContact from './AddContact';
+import Footer from './Footer';
 
 const Design1 = props => {
   const { card } = props;
@@ -19,11 +21,14 @@ const Design1 = props => {
         <hr />
         <BusinessFlags card={card} />
         <hr />
+        <AddContact card={card} />
+        <hr />
         <Description card={card} />
         <hr />
         <Address card={card} />
         <hr />
         <BusinessHours card={card} />
+        <Footer card={card} />
       </div>
       <style jsx>
         {`
