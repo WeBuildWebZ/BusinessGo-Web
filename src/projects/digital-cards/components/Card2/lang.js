@@ -13,7 +13,11 @@ export const getLanguage = langCode =>
       address: 'Domicilio',
       businessHours: 'Días y horarios',
       addContact: 'Guarda en tus contactos',
-      services: 'Servicios'
+      services: 'Servicios',
+      agenda: 'Agenda',
+      completeName: 'Nombre completo',
+      email: 'Correo elecrónico',
+      phone: 'Teléfono de contacto'
     },
     en: {
       businessFlags: {
@@ -28,6 +32,10 @@ export const getLanguage = langCode =>
       address: 'Address',
       businessHours: 'Operation days and hours',
       addContact: 'Save to your contacts',
-      services: 'Services'
+      services: 'Services',
+      agenda: 'Agenda',
+      completeName: 'Complete name',
+      email: 'Email',
+      phone: 'Contact phone'
     }
   }[langCode]);

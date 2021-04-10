@@ -34,6 +34,7 @@ const Services = props => {
             width: 100px;
             margin: 7px;
             border-radius: 14px;
+            text-align: center;
           }
           .photo {
             max-width: 100%;
