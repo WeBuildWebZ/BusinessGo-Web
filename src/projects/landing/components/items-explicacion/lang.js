@@ -18,7 +18,7 @@ export const getLanguage = langCode =>
           image: '/gem-regular.svg',
           title: 'Exclusividad de Diseños',
           description:
-            'Ofrecemos diseños exclusivos para tu negocio, Quizas necesites algo a medidad, quizas quieras algo parecido a otra web que viste en otro lugar, bueno, nosotros nos encargamos de construir lo que quieras!'
+            'Ofrecemos diseños exclusivos para tu negocio, Quizas necesites algo a medida, quizas quieras algo parecido a otra web que viste en otro lugar, bueno, nosotros nos encargamos de construir lo que quieras!'
         },
         {
           image: '/handshake-solid.svg',

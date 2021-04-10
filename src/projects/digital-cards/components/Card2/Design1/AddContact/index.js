@@ -36,8 +36,9 @@ const AddContact = props => {
           }
           .addContact {
             width: fit-content;
-            padding: 7px;
             height: 40px;
+            margin: 21px;
+            padding: 7px;
             background-color: #888484;
             border-radius: 14px;
             cursor: pointer;

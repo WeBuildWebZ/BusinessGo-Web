@@ -3,12 +3,9 @@ import { useSelector } from 'react-redux';
 
 import { getCoordinates } from '../../../../../../utils/googleMaps';
 import { cardPropTypes } from '../../constants';
-import { getLanguage } from '../../lang';
 
 const Address = props => {
   const { card } = props;
-  const language = getLanguage(useSelector(store => store.language));
-  const address = [card.state, card.municipality, card.country].join(', ');
   const [map, setMap] = useState(null);
   const mapRef = useRef();
 
@@ -27,16 +24,11 @@ const Address = props => {
 
   return (
     <div>
-      <h3 className="title">{language.address}</h3>
-      {address}
       <div className="map" ref={mapRef} />
       <style jsx>
         {`
           * {
             color: #686464;
-          }
-          .title {
-            font-weight: bold;
           }
           .map {
             height: 400px;

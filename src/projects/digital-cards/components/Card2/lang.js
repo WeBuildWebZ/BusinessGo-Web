@@ -11,8 +11,9 @@ export const getLanguage = langCode =>
       aboutBusiness: 'Acerca del negocio',
       aboutPerson: 'Acerca de mí',
       address: 'Domicilio',
-      businessHours: 'Días y horarios de operación',
-      addContact: 'Guarda en tus contactos'
+      businessHours: 'Días y horarios',
+      addContact: 'Guarda en tus contactos',
+      services: 'Servicios'
     },
     en: {
       businessFlags: {
@@ -26,6 +27,7 @@ export const getLanguage = langCode =>
       aboutPerson: 'About me',
       address: 'Address',
       businessHours: 'Operation days and hours',
-      addContact: 'Save to your contacts'
+      addContact: 'Save to your contacts',
+      services: 'Services'
     }
   }[langCode]);

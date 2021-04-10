@@ -1,34 +1,63 @@
+import { useSelector } from 'react-redux';
+
 import { cardPropTypes } from '../constants';
+import Selector from '../../Selector';
+import { getLanguage } from '../lang';
 
 import CoverPhoto from './CoverPhoto';
 import MainData from './MainData';
 import BusinessFlags from './BusinessFlags';
-import Description from './Description';
 import Address from './Address';
 import BusinessHours from './BusinessHours';
 import AddContact from './AddContact';
 import Footer from './Footer';
+import SocialNetworks from './SocialNetworks';
+import Services from './Services';
 
 const Design1 = props => {
   const { card } = props;
+  const language = getLanguage(useSelector(store => store.language));
   console.log('card', card);
 
   return (
-    <div className="card">
+    <div className="card" id="home">
       <div className="content">
         <CoverPhoto card={card} />
         <MainData card={card} />
         <hr />
         <BusinessFlags card={card} />
         <hr />
+        <SocialNetworks card={card} />
+        <hr />
         <AddContact card={card} />
         <hr />
-        <Description card={card} />
+        {card.business_description && (
+          <Selector title={language.aboutBusiness} color={card.border_color}>
+            {card.business_description}
+          </Selector>
+        )}
+        <Selector title={language.services} color={card.border_color}>
+          <Services card={card} />
+        </Selector>
+        {card.personal_description && (
+          <Selector title={card.completeName} color={card.border_color}>
+            {card.personal_description}
+          </Selector>
+        )}
+        <Selector title={language.businessHours} color={card.border_color}>
+          <BusinessHours card={card} />
+        </Selector>
+        <Selector title={language.address} color={card.border_color} subtitle={card.completeAddress}>
+          <Address card={card} />
+        </Selector>
         <hr />
-        <Address card={card} />
-        <hr />
-        <BusinessHours card={card} />
         <Footer card={card} />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
       <style jsx>
         {`

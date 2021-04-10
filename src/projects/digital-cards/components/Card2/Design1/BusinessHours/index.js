@@ -9,7 +9,6 @@ const BusinessHours = props => {
 
   return (
     <div>
-      <h3 className="title">{language.businessHours}</h3>
       <div className="businessHoursContainer">
         <div className="businessHours">
           {card.business_hours?.map((business_hour, i) => (
@@ -25,9 +24,6 @@ const BusinessHours = props => {
         {`
           * {
             color: #686464;
-          }
-          .title {
-            font-weight: bold;
           }
           .businessHoursContainer {
             display: flex;
