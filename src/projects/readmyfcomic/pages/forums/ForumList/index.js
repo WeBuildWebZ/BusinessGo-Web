@@ -10,49 +10,50 @@ const ForumList = () => {
         const link = `/forums/${encodeURIComponent(forum._id)}`;
 
         return (
-          <div key={i} className="forum">
-            <Link href={link}>
-              <a>
+          <Link href={link}>
+            <a target="blank">
+              <div key={i} className="forum">
                 <img className="image" src={forum.user.image} />
                 <div className="titleContainer">{forum.title}</div>
-              </a>
-            </Link>
-            <div className="infoContainer">
-              <div className="statistic viewsContainer">
-                <img className="icon" src="/icons/eye.png" alt="eye" />
-                <div className="views">{forum.views_count}</div>
+                <div className="infoContainer">
+                  <div className="statistic viewsContainer">
+                    <img className="icon" src="/icons/eye.png" alt="eye" />
+                    <div className="views">{forum.views_count}</div>
+                  </div>
+                  <div className="statistic commentsContainer">
+                    <img className="icon" src="/icons/comment_bubble.png" alt="comment bubble" />
+                    <div className="stars">{forum.comments_count}</div>
+                  </div>
+                </div>
               </div>
-              <div className="statistic commentsContainer">
-                <img className="icon" src="/icons/comment_bubble.png" alt="comment bubble" />
-                <div className="stars">{forum.comments_count}</div>
-              </div>
-            </div>
-          </div>
+            </a>
+          </Link>
         );
       })}
       <style jsx>
         {`
           .forumList {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             width: 100%;
             margin-top: 14px;
           }
           .column {
             flex: 50%;
           }
-          .profile {
+          .forum {
             display: flex;
             flex-direction: row;
-            width: fit-content;
+            justify-content: space-between;
+            align-items: center;
             margin: 28px 0 14px 0;
             user-select: none;
             transition: 0.7s;
           }
-          .profile:hover {
+          .forum:hover {
             transform: scale(1.03);
           }
-          .profile:active {
+          .forum:active {
             transform: scale(1.08);
             transition: 0.1s;
           }
@@ -62,6 +63,7 @@ const ForumList = () => {
             border-radius: 5px;
           }
           .titleContainer {
+            margin: 0 14px 0 14px;
             flex: 5;
           }
           .infoContainer {

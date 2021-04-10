@@ -10,7 +10,7 @@ import { getClientDocuments } from '../../../../../services/api/clientDocument';
 
 import { getLanguage } from './lang';
 
-const filters = ['Rated', 'Viewed', 'Oldest', 'Newest'];
+const filters = ['Hot', 'All Time Popular', 'Newest', 'Oldest'];
 const pageSize = 8;
 
 const Filters = () => {
@@ -36,7 +36,7 @@ const Filters = () => {
     <>
       <div className="mobileSearchBar">
         <Search
-          placeholder={language.searchByName}
+          placeholder={language.searchByTags}
           style={{ flex: 5, margin: '26px 0 0 7px' }}
           onChange={newSearch => setSearch(newSearch)}
           updateAfter={500}
@@ -51,7 +51,7 @@ const Filters = () => {
         />
         <div className="searchBar">
           <Search
-            placeholder={language.searchByName}
+            placeholder={language.searchByTags}
             style={{ flex: 5, margin: '0 0 0 7px' }}
             onChange={newSearch => setSearch(newSearch)}
             updateAfter={500}

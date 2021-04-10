@@ -1,10 +1,10 @@
 export const getLanguage = langCode =>
   ({
     es: {
-      searchByName: 'BUSCAR POR NOMBRE'
+      searchByTags: 'BUSCAR POR ETIQUETAS'
     },
     en: {
-      searchByName: 'SEARCH BY NAME'
+      searchByTags: 'SEARCH BY TAGS'
     }
   }[langCode]);
 
