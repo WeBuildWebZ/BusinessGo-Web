@@ -1,0 +1,19 @@
+export const getLanguage = langCode =>
+  ({
+    es: {
+      title: 'CONTACTO',
+      name: { title: 'Nombre', placeholder: 'Ingresa tu nombre completo' },
+      email: { title: 'E-mail', placeholder: 'Ingresa tu email' },
+      url: { title: 'URL (Opcional)', placeholder: 'Ingresa una URL' }
+    },
+    en: {
+      title: 'CONTACT',
+      name: { title: 'Name', placeholder: 'Enter your full name' },
+      email: { title: 'E-mail', placeholder: 'Enter your email' },
+      url: { title: 'URL (Optional)', placeholder: 'Enter an URL' }
+    }
+  }[langCode]);
+
+const Component = () => <div />;
+
+export default Component;
