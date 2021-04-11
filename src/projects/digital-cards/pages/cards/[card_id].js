@@ -1,21 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import Spinner from '../../../../components/Spinner';
 import Card from '../../components/Card2';
 import { showClientDocument } from '../../../../services/api/clientDocument';
 
 const Cards = () => {
-  const query = useSelector(store => store.queryParams);
   const [card, setCard] = useState(null);
+  const cardId = typeof window === 'object' ? window.location.pathname.substr('/cards/'.length) : null;
 
   useEffect(() => {
-    if (!query.card_id) return;
-
-    showClientDocument(query.card_id).then(({ data: givenCard }) => {
+    if (!cardId) return;
+    showClientDocument(cardId).then(({ data: givenCard }) => {
       setCard(givenCard);
     });
-  }, [query.card_id]);
+  }, [cardId]);
 
   return (
     <>
