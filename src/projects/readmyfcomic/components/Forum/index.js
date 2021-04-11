@@ -6,6 +6,7 @@ import Title from '../Title';
 
 import Description from './Description';
 import Buttons from './Buttons';
+import NewComment from './NewComment';
 
 const Forum = props => {
   const { forum } = props;
@@ -34,6 +35,7 @@ const Forum = props => {
       </div>
       <Description forum={forum} />
       <Buttons />
+      <NewComment />
 
       <style jsx>
         {`
@@ -69,6 +71,15 @@ const Forum = props => {
           }
           .date {
             margin-top: -32px;
+            font-size: 15px;
+          }
+          @media only screen and (max-width: 768px) {
+            .topBarContainer {
+              flex-direction: column;
+            }
+          .date {
+            font-size: 10px;
+          }>
           }
         `}
       </style>
