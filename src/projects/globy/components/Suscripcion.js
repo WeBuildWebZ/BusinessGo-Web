@@ -13,15 +13,15 @@ const Suscripcion = () => {
   const dispatch = useDispatch();
   const project = useSelector(store => store.project);
   const [modalOpen, setModalOpen] = useState(false);
-  const [suscriptionForm, setSuscriptionForm] = useState(null);
-  const [formData, setFormData] = useState({});
+  // const [suscriptionForm, setSuscriptionForm] = useState(null);
+  // const [formData, setFormData] = useState({});
   const [isSubmiting, setIsSubmiting] = useState(false);
 
-  useEffect(() => {
-    showForm(PROJECT_CODE, 'email_suscription').then(({ data: givenForm }) => {
-      setSuscriptionForm(givenForm);
-    });
-  }, []);
+  // useEffect(() => {
+  //   showForm(PROJECT_CODE, 'email_suscription').then(({ data: givenForm }) => {
+  //     setSuscriptionForm(givenForm);
+  //   });
+  // }, []);
 
   const handleOpenModal = () => {
     setModalOpen(true);
@@ -31,23 +31,23 @@ const Suscripcion = () => {
     setModalOpen(false);
   };
 
-  const handleSubmitForm = () => {
-    setIsSubmiting(true);
-    createFormResponse(PROJECT_CODE, 'email_suscription', formData).then(() => {
-      setIsSubmiting(false);
-      setModalOpen(false);
-      dispatch(
-        pushAlert({
-          title: project.configuration.subscriptions.answer_title,
-          message: project.configuration.subscriptions.answer_message
-        })
-      );
-    });
-  };
+  // const handleSubmitForm = () => {
+  //   setIsSubmiting(true);
+  //   createFormResponse(PROJECT_CODE, 'email_suscription', formData).then(() => {
+  //     setIsSubmiting(false);
+  //     setModalOpen(false);
+  //     dispatch(
+  //       pushAlert({
+  //         title: project.configuration.subscriptions.answer_title,
+  //         message: project.configuration.subscriptions.answer_message
+  //       })
+  //     );
+  //   });
+  // };
 
   return (
     <>
-      {modalOpen && suscriptionForm && (
+      {/* {modalOpen && suscriptionForm && (
         <Modal show onHide={handleCloseModal}>
           <Modal.Header closeButton>
             <PopoverTitle>Suscríbete a nuestras últimas novedades!</PopoverTitle>
@@ -61,10 +61,10 @@ const Suscripcion = () => {
             </Button>
           </Modal.Footer>
         </Modal>
-      )}
+      )} */}
       <div className="subs">
-        {!suscriptionForm && <Spinner />}
-        {suscriptionForm && <h4 onClick={handleOpenModal}>Suscríbete Gratis!</h4>}
+        {/* {!suscriptionForm && <Spinner />}
+        {suscriptionForm && <h4 onClick={handleOpenModal}>Suscríbete Gratis!</h4>} */}
         <style jsx>
           {`
             .subs {
