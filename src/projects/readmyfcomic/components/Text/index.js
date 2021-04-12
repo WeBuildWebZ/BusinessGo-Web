@@ -32,9 +32,20 @@ const Text = props => {
             padding: 3px;
             outline: none;
             border-width: 1px;
-            border-color: #030303;
+            border-color: #dcb3e1;
+            background-color: #ffcfb599;
+            transition: 0.1s;
+          }
+          .input:focus {
+            border-width: 2px;
+            border-radius: 5px;
+            border-color: #b888be;
+            background-color: #ffcfb5;
+            box-shadow: 0 0 1px 1px #b888be;
           }
           .textAreaInput {
+            height: 250px;
+            outline: none;
           }
         `}
       </style>
