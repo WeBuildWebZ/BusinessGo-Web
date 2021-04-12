@@ -12,37 +12,37 @@ import FieldRenderer from '../../../../components/FieldRenderer';
 const Subscription = () => {
   const pushAlert = usePushAlert();
   const project = useSelector(store => store.project);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [suscriptionForm, setSuscriptionForm] = useState(null);
-  const [formData, setFormData] = useState({});
-  const [isSubmiting, setIsSubmiting] = useState(false);
+  // const [modalOpen, setModalOpen] = useState(false);
+  // const [suscriptionForm, setSuscriptionForm] = useState(null);
+  // const [formData, setFormData] = useState({});
+  // const [isSubmiting, setIsSubmiting] = useState(false);
 
-  useEffect(() => {
-    showForm(PROJECT_CODE, 'email_suscription').then(({ data: givenForm }) => {
-      setSuscriptionForm(givenForm);
-    });
-  }, []);
+  // useEffect(() => {
+  //   showForm(PROJECT_CODE, 'email_suscription').then(({ data: givenForm }) => {
+  //     setSuscriptionForm(givenForm);
+  //   });
+  // }, []);
 
-  const handleOpenModal = () => {
-    setModalOpen(true);
-  };
+  // const handleOpenModal = () => {
+  //   setModalOpen(true);
+  // };
 
-  const handleSubmitForm = () => {
-    setIsSubmiting(true);
-    createFormResponse(PROJECT_CODE, 'email_suscription', formData).then(() => {
-      setIsSubmiting(false);
-      setModalOpen(false);
-      pushAlert({
-        type: 'info',
-        title: project.configuration.subscriptions.answer_title,
-        message: project.configuration.subscriptions.answer_message
-      });
-    });
-  };
+  // const handleSubmitForm = () => {
+  //   setIsSubmiting(true);
+  //   createFormResponse(PROJECT_CODE, 'email_suscription', formData).then(() => {
+  //     setIsSubmiting(false);
+  //     setModalOpen(false);
+  //     pushAlert({
+  //       type: 'info',
+  //       title: project.configuration.subscriptions.answer_title,
+  //       message: project.configuration.subscriptions.answer_message
+  //     });
+  //   });
+  // };
 
   return (
     <div className="subs">
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
+      {/* <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
         <div className="modal">
           <h3>Suscríbete a nuestras últimas novedades!</h3>
           <FieldRenderer fields={suscriptionForm?.fields} onChange={setFormData} />
@@ -50,10 +50,10 @@ const Subscription = () => {
             Suscribirse
           </Button>
         </div>
-      </Modal>
+      </Modal> */}
       <div className="left">
-        {!suscriptionForm && <Spinner />}
-        {suscriptionForm && <button onClick={handleOpenModal}>Suscríbete Gratis!</button>}
+        {/* {!suscriptionForm && <Spinner />}
+        {suscriptionForm && <button onClick={handleOpenModal}>Suscríbete Gratis!</button>} */}
       </div>
       <div className="right">
         <h2>Queremos</h2>
