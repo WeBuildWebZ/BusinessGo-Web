@@ -11,7 +11,7 @@ const Services = () => {
   return (
     <div className="solution" id="servicios">
       {!project && <Spinner />}
-      {project?.configuration.services.services.map((service, i) => {
+      {project?.configuration.services.services?.map((service, i) => {
         const isPair = !(i % 2);
         const left = <Left service={service}>{i === 0 && <h5>SERVICIOS</h5>}</Left>;
         const right = <Right service={service} />;

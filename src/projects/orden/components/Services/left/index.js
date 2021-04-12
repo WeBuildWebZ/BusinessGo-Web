@@ -6,7 +6,7 @@ const Left = props => (
       {props.children}
       <br />
       {props.service.title && <h3>{props.service.title}</h3>}
-      {props.service.sections.map((section, i) => (
+      {props.service.sections?.map((section, i) => (
         <div key={i}>
           {section.subtitle && <h4>{section.subtitle}</h4>}
           {section.description && <p>{section.description}</p>}
