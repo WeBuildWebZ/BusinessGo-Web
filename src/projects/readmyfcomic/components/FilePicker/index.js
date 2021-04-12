@@ -12,7 +12,7 @@ const FilePicker = props => {
   const pushAlert = usePushAlert();
   const pickerRef = useRef();
   const [fileDragged, setFileDragged] = useState(false);
-  const [fileName, setFileName] = useState('');
+  const [file, setFile] = useState({});
 
   const handlePickFile = () => {
     pickerRef.current.click();
@@ -25,7 +25,7 @@ const FilePicker = props => {
 
   const handleDrop = e => {
     const { files } = e.dataTransfer;
-    const [file] = files;
+    const [_file] = files;
     e.stopPropagation();
     e.preventDefault();
     setFileDragged(false);
@@ -37,14 +37,14 @@ const FilePicker = props => {
         message: language.invalidLength.message
       });
 
-    if (!isImage(file))
+    if (!isImage(_file))
       return pushAlert({
         type: 'error',
         title: language.invalidFile.title,
         message: language.invalidFile.message
       });
 
-    setFileName(file.name);
+    setFile(_file);
   };
 
   return (
@@ -60,7 +60,9 @@ const FilePicker = props => {
         <div className={`fileButton${fileDragged ? ' fileDragged' : ''}`} onClick={handlePickFile}>
           {language.selectFile}
         </div>
-        <div className="fileName">{fileName}</div>
+        <div className="fileName">{file.name}</div>
+        {/* <img className="trashIcon" src="/shared/icons/trash.svg" onClick={() => setFile({})} /> */}
+        <i className="fa fa-trash" />
       </div>
       <input className="picker" type="file" ref={pickerRef} />
       <style jsx>
@@ -68,6 +70,7 @@ const FilePicker = props => {
           .input {
             display: flex;
             flex-direction: row;
+            align-items: center;
             width: 100%;
             height: 40px;
             border-style: solid;
@@ -110,6 +113,25 @@ const FilePicker = props => {
           }
           .fileName {
             margin-left: 14px;
+          }
+          .fa-trash {
+            margin-left: auto;
+            margin-right: 14px;
+            width: 24px;
+            height: fit-content;
+            padding: 4px;
+            color: red;
+            border-radius: 7px;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.7s;
+          }
+          .fa-trash:hover {
+            transform: scale(1.1);
+          }
+          .fa-trash:active {
+            transform: scale(1.2) rotate(5deg);
+            transition: 0.1s;
           }
         `}
       </style>
