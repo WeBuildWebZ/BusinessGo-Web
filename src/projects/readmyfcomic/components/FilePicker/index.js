@@ -58,7 +58,7 @@ const FilePicker = props => {
 
     pickerRef.current.addEventListener('change', handleChangeFile);
     return () => {
-      pickerRef.current.removeEventListener('change', handleChangeFile);
+      pickerRef.current?.removeEventListener('change', handleChangeFile);
     };
   }, []);
 
