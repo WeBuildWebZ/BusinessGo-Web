@@ -26,10 +26,6 @@
 // };
 
 // export default Cards;
-const Card = () => {
-  console.log('card');
-
-  return <div>card</div>;
-};
+const Card = () => <div>test</div>;
 
 export default Card;
