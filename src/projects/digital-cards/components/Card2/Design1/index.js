@@ -18,7 +18,6 @@ import Agenda from './Agenda';
 const Design1 = props => {
   const { card } = props;
   const language = getLanguage(useSelector(store => store.language));
-  console.log('card', card);
 
   return (
     <div className="card" id="home">
