@@ -19,10 +19,12 @@ const AddContact = props => {
 
   return (
     <div className="addContactContainer">
-      <div className="addContact" onClick={handleAddContact}>
-        <img className="icon" src="/icon/addContact.png" />
-        {language.addContact}
-      </div>
+      {card.completeName && (
+        <div className="addContact" onClick={handleAddContact}>
+          <img className="icon" src="/icon/addContact.png" />
+          {language.addContact}
+        </div>
+      )}
       <style jsx>
         {`
           * {

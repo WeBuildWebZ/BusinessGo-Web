@@ -8,9 +8,10 @@ const Address = props => {
   const { card } = props;
   const [map, setMap] = useState(null);
   const mapRef = useRef();
+  const hasMap = !!card.google_maps_url;
 
   useEffect(() => {
-    const coordinates = getCoordinates(card.google_maps_url);
+    const coordinates = hasMap && getCoordinates(card.google_maps_url);
     window.initMap = () => {
       if (!coordinates) return;
       setMap(

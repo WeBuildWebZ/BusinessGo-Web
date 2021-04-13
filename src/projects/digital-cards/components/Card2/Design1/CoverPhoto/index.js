@@ -3,14 +3,13 @@ import * as constants from '../../constants';
 
 const CoverPhoto = props => {
   const { card } = props;
-  const color = card.border_color || 'green';
 
   return (
     <>
-      <div className="coverPhoto" />
+      {card.cover_photo && <div className="coverPhoto" />}
       <div
         className="coverPhotoBorder"
-        style={{ backgroundColor: color, boxShadow: `0 0 2px 2px ${card.border_color}` }}
+        style={{ backgroundColor: card.border_color, boxShadow: `0 0 2px 2px ${card.border_color}` }}
       />
       <style jsx>
         {`

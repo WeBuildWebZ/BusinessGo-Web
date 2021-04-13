@@ -10,7 +10,10 @@ const Card = props => {
     ...card,
     isPerson: card.destination === 'person',
     isBusiness: card.destination === 'business',
-    completeName: `${card.name}${card.surnames ? ` ${card.surnames}` : ''}`,
+    photoOrLogo: card.profile_photo || card.logo,
+    border_color: card.border_color || 'green',
+    completeName: card.name && card.surnames ? `${card.name}${card.surnames ? ` ${card.surnames}` : ''}` : '',
+
     completeAddress: [card.state, card.municipality, card.country].join(', ')
   };
 

@@ -4,15 +4,16 @@ import { cardPropTypes } from '../../constants';
 
 const MainData = props => {
   const { card } = props;
-  const logo = card.profile_photo || card.logo;
-  const name = card.business_or_company || `${card.name} ${card.surnames}`;
+  const name = card.business_or_company || card.completeName;
 
   return (
     <div className="mainData">
       <div className="dataContainer">
-        <div className="logoContainer">
-          <div className="logo" />
-        </div>
+        {card.photoOrLogo && (
+          <div className="logoContainer">
+            <div className="logo" />
+          </div>
+        )}
         <div className="name">{name}</div>
         <div className="jobTitle">{card.job_title}</div>
         {card.website_url && (
@@ -48,7 +49,7 @@ const MainData = props => {
           .logo {
             width: 40vw;
             height: 40vw;
-            background-image: url(${logo});
+            background-image: url(${card.photoOrLogo});
             background-size: cover;
             border-radius: 50%;
             border-style: solid;
