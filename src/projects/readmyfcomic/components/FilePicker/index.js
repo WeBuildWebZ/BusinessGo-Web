@@ -23,11 +23,8 @@ const FilePicker = props => {
     e.preventDefault();
   };
 
-  const handleDrop = e => {
-    const { files } = e.dataTransfer;
+  const handleSetFile = files => {
     const [_file] = files;
-    e.stopPropagation();
-    e.preventDefault();
     setFileDragged(false);
 
     if (files.length > 1)
@@ -47,6 +44,24 @@ const FilePicker = props => {
     setFile(_file);
   };
 
+  const handleDrop = e => {
+    e.stopPropagation();
+    e.preventDefault();
+    const { files } = e.dataTransfer;
+    handleSetFile(files);
+  };
+
+  useEffect(() => {
+    const handleChangeFile = e => {
+      handleSetFile(e.target.files);
+    };
+
+    pickerRef.current.addEventListener('change', handleChangeFile);
+    return () => {
+      pickerRef.current.removeEventListener('change', handleChangeFile);
+    };
+  }, []);
+
   return (
     <div className="filePicker">
       <h3>{props.title}</h3>
@@ -61,8 +76,7 @@ const FilePicker = props => {
           {language.selectFile}
         </div>
         <div className="fileName">{file.name}</div>
-        {/* <img className="trashIcon" src="/shared/icons/trash.svg" onClick={() => setFile({})} /> */}
-        <i className="fa fa-trash" />
+        <i className="fa fa-trash" onClick={() => setFile({})} />
       </div>
       <input className="picker" type="file" ref={pickerRef} />
       <style jsx>
@@ -82,7 +96,7 @@ const FilePicker = props => {
             transition: 0.7s;
           }
           .input.fileDragged {
-            transform: scale(1.1) rotate(3deg);
+            transform: scale(1.1);
             box-shadow: 0 0 2px 2px #b888be;
           }
           .fileButton {
@@ -106,7 +120,7 @@ const FilePicker = props => {
             transition: 0.1s;
           }
           .fileButton.fileDragged {
-            transform: scale(1.1) translate(200%) rotate(360deg);
+            transform: scale(1.1) translate(200%);
           }
           .picker {
             visibility: hidden;
