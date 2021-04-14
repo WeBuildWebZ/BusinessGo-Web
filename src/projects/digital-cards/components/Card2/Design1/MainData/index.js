@@ -9,9 +9,12 @@ const MainData = props => {
   return (
     <div className="mainData">
       <div className="dataContainer">
-        {card.photoOrLogo && (
+        {card.primary_photo && (
           <div className="logoContainer">
-            <div className="logo" />
+            <div className="primaryPhoto" style={{ backgroundImage: `url(${card.primary_photo})` }} />
+            {card.secondary_photo && (
+              <div className="secondaryPhoto" style={{ backgroundImage: `url(${card.secondary_photo})` }} />
+            )}
           </div>
         )}
         <div className="name">{name}</div>
@@ -40,16 +43,26 @@ const MainData = props => {
             flex-direction: column;
           }
           .logoContainer {
+            width: 100%;
             transform: translate(0, -60px);
             margin-bottom: -60px;
             display: flex;
             flex-direction: row;
             justify-content: center;
           }
-          .logo {
-            width: 40vw;
-            height: 40vw;
-            background-image: url(${card.photoOrLogo});
+          .primaryPhoto {
+            width: 50vw;
+            height: 50vw;
+            background-size: cover;
+            border-radius: 50%;
+            border-style: solid;
+            border-width: 7px;
+            border-color: whitesmoke;
+            animation: logoAppear 1.5s ease;
+          }
+          .secondaryPhoto {
+            width: 10vw;
+            height: 10vw;
             background-size: cover;
             border-radius: 50%;
             border-style: solid;
@@ -62,12 +75,14 @@ const MainData = props => {
             font-size: 20px;
             font-weight: bold;
             margin-top: 4px;
+            text-align: center;
           }
           .jobTitle {
             text-align: center;
           }
           .websiteUrl {
             font-weight: bold;
+            text-align: center;
           }
           @keyframes logoAppear {
             0% {

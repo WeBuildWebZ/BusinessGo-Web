@@ -6,11 +6,14 @@ import { cardPropTypes } from './constants';
 const Card = props => {
   const { card } = props;
 
+  const primary_photo = card.profile_photo || card.logo;
   const modifiedCard = {
     ...card,
-    isPerson: card.destination === 'person',
-    isBusiness: card.destination === 'business',
-    photoOrLogo: card.profile_photo || card.logo,
+    is_person: card.destination === 'person',
+    is_business: card.destination === 'business',
+    primary_photo,
+    secondary_photo: primary_photo ? card.logo : null,
+    photo_or_logo: card.profile_photo || card.logo,
     border_color: card.border_color || 'green',
     completeName: card.name && card.surnames ? `${card.name}${card.surnames ? ` ${card.surnames}` : ''}` : '',
 
