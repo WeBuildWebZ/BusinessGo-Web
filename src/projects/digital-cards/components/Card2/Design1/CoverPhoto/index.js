@@ -16,7 +16,7 @@ const CoverPhoto = props => {
           .coverPhoto {
             transform: translate(-${constants.sideMargin}px);
             width: calc(100% + ${constants.sideMargin * 2}px);
-            height: 50vh;
+            height: 35vh;
             background-image: url(${card.cover_photo});
             background-size: cover;
             animation: photoAppear 1.5s ease;

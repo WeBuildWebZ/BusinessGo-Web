@@ -35,7 +35,7 @@ const Footer = props => {
             left: 0;
             top: 100%;
             width: 100%;
-            height: 80px;
+            height: 40px;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
@@ -44,7 +44,7 @@ const Footer = props => {
             border-top-right-radius: 14px;
           }
           .icon {
-            width: 40px;
+            width: 30px;
             transition: 0.7s;
           }
           .icon:hover {

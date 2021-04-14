@@ -61,13 +61,13 @@ const MainData = props => {
             animation: logoAppear 1.5s ease;
           }
           .secondaryPhoto {
-            width: 10vw;
-            height: 10vw;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 42.6vw;
+            top: 42.6vw;
+            width: 15vw;
+            height: 15vw;
             background-size: cover;
-            border-radius: 50%;
-            border-style: solid;
-            border-width: 7px;
-            border-color: whitesmoke;
             animation: logoAppear 1.5s ease;
           }
           .name {
