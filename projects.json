@@ -59,8 +59,8 @@
     "path": "src/projects/dashboard",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-dashboard"
   },
-  "store": {
-    "path": "src/projects/store",
-    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-store"
+  "carpediem": {
+    "path": "src/projects/carpediem",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Carpediem"
   }
 }
