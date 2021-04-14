@@ -28,7 +28,8 @@
     "deploy": "branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD) && node -r esm scripts/deploy $branch",
     "deploy-win": "FOR /F \"tokens=*\" %a in ('git rev-parse --symbolic-full-name --abbrev-ref HEAD') do SET branch=%a && node -r esm scripts/deploy %branch%",
     "new": "node -r esm scripts/new",
-    "dashboard": "npm run copy-env src/projects/dashboard && next dev src/projects/dashboard"
+    "dashboard": "npm run copy-env src/projects/dashboard && next dev src/projects/dashboard",
+    "store": "npm run copy-env src/projects/store && next dev src/projects/store"
   },
   "dependencies": {
     "@babel/core": "^7.12.17",
