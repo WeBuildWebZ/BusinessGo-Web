@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-import ArrowDown from './ArrowDown';
+import ArrowDown from '../../../../components/ArrowDown';
 
 const Selector = props => {
   const [open, setOpen] = useState(false);

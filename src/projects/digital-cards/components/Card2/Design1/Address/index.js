@@ -25,7 +25,7 @@ const Address = props => {
 
   return (
     <div>
-      <div className="map" ref={mapRef} />
+      {hasMap && <div className="map" ref={mapRef} />}
       <style jsx>
         {`
           * {

@@ -17,7 +17,11 @@ export const getLanguage = langCode =>
       agenda: 'Agenda',
       completeName: 'Nombre completo',
       email: 'Correo elecrónico',
-      phone: 'Teléfono de contacto'
+      phone: 'Teléfono de contacto',
+      day: 'Día',
+      hour: 'Hora',
+      message: 'Mensaje',
+      schedule: 'Agendar'
     },
     en: {
       businessFlags: {
@@ -36,6 +40,10 @@ export const getLanguage = langCode =>
       agenda: 'Agenda',
       completeName: 'Complete name',
       email: 'Email',
-      phone: 'Contact phone'
+      phone: 'Contact phone',
+      day: 'Day',
+      hour: 'Hour',
+      message: 'Message',
+      schedule: 'Schedule'
     }
   }[langCode]);
