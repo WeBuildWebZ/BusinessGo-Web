@@ -38,14 +38,13 @@ const AppendHead = () => (
     />
     <Head>
       <link rel="icon" href="/favicon.png" />
-      {process.browser &&
-        !window.location.pathname.startsWith('/admin') &&
-        !window.location.pathname.startsWith('/dashboard') && (
-          <script
-            src="https://www.widgets.webuildwebz.com/include.js"
-            data-webuildwebz-project-token="73DCF74F122A4FACADD7B522EC826B8B68594F4D"
-          />
-        )}
+      {/* Discomment in order to add widgets */}
+      {/* {process.browser && (
+        <script
+          src="https://www.widgets.webuildwebz.com/include.js"
+          data-webuildwebz-project-token="73DCF74F122A4FACADD7B522EC826B8B68594F4D"
+        />
+      )} */}
     </Head>
   </>
 );
