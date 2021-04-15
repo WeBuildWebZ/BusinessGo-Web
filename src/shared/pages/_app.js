@@ -77,7 +77,6 @@ ReduxFiller.propTypes = {
   onError: PropTypes.func.isRequired,
   constants: PropTypes.shape({
     PROJECT_CODE: PropTypes.string.isRequired,
-    HAS_LOGIN: PropTypes.bool.isRequired,
     DEFAULT_LANGUAGE: PropTypes.string.isRequired,
     HAS_CONFIGURATION: PropTypes.bool.isRequired,
     HAS_SESSIONS: PropTypes.bool.isRequired
