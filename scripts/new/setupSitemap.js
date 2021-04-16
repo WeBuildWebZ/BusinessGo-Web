@@ -9,9 +9,9 @@ const setupSitemap = dirPath => {
   const sitemapPath = path.join(dirPath, 'public/sitemap.xml');
   let sitemap = fs.readFileSync(sitemapPath).toString();
 
-  while (sitemap.indexOf('https://www.empty.webuildwebz.com') !== -1)
+  while (sitemap.indexOf('https://www.starter.webuildwebz.com') !== -1)
     sitemap = sitemap.replace(
-      'https://www.empty.webuildwebz.com',
+      'https://www.starter.webuildwebz.com',
       `https://www.${project_name}.webuildwebz.com`
     );
 

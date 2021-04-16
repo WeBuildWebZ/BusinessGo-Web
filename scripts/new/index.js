@@ -22,7 +22,7 @@ if (package_json.scripts[project_name])
   throw new Error(`Ya existe el comando "${project_name}" en package.json`);
 
 const getPaths = () => ({
-  bootstrapPath: path.join(projectDir, 'src/projects/empty'),
+  bootstrapPath: path.join(projectDir, 'src/projects/starter'),
   dirPath: path.join(projectDir, `src/projects/${project_name}`)
 });
 

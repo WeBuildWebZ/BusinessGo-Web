@@ -1,7 +1,7 @@
 {
-  "empty": {
-    "path": "src/projects/empty",
-    "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Empty"
+  "starter": {
+    "path": "src/projects/starter",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Starter"
   },
   "landing": {
     "path": "src/projects/landing",
