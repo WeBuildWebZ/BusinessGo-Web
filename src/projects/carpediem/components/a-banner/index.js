@@ -1,12 +1,15 @@
-import Arrow from '../k-flecha';
+import Image from 'next/image';
 
-import Top from './top';
-import Bottom from './bottom';
+import Arrow from '../k-flecha';
 
 const Banner = () => (
   <div className="banner">
-    <Top />
-    <Bottom />
+    <Image src="/images/logo-white.png" alt="logo-white" width={780} height={240} />
+    <h2>Mira los mejores precios.</h2>
+
+    <Arrow />
+    <Image src="/images/banner.png" alt="banner of carpediem" width={1200} height={500} />
+
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="wave">
       <path
         fill="#ebebeb"
@@ -15,24 +18,26 @@ const Banner = () => (
       />
     </svg>
 
-    <Arrow />
-
     <style jsx>
       {`
         .banner {
           width: 100vw;
-          height: 100vh;
+          min-height: 100%;
+          border-bottom: 3px solid blue;
           display: flex;
           justify-content: center;
           align-items: center;
           flex-flow: column;
           position: relative;
           background-image: linear-gradient(120deg, #f6d365 0%, #ed8e2c 100%);
-          overflow: hidden;
+        }
+        h2 {
+          color: white;
+          font-size: 2em;
         }
         .wave {
           position: absolute;
-          bottom: -3em;
+          bottom: 0;
           width: 100vw;
           overflow: hidden;
         }

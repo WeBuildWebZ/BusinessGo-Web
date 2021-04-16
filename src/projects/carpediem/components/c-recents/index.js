@@ -11,7 +11,7 @@ const Recents = () => (
       Carpediem Distribuciones s.r.l., es una distribuidora de bebidas y anexos para kioscos, almacenes y
       supermercados. Venta minorista y mayorista con sede central en
       <b> Villa Mercedes provincia de San Luis</b>. Desde el año 2012 abastece a todo el país, llevando las
-      mejores marcas al más bajo precio.s
+      mejores marcas al más bajo precios.
     </p>
 
     <Bennefits />
@@ -56,8 +56,8 @@ const Recents = () => (
           font-size: 2em;
         }
         p {
-          width: 50%;
-          text-align: center;
+          width: 600px;
+          text-align: left;
           margin: 0;
           font-size: 1.5em;
         }
@@ -67,6 +67,16 @@ const Recents = () => (
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+
+        // ===================================================================
+        @media (max-width: 630px) {
+          .recents {
+            padding: 1em;
+          }
+          p {
+            width: 100%;
+          }
         }
       `}
     </style>

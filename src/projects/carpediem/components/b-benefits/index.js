@@ -1,23 +1,23 @@
-import { Items } from "../../utils/items";
+import { Items } from '../../utils/items';
 
 const items = Items;
 
-const Bennefits = () => {
-  return (
-    <div className="bennefits">
-      {items.map(({ icon, title, description }, i) => (
-        <div key={i} className="card">
-          <div className="item">
-            <img src={icon} alt={icon} />
-          </div>
-          <div className="text">
-            <h4>{title}</h4>
-            <p>{description}</p>
-          </div>
+const Bennefits = () => (
+  <div className="bennefits">
+    {items.map(({ icon, title, description }, i) => (
+      <div key={i} className="card">
+        <div className="item">
+          <img src={icon} alt={icon} />
         </div>
-      ))}
+        <div className="text">
+          <h4>{title}</h4>
+          <p>{description}</p>
+        </div>
+      </div>
+    ))}
 
-      <style jsx>{`
+    <style jsx>
+      {`
         .bennefits {
           width: 100vw;
           min-height: 30vh;
@@ -31,7 +31,7 @@ const Bennefits = () => {
 
         .card {
           width: 300px;
-          height: 120px;
+          min-height: 120px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -63,9 +63,16 @@ const Bennefits = () => {
           padding: 0;
           margin: 0;
         }
-      `}</style>
-    </div>
-  );
-};
+        // ===========================RESPONSIVE================================================================
+
+        @media (max-width: 250px) {
+          .card {
+            flex-flow: column;
+          }
+        }
+      `}
+    </style>
+  </div>
+);
 
 export default Bennefits;

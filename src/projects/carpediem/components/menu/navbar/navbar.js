@@ -44,6 +44,11 @@ const Navbar = () => (
             margin: 0 5px;
           }
         }
+        @media (max-width: 380px) {
+          a {
+            margin: 0 1.5em;
+          }
+        }
       `}
     </style>
   </div>

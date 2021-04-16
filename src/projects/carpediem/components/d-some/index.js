@@ -1,13 +1,14 @@
-const Some = () => {
-  return (
-    <div className="some">
-      <h2>
-        Somos Lideres <br /> en el Mercado
-      </h2>
+const Some = () => (
+  <div className="some">
+    <h2>
+      Somos Lideres <br /> en el Mercado
+    </h2>
 
-      <style jsx>{`
+    <style jsx>
+      {`
         .some {
           width: 100vw;
+          min-height: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -21,15 +22,31 @@ const Some = () => {
           color: transparent;
           font-size: 12em;
           line-height: 0.8em;
-          height: 100%;
+          min-height: 100%;
           width: 100vw;
           text-align: center;
           letter-spacing: -9px;
-          overflow: hidden;
+          // overflow: hidden;
         }
-      `}</style>
-    </div>
-  );
-};
+        // ===================================================
+        @media (max-width: 760px) {
+          h2 {
+            font-size: 8em;
+          }
+        }
+        @media (max-width: 520px) {
+          h2 {
+            font-size: 6em;
+          }
+        }
+        @media (max-width: 358px) {
+          h2 {
+            font-size: 4em;
+          }
+        }
+      `}
+    </style>
+  </div>
+);
 
 export default Some;
