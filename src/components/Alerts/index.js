@@ -36,7 +36,7 @@ const Alerts = () => {
             left: calc(100% - 15px);
             top: calc(100% - 15px);
             width: fit-content;
-            z-index: 1001;
+            z-index: 1005;
           }
           .title {
             font-size: 20px;
