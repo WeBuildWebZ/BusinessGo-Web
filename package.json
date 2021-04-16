@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "empty": "npm run copy-env src/projects/empty && next dev src/projects/empty",
+    "starter": "npm run copy-env src/projects/starter && next dev src/projects/starter",
     "landing": "npm run copy-env src/projects/landing && next dev src/projects/landing",
     "orden": "npm run copy-env src/projects/orden && next dev src/projects/orden",
     "digital-cards": "npm run copy-env src/projects/digital-cards && next dev src/projects/digital-cards",
