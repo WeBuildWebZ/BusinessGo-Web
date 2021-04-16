@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 
 import 'aos/dist/aos.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
 

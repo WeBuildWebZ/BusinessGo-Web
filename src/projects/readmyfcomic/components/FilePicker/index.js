@@ -18,11 +18,6 @@ const FilePicker = props => {
     pickerRef.current.click();
   };
 
-  const handleDragOver = e => {
-    e.stopPropagation();
-    e.preventDefault();
-  };
-
   const handleSetFile = files => {
     const [_file] = files;
     setFileDragged(false);
@@ -42,6 +37,11 @@ const FilePicker = props => {
       });
 
     setFile(_file);
+  };
+
+  const handleDragOver = e => {
+    e.stopPropagation();
+    e.preventDefault();
   };
 
   const handleDrop = e => {

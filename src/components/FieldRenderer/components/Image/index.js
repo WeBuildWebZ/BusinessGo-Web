@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Spinner from '../../../Spinner';
-import { uploadImage } from '../../../../services/cloudinary/image';
+import { uploadFile } from '../../../../services/cloudinary/file';
 import OpenableImage from '../../../OpenableImage';
 import { getFieldKeyTranslation } from '../../../../translations/fieldKeys';
 import { fieldShape } from '../../../../utils/field';
@@ -28,7 +28,7 @@ const Image = props => {
 
     setUploading(true);
 
-    uploadImage(project, file).then(body => {
+    uploadFile(project, file).then(body => {
       setUploading(false);
       props.onChange(body.secure_url);
     });

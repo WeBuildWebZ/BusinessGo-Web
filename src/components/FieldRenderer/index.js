@@ -17,6 +17,7 @@ import Select from './components/Select';
 import SelectButtons from './SelectButtons';
 import Number from './components/Number';
 import Image from './components/Image';
+import FilePicker from './FilePicker';
 import { getDataFromFields } from './utils';
 import { getLanguage } from './lang';
 
@@ -221,6 +222,15 @@ const FieldRenderer = props => {
           case 'color':
             return (
               <ColorPicker
+                value={data[field.key]}
+                field={field}
+                onChange={value => handleUpdateData(field.key, value)}
+                key={`${props.formCode}-${field.key}`}
+              />
+            );
+          case 'files':
+            return (
+              <FilePicker
                 value={data[field.key]}
                 field={field}
                 onChange={value => handleUpdateData(field.key, value)}

@@ -34,7 +34,7 @@ const ReduxFiller = props => {
   const isAdminPage = process.browser && window.location.pathname === '/admin';
 
   useEffect(() => {
-    if (!isAdminPage) {
+    if (!isAdminPage && constants.HAS_CONFIGURATION) {
       showProject(constants.PROJECT_CODE)
         .then(({ data: project }) => {
           dispatch(setProject(project));
@@ -53,7 +53,7 @@ const ReduxFiller = props => {
   }, []);
 
   useEffect(() => {
-    if (!constants.HAS_LOGIN || session) return;
+    if (!constants.HAS_SESSIONS || session) return;
     getSessions()
       .then(({ data: givenSessions }) => {
         const [newSession] = givenSessions;
@@ -77,8 +77,9 @@ ReduxFiller.propTypes = {
   onError: PropTypes.func.isRequired,
   constants: PropTypes.shape({
     PROJECT_CODE: PropTypes.string.isRequired,
-    HAS_LOGIN: PropTypes.bool.isRequired,
-    DEFAULT_LANGUAGE: PropTypes.string.isRequired
+    DEFAULT_LANGUAGE: PropTypes.string.isRequired,
+    HAS_CONFIGURATION: PropTypes.bool.isRequired,
+    HAS_SESSIONS: PropTypes.bool.isRequired
   }).isRequired
 };
 

@@ -28,7 +28,8 @@
     "deploy": "branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD) && node -r esm scripts/deploy $branch",
     "deploy-win": "FOR /F \"tokens=*\" %a in ('git rev-parse --symbolic-full-name --abbrev-ref HEAD') do SET branch=%a && node -r esm scripts/deploy %branch%",
     "new": "node -r esm scripts/new",
-    "dashboard": "npm run copy-env src/projects/dashboard && next dev src/projects/dashboard"
+    "dashboard": "npm run copy-env src/projects/dashboard && next dev src/projects/dashboard",
+    "carpediem": "npm run copy-env src/projects/carpediem && next dev src/projects/carpediem"
   },
   "dependencies": {
     "@babel/core": "^7.12.17",
@@ -42,6 +43,7 @@
     "aos": "^3.0.0-beta.6",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "bytes": "^3.1.0",
     "date-fns": "^2.19.0",
     "eslint": "^7.15.0",
     "esm": "^3.2.25",
@@ -57,6 +59,7 @@
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "17.0.1",
+    "react-file-icon": "^1.0.0",
     "react-markdown": "^5.0.3",
     "react-phone-number-input": "^3.1.8",
     "react-rater": "^5.1.1",
