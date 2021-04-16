@@ -1,29 +1,47 @@
-const Banner = () => (
-  <div className="banner">
-    <h2>banner</h2>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="wave">
-      <path
-        fill="#ebebeb"
-        fillOpacity="1"
-        d="M0,224L80,202.7C160,181,320,139,480,128C640,117,800,139,960,154.7C1120,171,1280,181,1360,186.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-      />
-    </svg>
-    <style jsx>
-      {`
+import Arrow from "../k-flecha";
+import Top from "./top";
+import Bottom from "./bottom";
+
+const Banner = () => {
+  return (
+    <div className="banner">
+      <Top />
+      <Bottom />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="wave"
+      >
+        <path
+          fill="#ebebeb"
+          fillOpacity="1"
+          d="M0,192L120,197.3C240,203,480,213,720,213.3C960,213,1200,203,1320,197.3L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+        ></path>
+      </svg>
+
+      <Arrow />
+
+      <style jsx>{`
         .banner {
           width: 100vw;
           height: 100vh;
-          background-image: linear-gradient(120deg, #f6d365 0%, #f8ac30 100%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-flow: column;
           position: relative;
+          background-image: linear-gradient(120deg, #f6d365 0%, #ed8e2c 100%);
+          overflow: hidden;
         }
         .wave {
           position: absolute;
-          bottom: 0;
+          bottom: -3em;
           width: 100vw;
+          overflow: hidden;
         }
-      `}
-    </style>
-  </div>
-);
+      `}</style>
+    </div>
+  );
+};
 
 export default Banner;

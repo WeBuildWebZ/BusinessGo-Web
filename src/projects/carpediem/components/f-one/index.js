@@ -1,12 +1,21 @@
+import Image from "next/image";
+
 const One = () => {
   return (
     <div className="one">
-      <h2>One product ser</h2>
+      <Image
+        src="/images/banner-test.jpg"
+        alt="Picture of carpediem"
+        width={1200}
+        height={1000}
+      />
       <style jsx>{`
         .one {
           width: 100vw;
-          height: 100vh;
-          background: pink;
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       `}</style>
     </div>

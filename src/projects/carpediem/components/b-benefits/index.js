@@ -1,79 +1,71 @@
-const items = [
-  {
-    icon: '/icons/angellist.svg',
-    title: 'Some title',
-    description: 'lorem lalala lelele lulu on'
-  },
-  {
-    icon: '/icons/headset.svg',
-    title: 'Some title',
-    description: 'lorem lalala lelele lulu on'
-  },
-  {
-    icon: '/icons/paypal.svg',
-    title: 'Some title',
-    description: 'lorem lalala lelele lulu on'
-  },
-  {
-    icon: '/icons/shipping.svg',
-    title: 'Some title',
-    description: 'lorem lalala lelele lulu on'
-  }
-];
-const Bennefits = () => (
-  <div className="bennefits">
-    <h2>Compromiso</h2>
+import { Items } from "../../utils/items";
 
-    {items.map(({ icon, title, description }, i) => (
-      <div key={i} className="card">
-        <div className="item">
-          <img src={icon} alt={icon} />
-        </div>
-        <div className="text">
-          <h4>{title}</h4>
-          <p>{description}</p>
-        </div>
-      </div>
-    ))}
+const items = Items;
 
-    <style jsx>
-      {`
+const Bennefits = () => {
+  return (
+    <div className="bennefits">
+      {items.map(({ icon, title, description }, i) => (
+        <div key={i} className="card">
+          <div className="item">
+            <img src={icon} alt={icon} />
+          </div>
+          <div className="text">
+            <h4>{title}</h4>
+            <p>{description}</p>
+          </div>
+        </div>
+      ))}
+
+      <style jsx>{`
         .bennefits {
           width: 100vw;
           min-height: 30vh;
-          background: #ebebeb;
           display: flex;
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
-          padding: 0 0 5em 0;
+          padding: 1em 0;
+          position: relative;
         }
-        h2 {
-          width: 100vw;
-          text-align: center;
-        }
+
         .card {
           width: 300px;
-          height: 170px;
+          height: 120px;
           display: flex;
           justify-content: center;
           align-items: center;
-          background: white;
+          background-image: linear-gradient(120deg, #8c52ff 0%, #563c7e 100%);
           border-radius: 1em;
-          margin: 0 1em;
-          padding: 1em;
+          border: 3px solid #563c7e;
+          margin: 0.5em;
+          padding: 0.5em;
           cursor: pointer;
         }
+
+        // =======================================================
+
         img {
-          width: 60px;
-          height: 60px;
+          width: 40px;
+          height: 40px;
         }
+
+        // =======================================================
+
         .text {
+          height: 100%;
+          flex: 7;
           padding: 0.5em;
+          color: white;
         }
-      `}
-    </style>
-  </div>
-);
+        h4,
+        p {
+          padding: 0;
+          margin: 0;
+        }
+      `}</style>
+    </div>
+  );
+};
 
 export default Bennefits;

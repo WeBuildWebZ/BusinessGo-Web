@@ -1,46 +1,36 @@
-const targets = [
-  {
-    photo: '/images/service1.jpg',
-    description: 'lorem lalala lelele lulu on'
-  },
-  {
-    photo: '/images/service1.jpg',
-    description: 'lorem lalala lelele lulu on'
-  },
-  {
-    photo: '/images/service1.jpg',
-    description: 'lorem lalala lelele lulu on'
-  }
-];
+import { Targets } from "../../utils/targets";
 
-const Services = () => (
-  <div className="targets">
-    {targets.map(({ photo, description }, i) => (
-      <div className="card" key={i}>
-        <div
-          className="top"
-          style={{
-            backgroundImage: `url( ${photo})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'top'
-          }}
-        />
-        <div className="text">
-          <h4>{description}</h4>
+const targets = Targets;
+
+const Services = () => {
+  return (
+    <div className="targets">
+      {targets.map(({ photo, description }, i) => (
+        <div className="card" key={i}>
+          <div
+            className="top"
+            style={{
+              backgroundImage: `url( ${photo})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "top",
+            }}
+          ></div>
+          <div className="text">
+            <h4>{description}</h4>
+          </div>
         </div>
-      </div>
-    ))}
+      ))}
 
-    <style jsx>
-      {`
+      <style jsx>{`
         .targets {
           width: 100vw;
-          height: 100vh;
+          min-height: 100vh;
           background: white;
           display: flex;
           justify-content: center;
           align-items: center;
+          flex-wrap: wrap;
         }
         .card {
           width: 350px;
@@ -48,19 +38,23 @@ const Services = () => (
           display: flex;
           flex-flow: column;
           margin: 1em;
-          border: 1px solid black;
+          border: 1px solid #1c1c1c;
           border-radius: 1em;
         }
 
-        .top,
         .text {
-          flex: 1;
+          flex: 2;
           width: 100%;
           height: 100%;
         }
-      `}
-    </style>
-  </div>
-);
+        .top {
+          flex: 8;
+          width: 100%;
+          height: 100%;
+        }
+      `}</style>
+    </div>
+  );
+};
 
 export default Services;
