@@ -5,6 +5,7 @@ import { FileIcon } from 'react-file-icon';
 
 import { fieldShape } from '../../../utils/field';
 import usePushAlert from '../../../shared/hooks/usePushAlert';
+import { uploadFile } from '../../../services/cloudinary/file';
 
 import { getLanguage } from './lang';
 import * as utils from './utils';
@@ -13,7 +14,9 @@ const FilePicker = props => {
   const { field } = props;
   const pushAlert = usePushAlert();
   const [files, setFiles] = useState([]);
+  const [progresses, setProgresses] = useState([]);
   const [fileDragged, setFileDragged] = useState(false);
+  const project = useSelector(store => store.project);
   const languageCode = useSelector(store => store.language);
   const language = getLanguage(languageCode);
   const fieldName = (field.names && field.names[languageCode]) || field.name;
@@ -30,24 +33,49 @@ const FilePicker = props => {
   console.log('field', field);
   console.log('files', files);
 
-  const handleSetFiles = _files => {
+  const handleSetFiles = newFiles => {
     setFileDragged(false);
-    const newFiles = [...filesRef.current, ..._files];
+    const totalFiles = [...filesRef.current, ...newFiles];
 
-    if (!utils.sizeValidation(newFiles, field))
+    if (!utils.sizeValidation(totalFiles, field))
       return pushAlert({
         type: 'error',
         title: language.invalidSize.title,
         message: language.invalidSize.message
       });
 
-    if (newFiles.length > field.file_options.max_files)
+    if (totalFiles.length > field.file_options.max_files)
       return pushAlert({
         type: 'error',
         title: language.invalidLength.title,
         message: language.invalidLength.message
       });
 
+    newFiles.forEach((file, i) => {
+      uploadFile(project, file, progress => {
+        const newProgresses = [...progresses];
+        newProgresses[i] = progress;
+        console.log('progress');
+        setProgresses(newProgresses);
+      });
+    });
+
+    setFiles(totalFiles);
+  };
+
+  const handleDragOver = e => {
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
+  const handleDrop = e => {
+    e.stopPropagation();
+    e.preventDefault();
+    handleSetFiles(e.dataTransfer.files);
+  };
+
+  const handleRemoveFile = index => {
+    const newFiles = files.filter((_, i) => i !== index);
     setFiles(newFiles);
   };
 
@@ -65,8 +93,19 @@ const FilePicker = props => {
   return (
     <div className="filePicker">
       <h6 className="fieldName">{fieldName}</h6>
-      <div className="drop">
-        <img className="dropIcon" src="/shared/icons/upload.svg" onClick={handlePickFile} />
+      <div
+        className={`drop${fileDragged ? ' fileDragged' : ''}`}
+        onDragEnter={() => setFileDragged(true)}
+        onDragLeave={() => setFileDragged(false)}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+      >
+        <img
+          className={`dropIcon${fileDragged ? ' fileDragged' : ''}`}
+          src="/shared/icons/upload.svg"
+          onClick={handlePickFile}
+          onDragEnter={e => e.preventDefault()}
+        />
       </div>
       {files.map((file, i) => (
         <div key={i} className="file">
@@ -74,7 +113,7 @@ const FilePicker = props => {
             <FileIcon extension={file.name.substr(file.name.lastIndexOf('.') + 1)} color="skyblue" />
           </div>
           {file?.name || language.selectFile}
-          <i className="fa fa-trash" />
+          <i className="fa fa-trash" onClick={() => handleRemoveFile(i)} />
         </div>
       ))}
       <input className="picker" type="file" ref={pickerRef} />
@@ -109,6 +148,10 @@ const FilePicker = props => {
             border-width: 2px;
             border-radius: 7px;
             background-color: #a9a9a9;
+            transition: 0.7s;
+          }
+          .drop.fileDragged {
+            transform: scale(1.1);
           }
           .dropIcon {
             width: 40px;
@@ -122,6 +165,9 @@ const FilePicker = props => {
           .dropIcon:active {
             transform: scale(1.3) rotate(5deg);
             transition: 0.1s;
+          }
+          .dropIcon.fileDragged {
+            transform: rotate(360deg);
           }
           .fa-trash {
             margin-left: auto;
