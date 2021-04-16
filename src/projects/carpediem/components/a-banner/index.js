@@ -23,12 +23,12 @@ const Banner = () => (
         .banner {
           width: 100vw;
           min-height: 100%;
-          border-bottom: 3px solid blue;
           display: flex;
           justify-content: center;
           align-items: center;
           flex-flow: column;
           position: relative;
+          padding: 0 1em;
           background-image: linear-gradient(120deg, #f6d365 0%, #ed8e2c 100%);
         }
         h2 {

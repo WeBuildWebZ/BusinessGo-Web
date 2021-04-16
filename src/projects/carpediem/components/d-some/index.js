@@ -26,7 +26,7 @@ const Some = () => (
           width: 100vw;
           text-align: center;
           letter-spacing: -9px;
-          // overflow: hidden;
+          margin: 1em 0;
         }
         // ===================================================
         @media (max-width: 760px) {

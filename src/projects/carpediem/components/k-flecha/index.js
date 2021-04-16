@@ -40,6 +40,30 @@ const Arrow = () => (
               height: 60px;
               color: white;
             }
+
+            // ======================================================
+            @media (max-width: 550px) {
+              .flecha {
+                left: 2em;
+                bottom: 6em;
+                width: 60px;
+                height: 60px;
+              }
+            }
+            @media (max-width: 388px) {
+              .flecha {
+                left: 1em;
+                bottom: 4em;
+              }
+            }
+            @media (max-width: 270px) {
+              .flecha {
+                width: 40px;
+                height: 40px;
+                left: 1em;
+                bottom: 4em;
+              }
+            }
           `}
         </style>
       </div>

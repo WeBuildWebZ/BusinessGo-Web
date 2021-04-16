@@ -6,7 +6,7 @@ import Button from '../button';
 const Recents = () => (
   <div className="recents" id="benefit">
     <h5>Bienvenido/a:</h5>
-    <h2>Somos Distribuidores !</h2>
+    <h2>Somos Distribuidores</h2>
     <p>
       Carpediem Distribuciones s.r.l., es una distribuidora de bebidas y anexos para kioscos, almacenes y
       supermercados. Venta minorista y mayorista con sede central en
