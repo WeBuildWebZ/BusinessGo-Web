@@ -1,27 +1,32 @@
-import Bennefits from "../b-benefits";
-import Button from "../button";
+import Link from 'next/link';
 
-const Recents = ({ children }) => {
-  return (
-    <div className="recents">
-      <h5>Bienvenido/a:</h5>
-      <h2>Somos Distribuidores !</h2>
-      <p>
-        Carpediem Distribuciones s.r.l., es una distribuidora de bebidas y
-        anexos para kioscos, almacenes y supermercados. Venta minorista y
-        mayorista con sede central en
-        <b> Villa Mercedes provincia de San Luis</b>. Desde el año 2012 abastece
-        a todo el país, llevando las mejores marcas al más bajo precio.s
-      </p>
+import Bennefits from '../b-benefits';
+import Button from '../button';
 
-      <Bennefits />
+const Recents = () => (
+  <div className="recents" id="benefit">
+    <h5>Bienvenido/a:</h5>
+    <h2>Somos Distribuidores !</h2>
+    <p>
+      Carpediem Distribuciones s.r.l., es una distribuidora de bebidas y anexos para kioscos, almacenes y
+      supermercados. Venta minorista y mayorista con sede central en
+      <b> Villa Mercedes provincia de San Luis</b>. Desde el año 2012 abastece a todo el país, llevando las
+      mejores marcas al más bajo precio.s
+    </p>
 
-      <div className="bottom">
-        <Button>
-          <h4>Ver</h4>
-        </Button>
-      </div>
-      <style jsx>{`
+    <Bennefits />
+
+    <div className="bottom">
+      <Link href="/#articulos">
+        <a>
+          <Button>
+            <h4>Ver</h4>
+          </Button>
+        </a>
+      </Link>
+    </div>
+    <style jsx>
+      {`
         .recents {
           width: 100vw;
           min-height: 100vh;
@@ -63,9 +68,9 @@ const Recents = ({ children }) => {
           justify-content: center;
           align-items: center;
         }
-      `}</style>
-    </div>
-  );
-};
+      `}
+    </style>
+  </div>
+);
 
 export default Recents;
