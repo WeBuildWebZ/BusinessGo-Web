@@ -4,6 +4,7 @@ import TextInput from '../../../TextInput';
 import SelectInput from '../../../SelectInput';
 import TexttAreaInput from '../../../TexttAreaInput';
 import Button from '../../../Button';
+import TitleSeparator from '../TitleSeparator';
 import * as constants from '../../constants';
 import { getLanguage } from '../../lang';
 
@@ -15,9 +16,7 @@ const Agenda = props => {
 
   return (
     <div className="agenda" id="agenda">
-      <div className="border" style={{ backgroundColor: card.border_color }}>
-        {language.agenda}
-      </div>
+      <TitleSeparator title={language.agenda} color={card.border_color} />
       <TextInput name={language.completeName} color={card.border_color} style={inputStyle} />
       <TextInput name={language.email} color={card.border_color} style={inputStyle} />
       <TextInput name={language.phone} color={card.border_color} style={inputStyle} />
@@ -33,18 +32,6 @@ const Agenda = props => {
         {`
           * {
             color: whitesmoke;
-          }
-          .border {
-            display: flex;
-            transform: translate(-${constants.sideMargin}px);
-            justify-content: center;
-            align-items: center;
-            width: calc(100% + ${constants.sideMargin * 2}px);
-            height: 100px;
-            margin-bottom: 20px;
-            font-size: 24px;
-            border-bottom-left-radius: 14px;
-            border-bottom-right-radius: 14px;
           }
           .selectContainer {
             display: flex;
