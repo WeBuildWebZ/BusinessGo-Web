@@ -1,58 +1,57 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-const Navbar = () => {
-  return (
-    <div className="menu">
-      <Link href="/">
-        <a>Home</a>
-      </Link>
+const Navbar = () => (
+  <div className="menu">
+    <Link href="/">
+      <a>Home</a>
+    </Link>
 
-      <Link href="/galeria">
-        <a>Galeria</a>
-      </Link>
+    <Link href="/#articulos">
+      <a>Articulos</a>
+    </Link>
 
-      <Link href="/blog">
-        <a>Blog</a>
-      </Link>
-
-      <style jsx>
-        {`
+    <style jsx>
+      {`
+        .menu {
+          padding: 1.5em 1em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        a {
+          margin: 0 1em;
+          cursor: pointer;
+          color: grey;
+          font-size: 1.3em;
+          text-decoration: none;
+        }
+        a:hover {
+          background-image: linear-gradient(to left, #ff8aac, #bc744e);
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+        }
+        @media (max-width: 700px) {
+          a {
+            margin: 0 0.5em;
+            font-size: 1.3em;
+          }
+        }
+        @media (max-width: 448px) {
           .menu {
-            padding: 1.5em 1em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 1 0.5em;
           }
           a {
-            margin: 0 1em;
-            cursor: pointer;
-            color: grey;
-            font-size: 1.3em;
-            text-decoration: none;
+            margin: 0 5px;
           }
-          a:hover {
-            background-image: linear-gradient(to left, #ff8aac, #bc744e);
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
+        }
+        @media (max-width: 380px) {
+          a {
+            margin: 0 1.5em;
           }
-          @media (max-width: 700px) {
-            a {
-              margin: 0 0.5em;
-              font-size: 1.3em;
-            }
-          }
-          @media (max-width: 448px) {
-            .menu {
-              padding: 1 0.5em;
-            }
-            a {
-              margin: 0 5px;
-            }
-          }
-        `}
-      </style>
-    </div>
-  );
-};
+        }
+      `}
+    </style>
+  </div>
+);
 
 export default Navbar;

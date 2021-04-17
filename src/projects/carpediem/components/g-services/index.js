@@ -1,28 +1,28 @@
-import { Targets } from "../../utils/targets";
+import { Targets } from '../../utils/targets';
 
 const targets = Targets;
 
-const Services = () => {
-  return (
-    <div className="targets">
-      {targets.map(({ photo, description }, i) => (
-        <div className="card" key={i}>
-          <div
-            className="top"
-            style={{
-              backgroundImage: `url( ${photo})`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "top",
-            }}
-          ></div>
-          <div className="text">
-            <h4>{description}</h4>
-          </div>
+const Services = () => (
+  <div className="targets" id="articulos">
+    {targets.map(({ photo, description }, i) => (
+      <div className="card" key={i}>
+        <div
+          className="top"
+          style={{
+            backgroundImage: `url( ${photo})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'top'
+          }}
+        />
+        <div className="text">
+          <h4>{description}</h4>
         </div>
-      ))}
+      </div>
+    ))}
 
-      <style jsx>{`
+    <style jsx>
+      {`
         .targets {
           width: 100vw;
           min-height: 100vh;
@@ -52,9 +52,9 @@ const Services = () => {
           width: 100%;
           height: 100%;
         }
-      `}</style>
-    </div>
-  );
-};
+      `}
+    </style>
+  </div>
+);
 
 export default Services;

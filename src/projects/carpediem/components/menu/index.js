@@ -15,6 +15,18 @@ const Menu = () => (
           align-items: center;
           padding: 0 2em;
         }
+
+        // ========================================================
+        @media (max-width: 524px) {
+          .menu {
+            padding: 0 1em;
+          }
+        }
+        @media (max-width: 380px) {
+          .menu {
+            flex-flow: column;
+          }
+        }
       `}
     </style>
   </div>
