@@ -10,10 +10,12 @@ const Documents = props => {
   const { card } = props;
   const language = getLanguage(useSelector(store => store.language));
 
+  if (!card.files?.length) return <div />;
+
   return (
     <div className="documents" id="documents">
       <TitleSeparator title={language.documents} color={card.border_color} />
-      {card.files?.map((file, i) => (
+      {card.files.map((file, i) => (
         <div key={i}>
           <div className="line" style={{ backgroundColor: card.border_color }} />
           <div className="document">

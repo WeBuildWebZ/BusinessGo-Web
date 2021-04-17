@@ -12,11 +12,13 @@ const Documents = props => {
   const { card } = props;
   const language = getLanguage(useSelector(store => store.language));
 
+  if (!card.photos_or_videos?.length) return <div />;
+
   return (
     <div className="photosVideos" id="photosVideos">
       <TitleSeparator title={language.photosVideos} color={card.border_color} />
       <div className="photosOrVideos">
-        {card.photos_or_videos?.map((photoOrVideo, i) => {
+        {card.photos_or_videos.map((photoOrVideo, i) => {
           const url = photoOrVideo.photo_or_video;
           const isVideo = isVideoFromName(url);
           const isImage = isImageFromName(url);
