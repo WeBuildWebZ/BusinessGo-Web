@@ -2,18 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { FileIcon } from 'react-file-icon';
+import { v4 as uuid } from 'uuid';
 
 import { fieldShape } from '../../../utils/field';
 import usePushAlert from '../../../shared/hooks/usePushAlert';
 import { uploadFile } from '../../../services/cloudinary/file';
 
+import ProgressBar from './ProgressBar';
 import { getLanguage } from './lang';
 import * as utils from './utils';
 
 const FilePicker = props => {
   const { field } = props;
   const pushAlert = usePushAlert();
-  const [files, setFiles] = useState([]);
+  const files = props.value || [];
   const [progresses, setProgresses] = useState([]);
   const [fileDragged, setFileDragged] = useState(false);
   const project = useSelector(store => store.project);
@@ -22,7 +24,9 @@ const FilePicker = props => {
   const fieldName = (field.names && field.names[languageCode]) || field.name;
   const pickerRef = useRef();
   const filesRef = useRef();
+  const progressesRef = useRef();
   filesRef.current = files;
+  progressesRef.current = progresses;
 
   const handleAddFiles = e => {};
 
@@ -30,12 +34,27 @@ const FilePicker = props => {
     pickerRef.current.click();
   };
 
-  console.log('field', field);
-  console.log('files', files);
+  const updateProgress = newProgress => {
+    const newProgresses = [...progressesRef.current];
+    const previousProgress = progressesRef.current.find(progress => progress.fileId === newProgress.fileId);
+    if (previousProgress)
+      newProgresses.forEach((progress, i) => {
+        if (progress.fileId === newProgress.fileId) newProgresses[i] = newProgress;
+      });
+    else newProgresses.push(newProgress);
+    setProgresses(newProgresses);
+  };
+
+  const updateFile = newFile => {
+    const newFiles = filesRef.current.map(file => (newFile.id === file.id ? newFile : file));
+    props.onChange(newFiles);
+  };
 
   const handleSetFiles = newFiles => {
+    newFiles.forEach(file => (file.id = uuid()));
     setFileDragged(false);
-    const totalFiles = [...filesRef.current, ...newFiles];
+    const currentFiles = filesRef.current;
+    const totalFiles = [...currentFiles, ...newFiles];
 
     if (!utils.sizeValidation(totalFiles, field))
       return pushAlert({
@@ -51,16 +70,26 @@ const FilePicker = props => {
         message: language.invalidLength.message
       });
 
+    props.onUploadStart();
+
     newFiles.forEach((file, i) => {
+      const index = currentFiles.length + i;
       uploadFile(project, file, progress => {
-        const newProgresses = [...progresses];
-        newProgresses[i] = progress;
-        console.log('progress');
-        setProgresses(newProgresses);
+        updateProgress({ fileId: file.id, number: progress });
+      }).then(({ data: upload }) => {
+        console.log('upload', upload);
+        updateProgress({ fileId: file.id, number: 100 });
+        updateFile({
+          id: file.id,
+          name: file.name,
+          size: file.size,
+          url: upload.secure_url
+        });
+        if (utils.allFilesUploaded(progressesRef.current)) props.onUploadEnd();
       });
     });
 
-    setFiles(totalFiles);
+    props.onChange(totalFiles);
   };
 
   const handleDragOver = e => {
@@ -75,8 +104,10 @@ const FilePicker = props => {
   };
 
   const handleRemoveFile = index => {
+    const newProgresses = progresses.filter((_, i) => i !== index);
     const newFiles = files.filter((_, i) => i !== index);
-    setFiles(newFiles);
+    props.onChange(newFiles);
+    setProgresses(newProgresses);
   };
 
   useEffect(() => {
@@ -112,7 +143,10 @@ const FilePicker = props => {
           <div className="iconContainer">
             <FileIcon extension={file.name.substr(file.name.lastIndexOf('.') + 1)} color="skyblue" />
           </div>
-          {file?.name || language.selectFile}
+          <div className="fileNameContainer">
+            {file?.name || language.selectFile}
+            {progresses[i] && <ProgressBar progress={progresses[i].number} />}
+          </div>
           <i className="fa fa-trash" onClick={() => handleRemoveFile(i)} />
         </div>
       ))}
@@ -188,6 +222,9 @@ const FilePicker = props => {
             transform: scale(1.2) rotate(5deg);
             transition: 0.1s;
           }
+          .fileNameContainer {
+            flex: 1;
+          }
         `}
       </style>
     </div>
@@ -195,14 +232,18 @@ const FilePicker = props => {
 };
 
 FilePicker.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.arrayOf(PropTypes.object),
   field: fieldShape.isRequired,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  onUploadStart: PropTypes.func,
+  onUploadEnd: PropTypes.func
 };
 
 FilePicker.defaultProps = {
   value: '',
-  onChange: () => {}
+  onChange: () => {},
+  onUploadStart: () => {},
+  onUploadEnd: () => {}
 };
 
 export default FilePicker;

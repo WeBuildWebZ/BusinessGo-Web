@@ -30,6 +30,7 @@ const FieldRenderer = props => {
   const language = getLanguage(languageCode);
   const [hasChanged, setHasChanged] = useState(false);
   const [newData, setNewData] = useState(data);
+  const [uploadingFiles, setUploadingFiles] = useState(false);
 
   const handleChange = updatedData => {
     const formattedData = getDataFromFields(fields, updatedData);
@@ -234,6 +235,8 @@ const FieldRenderer = props => {
                 value={data[field.key]}
                 field={field}
                 onChange={value => handleUpdateData(field.key, value)}
+                onUploadStart={() => setUploadingFiles(true)}
+                onUploadEnd={() => setUploadingFiles(false)}
                 key={`${props.formCode}-${field.key}`}
               />
             );
@@ -257,7 +260,7 @@ const FieldRenderer = props => {
       })}
       {props.backButton && <Button onClick={props.onGoBack}>{language.back}</Button>}
       {props.saveButton && (
-        <Button disabled={!hasChanged && !props.alwaysShowSaveButton} onClick={handleSave}>
+        <Button disabled={!hasChanged && !props.alwaysShowSaveButton && !uploadingFiles} onClick={handleSave}>
           {props.saveButtonText || language.save}
         </Button>
       )}

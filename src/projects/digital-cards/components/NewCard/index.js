@@ -108,6 +108,7 @@ const NewCard = () => {
               border-radius: 5px;
               box-shadow: 0px 14px 50px 5px #1c1c1c7c;
               overflow-x: visible;
+              overflow-y: auto;
             }
             .title {
               margin: 10px;
