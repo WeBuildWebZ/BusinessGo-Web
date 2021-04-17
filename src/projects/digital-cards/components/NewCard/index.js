@@ -16,6 +16,7 @@ import * as constants from './constants';
 const NewCard = () => {
   const languageCode = useSelector(store => store.language);
   const language = getLanguage(languageCode);
+  const user = useSelector(store => store.user);
   const project = useSelector(store => store.project);
   const pushAlert = usePushAlert();
   const [products, setProducts] = useState(null);
@@ -32,7 +33,12 @@ const NewCard = () => {
   };
 
   const handleAddData = changedData => {
-    const newData = { ...data, ...changedData };
+    const newData = {
+      ...data,
+      ...changedData,
+      switch_to_premium_email_sent: false,
+      user_id: user?._id
+    };
     const nextStep = step + 1;
     setData(newData);
     if (form.steps[nextStep]) return setStep(nextStep);
