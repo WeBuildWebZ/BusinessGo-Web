@@ -13,8 +13,9 @@ import AddContact from './AddContact';
 import Footer from './Footer';
 import SocialNetworks from './SocialNetworks';
 import Services from './Services';
-import Agenda from './Agenda';
+import PhotosVideos from './PhotosVideos';
 import Documents from './Documents';
+import Agenda from './Agenda';
 
 const Design1 = props => {
   const { card } = props;
@@ -52,6 +53,7 @@ const Design1 = props => {
           <Address card={card} />
         </Selector>
         <hr />
+        <PhotosVideos card={card} />
         <Documents card={card} />
         <Agenda card={card} />
         <Footer card={card} />

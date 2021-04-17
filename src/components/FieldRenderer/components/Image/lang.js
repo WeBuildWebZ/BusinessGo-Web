@@ -1,9 +1,9 @@
 export const getLanguage = language_code =>
   ({
     es: {
-      selectImage: 'Seleccionar imagen'
+      incorrectType: { title: 'Error', message: 'Tipo de archivo incorrecto' }
     },
     en: {
-      selectImage: 'Select image'
+      incorrectType: { title: 'Error', message: 'Incorrect file type' }
     }
   }[language_code]);

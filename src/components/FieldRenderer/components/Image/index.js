@@ -3,15 +3,21 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Spinner from '../../../Spinner';
+import usePushAlert from '../../../../shared/hooks/usePushAlert';
 import { uploadFile } from '../../../../services/cloudinary/file';
 import OpenableImage from '../../../OpenableImage';
 import { getFieldKeyTranslation } from '../../../../translations/fieldKeys';
 import { fieldShape } from '../../../../utils/field';
+import { isImageFromName, isVideoFromName } from '../../../../utils/files';
+
+import { getLanguage } from './lang';
 
 const Image = props => {
   const { field, value } = props;
   const languageCode = useSelector(store => store.language);
+  const language = getLanguage(languageCode);
   const keyTranslation = getFieldKeyTranslation(languageCode);
+  const pushAlert = usePushAlert();
   const project = useSelector(store => store.project);
   const [uploading, setUploading] = useState(false);
   const input = useRef(null);
@@ -26,11 +32,14 @@ const Image = props => {
 
     if (!file) return;
 
+    if (!isVideoFromName(file.name) && !isImageFromName(file.name))
+      return pushAlert({ type: 'error', ...language.incorrectType });
+
     setUploading(true);
 
-    uploadFile(project, file).then(body => {
+    uploadFile(project, file).then(({ data: upload }) => {
       setUploading(false);
-      props.onChange(body.secure_url);
+      props.onChange(upload.secure_url);
     });
   };
 

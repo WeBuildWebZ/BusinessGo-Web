@@ -9,8 +9,6 @@ import TitleSeparator from '../TitleSeparator';
 const Documents = props => {
   const { card } = props;
   const language = getLanguage(useSelector(store => store.language));
-  const inputStyle = { marginBottom: 50 };
-  const selectInputStyle = { margin: 2 };
 
   return (
     <div className="documents" id="documents">
@@ -23,7 +21,7 @@ const Documents = props => {
               <FileIcon extension={file.name.substr(file.name.lastIndexOf('.') + 1)} color="skyblue" />
             </div>
             <Link href={file.url}>
-              <a className="downloadLink" download={file.name} target="_blank">
+              <a className="downloadLink" download={file.name} textContent={file.name} target="_blank">
                 {file.name}
               </a>
             </Link>

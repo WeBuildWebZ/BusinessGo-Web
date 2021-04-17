@@ -1,4 +1,4 @@
-export const postFile = (url, data, onProgress) =>
+export const postFile = (url, data, onProgress = () => {}) =>
   new Promise(resolve => {
     const request = new XMLHttpRequest();
     request.open('POST', url);

@@ -22,7 +22,8 @@ export const getLanguage = langCode =>
       hour: 'Hora',
       message: 'Mensaje',
       schedule: 'Agendar',
-      documents: 'Documentos'
+      documents: 'Documentos',
+      photosVideos: 'Fotos - Videos'
     },
     en: {
       businessFlags: {
@@ -46,6 +47,7 @@ export const getLanguage = langCode =>
       hour: 'Hour',
       message: 'Message',
       schedule: 'Schedule',
-      documents: 'Documents'
+      documents: 'Documents',
+      photosVideos: 'Photos - Videos'
     }
   }[langCode]);

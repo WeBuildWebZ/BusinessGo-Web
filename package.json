@@ -50,6 +50,7 @@
     "file-loader": "^6.2.0",
     "lodash": "^4.17.20",
     "mdbreact": "^5.0.1",
+    "mime-types": "^2.1.30",
     "ncp": "^2.0.0",
     "next": "10.0.3",
     "next-seo": "^4.17.0",

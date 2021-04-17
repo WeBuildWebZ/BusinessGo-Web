@@ -5,7 +5,7 @@ import { cardPropTypes } from '../../constants';
 
 const buttons = [
   { icon: '/miniweb_assets/icons/home.png', elementId: 'home' },
-  { icon: '/miniweb_assets/icons/tag.png', elementId: 'tags' },
+  { icon: '/miniweb_assets/icons/tag.png', elementId: 'photosVideos' },
   { icon: '/miniweb_assets/icons/file.png', elementId: 'documents' },
   { icon: '/miniweb_assets/icons/agenda.png', elementId: 'agenda' },
   { icon: '/miniweb_assets/icons/share.png', elementId: 'share' }
