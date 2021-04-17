@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { FileIcon } from 'react-file-icon';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import { isVideoFromName, isImageFromName } from '../../../../../../utils/files';
 import * as constants from '../../constants';
