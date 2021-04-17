@@ -14,6 +14,7 @@ import Footer from './Footer';
 import SocialNetworks from './SocialNetworks';
 import Services from './Services';
 import Agenda from './Agenda';
+import Documents from './Documents';
 
 const Design1 = props => {
   const { card } = props;
@@ -51,6 +52,7 @@ const Design1 = props => {
           <Address card={card} />
         </Selector>
         <hr />
+        <Documents card={card} />
         <Agenda card={card} />
         <Footer card={card} />
         <br />

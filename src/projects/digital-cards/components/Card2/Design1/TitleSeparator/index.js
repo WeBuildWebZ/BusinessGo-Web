@@ -7,6 +7,9 @@ const TitleSeparator = props => (
     {props.title}
     <style jsx>
       {`
+        * {
+          color: whitesmoke;
+        }
         .titleSeparator {
           display: flex;
           transform: translate(-${constants.sideMargin}px);
@@ -14,7 +17,7 @@ const TitleSeparator = props => (
           align-items: center;
           width: calc(100% + ${constants.sideMargin * 2}px);
           height: 100px;
-          margin-bottom: 20px;
+          margin: 100px 0 100px 0;
           font-size: 24px;
           border-bottom-left-radius: 14px;
           border-bottom-right-radius: 14px;

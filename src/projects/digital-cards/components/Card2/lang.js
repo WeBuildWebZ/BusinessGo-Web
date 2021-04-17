@@ -21,7 +21,8 @@ export const getLanguage = langCode =>
       day: 'Día',
       hour: 'Hora',
       message: 'Mensaje',
-      schedule: 'Agendar'
+      schedule: 'Agendar',
+      documents: 'Documentos'
     },
     en: {
       businessFlags: {
@@ -44,6 +45,7 @@ export const getLanguage = langCode =>
       day: 'Day',
       hour: 'Hour',
       message: 'Message',
-      schedule: 'Schedule'
+      schedule: 'Schedule',
+      documents: 'Documents'
     }
   }[langCode]);
