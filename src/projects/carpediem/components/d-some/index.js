@@ -15,11 +15,6 @@ const Some = () => (
         }
 
         h2 {
-          background-attachment: fixed;
-          background-image: url(/images/paying.jpg);
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: transparent;
           font-size: 12em;
           line-height: 0.8em;
           min-height: 100%;

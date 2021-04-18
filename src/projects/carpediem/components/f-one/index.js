@@ -11,6 +11,7 @@ const One = () => (
           display: flex;
           justify-content: center;
           align-items: center;
+          clip-path: circle(0px at center);
         }
       `}
     </style>
