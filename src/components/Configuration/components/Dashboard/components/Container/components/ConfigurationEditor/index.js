@@ -6,6 +6,7 @@ import FieldRenderer from '../../../../../../../FieldRenderer';
 import Spinner from '../../../../../../../Spinner';
 import { setProject } from '../../../../../../../../shared/actions/project';
 import usePushAlert from '../../../../../../../../shared/hooks/usePushAlert';
+import { getNewConfiguration } from '../../../../../../../FieldRenderer/utils';
 
 import { getLanguage } from './lang';
 
@@ -18,12 +19,20 @@ const ConfigurationEditor = () => {
   const [configuration, setConfiguration] = useState(project.configuration);
 
   const handlePartialChange = changedConfiguration => {
-    const newConfiguration = { ...configuration, [configurationSection.form_code]: changedConfiguration };
+    const newConfiguration = getNewConfiguration(
+      configuration,
+      changedConfiguration,
+      configurationSection.form_code
+    );
     setConfiguration(newConfiguration);
   };
 
   const handleUpdateConfiguration = changedConfiguration => {
-    const newConfiguration = { ...configuration, [configurationSection.form_code]: changedConfiguration };
+    const newConfiguration = getNewConfiguration(
+      configuration,
+      changedConfiguration,
+      configurationSection.form_code
+    );
 
     setConfiguration(newConfiguration);
     updateProjectConfiguration(project, newConfiguration).then(({ data: givenConfiguration }) => {

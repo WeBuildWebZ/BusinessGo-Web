@@ -3,9 +3,11 @@ import { useSelector } from 'react-redux';
 
 import { getCoordinates } from '../../../../../../utils/googleMaps';
 import { cardPropTypes } from '../../constants';
+import { getLanguage } from '../../lang';
 
 const Address = props => {
   const { card } = props;
+  const language = getLanguage(useSelector(store => store.language));
   const [map, setMap] = useState(null);
   const mapRef = useRef();
   const hasMap = !!card.google_maps_url;
@@ -25,6 +27,11 @@ const Address = props => {
 
   return (
     <div>
+      {card.postal_code && (
+        <div>
+          {language.postalCode}: {card.postal_code}
+        </div>
+      )}
       {hasMap && <div className="map" ref={mapRef} />}
       <style jsx>
         {`

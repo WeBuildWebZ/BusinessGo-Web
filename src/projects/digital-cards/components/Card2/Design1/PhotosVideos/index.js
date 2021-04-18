@@ -1,13 +1,16 @@
 import { useSelector } from 'react-redux';
 import { FileIcon } from 'react-file-icon';
 import Link from 'next/link';
+import { v4 as uuid } from 'uuid';
 
 import { isVideoFromName, isImageFromName } from '../../../../../../utils/files';
 import * as constants from '../../constants';
 import { getLanguage } from '../../lang';
 import TitleSeparator from '../TitleSeparator';
 
-const Documents = props => {
+import Video from './Video';
+
+const PhotosVideos = props => {
   const { card } = props;
   const language = getLanguage(useSelector(store => store.language));
 
@@ -22,13 +25,8 @@ const Documents = props => {
           const isVideo = isVideoFromName(url);
           const isImage = isImageFromName(url);
 
-          if (isImage) return <img className="image" key={i} src={url} />;
-          if (isVideo)
-            return (
-              <video className="video" controls="controls" preload="metadata">
-                <source src={url} type="video/mp4" />
-              </video>
-            );
+          if (isImage) return <img key={i} className="image" src={url} />;
+          if (isVideo) return <Video key={i} url={url} />;
           return undefined;
         })}
       </div>
@@ -62,18 +60,12 @@ const Documents = props => {
             margin: 14px;
             border-radius: 14px;
           }
-          .video {
-            width: 100%;
-            margin: 14px;
-            margin-left: 0;
-            border-radius: 14px;
-          }
         `}
       </style>
     </div>
   );
 };
 
-Documents.propTypes = constants.cardPropTypes;
+PhotosVideos.propTypes = constants.cardPropTypes;
 
-export default Documents;
+export default PhotosVideos;

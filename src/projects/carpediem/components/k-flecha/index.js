@@ -33,8 +33,16 @@ const Arrow = () => (
               left: 4em;
               z-index: 200;
               cursor: pointer;
+              transition: 0.2s;
             }
-
+            .flecha:hover {
+              border-radius: 50px;
+              transform: scale(1.1) rotate(360deg);
+            }
+            .flecha:active {
+              transform: scale(1.3) rotate(360deg);
+              transition: 0.1s;
+            }
             svg {
               width: 60px;
               height: 60px;

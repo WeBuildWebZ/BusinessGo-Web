@@ -11,7 +11,7 @@ import Group from './Group';
 import Checkbox from './Checkbox';
 import WeekHours from './WeekHours';
 import ColorPicker from './ColorPicker';
-import Text from './components/Text';
+import Text from './Text';
 import Enum from './components/Enum';
 import Select from './components/Select';
 import SelectButtons from './SelectButtons';

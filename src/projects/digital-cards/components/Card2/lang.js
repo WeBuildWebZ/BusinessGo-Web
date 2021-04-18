@@ -23,7 +23,17 @@ export const getLanguage = langCode =>
       message: 'Mensaje',
       schedule: 'Agendar',
       documents: 'Documentos',
-      photosVideos: 'Fotos - Videos'
+      photosVideos: 'Fotos - Videos',
+      days: {
+        monday: 'Lunes',
+        tuesday: 'Martes',
+        wednesday: 'Miércoles',
+        thursday: 'Jueves',
+        friday: 'Viernes',
+        saturday: 'Sábado',
+        sunday: 'Domingo'
+      },
+      postalCode: 'Código postal'
     },
     en: {
       businessFlags: {
@@ -48,6 +58,16 @@ export const getLanguage = langCode =>
       message: 'Message',
       schedule: 'Schedule',
       documents: 'Documents',
-      photosVideos: 'Photos - Videos'
+      photosVideos: 'Photos - Videos',
+      days: {
+        monday: 'Monday',
+        tuesday: 'Tuesday',
+        wednesday: 'Wednesday',
+        thursday: 'Thursday',
+        friday: 'Friday',
+        saturday: 'Saturday',
+        sunday: 'Sunday'
+      },
+      postalCode: 'Postal code'
     }
   }[langCode]);

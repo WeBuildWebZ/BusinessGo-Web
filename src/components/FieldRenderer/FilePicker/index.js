@@ -240,7 +240,7 @@ FilePicker.propTypes = {
 };
 
 FilePicker.defaultProps = {
-  value: '',
+  value: [],
   onChange: () => {},
   onUploadStart: () => {},
   onUploadEnd: () => {}
