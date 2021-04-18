@@ -81,22 +81,24 @@ const Footer = () => {
           <h3>INFORMACION:</h3>
           <span className="row">
             <img src="/icons/house.png" alt="house icon" />
-            <p> San Luis - Argentina</p>
+            <p>{project?.configuration.contact.location}</p>
           </span>
 
           <span className="row">
             <img src="/icons/contact.png" alt="contact icon" />
             <p>
-              <a href="mailto:carpediemcontenidos@gmail.com" target="blank">
-                carpediemcontenidos@gmail.com
-              </a>
+              {project?.configuration.contact.email && (
+                <a href={`mailto:${project?.configuration.contact.email}`} target="blank">
+                  {project?.configuration.contact.email}
+                </a>
+              )}
             </p>
           </span>
           <span className="row">
             <img src="/icons/privacy_policy.png" alt="contact icon" />
             <p>
               <Link href="/privacy_policy">
-                <a>privacyPolicy</a>
+                <a>Política de privacidad</a>
               </Link>
             </p>
           </span>
