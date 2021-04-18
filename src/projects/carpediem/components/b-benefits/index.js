@@ -6,7 +6,7 @@ const Bennefits = () => {
   return (
     <div className="benefits">
       {project?.configuration.basic_info.benefits.map((benefit, i) => (
-        <div key={i} className="card">
+        <div key={i} className="benefit">
           <div className="item">
             <img src={benefit.icon} alt="Benefit" />
           </div>
@@ -29,8 +29,7 @@ const Bennefits = () => {
             padding: 1em 0;
             position: relative;
           }
-
-          .card {
+          .benefit {
             width: 300px;
             min-height: 120px;
             display: flex;
@@ -42,6 +41,10 @@ const Bennefits = () => {
             margin: 0.5em;
             padding: 0.5em;
             cursor: pointer;
+            transition: 0.7s;
+          }
+          .benefit:hover {
+            transform: scale(1.1);
           }
 
           // =======================================================
@@ -67,7 +70,7 @@ const Bennefits = () => {
           // ===========================RESPONSIVE================================================================
 
           @media (max-width: 250px) {
-            .card {
+            .benefit {
               flex-flow: column;
             }
           }
