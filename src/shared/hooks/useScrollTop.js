@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 
-const useScrollTop = element => {
+const useScrollTop = () => {
   const [scrollTop, setScrollTop] = useState(0);
 
-  if (!element) return 0;
+  if (typeof window !== 'object') return 0;
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollTop(element.scrollTop);
+      setScrollTop(window.scrollY);
     };
-    element.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
-    return () => element.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return scrollTop;
