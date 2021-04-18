@@ -8,6 +8,7 @@ import FieldRenderer from '../../../../components/FieldRenderer';
 import { showForm } from '../../../../services/api/form';
 import { createClientDocument } from '../../../../services/api/clientDocument';
 import usePushAlert from '../../../../shared/hooks/usePushAlert';
+import { filterFields } from '../../../../utils/form';
 
 import Tabs from './Tabs';
 import { getLanguage } from './lang';
@@ -25,7 +26,19 @@ const NewCard = () => {
   const [step, setStep] = useState(0);
   const [data, setData] = useState({ form_data: {} });
   const canGoBack = step > 0;
-  const fields = !form ? null : form.fields.filter(field => field.step === step + 1);
+  const currentVariant = form?.variants.find(variant =>
+    data.card_type === 'free'
+      ? 'free_miniweb'
+      : data.card_type === 'premium_personal'
+      ? 'premium_miniweb'
+      : data.card_type === 'premium_business'
+      ? 'premium_business_miniweb'
+      : data.card_type === 'premium_plus'
+      ? 'premium_plus_miniweb'
+      : ''
+  )?.key;
+  const fields = filterFields(form, step, currentVariant);
+  if (fields && !fields.length) setStep(step + 1);
 
   const handlePartialChange = changedData => {
     const newData = { ...data, ...changedData };

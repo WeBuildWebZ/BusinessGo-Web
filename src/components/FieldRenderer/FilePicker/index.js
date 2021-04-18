@@ -77,7 +77,6 @@ const FilePicker = props => {
       uploadFile(project, file, progress => {
         updateProgress({ fileId: file.id, number: progress });
       }).then(({ data: upload }) => {
-        console.log('upload', upload);
         updateProgress({ fileId: file.id, number: 100 });
         updateFile({
           id: file.id,

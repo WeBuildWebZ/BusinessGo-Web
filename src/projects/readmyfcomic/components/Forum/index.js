@@ -11,7 +11,6 @@ import NewComment from './NewComment';
 const Forum = props => {
   const { forum } = props;
   const languageCode = useSelector(store => store.language);
-  console.log(forum);
 
   return (
     <div className="forum">
