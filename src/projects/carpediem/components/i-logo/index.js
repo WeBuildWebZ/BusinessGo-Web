@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Logo = () => (
   <div className="logo">
     <Link href="/">
       <a>
-        <img src="/images/logo.png" alt="logo" />
+        <Image src="/images/logo.png" width={130} height={50} alt="logo" />
       </a>
     </Link>
     <style jsx>
@@ -15,7 +16,7 @@ const Logo = () => (
           align-items: center;
         }
         img {
-          min-width: 100px;
+          width: 130px;
           height: 50px;
         }
       `}

@@ -13,7 +13,7 @@ const Navbar = () => (
     <style jsx>
       {`
         .menu {
-          padding: 1.5em 1em;
+          padding: 0 1em;
           display: flex;
           justify-content: center;
           align-items: center;

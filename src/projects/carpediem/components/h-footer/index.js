@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSelector } from 'react-redux';
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
     <div className="footer">
       <div className="bottom">
         <span className="column">
-          <img src="/images/logo-white.png" alt="logo-white" className="img" />
+          <Image src="/images/logo-white.png" width={400} height={130} alt="logo-white" className="img" />
         </span>
 
         <span className="column">
@@ -135,10 +136,6 @@ const Footer = () => {
             border-radius: 1em;
           }
 
-          .img {
-            width: 400px;
-            height: 160px;
-          }
           // ========================
           h3 {
             font-size: 2em;
@@ -155,12 +152,13 @@ const Footer = () => {
           svg:hover {
             width: 30px;
             height: 30px;
-            color: white;
+            color: #ed8e2c;
           }
           // ===========================
           .row {
             width: 100%;
             display: flex;
+            align-items: center;
             padding: 0.5em 0 0 0.5em;
           }
           h3 {

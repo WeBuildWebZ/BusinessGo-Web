@@ -11,40 +11,35 @@ const Some = () => {
         {`
           .some {
             width: 100vw;
-            min-height: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-image: linear-gradient(120deg, #f6d365 0%, #ed8e2c 100%);
           }
 
           h2 {
-            background-attachment: fixed;
-            background-image: url(/images/paying.jpg);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            font-size: 12em;
-            line-height: 0.8em;
-            min-height: 100%;
+            font-size: 6em;
+            height: 100%;
             width: 100vw;
             text-align: center;
-            letter-spacing: -9px;
             margin: 1em 0;
+            color: white;
           }
           // ===================================================
           @media (max-width: 760px) {
             h2 {
-              font-size: 8em;
+              font-size: 5em;
             }
           }
           @media (max-width: 520px) {
             h2 {
-              font-size: 6em;
+              font-size: 3em;
             }
           }
           @media (max-width: 358px) {
             h2 {
-              font-size: 4em;
+              font-size: 2em;
             }
           }
         `}
