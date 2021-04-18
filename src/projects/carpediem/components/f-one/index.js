@@ -1,15 +1,25 @@
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import useScrollTop from '../../../../shared/hooks/useScrollTop';
 
 const One = () => {
-  const scrollTop = useScrollTop(typeof document === 'object' ? document.body : null);
   const project = useSelector(store => store.project);
   const elementRef = useRef();
-  let elementScroll = elementRef.current ? scrollTop + 550 - elementRef.current.offsetTop : 0;
-  elementScroll = elementScroll <= 0 ? 0 : elementScroll;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollY } = window;
+      let elementScroll = scrollY + 550 - elementRef.current.offsetTop;
+      elementScroll = elementScroll <= 0 ? 0 : elementScroll;
+
+      elementRef.current.style.clipPath = `circle(${elementScroll}px at center)`;
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="one" ref={elementRef}>
@@ -24,7 +34,6 @@ const One = () => {
             display: flex;
             justify-content: center;
             align-items: center;
-            clip-path: circle(${elementScroll}px at center);
           }
         `}
       </style>
