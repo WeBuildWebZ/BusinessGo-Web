@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { FileIcon } from 'react-file-icon';
 import Link from 'next/link';
+import { getMaterialFileIcon } from 'file-extension-icon-js';
 
 import * as constants from '../../constants';
 import { getLanguage } from '../../lang';
@@ -19,9 +19,7 @@ const Documents = props => {
         <div key={i}>
           <div className="line" style={{ backgroundColor: card.border_color }} />
           <div className="document">
-            <div className="icon">
-              <FileIcon extension={file.name.substr(file.name.lastIndexOf('.') + 1)} color="skyblue" />
-            </div>
+            <img className="icon" src={`${getMaterialFileIcon(file.name)}`} />
             <Link href={file.url}>
               <a className="downloadLink" download={file.name} target="_blank">
                 {file.name}
@@ -44,8 +42,8 @@ const Documents = props => {
             margin: 7px;
           }
           .icon {
-            min-width: 20px;
-            max-width: 20px;
+            min-width: 30px;
+            max-width: 30px;
           }
           .downloadLink {
             margin-left: 7px;
