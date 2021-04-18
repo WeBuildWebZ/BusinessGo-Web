@@ -7,18 +7,11 @@ const Services = () => {
     <div className="targets" id="articulos">
       {project?.configuration.body.offers.map((offer, i) => (
         <div className="card" key={i}>
-          <div
-            className="top"
-            style={{
-              backgroundImage: `url(${offer.photo})`,
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'top'
-            }}
-          />
-          <div className="text">
-            <h4>{offer.description}</h4>
+          <div className="imageContainer">
+            <img className="image" src={offer.photo} />
           </div>
+          <h4 className="title">{offer.title}</h4>
+          <p className="text">{offer.description}</p>
         </div>
       ))}
 
@@ -34,24 +27,29 @@ const Services = () => {
             flex-wrap: wrap;
           }
           .card {
-            width: 350px;
-            height: 400px;
             display: flex;
-            flex-flow: column;
+            flex-direction: column;
+            width: 350px;
+            height: 100%;
             margin: 1em;
             border: 1px solid #1c1c1c;
             border-radius: 1em;
           }
 
+          .title {
+            margin: 14px;
+          }
           .text {
             flex: 2;
-            width: 100%;
-            height: 100%;
+            padding: 14px;
           }
-          .top {
-            flex: 8;
-            width: 100%;
-            height: 100%;
+          .imageContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+          .image {
+            height: 250px;
           }
         `}
       </style>
