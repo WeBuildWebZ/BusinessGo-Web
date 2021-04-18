@@ -23,7 +23,7 @@ const Text = props => {
       return (
         <TextField
           label={label}
-          value={stateValue}
+          value={stateValue || ''}
           disabled={props.readOnly}
           rows={props.rows}
           multiline={props.multiline}
