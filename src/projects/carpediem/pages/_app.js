@@ -10,20 +10,20 @@ import * as constants from '../constants';
 const AppendHead = () => (
   <>
     <NextSeo
-      title="Tienda"
-      description="Descripción"
+      title="Carpediem"
+      description="Somos una distribuidora de bebidas y anexos para kioscos, almacenes y supermercados. Venta minorista y mayorista con sede central en Villa Mercedes provincia de San Luis. Desde el año 2012 abastece a todo el país, llevando las mejores marcas al más bajo precios."
       canonical={constants.URL}
       openGraph={{
         url: constants.URL,
-        title: 'WeBuildWebZ',
-        description: 'Descripción',
-        site_name: 'WeBuildWebZ',
+        title: 'Carpediem',
+        description:
+          'Somos una distribuidora de bebidas y anexos para kioscos, almacenes y supermercados. Venta minorista y mayorista con sede central en Villa Mercedes provincia de San Luis. Desde el año 2012 abastece a todo el país, llevando las mejores marcas al más bajo precios.',
+        site_name: 'Carpediem',
         images: [
           {
-            url:
-              'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-webuildwebz.jpg?alt=media&token=cca05d1d-42e8-445e-a346-21c6d4686bfc',
-            width: 1366,
-            height: 635,
+            url: `${constants.URL}/images/page.png`,
+            width: 417,
+            height: 237,
             alt: 'Imagen 1'
           },
           {
@@ -38,14 +38,6 @@ const AppendHead = () => (
     />
     <Head>
       <link rel="icon" href="/favicon.png" />
-      {process.browser &&
-        !window.location.pathname.startsWith('/admin') &&
-        !window.location.pathname.startsWith('/dashboard') && (
-          <script
-            src="https://www.widgets.webuildwebz.com/include.js"
-            data-webuildwebz-project-token="73DCF74F122A4FACADD7B522EC826B8B68594F4D"
-          />
-        )}
     </Head>
   </>
 );
