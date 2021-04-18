@@ -49,7 +49,7 @@ SelectInput.propTypes = {
   name: PropTypes.string,
   color: PropTypes.string,
   style: PropTypes.object,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired
+  options: PropTypes.arrayOf(PropTypes.shape({ text: PropTypes.string, value: PropTypes.string })).isRequired
 };
 
 SelectInput.defaultProps = {

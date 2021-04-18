@@ -23,7 +23,7 @@ const Documents = props => {
               <FileIcon extension={file.name.substr(file.name.lastIndexOf('.') + 1)} color="skyblue" />
             </div>
             <Link href={file.url}>
-              <a className="downloadLink" download={file.name} textContent={file.name} target="_blank">
+              <a className="downloadLink" download={file.name} target="_blank">
                 {file.name}
               </a>
             </Link>

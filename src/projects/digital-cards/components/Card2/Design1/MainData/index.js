@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { completeUrl } from '../../../../../../utils/url';
 import { cardPropTypes } from '../../constants';
 
 const MainData = props => {
@@ -20,7 +21,7 @@ const MainData = props => {
         <div className="name">{name}</div>
         <div className="jobTitle">{card.job_title}</div>
         {card.website_url && (
-          <Link href={card.website_url}>
+          <Link href={completeUrl(card.website_url)}>
             <a className="websiteUrl" target="blank">
               <div>{card.website_url}</div>
             </a>

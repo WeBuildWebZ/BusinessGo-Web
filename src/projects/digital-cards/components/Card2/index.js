@@ -16,8 +16,7 @@ const Card = props => {
     photo_or_logo: card.profile_photo || card.logo,
     border_color: card.border_color || 'green',
     completeName: card.name && card.surnames ? `${card.name}${card.surnames ? ` ${card.surnames}` : ''}` : '',
-
-    completeAddress: [card.state, card.municipality, card.country].join(', ')
+    completeAddress: [card.address, card.state, card.municipality, card.country].join(', ')
   };
 
   return (

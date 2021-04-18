@@ -10,11 +10,13 @@ const BusinessFlags = props => {
 
   return (
     <div className="businessFlags">
-      {Object.keys(language.businessFlags).map(flag => (
-        <div className="flag" key={flag}>
-          <div className="flagSymbol">✓</div> {language.businessFlags[flag]}
-        </div>
-      ))}
+      {Object.keys(language.businessFlags)
+        .filter(flag => card[flag])
+        .map(flag => (
+          <div className="flag" key={flag}>
+            <div className="flagSymbol">✓</div> {language.businessFlags[flag]}
+          </div>
+        ))}
       <style jsx>
         {`
           * {
@@ -23,6 +25,7 @@ const BusinessFlags = props => {
           .businessFlags {
             display: flex;
             flex-direction: row;
+            justify-content: center;
             flex-wrap: wrap;
           }
           .flag {

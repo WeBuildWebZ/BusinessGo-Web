@@ -8,11 +8,18 @@ import TitleSeparator from '../TitleSeparator';
 import * as constants from '../../constants';
 import { getLanguage } from '../../lang';
 
+import * as utils from './utils';
+
 const Agenda = props => {
   const { card } = props;
   const language = getLanguage(useSelector(store => store.language));
   const inputStyle = { marginBottom: 50 };
   const selectInputStyle = { margin: 2 };
+  const daysOptions = Object.keys(language.days).map(dayKey => ({
+    text: language.days[dayKey],
+    value: dayKey
+  }));
+  const hoursOptions = utils.getHourOptions();
 
   return (
     <div className="agenda" id="agenda">
@@ -21,8 +28,18 @@ const Agenda = props => {
       <TextInput name={language.email} color={card.border_color} style={inputStyle} />
       <TextInput name={language.phone} color={card.border_color} style={inputStyle} />
       <div className="selectContainer">
-        <SelectInput name={language.day} color={card.border_color} style={selectInputStyle} />
-        <SelectInput name={language.hour} color={card.border_color} style={selectInputStyle} />
+        <SelectInput
+          name={language.day}
+          color={card.border_color}
+          style={selectInputStyle}
+          options={daysOptions}
+        />
+        <SelectInput
+          name={language.hour}
+          color={card.border_color}
+          style={selectInputStyle}
+          options={hoursOptions}
+        />
       </div>
       <TexttAreaInput name={language.message} color={card.border_color} style={inputStyle} />
       <div className="buttonContainer">
