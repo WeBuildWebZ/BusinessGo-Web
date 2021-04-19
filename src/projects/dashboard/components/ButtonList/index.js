@@ -5,7 +5,7 @@ const ButtonList = props => (
   <div className="buttonList">
     {props.buttons.map((button, i) => (
       <Link key={i} href={button.link}>
-        <a className="button pointer-cursor">{button.text}</a>
+        <a className="button">{button.text}</a>
       </Link>
     ))}
     <style jsx>

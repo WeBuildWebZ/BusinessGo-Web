@@ -29,12 +29,8 @@ const Breadcrumb2 = props => {
 
         return (
           <div key={i} className="itemContainer">
-            <div
-              className="item pointer-cursor"
-              style={{ zIndex: 2 * reverseIndex + 1 }}
-              onClick={() => handleClick(item)}
-            >
-              <div className={`text pointer-cursor${isFirst ? '' : ' notFirstText'}`}>{item.text}</div>
+            <div className="item" style={{ zIndex: 2 * reverseIndex + 1 }} onClick={() => handleClick(item)}>
+              <div className={`text${isFirst ? '' : ' notFirstText'}`}>{item.text}</div>
             </div>
             <div className="itemArrow" style={{ zIndex: 2 * reverseIndex }} />
           </div>

@@ -56,10 +56,7 @@ const ShowForm = ({ form_code }) => {
           <>
             <h1 className="title">{language.showTitle(form)}</h1>
             <FieldEditor form={form} onChange={handleChange} />
-            <div
-              className={`saveButton pointer-cursor${updating ? ' disabled' : ''}`}
-              onClick={handleSaveChanges}
-            >
+            <div className={`saveButton${updating ? ' disabled' : ''}`} onClick={handleSaveChanges}>
               {language.saveChanges}
             </div>
           </>

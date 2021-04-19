@@ -7,10 +7,10 @@ const Button = props => {
   if (props.showText && !wasShown) setWasShown(true);
 
   return (
-    <div className="button pointer-cursor" onClick={props.onClick}>
+    <div className="button" onClick={props.onClick}>
       <div className="symbol">{props.symbol}</div>
       <div
-        className={`text pointer-cursor${props.showText ? '' : ' hideText'}${
+        className={`text${props.showText ? '' : ' hideText'}${
           !props.showText && !wasShown ? ' textWasShown' : ''
         }`}
       >
