@@ -1,7 +1,19 @@
-const Globy = {
-  url: 'https://www.globy.dancotll.com/',
+const Carpediem = {
+  url: 'https://www.carpediem-distribuciones.com/',
+  image_url: 'https://www.carpediem-distribuciones.com/images/page.png'
+};
+const MasNegocio = {
+  url: 'https://masnegocio.online/',
+  image_url: 'https://masnegocio.online/images/page.png'
+};
+const ReadMyFComic = {
+  url: 'https://readmyfcomic.com/',
+  image_url: 'https://readmyfcomic.com/images/page.png'
+};
+const Orden = {
+  url: 'https://orden.webuildwebz.com/',
   image_url:
-    'https://firebasestorage.googleapis.com/v0/b/sql-demos-3f601.appspot.com/o/image.jpg?alt=media&token=0ee2a779-1a7d-4a2f-9365-ee2aecc05aeb'
+    'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-orden.jpg?alt=media&token=9545ae58-713e-4485-801c-9f68eb86b8e9'
 };
 const JoseRios = {
   url: 'https://jose-rios.netlify.app/#/',
@@ -23,18 +35,10 @@ const WeChat = {
   image_url:
     'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-we-chat.jpg?alt=media&token=a209759c-c743-4747-bac5-ae66cc25705b'
 };
-const Orden = {
-  url: 'https://orden.webuildwebz.com/',
+const Globy = {
+  url: 'https://www.globy.dancotll.com/',
   image_url:
-    'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-orden.jpg?alt=media&token=9545ae58-713e-4485-801c-9f68eb86b8e9'
-};
-const MasNegocio = {
-  url: 'https://masnegocio.webuildwebz.com/',
-  image_url: 'https://masnegocio.webuildwebz.com/images/page.png'
-};
-const ReadMyFComic = {
-  url: 'https://readmyfcomic.webuildwebz.com/',
-  image_url: 'https://readmyfcomic.webuildwebz.com/images/page.png'
+    'https://firebasestorage.googleapis.com/v0/b/sql-demos-3f601.appspot.com/o/image.jpg?alt=media&token=0ee2a779-1a7d-4a2f-9365-ee2aecc05aeb'
 };
 
 export const getLanguage = langCode =>
@@ -44,8 +48,24 @@ export const getLanguage = langCode =>
       visit: 'Visitar',
       items: [
         {
-          ...Globy,
-          description: 'Globy, es una empresa Mexicana de taxi al estilo Uber, en proceso de formacion.'
+          ...Carpediem,
+          description:
+            'Es una distribuidora de bebidas y anexos para kioscos, almacenes y supermercados. Venta minorista y mayorista con sede central en Villa Mercedes provincia de San Luis. Desde el año 2012 abastece a todo el país, llevando las mejores marcas al más bajo precios.'
+        },
+        {
+          ...MasNegocio,
+          description:
+            'Utiliza nuestra tecnología, y comparte tu tarjeta digital, para compartir tu información de contacto en 1 segundo.'
+        },
+        {
+          ...ReadMyFComic,
+          description:
+            'Plataforma óptima en que autores y lectores de todo el mundo pueden compartir y leer cómics de forma gratuita sin restricción de estilo y contenido.'
+        },
+        {
+          ...Orden,
+          description:
+            'Desarrollo de sitio para proyecto familiar de España, Murcia. Orden Y Mas, organiza el espacio de tu vivienda.'
         },
         {
           ...JoseRios,
@@ -68,19 +88,8 @@ export const getLanguage = langCode =>
             'Sitio web anexo a webuildwebz, en esta sub seccion ofrecemos nuestro servicio de Chat Bot'
         },
         {
-          ...Orden,
-          description:
-            'Desarrollo de sitio para proyecto familiar de España, Murcia. Orden Y Mas, organiza el espacio de tu vivienda.'
-        },
-        {
-          ...MasNegocio,
-          description:
-            'Utiliza nuestra tecnología, y comparte tu tarjeta digital, para compartir tu información de contacto en 1 segundo.'
-        },
-        {
-          ...ReadMyFComic,
-          description:
-            'Plataforma óptima en que autores y lectores de todo el mundo pueden compartir y leer cómics de forma gratuita sin restricción de estilo y contenido.'
+          ...Globy,
+          description: 'Globy, es una empresa Mexicana de taxi al estilo Uber, en proceso de formacion.'
         }
       ]
     },
@@ -89,8 +98,24 @@ export const getLanguage = langCode =>
       visit: 'Take a Look',
       items: [
         {
-          ...Globy,
-          description: 'Globy is a Mexican Uber-style Taxi company, in formation process.'
+          ...Carpediem,
+          description:
+            'It is a distributor of drinks and annexes for kiosks, warehouses and supermarkets. Retail and wholesale with headquarters in Villa Mercedes province of San Luis. Since 2012 it has been supplying the whole country, bringing the best brands at the lowest prices.'
+        },
+        {
+          ...MasNegocio,
+          description:
+            'Use our technology, and share your digital card, to share your contact information in 1 second.'
+        },
+        {
+          ...ReadMyFComic,
+          description:
+            'Optimal platform where authors and readers from all over the world can share and read comics for free without restriction of style and content.'
+        },
+        {
+          ...Orden,
+          description:
+            'Site development for a family project in Spain, Murcia. Orden Y Mas, organize the space of your home.'
         },
         {
           ...JoseRios,
@@ -111,19 +136,8 @@ export const getLanguage = langCode =>
           description: 'Website attached to webuildwebz, in this sub section we offer our Chat Bot service'
         },
         {
-          ...Orden,
-          description:
-            'Site development for a family project in Spain, Murcia. Orden Y Mas, organize the space of your home.'
-        },
-        {
-          ...MasNegocio,
-          description:
-            'Use our technology, and share your digital card, to share your contact information in 1 second.'
-        },
-        {
-          ...ReadMyFComic,
-          description:
-            'Optimal platform where authors and readers from all over the world can share and read comics for free without restriction of style and content.'
+          ...Globy,
+          description: 'Globy is a Mexican Uber-style Taxi company, in formation process.'
         }
       ]
     }

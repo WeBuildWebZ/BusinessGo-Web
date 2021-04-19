@@ -22,7 +22,7 @@ const Clientes = () => {
             <div className="mid">{description}</div>
 
             <Link href={url} target="_blank" rel="noopener noreferrer">
-              <a className="bottom">
+              <a className="bottom" target="_blank">
                 <div>{language.visit}</div>
               </a>
             </Link>
