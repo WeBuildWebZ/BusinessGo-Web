@@ -28,14 +28,14 @@ const PhotosVideos = props => {
           if (!isImage && !isVideo) return;
 
           const component = isImage ? (
-            <img key={i} className="image" src={url} />
+            <img className="image" src={url} />
           ) : isVideo ? (
-            <Video key={i} url={url} />
+            <Video url={url} />
           ) : (
             ''
           );
           return (
-            <div className="imageVideoContainer">
+            <div key={i} className="imageVideoContainer">
               {component}
               <b>{photoOrVideo.title}</b>
               <div>{photoOrVideo.price}</div>

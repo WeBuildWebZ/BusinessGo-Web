@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import TextInput from '../../../TextInput';
 import SelectInput from '../../../SelectInput';
-import TexttAreaInput from '../../../TexttAreaInput';
+import TextAreaInput from '../../../TextAreaInput';
 import Button from '../../../Button';
 import TitleSeparator from '../TitleSeparator';
 import * as constants from '../../constants';
@@ -41,9 +41,13 @@ const Agenda = props => {
           options={hoursOptions}
         />
       </div>
-      <TexttAreaInput name={language.message} color={card.border_color} style={inputStyle} />
+      <TextAreaInput name={language.message} color={card.border_color} style={inputStyle} />
       <div className="buttonContainer">
-        <Button text={language.schedule} style={{ backgroundColor: '#ff0404', color: 'whitesmoke' }} />
+        <Button
+          disabled={card.isDummie}
+          text={language.schedule}
+          style={{ backgroundColor: '#ff0404', color: 'whitesmoke' }}
+        />
       </div>
       <style jsx>
         {`

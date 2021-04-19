@@ -6,6 +6,7 @@ import { cardPropTypes } from '../../constants';
 const MainData = props => {
   const { card } = props;
   const name = card.business_or_company || card.completeName;
+  const heightToMoveUp = card.cover_photo ? card.photoSize / 2 : 10;
 
   return (
     <div className="mainData">
@@ -45,15 +46,15 @@ const MainData = props => {
           }
           .logoContainer {
             width: 100%;
-            transform: translate(0, -60px);
-            margin-bottom: -60px;
+            transform: translate(0, -${heightToMoveUp}px);
+            margin-bottom: -${heightToMoveUp}px;
             display: flex;
             flex-direction: row;
             justify-content: center;
           }
           .primaryPhoto {
-            width: 50vw;
-            height: 50vw;
+            width: ${card.photoSize}px;
+            height: ${card.photoSize}px;
             background-size: cover;
             border-radius: 50%;
             border-style: solid;

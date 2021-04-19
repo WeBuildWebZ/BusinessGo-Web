@@ -2,7 +2,7 @@ import { Modal } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-import Card from '../Card';
+import Card from '../Card2';
 import { listProducts } from '../../../../services/ecommerce_api/product';
 import FieldRenderer from '../../../../components/FieldRenderer';
 import { showForm } from '../../../../services/api/form';
@@ -114,7 +114,7 @@ const NewCard = () => {
             )}
           </>
         )}
-        {tab === 'preview' && <Card card={data} templateCode="free1" />}
+        {tab === 'preview' && <Card card={{ ...data, isDummie: true }} />}
         <style jsx>
           {`
             .modalContent {
