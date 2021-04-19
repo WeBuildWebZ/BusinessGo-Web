@@ -11,9 +11,10 @@ const Services = props => {
     <div className="services">
       {card.products_or_services?.map((service, i) => (
         <div className="service" key={i}>
-          <img className="photo" src={service.photo} />
-          <div>{service.title}</div>
-          <div>{service.price}</div>
+          {service.photo && <img className="photo" src={service.photo} />}
+          <div className="description">
+            <b>{service.title}</b>: {service.description}
+          </div>
         </div>
       ))}
       <style jsx>
@@ -23,23 +24,26 @@ const Services = props => {
           }
           .services {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: space-around;
             flex-wrap: wrap;
           }
           .service {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            width: 100px;
             margin: 7px;
             border-radius: 14px;
             text-align: center;
           }
           .photo {
-            max-width: 100%;
-            max-height: 80px;
+            max-width: 50px;
+            max-height: 50px;
             border-radius: inherit;
+          }
+          .description {
+            text-align: left;
+            margin: 7px;
           }
         `}
       </style>

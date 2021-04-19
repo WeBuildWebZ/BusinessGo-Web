@@ -65,7 +65,7 @@ const Video = props => {
           }
           .video {
             width: 100%;
-            margin: 14px;
+            margin-top: 14px;
             margin-left: 0;
             border-radius: 14px;
             outline: none;

@@ -25,9 +25,22 @@ const PhotosVideos = props => {
           const isVideo = isVideoFromName(url);
           const isImage = isImageFromName(url);
 
-          if (isImage) return <img key={i} className="image" src={url} />;
-          if (isVideo) return <Video key={i} url={url} />;
-          return undefined;
+          if (!isImage && !isVideo) return;
+
+          const component = isImage ? (
+            <img key={i} className="image" src={url} />
+          ) : isVideo ? (
+            <Video key={i} url={url} />
+          ) : (
+            ''
+          );
+          return (
+            <div className="imageVideoContainer">
+              {component}
+              <b>{photoOrVideo.title}</b>
+              <div>{photoOrVideo.price}</div>
+            </div>
+          );
         })}
       </div>
       <style jsx>
@@ -57,8 +70,13 @@ const PhotosVideos = props => {
           }
           .image {
             width: 100px;
-            margin: 14px;
+            margin: 4px;
             border-radius: 14px;
+          }
+          .imageVideoContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
         `}
       </style>
