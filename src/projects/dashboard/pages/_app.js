@@ -22,7 +22,7 @@ const AppendHead = () => {
   useEffect(() => {
     if (!user || !query.project_code) return;
     if (!user.project_codes.includes(query.project_code)) window.location.href = '/';
-    showProject(query.project_code).then(({ data: givenProject }) => {
+    showProject(query.project_code, true).then(({ data: givenProject }) => {
       dispatch(setDashboardProject(givenProject));
     });
   }, [user, query.project_code]);

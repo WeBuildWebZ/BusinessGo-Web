@@ -1,6 +1,7 @@
 import api from '../../utils/axios';
 
-export const showProject = code => api.get(`api/projects/${encodeURIComponent(code)}`);
+export const showProject = (code, fill_forms = false) =>
+  api.get(`api/projects/${encodeURIComponent(code)}`, { params: { fill_forms } });
 
 export const updateProjectConfiguration = (project, configuration) =>
   api.put(`api/projects/${project._id}/configuration`, configuration);
