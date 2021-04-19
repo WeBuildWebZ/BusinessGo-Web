@@ -15,6 +15,10 @@ const useDashboardConfiguration = () => {
     breadcrumbItems: [
       { regex: /^\/$/, items: [{ text: language.dashboard }] },
       {
+        regex: /^\/projects\/\[project_code\]+$/,
+        items: [{ text: language.dashboard, link: '/' }, { text: language.content_editor }]
+      },
+      {
         regex: /^\/content_editor$/,
         items: [{ text: language.dashboard, link: '/' }, { text: language.content_editor }]
       },

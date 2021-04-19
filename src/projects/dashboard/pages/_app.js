@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 
 import 'aos/dist/aos.css';
 import '../assets/styles/globals.css';
@@ -16,13 +17,15 @@ const AppendHead = () => {
   const user = useSelector(store => store.user);
   const dashboardProject = useSelector(store => store.dashboardProject);
   const dispatch = useDispatch();
+  const { query } = useRouter();
 
   useEffect(() => {
-    if (!user || !user.project_codes.length || dashboardProject) return;
-    showProject(user.project_codes[0]).then(({ data: givenProject }) => {
+    if (!user || !query.project_code) return;
+    if (!user.project_codes.includes(query.project_code)) window.location.href = '/';
+    showProject(query.project_code).then(({ data: givenProject }) => {
       dispatch(setDashboardProject(givenProject));
     });
-  }, [user, dashboardProject]);
+  }, [user, query.project_code]);
 
   return (
     <>

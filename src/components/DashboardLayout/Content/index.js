@@ -15,7 +15,8 @@ const Content = props => {
             left: ${sidebarWidth}px;
             top: ${navbarHeight}px;
             width: calc(100% - ${sidebarWidth}px);
-            height: calc(100% - ${navbarHeight}px);
+            height: calc(100% - ${navbarHeight + 14}px);
+            margin: 14px 0 0 14px;
             transition: 0.7s;
             overflow-y: auto;
           }

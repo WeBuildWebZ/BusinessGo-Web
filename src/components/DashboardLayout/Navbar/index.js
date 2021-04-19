@@ -15,7 +15,8 @@ const Navbar = props => {
 
   return (
     <div className="navbar">
-      <Title breadcrumbItems={props.breadcrumbItems} />
+      <h2>{props.pageTitle}</h2>
+      {/* <Title breadcrumbItems={props.breadcrumbItems} /> */}
       <LogoutButton />
       <style jsx>
         {`
@@ -36,7 +37,12 @@ const Navbar = props => {
 };
 
 Navbar.propTypes = {
-  breadcrumbItems: PropTypes.any.isRequired
+  pageTitle: PropTypes.string
+  // breadcrumbItems: PropTypes.any.isRequired
+};
+
+Navbar.defaultProps = {
+  pageTitle: ''
 };
 
 export default Navbar;
