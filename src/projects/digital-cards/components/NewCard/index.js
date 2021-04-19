@@ -75,7 +75,7 @@ const NewCard = () => {
 
   const handleGoBack = () => {
     if (!canGoBack) return;
-    let nextStep = step - 1;
+    let nextStep = step;
     let fieldsAfter;
 
     while (!fieldsAfter || !fieldsAfter.length) {
