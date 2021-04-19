@@ -24,6 +24,7 @@ const ProjectSelector = () => {
     let mounted = true;
     getProjects().then(({ data: _projects }) => {
       if (!mounted) return;
+      console.log('_projects', _projects);
       setProjects(_projects);
       setLoading(false);
     });

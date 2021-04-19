@@ -1,10 +1,16 @@
 export const getLanguage = language_code =>
   ({
     es: {
-      project: 'Proyecto'
+      project: 'Proyecto',
+      configuration: 'Configuración',
+      siteBuilder: 'Constructor de Sitio Web (Próximamente)',
+      formEditor: 'Editor de Formularios'
     },
     en: {
-      project: 'Project'
+      project: 'Project',
+      configuration: 'Configuration',
+      siteBuilder: 'Website Builder (Coming soon)',
+      formEditor: 'Form Editor'
     }
   }[language_code]);
 

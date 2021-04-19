@@ -14,6 +14,7 @@ import WidgetsSection from './WidgetsSection';
 const Sidebar = () => {
   const project = useSelector(store => store.project);
 
+  console.log('project?.configuration_sections', project?.configuration_sections);
   return (
     <div className="sidebar">
       <Title code="configuration" />

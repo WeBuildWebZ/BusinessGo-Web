@@ -1,0 +1,57 @@
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+
+import DashboardLayout from '../../../../../../components/DashboardLayout';
+import EnsureLoggedIn from '../../../../../../components/EnsureLoggedIn';
+import LoadingPage2 from '../../../../../../components/LoadingPage2';
+import useDashboardConfiguration from '../../../../hooks/useDashboardConfiguration';
+
+import { getLanguage } from './lang';
+
+const Configuration = ({ project_code }) => {
+  const dashboardConfiguration = useDashboardConfiguration();
+  const project = useSelector(store => store.dashboardProject);
+  const language = getLanguage(useSelector(store => store.language));
+  const projectLink = `/projects/${encodeURIComponent(project?.code)}`;
+
+  console.log('project.configuration_sections', project?.configuration_sections);
+  return (
+    <EnsureLoggedIn redirectOnNotLoggedIn="/login" Loading={LoadingPage2}>
+      <DashboardLayout
+        breadcrumbItems={dashboardConfiguration.breadcrumbItems}
+        sidebarButtons={dashboardConfiguration.sidebarButtons}
+      >
+        {project && (
+          <>
+            <h1 className="title">
+              {language.project} {project.name}: {language.configuration}
+            </h1>
+            {/* <div className="options">
+              {project.configuration_sections.map((section, i) =>(
+                <div key={i} className="section">{section}</div>
+              ))}
+            </div> */}
+          </>
+        )}
+      </DashboardLayout>
+      <style jsx>
+        {`
+          .title {
+            margin: 14px;
+          }
+          .options {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+          }
+        `}
+      </style>
+    </EnsureLoggedIn>
+  );
+};
+
+Configuration.propTypes = {
+  project_code: PropTypes.string.isRequired
+};
+
+export default Configuration;
