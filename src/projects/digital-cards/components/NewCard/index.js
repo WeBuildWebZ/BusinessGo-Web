@@ -26,16 +26,18 @@ const NewCard = () => {
   const [step, setStep] = useState(0);
   const [data, setData] = useState({ form_data: {} });
   const canGoBack = step > 0;
-  const currentVariant = form?.variants.find(variant =>
-    data.card_type === 'free'
-      ? 'free_miniweb'
-      : data.card_type === 'premium_personal'
-      ? 'premium_miniweb'
-      : data.card_type === 'premium_business'
-      ? 'premium_business_miniweb'
-      : data.card_type === 'premium_plus'
-      ? 'premium_plus_miniweb'
-      : ''
+  const currentVariant = form?.variants.find(
+    variant =>
+      variant.key ===
+      (data.card_type === 'free'
+        ? 'free_miniweb'
+        : data.card_type === 'premium_personal'
+        ? 'premium_miniweb'
+        : data.card_type === 'premium_business'
+        ? 'premium_business_miniweb'
+        : data.card_type === 'premium_plus'
+        ? 'premium_plus_miniweb'
+        : '')
   )?.key;
   const fields = filterFields(form, step, currentVariant);
   if (fields && !fields.length) setStep(step + 1);
@@ -118,6 +120,7 @@ const NewCard = () => {
                 onPartialChange={handlePartialChange}
                 saveButton
                 saveButtonText={language.next}
+                alwaysShowSaveButton={step >= 2}
               />
             )}
           </>
