@@ -75,7 +75,15 @@ const NewCard = () => {
 
   const handleGoBack = () => {
     if (!canGoBack) return;
-    setStep(step - 1);
+    let nextStep = step - 1;
+    let fieldsAfter;
+
+    while (!fieldsAfter || !fieldsAfter.length) {
+      nextStep -= 1;
+      fieldsAfter = filterFields(form, nextStep, currentVariant);
+    }
+
+    setStep(nextStep);
   };
 
   useEffect(() => {
