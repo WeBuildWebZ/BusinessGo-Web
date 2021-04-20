@@ -15,11 +15,11 @@ const Configuration = ({ project_code }) => {
   const project = useSelector(store => store.dashboardProject);
   const language = getLanguage(useSelector(store => store.language));
   const projectLink = `/projects/${encodeURIComponent(project?.code)}`;
-  const [selectedSection, setSelectedSection] = useState();
+  const [form, setForm] = useState();
 
   useEffect(() => {
     if (!project?.configuration_sections.length) return;
-    setSelectedSection(project.configuration_sections[0]);
+    setForm(project.configuration_sections[0].form);
   }, [project]);
 
   return (
@@ -38,8 +38,8 @@ const Configuration = ({ project_code }) => {
                 <SectionButton
                   key={i}
                   text={section.form.name}
-                  selected={section.form_code === selectedSection}
-                  onClick={() => setSelectedSection(section.form_code)}
+                  selected={section.form_code === form?.code}
+                  onClick={() => setForm(section.form)}
                 />
               ))}
             </div>
