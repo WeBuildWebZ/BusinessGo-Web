@@ -69,7 +69,7 @@ const Sidebar = props => {
             width: ${sidebarWidth}px;
             height: 100%;
             border-top-right-radius: 14px;
-            background-image: linear-gradient(to top, skyblue, #ebebeb);
+            background: #3b5998;
             transition: 0.7s;
             z-index: 500;
           }
