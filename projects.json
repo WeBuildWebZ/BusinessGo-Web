@@ -62,5 +62,9 @@
   "carpediem": {
     "path": "src/projects/carpediem",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Carpediem"
+  },
+  "regazza": {
+    "path": "src/projects/regazza",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-regazza"
   }
 }
