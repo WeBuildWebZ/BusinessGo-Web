@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid';
 
 import { fieldShape } from '../../../utils/field';
 import usePushAlert from '../../../shared/hooks/usePushAlert';
-import { uploadFile } from '../../../services/cloudinary/file';
+import * as aws from '../../../utils/aws';
 
 import ProgressBar from './ProgressBar';
 import { getLanguage } from './lang';
@@ -74,18 +74,16 @@ const FilePicker = props => {
 
     newFiles.forEach((file, i) => {
       const index = currentFiles.length + i;
-      uploadFile(project, file, progress => {
-        updateProgress({ fileId: file.id, number: progress });
-      }).then(({ data: upload }) => {
-        updateProgress({ fileId: file.id, number: 100 });
-        updateFile({
-          id: file.id,
-          name: file.name,
-          size: file.size,
-          url: upload.secure_url
+      aws
+        .uploadFile(file, progress => {
+          console.log('progress', progress);
+          updateProgress({ fileId: file.id, number: progress });
+        })
+        .then(({ url }) => {
+          updateProgress({ fileId: file.id, number: 100 });
+          updateFile({ id: file.id, name: file.name, size: file.size, url });
+          if (utils.allFilesUploaded(progressesRef.current)) props.onUploadEnd();
         });
-        if (utils.allFilesUploaded(progressesRef.current)) props.onUploadEnd();
-      });
     });
 
     props.onChange(totalFiles);

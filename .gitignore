@@ -40,3 +40,4 @@ yarn-error.log*
 /public
 repos
 **/public/shared
+.env.local
