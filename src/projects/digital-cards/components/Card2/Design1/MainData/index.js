@@ -65,10 +65,10 @@ const MainData = props => {
           .secondaryPhoto {
             position: absolute;
             transform: translate(-50%, -50%);
-            left: 42.6vw;
-            top: 42.6vw;
-            width: 15vw;
-            height: 15vw;
+            left: 85.35%;
+            top: 85.35%;
+            width: 35%;
+            height: 35%;
             background-size: cover;
             border-radius: 50%;
             animation: logoAppear 1.5s ease;
