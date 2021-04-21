@@ -10,13 +10,11 @@ const Cards = () => {
   const cardId = typeof window === 'object' ? window.location.pathname.substr('/cards/'.length) : null;
   const { card: cardFromQuery } = getQuery();
 
-  // if (!card && cardFromQuery) setCard(JSON.parse(cardFromQuery));
-
   console.log('card', card);
 
   useEffect(() => {
     if (!cardId) return;
-    // if (cardFromQuery) return;
+    if (cardFromQuery) return setCard(JSON.parse(cardFromQuery));
     showClientDocument(cardId).then(({ data: givenCard }) => {
       setCard(givenCard);
     });

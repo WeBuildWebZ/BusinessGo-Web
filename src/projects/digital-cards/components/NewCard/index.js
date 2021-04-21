@@ -47,7 +47,6 @@ const NewCard = () => {
     setData(newData);
   };
 
-  console.log('data', data);
   const handleAddData = changedData => {
     const newData = {
       ...data,
@@ -132,7 +131,7 @@ const NewCard = () => {
             <iframe
               className="preview"
               title="window"
-              src={`http://localhost:3000/cards/6068ad9af44ca20015218890?card=${encodeURIComponent(
+              src={`http://localhost:3000/cards/id?card=${encodeURIComponent(
                 JSON.stringify({ ...data, isDummie: true })
               )}`}
             />
