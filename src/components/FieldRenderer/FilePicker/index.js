@@ -76,7 +76,6 @@ const FilePicker = props => {
       const index = currentFiles.length + i;
       aws
         .uploadFile(file, progress => {
-          console.log('progress', progress);
           updateProgress({ fileId: file.id, number: progress });
         })
         .then(({ url }) => {

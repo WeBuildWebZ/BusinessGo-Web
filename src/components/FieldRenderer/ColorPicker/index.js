@@ -12,8 +12,6 @@ const ColorPicker = props => {
   const languageCode = useSelector(store => store.language);
   const fieldName = props.field.names[languageCode];
 
-  console.log(props.value);
-
   return (
     <div className="colorPicker">
       <div className="title">

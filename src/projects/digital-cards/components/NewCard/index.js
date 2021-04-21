@@ -47,6 +47,7 @@ const NewCard = () => {
     setData(newData);
   };
 
+  console.log('data', data);
   const handleAddData = changedData => {
     const newData = {
       ...data,
@@ -125,10 +126,23 @@ const NewCard = () => {
             )}
           </>
         )}
-        {tab === 'preview' && <Card card={{ ...data, isDummie: true }} />}
+        {tab === 'preview' && (
+          <>
+            {/* <Card card={{ ...data, isDummie: true }} /> */}
+            <iframe
+              className="preview"
+              title="window"
+              src={`http://localhost:3000/cards/6068ad9af44ca20015218890?card=${encodeURIComponent(
+                JSON.stringify({ ...data, isDummie: true })
+              )}`}
+            />
+          </>
+        )}
         <style jsx>
           {`
             .modalContent {
+              display: flex;
+              flex-direction: column;
               width: 50%;
               height: 80vh;
               margin: auto;
@@ -171,6 +185,11 @@ const NewCard = () => {
             ::-webkit-scrollbar {
               width: 0; /* Remove scrollbar space */
               background: transparent; /* Optional: just make scrollbar invisible */
+            }
+            .preview {
+              width: 100%;
+              border-style: none;
+              flex: 1;
             }
             @media only screen and (max-width: 768px) {
               .modalContent {

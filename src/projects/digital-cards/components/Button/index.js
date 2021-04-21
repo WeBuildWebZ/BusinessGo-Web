@@ -7,8 +7,6 @@ const Button = props => {
     props.onClick();
   };
 
-  console.log(props.disabled);
-
   return (
     <div
       className={`button${props.disabled ? ' disabled' : ' enabled'}`}
