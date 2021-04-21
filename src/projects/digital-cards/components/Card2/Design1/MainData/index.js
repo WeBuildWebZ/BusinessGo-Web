@@ -70,6 +70,7 @@ const MainData = props => {
             width: 15vw;
             height: 15vw;
             background-size: cover;
+            border-radius: 50%;
             animation: logoAppear 1.5s ease;
           }
           .name {
