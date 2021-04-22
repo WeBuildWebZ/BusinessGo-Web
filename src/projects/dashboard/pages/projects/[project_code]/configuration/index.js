@@ -7,6 +7,8 @@ import EnsureLoggedIn from '../../../../../../components/EnsureLoggedIn';
 import LoadingPage2 from '../../../../../../components/LoadingPage2';
 import useDashboardConfiguration from '../../../../hooks/useDashboardConfiguration';
 import SectionButton from '../../../../components/SectionButton';
+import BackButton from '../../../../components/BackButton';
+import { removeOneSlashToUrl } from '../../../../../../utils/url';
 
 import { getLanguage } from './lang';
 
@@ -30,9 +32,14 @@ const Configuration = () => {
       >
         {project && (
           <>
-            <h1 className="title">
-              {language.project} {project.name}: {language.configuration}
-            </h1>
+            <div className="titleContainer">
+              <BackButton
+                href={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
+              />
+              <h1 className="title">
+                {language.project} {project.name}: {language.configuration}
+              </h1>
+            </div>
             <div className="options">
               {project.configuration_sections.map((section, i) => (
                 <SectionButton
@@ -48,6 +55,10 @@ const Configuration = () => {
       </DashboardLayout>
       <style jsx>
         {`
+          .titleContainer {
+            display: flex;
+            align-items: center;
+          }
           .title {
             margin: 14px;
           }
