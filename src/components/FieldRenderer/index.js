@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Modal, Button } from 'react-bootstrap';
+import { Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import { fieldShape } from '../../utils/field';
@@ -65,210 +65,207 @@ const FieldRenderer = props => {
   };
 
   return (
-    <div className="fieldContainer">
+    <div className="fieldsContainer">
       {fields.map(field => {
         if (field.fillable_by_user === false && !props.readOnly) return <div key={field.key} />;
 
-        switch (field.input_type) {
-          case 'number':
-            return (
-              <Number
-                template={props.template}
-                field={field}
-                value={data[field.key]}
-                readOnly={props.readOnly}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'text':
-            return (
-              <Text
-                template={props.template}
-                field={field}
-                value={data[field.key]}
-                readOnly={props.readOnly}
-                multiline={false}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'textarea-small':
-            return (
-              <Text
-                template={props.template}
-                field={field}
-                value={data[field.key]}
-                readOnly={props.readOnly}
-                multiline
-                rows={4}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'textarea-medium':
-            return (
-              <Text
-                template={props.template}
-                field={field}
-                value={data[field.key]}
-                readOnly={props.readOnly}
-                multiline
-                rows={11}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'textarea-big':
-            return (
-              <Text
-                template={props.template}
-                field={field}
-                value={data[field.key]}
-                readOnly={props.readOnly}
-                multiline
-                rows={17}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'image':
-            return (
-              <Image
-                template={props.template}
-                field={field}
-                value={data[field.key]}
-                readOnly={props.readOnly}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'list':
-            return (
-              <List
-                template={props.template}
-                field={field}
-                value={data[field.key]}
-                readOnly={props.readOnly}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'enum':
-            return (
-              <Enum
-                template={props.template}
-                field={field}
-                value={data[field.key]}
-                readOnly={props.readOnly}
-                onChange={value => handleUpdateData(field.key, value)}
-                FieldRenderer={FieldRenderer}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'group':
-            return (
-              <Group
-                template={props.template}
-                field={field}
-                value={data[field.key]}
-                readOnly={props.readOnly}
-                multiline={false}
-                onChange={value => handleUpdateData(field.key, value)}
-                FieldRenderer={FieldRenderer}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'select':
-            return (
-              <Select
-                template={props.template}
-                field={field}
-                optionData={data}
-                value={data[field.key]}
-                readOnly={props.readOnly}
-                onChange={value => handleUpdateData(field.key, value)}
-                onChangeOptionData={handleUpdateOptionData}
-                FieldRenderer={FieldRenderer}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'select-buttons':
-            return (
-              <SelectButtons
-                options={field.select_button_options}
-                value={data[field.key]}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'checkbox':
-            return (
-              <Checkbox
-                value={data[field.key]}
-                field={field}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'week-hours':
-            return (
-              <WeekHours
-                value={data[field.key]}
-                field={field}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'color':
-            return (
-              <ColorPicker
-                value={data[field.key]}
-                field={field}
-                onChange={value => handleUpdateData(field.key, value)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'files':
-            return (
-              <FilePicker
-                value={data[field.key]}
-                field={field}
-                onChange={value => handleUpdateData(field.key, value)}
-                onUploadStart={() => setUploadingFiles(true)}
-                onUploadEnd={() => setUploadingFiles(false)}
-                key={`${props.formCode}-${field.key}`}
-              />
-            );
-          case 'button':
-            return (
-              <a href={data[field.key]} target="_blank">
-                <Button
-                  template={props.template}
-                  value={data[field.key]}
-                  readOnly={props.readOnly}
-                  onChange={value => handleUpdateData(field.key, value)}
-                  key={`${props.formCode}-${field.key}`}
-                >
-                  {field.name || keyTranslation[field.key]}
-                </Button>
-              </a>
-            );
-          default:
-            return <div key={`${props.formCode}-${field.key}`} />;
-        }
+        return (
+          <div key={`${props.formCode}-${field.key}`} className="fieldContainer">
+            {(() => {
+              switch (field.input_type) {
+                case 'number':
+                  return (
+                    <Number
+                      template={props.template}
+                      field={field}
+                      value={data[field.key]}
+                      readOnly={props.readOnly}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'text':
+                  return (
+                    <Text
+                      template={props.template}
+                      field={field}
+                      value={data[field.key]}
+                      readOnly={props.readOnly}
+                      multiline={false}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'textarea-small':
+                  return (
+                    <Text
+                      template={props.template}
+                      field={field}
+                      value={data[field.key]}
+                      readOnly={props.readOnly}
+                      multiline
+                      rows={4}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'textarea-medium':
+                  return (
+                    <Text
+                      template={props.template}
+                      field={field}
+                      value={data[field.key]}
+                      readOnly={props.readOnly}
+                      multiline
+                      rows={11}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'textarea-big':
+                  return (
+                    <Text
+                      template={props.template}
+                      field={field}
+                      value={data[field.key]}
+                      readOnly={props.readOnly}
+                      multiline
+                      rows={17}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'image':
+                  return (
+                    <Image
+                      template={props.template}
+                      field={field}
+                      value={data[field.key]}
+                      readOnly={props.readOnly}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'list':
+                  return (
+                    <List
+                      template={props.template}
+                      field={field}
+                      value={data[field.key]}
+                      readOnly={props.readOnly}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'enum':
+                  return (
+                    <Enum
+                      template={props.template}
+                      field={field}
+                      value={data[field.key]}
+                      readOnly={props.readOnly}
+                      onChange={value => handleUpdateData(field.key, value)}
+                      FieldRenderer={FieldRenderer}
+                    />
+                  );
+                case 'group':
+                  return (
+                    <Group
+                      template={props.template}
+                      field={field}
+                      value={data[field.key]}
+                      readOnly={props.readOnly}
+                      multiline={false}
+                      onChange={value => handleUpdateData(field.key, value)}
+                      FieldRenderer={FieldRenderer}
+                    />
+                  );
+                case 'select':
+                  return (
+                    <Select
+                      template={props.template}
+                      field={field}
+                      optionData={data}
+                      value={data[field.key]}
+                      readOnly={props.readOnly}
+                      onChange={value => handleUpdateData(field.key, value)}
+                      onChangeOptionData={handleUpdateOptionData}
+                      FieldRenderer={FieldRenderer}
+                    />
+                  );
+                case 'select-buttons':
+                  return (
+                    <SelectButtons
+                      options={field.select_button_options}
+                      value={data[field.key]}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'checkbox':
+                  return (
+                    <Checkbox
+                      value={data[field.key]}
+                      field={field}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'week-hours':
+                  return (
+                    <WeekHours
+                      value={data[field.key]}
+                      field={field}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'color':
+                  return (
+                    <ColorPicker
+                      value={data[field.key]}
+                      field={field}
+                      onChange={value => handleUpdateData(field.key, value)}
+                    />
+                  );
+                case 'files':
+                  return (
+                    <FilePicker
+                      value={data[field.key]}
+                      field={field}
+                      onChange={value => handleUpdateData(field.key, value)}
+                      onUploadStart={() => setUploadingFiles(true)}
+                      onUploadEnd={() => setUploadingFiles(false)}
+                    />
+                  );
+                case 'button':
+                  return (
+                    <a href={data[field.key]} target="_blank">
+                      <Button
+                        template={props.template}
+                        value={data[field.key]}
+                        readOnly={props.readOnly}
+                        onChange={value => handleUpdateData(field.key, value)}
+                      >
+                        {field.name || keyTranslation[field.key]}
+                      </Button>
+                    </a>
+                  );
+                default:
+              }
+            })()}
+          </div>
+        );
       })}
       {props.backButton && <Button onClick={props.onGoBack}>{language.back}</Button>}
       {props.saveButton && (
-        <Button disabled={!hasChanged && !props.alwaysShowSaveButton && !uploadingFiles} onClick={handleSave}>
+        <Button
+          disabled={!hasChanged && !props.alwaysShowSaveButton && !uploadingFiles}
+          onClick={handleSave}
+          style={{ backgroundColor: 'green', margin: 14 }}
+        >
           {props.saveButtonText || language.save}
         </Button>
       )}
       <style jsx>
         {`
-          .fieldContainer {
+          .fieldsContainer {
             width: 88%;
             margin: 0 0 21px 6%;
+          }
+          .fieldContainer {
+            padding: 0 4px 0 4px;
+            background-color: whitesmoke;
           }
         `}
       </style>

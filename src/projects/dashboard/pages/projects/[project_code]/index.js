@@ -9,7 +9,7 @@ import useDashboardConfiguration from '../../../hooks/useDashboardConfiguration'
 
 import { getLanguage } from './lang';
 
-const Dashboard = ({ project_code }) => {
+const Dashboard = () => {
   const dashboardConfiguration = useDashboardConfiguration();
   const project = useSelector(store => store.dashboardProject);
   const language = getLanguage(useSelector(store => store.language));
@@ -60,10 +60,6 @@ const Dashboard = ({ project_code }) => {
       </style>
     </EnsureLoggedIn>
   );
-};
-
-Dashboard.propTypes = {
-  project_code: PropTypes.string.isRequired
 };
 
 export default Dashboard;
