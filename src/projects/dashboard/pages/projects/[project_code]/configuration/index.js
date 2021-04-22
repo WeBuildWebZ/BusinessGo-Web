@@ -10,7 +10,7 @@ import SectionButton from '../../../../components/SectionButton';
 
 import { getLanguage } from './lang';
 
-const Configuration = ({ project_code }) => {
+const Configuration = () => {
   const dashboardConfiguration = useDashboardConfiguration();
   const project = useSelector(store => store.dashboardProject);
   const language = getLanguage(useSelector(store => store.language));
@@ -60,10 +60,6 @@ const Configuration = ({ project_code }) => {
       </style>
     </EnsureLoggedIn>
   );
-};
-
-Configuration.propTypes = {
-  project_code: PropTypes.string.isRequired
 };
 
 export default Configuration;

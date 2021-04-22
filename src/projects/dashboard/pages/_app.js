@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 
 import 'aos/dist/aos.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import '../assets/styles/globals.css';
 
 import getApp from '../../../shared/pages/_app';
