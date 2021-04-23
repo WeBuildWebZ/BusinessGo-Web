@@ -1,4 +1,3 @@
-import EmptyComponent from '../components/EmptyComponent';
 import Banner from '../components/2-banner';
 import Tendence from '../components/3-tendence';
 

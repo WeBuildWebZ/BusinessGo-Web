@@ -1,10 +1,14 @@
+
 import Bars from './bars';
 import Logo from './logo';
 import Social from './social';
 
+
 const Menu = () => (
+
   <div className="menu">
-    <Bars />
+    <Bars
+    />
     <Logo />
     <Social />
 
