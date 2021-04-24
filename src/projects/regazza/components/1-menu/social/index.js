@@ -57,6 +57,9 @@ const Social = () => (
           margin: 0 0.5em;
           cursor: pointer;
         }
+        svg:hover {
+          color: #810000;
+        }
       `}
     </style>
   </div>
