@@ -27,6 +27,10 @@ const ButtonList = props => (
         .button:hover {
           transform: scale(1.1);
         }
+        .button:active {
+          transform: scale(1.2) translate(10%);
+          transition: 0.1s;
+        }
       `}
     </style>
   </div>

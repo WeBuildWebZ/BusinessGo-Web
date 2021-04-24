@@ -4,6 +4,8 @@ export const getLanguage = langCode =>
       title: 'Editor de Formularios',
       showTitle: form => `Editar formulario de ${form.name}`,
       saveChanges: 'Guardar Cambios',
+      selectVariant: 'Seleccionar variante',
+      selectStep: 'Seleccionar paso',
       formUpdated: form => ({
         title: 'Formulario actualizado!',
         message: `Hemos actualizado el formulario de ${form.name} satisfactoriamente.`
@@ -12,6 +14,8 @@ export const getLanguage = langCode =>
     en: {
       title: 'Form Editor',
       showTitle: form => `Edit form: ${form.name}`,
+      selectVariant: 'Select variant',
+      selectStep: 'Select step',
       saveChanges: 'Save Changes',
       formUpdated: form => ({
         title: 'Form updated!',

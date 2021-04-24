@@ -1,4 +1,12 @@
-import { Checkbox, FormControlLabel, TextField } from '@material-ui/core';
+import {
+  Checkbox,
+  FormControlLabel,
+  TextField,
+  Select,
+  FormControl,
+  InputLabel,
+  MenuItem
+} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -47,16 +55,21 @@ const Field = props => {
             size="small"
           />
         ))}
-        <TextField
-          label={language.step}
-          inputProps={{ min: 1, max: 1000 }}
-          value={stateField.step}
-          type="number"
-          style={{ margin: 14 }}
-          variant="outlined"
-          onChange={e => handleChange('step', +e.target.value)}
-          size="small"
-        />
+        <FormControl variant="standard" style={{ margin: 14 }}>
+          <InputLabel id="demo-simple-select-filled-label">{language.step}</InputLabel>
+          <Select
+            labelId="demo-simple-select-filled-label"
+            id="demo-simple-select-filled"
+            value={stateField.step}
+            onChange={e => handleChange('step', +e.target.value)}
+          >
+            {props.form.steps.map((step, i) => (
+              <MenuItem key={i} value={i + 1}>
+                {i + 1}: {step.name[languageCode]}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         {language.showIn}
         {props.variants.map((variant, i) => {
           const checked = stateField.show_on_variants.includes(variant.key);
@@ -100,6 +113,7 @@ const Field = props => {
 
 Field.propTypes = {
   variants: PropTypes.array.isRequired,
+  form: PropTypes.object.isRequired,
   field: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired
 };

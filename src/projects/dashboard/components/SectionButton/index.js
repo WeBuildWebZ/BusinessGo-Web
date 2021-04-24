@@ -10,10 +10,11 @@ const SectionButton = props => (
       {`
         .sectionButton {
           position: relative;
-          margin: 14px;
+          margin: 10px;
           padding: 7px;
           border-radius: 7px;
           background-color: whitesmoke;
+          font-size: 11px;
           user-select: none;
           transition: 0.7s;
         }

@@ -11,7 +11,6 @@ const BackButton = props => (
     <style jsx>
       {`
         .backButton {
-          margin: 14px;
           padding: 7px;
           display: inline-block;
           background-color: #3b5998;
@@ -22,11 +21,11 @@ const BackButton = props => (
           transition: 0.7s;
         }
         .backButton:hover {
-          transform: scale(1.2);
+          transform: scale(1.2) translate(10%);
           box-shadow: 0 0 1px 1px #3b5998;
         }
         .backButton:active {
-          transform: scale(1.4);
+          transform: scale(1.4) translate(20%);
           transition: 0.1s;
         }
       `}

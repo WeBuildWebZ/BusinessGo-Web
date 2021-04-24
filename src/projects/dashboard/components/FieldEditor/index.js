@@ -18,9 +18,10 @@ const FieldEditor = props => {
   return (
     <>
       <div className="fieldEditor">
-        {props.form.fields.map((field, i) => (
+        {props.fields.map((field, i) => (
           <Field
-            key={i}
+            key={`${field.key}-${i}`}
+            form={props.form}
             field={field}
             onChange={(attribute, value) => handleChange(i, attribute, value)}
             variants={props.form.variants}
@@ -41,6 +42,7 @@ const FieldEditor = props => {
 
 FieldEditor.propTypes = {
   form: PropTypes.object.isRequired,
+  fields: PropTypes.arrayOf(PropTypes.object).isRequired,
   onChange: PropTypes.func.isRequired
 };
 
