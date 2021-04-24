@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import DashboardLayout from '../../../../../components/DashboardLayout';
 import EnsureLoggedIn from '../../../../../components/EnsureLoggedIn';
 import LoadingPage2 from '../../../../../components/LoadingPage2';
+import { removeOneSlashToUrl } from '../../../../../utils/url';
+import BackButton from '../../../components/BackButton';
 import CoolCard from '../../../components/CoolCard';
 import useDashboardConfiguration from '../../../hooks/useDashboardConfiguration';
 
@@ -23,9 +25,12 @@ const Dashboard = () => {
       >
         {project && (
           <>
-            <h1 className="title">
-              {language.project} {project.name}
-            </h1>
+            <div className="titleContainer">
+              <BackButton href="/" />
+              <h1 className="title">
+                {language.project} {project.name}
+              </h1>
+            </div>
             <div className="options">
               <CoolCard
                 title={language.configuration}
@@ -48,6 +53,10 @@ const Dashboard = () => {
       </DashboardLayout>
       <style jsx>
         {`
+          .titleContainer {
+            display: flex;
+            align-items: center;
+          }
           .title {
             margin: 14px;
           }
