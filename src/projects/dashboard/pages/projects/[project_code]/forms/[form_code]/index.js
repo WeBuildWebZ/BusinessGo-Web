@@ -72,28 +72,36 @@ const ShowForm = ({ form_code }) => {
               />
               <h2 className="title">{language.showTitle(form)}</h2>
             </div>
-            <h4>{language.selectVariant}</h4>
-            <div className="options">
-              {form.variants.map((variant, i) => (
-                <SectionButton
-                  key={i}
-                  text={variant.names[languageCode]}
-                  selected={selectedVariant?.key === variant.key}
-                  onClick={() => setSelectedVariant(variant)}
-                />
-              ))}
-            </div>
-            <h4>{language.selectStep}</h4>
-            <div className="options">
-              {form.steps.map((step, i) => (
-                <SectionButton
-                  key={i}
-                  text={step.name[languageCode]}
-                  selected={selectedStep === i}
-                  onClick={() => setSelectedStep(i)}
-                />
-              ))}
-            </div>
+            {!!form.variants.length && (
+              <>
+                <h4>{language.selectVariant}</h4>
+                <div className="options">
+                  {form.variants.map((variant, i) => (
+                    <SectionButton
+                      key={i}
+                      text={variant.names[languageCode]}
+                      selected={selectedVariant?.key === variant.key}
+                      onClick={() => setSelectedVariant(variant)}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+            {!!form.steps.length && (
+              <>
+                <h4>{language.selectStep}</h4>
+                <div className="options">
+                  {form.steps.map((step, i) => (
+                    <SectionButton
+                      key={i}
+                      text={step.name[languageCode]}
+                      selected={selectedStep === i}
+                      onClick={() => setSelectedStep(i)}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
             <FieldEditor form={form} fields={fields} onChange={handleChange} />
             <div className={`saveButton${updating ? ' disabled' : ''}`} onClick={handleSaveChanges}>
               {language.saveChanges}

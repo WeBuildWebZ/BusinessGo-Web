@@ -8,10 +8,11 @@ import InputGroup from '../../../../components/InputGroup';
 import Field from './Field';
 
 const FieldEditor = props => {
-  const handleChange = (fieldIndex, attribute, value) => {
-    const newFields = [
-      ...props.form.fields.map((field, i) => (i === fieldIndex ? { ...field, [attribute]: value } : field))
-    ];
+  const handleChange = (fieldKey, attribute, value) => {
+    const newFields = props.form.fields.map((field, i) =>
+      field.key === fieldKey ? { ...field, [attribute]: value } : field
+    );
+
     props.onChange(newFields);
   };
 
@@ -23,7 +24,7 @@ const FieldEditor = props => {
             key={`${field.key}-${i}`}
             form={props.form}
             field={field}
-            onChange={(attribute, value) => handleChange(i, attribute, value)}
+            onChange={(attribute, value) => handleChange(field.key, attribute, value)}
             variants={props.form.variants}
           />
         ))}

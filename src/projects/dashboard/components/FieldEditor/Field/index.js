@@ -55,22 +55,24 @@ const Field = props => {
             size="small"
           />
         ))}
-        <FormControl variant="standard" style={{ margin: 14 }}>
-          <InputLabel id="demo-simple-select-filled-label">{language.step}</InputLabel>
-          <Select
-            labelId="demo-simple-select-filled-label"
-            id="demo-simple-select-filled"
-            value={stateField.step}
-            onChange={e => handleChange('step', +e.target.value)}
-          >
-            {props.form.steps.map((step, i) => (
-              <MenuItem key={i} value={i + 1}>
-                {i + 1}: {step.name[languageCode]}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        {language.showIn}
+        {!!props.form.steps.length && (
+          <FormControl variant="standard" style={{ margin: 14 }}>
+            <InputLabel id="demo-simple-select-filled-label">{language.step}</InputLabel>
+            <Select
+              labelId="demo-simple-select-filled-label"
+              id="demo-simple-select-filled"
+              value={stateField.step}
+              onChange={e => handleChange('step', +e.target.value)}
+            >
+              {props.form.steps.map((step, i) => (
+                <MenuItem key={i} value={i + 1}>
+                  {i + 1}: {step.name[languageCode]}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        )}
+        {!!props.variants.length && language.showIn}
         {props.variants.map((variant, i) => {
           const checked = stateField.show_on_variants.includes(variant.key);
 
