@@ -13,7 +13,7 @@ const usePushAlert = () => {
       dispatch(_hideAlert(pushedAlert.payload));
       setTimeout(() => {
         dispatch(_popAlert(pushedAlert.payload));
-      }, 1000);
+      }, 4000);
     }, pushedAlert.payload.duration);
   };
   return hook;

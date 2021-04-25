@@ -1,20 +1,7 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import usePushAlert from '../../shared/hooks/usePushAlert';
+import { useSelector } from 'react-redux';
 
 const Alerts = () => {
   const alerts = useSelector(store => store.alerts);
-  const pushAlert = usePushAlert();
-
-  useEffect(() => {
-    setInterval(() => {
-      if (window.test) {
-        delete window.test;
-        pushAlert({ type: 'info', title: 'Este es un alert!', message: 'Este es el mensaje del alert!' });
-      }
-    }, 10);
-  }, []);
 
   return (
     <div className="alerts">

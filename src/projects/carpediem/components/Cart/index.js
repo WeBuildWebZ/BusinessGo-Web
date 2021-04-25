@@ -14,7 +14,7 @@ const Cart = () => {
 
   useEffect(() => {
     setShowButton(totalCount > 0);
-  }, []);
+  }, [totalCount]);
 
   return (
     <div className="cart">
