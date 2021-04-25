@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo';
 
 import 'aos/dist/aos.css';
 import '../styles/globals.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 import getApp from '../../../shared/pages/_app';
 import * as constants from '../constants';
