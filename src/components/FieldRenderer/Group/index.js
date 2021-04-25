@@ -23,7 +23,7 @@ const Group = props => {
   const [deletingIndex, setDeletingIndex] = useState(null);
 
   const handleAddValue = () => {
-    setDatas([...datas, { id: uuid() }]);
+    setDatas([...datas, { _id: uuid() }]);
   };
 
   const handleRemoveData = index => {

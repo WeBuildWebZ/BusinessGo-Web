@@ -9,12 +9,10 @@ const Offer = props => {
   const dispatch = useDispatch();
   const cartItems = useSelector(store => store.cartItems);
   const count = cartItems.find(item => item.product._id === offer._id)?.count || 0;
-  console.log('offer', offer);
 
   const handleAddCartItem = offset => {
     const newCount = count + offset;
 
-    console.log('newCount', newCount);
     if (newCount < 0) return;
 
     dispatch(setCartItem({ product: offer, count: newCount }));
