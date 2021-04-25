@@ -23,6 +23,6 @@ export const copy = (source, destination) =>
   new Promise(resolve => {
     ncp(source, destination, err => {
       if (err) throw new Error(err);
-      resolve();
+      setTimeout(resolve, 400);
     });
   });
