@@ -8,7 +8,6 @@ import Menu from '../../components/menu';
 export default function Cart({ cart_id }) {
   const [cart, setCart] = useState(null);
 
-  console.log('cart', cart);
   useEffect(() => {
     getCart(cart_id).then(({ data: givenCart }) => {
       setCart(givenCart);
