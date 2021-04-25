@@ -5,6 +5,7 @@ import Some from '../components/d-some';
 import One from '../components/f-one';
 import Services from '../components/g-services';
 import Footer from '../components/h-footer';
+import Cart from '../components/Cart';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Some />
       <One />
       <Services />
+      <Cart />
       <Footer />
     </>
   );
