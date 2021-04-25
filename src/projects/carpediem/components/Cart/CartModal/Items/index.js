@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
 
+import Badge from '../../../../../../components/Badge';
+
 const Items = () => {
   const cartItems = useSelector(store => store.cartItems);
 
@@ -7,7 +9,10 @@ const Items = () => {
     <div className="items">
       {cartItems.map((item, i) => (
         <div key={i} className="item">
-          <img className="image" src={item.product.photo} />
+          <div className="image">
+            <img className="image" src={item.product.photo} />
+            <Badge count={item.count} style={{ transform: 'translate(0, 0)', left: 4, top: 4 }} />
+          </div>
           <div className="info">
             <h4 className="title">{item.product.title}</h4>
             <p className="description">{item.product.description}</p>
@@ -19,6 +24,7 @@ const Items = () => {
           .items {
           }
           .item {
+            position: relative;
             display: flex;
             align-items: center;
             width: fit-content;
@@ -36,6 +42,7 @@ const Items = () => {
             flex-direction: column;
           }
           .image {
+            position: relative;
             width: 80px;
             flex-grow: 1;
             border-radius: 7px;

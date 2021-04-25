@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setCartItem } from '../../../../blanqueriawow/actions/cartItems';
+import Badge from '../../../../../components/Badge';
+import { removeCartItem, setCartItem } from '../../../../blanqueriawow/actions/cartItems';
 
 const Offer = props => {
   const { offer } = props;
@@ -12,17 +13,19 @@ const Offer = props => {
 
   const handleAddCartItem = offset => {
     const newCount = count + offset;
+    const item = { product: offer, count: newCount };
 
+    if (newCount === 0) return dispatch(removeCartItem(item));
     if (newCount < 0) return;
 
-    dispatch(setCartItem({ product: offer, count: newCount }));
+    dispatch(setCartItem(item));
   };
 
   return (
     <div className="card">
       <div className="cartIcons">
         <i className="fa fa-minus buttonIcon" onClick={() => handleAddCartItem(-1)} />
-        <i className="fa fa-shopping-cart">{count > 0 && <div className="badge">{count}</div>}</i>
+        <i className="fa fa-shopping-cart">{count > 0 && <Badge count={count} />}</i>
         <i className="fa fa-plus buttonIcon" onClick={() => handleAddCartItem(1)} />
       </div>
       <div className="imageContainer">
@@ -81,22 +84,6 @@ const Offer = props => {
           .fa-shopping-cart {
             position: relative;
             overflow: visible;
-          }
-          .badge {
-            position: absolute;
-            transform: translate(-50%, -50%);
-            left: 100%;
-            top: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 20px;
-            height: 20px;
-            background-color: red;
-            box-shadow: 0 0 1px 1px red;
-            color: whitesmoke;
-            font-size: 18px;
-            border-radius: 50px;
           }
         `}
       </style>

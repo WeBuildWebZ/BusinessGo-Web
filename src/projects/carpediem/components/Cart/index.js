@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import CartModal from './CartModal';
@@ -10,7 +10,11 @@ const Cart = () => {
   const cartItems = useSelector(store => store.cartItems);
   const [showModal, setShowModal] = useState(false);
   const totalCount = cartItems.reduce((a, b) => a + b.count, 0);
-  const showButton = totalCount > 0;
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    setShowButton(totalCount > 0);
+  }, []);
 
   return (
     <div className="cart">
