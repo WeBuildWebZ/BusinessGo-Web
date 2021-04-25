@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Badge from '../../../../../components/Badge';
-import { removeCartItem, setCartItem } from '../../../../blanqueriawow/actions/cartItems';
+import { removeCartItem, setCartItem } from '../../../../../shared/actions/cartItems';
 
 const Offer = props => {
   const { offer } = props;
