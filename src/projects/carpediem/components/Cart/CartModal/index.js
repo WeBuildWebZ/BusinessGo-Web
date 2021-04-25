@@ -8,7 +8,7 @@ import Spinner from '../../../../../components/Spinner';
 import { showForm } from '../../../../../services/api/form';
 import { createCart } from '../../../../../services/ecommerce_api/cart';
 import usePushAlert from '../../../../../shared/hooks/usePushAlert';
-import { removeAllCartItems } from '../../../../blanqueriawow/actions/cartItems';
+import { removeAllCartItems } from '../../../../../shared/actions/cartItems';
 import { PROJECT_CODE } from '../../../constants';
 import { goToLink } from '../../../../../utils/html';
 import CartItems from '../../CartItems';
