@@ -10,13 +10,15 @@ import { createCart } from '../../../../../services/ecommerce_api/cart';
 import usePushAlert from '../../../../../shared/hooks/usePushAlert';
 import { removeAllCartItems } from '../../../../blanqueriawow/actions/cartItems';
 import { PROJECT_CODE } from '../../../constants';
+import { goToLink } from '../../../../../utils/html';
+import CartItems from '../../CartItems';
 
-import Items from './Items';
 import { getLanguage } from './lang';
 
 const CartModal = props => {
   const dispatch = useDispatch();
   const language = getLanguage(useSelector(store => store.language));
+  const project = useSelector(store => store.project);
   const cartItems = useSelector(store => store.cartItems);
   const pushAlert = usePushAlert();
   const [data, setData] = useState({});
@@ -25,12 +27,23 @@ const CartModal = props => {
 
   const handleCreateCart = () => {
     setLoading(true);
-    createCart(PROJECT_CODE, 'cart', data, cartItems).then(() => {
+    createCart(PROJECT_CODE, 'cart', data, cartItems).then(({ data: createdCart }) => {
       setLoading(false);
       props.onClose();
       pushAlert({ type: 'info', ...language.requestCreated });
       dispatch(removeAllCartItems());
       setData({});
+      if (project) {
+        const cartUrl = `${project.base_url}/carts/${encodeURIComponent(createdCart._id)}`;
+        goToLink(
+          `https://api.whatsapp.com/send?phone=${
+            project.configuration.contact.whatsapp_number
+          }&text=${encodeURIComponent(
+            `Hola! Hice un pedido en Carpediem Distribuciones.\n\nEsta es la URL del carrito: ${cartUrl}`
+          )}`,
+          '_blank'
+        );
+      }
     });
   };
 
@@ -48,7 +61,7 @@ const CartModal = props => {
             <h4>{language.thisIsYourCart}</h4>
             <i className="fa fa-window-close" onClick={props.onClose} />
           </div>
-          <Items />
+          <CartItems items={cartItems} />
           {form && (
             <>
               <FieldRenderer data={data} onChange={setData} fields={form.fields} />
