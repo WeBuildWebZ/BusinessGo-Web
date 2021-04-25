@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import Link from 'next/link';
 
 import { getLanguage } from './lang';
 import Slider from './Slider';
@@ -8,13 +9,31 @@ const Patrocinators = () => {
 
   return (
     <div className="patrocinators">
-      <div className="title">{language.patrocinators}</div>
+      <Link href="/patrocinators">
+        <a>
+          <div className="title">{language.patrocinators}</div>
+        </a>
+      </Link>
       <Slider />
       <style jsx>
         {`
+          .patrocinators {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
           .title {
-            text-align: center;
+            width: fit-content;
             font-size: 48px;
+            transition: 0.7s;
+          }
+          .title:hover {
+            transform: scale(1.1);
+          }
+          .title:active {
+            transform: scale(1.2);
+            transition: 0.1s;
           }
           @media only screen and (max-width: 768px) {
             .patrocinators {

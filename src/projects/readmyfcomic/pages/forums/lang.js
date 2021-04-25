@@ -1,10 +1,10 @@
 export const getLanguage = langCode =>
   ({
     es: {
-      title: 'FOROS'
+      title: 'FORO'
     },
     en: {
-      title: 'FORUMS'
+      title: 'FORUM'
     }
   }[langCode]);
 
