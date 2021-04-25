@@ -1,16 +1,23 @@
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import CartModal from './CartModal';
 import { getLanguage } from './lang';
 
 const Cart = () => {
+  const dispatch = useDispatch();
   const language = getLanguage(useSelector(store => store.language));
   const cartItems = useSelector(store => store.cartItems);
+  const [showModal, setShowModal] = useState(false);
   const totalCount = cartItems.reduce((a, b) => a + b.count, 0);
   const showButton = totalCount > 0;
 
   return (
     <div className="cart">
-      <div className={`cartButton${showButton ? '' : ' hidden'}`}>{language.viewCart}</div>
+      <div className={`cartButton${showButton ? '' : ' hidden'}`} onClick={() => setShowModal(true)}>
+        {language.viewCart}
+      </div>
+      <CartModal show={showModal} onClose={() => setShowModal(false)} />
       <style jsx>
         {`
           .cartButton {
