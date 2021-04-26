@@ -1,25 +1,27 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
+import useUpdateAfter from '../../../../shared/hooks/useUpdateAfter';
+
 const Text = props => {
-  const [value, setValue] = useState('');
+  const updateAfter = useUpdateAfter();
+
+  const handleChange = e => {
+    updateAfter(e.target.value, 400, _value => {
+      props.onChange(_value);
+    });
+  };
 
   return (
     <div className="text">
       <h3 className="title">{props.title}</h3>
       {props.large ? (
-        <textarea
-          className="input textAreaInput"
-          value={value}
-          onChange={e => setValue(e.target.value)}
-          placeholder={props.placeholder}
-        />
+        <textarea className="input textAreaInput" onChange={handleChange} placeholder={props.placeholder} />
       ) : (
         <input
           className="input textInput"
           type="text"
-          value={value}
-          onChange={e => setValue(e.target.value)}
+          onChange={handleChange}
           placeholder={props.placeholder}
         />
       )}
@@ -56,11 +58,13 @@ const Text = props => {
 Text.propTypes = {
   title: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
-  large: PropTypes.bool
+  large: PropTypes.bool,
+  onChange: PropTypes.func
 };
 
 Text.defaultProps = {
-  large: false
+  large: false,
+  onChange: () => {}
 };
 
 export default Text;

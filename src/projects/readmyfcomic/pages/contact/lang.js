@@ -7,7 +7,11 @@ export const getLanguage = langCode =>
       url: { title: 'URL (Opcional)', placeholder: 'Ingresa una URL' },
       message: { title: 'Mensaje', placeholder: 'Escribe un mensjae' },
       image: 'Imagen',
-      send: 'Enviar'
+      send: 'Enviar',
+      emailSent: {
+        title: 'Email enviado correctamente',
+        message: 'Gracias por contactarte con nosotros! Hemos recibido tu mensaje correctamente.'
+      }
     },
     en: {
       title: 'CONTACT',
@@ -16,7 +20,11 @@ export const getLanguage = langCode =>
       url: { title: 'URL (Optional)', placeholder: 'Enter an URL' },
       message: { title: 'Message', placeholder: 'Write your message' },
       image: 'Image',
-      send: 'Send'
+      send: 'Send',
+      emailSent: {
+        title: 'Email sent successfully',
+        message: "Thanks for contacting us! We've receibed your message correctly."
+      }
     }
   }[langCode]);
 

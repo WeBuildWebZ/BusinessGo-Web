@@ -28,8 +28,6 @@ const FilePicker = props => {
   filesRef.current = files;
   progressesRef.current = progresses;
 
-  const handleAddFiles = e => {};
-
   const handlePickFile = () => {
     pickerRef.current.click();
   };

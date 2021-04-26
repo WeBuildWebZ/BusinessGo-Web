@@ -4,15 +4,20 @@ import { useEffect, useRef, useState } from 'react';
 
 import { isImage } from '../../../../utils/files';
 import usePushAlert from '../../../../shared/hooks/usePushAlert';
+import { uploadFile } from '../../../../services/cloudinary/file';
 
 import { getLanguage } from './lang';
 
 const FilePicker = props => {
+  const project = useSelector(store => store.project);
   const language = getLanguage(useSelector(store => store.language));
   const pushAlert = usePushAlert();
   const pickerRef = useRef();
   const [fileDragged, setFileDragged] = useState(false);
   const [file, setFile] = useState({});
+  const [uploading, setUploading] = useState(false);
+  const projectRef = useRef();
+  projectRef.current = project;
 
   const handlePickFile = () => {
     pickerRef.current.click();
@@ -21,6 +26,8 @@ const FilePicker = props => {
   const handleSetFile = files => {
     const [_file] = files;
     setFileDragged(false);
+
+    if (uploading) return;
 
     if (files.length > 1)
       return pushAlert({
@@ -36,7 +43,13 @@ const FilePicker = props => {
         message: language.invalidFile.message
       });
 
+    props.onUploadStart();
+    setUploading(true);
     setFile(_file);
+    uploadFile(projectRef.current, _file).then(({ data: upload }) => {
+      setUploading(false);
+      props.onUploadEnd(upload.secure_url);
+    });
   };
 
   const handleDragOver = e => {
@@ -154,7 +167,14 @@ const FilePicker = props => {
 };
 
 FilePicker.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  onUploadStart: PropTypes.func,
+  onUploadEnd: PropTypes.func
+};
+
+FilePicker.defaultProps = {
+  onUploadStart: () => {},
+  onUploadEnd: () => {}
 };
 
 export default FilePicker;
