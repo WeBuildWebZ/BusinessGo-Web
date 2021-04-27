@@ -6,8 +6,14 @@ import Footer from '../../components/footer';
 const Layout = ({ children }) => (
   <div>
     <Navbar />
-    <div>{children}</div>
+    <div className="children">{children}</div>
     <Footer />
+    <style jsx>
+      {`
+        .children {
+        }
+      `}
+    </style>
   </div>
 );
 
