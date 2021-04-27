@@ -66,5 +66,9 @@
   "regazza": {
     "path": "src/projects/regazza",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-regazza"
+  },
+  "femelibros": {
+    "path": "src/projects/femelibros",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-femelibros"
   }
 }

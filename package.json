@@ -30,7 +30,8 @@
     "new": "node -r esm scripts/new",
     "dashboard": "npm run copy-env src/projects/dashboard && next dev src/projects/dashboard",
     "carpediem": "npm run copy-env src/projects/carpediem && next dev src/projects/carpediem",
-    "regazza": "npm run copy-env src/projects/regazza && next dev src/projects/regazza"
+    "regazza": "npm run copy-env src/projects/regazza && next dev src/projects/regazza",
+    "femelibros": "npm run copy-env src/projects/femelibros && next dev src/projects/femelibros"
   },
   "dependencies": {
     "@babel/core": "^7.12.17",
