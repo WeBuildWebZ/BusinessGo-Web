@@ -9,7 +9,7 @@ export default function Home() {
         className="document"
         title="Privacy policy"
         src={`https://docs.google.com/gview?url=${encodeURIComponent(
-          `${constants.URL}/privacy_policy.docx`
+          `${constants.URL}/terms_conditions.doc`
         )}&embedded=true`}
       />
       <style jsx global>
