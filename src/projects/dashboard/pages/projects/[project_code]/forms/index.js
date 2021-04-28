@@ -30,11 +30,9 @@ const Forms = () => {
       <DashboardLayout
         breadcrumbItems={dashboardConfiguration.breadcrumbItems}
         sidebarButtons={dashboardConfiguration.sidebarButtons}
+        backTitle={language.title}
+        backHref={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
       >
-        <div className="titleContainer">
-          <BackButton href={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''} />
-          <h1 className="title">{language.title}</h1>
-        </div>
         {forms && (
           <ButtonList
             buttons={forms.map(form => ({
@@ -44,17 +42,6 @@ const Forms = () => {
           />
         )}
       </DashboardLayout>
-      <style jsx>
-        {`
-          .titleContainer {
-            display: flex;
-            align-items: center;
-          }
-          .title {
-            margin: 14px;
-          }
-        `}
-      </style>
     </EnsureLoggedIn>
   );
 };

@@ -63,15 +63,11 @@ const ShowForm = ({ form_code }) => {
       <DashboardLayout
         breadcrumbItems={dashboardConfiguration.breadcrumbItems}
         sidebarButtons={dashboardConfiguration.sidebarButtons}
+        backTitle={language.showTitle(form)}
+        backHref={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
       >
         {form && (
           <>
-            <div className="titleContainer">
-              <BackButton
-                href={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
-              />
-              <h2 className="title">{language.showTitle(form)}</h2>
-            </div>
             {!!form.variants.length && (
               <>
                 <h4>{language.selectVariant}</h4>
@@ -111,9 +107,6 @@ const ShowForm = ({ form_code }) => {
       </DashboardLayout>
       <style jsx>
         {`
-          .title {
-            margin: 14px;
-          }
           .saveButton {
             width: fit-content;
             font-size: 22px;
@@ -127,11 +120,6 @@ const ShowForm = ({ form_code }) => {
           .saveButton.disabled {
             opacity: 0.7;
             transform: scale(0.9);
-          }
-
-          .titleContainer {
-            display: flex;
-            align-items: center;
           }
           .options {
             display: flex;

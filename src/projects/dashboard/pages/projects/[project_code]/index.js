@@ -22,44 +22,31 @@ const Dashboard = () => {
       <DashboardLayout
         breadcrumbItems={dashboardConfiguration.breadcrumbItems}
         sidebarButtons={dashboardConfiguration.sidebarButtons}
+        backTitle={`${language.project} ${project.name}`}
+        backHref="/"
       >
         {project && (
-          <>
-            <div className="titleContainer">
-              <BackButton href="/" />
-              <h1 className="title">
-                {language.project} {project.name}
-              </h1>
-            </div>
-            <div className="options">
-              <CoolCard
-                title={language.configuration}
-                link={`${projectLink}/configuration`}
-                image="/icons/configuration.png"
-              />
-              <CoolCard
-                title={language.formEditor}
-                link={`${projectLink}/forms`}
-                image="/icons/formEditor.png"
-              />
-              <CoolCard
-                title={language.siteBuilder}
-                link={`${projectLink}/site_builder`}
-                image="/icons/siteBuilder.png"
-              />
-            </div>
-          </>
+          <div className="options">
+            <CoolCard
+              title={language.configuration}
+              link={`${projectLink}/configuration`}
+              image="/icons/configuration.png"
+            />
+            <CoolCard
+              title={language.formEditor}
+              link={`${projectLink}/forms`}
+              image="/icons/formEditor.png"
+            />
+            <CoolCard
+              title={language.siteBuilder}
+              link={`${projectLink}/site_builder`}
+              image="/icons/siteBuilder.png"
+            />
+          </div>
         )}
       </DashboardLayout>
       <style jsx>
         {`
-          .titleContainer {
-            display: flex;
-            align-items: center;
-          }
-          .title {
-            margin: 14px;
-          }
           .options {
             display: flex;
             flex-direction: row;

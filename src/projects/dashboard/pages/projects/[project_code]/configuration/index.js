@@ -60,17 +60,11 @@ const Configuration = () => {
       <DashboardLayout
         breadcrumbItems={dashboardConfiguration.breadcrumbItems}
         sidebarButtons={dashboardConfiguration.sidebarButtons}
+        backTitle={`${language.project} ${project.name}: ${language.configuration}`}
+        backHref={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
       >
         {project && form && (
           <>
-            <div className="titleContainer">
-              <BackButton
-                href={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
-              />
-              <h1 className="title">
-                {language.project} {project.name}: {language.configuration}
-              </h1>
-            </div>
             <div className="options">
               {project.configuration_sections.map((section, i) => (
                 <SectionButton
@@ -95,13 +89,6 @@ const Configuration = () => {
       </DashboardLayout>
       <style jsx>
         {`
-          .titleContainer {
-            display: flex;
-            align-items: center;
-          }
-          .title {
-            margin: 14px;
-          }
           .options {
             display: flex;
             flex-direction: row;

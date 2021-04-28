@@ -13,10 +13,11 @@ const Content = props => {
           .content {
             position: absolute;
             left: ${sidebarWidth}px;
-            top: ${navbarHeight}px;
+            top: 0;
             width: calc(100% - ${sidebarWidth}px - 14px);
-            height: calc(100% - ${navbarHeight + 14}px);
-            margin: 14px 0 0 14px;
+            height: 100%;
+            margin-left: 14px;
+            padding-top: ${sidebarWidth}px;
             transition: 0.7s;
             overflow-y: auto;
           }
