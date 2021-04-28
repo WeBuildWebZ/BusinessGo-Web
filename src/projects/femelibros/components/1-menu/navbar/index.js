@@ -5,13 +5,13 @@ const Navbar = () => (
     <Link href="/#nos">
       <a>Nosotras</a>
     </Link>
-    <Link href="/#">
+    <Link href="/#descubre">
       <a>Descubre</a>
     </Link>
     <Link href="/#servicios">
       <a>Servicios</a>
     </Link>
-    <Link href="/#">
+    <Link href="/#footer">
       <a>Contacto</a>
     </Link>
     <style jsx>

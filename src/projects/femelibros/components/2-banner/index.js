@@ -1,4 +1,3 @@
-import Boxs from '../3-boxs';
 import Menu from '../1-menu';
 import Arrow from '../11-flecha';
 
@@ -22,8 +21,9 @@ const Banner = () => (
           width: 100vw;
           min-height: 100vh;
           background-image: url(https://images.pexels.com/photos/3771127/pexels-photo-3771127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-          background-size: cover;
-          background-position: center;
+          background-size: contain;
+          background-position: right;
+          background-repeat: no-repeat;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -46,7 +46,8 @@ const Banner = () => (
           align-items: center;
           flex-wrap: wrap;
           padding: 0 1em;
-          background: hsla(0, 0%, 100%, 0.3);
+          // background: hsla(0, 0%, 100%, 0.3);
+          background: coral;
         }
 
         h3 {

@@ -1,17 +1,30 @@
 export const Cards = [
   {
-    title: 'Femme',
+    image: '/images/image1.jpeg',
+    alt: 'image1',
+    title: 'venenatis ad nulla gravida',
     desc:
-      'sagittis class vehicula ridiculus diam varius erat, cum curae dictum non mollis tortor, suspendisse eros proin hac est senectus. Porta maecena'
+      'svulputate nullam. Feugiat mauris est tortor dis cursus aptent duis, curae elementum ultrices phasellus nulla ad porttitor'
   },
   {
-    title: 'Libros',
+    image: '/images/image2.jpeg',
+    alt: 'image2',
+    title: 'venenatis ad nulla gravida',
     desc:
-      'sagittis class vehicula ridiculus diam varius erat, cum curae dictum non mollis tortor, suspendisse eros proin hac est senectus. Porta maecena'
+      'vulputate nullam. Feugiat mauris est tortor dis cursus aptent duis, curae elementum ultrices phasellus nulla ad porttitor'
   },
   {
-    title: 'Yes !',
+    image: '/images/image3.jpeg',
+    alt: 'image3',
+    title: 'venenatis ad nulla gravida',
     desc:
-      'sagittis class vehicula ridiculus diam varius erat, cum curae dictum non mollis tortor, suspendisse eros proin hac est senectus. Porta maecena'
+      'vulputate nullam. Feugiat mauris est tortor dis cursus aptent duis, curae elementum ultrices phasellus nulla ad porttitor'
+  },
+  {
+    image: '/images/image1.jpeg',
+    alt: 'image1',
+    title: 'venenatis ad nulla gravida',
+    desc:
+      'vulputate nullam. Feugiat mauris est tortor dis cursus aptent duis, curae elementum ultrices phasellus nulla ad porttitor'
   }
 ];

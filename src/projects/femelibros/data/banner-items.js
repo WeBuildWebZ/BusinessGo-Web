@@ -1,11 +1,18 @@
 export const ThreeBox = [
   {
-    title: 'Femme'
+    title: 'Femme',
+    className: '#ffa489'
   },
   {
-    title: 'Libros'
+    title: 'Libros',
+    className: '#94d7ea'
   },
   {
-    title: 'Yes !'
+    title: 'Ohh',
+    className: '#ffa489'
+  },
+  {
+    title: 'Yeah !',
+    className: '#94d7ea'
   }
 ];

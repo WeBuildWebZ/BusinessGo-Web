@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useSelector } from 'react-redux';
 
 const Footer = () => (
-  <div className="footer">
+  <div className="footer" id="footer">
     <div className="bottom">
       <span className="column">
         <Image src="/images/logo-white.png" width={400} height={130} alt="logo-white" className="img" />

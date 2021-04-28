@@ -19,10 +19,8 @@ const Boxs = () => (
           min-height: 25vh;
           display: flex;
           justify-content: center;
-          align-items: flex-end;
+          align-items: center;
           flex-wrap: wrap;
-          background: transparent;
-          flex: 4;
         }
 
         .box {
@@ -30,7 +28,6 @@ const Boxs = () => (
           min-height: 130px;
           margin: 0 5px;
           background: hsla(16, 100%, 66%, 0.2);
-          backdrop-filter: blur(1.5em);
           padding: 1em;
           border-radius: 1em;
           display: flex;
