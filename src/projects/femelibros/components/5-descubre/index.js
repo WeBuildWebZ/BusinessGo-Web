@@ -2,7 +2,7 @@ import Left from './left';
 import Right from './right';
 
 const Descubre = () => (
-  <div className="descubre" id="#descubre">
+  <div className="descubre" id="descubre">
     <h2>DESCUBRE</h2>
     <h2>
       NUESTRA <br /> COLECCION

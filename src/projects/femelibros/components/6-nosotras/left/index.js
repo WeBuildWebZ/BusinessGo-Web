@@ -13,8 +13,7 @@ const Left = () => (
           width: 600px;
         }
         h3 {
-          color: black;
-          // background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+          color: #ffa489;
           -webkit-text-fill-color: transparent;
           -webkit-text-stroke-width: 2px;
           font-size: 3em;

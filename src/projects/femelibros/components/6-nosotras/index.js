@@ -14,6 +14,7 @@ const Nosotras = () => (
           justify-content: center;
           align-items: center;
           background: #ebebeb;
+          flex-wrap: wrap;
         }
       `}
     </style>

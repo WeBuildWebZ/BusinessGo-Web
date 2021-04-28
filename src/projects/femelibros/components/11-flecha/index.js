@@ -27,9 +27,8 @@ const Arrow = () => (
               display: flex;
               justify-content: center;
               align-items: center;
-
-              border: 3px solid #2f2329;
-
+              background: #ffa489;
+              color: white;
               cursor: pointer;
               transition: 0.2s;
             }
@@ -44,7 +43,7 @@ const Arrow = () => (
             svg {
               width: 40px;
               height: 40px;
-              color: #2f2329;
+              color: white;
             }
 
             // ======================================================

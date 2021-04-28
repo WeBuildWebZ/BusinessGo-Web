@@ -27,7 +27,8 @@ const Boxs = () => (
           width: 350px;
           min-height: 130px;
           margin: 0 5px;
-          background: hsla(16, 100%, 66%, 0.2);
+          background: #ffa489;
+          color: white;
           padding: 1em;
           border-radius: 1em;
           display: flex;
