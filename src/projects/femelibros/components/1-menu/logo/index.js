@@ -1,13 +1,20 @@
+import Link from 'next/link';
+
 const Logo = () => (
   <div className="logo">
-    <h2>FemeLibros</h2>
+    <Link href="/">
+      <a>
+        <h2>FemeLibros</h2>
+      </a>
+    </Link>
+
     <style jsx>
       {`
         .logo {
           color: white;
         }
 
-        h2 {
+        a {
           color: white;
         }
       `}

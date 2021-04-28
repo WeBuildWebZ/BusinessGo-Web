@@ -5,7 +5,7 @@ const Menu = () => (
   <div className="menu">
     <Logo />
     <Navbar />
-    <h4>Sign</h4>
+    <h4>Suscribirse</h4>
     <style jsx>
       {`
         .menu {
@@ -21,7 +21,7 @@ const Menu = () => (
 
         h4 {
           color: white;
-          background: #b28563;
+          background: #ffa489;
           border-radius: 0.5em;
           padding: 0.5em 1.5em;
         }

@@ -6,12 +6,13 @@ const Banner = () => (
     <Menu />
     <div className="text-container">
       <div className="text">
-        <h3>Lorem ipsum dolor sit.</h3>
+        <h3>Lorem ipsum sit.</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minus voluptatem fuga nobis earum
           facilis.
         </p>
       </div>
+      <br />
       <Arrow />
     </div>
 
@@ -35,9 +36,9 @@ const Banner = () => (
           flex: 9;
           width: 100%;
           display: flex;
-          justify-content: space-between;
-          flex-wrap: wrap;
-          align-items: flex-end;
+          justify-content: center;
+          align-items: center;
+          flex-flow: column;
           padding: 0 2.5em 0 0;
         }
         .text {
@@ -46,13 +47,12 @@ const Banner = () => (
           align-items: center;
           flex-wrap: wrap;
           padding: 0 1em;
-          // background: hsla(0, 0%, 100%, 0.3);
-          background: coral;
         }
 
         h3 {
           font-size: 3em;
           line-height: 1em;
+          color: #ffa489;
         }
         p {
           font-size: 2em;

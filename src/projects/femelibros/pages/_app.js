@@ -8,7 +8,7 @@ import '../styles/globals.css';
 import getApp from '../../../shared/pages/_app';
 import * as constants from '../constants';
 
-const AppendHead = () => (
+const AppendHead = router => (
   <>
     <NextSeo
       title="WeBuildWebZ"
@@ -39,13 +39,6 @@ const AppendHead = () => (
     />
     <Head>
       <link rel="icon" href="/favicon.png" />
-      {/* Discomment in order to add widgets */}
-      {/* {process.browser && (
-        <script
-          src="https://www.widgets.webuildwebz.com/include.js"
-          data-webuildwebz-project-token="73DCF74F122A4FACADD7B522EC826B8B68594F4D"
-        />
-      )} */}
     </Head>
   </>
 );

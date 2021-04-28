@@ -20,6 +20,12 @@ const Servicios = () => (
         </div>
       ))}
 
+    <Link href="/books">
+      <a className="more">
+        <h3>Ver mas</h3>
+      </a>
+    </Link>
+
     <style jsx>
       {`
         .boxs {
@@ -58,6 +64,14 @@ const Servicios = () => (
         p {
           font-style: italic;
           margin-bottom: 0.5em;
+        }
+        .more {
+          width: 100%;
+          background: silver;
+          color: #1c1c1c;
+          text-align: center;
+          padding: 1em 0;
+          cursor: pointer;
         }
       `}
     </style>
