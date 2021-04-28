@@ -24,11 +24,11 @@ const Banner = () => (
 
         h3 {
           color: #2f2329;
-          font-size: 5em;
+          font-size: 3em;
         }
         button {
-          width: 200px;
-          height: 60px;
+          width: 180px;
+          height: 50px;
           background: #1c1c1c;
           color: white;
           outline: none;

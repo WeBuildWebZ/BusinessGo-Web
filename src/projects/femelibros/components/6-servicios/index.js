@@ -3,8 +3,9 @@ import { ThreeBox } from '../../data/banner-items';
 // fake data lean..borralo pal carajo
 const boxes = ThreeBox;
 
-const Boxs = () => (
-  <div className="boxs">
+const Servicios = () => (
+  <div className="boxs" id="servicios">
+    <h2>Nuestros Servicios</h2>
     {boxes &&
       boxes.map(({ title, desc }, i) => (
         <div className="box" key={i}>
@@ -17,18 +18,22 @@ const Boxs = () => (
       {`
         .boxs {
           width: 100vw;
-          min-height: 25vh;
+          min-height: 100vh;
           background: coral;
           display: flex;
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
         }
+        h2 {
+          width: 100%;
+          text-align: center;
+        }
 
         .box {
-          width: 350px;
-          min-height: 170px;
-          background: pink;
+          width: 300px;
+          min-height: 350px;
+          background: white;
           margin: 0 5px;
         }
       `}
@@ -36,4 +41,4 @@ const Boxs = () => (
   </div>
 );
 
-export default Boxs;
+export default Servicios;
