@@ -25,10 +25,7 @@ const Navbar = () => (
         a {
           margin: 0 1em;
           color: white;
-          transition: all 0.7s ease;
-        }
-        a:hover {
-          text-transform: uppercase;
+          font-weight: bold;
         }
       `}
     </style>

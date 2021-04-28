@@ -10,12 +10,13 @@ const Menu = () => (
       {`
         .menu {
           width: 100vw;
-          background-color: #2f2329;
+          background: hsla(330, 15%, 16%, 0.349);
           color: white;
           display: flex;
           justify-content: space-evenly;
           align-items: center;
           padding: 1.5em 0;
+          flex: 1;
         }
 
         h4 {

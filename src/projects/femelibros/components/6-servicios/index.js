@@ -1,13 +1,13 @@
-import { ThreeBox } from '../../data/banner-items';
+import { Cards } from '../../data/cards';
 
 // fake data lean..borralo pal carajo
-const boxes = ThreeBox;
+const cards = Cards;
 
 const Servicios = () => (
   <div className="boxs" id="servicios">
     <h2>Nuestros Servicios</h2>
-    {boxes &&
-      boxes.map(({ title, desc }, i) => (
+    {cards &&
+      cards.map(({ title, desc }, i) => (
         <div className="box" key={i}>
           <h4>{title}</h4>
           <p>{desc}</p>
@@ -33,6 +33,7 @@ const Servicios = () => (
         .box {
           width: 300px;
           min-height: 350px;
+
           background: white;
           margin: 0 5px;
         }
