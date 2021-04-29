@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import ListAltIcon from '@material-ui/icons/ListAlt';
 import PropTypes from 'prop-types';
 
 import DashboardLayout from '../../../../../../../components/DashboardLayout';
@@ -68,9 +67,8 @@ const ShowForm = ({ form_code }) => {
         backHref={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
         navbarButtons={
           <div className="buttons">
-            <div className="iconButton">
-              <ListAltIcon />
-            </div>
+            <i className="fas fa-file-alt iconButton" />
+            <i className="fas fa-table iconButton" />
           </div>
         }
       >
@@ -135,11 +133,19 @@ const ShowForm = ({ form_code }) => {
             flex-wrap: wrap;
           }
           .iconButton {
-            transform: scale(2) translate(-25%, 25%);
+            margin: 10px;
+            font-size: 30px;
             transition: 0.7s;
           }
           .iconButton:hover {
-            transform: scale(2.5) translate(-31.25%, 31.25%);
+            font-size: 40px;
+          }
+          .iconButton:active {
+            font-size: 50px;
+            transition: 0.1s;
+          }
+          .buttons {
+            display: flex;
           }
         `}
       </style>
