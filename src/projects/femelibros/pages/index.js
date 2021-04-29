@@ -8,6 +8,7 @@ import Descubre from '../components/5-descubre';
 
 const Empty = () => (
   <>
+    <Menu />
     <Banner />
     <Boxs />
     <Nosotras />
