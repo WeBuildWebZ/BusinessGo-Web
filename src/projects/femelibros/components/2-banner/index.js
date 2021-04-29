@@ -6,11 +6,12 @@ const Banner = () => (
     <Menu />
     <div className="text-container">
       <div className="text">
-        <h3>Lorem ipsum sit.</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora minus voluptatem fuga nobis earum
-          facilis.
-        </p>
+        <h3>Es hora de</h3>
+        <ul>
+          <li>Cambiar</li>
+          <li>Leer</li>
+          <li>Encontrar</li>
+        </ul>
       </div>
       <br />
       <Arrow />
@@ -43,22 +44,66 @@ const Banner = () => (
         }
         .text {
           width: 500px;
+          height: 40px;
+          font-size: 40px;
+          line-height: 1em;
           display: flex;
+          justify-content: center;
           align-items: center;
-          flex-wrap: wrap;
-          padding: 0 1em;
+          overflow: hidden;
         }
 
         h3 {
-          font-size: 3em;
           line-height: 1em;
           color: #ffa489;
         }
-        p {
-          font-size: 2em;
-          font-style: italic;
-          line-height: 1em;
-          padding: 0.5em 0;
+
+        ul {
+          list-style: none;
+          padding-left: 10px;
+          animation: cambiar 7s infinite;
+        }
+        h3,
+        ul,
+        li {
+          margin: 0;
+        }
+
+        li {
+          font-weight: bold;
+        }
+        @keyframes cambiar {
+          0% {
+            margin-top: 0;
+          }
+          20% {
+            margin-top: 0;
+          }
+
+          25% {
+            margin-top: -80px;
+          }
+          50% {
+            margin-top: -80px;
+          }
+
+          55% {
+            margin-top: 80px;
+          }
+          80% {
+            margin-top: 80px;
+          }
+
+          85% {
+            margin-top: -80px;
+          }
+          95% {
+            margin-top: -80px;
+          }
+
+          100% {
+            margin-top: 0;
+          }
         }
         // =====================RESPONSIVE===============================================
         @media (max-width: 582px) {
