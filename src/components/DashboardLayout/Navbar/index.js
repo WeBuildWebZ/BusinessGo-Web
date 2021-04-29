@@ -24,6 +24,7 @@ const Navbar = props => {
           <h2 className="title">{props.backTitle}</h2>
         </div>
       )}
+      {props.buttons && <div className="buttons">{props.buttons}</div>}
       {/* <Title breadcrumbItems={props.breadcrumbItems} /> */}
       <LogoutButton />
       <style jsx>
@@ -59,6 +60,12 @@ const Navbar = props => {
           .title {
             margin: 14px;
           }
+          .buttons {
+            position: absolute;
+            transform: translate(-100%);
+            left: 100%;
+            top: 100%;
+          }
           @media only screen and (max-width: 768px) {
             .navbar {
               width: calc(100% - ${sidebarWidth}px);
@@ -77,14 +84,16 @@ const Navbar = props => {
 Navbar.propTypes = {
   backTitle: PropTypes.string,
   backHref: PropTypes.string,
-  pageTitle: PropTypes.string
+  pageTitle: PropTypes.string,
+  buttons: PropTypes.any
   // breadcrumbItems: PropTypes.any.isRequired
 };
 
 Navbar.defaultProps = {
   backTitle: '',
   backHref: '',
-  pageTitle: ''
+  pageTitle: '',
+  buttons: ''
 };
 
 export default Navbar;

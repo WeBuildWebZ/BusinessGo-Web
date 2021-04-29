@@ -2,7 +2,7 @@ export const getLanguage = langCode =>
   ({
     es: {
       title: 'Editor de Formularios',
-      showTitle: form => `Editar formulario de ${form.name}`,
+      showTitle: form => (form ? `Editar formulario de ${form.name}` : 'Editor de formulario'),
       saveChanges: 'Guardar Cambios',
       selectVariant: 'Seleccionar variante',
       selectStep: 'Seleccionar paso',
@@ -13,7 +13,7 @@ export const getLanguage = langCode =>
     },
     en: {
       title: 'Form Editor',
-      showTitle: form => `Edit form: ${form.name}`,
+      showTitle: form => (form ? `Edit form: ${form.name}` : 'Form editor'),
       selectVariant: 'Select variant',
       selectStep: 'Select step',
       saveChanges: 'Save Changes',

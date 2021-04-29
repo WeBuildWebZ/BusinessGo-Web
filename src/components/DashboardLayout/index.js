@@ -11,6 +11,7 @@ const DashboardLayout = props => (
       pageTitle={props.pageTitle}
       backTitle={props.backTitle}
       backHref={props.backHref}
+      buttons={props.navbarButtons}
     />
     <Sidebar buttons={props.sidebarButtons} />
     <Content>{props.children}</Content>
@@ -32,6 +33,7 @@ DashboardLayout.propTypes = {
   backTitle: PropTypes.string,
   backHref: PropTypes.string,
   pageTitle: PropTypes.string,
+  navbarButtons: PropTypes.any,
   breadcrumbItems: PropTypes.array.isRequired,
   sidebarButtons: PropTypes.array.isRequired
 };
@@ -40,6 +42,7 @@ DashboardLayout.defaultProps = {
   children: '',
   backTitle: '',
   backHref: '',
+  navbarButtons: '',
   pageTitle: ''
 };
 
