@@ -13,7 +13,7 @@ const Nosotras = () => (
           display: flex;
           justify-content: center;
           align-items: center;
-          background: #ebebeb;
+          background: #f7ead7;
           flex-wrap: wrap;
         }
       `}

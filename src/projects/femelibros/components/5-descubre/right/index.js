@@ -12,13 +12,7 @@ const Right = () => (
       <Image src="/images/image2.jpeg" alt="Picture of the author" width={300} height={350} />
     </div>
     <div className="bottom">
-      <Image
-        src="/images/image3.jpeg"
-        alt="Picture of the author"
-        width={600}
-        height={350}
-        className="margined"
-      />
+      <Image src="/images/image3.jpeg" alt="Picture of the author" width={600} height={350} />
     </div>
     <style jsx>
       {`
@@ -50,6 +44,9 @@ const Right = () => (
         h3 {
           font-size: 3em;
           line-height: 0.9em;
+          color: #756a6f;
+          border: 2px solid #756a6f;
+          padding: 2px;
         }
         // ==============================
         .bottom {

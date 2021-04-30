@@ -4,7 +4,7 @@ const Left = () => (
   <div className="text-container">
     <div className="text-container">
       <div className="text">
-        <h3>Es hora de</h3>
+        <h3>Hora de</h3>
         <ul>
           <li>Cambiar</li>
           <li>Leer</li>

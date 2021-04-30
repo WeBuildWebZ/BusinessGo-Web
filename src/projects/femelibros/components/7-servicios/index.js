@@ -7,7 +7,9 @@ const cards = Cards;
 
 const Servicios = () => (
   <div className="boxs" id="servicios">
-    <h2>Nuestros Servicios</h2>
+    <div className="row">
+      <h3>Algunos Titulos</h3>
+    </div>
     {cards &&
       cards.map(({ title, desc, image, alt }, i) => (
         <div className="card" key={i}>
@@ -22,7 +24,7 @@ const Servicios = () => (
 
     <Link href="/books">
       <a className="more">
-        <h3>Ver mas</h3>
+        <h5>Ver mas &#x27F6;</h5>
       </a>
     </Link>
 
@@ -31,17 +33,27 @@ const Servicios = () => (
         .boxs {
           width: 100vw;
           min-height: 100vh;
-          background: #ebebeb;
+          background: #f7ead7;
           display: flex;
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
         }
-        h2 {
+        .row {
           width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        h3 {
+          width: 300px;
           text-align: center;
-          background: white;
-          padding: 1em 0;
+          border: 3px solid #c83e59;
+          border-radius: 1em;
+          font-size: 2em;
+          padding: 0.3em 0;
+          color: #c83e59;
+          border-radius: 1em;
         }
 
         .card {
@@ -51,6 +63,11 @@ const Servicios = () => (
           border-radius: 1em;
           padding: 0.5em;
           margin: 0 5px;
+          cursor: pointer;
+          transition: 0.4s ease;
+        }
+        .card:hover {
+          box-shadow: 0.3em 0.3em 0.3em silver;
         }
         img {
           width: 100%;
@@ -67,11 +84,11 @@ const Servicios = () => (
         }
         .more {
           width: 100%;
-          background: silver;
-          color: #1c1c1c;
           text-align: center;
           padding: 1em 0;
           cursor: pointer;
+          font-size: 2em;
+          color: #c83e59;
         }
       `}
     </style>

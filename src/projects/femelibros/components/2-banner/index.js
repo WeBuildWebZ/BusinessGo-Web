@@ -14,7 +14,7 @@ const Banner = () => (
           display: flex;
           justify-content: center;
           align-items: center;
-          flex-wrap: wrap;
+          flex-wrap: wrap-reverse;
         }
 
         // =====================RESPONSIVE===============================================

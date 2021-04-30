@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Cards } from '../../data/cards';
+import { Cards } from '../../data/galery';
 import Menu from '../../components/1-menu';
 import Footer from '../../components/10-footer';
 
@@ -11,6 +11,7 @@ const Books = () => (
     <Menu />
 
     <div className="books">
+      <section>Esta es la seccion de los libros.</section>
       {data &&
         data.map(({ title, desc, image, alt }, i) => (
           <div className="card" key={i}>
@@ -34,6 +35,14 @@ const Books = () => (
             align-items: center;
             flex-wrap: wrap;
           }
+          section {
+            width: 100vw;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+          }
           h2 {
             width: 100%;
             text-align: center;
@@ -47,10 +56,10 @@ const Books = () => (
             background: white;
             border-radius: 1em;
             padding: 0.5em;
-            margin: 0 5px;
+            margin: 1em;
           }
           a {
-            color: #ffa489;
+            color: #c83e59;
           }
           img {
             width: 100%;

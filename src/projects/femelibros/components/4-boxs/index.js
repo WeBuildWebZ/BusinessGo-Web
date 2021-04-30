@@ -16,7 +16,7 @@ const Boxs = () => (
       {`
         .boxs {
           width: 100vw;
-          min-height: 25vh;
+          min-height: 20vh;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -24,8 +24,8 @@ const Boxs = () => (
         }
 
         .box {
-          width: 350px;
-          min-height: 130px;
+          width: 247px;
+          min-height: 80px;
           margin: 0 5px;
           background: #ffa489;
           color: white;
@@ -37,7 +37,7 @@ const Boxs = () => (
           margin: 4px;
         }
         h4 {
-          font-size: 4em;
+          font-size: 3em;
         }
       `}
     </style>
