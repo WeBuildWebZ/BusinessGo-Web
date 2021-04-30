@@ -15,7 +15,7 @@ const ShowForm = ({ form_code }) => {
   const dashboardConfiguration = useDashboardConfiguration();
   const language = getLanguage(useSelector(store => store.language));
   const [form, setForm] = useState(null);
-  const [view, setView] = useState('table');
+  const [view, setView] = useState('detail');
 
   return (
     <EnsureLoggedIn redirectOnNotLoggedIn="/login" Loading={LoadingPage2}>
@@ -31,8 +31,8 @@ const ShowForm = ({ form_code }) => {
               onClick={() => setView('table')}
             />
             <i
-              className={`fas fa-table iconButton${view === 'detial' ? ' selected' : ''}`}
-              onClick={() => setView('detial')}
+              className={`fas fa-table iconButton${view === 'detail' ? ' selected' : ''}`}
+              onClick={() => setView('detail')}
             />
           </div>
         }

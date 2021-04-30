@@ -88,7 +88,7 @@ const FormDetail = props => {
               </div>
             </>
           )}
-          {props.view === 'table' && <FieldsTable />}
+          {props.view === 'table' && <FieldsTable fields={fields} />}
           {props.view === 'detail' && <FieldEditor form={form} fields={fields} onChange={handleChange} />}
           <div className={`saveButton${updating ? ' disabled' : ''}`} onClick={handleSaveChanges}>
             {language.saveChanges}
