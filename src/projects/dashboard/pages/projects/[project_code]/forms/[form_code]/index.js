@@ -15,6 +15,7 @@ const ShowForm = ({ form_code }) => {
   const dashboardConfiguration = useDashboardConfiguration();
   const language = getLanguage(useSelector(store => store.language));
   const [form, setForm] = useState(null);
+  const [view, setView] = useState('table');
 
   return (
     <EnsureLoggedIn redirectOnNotLoggedIn="/login" Loading={LoadingPage2}>
@@ -25,12 +26,18 @@ const ShowForm = ({ form_code }) => {
         backHref={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
         navbarButtons={
           <div className="buttons">
-            <i className="fas fa-file-alt iconButton" />
-            <i className="fas fa-table iconButton" />
+            <i
+              className={`fas fa-file-alt iconButton${view === 'table' ? ' selected' : ''}`}
+              onClick={() => setView('table')}
+            />
+            <i
+              className={`fas fa-table iconButton${view === 'detial' ? ' selected' : ''}`}
+              onClick={() => setView('detial')}
+            />
           </div>
         }
       >
-        <FormDetail form_code={form_code} onFormLoad={setForm} />
+        <FormDetail form_code={form_code} onFormLoad={setForm} view={view} />
       </DashboardLayout>
       <style jsx>
         {`
@@ -45,6 +52,10 @@ const ShowForm = ({ form_code }) => {
           .iconButton:active {
             font-size: 50px;
             transition: 0.1s;
+          }
+          .iconButton.selected {
+            transform: scale(1.3);
+            text-shadow: 0 0 10px #000000aa;
           }
           .buttons {
             display: flex;

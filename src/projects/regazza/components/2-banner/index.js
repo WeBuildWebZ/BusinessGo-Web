@@ -1,6 +1,6 @@
 const Banner = () => (
   <div className="banner">
-    <h1>Madre Nature</h1>
+    <h1>Regazza Bags</h1>
     <p>Elegancia, belleza y todo lo que las flores tienen para ti</p>
     <style jsx>
       {`

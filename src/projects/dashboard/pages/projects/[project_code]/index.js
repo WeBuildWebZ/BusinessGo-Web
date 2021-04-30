@@ -22,7 +22,7 @@ const Dashboard = () => {
       <DashboardLayout
         breadcrumbItems={dashboardConfiguration.breadcrumbItems}
         sidebarButtons={dashboardConfiguration.sidebarButtons}
-        backTitle={`${language.project} ${project.name}`}
+        backTitle={`${language.project} ${project?.name}`}
         backHref="/"
       >
         {project && (

@@ -65,10 +65,10 @@
   },
   "regazza": {
     "path": "src/projects/regazza",
-    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-regazza"
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Regazza-Bags"
   },
   "femelibros": {
     "path": "src/projects/femelibros",
-    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-femelibros"
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Femelibros"
   }
 }

@@ -3,19 +3,15 @@ import Link from 'next/link';
 const Navbar = () => (
   <div className="links">
     <Link href="/">
-      <a>Chisitos</a>
+      <a>Inicio</a>
     </Link>
     <hr />
     <Link href="/">
-      <a>Tutucas</a>
+      <a>Fundas</a>
     </Link>
     <hr />
     <Link href="/">
-      <a>Puflitos</a>
-    </Link>
-    <hr />
-    <Link href="/">
-      <a>Mielda</a>
+      <a>Contacto</a>
     </Link>
     <style jsx>
       {`

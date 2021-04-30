@@ -5,8 +5,8 @@ const Footer = () => (
     <h2>Regazza Bags</h2>
     <FooterLinks />
     <pre>
-      Copyright © 2021 Regazza Bag's guitars. All right reserved. Products and specifications are subject to
-      change without notice
+      Copyright © 2021 Regazza Bags. All right reserved. Products and specifications are subject to change
+      without notice
     </pre>
 
     <style jsx>

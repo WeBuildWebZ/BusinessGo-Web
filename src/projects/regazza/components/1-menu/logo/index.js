@@ -1,6 +1,6 @@
 const Logo = () => (
   <div className="logo">
-    <h2>Regazza Bag's</h2>
+    <h2>Regazza Bags</h2>
     <style jsx>
       {`
         .logo {

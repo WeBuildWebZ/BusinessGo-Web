@@ -8,6 +8,7 @@ import usePushAlert from '../../../../shared/hooks/usePushAlert';
 import SectionButton from '../SectionButton';
 
 import { getLanguage } from './lang';
+import FieldsTable from './FieldsTable';
 
 const FormDetail = props => {
   const { form_code } = props;
@@ -87,7 +88,8 @@ const FormDetail = props => {
               </div>
             </>
           )}
-          <FieldEditor form={form} fields={fields} onChange={handleChange} />
+          {props.view === 'table' && <FieldsTable />}
+          {props.view === 'detail' && <FieldEditor form={form} fields={fields} onChange={handleChange} />}
           <div className={`saveButton${updating ? ' disabled' : ''}`} onClick={handleSaveChanges}>
             {language.saveChanges}
           </div>
@@ -128,11 +130,13 @@ export const getServerSideProps = ({ query }) => {
 
 FormDetail.propTypes = {
   form_code: PropTypes.string.isRequired,
-  onFormLoad: PropTypes.func.isRequired
+  onFormLoad: PropTypes.func.isRequired,
+  view: PropTypes.string
 };
 
 FormDetail.defalutProps = {
-  onFormLoad: () => {}
+  onFormLoad: () => {},
+  view: 'table'
 };
 
 export default FormDetail;
