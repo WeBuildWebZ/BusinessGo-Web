@@ -24,7 +24,7 @@ const Boxs = () => (
         }
 
         .box {
-          width: 247px;
+          width: 300px;
           min-height: 80px;
           margin: 0 5px;
           background: #ffa489;

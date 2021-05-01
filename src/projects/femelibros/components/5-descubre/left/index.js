@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 const Left = () => (
-  <div className="left">
+  <div className="left" data-aos="fade-left">
     <Image src="/images/image1.jpeg" alt="Picture of the author" width={600} height={700} />
     <style jsx>
       {`

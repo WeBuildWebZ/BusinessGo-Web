@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Right = () => (
   <div className="right">
-    <div className="top">
+    <div className="top" data-aos="fade-left">
       <div className="text">
         <h3>
           Ebooks <br />

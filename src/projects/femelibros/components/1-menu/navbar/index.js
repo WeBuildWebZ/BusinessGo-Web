@@ -26,6 +26,7 @@ const Navbar = () => (
           margin: 0 1em;
           color: white;
           font-weight: bold;
+          font-size: 1.5em;
         }
       `}
     </style>

@@ -17,6 +17,9 @@ const Logo = () => (
         a {
           color: white;
         }
+        h2 {
+          font-size: 2em;
+        }
       `}
     </style>
   </div>

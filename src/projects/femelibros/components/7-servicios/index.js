@@ -8,11 +8,24 @@ const cards = Cards;
 const Servicios = () => (
   <div className="boxs" id="servicios">
     <div className="row">
-      <h3>Algunos Titulos</h3>
+      <h3>Recientes</h3>
+    </div>
+
+    <div className="row">
+      <div className="text">
+        <h2>DON'T FORGET</h2>
+        <hr />
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem corrupti voluptates numquam
+          minima!
+        </p>
+        <hr />
+        <h4>25% OFF YOUR PURCHASE!</h4>
+      </div>
     </div>
     {cards &&
       cards.map(({ title, desc, image, alt }, i) => (
-        <div className="card" key={i}>
+        <div className="card" key={i} data-aos="fade-down">
           <img src={image} alt={alt} />
           <h4>{title}</h4>
           <p>{desc}</p>
@@ -38,23 +51,52 @@ const Servicios = () => (
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
+          padding: 6em 0;
         }
         .row {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          width: 100vw;
         }
         h3 {
-          width: 300px;
-          text-align: center;
-          border: 3px solid #c83e59;
-          border-radius: 1em;
-          font-size: 2em;
-          padding: 0.3em 0;
-          color: #c83e59;
-          border-radius: 1em;
+          display: inline;
+          background: #c83e59;
+          color: white;
+          padding: 3px;
+          margin-left: 10.5em;
         }
+
+        // ========================================
+
+        .text {
+          width: 400px;
+          background: white;
+          margin-left: 12em;
+          padding: 0.5em;
+          margin: 2em 0 2em 12em;
+          border-radius: 1em;
+          border: 3px solid #756a6f;
+          box-shadow: 0.2em 0.2em 0.2em silver;
+        }
+        .text h2 {
+          color: #756a6f;
+        }
+        .text hr {
+          background: #756a6f;
+          height: 2px;
+          width: 100px;
+          margin: 0.5em 0;
+          border: none;
+        }
+        .text h4 {
+          margin: 0;
+          color: #756a6f;
+        }
+        .text p {
+          font-size: 1.5em;
+          line-height: 1em;
+          color: #1c1c1c;
+        }
+
+        // ========================================
 
         .card {
           width: 300px;

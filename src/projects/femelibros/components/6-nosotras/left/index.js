@@ -3,6 +3,7 @@ import Image from 'next/image';
 const Left = () => (
   <div className="left">
     <h3>Nosotras</h3>
+    <br />
     <h4>Quienes somos?</h4>
 
     <p>
@@ -21,20 +22,20 @@ const Left = () => (
           width: 600px;
         }
         h3 {
-          width: 300px;
-          text-align: center;
-          border: 3px solid #c83e59;
-          border-radius: 1em;
-          font-size: 2em;
-          padding: 0.2em 0;
-          color: #c83e59;
-          border-radius: 1em;
-          margin-bottom: 0.5em;
+          display: inline;
+          background: #c83e59;
+          color: white;
+          padding: 3px;
+          font-family: 'Playfair Display', serif;
+        }
+        h4 {
+          margin: 1em 0;
         }
         p {
           font-style: italic;
           font-size: 1.5em;
-          color: #1c1c1c;
+          font-weight: 400;
+          color: #756a6f;
           width: 300px;
         }
         .autor {

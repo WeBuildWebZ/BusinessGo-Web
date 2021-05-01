@@ -14,7 +14,7 @@ const Books = () => (
       <section>Esta es la seccion de los libros.</section>
       {data &&
         data.map(({ title, desc, image, alt }, i) => (
-          <div className="card" key={i}>
+          <div className="card" key={i} data-aos="zoom-in-down">
             <img src={image} alt={alt} />
             <h4>{title}</h4>
             <p>{desc}</p>

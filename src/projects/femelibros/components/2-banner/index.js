@@ -10,7 +10,7 @@ const Banner = () => (
       {`
         .banner {
           width: 100vw;
-          min-height: 88vh;
+          min-height: 100vh;
           display: flex;
           justify-content: center;
           align-items: center;

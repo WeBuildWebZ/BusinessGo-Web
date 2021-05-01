@@ -1,3 +1,6 @@
+/* main font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 a {
   color: inherit;
   text-decoration: none;
@@ -8,24 +11,15 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'raleway', Arial, Helvetica, sans-serif;
+  font-family: 'Lato', sans-serif;
 }
-
-/* lean, esta es una clase que va a estar a lo largo de la web, para no repetir tanto flex */
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300&display=swap');
 
 .aos-init:not(.aos-animate):after {
   position: fixed;
 }
 html,
 body {
-  width: 100%;
+  width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
