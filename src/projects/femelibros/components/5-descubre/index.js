@@ -79,6 +79,39 @@ const Descubre = () => (
           border-radius: 1em;
           box-shadow: 0.2em 0.2em 0.2em silver;
         }
+        // ==============================================
+
+        @media (max-width: 680px) {
+          .descubre {
+            width: 100%;
+            padding: 0 1em;
+          }
+          h3,
+          h2 {
+            font-size: 3em;
+            padding-left: 0;
+          }
+          p {
+            width: 450px;
+            margin: 1em 0;
+          }
+        }
+
+        @media (max-width: 450px) {
+          h3,
+          h2 {
+            font-size: 1.5em;
+          }
+          p {
+            width: 300px;
+          }
+        }
+
+        @media (max-width: 325px) {
+          p {
+            width: 100vw;
+          }
+        }
       `}
     </style>
   </div>

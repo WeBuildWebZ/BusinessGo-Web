@@ -63,16 +63,22 @@ const Right = () => (
         @media (max-width: 599px) {
           .text {
             width: 100%;
+            height: 100%;
             display: flex;
             justify-content: flex-end;
           }
           h3 {
             padding: 1em;
-            background: coral;
-            color: white;
           }
           .top {
             margin-bottom: 2em;
+          }
+        }
+        @media (max-width: 320px) {
+          h3 {
+            width: 100%;
+            padding: 0.5em;
+            font-size: 2em;
           }
         }
       `}

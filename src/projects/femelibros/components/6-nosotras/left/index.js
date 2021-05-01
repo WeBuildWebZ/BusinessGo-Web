@@ -57,6 +57,22 @@ const Left = () => (
           font-size: 2.5em;
           color: #c83e59;
         }
+        // ===========================================
+        @media (max-width: 1199px) {
+          .left {
+            padding: 1em;
+            width: 400px;
+          }
+        }
+
+        @media (max-width: 333px) {
+          .left {
+            width: 100%;
+          }
+          p {
+            width: 100%;
+          }
+        }
       `}
     </style>
   </div>

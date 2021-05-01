@@ -21,12 +21,12 @@ const Boxs = () => (
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
+          padding: 1em;
         }
 
         .box {
           width: 300px;
           min-height: 80px;
-          margin: 0 5px;
           background: #ffa489;
           color: white;
           padding: 1em;
@@ -38,6 +38,16 @@ const Boxs = () => (
         }
         h4 {
           font-size: 3em;
+        }
+        // ============================================
+        @media (max-width: 615px) {
+          .box {
+            width: 150px;
+            min-height: 50px;
+          }
+          h4 {
+            font-size: 1.5em;
+          }
         }
       `}
     </style>

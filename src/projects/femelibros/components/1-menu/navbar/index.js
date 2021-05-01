@@ -28,6 +28,13 @@ const Navbar = () => (
           font-weight: bold;
           font-size: 1.5em;
         }
+        // ================================================
+
+        @media (max-width: 1080px) {
+          .navbar {
+            display: none;
+          }
+        }
       `}
     </style>
   </div>

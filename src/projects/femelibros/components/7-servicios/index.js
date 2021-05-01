@@ -69,7 +69,6 @@ const Servicios = () => (
         .text {
           width: 400px;
           background: white;
-          margin-left: 12em;
           padding: 0.5em;
           margin: 2em 0 2em 12em;
           border-radius: 1em;
@@ -104,7 +103,7 @@ const Servicios = () => (
           background: white;
           border-radius: 1em;
           padding: 0.5em;
-          margin: 0 5px;
+          margin: 5px;
           cursor: pointer;
           transition: 0.4s ease;
         }
@@ -131,6 +130,32 @@ const Servicios = () => (
           cursor: pointer;
           font-size: 2em;
           color: #c83e59;
+        }
+        // ==========================================
+
+        @media (max-width: 745px) {
+          .text {
+            margin: 2em;
+          }
+          .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          h3 {
+            margin-left: 0;
+            position: absolute;
+            left: 1em;
+          }
+        }
+        @media (max-width: 345px) {
+          .boxs {
+            padding: 3em 1em;
+          }
+          .text {
+            margin: 2em 0;
+            width: 100%;
+          }
         }
       `}
     </style>

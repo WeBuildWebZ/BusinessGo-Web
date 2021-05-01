@@ -8,11 +8,17 @@ const Right = () => (
       {`
         .right {
           width: 600px;
-          min-height: 700px;
           display: flex;
           justify-content: center;
           align-items: center;
           flex-flow: column;
+        }
+        // ==========================================
+
+        @media (max-width: 600px) {
+          .right {
+            width: 100%;
+          }
         }
       `}
     </style>
