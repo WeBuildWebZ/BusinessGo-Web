@@ -26,7 +26,8 @@ const Left = () => (
           background: #c83e59;
           color: white;
           padding: 3px;
-          font-family: 'Playfair Display', serif;
+          box-shadow:.1em .1em .3em #c83e59;
+       
         }
         h4 {
           margin: 1em 0;

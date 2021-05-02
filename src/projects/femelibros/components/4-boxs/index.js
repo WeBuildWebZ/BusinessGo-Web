@@ -35,6 +35,8 @@ const Boxs = () => (
           justify-content: center;
           align-items: center;
           margin: 4px;
+          box-shadow:.5em .3em .9em #ffa489;
+
         }
         h4 {
           font-size: 3em;

@@ -45,7 +45,8 @@ const Nosotras = () => (
           width: 30px;
           height: 30px;
           margin: 0 0.5em;
-          background: #2f3b44;
+          background: #756a6f;
+          cursor:pointer;
         }
         .facebook {
           -webkit-mask: url(icons/facebook.svg) no-repeat;

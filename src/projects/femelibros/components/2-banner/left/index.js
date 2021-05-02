@@ -3,8 +3,8 @@ import Arrow from '../../11-flecha';
 const Left = () => (
   <div className="text-container" data-aos="fade-left">
     <div className="text-container">
+        <h3>Es Hora de</h3>
       <div className="text">
-        <h3>Hora de</h3>
         <ul>
           <li>Cambiar</li>
           <li>Leer</li>
@@ -63,6 +63,7 @@ const Left = () => (
           h3 {
             line-height: 1em;
             color: white;
+            font-size:2em;
           }
 
           ul {
@@ -111,6 +112,17 @@ const Left = () => (
             100% {
               margin-top: 0;
             }
+          }
+
+
+          // =================RESPONSIVE==========================================
+          @media(max-width:416px){
+            .text-container:after {
+            
+            left: 2em;
+          }
+
+
           }
         `}
       </style>

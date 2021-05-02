@@ -99,9 +99,7 @@ const MenuBurger = props => {
           color: white;
           cursor:pointer;
           transition:3s;
-        }
-        a:hover {
-          border-bottom:2px solid white;
+          z-index:100;
         }
 
         .spread {

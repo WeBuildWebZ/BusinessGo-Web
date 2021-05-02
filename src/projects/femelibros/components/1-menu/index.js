@@ -15,7 +15,7 @@ const Menu = () => (
     <Navbar />
     <MenuBurger links={links} />
 
-    <h4>Suscribirse</h4>
+
     <style jsx>
       {`
         .menu {
@@ -33,16 +33,7 @@ const Menu = () => (
           z-index: 1000;
         }
 
-        h4 {
-          color: white;
-          background: #ffa489;
-          border-radius: 0.5em;
-          padding: 0.5em 1.5em;
-          cursor: pointer;
-        }
-        h4:hover {
-          background: #d99c8a;
-        }
+    
       `}
     </style>
   </div>

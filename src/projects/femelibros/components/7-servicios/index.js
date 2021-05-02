@@ -62,6 +62,7 @@ const Servicios = () => (
           color: white;
           padding: 3px;
           margin-left: 10.5em;
+           box-shadow:.1em .1em .3em #c83e59  ;
         }
 
         // ========================================
