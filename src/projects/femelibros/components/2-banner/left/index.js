@@ -6,9 +6,9 @@ const Left = () => (
         <h3>Es Hora de</h3>
       <div className="text">
         <ul>
-          <li>Cambiar</li>
           <li>Leer</li>
-          <li>Encontrar</li>
+          <li>Emprender</li>
+          <li>Crecer</li>
         </ul>
       </div>
       <br />
@@ -79,6 +79,7 @@ const Left = () => (
 
           li {
             font-weight: bold;
+            
           }
           @keyframes cambiar {
             0% {

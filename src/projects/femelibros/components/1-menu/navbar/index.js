@@ -8,11 +8,11 @@ const Navbar = () => (
     <Link href="/#descubre">
       <a>Descubre</a>
     </Link>
-    <Link href="/#servicios">
-      <a>Servicios</a>
+    <Link href="/#recientes">
+      <a>Recientes</a>
     </Link>
-    <Link href="/#footer">
-      <a>Contacto</a>
+    <Link href="/ebooks">
+      <a>Ebooks</a>
     </Link>
     <style jsx>
       {`

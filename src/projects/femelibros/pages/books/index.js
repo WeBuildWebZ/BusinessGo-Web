@@ -13,7 +13,7 @@ const Books = () => (
     <div className="books">
       <section>Esta es la seccion de los libros.</section>
       {data &&
-        data.map(({ title, desc, image, alt,price }, i) => (
+        data.map(({ title, desc, image, alt, price }, i) => (
           <div className="card" key={i} data-aos="zoom-in-down">
             <img src={image} alt={alt} />
             <h4>{title}</h4>
@@ -43,7 +43,7 @@ const Books = () => (
             justify-content: center;
             align-items: center;
             font-size: 2em;
-            flex-wrap:wrap;
+            flex-wrap: wrap;
           }
           h2 {
             width: 100%;

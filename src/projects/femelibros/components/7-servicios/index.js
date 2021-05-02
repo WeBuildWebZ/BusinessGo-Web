@@ -6,18 +6,17 @@ import { Cards } from '../../data/cards';
 const cards = Cards;
 
 const Servicios = () => (
-  <div className="boxs" id="servicios">
+  <div className="boxs" id="recientes">
     <div className="row">
       <h3>Recientes</h3>
     </div>
 
     <div className="row">
       <div className="text">
-        <h2>DON'T FORGET</h2>
+        <h2>RECOMENDADOS PARA TI</h2>
         <hr />
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem corrupti voluptates numquam
-          minima!
+          Pensaste alguna vez que leer un Ebook, puede ser el motivo que te inspire para crecer en esta vida?, o solo cruzar limites que nunca imaginaste para hacer cosas nuevas?.
         </p>
         <hr />
         <h4>25% OFF YOUR PURCHASE!</h4>

@@ -5,8 +5,8 @@ import MenuBurger from './menu-burger';
 const links = [
   { text: 'Nosotras', href: '#nos' },
   { text: 'Descubre', href: '#descubre' },
-  { text: 'Servicios', href: '#servicios' },
-  { text: 'Contacto', href: '#footer' }
+  { text: 'Recientes', href: '#recientes' },
+  { text: 'EBooks', href: '/books' }
 ];
 
 const Menu = () => (
@@ -14,8 +14,6 @@ const Menu = () => (
     <Logo />
     <Navbar />
     <MenuBurger links={links} />
-
-
     <style jsx>
       {`
         .menu {
@@ -32,8 +30,6 @@ const Menu = () => (
           backdrop-filter: blur(0.8em);
           z-index: 1000;
         }
-
-    
       `}
     </style>
   </div>
