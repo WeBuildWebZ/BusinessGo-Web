@@ -1,5 +1,6 @@
 import rimraf from 'rimraf';
 
+import path from 'path';
 import fs from 'fs';
 
 import projects from '../projects.json';
@@ -29,6 +30,8 @@ if (!project) throw new Error(`Didn't found project with name ${projectName}`);
   console.log('copying files...');
   await copy('scripts', `${repoPath}/scripts`);
   console.log('copied scripts');
+  rimraf.sync(path.join(__dirname, '../src/**/.next'));
+  console.log('removed .next dirs');
   await copy('src', `${repoPath}/src`);
   console.log('copied src');
   await copy('projects.json', `${repoPath}/projects.json`);
