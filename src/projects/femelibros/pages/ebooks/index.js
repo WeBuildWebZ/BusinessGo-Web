@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import ReactStars from 'react-rating-stars-component';
 
-import { Cards } from '../../data/galery';
 import Menu from '../../components/1-menu';
 import Footer from '../../components/10-footer';
+import { Cards } from '../../data/galery';
 
 const data = Cards;
 
@@ -18,8 +18,8 @@ const Books = () => (
     <div className="books">
       <section>Esta es la seccion de los libros.</section>
       {data &&
-        data.map(({ title, desc, image, alt, price, rank }, i) => (
-          <div className="card" key={i} data-aos="zoom-in-down">
+        data.map(({ id, title, desc, image, alt, price, rank }, i) => (
+          <div className="card" key={id} data-aos="zoom-in-down">
             <img src={image} alt={alt} />
             <ReactStars
               // count={rating}
@@ -30,10 +30,10 @@ const Books = () => (
               edit={false}
               isHalf
             />
-            <h4>{title}</h4>
+            <h2>{title}</h2>
             <p>{desc}</p>
             <h4>{price}</h4>
-            <Link href="#">
+            <Link href={`/${id}`}>
               <a>- Leer mas</a>
             </Link>
           </div>
@@ -59,12 +59,6 @@ const Books = () => (
             font-size: 2em;
             flex-wrap: wrap;
           }
-          h2 {
-            width: 100%;
-            text-align: center;
-            background: white;
-            padding: 1em 0;
-          }
 
           .card {
             width: 300px;
@@ -83,8 +77,9 @@ const Books = () => (
             object-fit: cover;
             border-radius: 0.5em 0.5em 0 0;
           }
-          h4 {
+          h2 {
             margin: 0.5em 0;
+            color: #c83e59;
           }
           p {
             font-style: italic;
