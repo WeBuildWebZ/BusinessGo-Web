@@ -19,6 +19,8 @@ const Image = props => {
   const keyTranslation = getFieldKeyTranslation(languageCode);
   const pushAlert = usePushAlert();
   const project = useSelector(store => store.project);
+  const dashboardProject = useSelector(store => store.dashboardProject);
+  const finalProject = dashboardProject || project;
   const [uploading, setUploading] = useState(false);
   const input = useRef(null);
   const fieldName = (field.names && field.names[languageCode]) || field.name || keyTranslation[field.key];
@@ -37,7 +39,7 @@ const Image = props => {
 
     setUploading(true);
 
-    uploadFile(project, file).then(({ data: upload }) => {
+    uploadFile(finalProject, file).then(({ data: upload }) => {
       setUploading(false);
       props.onChange(upload.secure_url);
     });

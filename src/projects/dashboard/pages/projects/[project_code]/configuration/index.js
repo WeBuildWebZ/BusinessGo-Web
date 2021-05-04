@@ -60,7 +60,7 @@ const Configuration = () => {
       <DashboardLayout
         breadcrumbItems={dashboardConfiguration.breadcrumbItems}
         sidebarButtons={dashboardConfiguration.sidebarButtons}
-        backTitle={`${language.project} ${project.name}: ${language.configuration}`}
+        backTitle={`${project ? `${language.project} ${project?.name}: ` : ''}${language.configuration}`}
         backHref={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
       >
         {project && form && (
