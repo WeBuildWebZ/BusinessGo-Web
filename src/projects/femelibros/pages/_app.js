@@ -11,20 +11,19 @@ import * as constants from '../constants';
 const AppendHead = router => (
   <>
     <NextSeo
-      title="WeBuildWebZ"
-      description="Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida"
+      title="Femelibros"
+      description="Ayudamos a mujeres emprendedoras que buscan pasar su negocio al mundo DIGITAL."
       canonical={constants.URL}
       openGraph={{
         url: constants.URL,
-        title: 'WeBuildWebZ',
-        description: 'Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida',
-        site_name: 'WeBuildWebZ',
+        title: 'Femelibros',
+        description: 'Ayudamos a mujeres emprendedoras que buscan pasar su negocio al mundo DIGITAL.',
+        site_name: 'Femelibros',
         images: [
           {
-            url:
-              'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-webuildwebz.jpg?alt=media&token=cca05d1d-42e8-445e-a346-21c6d4686bfc',
-            width: 1366,
-            height: 635,
+            url: `${constants.URL}/images/page.png`,
+            width: 551,
+            height: 344,
             alt: 'Imagen 1'
           },
           {
