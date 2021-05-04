@@ -10,13 +10,10 @@ const Left = () => {
       <br />
       <h4>{project?.configuration.about_us?.subtitle}</h4>
 
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est incidunt voluptatem maiores repudiandae
-        cupiditate, aspernatur eligendi iure repellendus magni, ad corrupti. Corporis, consequuntur?
-      </p>
+      <p>{project?.configuration.about_us?.description}</p>
       <br />
       <div className="autor">
-        <img src="/images/banner.jpg" alt="autora" />
+        <img src={project?.configuration.about_us?.photo} alt="autora" />
         <h6>{project?.configuration.about_us?.name}</h6>
       </div>
       <pre>&#x27F6;</pre>
