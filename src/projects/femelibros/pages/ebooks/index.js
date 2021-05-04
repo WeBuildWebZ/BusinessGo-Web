@@ -1,10 +1,15 @@
 import Link from 'next/link';
+import ReactStars from 'react-rating-stars-component';
 
 import { Cards } from '../../data/galery';
 import Menu from '../../components/1-menu';
 import Footer from '../../components/10-footer';
 
 const data = Cards;
+
+const ratingChanged = newRating => {
+  console.log(newRating);
+};
 
 const Books = () => (
   <>
@@ -13,9 +18,18 @@ const Books = () => (
     <div className="books">
       <section>Esta es la seccion de los libros.</section>
       {data &&
-        data.map(({ title, desc, image, alt, price }, i) => (
+        data.map(({ title, desc, image, alt, price, rank }, i) => (
           <div className="card" key={i} data-aos="zoom-in-down">
             <img src={image} alt={alt} />
+            <ReactStars
+              // count={rating}
+              value={rank}
+              onChange={ratingChanged}
+              size={24}
+              activeColor="#ffd700"
+              edit={false}
+              isHalf
+            />
             <h4>{title}</h4>
             <p>{desc}</p>
             <h4>{price}</h4>
