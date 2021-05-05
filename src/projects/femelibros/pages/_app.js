@@ -38,6 +38,12 @@ const AppendHead = router => (
     />
     <Head>
       <link rel="icon" href="/favicon.png" />
+      {typeof window === 'object' && (
+        <script
+          src="https://www.widgets.webuildwebz.com/include.js"
+          data-webuildwebz-project-token="a16440c3e3064d09937ab355761cc762c5d04f70"
+        />
+      )}
     </Head>
   </>
 );
