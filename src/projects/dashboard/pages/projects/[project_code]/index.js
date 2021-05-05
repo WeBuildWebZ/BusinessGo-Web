@@ -38,6 +38,11 @@ const Dashboard = () => {
               image="/icons/formEditor.png"
             />
             <CoolCard
+              title={language.registers}
+              link={`${projectLink}/registers`}
+              image="/icons/register.png"
+            />
+            <CoolCard
               title={language.siteBuilder}
               link={`${projectLink}/site_builder`}
               image="/icons/siteBuilder.png"

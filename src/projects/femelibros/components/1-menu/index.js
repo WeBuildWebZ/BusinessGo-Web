@@ -6,7 +6,7 @@ const links = [
   { text: 'Nosotras', href: '/#nos' },
   { text: 'Descubre', href: '/#descubre' },
   { text: 'Recientes', href: '/#recientes' },
-  { text: 'EBooks', href: '/books' }
+  { text: 'EBooks', href: '/ebooks' }
 ];
 
 const Menu = () => (

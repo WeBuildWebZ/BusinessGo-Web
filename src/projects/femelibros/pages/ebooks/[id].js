@@ -2,8 +2,8 @@ import Link from 'next/link';
 import ReactStars from 'react-rating-stars-component';
 import Image from 'next/image';
 
-import Menu from '../components/1-menu/index';
-import { Cards } from '../data/galery';
+import Menu from '../../components/1-menu';
+import { Cards } from '../../data/galery';
 
 const data = Cards;
 

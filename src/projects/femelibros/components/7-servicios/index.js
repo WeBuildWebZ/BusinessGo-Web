@@ -35,7 +35,7 @@ const Servicios = () => {
         </div>
       ))}
 
-      <Link href="/books">
+      <Link href="/ebooks">
         <a className="more">
           <h5>Ver mas &#x27F6;</h5>
         </a>
