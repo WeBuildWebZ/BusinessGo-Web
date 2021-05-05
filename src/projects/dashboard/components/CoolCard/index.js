@@ -17,7 +17,8 @@ const CoolCard = props => (
           display: flex;
           flex-direction: column;
           align-items: center;
-          max-width: 200px;
+          width: 200px;
+          height: 160px;
           margin: 14px;
           padding: 7px;
           border-radius: 7px;

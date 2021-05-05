@@ -23,7 +23,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <EnsureLoggedIn redirectOnNotLoggedIn="/login" Loading={LoadingPage2}>
+    <EnsureLoggedIn Loading={LoadingPage2}>
       <DashboardLayout
         breadcrumbItems={dashboardConfiguration.breadcrumbItems}
         sidebarButtons={dashboardConfiguration.sidebarButtons}

@@ -36,7 +36,7 @@ EnsureLoggedIn.propTypes = {
 };
 
 EnsureLoggedIn.defaultProps = {
-  redirectOnNotLoggedIn: '',
+  redirectOnNotLoggedIn: '/login',
   redirectOnLoggedIn: ''
 };
 
