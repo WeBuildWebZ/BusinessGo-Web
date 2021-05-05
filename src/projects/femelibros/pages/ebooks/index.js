@@ -44,22 +44,27 @@ const Books = () => {
         <section>Esta es la seccion de los libros.</section>
         {books?.map((book, i) => (
           <div className="card" key={book._id} data-aos="zoom-in-down">
-            <img src={book.photo} alt="Book" />
-            <ReactStars
-              // count={rating}
-              value={book.stars}
-              onChange={ratingChanged}
-              size={24}
-              activeColor="#ffd700"
-              edit={false}
-              isHalf
-            />
-            <h2>{book.title}</h2>
-            <p>{book.description}</p>
-            <h4>{`$${book.price}`}</h4>
-            <Link href={`/ebooks/${encodeURIComponent(book._id)}`}>
-              <a>- Leer más</a>
-            </Link>
+            <div className="image">
+              <img src={book.photo} alt="Book" />
+            </div>
+            <div className="text">
+              <h3>{book.title}</h3>
+              <h4>{`${book.price}`}$ ARS</h4>
+              <ReactStars
+                // count={rating}
+                value={book.stars}
+                onChange={ratingChanged}
+                size={24}
+                activeColor="#f8ac30"
+                edit={false}
+                isHalf
+              />
+
+              <p>{book.description}</p>
+              <Link href={`/ebooks/${encodeURIComponent(book._id)}`}>
+                <a>Leer más</a>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
@@ -68,6 +73,7 @@ const Books = () => {
         {`
           .books {
             width: 100vw;
+
             min-height: 100vh;
             background: #ebebeb;
             display: flex;
@@ -87,28 +93,73 @@ const Books = () => {
 
           .card {
             width: 300px;
-            min-height: 370px;
+            height: 400px;
             background: white;
             border-radius: 1em;
             padding: 0.5em;
-            margin: 1em;
+            margin: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+            box-shadow: 0.3em 0.3em 0.5em silver;
           }
-          a {
-            color: #c83e59;
+
+          // ===============IMAGE==============================
+          .image,
+          .text {
+            width: 100%;
+            height: 200px;
+            flex: 1;
           }
           img {
             width: 100%;
-            height: 270px;
+            height: 200px;
             object-fit: cover;
             border-radius: 0.5em 0.5em 0 0;
           }
-          h2 {
-            margin: 0.5em 0;
-            color: #c83e59;
+
+          // =================TEXT================================
+          .text {
+            background: #1c1c1c;
+            border-radius: 0.5em;
+            position: relative;
+            padding: 0.5em;
+          }
+
+          h3 {
+            color: white;
+          }
+          h4 {
+            font-size: 14px;
+          }
+          h4,
+          p {
+            color: silver;
           }
           p {
             font-style: italic;
-            margin-bottom: 0.5em;
+            margin: 0;
+            font-size: 15px;
+            margin-bottom: 10px;
+          }
+          a {
+            display: block;
+            background: white;
+            border-radius: 5px;
+            padding: 5px 0;
+            cursor: pointer;
+            color: #1c1c1c;
+            font-weight: bold;
+            text-align: center;
+            margin: 0 auto;
+            transition: 0.5s ease;
+          }
+          a:hover {
+            background: #1c1c1c;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
           }
           // ===========
         `}
