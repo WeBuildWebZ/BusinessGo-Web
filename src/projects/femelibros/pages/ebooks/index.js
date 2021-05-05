@@ -47,7 +47,7 @@ const Books = () => {
             <img src={book.photo} alt="Book" />
             <ReactStars
               // count={rating}
-              value={Math.random() * 5}
+              value={book.stars}
               onChange={ratingChanged}
               size={24}
               activeColor="#ffd700"
