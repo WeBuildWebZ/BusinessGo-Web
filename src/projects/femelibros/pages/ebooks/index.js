@@ -1,9 +1,13 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
+import { useSelector } from 'react-redux';
 
 import Menu from '../../components/1-menu';
 import Footer from '../../components/10-footer';
+import Pagination from '../../components/12-Pagination';
 import { Cards } from '../../data/galery';
+import { getClientDocuments } from '../../../../services/api/clientDocument';
 
 const data = Cards;
 
@@ -11,34 +15,55 @@ const ratingChanged = newRating => {
   console.log(newRating);
 };
 
-const Books = () => (
-  <>
-    <Menu />
+const Books = () => {
+  const project = useSelector(store => store.project);
+  const [books, setBooks] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(null);
+  const pageSize = 9;
 
-    <div className="books">
-      <section>Esta es la seccion de los libros.</section>
-      {data &&
-        data.map(({ id, title, desc, image, alt, price, rank }, i) => (
-          <div className="card" key={id} data-aos="zoom-in-down">
-            <img src={image} alt={alt} />
+  useEffect(() => {
+    if (!project) return;
+    getClientDocuments('book', project, pageSize, page).then(({ data: givenBooks }) => {
+      setBooks(givenBooks);
+    });
+  }, [project, page]);
+
+  useEffect(() => {
+    if (!project) return;
+    getClientDocuments('book', project, pageSize, page, {}, '', [], true).then(({ data: response }) => {
+      setPageCount(Math.ceil(response.count / pageSize));
+    });
+  }, [project]);
+
+  return (
+    <>
+      <Menu />
+
+      <div className="books">
+        <section>Esta es la seccion de los libros.</section>
+        {books?.map((book, i) => (
+          <div className="card" key={book._id} data-aos="zoom-in-down">
+            <img src={book.photo} alt="Book" />
             <ReactStars
               // count={rating}
-              value={rank}
+              value={Math.random() * 5}
               onChange={ratingChanged}
               size={24}
               activeColor="#ffd700"
               edit={false}
               isHalf
             />
-            <h2>{title}</h2>
-            <p>{desc}</p>
-            <h4>{price}</h4>
-            <Link href={`/${id}`}>
-              <a>- Leer mas</a>
+            <h2>{book.title}</h2>
+            <p>{book.description}</p>
+            <h4>{`$${book.price}`}</h4>
+            <Link href={`/ebooks/${encodeURIComponent(book._id)}`}>
+              <a>- Leer más</a>
             </Link>
           </div>
         ))}
-
+      </div>
+      {pageCount && <Pagination pageSize={pageCount} onChange={setPage} />}
       <style jsx>
         {`
           .books {
@@ -88,10 +113,10 @@ const Books = () => (
           // ===========
         `}
       </style>
-    </div>
 
-    <Footer />
-  </>
-);
+      <Footer />
+    </>
+  );
+};
 
 export default Books;

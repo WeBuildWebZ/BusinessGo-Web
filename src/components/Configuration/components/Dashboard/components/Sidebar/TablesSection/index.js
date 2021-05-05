@@ -28,7 +28,7 @@ const TablesSection = () => {
       {clientModels.map((clientModel, i) => (
         <Button
           key={i}
-          text={clientModel.table_descriptive_name}
+          text={clientModel.name}
           onClick={() => handleSelectClientModel(clientModel)}
           style={{ marginTop: 10 }}
           selected={

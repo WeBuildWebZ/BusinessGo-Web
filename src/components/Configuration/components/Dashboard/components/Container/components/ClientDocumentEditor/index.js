@@ -124,7 +124,7 @@ const ClientDocumentEditor = props => {
             action={isNewDocument ? 'create' : 'edit'}
           />
         )}
-        <PopoverTitle>{`Editor de ${clientModel.table_descriptive_name}`}</PopoverTitle>
+        <PopoverTitle>{`Editor de ${clientModel.name}`}</PopoverTitle>
         <SearchInput onChange={handleTextSearch} />
         <Table
           fields={importantFields}

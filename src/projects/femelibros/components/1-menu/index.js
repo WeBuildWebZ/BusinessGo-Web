@@ -3,9 +3,9 @@ import Navbar from './navbar';
 import MenuBurger from './menu-burger';
 
 const links = [
-  { text: 'Nosotras', href: '#nos' },
-  { text: 'Descubre', href: '#descubre' },
-  { text: 'Recientes', href: '#recientes' },
+  { text: 'Nosotras', href: '/#nos' },
+  { text: 'Descubre', href: '/#descubre' },
+  { text: 'Recientes', href: '/#recientes' },
   { text: 'EBooks', href: '/books' }
 ];
 
