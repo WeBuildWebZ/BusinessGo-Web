@@ -47,8 +47,8 @@ const Left = () => {
             color: #1c1c1c;
           }
           img {
-            width: 50px;
-            height: 50px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             border-radius: 100%;
             border: 3px solid white;

@@ -95,10 +95,10 @@ const MenuBurger = props => {
         a {
           margin: 0 0 0.3em 1em;
           text-decoration: none;
-          font-size: 1.5em;
+          font-size: 1.8em;
           color: white;
           cursor:pointer;
-          transition:3s;
+          transition:.7s;
           z-index:100;
         }
 

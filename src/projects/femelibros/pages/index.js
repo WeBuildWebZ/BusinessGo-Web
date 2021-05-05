@@ -6,6 +6,7 @@ import Servicios from '../components/7-servicios';
 import Footer from '../components/10-footer';
 import Descubre from '../components/5-descubre';
 import Suscripcion from '../components/8-suscribirse';
+import WeBuilWebz from '../../../components/webuildwebz';
 
 const Empty = () => (
   <>
@@ -17,6 +18,7 @@ const Empty = () => (
     <Servicios />
     <Suscripcion />
     <Footer />
+    <WeBuilWebz />
   </>
 );
 

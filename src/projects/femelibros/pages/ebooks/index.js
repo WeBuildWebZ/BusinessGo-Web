@@ -132,6 +132,7 @@ const Books = () => {
           }
           h4 {
             font-size: 14px;
+            margin: 5px 0 0 0;
           }
           h4,
           p {
@@ -156,10 +157,8 @@ const Books = () => {
             transition: 0.5s ease;
           }
           a:hover {
-            background: #1c1c1c;
+            background: grey;
             color: white;
-            border: 1px solid white;
-            border-radius: 5px;
           }
           // ===========
         `}

@@ -23,7 +23,7 @@ const Boxs = () => {
             display: flex;
             flex-wrap: nowrap;
             animation: move 15s infinite linear;
-            width: 600px;
+            width: 100%;
           }
 
           .box {
