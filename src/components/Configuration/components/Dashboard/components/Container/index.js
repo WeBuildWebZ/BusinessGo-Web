@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getClientModels } from '../../../../../../services/api/user';
+import { getClientModels } from '../../../../../../services/api/clientModel';
 import { setAdminSection } from '../../../../../../shared/actions/adminSection';
 import { setClientModels } from '../../../../../../shared/actions/clientModels';
 import { setSelectedClientModel } from '../../../../../../shared/actions/selectedClientModel';

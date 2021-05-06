@@ -19,6 +19,3 @@ export const createDevelopmentRequest = (userId, name, summary, checklist_items)
     summary,
     checklist_items
   });
-
-export const getClientModels = project =>
-  api.get(`api/projects/${encodeURIComponent(project.code)}/client_models`);
