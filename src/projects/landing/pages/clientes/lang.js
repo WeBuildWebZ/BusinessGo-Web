@@ -106,6 +106,10 @@ export const getLanguage = langCode =>
       visit: 'Take a Look',
       items: [
         {
+          ...Femelibros,
+          description: 'We help enterprising women who seek to move their business to the DIGITAL world.'
+        },
+        {
           ...Carpediem,
           description:
             'It is a distributor of drinks and annexes for kiosks, warehouses and supermarkets. Retail and wholesale with headquarters in Villa Mercedes province of San Luis. Since 2012 it has been supplying the whole country, bringing the best brands at the lowest prices.'
