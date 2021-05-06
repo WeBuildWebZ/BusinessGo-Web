@@ -105,7 +105,7 @@ const Books = () => {
 
           .card {
             width: 300px;
-            height: 400px;
+            min-height: 400px;
             background: white;
             border-radius: 1em;
             padding: 0.5em;

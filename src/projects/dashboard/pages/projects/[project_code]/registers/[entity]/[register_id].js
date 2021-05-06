@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 
 import FieldRenderer from '../../../../../../../components/FieldRenderer';
 import DashboardLayout from '../../../../../../../components/DashboardLayout';
@@ -17,7 +18,11 @@ import { setProject } from '../../../../../../../shared/actions/project';
 import usePushAlert from '../../../../../../../shared/hooks/usePushAlert';
 import { getLanguage } from '../../lang';
 import { showClientModel } from '../../../../../../../services/api/clientModel';
-import { showClientDocument, updateClientDocument } from '../../../../../../../services/api/clientDocument';
+import {
+  createClientDocument,
+  showClientDocument,
+  updateClientDocument
+} from '../../../../../../../services/api/clientDocument';
 
 export const getServerSideProps = ({ query }) => {
   const { entity, register_id } = query;
@@ -30,12 +35,16 @@ const EditRegister = props => {
   const dashboardConfiguration = useDashboardConfiguration();
   const dispatch = useDispatch();
   const pushAlert = usePushAlert();
+  const router = useRouter();
   const project = useSelector(store => store.dashboardProject);
   const language = getLanguage(useSelector(store => store.language));
   const projectLink = `/projects/${encodeURIComponent(project?.code)}`;
   const [clientDocument, setClientDocument] = useState();
   const [clientModel, setClientModel] = useState(null);
   const [selectedClientModel, setSelectedClientModel] = useState(null);
+  const [creating, setCreating] = useState(false);
+  const [created, setCreated] = useState(false);
+  const isNew = register_id === 'new';
 
   const handlePartialChange = newData => {
     const newClientDocument = { ...clientDocument, ...newData };
@@ -47,9 +56,30 @@ const EditRegister = props => {
     setClientDocument(newClientDocument);
     setClientDocument(newClientDocument);
 
-    updateClientDocument(newClientDocument).then(() => {
-      pushAlert({ type: 'info', ...language.registerUpdated(clientModel) });
-    });
+    if (isNew) {
+      if (created || creating) return;
+      setCreating(true);
+      createClientDocument(entity, project.code, newClientDocument)
+        .then(({ data: newRegister }) => {
+          pushAlert({ type: 'info', ...language.registerCreated(clientModel) });
+          setCreated(true);
+          setTimeout(() => {
+            router.push({
+              pathname: `${removeOneSlashToUrl(window.location.href)}/${encodeURIComponent(newRegister._id)}`
+            });
+          }, 500);
+        })
+        .catch(() => {
+          pushAlert({ type: 'info', ...language.registerCreateError(clientModel) });
+        })
+        .finally(() => {
+          setCreating(false);
+        });
+    } else {
+      updateClientDocument(newClientDocument).then(() => {
+        pushAlert({ type: 'info', ...language.registerUpdated(clientModel) });
+      });
+    }
   };
 
   useEffect(() => {
@@ -57,10 +87,16 @@ const EditRegister = props => {
     showClientModel(project, entity).then(({ data: givenClientModel }) => {
       setClientModel(givenClientModel);
     });
+    if (isNew) return;
     showClientDocument(register_id).then(({ data: givenClientDocument }) => {
       setClientDocument(givenClientDocument);
     });
   }, [project]);
+
+  useEffect(() => {
+    if (!isNew || clientDocument) return;
+    setClientDocument({});
+  }, []);
 
   return (
     <EnsureLoggedIn Loading={LoadingPage2}>
@@ -68,7 +104,7 @@ const EditRegister = props => {
         breadcrumbItems={dashboardConfiguration.breadcrumbItems}
         sidebarButtons={dashboardConfiguration.sidebarButtons}
         backTitle={`${project ? `${language.project} ${project?.name}: ` : ''}${
-          clientModel ? `${language.edit} ${clientModel.name}` : language.registers
+          clientModel ? `${isNew ? language.create : language.edit} ${clientModel.name}` : language.registers
         }`}
         backHref={
           typeof window === 'object' ? removeOneSlashToUrl(removeOneSlashToUrl(window.location.href)) : ''

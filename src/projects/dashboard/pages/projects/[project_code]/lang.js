@@ -7,9 +7,18 @@ export const getLanguage = language_code =>
       formEditor: 'Editor de Formularios',
       registers: 'Registros',
       edit: 'Editar',
+      create: 'Crear',
       registerUpdated: clientModel => ({
         title: `${clientModel.name} actualizado!`,
-        message: `Se ha actualizado el registro de ${clientModel.name} satisfactoriamente`
+        message: `Se ha actualizado el registro de ${clientModel.name} satisfactoriamente.`
+      }),
+      registerCreated: clientModel => ({
+        title: `${clientModel.name} creado!`,
+        message: `Se ha creado el registro de ${clientModel.name} satisfactoriamente.`
+      }),
+      registerCreateError: clientModel => ({
+        title: 'Error',
+        message: `Hubo un error al intentar crear el registro de ${clientModel.name}.`
       })
     },
     en: {
@@ -19,9 +28,14 @@ export const getLanguage = language_code =>
       formEditor: 'Form Editor',
       registers: 'Registers',
       edit: 'Edit',
+      create: 'Create',
       registerUpdated: clientModel => ({
-        title: `${clientModel.name} Register updated!`,
-        message: `${clientModel.name} register has been updated successfully`
+        title: `${clientModel.name} Register created!`,
+        message: `${clientModel.name} register has been created successfully`
+      }),
+      registerCreateError: clientModel => ({
+        title: 'Error',
+        message: `There was an error when creating the ${clientModel.name}.`
       })
     }
   }[language_code]);

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
 
 import DashboardLayout from '../../../../../../components/DashboardLayout';
 import EnsureLoggedIn from '../../../../../../components/EnsureLoggedIn';
@@ -49,7 +50,23 @@ const Configuration = () => {
                 />
               ))}
             </div>
-            {selectedClientModel && <RegisterList clientModel={selectedClientModel} />}
+            {selectedClientModel && (
+              <>
+                <Link
+                  href={`/projects/${encodeURIComponent(project.code)}/registers/${encodeURIComponent(
+                    selectedClientModel.entity
+                  )}/new`}
+                >
+                  <a>
+                    <div className="createRegister">
+                      <i className="fa fa-plus" />
+                      {language.createRegister(selectedClientModel)}
+                    </div>
+                  </a>
+                </Link>
+                <RegisterList clientModel={selectedClientModel} />
+              </>
+            )}
           </>
         )}
       </DashboardLayout>
@@ -59,6 +76,27 @@ const Configuration = () => {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
+          }
+          .createRegister {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            background-color: #3b5998;
+            margin: 14px;
+            padding: 7px;
+            border-radius: 7px;
+            color: whitesmoke;
+            transition: 0.7s;
+          }
+          .createRegister:hover {
+            transform: scale(1.1);
+          }
+          .createRegister:active {
+            transform: scale(1.2);
+            transition: 0.1s;
+          }
+          .fa-plus {
+            margin: 7px;
           }
         `}
       </style>

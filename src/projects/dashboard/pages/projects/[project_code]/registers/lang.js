@@ -7,13 +7,15 @@ export const getLanguage = language_code =>
         title: 'Configuración actualizada',
         message: 'la configuración fue actualizada'
       },
-      noRegisters: 'No hay registros para editar'
+      noRegisters: 'No hay registros para editar',
+      createRegister: clientModel => `Crear ${clientModel.name}`
     },
     en: {
       project: 'Project',
       registers: 'Registers',
       configurationUpdated: { title: 'Configuration updated', message: 'The configuration was updated' },
-      noRegisters: 'No registers to edit'
+      noRegisters: 'No registers to edit',
+      createRegister: clientModel => `Create ${clientModel.name}`
     }
   }[language_code]);
 
