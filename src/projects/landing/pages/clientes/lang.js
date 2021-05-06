@@ -2,6 +2,10 @@ const Carpediem = {
   url: 'https://www.carpediem-distribuciones.com/',
   image_url: 'https://www.carpediem-distribuciones.com/images/page.png'
 };
+const Femelibros = {
+  url: 'https://www.femelibros.com/',
+  image_url: 'https://www.femelibros.com/images/page.png'
+};
 const MasNegocio = {
   url: 'https://masnegocio.online/',
   image_url: 'https://masnegocio.online/images/page.png'
@@ -47,6 +51,10 @@ export const getLanguage = langCode =>
       title: 'Clientes',
       visit: 'Visitar',
       items: [
+        {
+          ...Femelibros,
+          description: 'Ayudamos a mujeres emprendedoras que buscan pasar su negocio al mundo DIGITAL.'
+        },
         {
           ...Carpediem,
           description:
