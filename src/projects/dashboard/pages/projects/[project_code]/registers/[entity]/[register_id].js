@@ -17,6 +17,7 @@ import { setProject } from '../../../../../../../shared/actions/project';
 import usePushAlert from '../../../../../../../shared/hooks/usePushAlert';
 import { getLanguage } from '../../lang';
 import { showClientModel } from '../../../../../../../services/api/clientModel';
+import { showClientDocument, updateClientDocument } from '../../../../../../../services/api/clientDocument';
 
 export const getServerSideProps = ({ query }) => {
   const { entity, register_id } = query;
@@ -32,21 +33,32 @@ const EditRegister = props => {
   const project = useSelector(store => store.dashboardProject);
   const language = getLanguage(useSelector(store => store.language));
   const projectLink = `/projects/${encodeURIComponent(project?.code)}`;
-  const [clientDocument, setClientDocument] = useState({});
+  const [clientDocument, setClientDocument] = useState();
   const [clientModel, setClientModel] = useState(null);
   const [selectedClientModel, setSelectedClientModel] = useState(null);
 
   const handlePartialChange = newData => {
-    console.log('newData', newData);
+    const newClientDocument = { ...clientDocument, ...newData };
+    setClientDocument(newClientDocument);
   };
+
   const handleUpdateDocument = newData => {
-    console.log('newData', newData);
+    const newClientDocument = { ...clientDocument, ...newData };
+    setClientDocument(newClientDocument);
+    setClientDocument(newClientDocument);
+
+    updateClientDocument(newClientDocument).then(() => {
+      pushAlert({ type: 'info', ...language.registerUpdated(clientModel) });
+    });
   };
 
   useEffect(() => {
     if (!project) return;
     showClientModel(project, entity).then(({ data: givenClientModel }) => {
       setClientModel(givenClientModel);
+    });
+    showClientDocument(register_id).then(({ data: givenClientDocument }) => {
+      setClientDocument(givenClientDocument);
     });
   }, [project]);
 
@@ -58,9 +70,11 @@ const EditRegister = props => {
         backTitle={`${project ? `${language.project} ${project?.name}: ` : ''}${
           clientModel ? `${language.edit} ${clientModel.name}` : language.registers
         }`}
-        backHref={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
+        backHref={
+          typeof window === 'object' ? removeOneSlashToUrl(removeOneSlashToUrl(window.location.href)) : ''
+        }
       >
-        {project && clientModel && (
+        {project && clientModel && clientDocument && (
           <>
             <FieldRenderer
               formCode={clientModel.entity}

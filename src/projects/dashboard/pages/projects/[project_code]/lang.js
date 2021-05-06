@@ -6,7 +6,11 @@ export const getLanguage = language_code =>
       siteBuilder: 'Constructor de Sitio Web (Próximamente)',
       formEditor: 'Editor de Formularios',
       registers: 'Registros',
-      edit: 'Editar'
+      edit: 'Editar',
+      registerUpdated: clientModel => ({
+        title: 'Registro actualizado!',
+        message: `Se ha actualizado el registro de ${clientModel.name} satisfactoriamente`
+      })
     },
     en: {
       project: 'Project',
@@ -14,7 +18,11 @@ export const getLanguage = language_code =>
       siteBuilder: 'Website Builder (Coming soon)',
       formEditor: 'Form Editor',
       registers: 'Registers',
-      edit: 'Edit'
+      edit: 'Edit',
+      registerUpdated: clientModel => ({
+        title: 'Register updated!',
+        message: `${clientModel.name} register has been updated successfully`
+      })
     }
   }[language_code]);
 
