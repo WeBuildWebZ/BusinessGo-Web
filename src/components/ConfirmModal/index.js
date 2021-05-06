@@ -49,7 +49,7 @@ const ConfirmModal = props => {
 ConfirmModal.propTypes = {
   show: PropTypes.bool.isRequired,
   title: PropTypes.string,
-  message: PropTypes.string,
+  message: PropTypes.any,
   onPrompt: PropTypes.func
 };
 

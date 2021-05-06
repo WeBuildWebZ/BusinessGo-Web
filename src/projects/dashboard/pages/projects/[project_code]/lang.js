@@ -8,7 +8,7 @@ export const getLanguage = language_code =>
       registers: 'Registros',
       edit: 'Editar',
       registerUpdated: clientModel => ({
-        title: 'Registro actualizado!',
+        title: `${clientModel.name} actualizado!`,
         message: `Se ha actualizado el registro de ${clientModel.name} satisfactoriamente`
       })
     },
@@ -20,7 +20,7 @@ export const getLanguage = language_code =>
       registers: 'Registers',
       edit: 'Edit',
       registerUpdated: clientModel => ({
-        title: 'Register updated!',
+        title: `${clientModel.name} Register updated!`,
         message: `${clientModel.name} register has been updated successfully`
       })
     }

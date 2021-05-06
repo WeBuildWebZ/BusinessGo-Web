@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
 
-import { getClientDocuments } from '../../../../services/api/clientDocument';
+import { getClientDocuments, deleteClientDocument } from '../../../../services/api/clientDocument';
+import ConfirmModal from '../../../../components/ConfirmModal';
+import usePushAlert from '../../../../shared/hooks/usePushAlert';
 
 import { getLanguage } from './lang';
 
@@ -15,18 +17,38 @@ const RegisterList = props => {
   const project = useSelector(store => store.dashboardProject);
   const languageCode = useSelector(store => store.language);
   const language = getLanguage(languageCode);
+  const pushAlert = usePushAlert();
   const [selectedPage, setSelectedPage] = useState(1);
   const [clientDocuments, setClientDocuments] = useState(null);
   const [count, setCount] = useState(null);
+  const [registerToDelete, setRegisterToDelete] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
   const importantFields = clientModel.fields.filter(field => field.important);
 
-  useEffect(() => {
-    if (!project) return;
+  const handleGetDocuments = () => {
     getClientDocuments(clientModel.entity, project, pageSize, selectedPage).then(
       ({ data: givenClientDocuments }) => {
         setClientDocuments(givenClientDocuments);
       }
     );
+  };
+
+  const handleDelete = confirmed => {
+    if (!confirmed) return setRegisterToDelete(null);
+    if (isDeleting) return;
+    setIsDeleting(true);
+    deleteClientDocument(registerToDelete).then(() => {
+      setIsDeleting(false);
+      setRegisterToDelete(null);
+      setClientDocuments([]);
+      handleGetDocuments();
+      pushAlert({ type: 'info', ...language.registerDeleted(clientModel) });
+    });
+  };
+
+  useEffect(() => {
+    if (!project) return;
+    handleGetDocuments();
   }, [project, props.clientModel, selectedPage]);
 
   useEffect(() => {
@@ -40,6 +62,22 @@ const RegisterList = props => {
 
   return (
     <div className="registerList">
+      <ConfirmModal
+        show={!!registerToDelete}
+        onPrompt={handleDelete}
+        title={language.deleteMessage(clientModel)}
+        message={
+          <div>
+            {registerToDelete &&
+              clientModel.fields.map((field, i) => (
+                <div key={i} className="registerInfo">
+                  <h4 className="registerInfoItem">{field.names[languageCode]}:</h4>
+                  <p className="registerInfoItem">&nbsp;{registerToDelete[field.key]}</p>
+                </div>
+              ))}
+          </div>
+        }
+      />
       <Table>
         <TableHead>
           <TableRow>
@@ -67,7 +105,7 @@ const RegisterList = props => {
                       <i className="fa fa-edit" />
                     </a>
                   </Link>
-                  <i className="fa fa-trash" />
+                  <i className="fa fa-trash" onClick={() => setRegisterToDelete(clientDocument)} />
                 </div>
               </TableCell>
               {importantFields.map((field, ii) => (
@@ -110,6 +148,12 @@ const RegisterList = props => {
           }
           .fa-trash {
             color: red;
+          }
+          .registerInfo {
+            margin: 14px;
+          }
+          .registerInfoItem {
+            display: inline;
           }
         `}
       </style>
