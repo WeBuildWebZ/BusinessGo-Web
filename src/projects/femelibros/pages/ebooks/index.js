@@ -41,7 +41,13 @@ const Books = () => {
       <Menu />
 
       <div className="books">
-        <section>Esta es la seccion de los libros.</section>
+        <section>
+          <p>
+            Seccion dedicada a ti, escoge el ebook que mas te guste o llame tu atencion, y al hacerlo, se
+            enviara un mail a mi bandeja de correo para que te contacte, si gustas , puedes hablarme por
+            WhatsApp.
+          </p>
+        </section>
         {books?.map((book, i) => (
           <div className="card" key={book._id} data-aos="zoom-in-down">
             <div className="image">
@@ -73,7 +79,6 @@ const Books = () => {
         {`
           .books {
             width: 100vw;
-
             min-height: 100vh;
             background: #ebebeb;
             display: flex;
@@ -83,12 +88,19 @@ const Books = () => {
           }
           section {
             width: 100vw;
-            height: 300px;
+            min-height: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2em;
-            flex-wrap: wrap;
+            background: coral;
+            padding: 3em 1em 1em 1em;
+            font-style: italic;
+            color: #1c1c1c;
+          }
+          section p {
+            width: 600px;
+            font-size: 1.5em;
+            color: #1c1c1c;
           }
 
           .card {
@@ -161,6 +173,18 @@ const Books = () => {
             color: white;
           }
           // ===========
+
+          @media (max-width: 580px) {
+            section p {
+              width: 100%;
+              padding-top: 1em;
+            }
+          }
+          @media (max-width: 440px) {
+            section p {
+              padding-top: 2em;
+            }
+          }
         `}
       </style>
 

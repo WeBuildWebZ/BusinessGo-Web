@@ -51,7 +51,7 @@ const Servicios = () => {
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            padding: 6em 0;
+            padding: 6em 0 2em 0;
           }
           .row {
             width: 100vw;

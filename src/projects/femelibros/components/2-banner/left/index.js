@@ -36,16 +36,7 @@ const Left = () => {
               background-repeat: no-repeat;
               position: relative;
             }
-            .text-container:before {
-              width: 100%;
-              height: 10px;
-              height: ;
-              background: white;
-              content: '';
-              position: absolute;
-              bottom: 2em;
-              left: 0;
-            }
+
             .text-container:after {
               color: white;
               content: '...';

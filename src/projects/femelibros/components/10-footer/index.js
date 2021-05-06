@@ -12,8 +12,8 @@ const Footer = () => {
       <p>{project?.configuration.contact?.location}</p>
 
       <p>
-        <a href="#" target="blank">
-          {project?.configuration.contact?.email}
+        <a href={project?.configuration.contact?.email} target="blank">
+          Correo
         </a>
       </p>
 
@@ -29,8 +29,9 @@ const Footer = () => {
             width: 100vw;
             height: 100px;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
             background: #756a6f;
             color: white;
           }
@@ -47,23 +48,6 @@ const Footer = () => {
           a {
             color: white;
             margin: 1em;
-          }
-
-          @media (max-width: 840px) {
-            .bottom {
-              flex-flow: column;
-            }
-            .column {
-              width: 100%;
-              padding: 1em;
-              border-radius: 0;
-              display: flex;
-              justify-content: center;
-              flex-flow: column;
-            }
-            .row {
-              padding: 0 0 1em 1em;
-            }
           }
         `}
       </style>
