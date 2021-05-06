@@ -55,7 +55,9 @@ const EditRegister = props => {
       <DashboardLayout
         breadcrumbItems={dashboardConfiguration.breadcrumbItems}
         sidebarButtons={dashboardConfiguration.sidebarButtons}
-        backTitle={`${project ? `${language.project} ${project?.name}: ` : ''}${language.registers}`}
+        backTitle={`${project ? `${language.project} ${project?.name}: ` : ''}${
+          clientModel ? `${language.edit} ${clientModel.name}` : language.registers
+        }`}
         backHref={typeof window === 'object' ? removeOneSlashToUrl(window.location.href) : ''}
       >
         {project && clientModel && (

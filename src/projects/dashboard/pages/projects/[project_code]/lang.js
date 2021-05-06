@@ -5,14 +5,16 @@ export const getLanguage = language_code =>
       configuration: 'Configuración',
       siteBuilder: 'Constructor de Sitio Web (Próximamente)',
       formEditor: 'Editor de Formularios',
-      registers: 'Registros'
+      registers: 'Registros',
+      edit: 'Editar'
     },
     en: {
       project: 'Project',
       configuration: 'Configuration',
       siteBuilder: 'Website Builder (Coming soon)',
       formEditor: 'Form Editor',
-      registers: 'Registers'
+      registers: 'Registers',
+      edit: 'Edit'
     }
   }[language_code]);
 

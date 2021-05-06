@@ -57,16 +57,18 @@ const RegisterList = props => {
           {clientDocuments?.map((clientDocument, i) => (
             <TableRow key={i}>
               <TableCell>
-                <Link
-                  href={`/projects/${encodeURIComponent(project.code)}/registers/${encodeURIComponent(
-                    clientModel.entity
-                  )}/${clientDocument._id}`}
-                >
-                  <a>
-                    <i className="fa fa-edit" />
-                  </a>
-                </Link>
-                <i className="fa fa-trash" />
+                <div className="actions">
+                  <Link
+                    href={`/projects/${encodeURIComponent(project.code)}/registers/${encodeURIComponent(
+                      clientModel.entity
+                    )}/${clientDocument._id}`}
+                  >
+                    <a>
+                      <i className="fa fa-edit" />
+                    </a>
+                  </Link>
+                  <i className="fa fa-trash" />
+                </div>
               </TableCell>
               {importantFields.map((field, ii) => (
                 <TableCell key={ii}>{clientDocument[field.key]}</TableCell>
@@ -91,21 +93,23 @@ const RegisterList = props => {
           .registerList {
             background-color: whitesmoke;
           }
+          .actions {
+            display: flex;
+          }
           .fa {
-            font-size: 22px;
+            font-size: 30px;
             margin: 7px;
-            display: inline;
+            transition: 0.7s;
+          }
+          .fa:hover {
+            transform: scale(1.2);
+          }
+          .fa:active {
+            transform: scale(1.4);
+            transition: 0.1s;
           }
           .fa-trash {
             color: red;
-            transition: 0.7s;
-          }
-          .fa-trash:hover {
-            transform: scale(1.1);
-          }
-          .fa-trash:active {
-            transform: scale(1.2) rotate(5deg);
-            transition: 0.1s;
           }
         `}
       </style>
