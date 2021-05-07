@@ -54,6 +54,7 @@ const ShowBook = props => {
           }
           .bookContainer {
             display: flex;
+            align-items: center;
           }
           .bookPhoto {
             width: 50%;
@@ -76,6 +77,14 @@ const ShowBook = props => {
           }
           .bookDescription {
             max-width: 50%;
+          }
+          @media only screen and (max-width: 768px) {
+            .bookContainer {
+              flex-direction: column;
+            }
+            .bookPhoto {
+              width: 80%;
+            }
           }
         `}
       </style>
