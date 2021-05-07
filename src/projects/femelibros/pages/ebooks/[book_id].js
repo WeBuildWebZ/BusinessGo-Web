@@ -62,6 +62,11 @@ const ShowBook = props => {
             border-top-right-radius: 50px;
             border-bottom-left-radius: 7px;
             border-bottom-right-radius: 7px;
+            transition: 0.7s;
+          }
+          .bookPhoto:hover {
+            transform: rotateX(5deg) rotateY(-10deg);
+            box-shadow: 0 0 2px 2px #000000;
           }
           .bookInfo {
             display: flex;
