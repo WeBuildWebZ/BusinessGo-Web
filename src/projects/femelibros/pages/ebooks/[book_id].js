@@ -65,7 +65,7 @@ const ShowBook = props => {
             transition: 0.7s;
           }
           .bookPhoto:hover {
-            transform: rotateX(5deg) rotateY(-10deg);
+            transform: rotateX(16deg) rotateY(-16deg);
             box-shadow: 0 0 2px 2px #000000;
           }
           .bookInfo {

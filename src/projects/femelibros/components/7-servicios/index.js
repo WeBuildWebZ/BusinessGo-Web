@@ -1,13 +1,20 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { Cards } from '../../data/cards';
-
-// fake data lean..borralo pal carajo
-const cards = Cards;
+import Book from '../13-Book';
+import { getClientDocuments } from '../../../../services/api/clientDocument';
 
 const Servicios = () => {
   const project = useSelector(store => store.project);
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    if (!project) return;
+    getClientDocuments('book', project, 4, 1).then(({ data: givenBooks }) => {
+      setBooks(givenBooks);
+    });
+  }, [project]);
 
   return (
     <div className="boxs" id="recientes">
@@ -24,15 +31,8 @@ const Servicios = () => {
           <h4>{project?.configuration.recent_books?.discount}</h4>
         </div>
       </div>
-      {project?.configuration.recent_books?.cards?.map((card, i) => (
-        <div className="card" key={i} data-aos="fade-down">
-          <img src={card.photo} alt="Recent book" />
-          <h4>{card.title}</h4>
-          <p>{card.description}</p>
-          <Link href="#">
-            <a>- Leer más</a>
-          </Link>
-        </div>
+      {books.map((book, i) => (
+        <Book key={i} book={book} />
       ))}
 
       <Link href="/ebooks">
