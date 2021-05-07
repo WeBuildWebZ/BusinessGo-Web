@@ -4,31 +4,62 @@ import { useSelector } from 'react-redux';
 import Pagination from '../Pagination';
 import { getClientDocuments } from '../../../../services/api/clientDocument';
 
+import Patrocinator from './Patrocinator';
+
+const pageSize = 4;
+
 const PatrocinatorsComponent = () => {
   const project = useSelector(store => store.project);
-  const [patrocinators, setPatrocinators] = useState(null);
+  const [patrocinators, setPatrocinators] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [count, setCount] = useState(null);
 
   useEffect(() => {
     if (!project) return;
-    // getClientDocuments('book', project, 4, 1).then(({ data: givenPatrocinators }) => {
-    //   setPatrocinators(givenPatrocinators);
-    // });
+    getClientDocuments('user', project, pageSize, pageNumber, { 'sponsorship.is_patrocinator': true }).then(
+      ({ data: givenPatrocinators }) => {
+        setPatrocinators(givenPatrocinators);
+        console.log('givenPatrocinators', givenPatrocinators);
+      }
+    );
+  }, [project, pageNumber]);
+
+  useEffect(() => {
+    if (!project) return;
+    getClientDocuments(
+      'user',
+      project,
+      pageSize,
+      pageNumber,
+      { 'sponsorship.is_patrocinator': true },
+      '',
+      [],
+      true
+    ).then(({ data: response }) => {
+      setCount(response.count);
+    });
   }, [project]);
 
   return (
     <div className="patrocinators">
-      <div className="paginationContainer">
-        <Pagination
-          pagination={{ count: 15, pageSize: 3, maxPages: 3, pageNumber }}
-          onPageChanged={setPageNumber}
-        />
-      </div>
+      {patrocinators.map((patrocinator, i) => (
+        <Patrocinator key={i} patrocinator={patrocinator} />
+      ))}
+      {count && (
+        <div className="paginationContainer">
+          <Pagination
+            pagination={{ count, pageSize, maxPages: 3, pageNumber }}
+            onPageChanged={setPageNumber}
+          />
+        </div>
+      )}
       <style jsx>
         {`
           .patrocinators {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 21px;
           }
           .paginationContainer {
             display: flex;
