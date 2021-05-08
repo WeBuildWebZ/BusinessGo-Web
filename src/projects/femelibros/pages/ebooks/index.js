@@ -66,15 +66,16 @@ const Books = () => {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: coral;
+            background: #d99c8a;
+            color: white;
             padding: 3em 1em 1em 1em;
             font-style: italic;
-            color: #1c1c1c;
           }
           section p {
             width: 600px;
-            font-size: 1.5em;
-            color: #1c1c1c;
+            font-size: 1.7em;
+            letter-spacing: 1px;
+            padding-top: 0.5em;
           }
 
           // ===========

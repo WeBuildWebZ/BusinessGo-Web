@@ -9,19 +9,15 @@ const Footer = () => {
 
   return (
     <div className="footer" id="footer">
-      <p>{project?.configuration.contact?.location}</p>
+      <a href="/">{project?.configuration.contact?.location}</a>
 
-      <p>
-        <a href={project?.configuration.contact?.email} target="blank">
-          Correo
-        </a>
-      </p>
+      <a href={project?.configuration.contact?.email} target="blank">
+        Correo
+      </a>
 
-      <p>
-        <Link href="/privacy_policy">
-          <a>Política de privacidad</a>
-        </Link>
-      </p>
+      <Link href="/privacy_policy">
+        <a>Política de privacidad</a>
+      </Link>
 
       <style jsx>
         {`
@@ -33,15 +29,6 @@ const Footer = () => {
             justify-content: center;
             flex-wrap: wrap;
             background: #756a6f;
-            color: white;
-          }
-
-          p {
-            color: white;
-            margin: 0;
-          }
-          .pointer {
-            cursor: pointer;
             color: white;
           }
 

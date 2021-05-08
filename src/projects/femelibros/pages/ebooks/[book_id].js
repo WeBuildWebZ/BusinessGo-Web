@@ -59,10 +59,7 @@ const ShowBook = props => {
           .bookPhoto {
             width: 50%;
             margin: 21px;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
-            border-bottom-left-radius: 7px;
-            border-bottom-right-radius: 7px;
+            border-radius: 7px 50px;
             transition: 0.7s;
           }
           .bookPhoto:hover {
