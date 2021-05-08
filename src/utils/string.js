@@ -11,3 +11,9 @@ export const getNumber = (str = '') => {
       .join('') || 0
   );
 };
+
+export const getWordsFromString = (str = '') =>
+  str
+    .split(/,/g)
+    .map(item => item.trim().toLowerCase())
+    .filter(item => item);

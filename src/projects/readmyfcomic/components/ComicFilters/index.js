@@ -7,6 +7,7 @@ import Search from '../Search';
 import { setComics } from '../../actions/comics';
 import { setComicPagination } from '../../actions/comicPagination';
 import { listItems } from '../../../../services/api/item';
+import { getWordsFromString } from '../../../../utils/string';
 
 import { getLanguage } from './lang';
 
@@ -37,10 +38,13 @@ const Filters = () => {
     const pageNumber = pagination?.pageNumber || 1;
     if (!project) return;
     const categoryFilter = category === 'All' ? {} : { category };
-    listItems('comic', project, pageSize, pageNumber, categoryFilter).then(({ data: comics }) => {
+    const tags = getWordsFromString(search);
+    const completeFilter = { ...categoryFilter, tags };
+
+    listItems('comic', project, pageSize, pageNumber, completeFilter).then(({ data: comics }) => {
       dispatch(setComics(comics));
     });
-    listItems('comic', project, pageSize, pageNumber, categoryFilter, '', [], true).then(({ data }) => {
+    listItems('comic', project, pageSize, pageNumber, completeFilter, '', [], true).then(({ data }) => {
       dispatch(setComicPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
     });
   }, [project, category, sortBy, search, pagination?.pageNumber]);
