@@ -1,6 +1,6 @@
-import { getClientDocuments, getDistinctClientDocuments } from '../../../services/api/clientDocument';
+import { listItems, listDistinctItems } from '../../../services/api/item';
 
 export const getProducts = (page_size, page_number, filters = {}) =>
-  getClientDocuments('product', page_size, page_number, filters, '', []);
+  listItems('product', page_size, page_number, filters, '', []);
 
-export const getDistinctProducts = () => getDistinctClientDocuments(['category']);
+export const getDistinctProducts = () => listDistinctItems(['category']);

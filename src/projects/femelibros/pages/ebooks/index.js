@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Menu from '../../components/1-menu';
 import Footer from '../../components/10-footer';
 import Pagination from '../../components/12-Pagination';
-import { getClientDocuments } from '../../../../services/api/clientDocument';
+import { listItems } from '../../../../services/api/item';
 import Book from '../../components/13-Book';
 
 const ratingChanged = newRating => {
@@ -20,14 +20,14 @@ const Books = () => {
 
   useEffect(() => {
     if (!project) return;
-    getClientDocuments('book', project, pageSize, page).then(({ data: givenBooks }) => {
+    listItems('book', project, pageSize, page).then(({ data: givenBooks }) => {
       setBooks(givenBooks);
     });
   }, [project, page]);
 
   useEffect(() => {
     if (!project) return;
-    getClientDocuments('book', project, pageSize, page, {}, '', [], true).then(({ data: response }) => {
+    listItems('book', project, pageSize, page, {}, '', [], true).then(({ data: response }) => {
       setPageCount(Math.ceil(response.count / pageSize));
     });
   }, [project]);

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import useChangeQuery from '../../../../../shared/hooks/useChangeQuery';
-import Select from '../../../components/Select';
-import Search from '../../../components/Search';
-import { setComics } from '../../../actions/comics';
-import { setComicPagination } from '../../../actions/comicPagination';
-import { getClientDocuments } from '../../../../../services/api/clientDocument';
+import useChangeQuery from '../../../../shared/hooks/useChangeQuery';
+import Select from '../Select';
+import Search from '../Search';
+import { setComics } from '../../actions/comics';
+import { setComicPagination } from '../../actions/comicPagination';
+import { listItems } from '../../../../services/api/item';
 
 import { getLanguage } from './lang';
 
@@ -37,14 +37,12 @@ const Filters = () => {
     const pageNumber = pagination?.pageNumber || 1;
     if (!project) return;
     const categoryFilter = category === 'All' ? {} : { category };
-    getClientDocuments('comic', project, pageSize, pageNumber, categoryFilter).then(({ data: comics }) => {
+    listItems('comic', project, pageSize, pageNumber, categoryFilter).then(({ data: comics }) => {
       dispatch(setComics(comics));
     });
-    getClientDocuments('comic', project, pageSize, pageNumber, categoryFilter, '', [], true).then(
-      ({ data }) => {
-        dispatch(setComicPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
-      }
-    );
+    listItems('comic', project, pageSize, pageNumber, categoryFilter, '', [], true).then(({ data }) => {
+      dispatch(setComicPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
+    });
   }, [project, category, sortBy, search, pagination?.pageNumber]);
 
   return (

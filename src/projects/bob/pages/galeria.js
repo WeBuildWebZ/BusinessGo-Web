@@ -4,7 +4,7 @@ import SwiperCore, { EffectFade, Navigation } from 'swiper';
 import Link from 'next/link';
 
 import Spinner from '../../../components/Spinner';
-import { getClientDocuments } from '../../../services/api/clientDocument';
+import { listItems } from '../../../services/api/item';
 
 SwiperCore.use([EffectFade, Navigation]);
 
@@ -13,7 +13,7 @@ const Galeria = () => {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
-    getClientDocuments('post', project, 3, 1).then(({ data: givenPosts }) => {
+    listItems('post', project, 3, 1).then(({ data: givenPosts }) => {
       setPosts(givenPosts);
     });
   }, []);

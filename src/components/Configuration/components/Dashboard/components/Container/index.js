@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getClientModels } from '../../../../../../services/api/clientModel';
+import { listItemModels } from '../../../../../../services/api/itemModel';
 import { setAdminSection } from '../../../../../../shared/actions/adminSection';
 import { setClientModels } from '../../../../../../shared/actions/clientModels';
 import { setSelectedClientModel } from '../../../../../../shared/actions/selectedClientModel';
@@ -25,7 +25,7 @@ const Container = () => {
 
   useEffect(() => {
     if (adminSectionRef.current !== 'tables') return;
-    getClientModels(project).then(({ data: clientModels }) => {
+    listItemModels(project).then(({ data: clientModels }) => {
       dispatch(setClientModels(clientModels));
 
       if (!clientModels.length) {

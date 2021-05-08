@@ -7,7 +7,3 @@ export const getLanguage = langCode =>
       searchByName: 'SEARCH BY NAME'
     }
   }[langCode]);
-
-const Component = () => <div />;
-
-export default Component;

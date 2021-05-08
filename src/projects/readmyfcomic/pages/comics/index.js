@@ -4,9 +4,9 @@ import Layout from '../../components/Layout';
 import Title from '../../components/Title';
 import Pagination from '../../components/Pagination';
 import { setComicPagination } from '../../actions/comicPagination';
+import ComicList from '../../components/ComicList';
+import ComicFilters from '../../components/ComicFilters';
 
-import Filters from './Filters';
-import ComicList from './ComicList';
 import { getLanguage } from './lang';
 
 const Comics = () => {
@@ -22,7 +22,7 @@ const Comics = () => {
   return (
     <Layout page="findComic">
       <Title title={language.title} />
-      <Filters />
+      <ComicFilters />
       <ComicList />
       {pagination && <Pagination pagination={pagination} onPageChanged={handleChangePage} />}
     </Layout>

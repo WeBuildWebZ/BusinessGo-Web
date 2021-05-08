@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
 import PropTypes from 'prop-types';
 
-import { showClientDocument } from '../../../../services/api/clientDocument';
+import { showItem } from '../../../../services/api/item';
 import Menu from '../../components/1-menu';
 import Footer from '../../components/10-footer';
 
@@ -19,7 +19,7 @@ const ShowBook = props => {
   const pageSize = 9;
 
   useEffect(() => {
-    showClientDocument(book_id).then(({ data: givenBook }) => {
+    showItem(book_id).then(({ data: givenBook }) => {
       setBook(givenBook);
     });
   }, []);

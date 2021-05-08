@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getClientDocuments } from '../../../../services/api/clientDocument';
+import { listItems } from '../../../../services/api/item';
 import { formatCard } from '../../utils/card';
 
 import Card from './Card';
@@ -13,7 +13,7 @@ const CardList = () => {
 
   useEffect(() => {
     if (!project || !user) return;
-    getClientDocuments('card', project, 100, 1, { user_id: user._id }).then(({ data: givenCards }) => {
+    listItems('card', project, 100, 1, { user_id: user._id }).then(({ data: givenCards }) => {
       setCards(givenCards.map(formatCard));
     });
   }, [project]);

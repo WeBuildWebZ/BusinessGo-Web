@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import Pagination from '../Pagination';
-import { getClientDocuments } from '../../../../services/api/clientDocument';
+import { listItems } from '../../../../services/api/item';
 
 import Patrocinator from './Patrocinator';
 
@@ -16,7 +16,7 @@ const PatrocinatorsComponent = () => {
 
   useEffect(() => {
     if (!project) return;
-    getClientDocuments('user', project, pageSize, pageNumber, { 'sponsorship.is_patrocinator': true }).then(
+    listItems('user', project, pageSize, pageNumber, { 'sponsorship.is_patrocinator': true }).then(
       ({ data: givenPatrocinators }) => {
         setPatrocinators(givenPatrocinators);
         console.log('givenPatrocinators', givenPatrocinators);
@@ -26,7 +26,7 @@ const PatrocinatorsComponent = () => {
 
   useEffect(() => {
     if (!project) return;
-    getClientDocuments(
+    listItems(
       'user',
       project,
       pageSize,

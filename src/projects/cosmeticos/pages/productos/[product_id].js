@@ -7,7 +7,7 @@ import Copyright from '../../componentss/Copyright';
 import ProductDetail from '../../componentss/ProductDetail';
 import Breadcrumb from '../../../../components/Breadcrumb';
 import Spinner from '../../../../components/Spinner';
-import { showClientDocument } from '../../../../services/api/clientDocument';
+import { showItem } from '../../../../services/api/item';
 
 export const getServerSideProps = ({ query }) => {
   const { product_id } = query;
@@ -19,7 +19,7 @@ const ProductById = ({ product_id }) => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    showClientDocument(product_id).then(({ data: givenProduct }) => {
+    showItem(product_id).then(({ data: givenProduct }) => {
       setProduct(givenProduct);
     });
   }, []);

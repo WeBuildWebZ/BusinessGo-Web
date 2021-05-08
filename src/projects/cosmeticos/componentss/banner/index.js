@@ -12,7 +12,7 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 
 import { useSelector } from 'react-redux';
 
-import { getClientDocuments } from '../../../../services/api/clientDocument';
+import { listItems } from '../../../../services/api/item';
 import Spinner from '../../../../components/Spinner';
 
 const Banner = () => {
@@ -20,7 +20,7 @@ const Banner = () => {
   const [sliderItems, setSliderItems] = useState(null);
 
   useEffect(() => {
-    getClientDocuments('main_slider', project).then(({ data: givenSliderItems }) => {
+    listItems('main_slider', project).then(({ data: givenSliderItems }) => {
       setSliderItems(givenSliderItems);
     });
   }, []);

@@ -9,7 +9,7 @@ import useDashboardConfiguration from '../../../../hooks/useDashboardConfigurati
 import SectionButton from '../../../../components/SectionButton';
 import RegisterList from '../../../../components/RegisterList';
 import { removeOneSlashToUrl } from '../../../../../../utils/url';
-import { getClientModels } from '../../../../../../services/api/clientModel';
+import { listItemModels } from '../../../../../../services/api/itemModel';
 
 import { getLanguage } from './lang';
 
@@ -22,7 +22,7 @@ const Configuration = () => {
 
   useEffect(() => {
     if (!project) return;
-    getClientModels(project).then(({ data: givenClientModels }) => {
+    listItemModels(project).then(({ data: givenClientModels }) => {
       setClientModels(givenClientModels);
       if (!givenClientModels.length) return;
       setSelectedClientModel(givenClientModels[0]);

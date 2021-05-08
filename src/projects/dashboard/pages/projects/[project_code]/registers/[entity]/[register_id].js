@@ -13,16 +13,16 @@ import BackButton from '../../../../../components/BackButton';
 import RegisterList from '../../../../../components/RegisterList';
 import { removeOneSlashToUrl } from '../../../../../../../utils/url';
 import { updateProjectConfigurationSection } from '../../../../../../../services/api/project';
-import { getClientModels } from '../../../../../../../services/api/user';
+import { listItemModels } from '../../../../../../../services/api/user';
 import { setProject } from '../../../../../../../shared/actions/project';
 import usePushAlert from '../../../../../../../shared/hooks/usePushAlert';
 import { getLanguage } from '../../lang';
-import { showClientModel } from '../../../../../../../services/api/clientModel';
+import { showItemModel } from '../../../../../../../services/api/itemModel';
 import {
-  createClientDocument,
-  showClientDocument,
-  updateClientDocument
-} from '../../../../../../../services/api/clientDocument';
+  createItem,
+  showItem,
+  updateItem
+} from '../../../../../../../services/api/item';
 
 export const getServerSideProps = ({ query }) => {
   const { entity, register_id } = query;
@@ -59,7 +59,7 @@ const EditRegister = props => {
     if (isNew) {
       if (created || creating) return;
       setCreating(true);
-      createClientDocument(entity, project.code, newClientDocument)
+      createItem(entity, project.code, newClientDocument)
         .then(({ data: newRegister }) => {
           pushAlert({ type: 'info', ...language.registerCreated(clientModel) });
           setCreated(true);
@@ -76,7 +76,7 @@ const EditRegister = props => {
           setCreating(false);
         });
     } else {
-      updateClientDocument(newClientDocument).then(() => {
+      updateItem(newClientDocument).then(() => {
         pushAlert({ type: 'info', ...language.registerUpdated(clientModel) });
       });
     }
@@ -84,11 +84,11 @@ const EditRegister = props => {
 
   useEffect(() => {
     if (!project) return;
-    showClientModel(project, entity).then(({ data: givenClientModel }) => {
+    showItemModel(project, entity).then(({ data: givenClientModel }) => {
       setClientModel(givenClientModel);
     });
     if (isNew) return;
-    showClientDocument(register_id).then(({ data: givenClientDocument }) => {
+    showItem(register_id).then(({ data: givenClientDocument }) => {
       setClientDocument(givenClientDocument);
     });
   }, [project]);

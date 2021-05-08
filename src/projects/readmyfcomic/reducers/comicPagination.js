@@ -1,4 +1,4 @@
-const initialState = null;
+const initialState = { count: 1, pageSize: 8, maxPages: 2, pageNumber: 1 };
 
 const ComicPagination = (state = initialState, action = {}) => {
   switch (action.type) {

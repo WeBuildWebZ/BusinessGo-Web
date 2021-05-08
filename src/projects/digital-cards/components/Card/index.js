@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import VCard from 'vcard-creator';
 
 import Spinner from '../../../../components/Spinner';
-import { showClientDocument } from '../../../../services/api/clientDocument';
+import { showItem } from '../../../../services/api/item';
 
 import SocialNetworks from './SocialNetworks';
 import { getLanguage } from './lang';
@@ -30,7 +30,7 @@ const Card = props => {
 
   useEffect(() => {
     if (card) return;
-    showClientDocument(props.id).then(({ data: givenCard }) => {
+    showItem(props.id).then(({ data: givenCard }) => {
       setCard(givenCard);
     });
   }, []);

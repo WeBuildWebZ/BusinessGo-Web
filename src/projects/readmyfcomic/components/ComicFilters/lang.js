@@ -11,7 +11,3 @@ export const getLanguage = langCode =>
       searchByTags: 'SEARCH BY TAGS'
     }
   }[langCode]);
-
-const Component = () => <div />;
-
-export default Component;

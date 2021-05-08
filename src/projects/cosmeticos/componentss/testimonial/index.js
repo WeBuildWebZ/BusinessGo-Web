@@ -10,7 +10,7 @@ import {
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import { useSelector } from 'react-redux';
 
-import { getClientDocuments } from '../../../../services/api/clientDocument';
+import { listItems } from '../../../../services/api/item';
 import Spinner from '../../../../components/Spinner';
 
 const TestimonialOld = () => {
@@ -18,7 +18,7 @@ const TestimonialOld = () => {
   const [comments, setComments] = useState(null);
 
   useEffect(() => {
-    getClientDocuments('image').then(({ data: givenComments }) => {
+    listItems('image').then(({ data: givenComments }) => {
       setComments(givenComments);
     });
   }, []);

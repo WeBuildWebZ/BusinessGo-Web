@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import Book from '../13-Book';
-import { getClientDocuments } from '../../../../services/api/clientDocument';
+import { listItems } from '../../../../services/api/item';
 
 const Servicios = () => {
   const project = useSelector(store => store.project);
@@ -11,7 +11,7 @@ const Servicios = () => {
 
   useEffect(() => {
     if (!project) return;
-    getClientDocuments('book', project, 4, 1).then(({ data: givenBooks }) => {
+    listItems('book', project, 4, 1).then(({ data: givenBooks }) => {
       setBooks(givenBooks);
     });
   }, [project]);

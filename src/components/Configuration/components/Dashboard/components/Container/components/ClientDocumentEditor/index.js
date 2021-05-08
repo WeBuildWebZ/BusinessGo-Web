@@ -6,11 +6,11 @@ import { useSelector } from 'react-redux';
 import InfiniteScroll from '../../../../../../../InfiniteScroll';
 import Table from '../../../../../../../Table';
 import {
-  createClientDocument,
-  updateClientDocument,
-  getClientDocuments,
-  deleteClientDocument
-} from '../../../../../../../../services/api/clientDocument';
+  createItem,
+  updateItem,
+  listItems,
+  deleteItem
+} from '../../../../../../../../services/api/item';
 
 import EditModal from './components/EditModal';
 import SearchInput from './components/SearchInput';
@@ -55,14 +55,14 @@ const ClientDocumentEditor = props => {
     setSelectedClientDocument(null);
 
     if (isNewDocument) {
-      createClientDocument(clientModel.entity, clientModel.project_code, clientDocument).then(
+      createItem(clientModel.entity, clientModel.project_code, clientDocument).then(
         ({ data: createdClientDocument }) => {
           if (!mounted) return;
           setClientDocuments([createdClientDocument, ...clientDocuments]);
         }
       );
     } else {
-      updateClientDocument(clientDocument).then(() => {
+      updateItem(clientDocument).then(() => {
         if (!mounted) return;
         setClientDocuments(
           clientDocuments.map(_clientDocument =>
@@ -74,7 +74,7 @@ const ClientDocumentEditor = props => {
   };
 
   const handleDocumentDeletion = clientDocument => {
-    deleteClientDocument(clientDocument).then(() => {
+    deleteItem(clientDocument).then(() => {
       setClientDocuments(
         clientDocuments.filter(_clientDocument => _clientDocument._id !== clientDocument._id)
       );
@@ -87,7 +87,7 @@ const ClientDocumentEditor = props => {
 
   const handleChangePage = pageNumber => {
     setLoading(true);
-    getClientDocuments(
+    listItems(
       clientModel.entity,
       project,
       props.pageSize,

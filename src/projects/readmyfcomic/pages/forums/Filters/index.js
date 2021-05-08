@@ -6,7 +6,7 @@ import Select from '../../../components/Select';
 import Search from '../../../components/Search';
 import { setForums } from '../../../actions/forums';
 import { setForumPagination } from '../../../actions/forumPagination';
-import { getClientDocuments } from '../../../../../services/api/clientDocument';
+import { listItems } from '../../../../../services/api/item';
 
 import { getLanguage } from './lang';
 
@@ -24,10 +24,10 @@ const Filters = () => {
   useEffect(() => {
     const pageNumber = pagination?.pageNumber || 1;
     if (!project) return;
-    getClientDocuments('forum', project, pageSize, pageNumber, {}).then(({ data: comics }) => {
+    listItems('forum', project, pageSize, pageNumber, {}).then(({ data: comics }) => {
       dispatch(setForums(comics));
     });
-    getClientDocuments('forum', project, pageSize, pageNumber, {}, '', [], true).then(({ data }) => {
+    listItems('forum', project, pageSize, pageNumber, {}, '', [], true).then(({ data }) => {
       dispatch(setForumPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
     });
   }, [project, sortBy, pagination?.pageNumber]);

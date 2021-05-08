@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import Layout from '../../components/Layout';
 import Forum from '../../components/Forum';
-import { showClientDocument } from '../../../../services/api/clientDocument';
+import { showItem } from '../../../../services/api/item';
 
 const Proflies = () => {
   const [forum, setForum] = useState(null);
@@ -11,7 +11,7 @@ const Proflies = () => {
 
   useEffect(() => {
     if (!query.forum_id) return;
-    showClientDocument(query.forum_id).then(({ data: givenForum }) => {
+    showItem(query.forum_id).then(({ data: givenForum }) => {
       setForum(givenForum);
     });
   }, [query.forum_id]);

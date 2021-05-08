@@ -6,7 +6,7 @@ import Card from '../Card2';
 import { listProducts } from '../../../../services/ecommerce_api/product';
 import FieldRenderer from '../../../../components/FieldRenderer';
 import { showForm } from '../../../../services/api/form';
-import { createClientDocument } from '../../../../services/api/clientDocument';
+import { createItem } from '../../../../services/api/item';
 import usePushAlert from '../../../../shared/hooks/usePushAlert';
 import { filterFields } from '../../../../utils/form';
 
@@ -58,7 +58,7 @@ const NewCard = () => {
     setData(newData);
     if (form.steps[nextStep]) return setStep(nextStep);
 
-    createClientDocument('card', project.code, newData).then(({ data: newClientDocument }) => {
+    createItem('card', project.code, newData).then(({ data: newClientDocument }) => {
       pushAlert({
         type: 'info',
         title: language.cardCreated.title,

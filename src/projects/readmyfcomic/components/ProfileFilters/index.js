@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import useChangeQuery from '../../../../../shared/hooks/useChangeQuery';
-import Select from '../../../components/Select';
-import Search from '../../../components/Search';
-import { setProfiles } from '../../../actions/profiles';
-import { setProfilePagination } from '../../../actions/profilePagination';
-import { getClientDocuments } from '../../../../../services/api/clientDocument';
+import useChangeQuery from '../../../../shared/hooks/useChangeQuery';
+import Select from '../Select';
+import Search from '../Search';
+import { setProfiles } from '../../actions/profiles';
+import { setProfilePagination } from '../../actions/profilePagination';
+import { listItems } from '../../../../services/api/item';
 
 import { getLanguage } from './lang';
 
@@ -24,10 +24,11 @@ const Filters = () => {
   useEffect(() => {
     const pageNumber = pagination?.pageNumber || 1;
     if (!project) return;
-    getClientDocuments('user', project, pageSize, pageNumber, {}).then(({ data: comics }) => {
-      dispatch(setProfiles(comics));
+
+    listItems('user', project, pageSize, pageNumber, {}).then(({ data: profiles }) => {
+      dispatch(setProfiles(profiles));
     });
-    getClientDocuments('user', project, pageSize, pageNumber, {}, '', [], true).then(({ data }) => {
+    listItems('user', project, pageSize, pageNumber, {}, '', [], true).then(({ data }) => {
       dispatch(setProfilePagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
     });
   }, [project, sortBy, pagination?.pageNumber]);

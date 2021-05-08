@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Spinner from '../../../../components/Spinner';
 import Card from '../../components/Card2';
-import { showClientDocument } from '../../../../services/api/clientDocument';
+import { showItem } from '../../../../services/api/item';
 import { getQuery } from '../../../../utils/query';
 
 const Cards = () => {
@@ -15,7 +15,7 @@ const Cards = () => {
   useEffect(() => {
     if (!cardId) return;
     if (cardFromQuery) return setCard(JSON.parse(cardFromQuery));
-    showClientDocument(cardId).then(({ data: givenCard }) => {
+    showItem(cardId).then(({ data: givenCard }) => {
       setCard(givenCard);
     });
   }, [cardId, cardFromQuery]);

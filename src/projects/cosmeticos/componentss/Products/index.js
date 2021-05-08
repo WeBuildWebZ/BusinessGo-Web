@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import Spinner from '../../../../components/Spinner';
 import InfiniteScrollLastElement from '../../../../components/InfiniteScrollLastElement';
-import { getClientDocuments } from '../../../../services/api/clientDocument';
+import { listItems } from '../../../../services/api/item';
 
 import Product from './Product';
 
@@ -13,7 +13,7 @@ const Products = () => {
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
-    getClientDocuments('product', project, 10, pageNumber).then(({ data: givenProducts }) => {
+    listItems('product', project, 10, pageNumber).then(({ data: givenProducts }) => {
       setProducts(givenProducts);
     });
   }, []);

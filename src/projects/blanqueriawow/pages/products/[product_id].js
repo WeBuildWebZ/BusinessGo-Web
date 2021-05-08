@@ -7,7 +7,7 @@ import Breadcrumb from '../../components/breadcrumb';
 import Gallery from '../../components/product-single/gallery';
 import Content from '../../components/product-single/content';
 import Description from '../../components/product-single/description';
-import { showClientDocument } from '../../../../services/api/clientDocument';
+import { showItem } from '../../../../services/api/item';
 import Spinner from '../../../../components/Spinner';
 
 const Product = () => {
@@ -17,7 +17,7 @@ const Product = () => {
 
   useEffect(() => {
     if (!query.product_id) return;
-    showClientDocument(query.product_id).then(({ data: givenProduct }) => {
+    showItem(query.product_id).then(({ data: givenProduct }) => {
       setProduct(givenProduct);
     });
   }, [query.product_id]);

@@ -2,59 +2,52 @@ import { useSelector } from 'react-redux';
 import Link from 'next/link';
 
 const ProfileList = () => {
-  const totalProfiles = useSelector(store => store.profiles);
-  const groupedProfiles = totalProfiles ? [totalProfiles.slice(0, 4), totalProfiles.slice(4)] : null;
+  const profiles = useSelector(store => store.profiles);
 
   return (
     <div className="profileList">
-      {groupedProfiles?.map(profiles => (
-        <div className="column">
-          {profiles?.map((profile, i) => {
-            const link = `/profiles/${encodeURIComponent(profile._id)}`;
+      {profiles?.map((profile, i) => {
+        const link = `/profiles/${encodeURIComponent(profile._id)}`;
 
-            return (
-              <div key={i} className="profile">
-                <Link href={link}>
-                  <a>
-                    <img className="image" src={profile.image} />
-                  </a>
-                </Link>
-                <div className="infoContainer">
-                  <Link href={link}>
-                    <a>
-                      <div className="name">{profile.complete_name}</div>
-                    </a>
-                  </Link>
-                  <div className="statistic starsContainer">
-                    <img className="icon" src="/icons/star.png" />
-                    <div className="stars">{profile.rating_average}</div>
-                  </div>
-                  <div className="statistic viewsContainer">
-                    <img className="icon" src="/icons/eye.png" />
-                    <div className="views">{profile.views_count}</div>
-                  </div>
-                </div>
+        return (
+          <div key={i} className="profile">
+            <Link href={link}>
+              <a>
+                <img className="image" src={profile.image} />
+              </a>
+            </Link>
+            <div className="infoContainer">
+              <Link href={link}>
+                <a>
+                  <div className="name">{profile.complete_name}</div>
+                </a>
+              </Link>
+              <div className="statistic starsContainer">
+                <img className="icon" src="/icons/star.png" />
+                <div className="stars">{profile.rating_average}</div>
               </div>
-            );
-          })}
-        </div>
-      ))}
+              <div className="statistic viewsContainer">
+                <img className="icon" src="/icons/eye.png" />
+                <div className="views">{profile.views_count}</div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
       <style jsx>
         {`
           .profileList {
             display: flex;
-            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
             width: 100%;
             margin-top: 14px;
-          }
-          .column {
-            flex: 50%;
           }
           .profile {
             display: flex;
             flex-direction: row;
             width: fit-content;
-            margin: 28px 0 14px 0;
+            margin: 50px;
             user-select: none;
             transition: 0.7s;
           }

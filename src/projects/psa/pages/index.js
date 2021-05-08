@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { scrolledToBottom } from '../../../utils/html';
-import { getClientDocuments } from '../../../services/api/clientDocument';
+import { listItems } from '../../../services/api/item';
 import SearchInput from '../components/SearchInput';
 import FilterButton from '../components/FilterButton';
 import FilterView from '../components/FilterView';
@@ -63,7 +63,7 @@ const App = () => {
     if (selectedOptions.cities.length) filters.city = selectedOptions.cities;
     if (selectedOptions.workAreas.length) filters.work_area = selectedOptions.workAreas;
 
-    getClientDocuments('professional', project, 10, pageNumber, filters, textSearch, [
+    listItems('professional', project, 10, pageNumber, filters, textSearch, [
       'name',
       'workshop_name',
       'address',

@@ -4,9 +4,9 @@ import Layout from '../../components/Layout';
 import Title from '../../components/Title';
 import Pagination from '../../components/Pagination';
 import { setProfilePagination } from '../../actions/profilePagination';
+import ProfileList from '../../components/ProfileList';
+import ProfileFilters from '../../components/ProfileFilters';
 
-import Filters from './Filters';
-import ProfileList from './ProfileList';
 import { getLanguage } from './lang';
 
 const Proflies = () => {
@@ -22,7 +22,7 @@ const Proflies = () => {
   return (
     <Layout page="findProfile">
       <Title title={language.title} />
-      <Filters />
+      <ProfileFilters />
       <ProfileList />
       {pagination && <Pagination pagination={pagination} onPageChanged={handleChangePage} />}
     </Layout>

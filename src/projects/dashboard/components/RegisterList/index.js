@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
 
-import { getClientDocuments, deleteClientDocument } from '../../../../services/api/clientDocument';
+import { listItems, deleteItem } from '../../../../services/api/item';
 import ConfirmModal from '../../../../components/ConfirmModal';
 import usePushAlert from '../../../../shared/hooks/usePushAlert';
 
@@ -26,7 +26,7 @@ const RegisterList = props => {
   const importantFields = clientModel.fields.filter(field => field.important);
 
   const handleGetDocuments = () => {
-    getClientDocuments(clientModel.entity, project, pageSize, selectedPage).then(
+    listItems(clientModel.entity, project, pageSize, selectedPage).then(
       ({ data: givenClientDocuments }) => {
         setClientDocuments(givenClientDocuments);
       }
@@ -37,7 +37,7 @@ const RegisterList = props => {
     if (!confirmed) return setRegisterToDelete(null);
     if (isDeleting) return;
     setIsDeleting(true);
-    deleteClientDocument(registerToDelete).then(() => {
+    deleteItem(registerToDelete).then(() => {
       setIsDeleting(false);
       setRegisterToDelete(null);
       setClientDocuments([]);
@@ -53,7 +53,7 @@ const RegisterList = props => {
 
   useEffect(() => {
     if (!project) return;
-    getClientDocuments(clientModel.entity, project, pageSize, selectedPage, {}, '', [], true).then(
+    listItems(clientModel.entity, project, pageSize, selectedPage, {}, '', [], true).then(
       ({ data: response }) => {
         setCount(response.count);
       }
