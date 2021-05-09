@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import useChangeQuery from '../../../../../shared/hooks/useChangeQuery';
-import Select from '../../../components/Select';
-import Search from '../../../components/Search';
-import { setForums } from '../../../actions/forums';
-import { setForumPagination } from '../../../actions/forumPagination';
-import { listItems } from '../../../../../services/api/item';
+import useChangeQuery from '../../../../shared/hooks/useChangeQuery';
+import Select from '../Select';
+import Search from '../Search';
+import { setForums } from '../../actions/forums';
+import { setForumPagination } from '../../actions/forumPagination';
+import { listItems } from '../../../../services/api/item';
+import { getWordsFromString } from '../../../../utils/string';
 
 import { getLanguage } from './lang';
 
 const filters = ['Hot', 'All Time Popular', 'Newest', 'Oldest'];
 const pageSize = 8;
 
-const Filters = () => {
+const ForumFilters = () => {
   const dispatch = useDispatch();
   const project = useSelector(store => store.project);
   const pagination = useSelector(store => store.profilePagination);
@@ -22,15 +23,18 @@ const Filters = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    const pageNumber = pagination?.pageNumber || 1;
+    const { pageNumber } = pagination;
     if (!project) return;
-    listItems('forum', project, pageSize, pageNumber, {}).then(({ data: comics }) => {
+    const tags = getWordsFromString(search);
+    const completeFilter = { tags };
+
+    listItems('forum', project, pageSize, pageNumber, completeFilter).then(({ data: comics }) => {
       dispatch(setForums(comics));
     });
-    listItems('forum', project, pageSize, pageNumber, {}, '', [], true).then(({ data }) => {
+    listItems('forum', project, pageSize, pageNumber, completeFilter, '', [], true).then(({ data }) => {
       dispatch(setForumPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
     });
-  }, [project, sortBy, pagination?.pageNumber]);
+  }, [project, sortBy, search, pagination?.pageNumber]);
 
   return (
     <>
@@ -85,4 +89,4 @@ const Filters = () => {
   );
 };
 
-export default Filters;
+export default ForumFilters;

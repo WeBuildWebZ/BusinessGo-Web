@@ -4,9 +4,9 @@ import Layout from '../../components/Layout';
 import Title from '../../components/Title';
 import Pagination from '../../components/Pagination';
 import { setForumPagination } from '../../actions/forumPagination';
+import ForumList from '../../components/ForumList';
+import ForumFilters from '../../components/ForumFilters';
 
-import Filters from './Filters';
-import ForumList from './ForumList';
 import { getLanguage } from './lang';
 
 const Proflies = () => {
@@ -22,7 +22,7 @@ const Proflies = () => {
   return (
     <Layout page="forums">
       <Title title={language.title} />
-      <Filters />
+      <ForumFilters />
       <ForumList />
       {pagination && <Pagination pagination={pagination} onPageChanged={handleChangePage} />}
     </Layout>

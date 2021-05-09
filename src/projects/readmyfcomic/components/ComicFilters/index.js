@@ -35,7 +35,7 @@ const Filters = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    const pageNumber = pagination?.pageNumber || 1;
+    const { pageNumber } = pagination;
     if (!project) return;
     const categoryFilter = category === 'All' ? {} : { category };
     const tags = getWordsFromString(search);
