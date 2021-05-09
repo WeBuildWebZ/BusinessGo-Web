@@ -20,7 +20,10 @@ export const listItems = (
       regex_normalize_characters: true,
       regex_fields: text_search_fields.map(field => `value.${field}`),
       ...Object.fromEntries(
-        text_search_fields.map(field => [`value.${field}`, text_search || filters[field]])
+        text_search_fields.map(field => [
+          `value.${field.split('+').join('+value.')}`,
+          text_search || filters[field]
+        ])
       ),
       count
     }

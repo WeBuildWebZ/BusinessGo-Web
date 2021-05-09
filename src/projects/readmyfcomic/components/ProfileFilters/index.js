@@ -25,13 +25,15 @@ const Filters = () => {
     const pageNumber = pagination?.pageNumber || 1;
     if (!project) return;
 
-    listItems('user', project, pageSize, pageNumber, {}).then(({ data: profiles }) => {
-      dispatch(setProfiles(profiles));
-    });
-    listItems('user', project, pageSize, pageNumber, {}, '', [], true).then(({ data }) => {
+    listItems('user', project, pageSize, pageNumber, {}, search, ['name+surname']).then(
+      ({ data: profiles }) => {
+        dispatch(setProfiles(profiles));
+      }
+    );
+    listItems('user', project, pageSize, pageNumber, {}, search, ['name+surname'], true).then(({ data }) => {
       dispatch(setProfilePagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
     });
-  }, [project, sortBy, pagination?.pageNumber]);
+  }, [project, sortBy, search, pagination?.pageNumber]);
 
   return (
     <>

@@ -17,7 +17,7 @@ const Search = props => {
       <div className="searchIconContainer">
         <img className="searchIcon" src="/icons/search.png" />
       </div>
-      <input className="input" type="text" placeholder={props.placeholder} onKeyPress={handleChange} />
+      <input className="input" type="text" placeholder={props.placeholder} onChange={handleChange} />
       <style jsx>
         {`
           .search {
