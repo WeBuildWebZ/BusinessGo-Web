@@ -25,18 +25,23 @@ const Filters = () => {
     const pageNumber = pagination?.pageNumber || 1;
     if (!project) return;
 
-    listItems('user', project, pageSize, pageNumber, {}, search, ['name+surname']).then(
-      ({ data: profiles }) => {
-        dispatch(setProfiles(profiles));
-      }
-    );
+    listItems('user', project, pageSize, pageNumber, {
+      text_search: search,
+      text_search_fields: ['name+surname']
+    }).then(({ data: profiles }) => {
+      dispatch(setProfiles(profiles));
+    });
   }, [project, sortBy, search, pagination?.pageNumber]);
 
   useEffect(() => {
     const pageNumber = pagination?.pageNumber || 1;
     if (!project) return;
 
-    listItems('user', project, pageSize, pageNumber, {}, search, ['name+surname'], true).then(({ data }) => {
+    listItems('user', project, pageSize, pageNumber, {
+      text_search: search,
+      text_search_fields: ['name+surname'],
+      count: true
+    }).then(({ data }) => {
       dispatch(setProfilePagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
     });
   }, [project, sortBy, search]);

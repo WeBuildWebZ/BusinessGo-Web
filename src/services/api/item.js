@@ -5,10 +5,7 @@ export const listItems = (
   project,
   page_size = 10,
   page_number = 1,
-  filters = {},
-  text_search = '',
-  text_search_fields = [],
-  count = false
+  { filters = {}, text_search = '', text_search_fields = [], count = false } = {}
 ) =>
   api.get(`api/projects/${encodeURIComponent(project.code)}/items`, {
     params: {

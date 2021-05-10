@@ -63,12 +63,11 @@ const App = () => {
     if (selectedOptions.cities.length) filters.city = selectedOptions.cities;
     if (selectedOptions.workAreas.length) filters.work_area = selectedOptions.workAreas;
 
-    listItems('professional', project, 10, pageNumber, filters, textSearch, [
-      'name',
-      'workshop_name',
-      'address',
-      'city'
-    ]).then(({ data: newProfessioanals }) => {
+    listItems('professional', project, 10, pageNumber, {
+      filters,
+      text_search: textSearch,
+      text_search_fields: ['name', 'workshop_name', 'address', 'city']
+    }).then(({ data: newProfessioanals }) => {
       setLoading(false);
       setCanChangePage(!!newProfessioanals.length);
       if (pageNumber === 1) setProfessionals(newProfessioanals);

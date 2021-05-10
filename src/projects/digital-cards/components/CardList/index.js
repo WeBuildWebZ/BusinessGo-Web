@@ -13,7 +13,7 @@ const CardList = () => {
 
   useEffect(() => {
     if (!project || !user) return;
-    listItems('card', project, 100, 1, { user_id: user._id }).then(({ data: givenCards }) => {
+    listItems('card', project, 100, 1, { filters: { user_id: user._id } }).then(({ data: givenCards }) => {
       setCards(givenCards.map(formatCard));
     });
   }, [project]);

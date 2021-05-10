@@ -20,7 +20,7 @@ const Banner = () => {
   const [sliderItems, setSliderItems] = useState(null);
 
   useEffect(() => {
-    listItems('main_slider', project).then(({ data: givenSliderItems }) => {
+    listItems('main_slider', project, 10, 1).then(({ data: givenSliderItems }) => {
       setSliderItems(givenSliderItems);
     });
   }, []);

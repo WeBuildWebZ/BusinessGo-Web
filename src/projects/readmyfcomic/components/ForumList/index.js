@@ -10,9 +10,9 @@ const ForumList = () => {
         const link = `/forums/${encodeURIComponent(forum._id)}`;
 
         return (
-          <Link href={link}>
+          <Link key={i} href={link}>
             <a target="blank">
-              <div key={i} className="forum">
+              <div className="forum">
                 <img className="image" src={forum.user.image} />
                 <div className="titleContainer">{forum.title}</div>
                 <div className="infoContainer">

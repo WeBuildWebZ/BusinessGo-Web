@@ -26,11 +26,9 @@ const RegisterList = props => {
   const importantFields = clientModel.fields.filter(field => field.important);
 
   const handleGetDocuments = () => {
-    listItems(clientModel.entity, project, pageSize, selectedPage).then(
-      ({ data: givenClientDocuments }) => {
-        setClientDocuments(givenClientDocuments);
-      }
-    );
+    listItems(clientModel.entity, project, pageSize, selectedPage).then(({ data: givenClientDocuments }) => {
+      setClientDocuments(givenClientDocuments);
+    });
   };
 
   const handleDelete = confirmed => {
@@ -53,7 +51,7 @@ const RegisterList = props => {
 
   useEffect(() => {
     if (!project) return;
-    listItems(clientModel.entity, project, pageSize, selectedPage, {}, '', [], true).then(
+    listItems(clientModel.entity, project, pageSize, selectedPage, { count: true }).then(
       ({ data: response }) => {
         setCount(response.count);
       }

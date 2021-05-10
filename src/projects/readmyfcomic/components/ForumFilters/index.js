@@ -28,9 +28,11 @@ const ForumFilters = () => {
     const tags = getWordsFromString(search);
     const completeFilter = { tags };
 
-    listItems('forum', project, pageSize, pageNumber, completeFilter).then(({ data: comics }) => {
-      dispatch(setForums(comics));
-    });
+    listItems('forum', project, pageSize, pageNumber, { filters: completeFilter }).then(
+      ({ data: comics }) => {
+        dispatch(setForums(comics));
+      }
+    );
   }, [project, sortBy, search, pagination?.pageNumber]);
 
   useEffect(() => {
@@ -39,9 +41,11 @@ const ForumFilters = () => {
     const tags = getWordsFromString(search);
     const completeFilter = { tags };
 
-    listItems('forum', project, pageSize, pageNumber, completeFilter, '', [], true).then(({ data }) => {
-      dispatch(setForumPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
-    });
+    listItems('forum', project, pageSize, pageNumber, { filters: completeFilter, count: true }).then(
+      ({ data }) => {
+        dispatch(setForumPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
+      }
+    );
   }, [project, sortBy, search]);
 
   return (

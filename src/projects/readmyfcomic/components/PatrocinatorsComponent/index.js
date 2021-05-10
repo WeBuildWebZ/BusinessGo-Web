@@ -16,26 +16,20 @@ const PatrocinatorsComponent = () => {
 
   useEffect(() => {
     if (!project) return;
-    listItems('user', project, pageSize, pageNumber, { 'sponsorship.is_patrocinator': true }).then(
-      ({ data: givenPatrocinators }) => {
-        setPatrocinators(givenPatrocinators);
-        console.log('givenPatrocinators', givenPatrocinators);
-      }
-    );
+    listItems('user', project, pageSize, pageNumber, {
+      filters: { 'sponsorship.is_patrocinator': true }
+    }).then(({ data: givenPatrocinators }) => {
+      setPatrocinators(givenPatrocinators);
+      console.log('givenPatrocinators', givenPatrocinators);
+    });
   }, [project, pageNumber]);
 
   useEffect(() => {
     if (!project) return;
-    listItems(
-      'user',
-      project,
-      pageSize,
-      pageNumber,
-      { 'sponsorship.is_patrocinator': true },
-      '',
-      [],
-      true
-    ).then(({ data: response }) => {
+    listItems('user', project, pageSize, pageNumber, {
+      filters: { 'sponsorship.is_patrocinator': true },
+      count: true
+    }).then(({ data: response }) => {
       setCount(response.count);
     });
   }, [project]);

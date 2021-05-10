@@ -24,7 +24,7 @@ export default function Home() {
   useEffect(() => {
     if (!project || !subdomains) return;
 
-    listItems('card', project, 1, 1, { subdomain: subdomains }).then(({ data: givenCards }) => {
+    listItems('card', project, 1, 1, { filters: { subdomain: subdomains } }).then(({ data: givenCards }) => {
       if (!givenCards.length) return setNotFound(true);
       setCard(givenCards[0]);
     });

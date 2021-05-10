@@ -27,7 +27,7 @@ const Books = () => {
 
   useEffect(() => {
     if (!project) return;
-    listItems('book', project, pageSize, page, {}, '', [], true).then(({ data: response }) => {
+    listItems('book', project, pageSize, page, { count: true }).then(({ data: response }) => {
       setPageCount(Math.ceil(response.count / pageSize));
     });
   }, [project]);

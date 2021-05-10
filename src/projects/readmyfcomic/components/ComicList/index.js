@@ -24,7 +24,7 @@ const ComicList = () => {
           <div className="statisticContainer">
             <div className="statistic viewsContainer">
               <img className="icon" src="/icons/eye.png" />
-              <div className="views">{comic.views.length}</div>
+              <div className="views">{comic.views_count}</div>
             </div>
             <div className="statistic reactionsContainer">
               <img className="icon" src="/icons/heart.png" />

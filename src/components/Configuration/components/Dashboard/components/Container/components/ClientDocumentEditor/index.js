@@ -5,12 +5,7 @@ import { useSelector } from 'react-redux';
 
 import InfiniteScroll from '../../../../../../../InfiniteScroll';
 import Table from '../../../../../../../Table';
-import {
-  createItem,
-  updateItem,
-  listItems,
-  deleteItem
-} from '../../../../../../../../services/api/item';
+import { createItem, updateItem, listItems, deleteItem } from '../../../../../../../../services/api/item';
 
 import EditModal from './components/EditModal';
 import SearchInput from './components/SearchInput';
@@ -87,15 +82,10 @@ const ClientDocumentEditor = props => {
 
   const handleChangePage = pageNumber => {
     setLoading(true);
-    listItems(
-      clientModel.entity,
-      project,
-      props.pageSize,
-      pageNumber,
-      {},
-      textSearch,
-      clientModel.fields.filter(field => field.important).map(field => field.key)
-    ).then(({ data: newClientDocuments }) => {
+    listItems(clientModel.entity, project, props.pageSize, pageNumber, {
+      text_search: textSearch,
+      text_search_fields: clientModel.fields.filter(field => field.important).map(field => field.key)
+    }).then(({ data: newClientDocuments }) => {
       setClientDocuments([...(pageNumber === 1 ? [] : clientDocuments), ...newClientDocuments]);
       setLoading(false);
     });
