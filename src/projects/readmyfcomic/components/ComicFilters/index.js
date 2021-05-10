@@ -44,10 +44,19 @@ const Filters = () => {
     listItems('comic', project, pageSize, pageNumber, completeFilter).then(({ data: comics }) => {
       dispatch(setComics(comics));
     });
+  }, [project, category, sortBy, search, pagination?.pageNumber]);
+
+  useEffect(() => {
+    const { pageNumber } = pagination;
+    if (!project) return;
+    const categoryFilter = category === 'All' ? {} : { category };
+    const tags = getWordsFromString(search);
+    const completeFilter = { ...categoryFilter, tags };
+
     listItems('comic', project, pageSize, pageNumber, completeFilter, '', [], true).then(({ data }) => {
       dispatch(setComicPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
     });
-  }, [project, category, sortBy, search, pagination?.pageNumber]);
+  }, [project, category, sortBy, search]);
 
   return (
     <>

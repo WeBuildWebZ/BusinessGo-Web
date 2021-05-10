@@ -31,10 +31,18 @@ const ForumFilters = () => {
     listItems('forum', project, pageSize, pageNumber, completeFilter).then(({ data: comics }) => {
       dispatch(setForums(comics));
     });
+  }, [project, sortBy, search, pagination?.pageNumber]);
+
+  useEffect(() => {
+    const { pageNumber } = pagination;
+    if (!project) return;
+    const tags = getWordsFromString(search);
+    const completeFilter = { tags };
+
     listItems('forum', project, pageSize, pageNumber, completeFilter, '', [], true).then(({ data }) => {
       dispatch(setForumPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
     });
-  }, [project, sortBy, search, pagination?.pageNumber]);
+  }, [project, sortBy, search]);
 
   return (
     <>
