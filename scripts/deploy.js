@@ -31,7 +31,7 @@ if (!project) throw new Error(`Didn't found project with name ${projectName}`);
   await copy('scripts', `${repoPath}/scripts`);
   console.log('copied scripts');
   rimraf.sync(path.join(__dirname, '../src/**/.next'));
-  console.log('removed .next dirs');
+  console.log('removed .next dirs', `${repoPath}/src`);
   await copy('src', `${repoPath}/src`);
   console.log('copied src');
   await copy('projects.json', `${repoPath}/projects.json`);
