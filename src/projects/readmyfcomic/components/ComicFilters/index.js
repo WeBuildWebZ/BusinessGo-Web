@@ -10,6 +10,7 @@ import { listItems } from '../../../../services/api/item';
 import { getWordsFromString } from '../../../../utils/string';
 
 import { getLanguage } from './lang';
+import { getSortBy } from './utils';
 
 const categories = [
   'All',
@@ -31,7 +32,7 @@ const Filters = () => {
   const pagination = useSelector(store => store.comicPagination);
   const language = getLanguage(useSelector(store => store.language));
   const [category, setCategory] = useState(categories[0]);
-  const [sortBy, setSortBy] = useState(filters[0]);
+  const [sortCriteria, setSortCriteria] = useState(filters[0]);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
@@ -40,13 +41,15 @@ const Filters = () => {
     const categoryFilter = category === 'All' ? {} : { category };
     const tags = getWordsFromString(search);
     const completeFilter = { ...categoryFilter, tags };
+    const add_fields = { 'custom.views_count': { $size: '$value.views' } };
+    const sort_by = getSortBy(sortCriteria);
 
-    listItems('comic', project, pageSize, pageNumber, { filters: completeFilter }).then(
+    listItems('comic', project, pageSize, pageNumber, { filters: completeFilter, add_fields, sort_by }).then(
       ({ data: comics }) => {
         dispatch(setComics(comics));
       }
     );
-  }, [project, category, sortBy, search, pagination?.pageNumber]);
+  }, [project, category, sortCriteria, search, pagination?.pageNumber]);
 
   useEffect(() => {
     const { pageNumber } = pagination;
@@ -60,7 +63,7 @@ const Filters = () => {
         dispatch(setComicPagination({ count: data.count, pageSize, maxPages: 2, pageNumber }));
       }
     );
-  }, [project, category, sortBy, search]);
+  }, [project, category, sortCriteria, search]);
 
   return (
     <>
@@ -82,8 +85,8 @@ const Filters = () => {
         <Select
           title={language.filter}
           options={filters}
-          selectedOption={sortBy}
-          onOptionChanged={newSortBy => setSortBy(newSortBy)}
+          selectedOption={sortCriteria}
+          onOptionChanged={newSortBy => setSortCriteria(newSortBy)}
           style={{ marginLeft: 7 }}
         />
         <div className="searchBar">
