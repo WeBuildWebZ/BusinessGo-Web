@@ -10,8 +10,6 @@ const Cards = () => {
   const cardId = typeof window === 'object' ? window.location.pathname.substr('/cards/'.length) : null;
   const { card: cardFromQuery } = getQuery();
 
-  console.log('card', card);
-
   useEffect(() => {
     if (!cardId) return;
     if (cardFromQuery) return setCard(JSON.parse(cardFromQuery));

@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { formatCard } from '../../utils/card';
 
 import Design1 from './Design1';
+import Design2 from './Design2';
 import { cardPropTypes } from './constants';
 
 const Card = props => {
@@ -10,10 +11,12 @@ const Card = props => {
 
   const modifiedCard = formatCard(card);
 
+  console.log('modifiedCard', modifiedCard);
+
   return (
     // TODO make switch with different card designs
     <>
-      <Design1 card={modifiedCard} />
+      {modifiedCard.design === 'design2' ? <Design2 card={modifiedCard} /> : <Design1 card={modifiedCard} />}
       <Head>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default" />
         <script

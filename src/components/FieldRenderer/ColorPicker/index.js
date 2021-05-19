@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { fieldShape } from '../../../utils/field';
@@ -29,6 +30,10 @@ const colors = [
 const ColorPicker = props => {
   const languageCode = useSelector(store => store.language);
   const fieldName = props.field.names[languageCode];
+
+  useEffect(() => {
+    if (!props.value) props.onChange(colors[5]);
+  }, []);
 
   return (
     <div className="colorPicker">
