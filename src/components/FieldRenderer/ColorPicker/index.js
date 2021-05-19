@@ -1,12 +1,30 @@
 import PropTypes from 'prop-types';
-import * as baseColors from '@material-ui/core/colors';
 import { useSelector } from 'react-redux';
 
 import { fieldShape } from '../../../utils/field';
 
-const colors = Object.keys(baseColors)
-  .filter(key => key !== 'common')
-  .map(colorName => baseColors[colorName][700]);
+const colors = [
+  '#d80000',
+  '#c8004f',
+  '#8800a3',
+  '#6300aa',
+  '#4500a2',
+  '#3e4cd6',
+  '#2e70d5',
+  '#0097ab',
+  '#00806e',
+  '#089e3e',
+  '#56b137',
+  '#a6c715',
+  '#f8d000',
+  '#ffaa00',
+  '#f77e00',
+  '#eb3600',
+  '#5e4034',
+  '#616161',
+  '#455865',
+  '#000000'
+];
 
 const ColorPicker = props => {
   const languageCode = useSelector(store => store.language);
