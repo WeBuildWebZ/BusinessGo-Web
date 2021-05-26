@@ -8,7 +8,7 @@ const CartItems = ({ items }) => (
     {items.map((item, i) => (
       <div key={i} className="item">
         <div className="image">
-          <img className="image" src={item.product.photo} />
+          <img className="image" src={item.product.photo} alt="imagen maped" />
           <Badge count={item.count} style={{ transform: 'translate(0, 0)', left: 4, top: 4 }} />
         </div>
         <div className="info">

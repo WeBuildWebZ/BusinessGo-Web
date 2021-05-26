@@ -29,7 +29,7 @@ const Offer = props => {
         <i className="fa fa-plus buttonIcon" onClick={() => handleAddCartItem(1)} />
       </div>
       <div className="imageContainer">
-        <img className="image" src={offer.photo} />
+        <img className="image" src={offer.photo} alt="alt demostrative" />
       </div>
       <h4 className="title">{offer.title}</h4>
       <p className="text">{offer.description}</p>

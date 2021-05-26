@@ -28,7 +28,7 @@ const AppendHead = () => (
             alt: 'Imagen 1'
           },
           {
-            url: `${constants.URL}/favicon.png`,
+            url: `${constants.URL}/logo.png`,
             width: 96,
             height: 96,
             alt: 'Imagen 2'
@@ -38,7 +38,7 @@ const AppendHead = () => (
       twitter={{ handle: '@handle', site: '@site', cardType: 'summary_large_image' }}
     />
     <Head>
-      <link rel="icon" href="/favicon.png" />
+      <link rel="icon" href="/logo.png" />
     </Head>
   </>
 );

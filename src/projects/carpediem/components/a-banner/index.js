@@ -9,7 +9,7 @@ const Banner = () => {
   const project = useSelector(store => store.project);
 
   return (
-    <div className="banner">
+    <section className="banner">
       <Image src="/images/logo-white.png" alt="logo-white" width={500} height={170} />
       <h2>Mira los mejores precios.</h2>
       {project?.configuration.contact.whatsapp_number && (
@@ -17,6 +17,7 @@ const Banner = () => {
           <a
             href={`https://api.whatsapp.com/send?phone=${project?.configuration.contact.whatsapp_number}`}
             target="_blank"
+            rel="noopener"
           >
             <svg
               aria-hidden="true"
@@ -92,7 +93,7 @@ const Banner = () => {
           }
         `}
       </style>
-    </div>
+    </section>
   );
 };
 

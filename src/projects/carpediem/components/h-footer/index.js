@@ -16,7 +16,7 @@ const Footer = () => {
           <h3>SIGUENOS EN:</h3>
           <div>
             {project?.configuration.contact.facebook_url && (
-              <a href={project?.configuration.contact.facebook_url} target="_blank">
+              <a href={project?.configuration.contact.facebook_url} target="_blank" rel="noopener">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -35,7 +35,7 @@ const Footer = () => {
               </a>
             )}
             {project?.configuration.contact.instagram_url && (
-              <a href={project?.configuration.contact.instagram_url} target="_blank">
+              <a href={project?.configuration.contact.instagram_url} target="_blank" rel="noopener">
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -57,6 +57,7 @@ const Footer = () => {
               <a
                 href={`https://api.whatsapp.com/send?phone=${project?.configuration.contact.whatsapp_number}&text=${project?.configuration.contact.whatsapp_message}`}
                 target="_blank"
+                rel="noopener"
               >
                 <svg
                   aria-hidden="true"
@@ -89,7 +90,7 @@ const Footer = () => {
             <img src="/icons/contact.png" alt="contact icon" />
             <p>
               {project?.configuration.contact.email && (
-                <a href={`mailto:${project?.configuration.contact.email}`} target="blank">
+                <a href={`mailto:${project?.configuration.contact.email}`} target="blank" rel="noopener">
                   {project?.configuration.contact.email}
                 </a>
               )}
@@ -99,7 +100,7 @@ const Footer = () => {
             <img src="/icons/privacy_policy.png" alt="contact icon" />
             <p>
               <Link href="/privacy_policy">
-                <a>Política de privacidad</a>
+                <a rel="noopener">Política de privacidad</a>
               </Link>
             </p>
           </span>

@@ -3,11 +3,11 @@ import Link from 'next/link';
 const Navbar = () => (
   <div className="menu">
     <Link href="/">
-      <a>Home</a>
+      <a rel="noopener">Home</a>
     </Link>
 
     <Link href="/#articulos">
-      <a>Articulos</a>
+      <a rel="noopener">Articulos</a>
     </Link>
 
     <style jsx>
@@ -21,7 +21,7 @@ const Navbar = () => (
         a {
           margin: 0 1em;
           cursor: pointer;
-          color: grey;
+
           font-size: 1.3em;
           text-decoration: none;
         }
