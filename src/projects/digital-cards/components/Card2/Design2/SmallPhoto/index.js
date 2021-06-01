@@ -5,25 +5,32 @@ const SmallPhoto = props => {
 
   return (
     <div className="smallPhotoContainer">
-      <div className="smallPhoto" />
+      <div className="smallPhotoHolder">
+        <div className="smallPhoto" />
+      </div>
       <style jsx>
         {`
           .smallPhotoContainer {
-            transform: translate(0, calc(-100% + 7px));
+            transform: translate(0, -50%);
             margin-bottom: -33.33vw;
+            margin-bottom: -16.66vw;
             display: flex;
             justify-content: center;
           }
-          .smallPhoto {
+          .smallPhotoHolder {
             width: 33.33vw;
             height: 33.33vw;
-            background-image: url(${card.primary_photo});
+            background-image: url(/miniweb_assets/design2/profile_image_holder.png);
             background-size: cover;
             border-radius: 50%;
-            border-style: solid;
-            border-width: 7px;
-            border-color: ${card.border_color};
-            background-color: #ffffff;
+          }
+          .smallPhoto {
+            width: 86%;
+            height: 86%;
+            margin: 7% 0 0 7%;
+            border-radius: 50%;
+            background-image: url(${card.primary_photo});
+            background-size: cover;
           }
         `}
       </style>

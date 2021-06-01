@@ -10,7 +10,7 @@ const CoverPhoto = props => {
         {`
           .coverPhoto {
             width: 100vw;
-            height: 50vh;
+            height: 38.8vh;
             background-image: url(${card.cover_photo});
             background-size: cover;
           }

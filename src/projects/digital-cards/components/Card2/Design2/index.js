@@ -12,6 +12,13 @@ const Design2 = props => {
       <CoverPhoto card={card} />
       <SmallPhoto card={card} />
       <Presentation card={card} />
+      <style jsx global>
+        {`
+          body {
+            background-color: ${card.border_color};
+          }
+        `}
+      </style>
     </div>
   );
 };

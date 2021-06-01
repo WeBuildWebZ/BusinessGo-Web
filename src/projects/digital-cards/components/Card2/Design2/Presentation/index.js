@@ -17,6 +17,7 @@ const Presentation = props => {
             height: 50vh;
             padding-top: 25px;
             background-color: ${card.border_color};
+            color: whitesmoke;
           }
           .description {
             max-width: 75%;
