@@ -85,6 +85,8 @@ ReduxFiller.propTypes = {
 
 const getApp = (reducer, constants, AppendComponent) => {
   const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
+  window.getAssetUrl = (path, isShared) =>
+    `https://images.webuildwebz.com${isShared ? '/shared' : ''}/${path}`;
 
   const App = ({ Component, pageProps }) => {
     const [errorCode, setErrorCode] = useState(null);

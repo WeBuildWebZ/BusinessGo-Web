@@ -18,11 +18,11 @@ const Card = props => {
     <>
       {modifiedCard.design === 'design2' ? <Design2 card={modifiedCard} /> : <Design1 card={modifiedCard} />}
       <Head>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default" />
+        {/* <script src="https://polyfill.io/v3/polyfill.min.js?features=default" />
         <script
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHIcjOKvD_-9nkTujgWNLr5fzQQPrn0D4&callback=initMap&libraries=&v=weekly"
           async
-        />
+        /> */}
       </Head>
     </>
   );
