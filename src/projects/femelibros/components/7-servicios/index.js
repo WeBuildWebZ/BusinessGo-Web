@@ -11,7 +11,7 @@ const Servicios = () => {
 
   useEffect(() => {
     if (!project) return;
-    listItems('book', project, 4, 1).then(({ data: givenBooks }) => {
+    listItems('book', project, 3, 1).then(({ data: givenBooks }) => {
       setBooks(givenBooks);
     });
   }, [project]);

@@ -12,7 +12,9 @@ const Book = props => {
       </div>
       <div className="text">
         <h3>{book.title}</h3>
-        <h4>{`${book.price}`}$ ARS</h4>
+        <h4>
+          ${`${book.price}`} {book.currency}
+        </h4>
         <ReactStars value={book.stars} size={24} activeColor="#f8ac30" edit={false} isHalf />
 
         <p>{book.description}</p>

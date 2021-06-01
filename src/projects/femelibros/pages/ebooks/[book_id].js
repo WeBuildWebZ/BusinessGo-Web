@@ -34,7 +34,9 @@ const ShowBook = props => {
             <img className="bookPhoto" src={book.photo} />
             <div className="bookInfo">
               <h1>{book.title}</h1>
-              <h2>${book.price} ARS</h2>
+              <h2>
+                ${book.price} ${book.currency}
+              </h2>
               <ReactStars value={book.stars} size={45} activeColor="#f8ac30" edit={false} isHalf />
               <p className="bookDescription">{book.description}</p>
             </div>
