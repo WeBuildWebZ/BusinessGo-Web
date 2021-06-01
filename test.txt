@@ -1,2 +1,0 @@
-fields=db.forms.findOne({project_code:'digital-cards',code:'miniweb_creation'}).fields.filter
-(f => f.show_on_variants.includes('premium_plus_miniweb') && f.step === 7).map(f=>f.names.es).join('\n');

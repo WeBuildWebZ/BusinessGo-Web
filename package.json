@@ -6,7 +6,7 @@
     "starter": "npm run copy-env src/projects/starter && next dev src/projects/starter",
     "landing": "npm run copy-env src/projects/landing && next dev src/projects/landing",
     "orden": "npm run copy-env src/projects/orden && next dev src/projects/orden",
-    "digital-cards": "npm run copy-env src/projects/digital-cards && next dev src/projects/digital-cards",
+    "miniweb": "npm run copy-env src/projects/miniweb && next dev src/projects/miniweb",
     "widgets": "cd src/projects/widgets && npm start",
     "chatbot": "npm run copy-env src/projects/chatbot-site && next dev src/projects/chatbot-site",
     "admin": "npm run copy-env src/projects/admin && next dev src/projects/admin",
