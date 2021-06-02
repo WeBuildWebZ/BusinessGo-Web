@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const Button = props => (
-  <div className="button">
+  <div className="button" onClick={props.onClick}>
     {props.text}
     <style jsx>
       {`
@@ -18,6 +18,16 @@ const Button = props => (
           border-width: 7px;
           border-radius: 50px;
           font-weight: bold;
+          transition: 0.7s;
+          user-select: none;
+          cursor: pointer;
+        }
+        .button:hover {
+          transform: scale(1.1);
+        }
+        .button:active {
+          transform: scale(1.2);
+          transition: 0.1s;
         }
       `}
     </style>
@@ -25,7 +35,12 @@ const Button = props => (
 );
 
 Button.propTypes = {
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func
+};
+
+Button.defaultProps = {
+  onClick: () => {}
 };
 
 export default Button;

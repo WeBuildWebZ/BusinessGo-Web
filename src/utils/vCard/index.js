@@ -1,17 +1,7 @@
 import VCard from 'vcard-creator';
 
-const useDownloadVCard = () => ({
-  name,
-  surname,
-  phone,
-  company,
-  job_title,
-  email,
-  phone_numbers,
-  url
-} = {}) => {
+export const downloadVCard = ({ name, surname, company, job_title, email, phone_numbers, url } = {}) => {
   const vCard = new VCard();
-  vCard.addName(name, surname).addPhoneNumber(phone);
   if (company) vCard.addCompany(company);
   if (job_title) vCard.addJobtitle(job_title);
   if (email) vCard.addEmail(email);
@@ -28,6 +18,5 @@ const useDownloadVCard = () => ({
   a.textContent = fileName;
   a.href = `data:text/vcard;base64,${cardContent}`;
   a.click();
+  console.log('a.click', a.click);
 };
-
-export default useDownloadVCard;

@@ -17,11 +17,13 @@ export const formatCard = card => {
     border_color: card.border_color || '#00ff00',
     completeName,
     title: card.business_or_company || completeName,
+    email: card.business_email || card.personal_email,
     description: card.business_description || card.personal_description,
     completeAddress: [card.address, card.state, card.municipality, card.country].join(', '),
     instagram_url: completeUrl(ensureSocialNetworkUrl('instagram', card.instagram_url)),
     twitter_url: completeUrl(ensureSocialNetworkUrl('twitter', card.twitter_url)),
     facebook_url: completeUrl(ensureSocialNetworkUrl('facebook', card.facebook_url)),
+    website_url: completeUrl(card.website_url),
     phone_number: card.phone_numbers && card.phone_numbers[0]
   };
 };

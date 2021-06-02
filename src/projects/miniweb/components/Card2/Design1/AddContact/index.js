@@ -10,11 +10,11 @@ const AddContact = props => {
   const downloadVCard = useDownloadVCard();
 
   const handleAddContact = () => {
-    downloadVCard(
-      card.name,
-      card.surnames,
-      (card.phone_numbers && card.phone_numbers[0]) || card.whatsapp_number
-    );
+    downloadVCard({
+      name: card.name,
+      surname: card.surnames,
+      phone_numbers: card.phone_numbers || [card.whatsapp_number]
+    });
   };
 
   return (
