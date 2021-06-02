@@ -36,7 +36,7 @@ const Footer = props => {
             justify-content: space-around;
             align-items: center;
             left: 0;
-            top: 100vh;
+            top: 100%;
             transform: translate(0, -100%);
             width: 100vw;
             height: 50px;
