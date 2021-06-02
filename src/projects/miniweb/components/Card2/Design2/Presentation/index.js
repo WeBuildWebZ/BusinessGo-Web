@@ -19,7 +19,8 @@ const Presentation = props => {
       job_title: card.job_title,
       email: card.email,
       phone_numbers: card.phone_numbers || [card.whatsapp_number],
-      url: card.website_url
+      url: card.website_url,
+      address: [card.address, card.state, card.municipality, card.country]
     });
   };
 
