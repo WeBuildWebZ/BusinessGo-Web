@@ -1,15 +1,21 @@
+import { useSelector } from 'react-redux';
+
 import { cardPropTypes } from '../../constants';
+import Button1 from '../Button1';
 
 import SocialNetworks from './SocialNetworks';
+import { getLanguage } from './lang';
 
 const Presentation = props => {
   const { card } = props;
+  const language = getLanguage(useSelector(store => store.language));
 
   return (
     <div className="presentation">
       <h3>{card.title}</h3>
       <p className="description">{card.description}</p>
       <SocialNetworks card={card} />
+      <Button1 text={language.addToContacts} />
       <style jsx>
         {`
           .presentation {
