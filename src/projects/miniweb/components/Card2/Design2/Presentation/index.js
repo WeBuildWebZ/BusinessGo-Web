@@ -1,5 +1,7 @@
 import { cardPropTypes } from '../../constants';
 
+import SocialNetworks from './SocialNetworks';
+
 const Presentation = props => {
   const { card } = props;
 
@@ -7,6 +9,7 @@ const Presentation = props => {
     <div className="presentation">
       <h3>{card.title}</h3>
       <p className="description">{card.description}</p>
+      <SocialNetworks card={card} />
       <style jsx>
         {`
           .presentation {

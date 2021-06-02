@@ -9,14 +9,18 @@ import { cardPropTypes } from './constants';
 const Card = props => {
   const { card } = props;
 
-  const modifiedCard = formatCard(card);
+  const formattedCard = formatCard(card);
 
-  console.log('modifiedCard', modifiedCard);
+  console.log('formattedCard', formattedCard);
 
   return (
     // TODO make switch with different card designs
     <>
-      {modifiedCard.design === 'design2' ? <Design2 card={modifiedCard} /> : <Design1 card={modifiedCard} />}
+      {formattedCard.design === 'design2' ? (
+        <Design2 card={formattedCard} />
+      ) : (
+        <Design1 card={formattedCard} />
+      )}
       <Head>
         {/* <script src="https://polyfill.io/v3/polyfill.min.js?features=default" />
         <script
