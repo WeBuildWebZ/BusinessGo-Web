@@ -3,6 +3,7 @@ import { cardPropTypes } from '../constants';
 import CoverPhoto from './CoverPhoto';
 import SmallPhoto from './SmallPhoto';
 import Presentation from './Presentation';
+import Footer from './Footer';
 
 const Design2 = props => {
   const { card } = props;
@@ -12,6 +13,7 @@ const Design2 = props => {
       <CoverPhoto card={card} />
       <SmallPhoto card={card} />
       <Presentation card={card} />
+      <Footer card={card} />
       <style jsx global>
         {`
           body {
