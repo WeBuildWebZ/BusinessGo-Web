@@ -17,6 +17,12 @@ const Dropdown = props => {
           }
           .dropdown.open {
           }
+          .content {
+            border-radius: 20px;
+            background-color: white;
+            color: #383434;
+            padding: 21px;
+          }
         `}
       </style>
     </div>
