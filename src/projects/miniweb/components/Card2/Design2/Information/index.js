@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { cardPropTypes } from '../../constants';
 import Dropdown from '../Dropdown';
 
+import AboutCompany from './AboutCompany';
 import { getLanguage } from './lang';
 
 const Information = props => {
@@ -11,7 +12,9 @@ const Information = props => {
 
   return (
     <div id="information" className="information">
-      <Dropdown title={language.company}>Content...</Dropdown>
+      <Dropdown title={language.company}>
+        <AboutCompany card={card} />
+      </Dropdown>
       <Dropdown title={language.productsServices}>Content...</Dropdown>
       <Dropdown title={language.businessHours}>Content...</Dropdown>
       <Dropdown title={language.address}>Content...</Dropdown>
