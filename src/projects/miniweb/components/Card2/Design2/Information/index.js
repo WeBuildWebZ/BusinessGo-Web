@@ -4,6 +4,7 @@ import { cardPropTypes } from '../../constants';
 import Dropdown from '../Dropdown';
 
 import AboutCompany from './AboutCompany';
+import ProductsServices from './ProductsServices';
 import { getLanguage } from './lang';
 
 const Information = props => {
@@ -15,7 +16,9 @@ const Information = props => {
       <Dropdown title={language.company}>
         <AboutCompany card={card} />
       </Dropdown>
-      <Dropdown title={language.productsServices}>Content...</Dropdown>
+      <Dropdown title={language.productsServices}>
+        <ProductsServices card={card} />
+      </Dropdown>
       <Dropdown title={language.businessHours}>Content...</Dropdown>
       <Dropdown title={language.address}>Content...</Dropdown>
       <style jsx>

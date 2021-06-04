@@ -18,10 +18,19 @@ const Dropdown = props => {
           .dropdown.open {
           }
           .content {
+            display: flex;
+            flex-direction: column;
             border-radius: 20px;
             background-color: white;
             color: #383434;
             padding: 21px;
+            animation: showContent 0.1s linear;
+          }
+          @keyframes showContent {
+            0% {
+              opacity: 0;
+              transform: translate(-100%);
+            }
           }
         `}
       </style>

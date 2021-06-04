@@ -15,6 +15,7 @@ const DropdownButton = props => (
           background-image: linear-gradient(to top, #000000, #000000 50%, #3e3e3e 100%);
           box-shadow: 0 0 1px 1px #3e3e3e;
           border-radius: 20px;
+          transition: 0.7s;
         }
         .dropdownButton.open {
           background-image: linear-gradient(to top, #d8d4d4, #d8d4d4 50%, #f0ecec 100%);
@@ -23,6 +24,7 @@ const DropdownButton = props => (
           border-width: 5px;
           border-color: #ffffff;
           box-shadow: 0 0 1px 1px #ffffff;
+          transition: 0.7s;
         }
         .title {
           margin-left: 21px;
