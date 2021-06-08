@@ -28,7 +28,7 @@ const Information = props => {
         title={language.address}
         beforeContent={<Address.Location card={card} />}
         withoutPadding
-        additionalBlocks={[<Address card={card} />]}
+        additionalBlocks={[<Address.GoogleMap card={card} />]}
       >
         <Address card={card} />
       </Dropdown>
