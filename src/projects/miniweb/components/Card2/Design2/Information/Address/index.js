@@ -56,7 +56,6 @@ Address.GoogleMap = props => {
   useEffect(() => {
     const coordinates = hasMap && getCoordinates(card.google_maps_url);
     window.initMap = () => {
-      console.log('init map');
       if (!coordinates) return;
       setMap(
         new window.google.maps.Map(mapRef.current, {
