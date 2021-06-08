@@ -1,0 +1,9 @@
+I'm a Backend Developer. I'm responsible for maintaining several backend projects.
+I work mainly with the following technologies:
+- Atlassian Jira
+- Node.js
+- MongoDB
+- Redis
+- Postgres
+- ELK (Kibana + Logstash + Elasticsearch)
+- Rollbar

@@ -5,6 +5,7 @@ import Dropdown from '../Dropdown';
 
 import AboutCompany from './AboutCompany';
 import ProductsServices from './ProductsServices';
+import BusinessHours from './BusinessHours';
 import { getLanguage } from './lang';
 
 const Information = props => {
@@ -19,7 +20,9 @@ const Information = props => {
       <Dropdown title={language.productsServices}>
         <ProductsServices card={card} />
       </Dropdown>
-      <Dropdown title={language.businessHours}>Content...</Dropdown>
+      <Dropdown title={language.businessHours}>
+        <BusinessHours card={card} />
+      </Dropdown>
       <Dropdown title={language.address}>Content...</Dropdown>
       <style jsx>
         {`
