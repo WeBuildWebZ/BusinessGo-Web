@@ -39,11 +39,9 @@ const Information = props => {
             flex-direction: column;
             align-items: center;
             width: 100vw;
-            height: 50vh;
             padding-top: 25px;
             background-color: ${card.border_color};
             background-image: url(${window.getAssetUrl('miniweb_assets/design2/background.svg')});
-            height: 200vh;
             background-size: contain;
             color: whitesmoke;
           }

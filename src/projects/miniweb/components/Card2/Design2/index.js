@@ -4,6 +4,7 @@ import CoverPhoto from './CoverPhoto';
 import SmallPhoto from './SmallPhoto';
 import Presentation from './Presentation';
 import Information from './Information';
+import PhotosAndVideos from './PhotosAndVideos';
 import Footer from './Footer';
 
 const Design2 = props => {
@@ -15,6 +16,7 @@ const Design2 = props => {
       <SmallPhoto card={card} />
       <Presentation card={card} />
       <Information card={card} />
+      <PhotosAndVideos card={card} />
       <Footer card={card} />
       <style jsx global>
         {`
