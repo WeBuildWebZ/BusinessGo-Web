@@ -15,6 +15,7 @@ export const formatCard = card => {
     photo_or_logo: card.profile_photo || card.logo,
     photoSize: 195,
     border_color: card.border_color || '#00ff00',
+    photos_or_videos: card.photos_or_videos || [],
     completeName,
     title: card.business_or_company || completeName,
     email: card.business_email || card.personal_email,

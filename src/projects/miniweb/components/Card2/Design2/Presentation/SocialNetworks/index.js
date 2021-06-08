@@ -1,11 +1,10 @@
 import Link from 'next/link';
-
-import { cardPropTypes } from '../../../constants';
+import { useSelector } from 'react-redux';
 
 const negativeIconMargin = 28;
 
-const SocialNetworks = props => {
-  const { card } = props;
+const SocialNetworks = () => {
+  const card = useSelector(store => store.card);
 
   return (
     <div className="socialNetworks">
@@ -114,7 +113,5 @@ const SocialNetworks = props => {
     </div>
   );
 };
-
-SocialNetworks.propTypes = cardPropTypes;
 
 export default SocialNetworks;

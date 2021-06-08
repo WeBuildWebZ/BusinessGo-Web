@@ -1,7 +1,7 @@
-import { cardPropTypes } from '../../../constants';
+import { useSelector } from 'react-redux';
 
-const ProductsServices = props => {
-  const { card } = props;
+const ProductsServices = () => {
+  const card = useSelector(store => store.card);
   const productsOrServices = [...(card.products || []), ...(card.services || [])];
 
   return (
@@ -26,7 +26,5 @@ const ProductsServices = props => {
     </div>
   );
 };
-
-ProductsServices.propTypes = cardPropTypes;
 
 export default ProductsServices;

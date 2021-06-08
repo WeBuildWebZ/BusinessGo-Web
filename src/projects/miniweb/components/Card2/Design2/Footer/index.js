@@ -1,9 +1,7 @@
 import { useSelector } from 'react-redux';
 
-import { cardPropTypes } from '../../constants';
-
 const Footer = props => {
-  const { card } = props;
+  const card = useSelector(store => store.card);
 
   return (
     <div className="footer">
@@ -53,7 +51,5 @@ const Footer = props => {
     </div>
   );
 };
-
-Footer.propTypes = cardPropTypes;
 
 export default Footer;

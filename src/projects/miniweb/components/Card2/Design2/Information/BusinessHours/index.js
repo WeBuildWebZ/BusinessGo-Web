@@ -1,12 +1,11 @@
 import { useSelector } from 'react-redux';
 
-import { cardPropTypes } from '../../../constants';
 import { getFormattedHour } from '../../../../../../../utils/dates';
 
 import { getLanguage } from './lang';
 
-const BusinessHours = props => {
-  const { card } = props;
+const BusinessHours = () => {
+  const card = useSelector(store => store.card);
   const businessHours = card.business_hours || {};
   const language = getLanguage(useSelector(store => store.language));
 
@@ -55,7 +54,5 @@ const BusinessHours = props => {
     </div>
   );
 };
-
-BusinessHours.propTypes = cardPropTypes;
 
 export default BusinessHours;

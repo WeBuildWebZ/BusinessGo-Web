@@ -1,7 +1,7 @@
-import { cardPropTypes } from '../../../constants';
+import { useSelector } from 'react-redux';
 
-const AboutCompany = props => {
-  const { card } = props;
+const AboutCompany = () => {
+  const card = useSelector(store => store.card);
 
   return (
     <div className="aboutCompany">
@@ -38,7 +38,5 @@ const AboutCompany = props => {
     </div>
   );
 };
-
-AboutCompany.propTypes = cardPropTypes;
 
 export default AboutCompany;

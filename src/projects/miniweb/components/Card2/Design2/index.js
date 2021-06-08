@@ -1,4 +1,4 @@
-import { cardPropTypes } from '../constants';
+import { useSelector } from 'react-redux';
 
 import CoverPhoto from './CoverPhoto';
 import SmallPhoto from './SmallPhoto';
@@ -7,17 +7,17 @@ import Information from './Information';
 import PhotosAndVideos from './PhotosAndVideos';
 import Footer from './Footer';
 
-const Design2 = props => {
-  const { card } = props;
+const Design2 = () => {
+  const card = useSelector(store => store.card);
 
   return (
     <div className="cardDesign">
-      <CoverPhoto card={card} />
-      <SmallPhoto card={card} />
-      <Presentation card={card} />
-      <Information card={card} />
-      <PhotosAndVideos card={card} />
-      <Footer card={card} />
+      <CoverPhoto />
+      <SmallPhoto />
+      <Presentation />
+      <Information />
+      <PhotosAndVideos />
+      <Footer />
       <style jsx global>
         {`
           body {
@@ -28,7 +28,5 @@ const Design2 = props => {
     </div>
   );
 };
-
-Design2.propTypes = cardPropTypes;
 
 export default Design2;

@@ -1,14 +1,13 @@
 import { useSelector } from 'react-redux';
 
-import { cardPropTypes } from '../../constants';
 import Button1 from '../Button1';
 import { downloadVCard } from '../../../../../../utils/vCard';
 
 import SocialNetworks from './SocialNetworks';
 import { getLanguage } from './lang';
 
-const Presentation = props => {
-  const { card } = props;
+const Presentation = () => {
+  const card = useSelector(store => store.card);
   const language = getLanguage(useSelector(store => store.language));
 
   const handleAddContact = () => {
@@ -28,7 +27,7 @@ const Presentation = props => {
     <div className="presentation">
       <h3>{card.title}</h3>
       <p className="description">{card.description}</p>
-      <SocialNetworks card={card} />
+      <SocialNetworks />
       <Button1 text={language.addToContacts} onClick={handleAddContact} />
       <style jsx>
         {`
@@ -53,7 +52,5 @@ const Presentation = props => {
     </div>
   );
 };
-
-Presentation.propTypes = cardPropTypes;
 
 export default Presentation;

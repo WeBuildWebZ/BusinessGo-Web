@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { getCoordinates } from '../../../../../../../utils/googleMaps';
-import { cardPropTypes } from '../../../constants';
 
-const Address = props => {
-  const { card } = props;
+const Address = () => {
+  const card = useSelector(store => store.card);
 
   return (
     <>
@@ -22,8 +22,8 @@ const Address = props => {
   );
 };
 
-Address.Location = props => {
-  const { card } = props;
+Address.Location = () => {
+  const card = useSelector(store => store.card);
 
   return (
     <div className="location">
@@ -47,8 +47,8 @@ Address.Location = props => {
 
 let includedGoogleMapsScripts = false;
 
-Address.GoogleMap = props => {
-  const { card } = props;
+Address.GoogleMap = () => {
+  const card = useSelector(store => store.card);
   const [map, setMap] = useState(null);
   const hasMap = !!card.google_maps_url;
   const mapRef = useRef();
@@ -98,9 +98,5 @@ Address.GoogleMap = props => {
     </>
   );
 };
-
-Address.propTypes = cardPropTypes;
-Address.Location.propTypes = cardPropTypes;
-Address.GoogleMap.propTypes = cardPropTypes;
 
 export default Address;

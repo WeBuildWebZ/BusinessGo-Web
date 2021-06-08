@@ -1,7 +1,7 @@
-import { cardPropTypes } from '../../constants';
+import { useSelector } from 'react-redux';
 
-const CoverPhoto = props => {
-  const { card } = props;
+const CoverPhoto = () => {
+  const card = useSelector(store => store.card);
 
   return (
     <>
@@ -19,7 +19,5 @@ const CoverPhoto = props => {
     </>
   );
 };
-
-CoverPhoto.propTypes = cardPropTypes;
 
 export default CoverPhoto;

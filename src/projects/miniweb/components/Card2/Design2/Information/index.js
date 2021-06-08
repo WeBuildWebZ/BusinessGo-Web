@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 
-import { cardPropTypes } from '../../constants';
 import Dropdown from '../Dropdown';
 
 import AboutCompany from './AboutCompany';
@@ -9,28 +8,28 @@ import BusinessHours from './BusinessHours';
 import Address from './Address';
 import { getLanguage } from './lang';
 
-const Information = props => {
-  const { card } = props;
+const Information = () => {
+  const card = useSelector(store => store.card);
   const language = getLanguage(useSelector(store => store.language));
 
   return (
     <div id="information" className="information">
       <Dropdown title={language.company}>
-        <AboutCompany card={card} />
+        <AboutCompany />
       </Dropdown>
       <Dropdown title={language.productsServices}>
-        <ProductsServices card={card} />
+        <ProductsServices />
       </Dropdown>
       <Dropdown title={language.businessHours}>
-        <BusinessHours card={card} />
+        <BusinessHours />
       </Dropdown>
       <Dropdown
         title={language.address}
-        beforeContent={<Address.Location card={card} />}
+        beforeContent={<Address.Location />}
         withoutPadding
-        additionalBlocks={[<Address.GoogleMap card={card} />]}
+        additionalBlocks={[<Address.GoogleMap />]}
       >
-        <Address card={card} />
+        <Address />
       </Dropdown>
       <style jsx>
         {`
@@ -50,7 +49,5 @@ const Information = props => {
     </div>
   );
 };
-
-Information.propTypes = cardPropTypes;
 
 export default Information;
