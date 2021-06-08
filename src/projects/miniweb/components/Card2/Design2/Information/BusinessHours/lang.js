@@ -2,6 +2,7 @@ export const getLanguage = langCode =>
   ({
     es: {
       to: 'a',
+      closed: 'Cerrado',
       days: {
         monday: 'Lunes',
         tuesday: 'Martes',
@@ -14,6 +15,7 @@ export const getLanguage = langCode =>
     },
     en: {
       to: 'to',
+      closed: 'Closed',
       days: {
         monday: 'Monday',
         tuesday: 'Tuesday',

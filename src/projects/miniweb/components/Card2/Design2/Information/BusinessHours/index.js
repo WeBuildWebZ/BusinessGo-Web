@@ -12,19 +12,22 @@ const BusinessHours = props => {
 
   return (
     <div>
-      {Object.keys(businessHours).map((dayKey, i) => {
+      {Object.keys(language.days).map((dayKey, i) => {
         const businessHour = businessHours[dayKey];
-        const openingDate = new Date(businessHour.opening_date);
-        const closingDate = new Date(businessHour.closing_date);
-        const calendarPath = `miniweb_assets/design2/calendar_${
-          businessHour.enabled ? 'enabled' : 'disabled'
-        }.png`;
+        const isEnabled = !!businessHour?.enabled;
+        const openingDate = new Date(businessHour?.opening_date);
+        const closingDate = new Date(businessHour?.closing_date);
+        const calendarPath = `miniweb_assets/design2/calendar_${isEnabled ? 'enabled' : 'disabled'}.png`;
 
         return (
           <div key={i} className="businessHour">
             <img className="photo" src={window.getAssetUrl(calendarPath)} />
             <p className="day">{language.days[dayKey]}</p>
-            <p className="hours">{`${getFormattedHour(openingDate)} ${getFormattedHour(closingDate)}`}</p>
+            <p className="hours">
+              {isEnabled
+                ? `${getFormattedHour(openingDate)} ${getFormattedHour(closingDate)}`
+                : language.closed}
+            </p>
           </div>
         );
       })}
