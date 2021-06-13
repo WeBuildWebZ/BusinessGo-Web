@@ -1,6 +1,7 @@
 import Layout from '../../components/NewLanding/Layout';
 import PageTitle from '../../components/NewLanding/PageTitle';
 import Slider from '../../components/NewLanding/Slider';
+import Items from '../../components/NewLanding/Items';
 
 const NewLanding = () => (
   <Layout>
@@ -8,6 +9,7 @@ const NewLanding = () => (
       <PageTitle />
       <Slider />
     </div>
+    <Items />
     <style jsx>
       {`
         .section {
@@ -15,6 +17,7 @@ const NewLanding = () => (
           flex-direction: column;
           align-items: center;
           height: 100vh;
+          margin-bottom: 150px;
           background-color: #281c5c;
           overflow-x: hidden;
         }
