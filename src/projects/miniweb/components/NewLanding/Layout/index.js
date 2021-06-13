@@ -1,23 +1,25 @@
 import PropTypes from 'prop-types';
 
+import Footer from '../Footer';
+
 const Layout = props => (
-  <div className="layout">
-    {props.children}
-    <style jsx global>
-      {`
-        html,
-        body {
-          background-color: #281c5c;
-        }
-        .layout {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-      `}
-    </style>
-  </div>
+  <>
+    <div className="layout">
+      {props.children}
+      <style jsx global>
+        {`
+          html,
+          body {
+            background-color: #ece4ec;
+          }
+          .layout {
+            overflow-x: hidden;
+          }
+        `}
+      </style>
+    </div>
+    <Footer />
+  </>
 );
 
 Layout.propTypes = {

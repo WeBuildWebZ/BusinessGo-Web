@@ -4,8 +4,22 @@ import Slider from '../../components/NewLanding/Slider';
 
 const NewLanding = () => (
   <Layout>
-    <PageTitle />
-    <Slider />
+    <div className="section">
+      <PageTitle />
+      <Slider />
+    </div>
+    <style jsx>
+      {`
+        .section {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          height: 100vh;
+          background-color: #281c5c;
+          overflow-x: hidden;
+        }
+      `}
+    </style>
   </Layout>
 );
 

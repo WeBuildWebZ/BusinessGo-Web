@@ -2,10 +2,14 @@ html,
 body {
   width: 100vw;
   height: 100%;
-  overflow-x: hidden;
   background-color: white;
   scroll-behavior: smooth;
 }
+
+body {
+  overflow-x: hidden;
+}
+
 #__next {
   height: 100%;
 }
