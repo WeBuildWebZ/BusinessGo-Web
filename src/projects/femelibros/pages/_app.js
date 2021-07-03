@@ -5,11 +5,12 @@ import 'aos/dist/aos.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../styles/globals.css';
 
+import Cart from '../../../components/Cart2';
 import getApp from '../../../shared/pages/_app';
 import * as constants from '../constants';
 
 const AppendHead = router => (
-  <>
+  <Cart>
     <NextSeo
       title="Femelibros"
       description="Ayudamos a mujeres emprendedoras que buscan pasar su negocio al mundo DIGITAL."
@@ -45,7 +46,8 @@ const AppendHead = router => (
         />
       )}
     </Head>
-  </>
+    <Cart />
+  </Cart>
 );
 
 export default getApp({}, constants, AppendHead);

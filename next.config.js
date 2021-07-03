@@ -13,15 +13,6 @@ env.PROJECT_NAME = env.PROJECT_NAME || process.argv[4];
 
 module.exports = {
   webpack: (config, { defaultLoaders, isServer }) => {
-    // config.optimization.splitChunks = {
-    //   cacheGroups: {
-    //     default: false
-    //   }
-    // };
-    // config.optimization.runtimeChunk = false;
-    // config.output.libraryTarget = 'umd';
-    // config.output.library = 'WeBuildWebz';
-    // config.output.filename = './[name].js';
     config.module.rules.push({
       test: /\.+(jsx?)$/,
       loader: defaultLoaders.babel,

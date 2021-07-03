@@ -89,6 +89,7 @@ const getApp = (reducer, constants, AppendComponent) => {
     `https://images.webuildwebz.com/${encodeURIComponent(constants.PROJECT_CODE)}/${path}`;
   globalThis.getSharedAssetUrl = (path, isShared) =>
     `https://images.webuildwebz.com/${encodeURIComponent(constants.PROJECT_CODE)}/shared/${path}`;
+  globalThis.constants = constants;
 
   const App = ({ Component, pageProps }) => {
     const [errorCode, setErrorCode] = useState(null);
