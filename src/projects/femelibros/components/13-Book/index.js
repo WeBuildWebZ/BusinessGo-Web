@@ -2,6 +2,8 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import ReactStars from 'react-rating-stars-component';
 
+import CartManager from '../../../../components/CartManager';
+
 const Book = props => {
   const { book } = props;
 
@@ -11,6 +13,7 @@ const Book = props => {
         <img src={book.photo} alt="Book" />
       </div>
       <div className="text">
+        <CartManager product={book} cartColor="whitesmoke" />
         <h3>{book.title}</h3>
         <h4>
           ${`${book.price}`} {book.currency}
