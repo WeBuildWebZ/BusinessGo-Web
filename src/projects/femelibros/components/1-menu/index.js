@@ -18,7 +18,6 @@ const Menu = () => (
       {`
         .menu {
           width: 100vw;
-          // height: 10vh;
           background: hsla(333, 5%, 44%, 0.5);
           color: white;
           display: flex;
