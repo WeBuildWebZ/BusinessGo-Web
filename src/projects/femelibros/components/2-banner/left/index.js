@@ -29,6 +29,7 @@ const Left = () => {
               justify-content: center;
               align-items: center;
               flex-flow: column;
+              margin-top: 80px;
               padding: 0 2.5em 0 0;
               background-image: linear-gradient(to top, #756a6f, hsla(16, 100%, 66%, 0.5)),
                 url(/images/image2.jpeg);
