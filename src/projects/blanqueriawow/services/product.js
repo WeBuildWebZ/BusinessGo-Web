@@ -7,4 +7,4 @@ export const getProducts = (project, page_size, page_number, filters = {}, text_
     text_search_fields: ['category', 'name']
   });
 
-export const getDistinctProducts = () => listDistinctItems(['category']);
+export const getDistinctProducts = projectCode => listDistinctItems(projectCode, ['category']);

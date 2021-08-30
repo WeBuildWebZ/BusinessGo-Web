@@ -39,8 +39,8 @@ export const createItem = (entity, project_code, clientDocument) =>
 export const updateItem = clientDocument =>
   api.put(`api/items/${encodeURIComponent(clientDocument._id)}`, clientDocument);
 
-export const listDistinctItems = (keys = []) =>
-  api.get('api/item_distinct', {
+export const listDistinctItems = (project_code, keys = []) =>
+  api.get(`api/projects/${encodeURIComponent(project_code)}/item_distinct`, {
     params: Object.fromEntries(keys.map(key => [`value.${key}`, true]))
   });
 

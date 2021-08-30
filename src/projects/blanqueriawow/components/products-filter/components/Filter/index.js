@@ -8,6 +8,7 @@ import Checkbox from '../../form-builder/checkbox';
 
 const ProductFilter = () => {
   const dispatch = useDispatch();
+  const project = useSelector(store => store.project);
   const selectedCategories = useSelector(store => store.filters.categories);
   const queryParams = useSelector(store => store.queryParams);
   const [categories, setCategories] = useState([]);
@@ -21,11 +22,12 @@ const ProductFilter = () => {
   }, []);
 
   useEffect(() => {
-    getDistinctProducts().then(({ data: distinct }) => {
+    if (!project) return;
+    getDistinctProducts(project.code).then(({ data: distinct }) => {
       setCategories(distinct['value.category']);
       setLoading(false);
     });
-  }, [selectedCategories]);
+  }, [project, selectedCategories]);
 
   const handleToggleCategory = category => {
     if (shouldRedirect) return (window.location.href = `/products?category=${encodeURIComponent(category)}`);
