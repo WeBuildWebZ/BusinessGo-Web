@@ -12,7 +12,6 @@ const ProductFilter = () => {
   const selectedCategories = useSelector(store => store.filters.categories);
   const queryParams = useSelector(store => store.queryParams);
   const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
   const shouldRedirect = process.browser && window.location.pathname !== '/products';
 
   useEffect(() => {
@@ -23,10 +22,7 @@ const ProductFilter = () => {
 
   useEffect(() => {
     if (!project) return;
-    getDistinctProducts(project.code).then(({ data: distinct }) => {
-      setCategories(distinct['value.category']);
-      setLoading(false);
-    });
+    setCategories(project.configuration.products_page.categories);
   }, [project, selectedCategories]);
 
   const handleToggleCategory = category => {
@@ -42,17 +38,16 @@ const ProductFilter = () => {
   return (
     <div className="products-filter__block" style={{ padding: 15 }}>
       <div style={{ marginBottom: 15, color: 'black' }}>Categoría</div>
-      {loading && <Spinner />}
       <div className="products-filter__block__content">
         {categories.map((category, i) => {
-          const isSelected = selectedCategories.includes(category);
+          const isSelected = selectedCategories.includes(category.key);
 
           return (
             <Checkbox
               key={i}
-              label={category}
+              label={category.value}
               checked={isSelected}
-              onChange={() => handleToggleCategory(category)}
+              onChange={() => handleToggleCategory(category.key)}
             />
           );
         })}
