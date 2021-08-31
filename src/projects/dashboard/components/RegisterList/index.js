@@ -117,7 +117,7 @@ const RegisterList = props => {
                 count={count}
                 page={selectedPage - 1}
                 rowsPerPage={pageSize}
-                onChangePage={(e, newPage) => setSelectedPage(newPage + 1)}
+                onPageChange={(e, newPage) => setSelectedPage(newPage + 1)}
                 labelRowsPerPage={language.rowsPerPage}
               />
             )}

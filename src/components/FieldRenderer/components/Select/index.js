@@ -13,7 +13,7 @@ const Select = props => {
   const languageCode = useSelector(store => store.language);
   const keyTranslation = getFieldKeyTranslation(languageCode);
   const language = getLanguage(languageCode);
-  const project = useSelector(store => store.project);
+  const project = useSelector(store => store.project) || useSelector(store => store.dashboardProject);
   const fieldName = (field.names && field.names[languageCode]) || field.name || keyTranslation[field.key];
 
   const options =
