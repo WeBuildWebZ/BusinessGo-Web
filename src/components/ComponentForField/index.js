@@ -23,7 +23,7 @@ const ComponentForField = props => {
     }
     case 'select': {
       const option = getFieldOption(project, field, children);
-      return option.value;
+      return option?.value || '';
     }
     default:
       return <>{children}</>;

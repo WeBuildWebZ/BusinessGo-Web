@@ -25,10 +25,13 @@ const RegisterList = props => {
   const [registerToDelete, setRegisterToDelete] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const importantFields = clientModel.fields.filter(field => field.important);
+  const [loading, setLoading] = useState(false);
 
   const handleGetDocuments = () => {
+    setLoading(true);
     listItems(clientModel.entity, project, pageSize, selectedPage).then(({ data: givenClientDocuments }) => {
       setItems(givenClientDocuments);
+      setLoading(false);
     });
   };
 
@@ -122,7 +125,7 @@ const RegisterList = props => {
                 count={count}
                 page={selectedPage - 1}
                 rowsPerPage={pageSize}
-                onPageChange={(e, newPage) => setSelectedPage(newPage + 1)}
+                onPageChange={(e, newPage) => !loading && setSelectedPage(newPage + 1)}
                 labelRowsPerPage={language.rowsPerPage}
               />
             )}
