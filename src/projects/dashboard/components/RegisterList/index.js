@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { listItems, deleteItem } from '../../../../services/api/item';
 import ConfirmModal from '../../../../components/ConfirmModal';
 import usePushAlert from '../../../../shared/hooks/usePushAlert';
+import ComponentForField from '../../../../components/ComponentForField';
 
 import { getLanguage } from './lang';
 
@@ -19,7 +20,7 @@ const RegisterList = props => {
   const language = getLanguage(languageCode);
   const pushAlert = usePushAlert();
   const [selectedPage, setSelectedPage] = useState(1);
-  const [clientDocuments, setClientDocuments] = useState(null);
+  const [items, setItems] = useState(null);
   const [count, setCount] = useState(null);
   const [registerToDelete, setRegisterToDelete] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -27,7 +28,7 @@ const RegisterList = props => {
 
   const handleGetDocuments = () => {
     listItems(clientModel.entity, project, pageSize, selectedPage).then(({ data: givenClientDocuments }) => {
-      setClientDocuments(givenClientDocuments);
+      setItems(givenClientDocuments);
     });
   };
 
@@ -38,7 +39,7 @@ const RegisterList = props => {
     deleteItem(registerToDelete).then(() => {
       setIsDeleting(false);
       setRegisterToDelete(null);
-      setClientDocuments([]);
+      setItems([]);
       handleGetDocuments();
       pushAlert({ type: 'info', ...language.registerDeleted(clientModel) });
     });
@@ -90,24 +91,28 @@ const RegisterList = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {clientDocuments?.map((clientDocument, i) => (
+          {items?.map((item, i) => (
             <TableRow key={i}>
               <TableCell>
                 <div className="actions">
                   <Link
                     href={`/projects/${encodeURIComponent(project.code)}/registers/${encodeURIComponent(
                       clientModel.entity
-                    )}/${clientDocument._id}`}
+                    )}/${item._id}`}
                   >
                     <a>
                       <i className="fa fa-edit" />
                     </a>
                   </Link>
-                  <i className="fa fa-trash" onClick={() => setRegisterToDelete(clientDocument)} />
+                  <i className="fa fa-trash" onClick={() => setRegisterToDelete(item)} />
                 </div>
               </TableCell>
               {importantFields.map((field, ii) => (
-                <TableCell key={ii}>{clientDocument[field.key]}</TableCell>
+                <TableCell key={ii}>
+                  <ComponentForField project={project} field={field}>
+                    {item[field.key]}
+                  </ComponentForField>
+                </TableCell>
               ))}
             </TableRow>
           ))}
