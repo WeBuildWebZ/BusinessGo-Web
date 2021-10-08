@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { createSession } from '../../../../services/api/session';
 import { setUser } from '../../../../shared/actions/user';
+import { setToken } from '../../../../shared/actions/token';
 import useHandleError from '../../../../shared/hooks/useHandleError';
 import usePushAlert from '../../../../shared/hooks/usePushAlert';
 
@@ -26,8 +27,9 @@ const Login = () => {
     createSession('all', email, password)
       .then(({ data: sessions }) => {
         setLoading(false);
-        const [{ user: newUser }] = sessions;
+        const [{ user: newUser, token }] = sessions;
         dispatch(setUser(newUser));
+        dispatch(setToken(token));
         pushAlert({
           type: 'info',
           title: language.loginOk.title,
