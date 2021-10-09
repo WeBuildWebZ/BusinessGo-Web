@@ -10,7 +10,7 @@ export const getLanguage = langCode =>
     },
     en: {
       phrases: [
-        'SUCCESS ONLY CAME WHEN',
+        'SUCCESS ONLY COMES WHEN',
         'YOU CROSS THE LINE AND YOU TAKE A RISK',
         'ONLY THUS, YOU GET EXPERIENCE',
         "IF YOU WANT IT, HERE WE'RE WAITING FOR YOU."
