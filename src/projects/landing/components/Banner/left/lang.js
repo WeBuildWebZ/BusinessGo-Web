@@ -7,7 +7,7 @@ export const getLanguage = langCode =>
       button: 'ver'
     },
     en: {
-      title: 'In We Build Webz, we design, build, but especially, we help your company grow.',
+      title: 'At We Build Webz, we design, build, but especially, we help your company grow.',
       description: 'Nagivate our web, see our work done, our services, and we can talk, it will be quick',
       button: 'see'
     }
