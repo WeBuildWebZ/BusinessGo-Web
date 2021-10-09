@@ -15,14 +15,18 @@ const LanguageSelector = props => {
   const changeLanguage = useChangeLanguage();
   const classes = useStyles();
   const languageCode = useSelector(store => store.language);
+  const user = useSelector(store => store.user);
   const language = getLanguage(languageCode);
 
   const handleChangeLanguage = newLanguage => {
-    changeLanguage(newLanguage, true);
+    changeLanguage(newLanguage, !!user);
   };
 
   useEffect(() => {
     let waiting = true;
+
+    if (!user) return;
+
     showLanguage().then(({ data: givenLanguage }) => {
       if (!waiting) return;
       changeLanguage(givenLanguage.code, false);
