@@ -49,7 +49,8 @@ const ReduxFiller = props => {
   }, []);
 
   useEffect(() => {
-    changeLanguage(constants.DEFAULT_LANGUAGE, false);
+    const storedLanguage = localStorage.getItem('language');
+    if (!storedLanguage) changeLanguage(constants.DEFAULT_LANGUAGE, false);
   }, []);
 
   useEffect(() => {
