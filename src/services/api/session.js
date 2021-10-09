@@ -12,5 +12,3 @@ export const createSession = (project_code, email, password) =>
 
       return response;
     });
-
-export const deleteSessions = () => api.delete('api/sessions');

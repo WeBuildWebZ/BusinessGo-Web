@@ -19,9 +19,7 @@ export default function NotLoggedInNavbar() {
   };
 
   const logout = () => {
-    deleteSessions().then(() => {
-      window.location.href = process.env.LANDING_URL;
-    });
+    window.location.href = process.env.LANDING_URL;
   };
 
   return (

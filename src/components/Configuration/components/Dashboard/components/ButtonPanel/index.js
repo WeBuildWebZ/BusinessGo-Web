@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { deleteSessions } from '../../../../../../services/api/session';
 import { setLanguage } from '../../../../../../shared/actions/language';
 import logout from '../../../../../../shared/actions/multiple/logout';
 import useChangeLanguage from '../../../../../../shared/hooks/useChangeLanguage';
@@ -16,9 +15,7 @@ const ButtonPanel = () => {
   const language = getLanguage(languageCode);
 
   const handleLogout = () => {
-    deleteSessions().then(() => {
-      logout(dispatch);
-    });
+    logout(dispatch);
   };
 
   const handleChangeLanguage = () => {
