@@ -17,11 +17,13 @@ const pageSize = 10;
 const RegisterList = props => {
   const { clientModel } = props;
   const project = useSelector(store => store.dashboardProject);
-  const registerPaging = useSelector(store => store.registerPaging);
+  const registerPaging = useSelector(
+    store => store.registerPaging[clientModel.entity] || { selectedPage: 1, selectedRegister: {} }
+  );
   const languageCode = useSelector(store => store.language);
   const language = getLanguage(languageCode);
   const pushAlert = usePushAlert();
-  const [selectedPage, setSelectedPage] = useState(registerPaging[clientModel.entity]?.pageNumber || 1);
+  const [selectedPage, setSelectedPage] = useState(registerPaging.selectedPage);
   const [items, setItems] = useState(null);
   const [count, setCount] = useState(null);
   const [registerToDelete, setRegisterToDelete] = useState(null);
@@ -51,13 +53,22 @@ const RegisterList = props => {
     });
   };
 
+  const handleEdit = registerIndex => {
+    dispatch(
+      setRegisterPaging(clientModel.entity, {
+        selectedPage,
+        selectedRegister: { page: selectedPage, index: registerIndex }
+      })
+    );
+  };
+
   useEffect(() => {
     if (!project) return;
     handleGetDocuments();
   }, [project, props.clientModel, selectedPage]);
 
   useEffect(() => {
-    dispatch(setRegisterPaging(clientModel.entity, selectedPage));
+    dispatch(setRegisterPaging(clientModel.entity, { selectedPage }));
   }, [selectedPage]);
 
   useEffect(() => {
@@ -101,31 +112,37 @@ const RegisterList = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {items?.map((item, i) => (
-            <TableRow key={i}>
-              <TableCell>
-                <div className="actions">
-                  <Link
-                    href={`/projects/${encodeURIComponent(project.code)}/registers/${encodeURIComponent(
-                      clientModel.entity
-                    )}/${item._id}`}
-                  >
-                    <a>
-                      <i className="fa fa-edit" />
-                    </a>
-                  </Link>
-                  <i className="fa fa-trash" onClick={() => setRegisterToDelete(item)} />
-                </div>
-              </TableCell>
-              {importantFields.map((field, ii) => (
-                <TableCell key={ii}>
-                  <ComponentForField project={project} field={field}>
-                    {item[field.key]}
-                  </ComponentForField>
+          {items?.map((item, i) => {
+            const isSelected =
+              i === registerPaging.selectedRegister.index &&
+              selectedPage === registerPaging.selectedRegister.page;
+
+            return (
+              <TableRow key={i} style={{ backgroundColor: isSelected ? '#42cbf533' : '' }}>
+                <TableCell>
+                  <div className="actions">
+                    <Link
+                      href={`/projects/${encodeURIComponent(project.code)}/registers/${encodeURIComponent(
+                        clientModel.entity
+                      )}/${item._id}`}
+                    >
+                      <a onClick={() => handleEdit(i)}>
+                        <i className="fa fa-edit" />
+                      </a>
+                    </Link>
+                    <i className="fa fa-trash" onClick={() => setRegisterToDelete(item)} />
+                  </div>
                 </TableCell>
-              ))}
-            </TableRow>
-          ))}
+                {importantFields.map((field, ii) => (
+                  <TableCell key={ii}>
+                    <ComponentForField project={project} field={field}>
+                      {item[field.key]}
+                    </ComponentForField>
+                  </TableCell>
+                ))}
+              </TableRow>
+            );
+          })}
           <TableRow>
             {count && (
               <TablePagination

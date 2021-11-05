@@ -1,7 +1,7 @@
-export const setRegisterPaging = (entity, pageNumber) => ({
+export const setRegisterPaging = (entity, paging) => ({
   type: 'setRegisterPaging',
   payload: {
     entity,
-    pageNumber
+    paging
   }
 });
