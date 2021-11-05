@@ -1,13 +1,14 @@
 import { Table, TableRow, TableCell, TableHead, TablePagination, TableBody } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 
 import { listItems, deleteItem } from '../../../../services/api/item';
 import ConfirmModal from '../../../../components/ConfirmModal';
 import usePushAlert from '../../../../shared/hooks/usePushAlert';
 import ComponentForField from '../../../../components/ComponentForField';
+import { setRegisterPaging } from '../../actions/registerPaging';
 
 import { getLanguage } from './lang';
 
@@ -16,16 +17,18 @@ const pageSize = 10;
 const RegisterList = props => {
   const { clientModel } = props;
   const project = useSelector(store => store.dashboardProject);
+  const registerPaging = useSelector(store => store.registerPaging);
   const languageCode = useSelector(store => store.language);
   const language = getLanguage(languageCode);
   const pushAlert = usePushAlert();
-  const [selectedPage, setSelectedPage] = useState(1);
+  const [selectedPage, setSelectedPage] = useState(registerPaging[clientModel.entity]?.pageNumber || 1);
   const [items, setItems] = useState(null);
   const [count, setCount] = useState(null);
   const [registerToDelete, setRegisterToDelete] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
   const importantFields = clientModel.fields.filter(field => field.important);
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const handleGetDocuments = () => {
     setLoading(true);
@@ -52,6 +55,10 @@ const RegisterList = props => {
     if (!project) return;
     handleGetDocuments();
   }, [project, props.clientModel, selectedPage]);
+
+  useEffect(() => {
+    dispatch(setRegisterPaging(clientModel.entity, selectedPage));
+  }, [selectedPage]);
 
   useEffect(() => {
     if (!project) return;

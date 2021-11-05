@@ -13,7 +13,7 @@ import { listItemModels } from '../../../../../../services/api/itemModel';
 
 import { getLanguage } from './lang';
 
-const Configuration = () => {
+const RegistersScreen = () => {
   const dashboardConfiguration = useDashboardConfiguration();
   const project = useSelector(store => store.dashboardProject);
   const language = getLanguage(useSelector(store => store.language));
@@ -104,4 +104,4 @@ const Configuration = () => {
   );
 };
 
-export default Configuration;
+export default RegistersScreen;

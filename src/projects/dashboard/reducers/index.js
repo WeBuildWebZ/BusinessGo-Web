@@ -1,7 +1,9 @@
 import dashboardProject from './dashboardProject';
+import registerPaging from './registerPaging';
 
 const Reducers = {
-  dashboardProject
+  dashboardProject,
+  registerPaging
 };
 
 export default Reducers;
