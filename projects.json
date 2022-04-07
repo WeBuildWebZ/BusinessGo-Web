@@ -70,5 +70,9 @@
   "femelibros": {
     "path": "src/projects/femelibros",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Femelibros"
+  },
+  "beast-cards": {
+    "path": "src/projects/beast-cards",
+    "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-beast-cards"
   }
 }
