@@ -1,77 +1,96 @@
 {
   "starter": {
+    "branch": "master",
     "path": "src/projects/starter",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Starter"
   },
   "landing": {
+    "branch": "master",
     "path": "src/projects/landing",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Landing"
   },
   "admin": {
+    "branch": "master",
     "path": "src/projects/admin",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Admin"
   },
   "globy": {
+    "branch": "master",
     "path": "src/projects/globy",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Globy"
   },
   "psa": {
+    "branch": "master",
     "path": "src/projects/psa",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Performance-System-Automotive"
   },
   "blanqueriawow": {
+    "branch": "master",
     "path": "src/projects/blanqueriawow",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Blanqueria_Wow"
   },
   "bob": {
+    "branch": "master",
     "path": "src/projects/bob",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Bob"
   },
   "cosmeticos": {
+    "branch": "master",
     "path": "src/projects/cosmeticos",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Campe"
   },
   "muebles": {
+    "branch": "master",
     "path": "src/projects/muebles",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-Muebles"
   },
   "readmyfcomic": {
+    "branch": "master",
     "path": "src/projects/readmyfcomic",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/WeBuildWebZ/BGO-ReadMyFComic"
   },
   "chatbot-site": {
+    "branch": "master",
     "path": "src/projects/chatbot-site",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-ChatbotSite"
   },
   "miniweb": {
+    "branch": "master",
     "path": "src/projects/miniweb",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-MiniWeb"
   },
   "guitar": {
+    "branch": "master",
     "path": "src/projects/guitar",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Guitar"
   },
   "orden": {
+    "branch": "master",
     "path": "src/projects/orden",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Orden"
   },
   "dashboard": {
+    "branch": "master",
     "path": "src/projects/dashboard",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-dashboard"
   },
   "carpediem": {
+    "branch": "master",
     "path": "src/projects/carpediem",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Carpediem"
   },
   "regazza": {
+    "branch": "master",
     "path": "src/projects/regazza",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Regazza-Bags"
   },
   "femelibros": {
+    "branch": "master",
     "path": "src/projects/femelibros",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-Femelibros"
   },
   "beast-cards": {
+    "branch": "main",
     "path": "src/projects/beast-cards",
     "repo": "https://{{GITHUB_TOKEN}}@github.com/Lefcott/BGO-beast-cards"
   }
