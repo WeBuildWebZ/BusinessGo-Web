@@ -1,22 +1,19 @@
-import EmptyComponent from '../components/EmptyComponent';
+import HomeVideo from '../components/HomeVideo';
+import Welcome from '../components/Welcome';
 
 const HomePage = () => (
   <div>
-    <div className="videoContainer">
-      <video className="video" src={globalThis.getAssetUrl('videos/home.mp4')} autoPlay muted loop />
+    <HomeVideo />
+    <div className="moreZIndex">
+      <Welcome />
+      <style jsx>
+        {`
+          .moreZIndex {
+            z-index: 222;
+          }
+        `}
+      </style>
     </div>
-    <style jsx>
-      {`
-        .videoContainer {
-          height: 480px;
-          overflow: hidden;
-        }
-        .video {
-          width: 100%;
-          margin-top: -100px;
-        }
-      `}
-    </style>
   </div>
 );
 
