@@ -11,24 +11,24 @@ import * as constants from '../constants';
 const AppendHead = () => (
   <>
     <NextSeo
-      title="WeBuildWebZ"
-      description="Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida"
+      title="Beast Cards"
+      description="Beast Cards es el 1er juego play-to-play y play-to-earn del mundo, juega contra otro jugador para obtener rendimientos en $BC en las diferentes arenas de combates, mejora tu mazo, prepara tu estrategia y se el mejor entrenador de bestias del metaverso."
       canonical={constants.URL}
       openGraph={{
         url: constants.URL,
-        title: 'WeBuildWebZ',
-        description: 'Somos una empresa de desarrollo web. Hacemos webs/apps móviles profesionales a medida',
-        site_name: 'WeBuildWebZ',
+        title: 'Beast Cards',
+        description:
+          'Beast Cards es el 1er juego play-to-play y play-to-earn del mundo, juega contra otro jugador para obtener rendimientos en $BC en las diferentes arenas de combates, mejora tu mazo, prepara tu estrategia y se el mejor entrenador de bestias del metaverso.',
+        site_name: 'Beast Cards',
         images: [
           {
-            url:
-              'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-webuildwebz.jpg?alt=media&token=cca05d1d-42e8-445e-a346-21c6d4686bfc',
+            url: 'https://firebasestorage.googleapis.com/v0/b/zanle-group.appspot.com/o/banner-webuildwebz.jpg?alt=media&token=cca05d1d-42e8-445e-a346-21c6d4686bfc',
             width: 1366,
             height: 635,
             alt: 'Imagen 1'
           },
           {
-            url: `${constants.URL}/favicon.png`,
+            url: `${constants.URL}/favicon.ico`,
             width: 96,
             height: 96,
             alt: 'Imagen 2'
@@ -38,7 +38,7 @@ const AppendHead = () => (
       twitter={{ handle: '@handle', site: '@site', cardType: 'summary_large_image' }}
     />
     <Head>
-      <link rel="icon" href="/favicon.png" />
+      <link rel="icon" href="/favicon.ico" />
       {/* Discomment in order to add widgets */}
       {/* {process.browser && (
         <script

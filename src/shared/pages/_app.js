@@ -87,9 +87,9 @@ ReduxFiller.propTypes = {
 const getApp = (reducer, constants, AppendComponent) => {
   const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
   globalThis.getAssetUrl = (path, isShared) =>
-    `https://images.webuildwebz.com/${encodeURIComponent(constants.PROJECT_CODE)}/${path}`;
+    `https://assets.webuildwebz.com/${encodeURIComponent(constants.PROJECT_CODE)}/${path}`;
   globalThis.getSharedAssetUrl = (path, isShared) =>
-    `https://images.webuildwebz.com/${encodeURIComponent(constants.PROJECT_CODE)}/shared/${path}`;
+    `https://assets.webuildwebz.com/${encodeURIComponent(constants.PROJECT_CODE)}/shared/${path}`;
   globalThis.constants = constants;
 
   const App = ({ Component, pageProps }) => {
