@@ -1,6 +1,6 @@
 const Welcome = () => (
-  <div className="flex">
-    <div className="container">
+  <div className="absoluteContainer">
+    <div className="flexContainer">
       <p className="text">
         Beast Cards, es el 1er juego play-to-play y play-to-earn del mundo, juega contra otro jugador para
         obtener rendimientos en $BC en las diferentes arenas de combates, mejora tu mazo, prepara tu
@@ -9,12 +9,21 @@ const Welcome = () => (
     </div>
     <style jsx>
       {`
-        .flex {
+        .absoluteContainer {
           display: flex;
+          justify-content: center;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
         }
-        .container {
+        .flexContainer {
           display: flex;
           flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          max-width: 250px;
         }
         .text {
           color: #fff;
