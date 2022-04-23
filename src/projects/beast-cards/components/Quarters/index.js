@@ -17,6 +17,7 @@ const Quarters = () => (
         .quartersContainer {
           display: flex;
           justify-content: space-evenly;
+          flex-wrap: wrap;
         }
         .quarter {
           display: flex;
