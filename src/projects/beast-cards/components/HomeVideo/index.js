@@ -31,6 +31,14 @@ const HomeVideo = () => (
           width: 100%;
           height: 100%;
         }
+
+        @media only screen and (max-width: 768px) {
+          .video {
+            width: 200%;
+            margin-top: 0;
+            margin-left: -75%;
+          }
+        }
       `}
     </style>
   </>
