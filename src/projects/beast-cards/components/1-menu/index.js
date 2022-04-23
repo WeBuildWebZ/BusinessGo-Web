@@ -1,12 +1,12 @@
-import Logo from "./logo";
-import Navbar from "./navbar";
-import MenuBurger from "./menu-burger";
+import Logo from './logo';
+import Navbar from './navbar';
+import MenuBurger from './menu-burger';
 
 const links = [
-  { text: "option1", href: "/" },
-  { text: "option2", href: "/" },
-  { text: "option3", href: "/" },
-  { text: "option4", href: "/" },
+  { text: 'option1', href: '/' },
+  { text: 'option2', href: '/' },
+  { text: 'option3', href: '/' },
+  { text: 'option4', href: '/' }
 ];
 
 const Menu = () => (
@@ -19,7 +19,8 @@ const Menu = () => (
         .menu {
           width: 100vw;
           // height: 10vh;
-          background: hsla(333, 5%, 44%, 0.5);
+          // background: hsla(333, 5%, 44%, 0.5);
+          background: hsla(0, 0%, 0%, 0.7);
           color: white;
           display: flex;
           justify-content: space-evenly;
