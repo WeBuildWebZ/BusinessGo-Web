@@ -1,25 +1,13 @@
-import Menu from '../components/1-menu';
-import Banner from '../components/2-banner';
-import EmptyComponent from '../components/EmptyComponent';
+import FireVideo from '../components/FireVideo';
+import HomeVideo from '../components/HomeVideo';
+import Quarters from '../components/Quarters';
 
-const Empty = () => (
-  <div className="home_container">
-    <Menu />
-    <Banner />
-    <Banner />
-    <Banner />
-    <style jsx>
-      {`
-        .home_container {
-          width: 100vw;
-          min-height: 100vh;
-          // background: hsla(0, 0%, 0%, 0.7);
-          display: flex;
-          flex-flow: column;
-        }
-      `}
-    </style>
-  </div>
+const HomePage = () => (
+  <>
+    <HomeVideo />
+    <Quarters />
+    <FireVideo />
+  </>
 );
 
-export default Empty;
+export default HomePage;
