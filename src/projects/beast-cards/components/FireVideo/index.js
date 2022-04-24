@@ -1,5 +1,8 @@
+import Title from '../title';
+
 const FireVideo = () => (
   <>
+    <Title title="Seccion" />
     <div className="videoContainer">
       <video className="video" src={globalThis.getAssetUrl('videos/fire.mp4')} autoPlay muted loop />
     </div>
@@ -7,8 +10,8 @@ const FireVideo = () => (
       {`
         .videoContainer {
           position: relative;
-          width: 100%;
-          height: 480px;
+          width: 100vw;
+          height: 100vh;
           overflow: hidden;
         }
         .video {

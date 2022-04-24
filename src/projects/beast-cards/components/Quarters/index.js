@@ -1,23 +1,24 @@
+import Card from '../card';
+import Title from '../title';
+
 import { QUARTERS } from './constants';
 
 const Quarters = () => (
   <div className="quartersContainer">
-    {QUARTERS.map(quarter => (
-      <div key={quarter.name} className="quarter">
-        <h1>{quarter.title}</h1>
-        <ul>
-          {quarter.items.map(item => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
+    <Title title="Quarters" />
+    {QUARTERS.map(item => (
+      <Card key={item} text={item} />
     ))}
     <style jsx>
       {`
         .quartersContainer {
+          width: 100vw;
+          // height: 100vh;
           display: flex;
-          justify-content: space-evenly;
+          justify-content: center;
+          align-items: center;
           flex-wrap: wrap;
+          padding: 3em 0;
         }
         .quarter {
           display: flex;
