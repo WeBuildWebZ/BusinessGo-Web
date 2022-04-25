@@ -51,11 +51,7 @@ const ProductItem = props => {
 
       <div className="product__description">
         <h3>{product.name}</h3>
-        <div className={`product__price ${product.discount ? 'product__price--discount' : ''}`}>
-          <h4>${getFinalPrice(product)}</h4>
-
-          {product.discount && <span>${product.price}</span>}
-        </div>
+        <div className={`product__price ${product.discount ? 'product__price--discount' : ''}`} />
       </div>
     </div>
   );
