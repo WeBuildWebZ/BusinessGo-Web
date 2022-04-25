@@ -25,7 +25,7 @@
     "start": "next start -p $PORT",
     "lint": "eslint scripts",
     "copy-env": "node -r esm scripts/copy_env",
-    "deploy": "node -r esm scripts/deploy $branch",
+    "deploy": "node -r esm scripts/deploy",
     "deploy-win": "FOR /F \"tokens=*\" %a in ('git rev-parse --symbolic-full-name --abbrev-ref HEAD') do SET branch=%a && node -r esm scripts/deploy %branch%",
     "new": "node -r esm scripts/new",
     "dashboard": "npm run copy-env src/projects/dashboard && next dev src/projects/dashboard",
