@@ -1,5 +1,5 @@
 (() => {
-  const category = 'Almohadas';
+  const category = 'pillows';
   const toNumbers = str =>
     str
       .split('')
@@ -20,7 +20,7 @@
         stock: +toNumbers(card.querySelector('ul li:nth-child(4)').innerHTML)
       },
       entity: 'product',
-      project_code: 'blanqueriawow_new'
+      project_code: 'blanqueriawow'
     });
   }
   console.log(`db.items.insertMany(${JSON.stringify(items)});`);
