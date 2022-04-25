@@ -19,9 +19,9 @@ const CheckoutItems = () => {
               <span>#{item.product._id}</span>
             </div>
           </div>
-          <h3>
+          {/* <h3>
             ${getFinalPrice(item.product).toFixed(2)} X {item.count}
-          </h3>
+          </h3> */}
         </li>
       ))}
     </ul>

@@ -49,7 +49,7 @@ const ShoppingCart = props => {
           </button>
         </div>
       </td>
-      <td>${product.price}</td>
+      {/* <td>${product.price}</td> */}
       <td className="cart-item-cancel">
         <i className="icon-cancel" onClick={() => removeFromCart()} />
       </td>

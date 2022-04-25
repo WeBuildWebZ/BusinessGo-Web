@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { some } from 'lodash';
 
-import { getFinalPrice } from '../../utils/product';
 import { toggleFavoriteProduct } from '../../actions/favoriteProducts';
+import { getFinalPrice } from '../../utils/product';
 
 const ProductItem = props => {
   const { product } = props;
@@ -52,6 +52,9 @@ const ProductItem = props => {
       <div className="product__description">
         <h3>{product.name}</h3>
         <div className={`product__price ${product.discount ? 'product__price--discount' : ''}`} />
+        {/* <h4>${getFinalPrice(product)}</h4>
+
+        {product.discount && <span>${product.price}</span>} */}
       </div>
     </div>
   );

@@ -39,10 +39,10 @@ const CheckoutPage = () => {
                 <h3 className="block__title">Tu carrito</h3>
                 <CheckoutItems />
 
-                <div className="checkout-total">
+                {/* <div className="checkout-total">
                   <p>Costo total</p>
                   <h3>${priceTotal.toFixed(2)}</h3>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

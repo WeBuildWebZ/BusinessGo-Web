@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { some } from 'lodash';
+import PropTypes from 'prop-types';
 
 import { setCartItem } from '../../../actions/cartItems';
 import { toggleFavoriteProduct } from '../../../actions/favoriteProducts';
-import { getFinalPrice } from '../../../utils/product';
 
 const Content = ({ product }) => {
   const dispatch = useDispatch();
   const [count, setCount] = useState(1);
 
-  const favProducts = useSelector(state => state);
-  const isFavourite = some(favProducts, productId => productId === product.id);
+  const favoriteProducts = useSelector(state => state.favoriteProducts);
+  const isFavorite = some(favoriteProducts, productId => productId === product._id);
 
   const toggleFav = () => {
     dispatch(toggleFavoriteProduct(product));
@@ -39,11 +39,6 @@ const Content = ({ product }) => {
         </h5>
         {product.discount && <span className="product-on-sale">En oferta</span>}
         <h2 className="product__name">{product.name}</h2>
-
-        <div className="product__prices">
-          <h4>${getFinalPrice(product)}</h4>
-          {product.discount && <span>${product.price}</span>}
-        </div>
       </div>
 
       <div className="product-content__filters" key={2}>
@@ -98,7 +93,7 @@ const Content = ({ product }) => {
             <button
               type="button"
               onClick={toggleFav}
-              className={`btn-heart ${isFavourite ? 'btn-heart--active' : ''}`}
+              className={`btn-heart ${isFavorite ? 'btn-heart--active' : ''}`}
             >
               <i className="icon-heart" />
             </button>
@@ -107,6 +102,15 @@ const Content = ({ product }) => {
       </div>
     </section>
   );
+};
+
+Content.propTypes = {
+  product: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    discount: PropTypes.number
+  }).isRequired
 };
 
 export default Content;
