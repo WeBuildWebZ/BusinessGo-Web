@@ -8,6 +8,7 @@ import projects from '../projects.json';
 import { runExec, copy } from './utils';
 
 const [, , projectName] = process.argv;
+console.log('process.argv', process.argv);
 const project = projects[projectName];
 const { branch } = project;
 const githubToken = `${'d8058d9dc8995863192'}${'f85615527af3e7d52b75a'}`;
