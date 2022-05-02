@@ -1,4 +1,5 @@
 import FireVideo from '../components/FireVideo';
+import Footer from '../components/footer';
 import HomeVideo from '../components/HomeVideo';
 import Quarters from '../components/Quarters';
 import Separador from '../components/separador';
@@ -9,11 +10,12 @@ const HomePage = () => (
   <>
     <HomeVideo />
     <Separador />
-    <Quarters />
-    <Separador />
     <FireVideo />
     <Separador />
+    <Quarters />
+    <Separador />
     <Staff />
+    <Footer />
   </>
 );
 
