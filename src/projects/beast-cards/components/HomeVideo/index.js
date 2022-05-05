@@ -1,9 +1,12 @@
+import Menu from '../1-menu';
+
 import BottomGradient from './BottomGradient';
 import Welcome from './Welcome';
 
 const HomeVideo = () => (
   <>
-    <video className="video" src={globalThis.getAssetUrl('videos/home.mp4')} autoPlay muted loop />
+    <video className="video" src={globalThis.getAssetUrl('videos/home.mp4')} autoPlay muted loop id="home" />
+    <Menu />
     <Welcome />
     <style jsx>
       {`
