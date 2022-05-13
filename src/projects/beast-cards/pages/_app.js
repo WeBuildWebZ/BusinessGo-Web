@@ -7,18 +7,19 @@ import '../styles/globals.css';
 
 import getApp from '../../../shared/pages/_app';
 import * as constants from '../constants';
+import { getAssetUrl } from '../../../utils/assets';
 
 const AppendHead = () => (
   <>
     <NextSeo
       title="Beast Cards"
-      description="Beast Cards es el 1er juego play-to-play y play-to-earn del mundo, juega contra otro jugador para obtener rendimientos en $BC en las diferentes arenas de combates, mejora tu mazo, prepara tu estrategia y se el mejor entrenador de bestias del metaverso."
+      description="Beast Cards es el 1er juego play-to-play y play-to-earn del mundo, juega contra otro jugador para obtener rendimientos en $BC en las diferentes arenas de combates, mejora tu mazo, prepara tu estrategia y sé el mejor entrenador de bestias del metaverso."
       canonical={constants.URL}
       openGraph={{
         url: constants.URL,
         title: 'Beast Cards',
         description:
-          'Beast Cards es el 1er juego play-to-play y play-to-earn del mundo, juega contra otro jugador para obtener rendimientos en $BC en las diferentes arenas de combates, mejora tu mazo, prepara tu estrategia y se el mejor entrenador de bestias del metaverso.',
+          'Beast Cards es el 1er juego play-to-play y play-to-earn del mundo, juega contra otro jugador para obtener rendimientos en $BC en las diferentes arenas de combates, mejora tu mazo, prepara tu estrategia y sé el mejor entrenador de bestias del metaverso.',
         site_name: 'Beast Cards',
         images: [
           {
@@ -38,7 +39,7 @@ const AppendHead = () => (
       twitter={{ handle: '@handle', site: '@site', cardType: 'summary_large_image' }}
     />
     <Head>
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href={getAssetUrl('images/logo.png')} />
       {/* Discomment in order to add widgets */}
       {/* {process.browser && (
         <script

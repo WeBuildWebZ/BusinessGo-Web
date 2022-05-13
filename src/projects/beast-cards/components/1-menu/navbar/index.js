@@ -1,19 +1,13 @@
 import Link from 'next/link';
 
+import MenuLink from './MenuLink';
+
 const Navbar = () => (
   <div className="navbar">
-    <Link href="#home">
-      <a>Inicio</a>
-    </Link>
-    <Link href="#descubre">
-      <a>Descubre</a>
-    </Link>
-    <Link href="#quarters">
-      <a>Quarters</a>
-    </Link>
-    <Link href="#staff">
-      <a>Staff</a>
-    </Link>
+    <MenuLink href="#home">Inicio</MenuLink>
+    <MenuLink href="#descubre">Descubre</MenuLink>
+    <MenuLink href="#quarters">Quarters</MenuLink>
+    <MenuLink href="#staff">Staff</MenuLink>
     <style jsx>
       {`
         .navbar {
@@ -22,12 +16,6 @@ const Navbar = () => (
           justify-content: center;
           align-items: center;
           padding-right: 2em;
-        }
-        a {
-          margin: 0 1em;
-          color: white;
-          font-weight: bold;
-          font-size: 1.5em;
         }
         // ================================================
 

@@ -8,7 +8,6 @@ a {
 
 * {
   font-family: 'Catamaran', sans-serif;
-
 }
 .aos-init:not(.aos-animate):after {
   position: fixed;
@@ -20,5 +19,5 @@ body {
   width: 100vw;
   overflow-x: hidden;
   background: #000;
+  scroll-behavior: smooth;
 }
-

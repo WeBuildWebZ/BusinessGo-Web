@@ -2,7 +2,7 @@ const Welcome = () => (
   <div className="welcome">
     <button className="button">Live</button>
     <div className="row">
-      <p className="text">se el mejor entrenador de bestias del metaverso</p>
+      <p className="text">Sé el mejor entrenador de bestias del metaverso</p>
       <button className="button2">Ver</button>
     </div>
     <p className="date">Lunes 22 de Octubre, 2022.</p>

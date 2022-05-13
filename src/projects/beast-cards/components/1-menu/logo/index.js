@@ -1,9 +1,12 @@
 import Link from 'next/link';
 
+import { getAssetUrl } from '../../../../../utils/assets';
+
 const Logo = () => (
   <div className="logo">
     <Link href="/">
-      <a>
+      <a className="title">
+        <img width={50} src={getAssetUrl('images/logo.png')} />
         <h2>Monster Cards</h2>
       </a>
     </Link>
@@ -12,6 +15,12 @@ const Logo = () => (
       {`
         .logo {
           color: white;
+          padding-left: 1em;
+        }
+
+        .title {
+          display: flex;
+          justify-content: center;
         }
 
         a {
@@ -21,7 +30,7 @@ const Logo = () => (
           font-size: 2em;
           margin: 0;
           padding: 0;
-          padding-left: 1em;
+          padding-left: 0.25em;
         }
       `}
     </style>
