@@ -5,7 +5,14 @@ const Welcome = () => (
       <p className="text">Sé el mejor entrenador de bestias del metaverso</p>
       <button className="button2">Ver</button>
     </div>
-    <p className="date">Lunes 22 de Octubre, 2022.</p>
+    <p className="date">
+      {new Date().toLocaleDateString('es-MX', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })}
+    </p>
     <style jsx>
       {`
         .welcome {
