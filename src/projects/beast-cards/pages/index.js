@@ -1,3 +1,4 @@
+import Donut from '../components/Donut';
 import FireVideo from '../components/FireVideo';
 import Footer from '../components/footer';
 import HomeVideo from '../components/HomeVideo';
@@ -14,6 +15,7 @@ const HomePage = () => (
     <Separador />
     <Quarters />
     <Separador />
+    <Donut />
     <Staff />
     <Footer />
   </>

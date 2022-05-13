@@ -7,7 +7,9 @@ const Card = ({ quarter }) => {
       <div className="itemsContainer">
         <h1>{quarter.title}</h1>
         {items.map(item => (
-          <div className="items">{item}</div>
+          <div key={item} className="items">
+            {item}
+          </div>
         ))}
       </div>
       <style jsx>
