@@ -85,6 +85,7 @@ ReduxFiller.propTypes = {
 };
 
 const getApp = (reducer, constants, AppendComponent) => {
+  process.env.PROJECT_CODE = constants.PROJECT_CODE;
   const store = createStore(combineReducers({ ...commonReducer, ...reducer }));
   globalThis.getAssetUrl = (path, isShared) =>
     `https://assets.webuildwebz.com/${encodeURIComponent(constants.PROJECT_CODE)}/${path}`;

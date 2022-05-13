@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { getAssetUrl } from '../../../../utils/assets';
+
 const Footer = () => (
   <div className="footer">
     <div className="bottom">
@@ -22,12 +24,12 @@ const Footer = () => (
       <span className="column">
         <h3>contactInformation</h3>
         <span className="row">
-          <img src="/icon/house.png" alt="house icon" />
+          <img src={getAssetUrl('icons/house.png')} alt="house icon" />
           <p> Buenos Aires - Argentina</p>
           <br />
         </span>
         <span className="row">
-          <img src="/icon/phone.png" alt="phone icon" />
+          <img src={getAssetUrl('icons/phone.png')} alt="phone icon" />
           <p>
             <a href="tel:1162329888" target="blank">
               1122334455
@@ -35,7 +37,7 @@ const Footer = () => (
           </p>
         </span>
         <span className="row">
-          <img src="/icon/contact.png" alt="contact icon" />
+          <img src={getAssetUrl('icons/contact.png')} alt="contact icon" />
           <p>
             <a href="mailto:lefcott@hotmail.com" target="blank">
               lefcott@hotmail.com
@@ -43,10 +45,10 @@ const Footer = () => (
           </p>
         </span>
         <span className="row">
-          <img src="/icon/privacy_policy.png" alt="contact icon" />
+          <img src={getAssetUrl('icons/privacy_policy.png')} alt="contact icon" />
           <p>
             <Link href="/privacy_policy">
-              <a>privacyPolicy</a>
+              <a>Política de privacidad</a>
             </Link>
           </p>
         </span>
