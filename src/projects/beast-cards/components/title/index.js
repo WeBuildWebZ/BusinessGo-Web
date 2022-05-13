@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Title = title => (
+const Title = ({ title }) => (
   <div className="text">
-    {title.title}
+    {title}
     <style jsx>
       {`
         .text {
@@ -18,5 +19,9 @@ const Title = title => (
     </style>
   </div>
 );
+
+Title.propTypes = {
+  title: PropTypes.string.isRequired
+};
 
 export default Title;
