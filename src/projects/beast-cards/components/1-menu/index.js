@@ -3,10 +3,10 @@ import MenuBurger from './menu-burger';
 import Navbar from './navbar';
 
 const links = [
-  { text: 'Inicio', href: '' },
-  { text: 'Descubre', href: '' },
-  { text: 'Quarters', href: '' },
-  { text: 'Staff', href: '' }
+  { text: 'Inicio', href: '/' },
+  { text: 'Descubre', href: '/' },
+  { text: 'Quarters', href: '/' },
+  { text: 'Staff', href: '/' }
 ];
 
 const Menu = () => (

@@ -6,15 +6,15 @@ import Title from '../title';
 import { QUARTERS } from './constants';
 
 const Quarters = () => {
-  const limite_to3 = QUARTERS.slice(0, 3);
+  const quarters = QUARTERS.slice(0, 3);
 
   return (
     <div className="quartersContainer" id="quarters">
       <Title title="Quarters" />
-      {limite_to3.map(item => (
-        <Card key={item} text={item} />
+      {quarters.map(quarter => (
+        <Card key={quarter.title} quarter={quarter} />
       ))}
-      <Link href="quarters">
+      <Link href="/quarters">
         <a>
           <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
             <path

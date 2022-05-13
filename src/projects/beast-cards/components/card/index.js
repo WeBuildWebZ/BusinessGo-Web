@@ -1,4 +1,6 @@
-const Card = item => (
+import PropTypes from 'prop-types';
+
+const Card = ({ quarter }) => (
   <div className="card">
     <style jsx>
       {`
@@ -21,5 +23,12 @@ const Card = item => (
     </style>
   </div>
 );
+
+Card.propTypes = {
+  quarter: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    items: PropTypes.arrayOf(PropTypes.string).isRequired
+  }).isRequired
+};
 
 export default Card;

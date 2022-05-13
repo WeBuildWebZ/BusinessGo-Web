@@ -4,10 +4,10 @@ import MenuLink from './MenuLink';
 
 const Navbar = () => (
   <div className="navbar">
-    <MenuLink href="#home">Inicio</MenuLink>
-    <MenuLink href="#descubre">Descubre</MenuLink>
-    <MenuLink href="#quarters">Quarters</MenuLink>
-    <MenuLink href="#staff">Staff</MenuLink>
+    <MenuLink href="/#home">Inicio</MenuLink>
+    <MenuLink href="/#descubre">Descubre</MenuLink>
+    <MenuLink href="/#quarters">Quarters</MenuLink>
+    <MenuLink href="/#staff">Staff</MenuLink>
     <style jsx>
       {`
         .navbar {
