@@ -79,6 +79,7 @@
     "redux-persist": "^6.0.0",
     "rimraf": "^3.0.2",
     "sass": "^1.38.0",
+    "sharp": "^0.31.1",
     "socket.io-client": "^3.1.1",
     "styled-components": "^5.2.1",
     "styled-jsx": "^4.0.0",

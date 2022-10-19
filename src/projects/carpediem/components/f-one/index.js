@@ -24,7 +24,12 @@ const One = () => {
   return (
     <div className="one" ref={elementRef}>
       {project?.configuration.body.image && (
-        <Image src={project?.configuration.body.image} alt="Carpediem" width={1200} height={1000} />
+        <Image
+          src={project?.configuration.body.image}
+          alt="el-club-de-la-oferta"
+          width={1200}
+          height={1000}
+        />
       )}
       <style jsx>
         {`

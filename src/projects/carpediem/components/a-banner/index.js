@@ -11,7 +11,7 @@ const Banner = () => {
   return (
     <section className="banner">
       <Image src="/images/logo-white.png" alt="logo-white" width={500} height={170} />
-      <h2>Mira los mejores precios.</h2>
+      <h2>{project?.configuration.basic_info.slogan}</h2>
       {project?.configuration.contact.whatsapp_number && (
         <div className="row">
           <a

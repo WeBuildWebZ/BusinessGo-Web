@@ -39,7 +39,7 @@ const CartModal = props => {
           `https://api.whatsapp.com/send?phone=${
             project.configuration.contact.whatsapp_number
           }&text=${encodeURIComponent(
-            `Hola! Hice un pedido en Carpediem Distribuciones.\n\nEsta es la URL del carrito: ${cartUrl}`
+            `Hola! Hice un pedido en *El Club de la Oferta*.\n\nEsta es la URL del carrito: ${cartUrl}`
           )}`,
           '_blank'
         );

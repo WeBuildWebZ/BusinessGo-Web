@@ -11,15 +11,15 @@ import * as constants from '../constants';
 const AppendHead = () => (
   <>
     <NextSeo
-      title="Carpediem"
+      title="El Club de la Oferta"
       description="Somos una distribuidora de bebidas y anexos para kioscos, almacenes y supermercados. Venta minorista y mayorista con sede central en Villa Mercedes provincia de San Luis. Desde el año 2012 abastece a todo el país, llevando las mejores marcas al más bajo precios."
       canonical={constants.URL}
       openGraph={{
         url: constants.URL,
-        title: 'Carpediem',
+        title: 'El Club de la Oferta',
         description:
           'Somos una distribuidora de bebidas y anexos para kioscos, almacenes y supermercados. Venta minorista y mayorista con sede central en Villa Mercedes provincia de San Luis. Desde el año 2012 abastece a todo el país, llevando las mejores marcas al más bajo precios.',
-        site_name: 'Carpediem',
+        site_name: 'El Club de la Oferta',
         images: [
           {
             url: `${constants.URL}/images/page.png`,
